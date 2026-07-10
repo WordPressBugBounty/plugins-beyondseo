@@ -1,0 +1,31 @@
+<?php
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace BeyondSEODeps\Symfony\Component\PasswordHasher\Hasher;
+
+use BeyondSEODeps\Symfony\Component\PasswordHasher\PasswordHasherInterface;
+use BeyondSEODeps\Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+
+/**
+ * PasswordHasherFactoryInterface to support different password hashers for different user accounts.
+ *
+ * @author Robin Chalas <robin.chalas@gmail.com>
+ * @author Johannes M. Schmitt <schmittjoh@gmail.com>
+ */
+interface PasswordHasherFactoryInterface
+{
+    /**
+     * Returns the password hasher to use for the given user.
+     *
+     * @throws \RuntimeException When no password hasher could be found for the user
+     */
+    public function getPasswordHasher(string|PasswordAuthenticatedUserInterface|PasswordHasherAwareInterface $user): PasswordHasherInterface;
+}

@@ -1,0 +1,29 @@
+<?php
+declare(strict_types=1);
+
+namespace BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Factors\ContentOptimisation;
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Attributes\SeoMeta;
+use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Configuration\WeightConfiguration;
+use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Factor;
+use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Operations\AssignKeywords\KeywordMappingContentOperation;
+use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Operations\AssignKeywords\PrimarySecondaryKeywordsValidationOperation;
+
+/**
+ * Class AssignKeywordsFactor
+ */
+#[SeoMeta(
+    name: 'Assign Keywords',
+    weight: WeightConfiguration::WEIGHT_ASSIGN_KEYWORDS_FACTOR,
+    description: 'Validates keyword selection, analyzes competition metrics, and prevents cannibalization across content.',
+)]
+class AssignKeywordsFactor extends Factor
+{
+    /** @var class-string[] Operations  */
+    protected static array $operationsClasses = [
+        PrimarySecondaryKeywordsValidationOperation::class,
+        KeywordMappingContentOperation::class
+    ];
+}

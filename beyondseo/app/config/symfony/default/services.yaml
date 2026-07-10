@@ -1,0 +1,148 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+parameters:
+  app.contents_dir: '%kernel.project_dir%/src/'
+  container.dumper.inline_factories: false
+  router.request_context.scheme: 'https'
+  asset.request_context.secure: true
+
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: false
+
+  # makes classes in src/ available to be used as services
+  # this creates a service per class whose id is the fully-qualified class name
+
+  BeyondSEODeps\DDD\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/*'
+    exclude:
+      - '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/**/*{Attributes,Exceptions,Traits,Validators,Interfaces,Lazyload,QueryOptions}*' # This will exclude any directory or file with 'Attributes' in the name.
+      - '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Domain/Base/Repo/DB/{Database,Doctrine}*'
+      - '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Infrastructure/{Cache,Reflection,Validation,Helpers}*'
+      - '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Presentation/**/*{OpenApi,QueryOptions,Router}*'
+      - '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Symfony/{Bundles,Kernels,Extended}*'
+
+  BeyondSEODeps\DDD\Domain\Base\Services\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Domain/Base/Services/*'
+    public: true
+
+  BeyondSEODeps\DDD\Domain\Common\Services\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Domain/Common/Services/*'
+    public: true
+
+  BeyondSEODeps\DDD\Presentation\Services\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Presentation/Services/*'
+    public: true
+
+  BeyondSEODeps\DDD\Infrastructure\Services\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Infrastructure/Services/*'
+    public: true
+
+  # Symfony folder contains e.g. symfony commands, these cannot be lazy-loaded as they are not understood otherwise
+  BeyondSEODeps\DDD\Symfony\:
+    resource: '%kernel.project_dir%/vendor_prefixed/mgamadeus/ddd/src/Symfony/*'
+    exclude:
+      - '%kernel.project_dir%/ddd_src/Symfony/{Bundles,Kernels,Extended}*'
+
+  BeyondSEO\:
+    resource: '%kernel.project_dir%/src/*'
+    exclude:
+      - '%kernel.project_dir%/src/**/*{Exceptions,Traits,Validators,Interfaces,Lazyload,QueryOptions}*' # This will exclude any directory or file with 'Attributes' in the name.
+      - '%kernel.project_dir%/src/Domain/Base/Repo/DB/{Database,Doctrine}*'
+      - '%kernel.project_dir%/src/Domain/Base/Repo/Argus*'
+      - '%kernel.project_dir%/src/Infrastructure/{Cache,Reflection,Validation,Helpers}*'
+      - '%kernel.project_dir%/src/Presentation/**/*{QueryOptions,Router}*'
+      - '%kernel.project_dir%/src/Symfony/{Bundles,Kernels,Extended}*'
+    #exclude: '%kernel.project_dir%/src/{Presentation,Infrastructure}'
+
+  # Symfony folder contains e.g. symfony commands, these cannot be lazy-loaded as they are not understood otherwise
+  BeyondSEO\Symfony\:
+    resource: '%kernel.project_dir%/src/Symfony/*'
+
+  BeyondSEO\Domain\Integrations\WordPress\Setup\Services\:
+    resource: '%kernel.project_dir%/src/Domain/Integrations/WordPress/Setup/Services/*'
+    public: true
+
+  BeyondSEO\Domain\Integrations\WordPress\Seo\Services\:
+    resource: '%kernel.project_dir%/src/Domain/Integrations/WordPress/Seo/Services/*'
+    public: true
+
+  BeyondSEO\Domain\Integrations\WordPress\Plugin\Services\:
+    resource: '%kernel.project_dir%/src/Domain/Integrations/WordPress/Plugin/Services/*'
+    public: true
+
+  BeyondSEO\Domain\Integrations\WordPress\Common\Services\:
+    resource: '%kernel.project_dir%/src/Domain/Integrations/WordPress/Common/Services/*'
+    public: true
+
+  BeyondSEO\Domain\Common\Services\:
+    resource: '%kernel.project_dir%/src/Domain/Common/Services/*'
+    public: true
+
+  BeyondSEO\Infrastructure\Services\:
+    resource: '%kernel.project_dir%/src/Infrastructure/Services/*'
+    public: true
+    lazy: true
+
+
+  # Override Services
+  BeyondSEODeps\DDD\Infrastructure\Services\DDDService:
+    class: BeyondSEO\Infrastructure\Services\AppService
+
+  BeyondSEODeps\DDD\Domain\Common\Entities\Accounts\Account:
+    class: BeyondSEO\Domain\Common\Entities\Accounts\Account
+
+  BeyondSEODeps\DDD\Domain\Common\Entities\Accounts\Accounts:
+    class: BeyondSEO\Domain\Common\Entities\Accounts\Accounts
+
+  BeyondSEODeps\DDD\Domain\Common\Services\AccountsService:
+    class: BeyondSEO\Domain\Common\Services\AccountsService
+
+  BeyondSEODeps\DDD\Domain\Common\Entities\Roles\Role:
+    class: BeyondSEO\Domain\Common\Entities\Roles\Role
+
+  BeyondSEODeps\DDD\Domain\Common\Entities\CacheScopes\CacheScope:
+    class: BeyondSEO\Domain\Common\Entities\CacheScopes\CacheScope
+
+  BeyondSEODeps\DDD\Domain\Common\Services\CacheScopeInvalidationsService:
+    class: BeyondSEO\Domain\Common\Services\CacheScopeInvalidationsService
+
+  BeyondSEODeps\DDD\Infrastructure\Services\AuthService:
+    class: BeyondSEO\Infrastructure\Services\AuthService
+
+  # custom loaders that support multiple route annotations on controller classes
+  BeyondSEODeps\DDD\Symfony\Loaders\CustomAnnotationClassLoader:
+    tags: [ routing.loader ]
+
+  BeyondSEODeps\DDD\Symfony\Loaders\CustomAnnotationFileLoader:
+    tags: [ routing.loader ]
+    autowire: true
+
+  BeyondSEODeps\DDD\Symfony\Loaders\CustomAnnotationDirectoryLoader:
+    tags: [ routing.loader ]
+    autowire: true
+
+  BeyondSEODeps\DDD\Symfony\EventListeners\CorsListener:
+    tags:
+      - { name: kernel.event_subscriber }
+
+  BeyondSEODeps\Symfony\Component\Messenger\MessageBus:
+    public: true
+
+  BeyondSEODeps\Symfony\Component\Console\Application:
+    public: true
+
+  logger:
+    alias: 'monolog.logger'
+    public: true
+
+  BeyondSEODeps\Symfony\Component\Security\Http\AccessMapInterface: '@security.access_map'
+
+  # add more service definitions when explicit configuration is needed
+  # please note that last definitions always *replace* previous ones

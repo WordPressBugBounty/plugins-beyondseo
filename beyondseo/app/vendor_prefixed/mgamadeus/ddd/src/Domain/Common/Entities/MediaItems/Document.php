@@ -1,0 +1,22 @@
+<?php
+
+namespace BeyondSEODeps\DDD\Domain\Common\Entities\MediaItems;
+
+use BeyondSEODeps\DDD\Infrastructure\Base\DateTime\DateTime;
+use BeyondSEODeps\DDD\Infrastructure\Validation\Constraints\Choice;
+
+abstract class Document extends GenericMediaItem
+{
+    /** @var string|null The type of the media item */
+    #[Choice(choices: [self::TYPE_DOCUMENT])]
+    public ?string $type = self::TYPE_DOCUMENT;
+
+    /** @var string The filename of the document (wihtout path) */
+    public string $fileName;
+
+    /** @var DateTime The creation time */
+    public DateTime $createdDateTime;
+
+    /** @var DateTime The modified time */
+    public DateTime $modifiedDateTime;
+}

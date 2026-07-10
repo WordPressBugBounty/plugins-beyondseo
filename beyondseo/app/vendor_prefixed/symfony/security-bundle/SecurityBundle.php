@@ -1,0 +1,94 @@
+<?php
+
+/*
+ * This file is part of the Symfony package.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace BeyondSEODeps\Symfony\Bundle\SecurityBundle;
+
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\AddExpressionLanguageProvidersPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\AddSecurityVotersPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\AddSessionDomainConstraintPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\CleanRememberMeVerifierPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterCsrfFeaturesPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterEntryPointPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterGlobalSecurityEventListenersPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterLdapLocatorPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\RegisterTokenUsageTrackingPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\ReplaceDecoratedRememberMeHandlerPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Compiler\SortFirewallListenersPass;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\CustomAuthenticatorFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\FormLoginLdapFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\HttpBasicLdapFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\JsonLoginFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\JsonLoginLdapFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\LoginLinkFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\LoginThrottlingFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RememberMeFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\RemoteUserFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\X509Factory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\InMemoryFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\Security\UserProvider\LdapFactory;
+use BeyondSEODeps\Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
+use BeyondSEODeps\Symfony\Component\DependencyInjection\Compiler\PassConfig;
+use BeyondSEODeps\Symfony\Component\DependencyInjection\ContainerBuilder;
+use BeyondSEODeps\Symfony\Component\EventDispatcher\DependencyInjection\AddEventAliasesPass;
+use BeyondSEODeps\Symfony\Component\HttpKernel\Bundle\Bundle;
+use BeyondSEODeps\Symfony\Component\Security\Core\AuthenticationEvents;
+use BeyondSEODeps\Symfony\Component\Security\Http\SecurityEvents;
+
+/**
+ * Bundle.
+ *
+ * @author Fabien Potencier <fabien@symfony.com>
+ */
+class SecurityBundle extends Bundle
+{
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        /** @var SecurityExtension $extension */
+        $extension = $container->getExtension('security');
+        $extension->addAuthenticatorFactory(new FormLoginFactory());
+        $extension->addAuthenticatorFactory(new FormLoginLdapFactory());
+        $extension->addAuthenticatorFactory(new JsonLoginFactory());
+        $extension->addAuthenticatorFactory(new JsonLoginLdapFactory());
+        $extension->addAuthenticatorFactory(new HttpBasicFactory());
+        $extension->addAuthenticatorFactory(new HttpBasicLdapFactory());
+        $extension->addAuthenticatorFactory(new RememberMeFactory());
+        $extension->addAuthenticatorFactory(new X509Factory());
+        $extension->addAuthenticatorFactory(new RemoteUserFactory());
+        $extension->addAuthenticatorFactory(new CustomAuthenticatorFactory());
+        $extension->addAuthenticatorFactory(new LoginThrottlingFactory());
+        $extension->addAuthenticatorFactory(new LoginLinkFactory());
+
+        $extension->addUserProviderFactory(new InMemoryFactory());
+        $extension->addUserProviderFactory(new LdapFactory());
+        $container->addCompilerPass(new AddExpressionLanguageProvidersPass());
+        $container->addCompilerPass(new AddSecurityVotersPass());
+        $container->addCompilerPass(new AddSessionDomainConstraintPass(), PassConfig::TYPE_BEFORE_REMOVING);
+        $container->addCompilerPass(new CleanRememberMeVerifierPass());
+        $container->addCompilerPass(new RegisterCsrfFeaturesPass());
+        $container->addCompilerPass(new RegisterTokenUsageTrackingPass(), PassConfig::TYPE_BEFORE_OPTIMIZATION, 200);
+        $container->addCompilerPass(new RegisterLdapLocatorPass());
+        $container->addCompilerPass(new RegisterEntryPointPass());
+        // must be registered after RegisterListenersPass (in the FrameworkBundle)
+        $container->addCompilerPass(new RegisterGlobalSecurityEventListenersPass(), PassConfig::TYPE_BEFORE_REMOVING, -200);
+        // execute after ResolveChildDefinitionsPass optimization pass, to ensure class names are set
+        $container->addCompilerPass(new SortFirewallListenersPass(), PassConfig::TYPE_BEFORE_REMOVING);
+        $container->addCompilerPass(new ReplaceDecoratedRememberMeHandlerPass(), PassConfig::TYPE_OPTIMIZE);
+
+        $container->addCompilerPass(new AddEventAliasesPass(array_merge(
+            AuthenticationEvents::ALIASES,
+            SecurityEvents::ALIASES
+        )));
+    }
+}
