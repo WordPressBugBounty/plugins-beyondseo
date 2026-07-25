@@ -62,6 +62,7 @@ class MetaTitleLengthCheckOperation extends Operation implements OperationInterf
                 'title_length' => 0,
                 'title_text' => '',
                 'is_optimal' => false,
+                'is_acceptable' => false,
             ];
         }
 
@@ -110,13 +111,13 @@ class MetaTitleLengthCheckOperation extends Operation implements OperationInterf
         $titleLength = $factorData['title_length'] ?? 0;
 
         // If the title length is optimal, return a perfect score
-        if ($factorData['is_optimal']) {
+        if ($factorData['is_optimal'] ?? false) {
             return 1.0;
         }
 
         // If the title length is within the acceptable range but not optimal,
         // calculate a proportional score based on how close it is to the optimal range
-        if ($factorData['is_acceptable']) {
+        if ($factorData['is_acceptable'] ?? false) {
             if ($titleLength < SeoOptimiserConfig::META_TITLE_MIN_OPTIMAL_LENGTH) {
                 // Score proportional to how close it is to the minimum optimal length
                 $distance = SeoOptimiserConfig::META_TITLE_MIN_OPTIMAL_LENGTH - $titleLength;

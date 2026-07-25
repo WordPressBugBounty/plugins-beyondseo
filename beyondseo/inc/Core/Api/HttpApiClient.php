@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use BeyondSEODeps\DDD\Infrastructure\Validation\Constraints\Choice;
 use Exception;
+use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -130,16 +131,7 @@ class HttpApiClient {
             $options['json'] = $jsonParams;
         }
 
-		return $this->retriesHandler->execute( function () use ( $options ) {
-
-			// Input validation
-			$this->validateUrlAndMethod();
-			// Request
-			$this->sendClientRequest( $options, $this->securityHeaders );
-
-			// Response
-			return $this->responseHandler->validate()->parse();
-		} ) ?? [];
+		return $this->executeWithRecovery($options);
 	}
 
 	/**
@@ -152,18 +144,7 @@ class HttpApiClient {
 	 */
 	public function post( array $data = [] ): array {
 		$this->methodType = self::CALL_METHOD_POST;
-		$options = [ 'json' => $data ];
-
-		return $this->retriesHandler->execute( function () use ( $options ) {
-
-			// Input validation
-			$this->validateUrlAndMethod();
-			// Request
-			$this->sendClientRequest( $options, $this->securityHeaders );
-
-			// Response
-			return $this->responseHandler->validate()->parse();
-		} ) ?? [];
+		return $this->executeWithRecovery([ 'json' => $data ]);
 	}
 
 	/**
@@ -176,18 +157,7 @@ class HttpApiClient {
 	 */
 	public function put( array $data = [] ): array {
 		$this->methodType = self::CALL_METHOD_PUT;
-		$options          = [ 'json' => $data ];
-
-		return $this->retriesHandler->execute( function () use ( $options ) {
-
-			// Input validation
-			$this->validateUrlAndMethod();
-			// Request
-			$this->sendClientRequest( $options, $this->securityHeaders );
-
-			// Response
-			return $this->responseHandler->validate()->parse();
-		} ) ?? [];
+		return $this->executeWithRecovery([ 'json' => $data ]);
 	}
 
 	/**
@@ -198,17 +168,127 @@ class HttpApiClient {
 	 */
 	public function delete(): array {
 		$this->methodType = self::CALL_METHOD_DELETE;
+		return $this->executeWithRecovery([]);
+	}
 
-		return $this->retriesHandler->execute( function () {
+	/**
+	 * Execute the request with retry and 401 recovery logic.
+	 *
+	 * @param array $options
+	 * @return array
+	 * @throws HttpApiException
+	 */
+	protected function executeWithRecovery( array $options = [] ): array {
+		try {
+			return $this->retriesHandler->execute( function () use ( $options ) {
+				// Input validation
+				$this->validateUrlAndMethod();
+				// Request
+				$this->sendClientRequest( $options, $this->securityHeaders );
 
-			// Input validation
-			$this->validateUrlAndMethod();
-			// Request
-			$this->sendClientRequest([], $this->securityHeaders);
+				// Response
+				return $this->responseHandler->validate()->parse();
+			} ) ?? [];
+		} catch ( HttpApiException $e ) {
+			$this->log( 'HTTP Exception ' . $e->getCode() . ' occurred: ' . $e->getMessage(), 'ERROR' );
+			$recovered = $this->handleUnauthorized($e);
+			
+			if ($recovered) {
+				// Re-prepare security headers with NEW token and retry once
+				$this->prepareSecurityHeaders($this->getBearerToken());
+				try {
+					$this->sendClientRequest( $options, $this->securityHeaders );
+					return $this->responseHandler->validate()->parse();
+				} catch (Exception $retryEx) {
+					$this->log('Retry after recovery failed: ' . $retryEx->getMessage(), 'ERROR');
+				}
+			}
+			
+			throw $e;
+		}
+	}
 
-			// Response
-			return $this->responseHandler->validate()->parse();
-		} ) ?? [];
+	/**
+	 * Handle 401 Unauthorized error by trying to revalidate with activation code.
+	 *
+	 * @param HttpApiException $e
+	 * @return bool True if recovery was successful, false otherwise.
+	 */
+	protected function handleUnauthorized(HttpApiException $e): bool {
+		if ($e->getCode() !== 401) {
+			return false;
+		}
+
+		$activationCode = get_option(BaseConstants::OPTION_ACTIVATION_CODE);
+		if (empty($activationCode)) {
+			return false;
+		}
+
+		// Prevent infinite recursion if the revalidation itself returns 401
+		static $isRefreshing = false;
+		if ($isRefreshing) {
+			return false;
+		}
+		$isRefreshing = true;
+
+		try {
+			return $this->revalidateWithActivationCode($activationCode);
+		} catch (Exception $ex) {
+			$this->log('Failed to revalidate with activation code: ' . $ex->getMessage(), 'ERROR');
+			return false;
+		} finally {
+			$isRefreshing = false;
+		}
+	}
+
+	/**
+	 * Revalidate the activation code to get new tokens.
+	 *
+	 * @param string $activationCode
+	 * @return bool
+	 * @throws Exception
+	 */
+	public function revalidateWithActivationCode(string $activationCode): bool {
+		$refreshClient = new HttpApiClient();
+		$refreshClient->setUrl('activation/check', 'publicApi');
+
+		$payload = CoreHelper::generateCommonSecurityPayload([
+			'activationCode' => $activationCode,
+		]);
+		$refreshClient->prepareSecurityHeaders($activationCode, $payload);
+
+		$response = $refreshClient->post($payload);
+
+		if (empty($response['content']) || empty($response['content']->success)) {
+			$this->log('Activation code revalidation failed or returned unsuccessful. Resetting activation data.', 'WARNING');
+			TokensManager::instance()->resetActivationData();
+			return false;
+		}
+
+		$result = $response['content'];
+		$refreshToken = $result->refreshToken ?? null;
+		
+		if (!$refreshToken) {
+			$this->log('No refresh token returned during activation code revalidation.', 'WARNING');
+			return false;
+		}
+
+		// Save new tokens
+		$tokensManager = TokensManager::instance();
+		$tokensManager->generateAndSaveAccessToken($refreshToken);
+
+		// Update account ID and settings if they are provided
+		if (!empty($result->accountId)) {
+			update_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID, $result->accountId);
+		}
+		if (isset($result->resellerAccount)) {
+			update_option(BaseConstants::OPTION_IS_RESELLER_ACCOUNT, $result->resellerAccount ? 1 : 0);
+		}
+		if (!empty($result->locationSetupSetting)) {
+			update_option(BaseConstants::OPTION_LOCATION_SETUP_SETTINGS, $result->locationSetupSetting);
+		}
+
+		return true;
 	}
 
 	/**
@@ -419,7 +499,7 @@ class HttpApiClient {
 		$wpArgs = [
 			'method'      => $this->methodType,
 			'headers'     => $this->defaultHeaders,
-			'timeout'     => 240,
+			'timeout'     => 720,
 			'sslverify'   => true,
 			'redirection' => 5,
 		];

@@ -17,6 +17,7 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
+use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\TokensManager;
@@ -309,6 +310,12 @@ class UpsellPage extends AdminPage
             $this->applyFlowGuard();
         }
 
+        // For new users who haven't completed onboarding yet, we allow access to the
+        // Connect page (UpsellPage) without token validation.
+        if (!CoreHelper::isOnboarded()) {
+            return;
+        }
+
         // 1. Handle plan selection / upselling redirect
         $step = WordpressHelpers::sanitize_input('GET', 'step') ?: false;
         $planSelected = WordpressHelpers::sanitize_input('GET', 'planSelected') ?: false;
@@ -369,7 +376,8 @@ class UpsellPage extends AdminPage
             $step   = $result['next_step'] ?? '';
 
             // Allowed on UpsellPage: done (which maps to main/upsell)
-            if ($step === 'done') {
+            // Also allowed: register and onboarding (for the "Connect" view for new users)
+            if ($step === 'done' || $step === 'register' || $step === 'onboarding') {
                 return;
             }
 

@@ -60,7 +60,7 @@ class HttpAPIResponseHandler {
 
 			$parts = array_filter(array_map(static fn($part) => is_string($part) ? trim($part) : '', [ $error, $message ]), static fn($part) => $part !== '');
 			$errorText = $parts ? implode(' - ', array_unique($parts)) : 'Unknown error';
-			$exception = new HttpApiException($errorText);
+			$exception = new HttpApiException($errorText, $statusCode);
 
 			$errorDetails = [
 				'status_code' => $statusCode,
@@ -71,7 +71,7 @@ class HttpAPIResponseHandler {
 
 			$shouldThrow = apply_filters('rankingcoach_http_api_response_throw_exception', false, $errorDetails, $response);
 
-			if ($shouldThrow) {
+			if ($shouldThrow || $statusCode === 401) {
 				throw $exception;
 			}
 

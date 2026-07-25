@@ -86,15 +86,18 @@ class TokensApiManager extends HttpApiClient
 	public function handleResponse(array $response): bool
 	{
 		if(!empty($response->error)) {
-			beyondseo_rceh()->error( new InvalidResponseException( 'Invalid API response during generate the refresh token. Error:' . $response->error ), json_encode($response) );
+			\beyondseo_rclh('Invalid API response during generate the refresh token. Error:' . $response->error . ' Context: ' . json_encode($response), 'ERROR');
+			return false;
 		}
 		if (empty($response['content']) ?? false) {
-			beyondseo_rceh()->error( new InvalidResponseException( 'Invalid API response during generate the refresh token.' ), json_encode($response) );
+			\beyondseo_rclh('Invalid API response during generate the refresh token. Context: ' . json_encode($response), 'ERROR');
+			return false;
 		}
 		$response = $response['content'];
 
 		if (empty($response->refreshToken) ?? false) {
-			beyondseo_rceh()->error( new InvalidResponseException( 'Invalid API response during generate the refresh token.' ), json_encode($response) );
+			\beyondseo_rclh('Invalid API response during generate the refresh token. Context: ' . json_encode($response), 'ERROR');
+			return false;
 		}
 
 		$refreshToken = $response->refreshToken;

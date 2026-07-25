@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-03 09:04+0000\n"
+"PO-Revision-Date: 2026-07-25 09:08+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -8134,4 +8134,18 @@ msgstr "Radar Gratuito"
 
 msgid "You currently have this plan"
 msgstr "Attualmente hai questo piano"
+
+
+
+msgid "Authentication Required"
+msgstr "Autenticazione richiesta"
+
+msgid "Your session has expired or the activation is no longer valid. Please reactivate your account to continue."
+msgstr "La tua sessione è scaduta o l'attivazione non è più valida. Ti preghiamo di riattivare il tuo account per continuare."
+
+msgid "Reset and Reactivate"
+msgstr "Ripristina e riattiva"
+
+msgid "Need help? Contact our support team for assistance."
+msgstr "Hai bisogno di aiuto? Contatta il nostro team di supporto per assistenza."
 

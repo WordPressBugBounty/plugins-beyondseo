@@ -6459,5 +6459,17 @@
   ],
   "You currently have this plan": [
     ""
+  ],
+  "Authentication Required": [
+    ""
+  ],
+  "Your session has expired or the activation is no longer valid. Please reactivate your account to continue.": [
+    ""
+  ],
+  "Reset and Reactivate": [
+    ""
+  ],
+  "Need help? Contact our support team for assistance.": [
+    ""
   ]
 }

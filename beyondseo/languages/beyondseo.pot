@@ -2,44 +2,44 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.2.1\n"
+"Project-Id-Version: BeyondSEO 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-03T08:58:52+00:00\n"
+"POT-Creation-Date: 2026-07-25T08:54:51+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
 
-#: react/src/main.tsx:222
+#: react/src/main.tsx:187
 msgid "Checking your page for<br>existing keywords"
 msgstr ""
 
-#: react/src/main.tsx:223
+#: react/src/main.tsx:188
 msgid "This page doesn`t have keywords"
 msgstr ""
 
-#: react/src/main.tsx:225
+#: react/src/main.tsx:190
 msgid "Using the right keywords can significantly increase your website`s visibility, making it easier for people to find it."
 msgstr ""
 
-#: react/src/main.tsx:226
+#: react/src/main.tsx:191
 msgid "Close"
 msgstr ""
 
-#: react/src/main.tsx:227
+#: react/src/main.tsx:192
 msgid "Use these keywords"
 msgstr ""
 
-#: react/src/main.tsx:228
+#: react/src/main.tsx:193
 msgid "Skip this"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: react/src/main.tsx:407
+#: react/src/main.tsx:372
 #: beyondseo.php
 msgid "BeyondSEO"
 msgstr ""
@@ -384,7 +384,7 @@ msgstr ""
 
 #: react/src/components/Registration/Registration.tsx:609
 #: react/src/components/Common/ErrorModal/ErrorModal.tsx:23
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:847
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:848
 #: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:221
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:157
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
@@ -424,7 +424,9 @@ msgid "rC Icon"
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:39
-#: inc/Core/Admin/Pages/ActivationPage.php:288
+#: inc/Core/Admin/Pages/ActivationPage.php:290
+#: inc/Core/Admin/Pages/IframePage.php:185
+#: inc/Core/Admin/Pages/IframePage.php:275
 msgid "Activation code is required."
 msgstr ""
 
@@ -486,8 +488,8 @@ msgstr ""
 #: react/src/components/Upsell/upsellConfig.ts:129
 #: react/src/components/Upsell/upsellConfig.ts:153
 #: react/src/components/Upsell/upsellConfig.ts:187
-#: react/src/components/Upsell/Upsell.tsx:127
-#: react/src/components/Upsell/Upsell.tsx:625
+#: react/src/components/Upsell/Upsell.tsx:133
+#: react/src/components/Upsell/Upsell.tsx:631
 msgid "Limited"
 msgstr ""
 
@@ -520,7 +522,7 @@ msgstr ""
 
 #: react/src/components/Upsell/upsellConfig.ts:81
 #: react/src/components/Upsell/upsellConfig.ts:312
-#: react/src/components/Upsell/Upsell.tsx:303
+#: react/src/components/Upsell/Upsell.tsx:309
 msgid "SEO"
 msgstr ""
 
@@ -1151,259 +1153,259 @@ msgstr ""
 msgid "Contact us"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:281
+#: react/src/components/Upsell/Upsell.tsx:287
 msgid "Limited time only: Your Wordpress Launch Offer!"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:287
+#: react/src/components/Upsell/Upsell.tsx:293
 msgid "Limited Offer: First 3 months only $5/month!"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:299
+#: react/src/components/Upsell/Upsell.tsx:305
 msgid "Your "
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:302
+#: react/src/components/Upsell/Upsell.tsx:308
 msgid "business"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:304
+#: react/src/components/Upsell/Upsell.tsx:310
 msgid "website"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:305
+#: react/src/components/Upsell/Upsell.tsx:311
 msgid "GEO"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:306
+#: react/src/components/Upsell/Upsell.tsx:312
 msgid "reputation"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:307
+#: react/src/components/Upsell/Upsell.tsx:313
 msgid "social media"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:310
+#: react/src/components/Upsell/Upsell.tsx:316
 msgid " deserves"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:314
+#: react/src/components/Upsell/Upsell.tsx:320
 msgid "its full potential"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:319
+#: react/src/components/Upsell/Upsell.tsx:325
 msgid "Connect now to get rankingCoach Radar to access all features in your SEO, Online Presence, Social, and Reputation blocks, as well as new ones."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:331
+#: react/src/components/Upsell/Upsell.tsx:337
 msgid "Upgrade to rankingCoach 360 now"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:332
-#: react/src/components/Upsell/Upsell.tsx:640
+#: react/src/components/Upsell/Upsell.tsx:338
+#: react/src/components/Upsell/Upsell.tsx:646
 msgid "Connect for free"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:343
-#: react/src/components/Upsell/Upsell.tsx:474
-#: react/src/components/Upsell/Upsell.tsx:867
+#: react/src/components/Upsell/Upsell.tsx:349
+#: react/src/components/Upsell/Upsell.tsx:480
+#: react/src/components/Upsell/Upsell.tsx:873
 msgid "Monthly"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:354
+#: react/src/components/Upsell/Upsell.tsx:360
 msgid "Annual"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:359
+#: react/src/components/Upsell/Upsell.tsx:365
 msgid "* Annual payment"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:360
+#: react/src/components/Upsell/Upsell.tsx:366
 msgid "* Monthly payment"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:404
+#: react/src/components/Upsell/Upsell.tsx:410
 msgid "The free rankingCoach Radar plugin is a great start. To continue growing your business, you need the full power."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:422
+#: react/src/components/Upsell/Upsell.tsx:428
 msgid "rankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:425
-#: react/src/components/Upsell/Upsell.tsx:495
-#: react/src/components/Upsell/Upsell.tsx:888
+#: react/src/components/Upsell/Upsell.tsx:431
+#: react/src/components/Upsell/Upsell.tsx:501
+#: react/src/components/Upsell/Upsell.tsx:894
 msgid "/ month"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:427
+#: react/src/components/Upsell/Upsell.tsx:433
 msgid "Free"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:428
+#: react/src/components/Upsell/Upsell.tsx:434
 msgid "Current plan"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:450
+#: react/src/components/Upsell/Upsell.tsx:456
 msgid "Better chances to appear"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:452
+#: react/src/components/Upsell/Upsell.tsx:458
 msgid " in AI search results"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:460
-#: react/src/components/Upsell/Upsell.tsx:853
+#: react/src/components/Upsell/Upsell.tsx:466
+#: react/src/components/Upsell/Upsell.tsx:859
 msgid "Limited time offer"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:468
-#: react/src/components/Upsell/Upsell.tsx:861
+#: react/src/components/Upsell/Upsell.tsx:474
+#: react/src/components/Upsell/Upsell.tsx:867
 msgid "SAVE 83%"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:478
-#: react/src/components/Upsell/Upsell.tsx:871
-msgid "rankingCoach 360"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:483
-#: react/src/components/Upsell/Upsell.tsx:876
-msgid "$40 / month"
 msgstr ""
 
 #: react/src/components/Upsell/Upsell.tsx:484
 #: react/src/components/Upsell/Upsell.tsx:877
-msgid "Save 83%"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:487
-#: react/src/components/Upsell/Upsell.tsx:880
-msgid "/ first 3 months"
+msgid "rankingCoach 360"
 msgstr ""
 
 #: react/src/components/Upsell/Upsell.tsx:489
 #: react/src/components/Upsell/Upsell.tsx:882
-msgid "then $40/month"
+msgid "$40 / month"
 msgstr ""
 
 #: react/src/components/Upsell/Upsell.tsx:490
 #: react/src/components/Upsell/Upsell.tsx:883
+msgid "Save 83%"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:493
+#: react/src/components/Upsell/Upsell.tsx:886
+msgid "/ first 3 months"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:495
+#: react/src/components/Upsell/Upsell.tsx:888
+msgid "then $40/month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:496
+#: react/src/components/Upsell/Upsell.tsx:889
 msgid "Annual contract"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:497
-#: react/src/components/Upsell/Upsell.tsx:890
+#: react/src/components/Upsell/Upsell.tsx:503
+#: react/src/components/Upsell/Upsell.tsx:896
 msgid "Monthly contract"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:509
-#: react/src/components/Upsell/Upsell.tsx:639
-#: react/src/components/Upsell/Upsell.tsx:902
+#: react/src/components/Upsell/Upsell.tsx:515
+#: react/src/components/Upsell/Upsell.tsx:645
+#: react/src/components/Upsell/Upsell.tsx:908
 msgid "Upgrade now"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:513
-#: react/src/components/Upsell/Upsell.tsx:906
+#: react/src/components/Upsell/Upsell.tsx:519
+#: react/src/components/Upsell/Upsell.tsx:912
 msgid "Everything in RankingCoach Radar, plus:"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:538
+#: react/src/components/Upsell/Upsell.tsx:544
 msgid "What you get with free rankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:542
+#: react/src/components/Upsell/Upsell.tsx:548
 msgid "See the difference: With rankingCoach 360 you have all the tools for your online success."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:550
+#: react/src/components/Upsell/Upsell.tsx:556
 msgid "Feature"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:553
+#: react/src/components/Upsell/Upsell.tsx:559
 msgid "RankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:557
+#: react/src/components/Upsell/Upsell.tsx:563
 msgid "RankingCoach 360"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:618
+#: react/src/components/Upsell/Upsell.tsx:624
 msgid "Full access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:622
+#: react/src/components/Upsell/Upsell.tsx:628
 msgid "No access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:626
+#: react/src/components/Upsell/Upsell.tsx:632
 msgid "Partial access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:654
+#: react/src/components/Upsell/Upsell.tsx:660
 msgid "+45 features. 8 areas. 1 easy upgrade. 0 compromises."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:657
+#: react/src/components/Upsell/Upsell.tsx:663
 msgid "rankingCoach free combines everything you need for successful online marketing. Simple, effective, affordable."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:714
+#: react/src/components/Upsell/Upsell.tsx:720
 msgid "Agency or Enterprise? Talk to us"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:728
+#: react/src/components/Upsell/Upsell.tsx:734
 msgid "What our customers say"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:739
+#: react/src/components/Upsell/Upsell.tsx:745
 #: react/src/components/Connect/Connect.tsx:248
 msgid "4.84 out of 5"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:767
+#: react/src/components/Upsell/Upsell.tsx:773
 #: react/src/components/Connect/Connect.tsx:141
 #: react/src/components/Connect/Connect.tsx:272
 msgid "Google Partner"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:784
+#: react/src/components/Upsell/Upsell.tsx:790
 msgid "FOR PROFESSIONALS"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:788
+#: react/src/components/Upsell/Upsell.tsx:794
 msgid "Are you a Web Professional, Agency or Enterprise?"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:792
+#: react/src/components/Upsell/Upsell.tsx:798
 msgid "Managing SEO and Digital Marketing for clients or multiple businesses? Talk to our sales team to learn about our special offers and partner programs."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:812
+#: react/src/components/Upsell/Upsell.tsx:818
 msgid "Get a custom quote for your business"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:816
+#: react/src/components/Upsell/Upsell.tsx:822
 msgid "Volume discounts and white-label solutions available."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:826
+#: react/src/components/Upsell/Upsell.tsx:832
 msgid "Talk to sales"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:838
+#: react/src/components/Upsell/Upsell.tsx:844
 msgid "Upgrade now to unlock all features that help grow your business with less effort."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:928
+#: react/src/components/Upsell/Upsell.tsx:934
 msgid "Agency, Enterprise or Freelancer?"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:931
+#: react/src/components/Upsell/Upsell.tsx:937
 msgid "Deliver growth to your clients."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:940
+#: react/src/components/Upsell/Upsell.tsx:946
 msgid "Contact sales"
 msgstr ""
 
@@ -1666,7 +1668,7 @@ msgid "Add Redirect"
 msgstr ""
 
 #: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:522
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:736
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:737
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:488
 msgid "Cancel"
 msgstr ""
@@ -2001,7 +2003,7 @@ msgid "Category"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:34
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:678
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:679
 msgid "Categories"
 msgstr ""
 
@@ -2085,117 +2087,117 @@ msgstr ""
 msgid "Remove keyword"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:151
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:152
 msgid "Loading categories..."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:156
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:157
 msgid "Type at least 2 characters to search categories"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:161
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:162
 msgid "No categories found for your search."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:181
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:182
 msgid "Loading more..."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:186
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:187
 msgid "categories"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:395
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:781
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:396
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:782
 msgid "Website description can have maximum 750 characters."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:411
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:412
 msgid "Please enter at least 3 characters."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:425
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:426
 msgid "This field contains too many punctuations. The maximum allowed is 6."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:448
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:449
 msgid "You already have added this category"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:453
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:454
 msgid "You can not add more than 10 categories"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:527
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:528
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:341
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:622
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:623
 msgid "Business Information"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:647
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:790
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:648
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:791
 msgid "Website Description"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:654
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:684
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:655
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:685
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:163
 msgid "Generated by us"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:663
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:664
 msgid "loading..."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:665
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:666
 msgid "You don`t have any website description at the moment"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:696
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:697
 msgid "Search category eg.: Computer repair shop"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:724
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:725
 msgid "You dont have any categories at the moment"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:752
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:753
 msgid "Finish Onboarding"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:765
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:766
 msgid "Edit website description"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:773
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:813
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:774
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:814
 msgid "Save"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:788
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:789
 msgid "Enter website description"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:805
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:806
 msgid "Edit Business Information"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:817
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:818
 msgid "Business Name"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:824
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:825
 msgid "Enter business name"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:833
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:834
 msgid "Website URL"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:837
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:838
 msgid "Enter website URL"
 msgstr ""
 
@@ -2425,7 +2427,7 @@ msgid "Start"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:447
-#: inc/Core/Admin/Pages/UpsellPage.php:149
+#: inc/Core/Admin/Pages/UpsellPage.php:153
 msgid "Loading..."
 msgstr ""
 
@@ -5047,32 +5049,32 @@ msgstr ""
 msgid "Unable to get post URL"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:93
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:94
 msgid "Meta description analysis completed successfully"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:201
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:185
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:202
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:186
 msgid "too_short"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:203
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:187
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:204
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:188
 msgid "slightly_short"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:205
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:189
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:206
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:190
 msgid "optimal"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:207
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:191
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:208
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:192
 msgid "slightly_long"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:209
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:193
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:210
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:194
 msgid "too_long"
 msgstr ""
 
@@ -5085,7 +5087,7 @@ msgstr ""
 msgid "No meta title found"
 msgstr ""
 
-#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:83
+#: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:84
 msgid "Meta title analysis completed successfully"
 msgstr ""
 
@@ -5425,7 +5427,8 @@ msgid "Documentation"
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:154
-#: inc/Core/Admin/Pages/ActivationPage.php:428
+#: inc/Core/Admin/Pages/ActivationPage.php:432
+#: inc/Core/Admin/Pages/IframePage.php:90
 #: inc/Core/Admin/Pages/RegistrationPage.php:285
 #: inc/Core/Admin/Pages/RegistrationPage.php:313
 #: inc/Core/Admin/Pages/RegistrationPage.php:347
@@ -5435,7 +5438,8 @@ msgid "You do not have sufficient permissions."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:158
-#: inc/Core/Admin/Pages/ActivationPage.php:433
+#: inc/Core/Admin/Pages/ActivationPage.php:437
+#: inc/Core/Admin/Pages/IframePage.php:95
 #: inc/Core/Admin/Pages/RegistrationPage.php:289
 #: inc/Core/Admin/Pages/RegistrationPage.php:316
 #: inc/Core/Admin/Pages/RegistrationPage.php:350
@@ -5445,39 +5449,39 @@ msgid "Nonce verification failed."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:188
-#: inc/Core/Admin/Pages/ActivationPage.php:302
-#: inc/Core/Admin/Pages/ActivationPage.php:392
+#: inc/Core/Admin/Pages/ActivationPage.php:304
+#: inc/Core/Admin/Pages/ActivationPage.php:396
 msgid "Invalid activation code."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:201
-#: inc/Core/Admin/Pages/ActivationPage.php:316
+#: inc/Core/Admin/Pages/ActivationPage.php:318
 msgid "Missing refresh token in activation response."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:209
-#: inc/Core/Admin/Pages/ActivationPage.php:327
+#: inc/Core/Admin/Pages/ActivationPage.php:329
 msgid "Error fetching account data."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:215
-#: inc/Core/Admin/Pages/ActivationPage.php:333
+#: inc/Core/Admin/Pages/ActivationPage.php:335
 msgid "Activation succeeded but data could not be saved."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:297
+#: inc/Core/Admin/Pages/ActivationPage.php:299
 msgid "Invalid response during account activation."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:325
+#: inc/Core/Admin/Pages/ActivationPage.php:327
 msgid "This activation code is already linked to another website URL. Changing the website URL address is not allowed. Please use a different code or contact support."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:373
+#: inc/Core/Admin/Pages/ActivationPage.php:377
 msgid "Refresh token saved successfully."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:374
+#: inc/Core/Admin/Pages/ActivationPage.php:378
 msgid "Failed to save refresh token."
 msgstr ""
 
@@ -5953,11 +5957,11 @@ msgstr ""
 msgid "Thank you for your feedback!"
 msgstr ""
 
-#: inc/Core/Admin/Pages/IframePage.php:114
+#: inc/Core/Admin/Pages/IframePage.php:196
 msgid "Communication Opt-In is disabled. The BeyondSEO dashboard requires it to be enabled."
 msgstr ""
 
-#: inc/Core/Admin/Pages/IframePage.php:116
+#: inc/Core/Admin/Pages/IframePage.php:198
 msgid "Go to Settings"
 msgstr ""
 
@@ -6005,7 +6009,7 @@ msgstr ""
 msgid "Challenge creation failed."
 msgstr ""
 
-#: inc/Core/Admin/Pages/UpsellPage.php:150
+#: inc/Core/Admin/Pages/UpsellPage.php:154
 msgid "Connecting to server..."
 msgstr ""
 
@@ -6182,6 +6186,22 @@ msgstr ""
 
 #: inc/Core/Admin/Pages/views/iframe-page.php:9
 msgid "Opening RankingCoach dashboard in a new tab..."
+msgstr ""
+
+#: inc/Core/Admin/Pages/views/reactivate-page.php:15
+msgid "Authentication Required"
+msgstr ""
+
+#: inc/Core/Admin/Pages/views/reactivate-page.php:16
+msgid "Your session has expired or the activation is no longer valid. Please reactivate your account to continue."
+msgstr ""
+
+#: inc/Core/Admin/Pages/views/reactivate-page.php:22
+msgid "Reset and Reactivate"
+msgstr ""
+
+#: inc/Core/Admin/Pages/views/reactivate-page.php:27
+msgid "Need help? Contact our support team for assistance."
 msgstr ""
 
 #: inc/Core/Admin/Pages/views/registration-page.php:89
@@ -6535,51 +6555,51 @@ msgstr ""
 msgid "Error processing keywords sync response: %s"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:224
+#: inc/Core/Api/HttpApiClient.php:304
 msgid "API endpoint cannot be empty."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:266
+#: inc/Core/Api/HttpApiClient.php:346
 msgid "Invalid URL format: "
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:412
+#: inc/Core/Api/HttpApiClient.php:492
 msgid "Communication opt-in is disabled."
 msgstr ""
 
 #. translators: %s: transport error message
-#: inc/Core/Api/HttpApiClient.php:465
+#: inc/Core/Api/HttpApiClient.php:545
 #, php-format
 msgid "Transport error occurred during request: %s"
 msgstr ""
 
 #. translators: %s: JSON error message
-#: inc/Core/Api/HttpApiClient.php:511
+#: inc/Core/Api/HttpApiClient.php:591
 #, php-format
 msgid "Error decoding JSON response: %s"
 msgstr ""
 
 #. translators: %s: unsupported content type
-#: inc/Core/Api/HttpApiClient.php:517
+#: inc/Core/Api/HttpApiClient.php:597
 msgid "Unsupported content type."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:522
+#: inc/Core/Api/HttpApiClient.php:602
 msgid "Unknown error"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:523
+#: inc/Core/Api/HttpApiClient.php:603
 msgid "Unknown message"
 msgstr ""
 
 #. translators: 1: error type, 2: error message
-#: inc/Core/Api/HttpApiClient.php:525
+#: inc/Core/Api/HttpApiClient.php:605
 #, php-format
 msgid "API error: %1$s - %2$s"
 msgstr ""
 
 #. translators: %s: HTTP method type
-#: inc/Core/Api/HttpApiClient.php:540
+#: inc/Core/Api/HttpApiClient.php:620
 #, php-format
 msgid "Unsupported HTTP method: %s"
 msgstr ""

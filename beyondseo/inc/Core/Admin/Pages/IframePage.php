@@ -10,9 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Admin\AdminPage;
+use RankingCoach\Inc\Core\Api\HttpApiClient;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
+use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -62,6 +64,7 @@ class IframePage extends AdminPage
     public function __construct() {
         parent::__construct();
         $this->flowGuardEnabled = OptionStore::isFlowGuardActive();
+        $this->handleResetAndReactivate();
     }
 
     /**
@@ -70,6 +73,43 @@ class IframePage extends AdminPage
     public function page_name(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Registers the reset and reactivate form submission handler.
+     */
+    public function handleResetAndReactivate(): void {
+        add_action('admin_post_rc_reset_and_reactivate', [$this, 'processResetAndReactivate']);
+    }
+
+    /**
+     * Processes the reset and reactivate form submission.
+     */
+    public function processResetAndReactivate(): void {
+        if (!current_user_can('manage_options')) {
+            wp_die(esc_html__('You do not have sufficient permissions.', 'beyondseo'));
+        }
+
+        $nonce = WordpressHelpers::sanitize_input('POST', '_wpnonce');
+        if (empty($nonce) || !wp_verify_nonce($nonce, 'rc_reset_and_reactivate')) {
+            wp_die(esc_html__('Nonce verification failed.', 'beyondseo'));
+        }
+
+        $this->log('Reset and Reactivate triggered.', 'INFO');
+
+        // Determine channel BEFORE resetting data, as reset deletes channel proof options
+        $store = new OptionStore();
+        $resolver = new ChannelResolver($store);
+        $channel = $resolver->resolve();
+
+        TokensManager::getInstance()->resetActivationData();
+
+        $nextPage = ($channel === 'ionos' || $channel === 'extendify') ? 'activation' : 'connect';
+
+        if (self::$managerInstance instanceof AdminManager) {
+            self::$managerInstance->redirectPage($nextPage);
+        }
+        exit;
     }
 
     /**
@@ -94,17 +134,59 @@ class IframePage extends AdminPage
 
         /** @var TokensManager $tokensManager */
         $tokensManager = TokensManager::getInstance();
-        $refreshToken = $tokensManager->getStoredRefreshToken();
-        $accessToken  = $tokensManager->getStoredAccessToken();
         $locationId   = (int) get_option(BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID, 0);
 
-        // Ensure we have a valid access token (refresh if needed)
-        if (!empty($refreshToken) && !$tokensManager::validateToken($accessToken)) {
-            $tokensManager->generateAndSaveAccessToken($refreshToken);
-            $accessToken = $tokensManager->getStoredAccessToken();
+        try {
+            // Ensure we have a valid access token (refresh if needed)
+            $accessToken = $tokensManager->getAccessToken(static::class);
+        } catch (Throwable $e) {
+            $this->log('Unexpected error during token retrieval: ' . $e->getMessage(), 'ERROR');
+            $accessToken = '';
         }
+
         if (!$accessToken || !$tokensManager::validateToken($accessToken)) {
-            beyondseo_rceh()->error(new InvalidTokenException('The access token is invalid or expired'));
+            $this->log('Access token is invalid or expired. Attempting reactivation.', 'WARNING');
+            $activationCode = get_option(BaseConstants::OPTION_ACTIVATION_CODE);
+            $revalidated = false;
+
+            if (!empty($activationCode)) {
+                try {
+                    $apiClient = new HttpApiClient();
+                    $revalidated = $apiClient->revalidateWithActivationCode($activationCode);
+                } catch (Throwable $ex) {
+                    $this->log('Automatic reactivation attempt failed: ' . $ex->getMessage(), 'ERROR');
+                }
+            }
+
+            if ($revalidated) {
+                try {
+                    $accessToken = $tokensManager->getAccessToken(static::class);
+                } catch (Throwable $ex) {
+                    $this->log('Token retrieval failed after successful automatic reactivation: ' . $ex->getMessage(), 'ERROR');
+                }
+            }
+
+            if (!$accessToken || !$tokensManager::validateToken($accessToken)) {
+                // Show reactivation page instead of throwing or wp_die()
+                wp_enqueue_style(
+                    'rankingcoach-activation',
+                    RANKINGCOACH_PLUGIN_ADMIN_URL . 'assets/css/activation.css',
+                    [],
+                    RANKINGCOACH_VERSION
+                );
+                wp_enqueue_script(
+                    'rankingcoach-activation',
+                    RANKINGCOACH_PLUGIN_ADMIN_URL . 'assets/js/activation.js',
+                    ['jquery'],
+                    RANKINGCOACH_VERSION,
+                    true
+                );
+                wp_localize_script('rankingcoach-activation', 'rcActivation', [
+                    'errorEmptyCode' => __('Activation code is required.', 'beyondseo'),
+                ]);
+                include __DIR__ . '/views/reactivate-page.php';
+                return;
+            }
         }
 
         if ( !SettingsManager::instance()->get_option('beyondseo_comm_opt_in', false)) {
@@ -149,6 +231,52 @@ class IframePage extends AdminPage
         if(get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE)) {
             $couponCode = (string)get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE);
             //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $config[$baseEnv], $locale, $couponCode, urlencode($beyondSeoIframeUrl));
+        }
+
+        // Check if iframe destination requires authentication
+        $status = $tokensManager->checkIframeUrlStatus($beyondSeoIframeUrl);
+        if ($status === 401) {
+            $this->log('Iframe returned 401. Attempting reactivation.', 'WARNING');
+            $activationCode = get_option(BaseConstants::OPTION_ACTIVATION_CODE);
+            $revalidated = false;
+            if (!empty($activationCode)) {
+                try {
+                    $apiClient = new HttpApiClient();
+                    $revalidated = $apiClient->revalidateWithActivationCode($activationCode);
+                } catch (Throwable $e) {
+                    $this->log('Reactivation attempt failed: ' . $e->getMessage(), 'ERROR');
+                }
+            }
+
+            if ($revalidated) {
+                // Refresh tokens and rebuild URL
+                $accessToken = $tokensManager->getAccessToken(static::class);
+                $beyondSeoIframeUrl = sprintf($config['iframeUrl'], $config[$baseEnv], $language, $locationId, $installationId, $parentOrigin, $accessToken);
+                if(get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE)) {
+                    $couponCode = (string)get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE);
+                    //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $config[$baseEnv], $locale, $couponCode, urlencode($beyondSeoIframeUrl));
+                }
+            } else {
+                // Show reactivation page instead
+                wp_enqueue_style(
+                    'rankingcoach-activation',
+                    RANKINGCOACH_PLUGIN_ADMIN_URL . 'assets/css/activation.css',
+                    [],
+                    RANKINGCOACH_VERSION
+                );
+                wp_enqueue_script(
+                    'rankingcoach-activation',
+                    RANKINGCOACH_PLUGIN_ADMIN_URL . 'assets/js/activation.js',
+                    ['jquery'],
+                    RANKINGCOACH_VERSION,
+                    true
+                );
+                wp_localize_script('rankingcoach-activation', 'rcActivation', [
+                    'errorEmptyCode' => __('Activation code is required.', 'beyondseo'),
+                ]);
+                include __DIR__ . '/views/reactivate-page.php';
+                return;
+            }
         }
 
         $settingsManager = SettingsManager::instance();

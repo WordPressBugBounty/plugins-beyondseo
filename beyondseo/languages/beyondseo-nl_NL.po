@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-03 09:03+0000\n"
+"PO-Revision-Date: 2026-07-25 09:08+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -8136,4 +8136,18 @@ msgstr "Radar Gratis"
 
 msgid "You currently have this plan"
 msgstr "Je hebt momenteel dit abonnement"
+
+
+
+msgid "Authentication Required"
+msgstr "Authenticatie vereist"
+
+msgid "Your session has expired or the activation is no longer valid. Please reactivate your account to continue."
+msgstr "Je sessie is verlopen of de activering is niet meer geldig. Activeer je account opnieuw om door te gaan."
+
+msgid "Reset and Reactivate"
+msgstr "Resetten en opnieuw activeren"
+
+msgid "Need help? Contact our support team for assistance."
+msgstr "Hulp nodig? Neem contact op met ons ondersteuningsteam voor hulp."
 

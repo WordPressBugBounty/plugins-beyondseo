@@ -1,78 +1,78 @@
 {
   "../languages/json/beyondseo-de_DE.json": {
-    "file": "beyondseo-de_DE.FMSw_wNs.js",
+    "file": "beyondseo-de_DE.FRcngv_p.js",
     "name": "beyondseo-de_DE",
     "src": "../languages/json/beyondseo-de_DE.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-el_GR.json": {
-    "file": "beyondseo-el_GR.DHAbT84t.js",
+    "file": "beyondseo-el_GR.DRq1WLOU.js",
     "name": "beyondseo-el_GR",
     "src": "../languages/json/beyondseo-el_GR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-en_US.json": {
-    "file": "beyondseo-en_US.DHAbT84t.js",
+    "file": "beyondseo-en_US.DRq1WLOU.js",
     "name": "beyondseo-en_US",
     "src": "../languages/json/beyondseo-en_US.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-es_ES.json": {
-    "file": "beyondseo-es_ES.CXr9lUZ1.js",
+    "file": "beyondseo-es_ES.BGovP0C8.js",
     "name": "beyondseo-es_ES",
     "src": "../languages/json/beyondseo-es_ES.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-fi_FI.json": {
-    "file": "beyondseo-fi_FI.D-BtSswz.js",
+    "file": "beyondseo-fi_FI.DRq1WLOU.js",
     "name": "beyondseo-fi_FI",
     "src": "../languages/json/beyondseo-fi_FI.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-fr_FR.json": {
-    "file": "beyondseo-fr_FR.BOi_LY19.js",
+    "file": "beyondseo-fr_FR.ChzsG21t.js",
     "name": "beyondseo-fr_FR",
     "src": "../languages/json/beyondseo-fr_FR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-id_ID.json": {
-    "file": "beyondseo-id_ID.D-BtSswz.js",
+    "file": "beyondseo-id_ID.BGODA99Z.js",
     "name": "beyondseo-id_ID",
     "src": "../languages/json/beyondseo-id_ID.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-it_IT.json": {
-    "file": "beyondseo-it_IT.Dn-mp1no.js",
+    "file": "beyondseo-it_IT.D9P9Irew.js",
     "name": "beyondseo-it_IT",
     "src": "../languages/json/beyondseo-it_IT.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-ja_JP.json": {
-    "file": "beyondseo-ja_JP.DHAbT84t.js",
+    "file": "beyondseo-ja_JP.DRq1WLOU.js",
     "name": "beyondseo-ja_JP",
     "src": "../languages/json/beyondseo-ja_JP.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-nl_NL.json": {
-    "file": "beyondseo-nl_NL.BzAtK4g8.js",
+    "file": "beyondseo-nl_NL.C6-dKeS_.js",
     "name": "beyondseo-nl_NL",
     "src": "../languages/json/beyondseo-nl_NL.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-pl_PL.json": {
-    "file": "beyondseo-pl_PL.Dcq0hsCl.js",
+    "file": "beyondseo-pl_PL.OObZHkDC.js",
     "name": "beyondseo-pl_PL",
     "src": "../languages/json/beyondseo-pl_PL.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-pt_BR.json": {
-    "file": "beyondseo-pt_BR.Dncwl7vs.js",
+    "file": "beyondseo-pt_BR.CY4hTZ-7.js",
     "name": "beyondseo-pt_BR",
     "src": "../languages/json/beyondseo-pt_BR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-sv_SE.json": {
-    "file": "beyondseo-sv_SE.DHAbT84t.js",
+    "file": "beyondseo-sv_SE.DRq1WLOU.js",
     "name": "beyondseo-sv_SE",
     "src": "../languages/json/beyondseo-sv_SE.json",
     "isDynamicEntry": true
@@ -467,6 +467,18 @@
     "src": "node_modules/@rankingcoach/vanguard/dist/Icon-close-CDpYm1a3.mjs",
     "isDynamicEntry": true
   },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-1-B8m5Lzcu.mjs": {
+    "file": "Icon-close-canvas-1-B8m5Lzcu.BFUQvkPw.js",
+    "name": "Icon-close-canvas-1-B8m5Lzcu",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-1-B8m5Lzcu.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-mipZvfz_.mjs": {
+    "file": "Icon-close-canvas-mipZvfz_.CpUDc0ce.js",
+    "name": "Icon-close-canvas-mipZvfz_",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-mipZvfz_.mjs",
+    "isDynamicEntry": true
+  },
   "node_modules/@rankingcoach/vanguard/dist/Icon-connect-1-DdJ_ShaA.mjs": {
     "file": "Icon-connect-1-DdJ_ShaA.BHHQSR0g.js",
     "name": "Icon-connect-1-DdJ_ShaA",
@@ -729,6 +741,18 @@
     "file": "Icon-generate-CT5l-aC3.Dyk4JM9U.js",
     "name": "Icon-generate-CT5l-aC3",
     "src": "node_modules/@rankingcoach/vanguard/dist/Icon-generate-CT5l-aC3.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-1-C9kVV6Ov.mjs": {
+    "file": "Icon-generate-active-1-C9kVV6Ov.CSHoflxr.js",
+    "name": "Icon-generate-active-1-C9kVV6Ov",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-1-C9kVV6Ov.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-Cb0J7HS9.mjs": {
+    "file": "Icon-generate-active-Cb0J7HS9.CnZATpfL.js",
+    "name": "Icon-generate-active-Cb0J7HS9",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-Cb0J7HS9.mjs",
     "isDynamicEntry": true
   },
   "node_modules/@rankingcoach/vanguard/dist/Icon-gmb-1-Czi8N7eq.mjs": {
@@ -1185,6 +1209,18 @@
     "file": "Icon-mobile-BJ4ohMaw.81TEoVEh.js",
     "name": "Icon-mobile-BJ4ohMaw",
     "src": "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-BJ4ohMaw.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-1-2GWQVVyB.mjs": {
+    "file": "Icon-mobile-active-1-2GWQVVyB.BXdJw8tj.js",
+    "name": "Icon-mobile-active-1-2GWQVVyB",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-1-2GWQVVyB.mjs",
+    "isDynamicEntry": true
+  },
+  "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-BswZTz2b.mjs": {
+    "file": "Icon-mobile-active-BswZTz2b.DJv1yfjm.js",
+    "name": "Icon-mobile-active-BswZTz2b",
+    "src": "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-BswZTz2b.mjs",
     "isDynamicEntry": true
   },
   "node_modules/@rankingcoach/vanguard/dist/Icon-movabale-indicator-1-dqo5DUEe.mjs": {
@@ -1961,7 +1997,7 @@
     "isEntry": true
   },
   "src/App.tsx": {
-    "file": "app.C_oCKtpV.js",
+    "file": "app.CeMOqdxH.js",
     "name": "app",
     "src": "src/App.tsx",
     "isEntry": true,
@@ -2030,6 +2066,8 @@
       "node_modules/@rankingcoach/vanguard/dist/Icon-clock-1-YzDtYRPd.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-clock-R3nE2HlR.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-close-1-zvT078dA.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-1-B8m5Lzcu.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-close-canvas-mipZvfz_.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-close-CDpYm1a3.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-connect-1-DdJ_ShaA.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-connect-BTMWNOm2.mjs",
@@ -2074,6 +2112,8 @@
       "node_modules/@rankingcoach/vanguard/dist/Icon-g-ads-active-BVixRly-.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-g-ads-Z-O4vq0x.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-generate-1-DihOz4Z2.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-1-C9kVV6Ov.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-generate-active-Cb0J7HS9.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-generate-CT5l-aC3.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-gmb-1-Czi8N7eq.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-gmb-CWyBD10m.mjs",
@@ -2150,6 +2190,8 @@
       "node_modules/@rankingcoach/vanguard/dist/Icon-minimize-1-h02UvBTN.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-minimize-D09Tu0RM.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-1-BJ4ohMaw.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-1-2GWQVVyB.mjs",
+      "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-active-BswZTz2b.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-mobile-BJ4ohMaw.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-movabale-indicator-1-dqo5DUEe.mjs",
       "node_modules/@rankingcoach/vanguard/dist/Icon-movabale-indicator-B04cv07D.mjs",
@@ -2387,7 +2429,7 @@
     "src": "src/assets/white-loading-animation.gif"
   },
   "src/main.tsx": {
-    "file": "main.BltVZNkS.js",
+    "file": "main.DF_bKvI2.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
@@ -2410,7 +2452,7 @@
       "../languages/json/beyondseo-sv_SE.json"
     ],
     "css": [
-      "assets/main-Bh9_0pGf.css",
+      "assets/main-D0ikU8S7.css",
       "assets/styles-B0eIDMsn.css"
     ],
     "assets": [

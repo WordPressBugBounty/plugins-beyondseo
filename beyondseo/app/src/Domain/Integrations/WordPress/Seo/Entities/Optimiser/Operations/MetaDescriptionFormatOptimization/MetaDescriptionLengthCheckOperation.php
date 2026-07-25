@@ -70,6 +70,7 @@ class MetaDescriptionLengthCheckOperation extends Operation implements Operation
                 'description_length' => 0,
                 'description_text' => '',
                 'is_optimal' => false,
+                'is_acceptable' => false,
             ];
         }
 
@@ -119,7 +120,7 @@ class MetaDescriptionLengthCheckOperation extends Operation implements Operation
         $descriptionLength = $this->value['description_length'] ?? 0;
 
         // If the description length is optimal, return a perfect score
-        if ($this->value['is_optimal']) {
+        if ($this->value['is_optimal'] ?? false) {
             return 1.0;
         }
 

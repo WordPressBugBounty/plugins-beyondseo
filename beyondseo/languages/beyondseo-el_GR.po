@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-03 09:04+0000\n"
+"PO-Revision-Date: 2026-07-25 09:09+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: el_GR\n"
@@ -9740,4 +9740,18 @@ msgstr "Radar Free"
 
 msgid "You currently have this plan"
 msgstr "Αυτή τη στιγμή έχετε αυτό το πλάνο"
+
+
+
+msgid "Authentication Required"
+msgstr "Απαιτείται έλεγχος ταυτότητας"
+
+msgid "Your session has expired or the activation is no longer valid. Please reactivate your account to continue."
+msgstr "Η συνεδρία σας έχει λήξει ή η ενεργοποίηση δεν είναι πλέον έγκυρη. Παρακαλούμε επανενεργοποιήστε τον λογαριασμό σας για να συνεχίσετε."
+
+msgid "Reset and Reactivate"
+msgstr "Επαναφορά και επανενεργοποίηση"
+
+msgid "Need help? Contact our support team for assistance."
+msgstr "Χρειάζεστε βοήθεια; Επικοινωνήστε με την ομάδα υποστήριξής μας για βοήθεια."
 
