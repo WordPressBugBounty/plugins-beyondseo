@@ -658,17 +658,6 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             $metaTags .= "\r\n\t" . '<link rel="icon" href="' . esc_url($faviconUrl) . '" type="image/x-icon" />';
         }
 
-        // Color scheme and theme color
-        $colorScheme = get_theme_support('color-scheme');
-        if (!$colorScheme) {
-            $colorScheme = ['light', 'dark'];
-        }
-        $metaTags .= "\r\n\t" . '<meta name="color-scheme" content="' . esc_attr(implode(' ', $colorScheme)) . '" />';
-        $themeColor = get_theme_mod('theme_color', '#ffffff');
-        if ($themeColor) {
-            $metaTags .= "\r\n\t" . '<meta name="theme-color" content="' . esc_attr($themeColor) . '" />';
-        }
-
         // X-UA-Compatible for IE
         $metaTags .= "\r\n\t" . '<meta http-equiv="X-UA-Compatible" content="IE=edge" />';
 

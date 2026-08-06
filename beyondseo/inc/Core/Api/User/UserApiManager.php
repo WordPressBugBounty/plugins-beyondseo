@@ -657,11 +657,25 @@ class UserApiManager extends HttpApiClient
     public static function getStoredUpsellUrl(string $planSelected): ?string
     {
         $upsellUrls = get_option(BaseConstants::OPTION_UPSELL_URLS, []);
-        
-        if (is_array($upsellUrls) && isset($upsellUrls[$planSelected])) {
-            return $upsellUrls[$planSelected];
+
+        if (!is_array($upsellUrls) || !isset($upsellUrls[$planSelected])) {
+            return null;
         }
-        
+
+        $storedEntry = $upsellUrls[$planSelected];
+
+        if (is_string($storedEntry)) {
+            return $storedEntry;
+        }
+
+        if (is_object($storedEntry) && !empty($storedEntry->upsellUrl)) {
+            return (string) $storedEntry->upsellUrl;
+        }
+
+        if (is_array($storedEntry) && !empty($storedEntry['upsellUrl'])) {
+            return (string) $storedEntry['upsellUrl'];
+        }
+
         return null;
     }
 

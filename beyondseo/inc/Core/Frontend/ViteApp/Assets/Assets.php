@@ -201,14 +201,41 @@ class Assets {
         return $value ? 'true' : 'false';
     }
 
+    /** Languages supported, each with its default locale */
+    private const MAP_LANGUAGES = [
+        'de' => 'de-de',
+        'en' => 'en-us',
+        'es' => 'es-es',
+        'fr' => 'fr-fr',
+        'it' => 'it-it',
+        'nl' => 'nl-nl',
+        'pl' => 'pl-pl',
+        'pt' => 'pt-pt',
+    ];
+
+    private const DEFAULT_MAP_LOCALE = 'en-us';
+
     /**
-     * Convert locale format from en_US to en-us for map URL
+     * Convert a WordPress locale (en_US, de_DE_formal, ...) to a map URL locale,
+     * falling back to en-us when the language is not supported.
+     *
      * @param string $locale
      * @return string
      */
     private function formatLocaleForMapUrl(string $locale): string {
-        // Convert underscore to hyphen and make lowercase
-        return strtolower(str_replace('_', '-', $locale));
+        $parts = preg_split('/[_-]/', strtolower(trim($locale))) ?: [];
+        $lang = $parts[0] ?? '';
+        $region = $parts[1] ?? '';
+
+        if (!isset(self::MAP_LANGUAGES[$lang])) {
+            return self::DEFAULT_MAP_LOCALE;
+        }
+
+        if (preg_match('/^[a-z]{2}$/', $region)) {
+            return $lang . '-' . $region;
+        }
+
+        return self::MAP_LANGUAGES[$lang];
     }
 
     /**

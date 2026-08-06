@@ -167,8 +167,11 @@ class WordpressHelpers {
             return $locale_map[$normalized_key];
         }
         
-        // Fallback: construct locale from language code
-        return $normalized_key . '_' . strtoupper($normalized_key);
+        // Fallback: rebuild lang_REGION from the normalized key (fi -> fi_FI, ca_es -> ca_ES)
+        $parts = explode('_', $normalized_key);
+        $lang = $parts[0];
+        $region = $parts[1] ?? $lang;
+        return $lang . '_' . strtoupper($region);
     }
 
     /**
@@ -191,11 +194,14 @@ class WordpressHelpers {
             // Normalize separators like "en-US" -> "en_US"
             $locale = str_replace('-', '_', $locale);
 
-            if (str_contains($locale, '_')) {
-                // Ensure proper casing for language_region forms (e.g. en_US)
-                [$lang, $region] = explode('_', $locale, 2);
-                $locale = strtolower($lang) . '_' . strtoupper($region);
-            } elseif (strlen($locale) === 2) {
+            $segments = explode('_', $locale);
+            $lang = strtolower($segments[0]);
+            $region = $segments[1] ?? '';
+
+            if (preg_match('/^[a-zA-Z]{2}$/', $region)) {
+                // Ensure proper casing and drop variant suffixes (de_DE_formal -> de_DE)
+                $locale = $lang . '_' . strtoupper($region);
+            } elseif (strlen($lang) === 2) {
                 // Map common 2-letter languages to sensible default regions
                 $defaultRegions = [
                     'en' => 'US',
@@ -234,7 +240,6 @@ class WordpressHelpers {
                     'ms' => 'MY',
                     'ca' => 'ES',
                 ];
-                $lang = strtolower($locale);
                 $region = $defaultRegions[$lang] ?? strtoupper($lang);
                 $locale = $lang . '_' . $region;
             } else {

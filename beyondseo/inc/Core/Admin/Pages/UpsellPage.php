@@ -316,23 +316,8 @@ class UpsellPage extends AdminPage
             return;
         }
 
-        // 1. Handle plan selection / upselling redirect
-        $step = WordpressHelpers::sanitize_input('GET', 'step') ?: false;
-        $planSelected = WordpressHelpers::sanitize_input('GET', 'planSelected') ?: false;
-
-        if ($step === 'upsell' && $planSelected) {
-            try {
-                $upsellingResult = UserApiManager::handleUpselling($planSelected);
-                if ($upsellingResult && !empty($upsellingResult['upsellUrl'])) {
-                    wp_redirect($upsellingResult['upsellUrl']);
-                    exit;
-                }
-            } catch (Throwable $e) {
-                $this->log('Upselling API error in handleAccessControl: ' . $e->getMessage(), 'ERROR');
-            }
-        }
-
-        // 2. Token validation and refresh
+        // 1. Token validation and refresh (must run first so the upselling API call
+        // below always has a valid, non-expired access token).
         /** @var TokensManager $tokensManager */
         $tokensManager = TokensManager::instance();
         $refreshToken = $tokensManager->getStoredRefreshToken();
@@ -354,6 +339,30 @@ class UpsellPage extends AdminPage
                 self::$managerInstance->redirectPage(AdminPage::PAGE_REGISTRATION);
             }
             exit;
+        }
+
+        // 2. Handle plan selection / upselling redirect
+        $step = WordpressHelpers::sanitize_input('GET', 'step') ?: false;
+        $planSelected = WordpressHelpers::sanitize_input('GET', 'planSelected') ?: false;
+
+        if ($step === 'upsell' && $planSelected) {
+            try {
+                $upsellingResult = UserApiManager::handleUpselling($planSelected);
+                if ($upsellingResult && !empty($upsellingResult['upsellUrl'])) {
+                    wp_redirect($upsellingResult['upsellUrl']);
+                    exit;
+                }
+            } catch (Throwable $e) {
+                $this->log('Upselling API error in handleAccessControl: ' . $e->getMessage(), 'ERROR');
+            }
+
+            // Fallback to a previously stored upsell URL if the live API call failed
+            // (e.g. transient network issue or upstream API downtime).
+            $storedUpsellUrl = UserApiManager::getStoredUpsellUrl($planSelected);
+            if (!empty($storedUpsellUrl)) {
+                wp_redirect($storedUpsellUrl);
+                exit;
+            }
         }
     }
 
