@@ -7,11 +7,8 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Plugin\Entities\WPSettings;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
-use ReflectionClass;
-use ReflectionProperty;
 use stdClass;
 
 /**
@@ -19,7 +16,207 @@ use stdClass;
  */
 class PluginSettings {
 
-    protected const PLUGIN_SETTINGS_CLASS = WPSettings::class;
+    /** @var array Default plugin settings */
+    private const DEFAULT_SETTINGS = [
+        'allow_sync_keywords_to_rankingcoach' => true,
+        'enable_account_sync' => true,
+        'enable_log_cleanup' => true,
+        'allow_seo_optimiser_on_saved_posts' => true,
+        'beyondseo_comm_opt_in' => false,
+        'enable_wp_cron_service' => false,
+        'remove_settings_on_deactivation' => false,
+        'enable_broken_link_checker_job' => true,
+        'disable_wp_heartbeat_service' => false,
+        'enable_viewport' => false,
+        'open_rc_dashboard_in_new_tab' => false,
+        'google_verification_code' => '',
+        'bing_verification_code' => '',
+        'separators' => [
+            'pipe'       => '|',
+            'dash'       => '-',
+            'en_dash'    => '–',
+            'em_dash'    => '—',
+            'dot'        => '·',
+            'colon'      => ':',
+            'bullet'     => '•',
+            'angle_double' => '»',
+            'angle_single' => '›',
+            'tilde'      => '~',
+            'asterisk'   => '*',
+            'plus'       => '+',
+            'slash'      => '/',
+            'backslash'  => '\\',
+            'equals'     => '=',
+            'ellipsis'   => '…',
+        ],
+        'allowed_countries' => [
+            'US' => 'United States', 'CA' => 'Canada', 'GB' => 'United Kingdom', 'IE' => 'Ireland',
+            'DE' => 'Germany', 'AT' => 'Austria', 'CH' => 'Switzerland', 'FR' => 'France',
+            'BE' => 'Belgium', 'NL' => 'Netherlands', 'LU' => 'Luxembourg', 'MC' => 'Monaco',
+            'IT' => 'Italy', 'ES' => 'Spain', 'PT' => 'Portugal', 'AD' => 'Andorra',
+            'DK' => 'Denmark', 'SE' => 'Sweden', 'NO' => 'Norway', 'FI' => 'Finland',
+            'IS' => 'Iceland', 'PL' => 'Poland', 'CZ' => 'Czech Republic', 'SK' => 'Slovakia',
+            'HU' => 'Hungary', 'RO' => 'Romania', 'BG' => 'Bulgaria', 'GR' => 'Greece',
+            'EE' => 'Estonia', 'LV' => 'Latvia', 'LT' => 'Lithuania', 'SI' => 'Slovenia',
+            'HR' => 'Croatia', 'RS' => 'Serbia', 'BA' => 'Bosnia and Herzegovina',
+            'MK' => 'North Macedonia', 'AL' => 'Albania', 'TR' => 'Turkey', 'CY' => 'Cyprus',
+            'MT' => 'Malta', 'AU' => 'Australia', 'NZ' => 'New Zealand', 'MX' => 'Mexico',
+            'AR' => 'Argentina', 'BR' => 'Brazil', 'CL' => 'Chile', 'CO' => 'Colombia',
+            'PE' => 'Peru', 'UY' => 'Uruguay', 'ZA' => 'South Africa', 'AE' => 'United Arab Emirates',
+            'SA' => 'Saudi Arabia', 'IL' => 'Israel', 'IN' => 'India', 'ID' => 'Indonesia',
+            'MY' => 'Malaysia', 'PH' => 'Philippines', 'SG' => 'Singapore', 'TH' => 'Thailand',
+            'JP' => 'Japan',
+        ],
+        'supported_languages' => [
+            'en' => 'English', 'de' => 'German', 'fr' => 'French', 'it' => 'Italian',
+            'es' => 'Spanish', 'pt' => 'Portuguese', 'pl' => 'Polish', 'nl' => 'Dutch',
+        ],
+        'supported_locales' => [
+            'en' => 'en_US', 'en_gb' => 'en_GB', 'en_ca' => 'en_CA', 'de' => 'de_DE',
+            'de_at' => 'de_AT', 'fr' => 'fr_FR', 'fr_ca' => 'fr_CA', 'fr_mq' => 'fr_MQ',
+            'fr_yt' => 'fr_YT', 'fr_re' => 'fr_RE', 'fr_gp' => 'fr_GP', 'fr_gf' => 'fr_GF',
+            'it' => 'it_IT', 'es' => 'es_ES', 'es_mx' => 'es_MX', 'pt' => 'pt_PT',
+            'pl' => 'pl_PL', 'nl' => 'nl_NL',
+        ],
+        'account_details_cache_seconds' => 10800,
+        'gmb_categories_cache_seconds' => 10800,
+        'top_toolbar_menu_name' => RANKINGCOACH_BRAND_NAME,
+        'seo_analysis' => true,
+        'seo_score_threshold' => 76,
+        'enable_readability_check' => true,
+        'focus_keyword_limit' => 5,
+        'focus_keyword_analysis' => true,
+        'google_analytics_integration' => true,
+        'ga_tracking_id' => '',
+        'enable_schema_markup' => true,
+        'default_schema_type' => 'BlogPosting',
+        'site_represents' => 'organization',
+        'site_links' => true,
+        'organisation_or_person_name' => '',
+        'organisation_email' => '',
+        'organisation_phone' => '',
+        'organisation_logo' => '',
+        'organisation_founding_date' => '',
+        'organisation_number_of_employees' => [
+            'isRange' => false,
+            'from' => 0,
+            'to' => 0,
+            'number' => 0,
+        ],
+        'run_shortcodes' => false,
+        'website_alternate_name' => '',
+        'person_manual_name' => '',
+        'person_manual_image' => '',
+        'organization_social_facebook' => '',
+        'organization_social_twitter' => '',
+        'organization_social_instagram' => '',
+        'organization_social_linkedin' => '',
+        'organization_social_youtube' => '',
+        'organization_social_tiktok' => '',
+        'organization_social_pinterest' => '',
+        'organization_social_github' => '',
+        'organization_social_tumblr' => '',
+        'organization_social_snapchat' => '',
+        'organization_social_wikipedia' => '',
+        'organization_social_personal_website' => '',
+        'organization_additional_social_urls' => [],
+        'redirect_manager' => true,
+        'redirect_404_to_home' => false,
+        'monitoring_404' => true,
+        'default_noindex_posts' => false,
+        'default_noindex_pages' => false,
+        'index_categories' => true,
+        'index_tags' => false,
+        'enable_social_optimization' => true,
+        'default_og_image' => '',
+        'default_twitter_card' => 'summary',
+        'sitemap' => [
+            'enabled' => true,
+            'includeImages' => true,
+            'maxLinks' => 1000,
+            'pingGoogle' => true,
+            'pingBing' => true,
+        ],
+        'enable_local_seo' => true,
+        'default_business_type' => 'LocalBusiness',
+        'business_latitude' => '',
+        'business_longitude' => '',
+        'internal_link_suggestions' => true,
+        'enable_breadcrumbs' => true,
+        'breadcrumb_settings' => [
+            'home_text' => 'Home',
+            'separator' => ' » ',
+            'enable_schema_markup' => true,
+            'max_depth' => 4,
+            'show_current_as_link' => false,
+            'allow_filters' => true,
+            'prefix' => 'You are here:',
+            'suffix' => '',
+            'show_on_posts' => true,
+            'show_on_pages' => true,
+            'show_on_search' => true,
+            'show_on_404' => true,
+            'show_on_archives' => true,
+            'show_on_categories' => true,
+            'show_on_tags' => true,
+            'show_on_custom_post_types' => true,
+            'show_on_taxonomies' => true,
+            'enabled_post_types' => [ 'post', 'page' ],
+            'enabled_taxonomies' => [ 'category', 'post_tag', 'product_cat' ],
+            'suffixes' => [
+                'archive'         => 'Archives for',
+                'search'          => 'Search results for',
+                '404'             => 'Error 404: Page not found',
+                'custom_post'     => 'Custom post type archives for',
+                'category'        => 'Categories',
+                'taxonomy'        => 'Taxonomy archives for',
+            ],
+            'prefixes' => [
+                'archive'     => '',
+                'search'      => '',
+                '404'         => '',
+                'custom_post' => '',
+                'taxonomy'    => '',
+            ]
+        ],
+        'security_noopen' => true,
+        'security_nosnippet' => false,
+        'enable_lazy_loading' => false,
+        'minify_html' => false,
+        'enable_robots_txt' => true,
+        'include_sitemap_in_robots' => false,
+        'enable_rss' => true,
+        'rss' => [
+            'feeds' => [
+                'cleanupEnable' => false,
+                'global' => true,
+                'globalComments' => true,
+                'postComments' => true,
+                'attachments' => true,
+                'authors' => true,
+                'search' => true,
+                'archivesIncluded' => [
+                    'post',
+                    'page',
+                    'attachment'
+                ],
+                'archivesAll' => false,
+                'taxonomiesIncluded' => [
+                    'category',
+                    'post_tag'
+                ],
+                'taxonomiesAll' => false,
+                'atom' => true,
+                'rdf' => true,
+                'staticBlogPage' => true,
+                'paginated' => true
+            ],
+            'content' => [
+                'before' => '',
+                'after' => ''
+            ]
+        ]
+    ];
 
 	//======================================
 	//======================================
@@ -71,16 +268,14 @@ class PluginSettings {
 	}
 
 	/**
-	 * Save all properties as independent keys in the database using Reflection API.
+	 * Save all properties as independent keys in the database.
 	 *
 	 * Optimized to avoid saving unchanged values.
 	 */
 	private function save(): void {
 		$settings = [];
-		$reflection = new ReflectionClass(self::PLUGIN_SETTINGS_CLASS);
-		foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-			$key = $property->getName();
-			$settings[$key] = $this->settings->{$key};
+		foreach (self::DEFAULT_SETTINGS as $key => $default_value) {
+			$settings[$key] = $this->settings->{$key} ?? $default_value;
 		}
 
 		// Compare with existing settings
@@ -91,14 +286,11 @@ class PluginSettings {
 	}
 
 	/**
-	 * Reset all properties to their default values using Reflection API.
+	 * Reset all properties to their default values.
 	 */
 	public function reset_to_defaults(): void {
-		$reflection = new ReflectionClass(self::PLUGIN_SETTINGS_CLASS);
-		foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-			$property_name = $property->getName();
-			$default_value = $property->getDefaultValue();
-			$this->settings->{$property_name} = $default_value;
+		foreach (self::DEFAULT_SETTINGS as $key => $default_value) {
+			$this->settings->{$key} = $default_value;
 		}
 		$this->save();
 	}
@@ -117,9 +309,7 @@ class PluginSettings {
         }
 
         // If exact match fails, try case-insensitive search
-        $reflection = new ReflectionClass(self::PLUGIN_SETTINGS_CLASS);
-        foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-            $propertyName = $property->getName();
+        foreach (self::DEFAULT_SETTINGS as $propertyName => $default_value) {
             if (strcasecmp($propertyName, $key) === 0 && property_exists($this->settings, $propertyName)) {
                 return $this->settings->{$propertyName};
             }
@@ -135,14 +325,7 @@ class PluginSettings {
      * @return mixed|null The default value of the setting, or null if not found.
      */
     public  function getDefault(string $key): mixed {
-        $reflection = new ReflectionClass(self::PLUGIN_SETTINGS_CLASS);
-        if ($reflection->hasProperty($key)) {
-            $property = $reflection->getProperty($key);
-            if ($property->isPublic()) {
-                return $property->getDefaultValue();
-            }
-        }
-        return null;
+        return self::DEFAULT_SETTINGS[$key] ?? null;
     }
 
 	/**
@@ -167,11 +350,11 @@ class PluginSettings {
 	 */
 	public function get_all(): array {
 		$settings = [];
-		$reflection = new ReflectionClass(self::PLUGIN_SETTINGS_CLASS);
-		foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-			$key = $property->getName();
+		foreach (self::DEFAULT_SETTINGS as $key => $default_value) {
             if(property_exists($this->settings, $key)) {
                 $settings[$key] = $this->settings->{$key};
+            } else {
+                $settings[$key] = $default_value;
             }
 		}
 		return $settings;

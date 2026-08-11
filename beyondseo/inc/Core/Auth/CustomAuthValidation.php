@@ -7,7 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEODeps\DDD\Infrastructure\Libs\Config;
 use Exception;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\TokensManager;
@@ -58,7 +57,7 @@ class CustomAuthValidation {
 
 		try {
 			// Decode and verify JWT
-			$authKey = Config::getEnv('RC_AUT_KEY');
+			$authKey = defined('RC_AUT_KEY') ? RC_AUT_KEY : getenv('RC_AUT_KEY');
 			$decoded = \BeyondSEODeps\Firebase\JWT\JWT::decode( $jwt_token, new \BeyondSEODeps\Firebase\JWT\Key( $authKey, 'HS256' ) );
 
 			// Check if token has expired

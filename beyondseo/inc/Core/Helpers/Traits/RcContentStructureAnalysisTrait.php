@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Models\Configs\SeoOptimiserConfig;
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Models\Configs\SeoOptimiserConfig;
 use DOMElement;
 use DOMXPath;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;

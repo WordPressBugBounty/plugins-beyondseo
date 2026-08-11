@@ -280,12 +280,6 @@ class CoreHelper {
      */
     public static function hasUpgradePlans(): bool
     {
-        // If the current plan level is greater than 0, the customer has a paid version
-        // and should not see the upsell page.
-        if (self::getCurrentPlanLevel() > 0) {
-            return false;
-        }
-
         if ( self::isOnMomentumPlan() ) {
             return ! self::ownsAllMomentumPackets();
         }
@@ -308,7 +302,88 @@ class CoreHelper {
 
     public static function isOnboarded(): bool
     {
-        return (bool) get_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_COMPLETED, false);
+        return (bool) get_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_COMPLETED, false)
+            || WordpressHelpers::isOnboardingCompleted();
+    }
+
+    /**
+     * Build the `pluginInformation` payload exposed on the `rankingCoachReactData`
+     * window object.
+     *
+     * This is the single, Symfony-free source of truth for the plugin information the
+     * React app (metabox, settings and connect/upsell areas) reads from the window.
+     * Every value comes from WordPress options / `inc` helpers — it never touches the
+     * app/src (DDD) layer. The shape mirrors the fields the React components actually
+     * consume from the (deprecated) pluginInformation REST response.
+     *
+     * @return array
+     */
+    public static function getPluginInformation(): array
+    {
+        $settings = SettingsManager::instance();
+
+        // Boolean plugin settings the React "General settings" screen reads. Defaults
+        // mirror the read sites elsewhere in the plugin (e.g. PostEventsManager,
+        // CoreHelper::manageHeartbeatService) for the rare case the option is unset.
+        $reactSettingKeys = [
+            'allow_seo_optimiser_on_saved_posts'  => false,
+            'allow_sync_keywords_to_rankingcoach' => false,
+            'enable_wp_cron_service'              => false,
+            'enable_broken_link_checker_job'      => false,
+            'beyondseo_comm_opt_in'               => false,
+            'disable_wp_heartbeat_service'        => true,
+            'open_rc_dashboard_in_new_tab'        => false,
+        ];
+        $pluginSettings = [];
+        foreach ($reactSettingKeys as $key => $default) {
+            $pluginSettings[$key] = (bool) $settings->get_option($key, $default);
+        }
+
+        $allowedCountries = $settings->get_option('allowed_countries', []);
+
+        // Map the stored subscription code (e.g. `seo_wp_free`, `annual_360`) to the
+        // display name the React app expects for `rcSubscriptionName` (e.g. "Free",
+        // "360"). Mirrors the mapping the pluginInformation REST endpoint uses.
+        $subscription = self::getSubscriptionFromOptions();
+        $subscriptionCode = is_array($subscription)
+            ? ($subscription['plan_name'] ?? $subscription['plan'] ?? '')
+            : (string) $subscription;
+        $subscriptionCode = strtolower(trim((string) $subscriptionCode));
+        $rcSubscriptionName = match ($subscriptionCode) {
+            'seo_ai_small', 'seo_wp_standard' => 'Standard',
+            'seo_ai_medium', 'seo_ai_medium2025', 'seo_wp_advanced', 'seo_wp_advanced2025' => 'Advanced',
+            'seo_ai_large', 'seo_wp_pro' => 'Pro',
+            'seo_ai_social', 'seo_wp_social' => 'Social',
+            'annual_360', 'monthly_360', '360_wp_test', '360_wp_test_annual',
+            'monthly_360_eu', 'annual_360_eu', 'monthly_360_int', 'annual_360_int',
+            'monthly_360_us', 'annual_360_us' => '360',
+            default => 'Free',
+        };
+
+        return [
+            'pluginData' => [
+                'version'  => defined('RANKINGCOACH_VERSION') ? RANKINGCOACH_VERSION : null,
+                // Cast to object so it serialises as a JSON object (not an array) for the
+                // React `Record<SettingsKeys, boolean>` consumers.
+                'settings' => (object) $pluginSettings,
+                'website'  => [
+                    'settings' => [
+                        'homeUrl'          => get_home_url(),
+                        'adminEmail'       => get_bloginfo('admin_email'),
+                        'allowedCountries' => (object) ((array) $allowedCountries),
+                    ],
+                ],
+                'setupData' => [
+                    'isPluginOnboarded'      => WordpressHelpers::isInternalOnboardingCompleted(),
+                    'isApplicationOnboarded' => WordpressHelpers::isExternalOnboardingCompleted(),
+                ],
+            ],
+            'rcSubscriptionName'  => $rcSubscriptionName,
+            'rcRemainingKeywords' => (int) get_option(BaseConstants::OPTION_SYNC_KEYWORDS_REMAINS_KEYWORDS, 99999),
+            'rcAccountId'         => get_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID, null),
+            'rcProjectId'         => get_option(BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID, null),
+            'userData'            => null,
+        ];
     }
 
     public static function buildUtmUrl(

@@ -23,6 +23,11 @@ final class ChannelResolver {
 
 
         [$channel, $proofs] = $this->detectChannel();
+
+        if ($channel === 'direct' && $saved && $saved !== 'direct') {
+            return $saved;
+        }
+
         $this->store->setChannel($channel, $proofs);
         return $channel;
     }
@@ -91,13 +96,6 @@ final class ChannelResolver {
             return ['ionos', $proofs];
         }
 
-        // IONOS via activation code: activation codes are distributed exclusively
-        // through the IONOS channel, so a stored code proves IONOS even when the
-        // ionos_group_brand option is absent.
-        if (get_option(BaseConstants::OPTION_ACTIVATION_CODE)) {
-            return ['ionos', ['activation_code']];
-        }
-
         // EXTENDIFY: resolve ONLY when both siteID and PartnerID are available
         // - siteID from option "extendify_site_id"
         // - PartnerID from option "extendify_partner_data_v2" (field "PartnerID") or fallback constant EXTENDIFY_PARTNER_ID
@@ -121,6 +119,20 @@ final class ChannelResolver {
             }
 
             return ['extendify', $proofs];
+        }
+
+        $subscription = get_option(BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION);
+        if (is_string($subscription)) {
+            $decoded = json_decode($subscription, true);
+            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                $subscription = $decoded;
+            }
+        }
+        if (is_array($subscription)) {
+            $subscription = $subscription['plan_name'] ?? $subscription['plan'] ?? '';
+        }
+        if (is_string($subscription) && str_starts_with(strtolower(trim($subscription)), 'seo_wp_')) {
+            return ['ionos', ['ionos_subscription']];
         }
 
         return ['direct', []];

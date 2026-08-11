@@ -6,7 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEODeps\Illuminate\Filesystem\Filesystem;
 use RankingCoach\Inc\Core\Frontend\ViteApp\Assets\Assets;
 use RankingCoach\Inc\Core\Frontend\ViteApp\Core\Config;
 use RankingCoach\Inc\Core\Frontend\ViteApp\Core\Hooks;
@@ -24,9 +23,6 @@ class ReactApp {
 
     /** @var object Used to store a Config instance */
     private object $config;
-
-    /** @var Filesystem Used to store a Filesystem instance */
-    private Filesystem $filesystem;
 
     /** @var array Used to store a Integrations instance */
     private static array $approvedIntegrations = [
@@ -65,7 +61,6 @@ class ReactApp {
 
         $this->assets       = self::init( new Assets() );
         $this->config       = self::init( new Config() );
-        $this->filesystem   = new Filesystem();
     }
 
     /**
@@ -126,16 +121,6 @@ class ReactApp {
      */
     public function config(): object {
         return $this->config;
-    }
-
-    /**
-     * Filesystem
-     * Attributes an instance of class Filesystem to a class property
-     *
-     * @return Filesystem
-     */
-    public function filesystem(): Filesystem {
-        return $this->filesystem;
     }
 
     /**

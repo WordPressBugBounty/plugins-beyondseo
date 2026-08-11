@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-25 09:07+0000\n"
+"PO-Revision-Date: 2026-08-11 06:34+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -8143,6 +8143,14 @@ msgstr "Vous avez actuellement cette offre"
 
 
 
+msgid "Missing setupRequirement."
+msgstr ""
+
+
+msgid "An unknown error occurred."
+msgstr ""
+
+
 msgid "Authentication Required"
 msgstr "Authentification requise"
 
@@ -8154,4 +8162,3 @@ msgstr "Réinitialiser et réactiver"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Besoin d'aide ? Contactez notre équipe d'assistance pour obtenir de l'aide."
-

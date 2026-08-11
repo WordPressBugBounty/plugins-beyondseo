@@ -266,7 +266,7 @@ class UpsellNotificationManager
                 'rankingcoach-dashboard-widget',
                 'RankingCoachDashboardWidget',
                 [
-                    'restUrl' => rest_url(RANKINGCOACH_REST_APP_BASE . '/onboarding/scanPages'),
+                    'restUrl' => rest_url(RANKINGCOACH_REST_APP_BASE . '/onboarding/scan'),
                     'nonce' => wp_create_nonce('wp_rest'),
                     'scanningText' => __('Scanning...', 'beyondseo')
                 ]

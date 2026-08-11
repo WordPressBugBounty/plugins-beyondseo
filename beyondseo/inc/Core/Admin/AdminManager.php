@@ -183,6 +183,7 @@ class AdminManager
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         // Add a div mounted in DOM, support for a floating component. In footer admin
         add_action('admin_footer', [$this, 'footer_block']);
+        add_action('admin_footer', [$this, 'admin_footer_scripts']);
         // Create admin pages
         add_action('admin_menu', [$this, 'create_admin_pages']);
         // Add admin-specific hooks here
@@ -384,6 +385,22 @@ class AdminManager
             return;
         }
         echo '<div id="seo-optimiser-rankingcoach-react" class="beyondseo"></div>';
+    }
+
+    /**
+     * Outputs custom admin footer scripts.
+     *
+     * @return void
+     */
+    public function admin_footer_scripts(): void
+    {
+        ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $('a[href*="grow.rankingcoach.com/wordpress/contact"]').attr('target', '_blank');
+            });
+        </script>
+        <?php
     }
 
     /**

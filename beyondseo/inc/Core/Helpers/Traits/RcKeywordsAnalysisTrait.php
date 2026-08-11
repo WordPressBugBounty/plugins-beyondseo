@@ -14,8 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Models\Configs\SeoOptimiserConfig;
-use BeyondSEODeps\DDD\Infrastructure\Libs\StringFuncs;
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Models\Configs\SeoOptimiserConfig;
 use DOMElement;
 use DOMNode;
 use DOMXPath;
@@ -101,7 +100,8 @@ trait RcKeywordsAnalysisTrait
         // Fallback to our own saved keywords if we have them
         $rcKeywords = get_post_meta($postId, BaseConstants::META_KEY_SEO_KEYWORDS, true);
         if (!empty($rcKeywords)) {
-            if (StringFuncs::isJson($rcKeywords)) {
+            $is_json = is_string($rcKeywords) && !empty($rcKeywords) && (str_starts_with(trim($rcKeywords), '{') || str_starts_with(trim($rcKeywords), '['));
+            if ($is_json) {
                 $decoded = json_decode(strtolower($rcKeywords), true);
                 if (is_array($decoded)) {
                     $secondaryKeywords = array_merge($secondaryKeywords, $decoded);
@@ -129,7 +129,8 @@ trait RcKeywordsAnalysisTrait
 
             if (!empty($keywords)) {
                 // Check if it's JSON encoded
-                if (StringFuncs::isJson($keywords)) {
+                $is_json = is_string($keywords) && !empty($keywords) && (str_starts_with(trim($keywords), '{') || str_starts_with(trim($keywords), '['));
+                if ($is_json) {
                     $decoded = json_decode(strtolower($keywords), true, 512, JSON_THROW_ON_ERROR);
                     if (is_array($decoded)) {
                         $secondaryKeywords = array_merge($secondaryKeywords, $decoded);

@@ -9,11 +9,6 @@ use Exception;
 use RankingCoach\Inc\Exceptions\UnsupportedContentTypeException;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Exceptions\ResponseValidationException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\ResponseInterface;
 use function apply_filters;
 use function beyondseo_rceh;
 
@@ -71,7 +66,7 @@ class HttpAPIResponseHandler {
 
 			$shouldThrow = apply_filters('rankingcoach_http_api_response_throw_exception', false, $errorDetails, $response);
 
-			if ($shouldThrow || $statusCode === 401) {
+			if ($statusCode === 401 || $shouldThrow) {
 				throw $exception;
 			}
 

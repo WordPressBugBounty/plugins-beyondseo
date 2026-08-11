@@ -12,7 +12,6 @@ use RankingCoach\Inc\Core\TokensManager;
 use RankingCoach\Inc\Exceptions\InvalidResponseException;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use ReflectionException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\HttpClientInterface;
 use function beyondseo_rceh;
 
 /**

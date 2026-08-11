@@ -5,17 +5,14 @@ namespace RankingCoach\Inc\Core\Api\Content;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\WebPages\WPWebPage;
 use Exception;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
-use RankingCoach\Inc\Core\PostEventsManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Core\Api\HttpApiClient;
 use ReflectionException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
 
 /**
@@ -63,44 +60,6 @@ class ContentApiManager extends HttpApiClient
 		?string $accessToken = null
 	) {
 		parent::__construct($defaultHeaders, $accessToken);
-	}
-
-	/**
-	 * Process a generic content request.
-	 *
-	 * @param string $url
-	 * @param WPWebPage|null $content The content entity.
-	 * @param bool $debug Whether to enable debug mode.
-	 *
-	 * @return array The response from the API.
-	 * @throws HttpApiException
-	 * @throws Exception
-	 */
-	public function processWebPageRequest(string $url, ?WPWebPage $content = null, bool $debug = false): array {
-		
-		// Set the URL
-		$this->setUrl($url);
-
-		if(!empty($content) && get_class($content)) {
-			// Sanitize the content entity
-			// $content->sanitizeContent();
-
-			$payload = $this->generateCommonSecurityPayload([
-				'webPage' => $content,
-				'user' => $content->author
-			]);
-		}
-
-		// Prepare security headers with the payload for signature
-		$this->prepareSecurityHeaders($this->getBearerToken(), $payload ?? []);
-
-		$response = $this->post($payload ?? []);
-		if ($debug) {
-			echo wp_json_encode($response);
-			die;
-		}
-
-		return $response;
 	}
 	
 	/**
@@ -330,14 +289,4 @@ class ContentApiManager extends HttpApiClient
 	    $instance = self::getInstance([], null, true);
 	    return $instance->synchronizeKeywords();
 	}
-
-    /**
-     * Static method to run SEO optimization operations for a given post ID.
-     *
-     * @param int $postId The ID of the post to run SEO optimization operations on.
-     */
-    public static function runSeoOptimizationOperations(int $postId): void
-    {
-        PostEventsManager::executeSeoOptimisation($postId);
-    }
 }

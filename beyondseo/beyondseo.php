@@ -20,7 +20,7 @@ if ( !defined('ABSPATH') ) {
  * @wordpress-plugin
  * Plugin Name:       BeyondSEO
  * Description:       Get found online with AI SEO, listings, reviews, social media, and Google Ads in one WordPress plugin. For SMBs & web professionals.
- * Version: 1.2.4
+ * Version: 1.3.0
  * RcAPI Version:     v1
  * WpAPI Version:     v1
  * Requires at least: 6.5
@@ -55,7 +55,7 @@ defined('RANKINGCOACH_PLUGIN_DIR')      || define('RANKINGCOACH_PLUGIN_DIR', plu
 /**
  * Include the core plugin class file
  */
-require_once RANKINGCOACH_PLUGIN_DIR . 'app/vendor/autoload.php';
+require_once RANKINGCOACH_PLUGIN_DIR . 'vendor/autoload.php';
 require_once RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Plugin/constants.php';
 require_once RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Plugin/functions.php';
 require_once RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Plugin/safe-polyfills.php';
@@ -76,16 +76,8 @@ use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
  */
 (function() {
     try {
-        // Load plugin requirements data from constants.php via functions.php
-        $plugin_data = beyondseo_rcppd(json_decode(RANKINGCOACH_PLUGIN_REQUIRES, true));
-
-        // Validate plugin data
-        if (!is_array($plugin_data)) {
-            throw new Exception('Failed to read plugin metadata.');
-        }
-
-        // Initialize the plugin with the requirements data
-        RankingCoachPlugin::instance($plugin_data)->initialize();
+        // Initialize the plugin
+        RankingCoachPlugin::instance()->initialize();
     } catch (Exception $e) {
         // Handle and render any exceptions that occur during initialization
         beyondseo_rcren($e);

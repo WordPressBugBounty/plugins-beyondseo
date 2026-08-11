@@ -219,8 +219,6 @@ class ActivationPage extends AdminPage
         update_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID, $accountId);
 
         $store = new OptionStore();
-        // Activation codes are only issued through the IONOS channel.
-        $store->setChannel('ionos', ['activation_code']);
         $store->updateFlowState(function ($flowState) {
             $flowState->registered   = true;
             $flowState->emailVerified = true;
@@ -340,8 +338,6 @@ class ActivationPage extends AdminPage
 
         // Mark activation as complete in flow state
         $store = new OptionStore();
-        // Activation codes are only issued through the IONOS channel.
-        $store->setChannel('ionos', ['activation_code']);
         $store->updateFlowState(function($flowState) {
             $flowState->registered = true;
             $flowState->emailVerified = true;

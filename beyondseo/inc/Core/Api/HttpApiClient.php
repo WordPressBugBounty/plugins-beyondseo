@@ -5,9 +5,7 @@ namespace RankingCoach\Inc\Core\Api;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-use BeyondSEODeps\DDD\Infrastructure\Validation\Constraints\Choice;
 use Exception;
-use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -47,12 +45,6 @@ class HttpApiClient {
 	protected bool $bypassOptIn = false;
 
 	/** @var string $methodType The method type. */
-	#[Choice( choices: [
-		self::CALL_METHOD_GET,
-		self::CALL_METHOD_POST,
-		self::CALL_METHOD_PATCH,
-		self::CALL_METHOD_DELETE
-	] )]
 	protected string $methodType = self::CALL_METHOD_GET;
 
 	protected array $allowedMethods = [
@@ -192,7 +184,7 @@ class HttpApiClient {
 		} catch ( HttpApiException $e ) {
 			$this->log( 'HTTP Exception ' . $e->getCode() . ' occurred: ' . $e->getMessage(), 'ERROR' );
 			$recovered = $this->handleUnauthorized($e);
-			
+
 			if ($recovered) {
 				// Re-prepare security headers with NEW token and retry once
 				$this->prepareSecurityHeaders($this->getBearerToken());
@@ -203,92 +195,9 @@ class HttpApiClient {
 					$this->log('Retry after recovery failed: ' . $retryEx->getMessage(), 'ERROR');
 				}
 			}
-			
+
 			throw $e;
 		}
-	}
-
-	/**
-	 * Handle 401 Unauthorized error by trying to revalidate with activation code.
-	 *
-	 * @param HttpApiException $e
-	 * @return bool True if recovery was successful, false otherwise.
-	 */
-	protected function handleUnauthorized(HttpApiException $e): bool {
-		if ($e->getCode() !== 401) {
-			return false;
-		}
-
-		$activationCode = get_option(BaseConstants::OPTION_ACTIVATION_CODE);
-		if (empty($activationCode)) {
-			return false;
-		}
-
-		// Prevent infinite recursion if the revalidation itself returns 401
-		static $isRefreshing = false;
-		if ($isRefreshing) {
-			return false;
-		}
-		$isRefreshing = true;
-
-		try {
-			return $this->revalidateWithActivationCode($activationCode);
-		} catch (Exception $ex) {
-			$this->log('Failed to revalidate with activation code: ' . $ex->getMessage(), 'ERROR');
-			return false;
-		} finally {
-			$isRefreshing = false;
-		}
-	}
-
-	/**
-	 * Revalidate the activation code to get new tokens.
-	 *
-	 * @param string $activationCode
-	 * @return bool
-	 * @throws Exception
-	 */
-	public function revalidateWithActivationCode(string $activationCode): bool {
-		$refreshClient = new HttpApiClient();
-		$refreshClient->setUrl('activation/check', 'publicApi');
-
-		$payload = CoreHelper::generateCommonSecurityPayload([
-			'activationCode' => $activationCode,
-		]);
-		$refreshClient->prepareSecurityHeaders($activationCode, $payload);
-
-		$response = $refreshClient->post($payload);
-
-		if (empty($response['content']) || empty($response['content']->success)) {
-			$this->log('Activation code revalidation failed or returned unsuccessful. Resetting activation data.', 'WARNING');
-			TokensManager::instance()->resetActivationData();
-			return false;
-		}
-
-		$result = $response['content'];
-		$refreshToken = $result->refreshToken ?? null;
-		
-		if (!$refreshToken) {
-			$this->log('No refresh token returned during activation code revalidation.', 'WARNING');
-			return false;
-		}
-
-		// Save new tokens
-		$tokensManager = TokensManager::instance();
-		$tokensManager->generateAndSaveAccessToken($refreshToken);
-
-		// Update account ID and settings if they are provided
-		if (!empty($result->accountId)) {
-			update_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID, $result->accountId);
-		}
-		if (isset($result->resellerAccount)) {
-			update_option(BaseConstants::OPTION_IS_RESELLER_ACCOUNT, $result->resellerAccount ? 1 : 0);
-		}
-		if (!empty($result->locationSetupSetting)) {
-			update_option(BaseConstants::OPTION_LOCATION_SETUP_SETTINGS, $result->locationSetupSetting);
-		}
-
-		return true;
 	}
 
 	/**
@@ -359,12 +268,7 @@ class HttpApiClient {
 			return;
 		}
 
-		$configPath = rtrim( defined( 'RANKINGCOACH_PLUGIN_APP_DIR' ) ? RANKINGCOACH_PLUGIN_APP_DIR : '', '/' )
-			. '/config/app/externalIntegrations.php';
-
-		if ( ! file_exists( $configPath ) ) {
-			$configPath = dirname( __FILE__, 4 ) . '/app/config/app/externalIntegrations.php';
-		}
+		$configPath = __DIR__ . '/externalIntegrations.php';
 
 		$this->configuration = require $configPath;
 
@@ -441,6 +345,89 @@ class HttpApiClient {
 	}
 
 	/**
+	 * Handle 401 Unauthorized error by trying to revalidate with activation code.
+	 *
+	 * @param HttpApiException $e
+	 * @return bool True if recovery was successful, false otherwise.
+	 */
+	protected function handleUnauthorized(HttpApiException $e): bool {
+		if ($e->getCode() !== 401) {
+			return false;
+		}
+
+		$activationCode = get_option(BaseConstants::OPTION_ACTIVATION_CODE);
+		if (empty($activationCode)) {
+			return false;
+		}
+
+		// Prevent infinite recursion if the revalidation itself returns 401
+		static $isRefreshing = false;
+		if ($isRefreshing) {
+			return false;
+		}
+		$isRefreshing = true;
+
+		try {
+			return $this->revalidateWithActivationCode($activationCode);
+		} catch (Exception $ex) {
+			$this->log('Failed to revalidate with activation code: ' . $ex->getMessage(), 'ERROR');
+			return false;
+		} finally {
+			$isRefreshing = false;
+		}
+	}
+
+	/**
+	 * Revalidate the activation code to get new tokens.
+	 *
+	 * @param string $activationCode
+	 * @return bool
+	 * @throws Exception
+	 */
+	public function revalidateWithActivationCode(string $activationCode): bool {
+		$refreshClient = new HttpApiClient();
+		$refreshClient->setUrl('activation/check', 'publicApi');
+
+		$payload = CoreHelper::generateCommonSecurityPayload([
+			'activationCode' => $activationCode,
+		]);
+		$refreshClient->prepareSecurityHeaders($activationCode, $payload);
+
+		$response = $refreshClient->post($payload);
+
+		if (empty($response['content']) || empty($response['content']->success)) {
+			$this->log('Activation code revalidation failed or returned unsuccessful. Resetting activation data.', 'WARNING');
+			TokensManager::instance()->resetActivationData();
+			return false;
+		}
+
+		$result = $response['content'];
+		$refreshToken = $result->refreshToken ?? null;
+
+		if (!$refreshToken) {
+			$this->log('No refresh token returned during activation code revalidation.', 'WARNING');
+			return false;
+		}
+
+		// Save new tokens
+		$tokensManager = TokensManager::instance();
+		$tokensManager->generateAndSaveAccessToken($refreshToken);
+
+		// Update account ID and settings if they are provided
+		if (!empty($result->accountId)) {
+			update_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID, $result->accountId);
+		}
+		if (isset($result->resellerAccount)) {
+			update_option(BaseConstants::OPTION_IS_RESELLER_ACCOUNT, $result->resellerAccount ? 1 : 0);
+		}
+		if (!empty($result->locationSetupSetting)) {
+			update_option(BaseConstants::OPTION_LOCATION_SETUP_SETTINGS, $result->locationSetupSetting);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Add a single header to the default headers.
 	 *
 	 * @param string $key The header name.
@@ -479,14 +466,14 @@ class HttpApiClient {
 		unset( $this->defaultHeaders['Authorization'] );
 	}
 
-	/**
-	 * @param array $options
-	 * @param array $securityHeaders
-	 *
-	 * @return array
-	 * @throws HttpApiException
-	 * @throws CommunicationOptInDisabledException
-	 */
+    /**
+     * @param array $options
+     * @param array $securityHeaders
+     *
+     * @return array
+     * @throws HttpApiException
+     * @throws CommunicationOptInDisabledException
+     */
 	public function sendClientRequest( array $options = [], array $securityHeaders = [] ): array {
         if ( !$this->bypassOptIn && !SettingsManager::instance()->get_option('beyondseo_comm_opt_in', false)) {
             throw new CommunicationOptInDisabledException( __( 'Communication opt-in is disabled.', 'beyondseo' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
@@ -499,7 +486,7 @@ class HttpApiClient {
 		$wpArgs = [
 			'method'      => $this->methodType,
 			'headers'     => $this->defaultHeaders,
-			'timeout'     => 720,
+			'timeout'     => 240,
 			'sslverify'   => true,
 			'redirection' => 5,
 		];

@@ -6295,6 +6295,18 @@
   "Agency or Enterprise? Talk to us": [
     ""
   ],
+  "Authentication Required": [
+    ""
+  ],
+  "Your session has expired or the activation is no longer valid. Please reactivate your account to continue.": [
+    ""
+  ],
+  "Reset and Reactivate": [
+    ""
+  ],
+  "Need help? Contact our support team for assistance.": [
+    ""
+  ],
   "Activation failed.": [
     ""
   ],
@@ -6493,16 +6505,10 @@
   "You currently have this plan": [
     ""
   ],
-  "Authentication Required": [
+  "Missing setupRequirement.": [
     ""
   ],
-  "Your session has expired or the activation is no longer valid. Please reactivate your account to continue.": [
-    ""
-  ],
-  "Reset and Reactivate": [
-    ""
-  ],
-  "Need help? Contact our support team for assistance.": [
+  "An unknown error occurred.": [
     ""
   ]
 }

@@ -7,7 +7,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Adapters\WordPressProvider;
+use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Settings\SettingsManager;

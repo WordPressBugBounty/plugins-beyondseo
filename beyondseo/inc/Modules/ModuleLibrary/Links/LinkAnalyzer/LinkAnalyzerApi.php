@@ -7,16 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use RankingCoach\Inc\Core\Helpers\Attributes\RcDocumentation;
 use RankingCoach\Inc\Modules\ModuleBase\BaseSubmoduleApi;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\GetAllLinksRequestDto;
 use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\GetAllLinksResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\GetLinksForPostRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\GetLinksForPostResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\IndexLinksRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\IndexLinksResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\ScanLinksRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\LinkAnalyzer\Dtos\ScanLinksResponseDto;
 use RankingCoach\Inc\Modules\ModuleManager;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -172,12 +164,6 @@ class LinkAnalyzerApi extends BaseSubmoduleApi {
      * @return WP_REST_Response The response
      * @throws \Exception
      */
-    #[RcDocumentation(
-        requestDto: GetAllLinksRequestDto::class,
-        responseDto: GetAllLinksResponseDto::class,
-        description: 'Get all links with pagination',
-        summary: 'Get All Links'
-    )]
     public function getAllLinks(WP_REST_Request $request): WP_REST_Response {
         $limit = (int) $request->get_param('limit') ?: 100;
         $offset = (int) $request->get_param('offset') ?: 0;
@@ -193,12 +179,6 @@ class LinkAnalyzerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request The request object
      * @return WP_REST_Response The response
      */
-    #[RcDocumentation(
-        requestDto: GetLinksForPostRequestDto::class,
-        responseDto: GetLinksForPostResponseDto::class,
-        description: 'Get links for a specific post',
-        summary: 'Get Links For Post'
-    )]
     public function getLinksForPost(WP_REST_Request $request): WP_REST_Response {
         $post_id = (int) $request->get_param('id');
         
@@ -221,12 +201,6 @@ class LinkAnalyzerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request The request object
      * @return WP_REST_Response The response
      */
-    #[RcDocumentation(
-        requestDto: IndexLinksRequestDto::class,
-        responseDto: IndexLinksResponseDto::class,
-        description: 'Index links from posts',
-        summary: 'Index Links'
-    )]
     public function indexLinks(WP_REST_Request $request): WP_REST_Response {
         $post_id = (int) $request->get_param('post_id') ?: 0;
 
@@ -249,12 +223,6 @@ class LinkAnalyzerApi extends BaseSubmoduleApi {
      * @return WP_REST_Response The response
      * @throws \Exception
      */
-    #[RcDocumentation(
-        requestDto: ScanLinksRequestDto::class,
-        responseDto: ScanLinksResponseDto::class,
-        description: 'Scan links for broken status',
-        summary: 'Scan Links'
-    )]
     public function scanLinks(WP_REST_Request $request): WP_REST_Response {
         $postId = (int) $request->get_param('post_id');
         $links = $this->module->getLinksForPost($postId);
@@ -273,12 +241,6 @@ class LinkAnalyzerApi extends BaseSubmoduleApi {
      *
      * @throws \Exception
      */
-    #[RcDocumentation(
-        requestDto: IndexLinksRequestDto::class,
-        responseDto: IndexLinksResponseDto::class,
-        description: 'Verify links for status',
-        summary: 'Verify Links'
-    )]
     public function verifyLinks(WP_REST_Request $request): WP_REST_Response {
         $postId = (int) $request->get_param('post_id');
         $links = $this->module->getAllLinks($postId);

@@ -13,8 +13,6 @@ add_filter('wp_plugin_check_ignore_directories', function(array $directories): a
     $directories[] = 'shell';
     // Add tools directory to ignored directories
     $directories[] = 'tools';
-    // Add app/var directory to ignored directories
-    $directories[] = 'app/var';
     // Add react directory to ignored directories
     $directories[] = 'react';
     // Add react directory to ignored directories
@@ -59,16 +57,6 @@ add_filter('wp_plugin_check_ignore_files', function(array $files): array {
         }
     }
 
-    // Add app/var directory to ignored directories
-    $app_var_files = glob(RANKINGCOACH_PLUGIN_DIR . 'app/var/*.php');
-    if ($app_var_files) {
-        foreach ($app_var_files as $file) {
-            // Convert absolute path to relative path from plugin root
-            $relative_path = str_replace(RANKINGCOACH_PLUGIN_DIR, '', $file);
-            $files[] = ltrim($relative_path, '/');
-        }
-    }
-
     // Add react directory to ignored directories
     // Note: This assumes that the react directory contains all kind of files that should be ignored
     $react_files = glob(RANKINGCOACH_PLUGIN_DIR . 'react/**/*.*');
@@ -95,9 +83,6 @@ add_filter('wp_plugin_check_ignore_files', function(array $files): array {
         '.DS_Store',
         '.gitignore',
         '.kilocodeignore',
-        'app/.DS_Store',
-        'app/.gitignore',
-        'app/.env',
     ];
     foreach ($specific_files as $file) {
         // Convert absolute path to relative path from plugin root

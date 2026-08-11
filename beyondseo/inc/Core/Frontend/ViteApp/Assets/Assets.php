@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
+use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
@@ -68,7 +69,8 @@ class Assets {
             'isOnboardingCompleted' => WordpressHelpers::isOnboardingCompleted(),
             'brandName' => RANKINGCOACH_BRAND_NAME,
             'brandSlug' => RANKINGCOACH_BRAND_SLUG,
-            'countryShortCode' => $countryShortCode
+            'countryShortCode' => $countryShortCode,
+            'pluginInformation' => $this->getPluginInformationData()
         ];
 
         if (WordpressHelpers::is_edit_post_context()) {
@@ -173,6 +175,7 @@ class Assets {
             'channel' => $channel,
             'registrationShowEmail' => $showEmail,
             'registrationShowActivation' => $showActivation,
+            'pluginInformation' => $this->getPluginInformationData(),
         ];
 
         $post_id = WordpressHelpers::sanitize_input('GET', 'post');
@@ -216,6 +219,33 @@ class Assets {
     private const DEFAULT_MAP_LOCALE = 'en-us';
 
     /**
+     * Build the `pluginInformation` payload for the localized `rankingCoachReactData`
+     * window object.
+     *
+     * The React app (metabox, settings and connect/upsell areas) reads plugin
+     * information from this window object and only falls back to the
+     * `pluginInformation` REST endpoint when it is absent. Exposing it here makes
+     * those areas autonomous and removes an API round-trip on page load.
+     *
+     * The payload is assembled entirely from WordPress options / `inc` helpers via
+     * CoreHelper::getPluginInformation() — it does not touch the app/src (DDD/Symfony)
+     * layer. On any failure we return null so asset loading never breaks; the React
+     * app then transparently falls back to the API call.
+     *
+     * @return array|null
+     */
+    private function getPluginInformationData(): ?array {
+        try {
+            return CoreHelper::getPluginInformation();
+        } catch ( Throwable $e ) {
+            if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+                error_log( '[rankingcoach] Failed to build pluginInformation for window: ' . $e->getMessage() );
+            }
+            return null;
+        }
+    }
+
+    /**
      * Convert a WordPress locale (en_US, de_DE_formal, ...) to a map URL locale,
      * falling back to en-us when the language is not supported.
      *
@@ -247,7 +277,7 @@ class Assets {
      */
     private function generateMapUrl(bool $reload = false): string {
         // Load the configuration
-        $config = require RANKINGCOACH_PLUGIN_APP_DIR . 'config/app/externalIntegrations.php';
+        $config = require RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php';
         $rawLocale = WordpressHelpers::get_wp_locale() ?? 'en_US';
         $locale = $this->formatLocaleForMapUrl($rawLocale);
 

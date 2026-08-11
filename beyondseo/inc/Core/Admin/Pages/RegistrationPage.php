@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Infrastructure\Traits\ResponseErrorTrait;
+use RankingCoach\Inc\Traits\ResponseErrorTrait;
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Admin\AdminPage;
 use RankingCoach\Inc\Core\Api\User\UserApiManager;
@@ -442,6 +442,24 @@ class RegistrationPage extends AdminPage
             [
                 'methods'  => 'GET',
                 'callback' => [$this, 'handleFlowGuardState'],
+                'permission_callback' => function (WP_REST_Request $request) {
+                    if (!current_user_can('manage_options')) {
+                        return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
+                    }
+                    if (!$this->verifyRestNonce($request)) {
+                        return new WP_Error('invalid_nonce', __('Nonce verification failed.', 'beyondseo'), ['status' => 403]);
+                    }
+                    return true;
+                },
+            ]
+        );
+
+        register_rest_route(
+            RANKINGCOACH_REST_API_BASE,
+            '/flowguard/state/reset',
+            [
+                'methods'  => 'POST',
+                'callback' => [$this, 'handleFlowGuardStateReset'],
                 'permission_callback' => function (WP_REST_Request $request) {
                     if (!current_user_can('manage_options')) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);

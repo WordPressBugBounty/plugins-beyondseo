@@ -8,11 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\WebPages\Content\Elements\MetaTags\WPWebPageMetaTag;
 use Exception;
 use InvalidArgumentException;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\SocialMediaHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
@@ -100,9 +101,9 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         ];
         parent::__construct($moduleManager, $initialization);
 
-        $this->titleKey = strtolower(WPWebPageMetaTag::TAG_TYPE_TITLE);
-        $this->descriptionKey = strtolower(WPWebPageMetaTag::TAG_TYPE_DESCRIPTION);
-        $this->keywordsKey = strtolower(WPWebPageMetaTag::TAG_TYPE_KEYWORDS);
+        $this->titleKey = 'title';
+        $this->descriptionKey = 'description';
+        $this->keywordsKey = 'keywords';
     }
 
     /**
@@ -118,7 +119,109 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         // Define capabilities specific to the module
         $this->defineCapabilities();
 
+        add_filter('get_post_metadata', [self::class, 'filterPostMetadata'], 10, 4);
+
         parent::initializeModule();
+    }
+
+    /**
+     * Filters legacy post-meta reads for SEO/social title & description to resolve
+     * the stored template on-the-fly, avoiding stale values when the referenced
+     * post data (e.g. post title) changes without re-saving the SEO template.
+     *
+     * @param mixed $value The value to return (single or array of values).
+     * @param int $object_id The post ID.
+     * @param string $meta_key The meta key being requested.
+     * @param bool $single Whether to return a single value.
+     * @return mixed
+     */
+    public static function filterPostMetadata($value, $object_id, $meta_key, $single)
+    {
+        $keys = [
+            self::META_SEO_TITLE => 'title',
+            self::META_SEO_DESCRIPTION => 'description',
+            self::META_SOCIAL_TITLE => 'social_title',
+            self::META_SOCIAL_DESCRIPTION => 'social_description',
+            self::META_VIEWPORT => 'viewport',
+        ];
+
+        $keywordKeys = [
+            BaseConstants::META_KEY_SEO_KEYWORDS,
+            BaseConstants::META_KEY_PRIMARY_KEYWORD,
+            self::META_SEO_SECONDARY_KEYWORDS,
+        ];
+
+        if (in_array($meta_key, $keywordKeys, true)) {
+            return self::filterKeywordsMetadata($value, (int) $object_id, $meta_key, $single);
+        }
+
+        if (!isset($keys[$meta_key])) {
+            return $value;
+        }
+
+        // Directly query the custom table to avoid get_post_meta() recursion.
+        $row = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
+            ->select(['template'])
+            ->where('post_id', $object_id)
+            ->where('type', $keys[$meta_key])
+            ->first();
+
+        if ($row && !empty($row->template)) {
+            $resolved = WordpressHelpers::resolveTemplate((int) $object_id, $row->template);
+            return $single ? $resolved : [$resolved];
+        }
+
+        return $value;
+    }
+
+    /**
+     * Resolves legacy keyword-related post-meta reads from the custom table's
+     * 'keywords' row, which stores a JSON payload of primary/additional keywords.
+     *
+     * @param mixed $value The value to return (single or array of values).
+     * @param int $object_id The post ID.
+     * @param string $meta_key The meta key being requested.
+     * @param bool $single Whether to return a single value.
+     * @return mixed
+     */
+    private static function filterKeywordsMetadata($value, int $object_id, string $meta_key, bool $single)
+    {
+        $row = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
+            ->select(['template'])
+            ->where('post_id', $object_id)
+            ->where('type', 'keywords')
+            ->first();
+
+        if (!$row || empty($row->template)) {
+            return $value;
+        }
+
+        try {
+            $data = json_decode($row->template, true, 512, JSON_THROW_ON_ERROR) ?: [];
+        } catch (Exception $e) {
+            return $value;
+        }
+
+        $primaryKeyword = $data['primaryKeyword'] ?? '';
+        $additionalKeywords = $data['additionalKeywords'] ?? [];
+
+        switch ($meta_key) {
+            case BaseConstants::META_KEY_PRIMARY_KEYWORD:
+                $resolved = $primaryKeyword;
+                break;
+            case self::META_SEO_SECONDARY_KEYWORDS:
+                $resolved = implode(',', $additionalKeywords);
+                break;
+            case BaseConstants::META_KEY_SEO_KEYWORDS:
+            default:
+                $allKeywords = array_filter(array_merge([$primaryKeyword], $additionalKeywords));
+                $resolved = implode(',', $allKeywords);
+                break;
+        }
+
+        return $single ? $resolved : [$resolved];
     }
 
     /**
@@ -146,16 +249,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             id int(11) NOT NULL AUTO_INCREMENT,
             post_id bigint(20) NOT NULL,
             type ENUM('title', 'social_title', 'description', 'social_description', 'keywords', 'viewport') NOT NULL,
-            content text NOT NULL,
             template text NOT NULL,
-            auto_generated tinyint(1) NOT NULL,
-            variables text NOT NULL,
-            unique_key varchar(255) NOT NULL,
             PRIMARY KEY  (id),
         	UNIQUE KEY unique_post_type (post_id, type),
         	KEY idx_post_id (post_id),
-        	KEY idx_unique_key (unique_key),
-        	KEY idx_auto_generated (auto_generated),
         	KEY idx_post_type (post_id, type)
         ) $charset_collate;";
     }
@@ -241,10 +338,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         if (isset($payload[$this->titleKey])) {
             $title = $this->sanitizeMetaValue($payload[$this->titleKey]);
             if (!empty($title)) {
-                update_post_meta($contentID, self::META_SEO_TITLE, $title);
+                $this->upsertTag($contentID, 'title', $title);
                 $operations[] = 'seo_title_updated';
             } else {
-                delete_post_meta($contentID, self::META_SEO_TITLE);
+                $this->deleteTag($contentID, 'title');
                 $operations[] = 'seo_title_deleted';
             }
         }
@@ -253,10 +350,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         if (isset($payload[$this->descriptionKey])) {
             $description = $this->sanitizeMetaValue($payload[$this->descriptionKey]);
             if (!empty($description)) {
-                update_post_meta($contentID, self::META_SEO_DESCRIPTION, $description);
+                $this->upsertTag($contentID, 'description', $description);
                 $operations[] = 'seo_description_updated';
             } else {
-                delete_post_meta($contentID, self::META_SEO_DESCRIPTION);
+                $this->deleteTag($contentID, 'description');
                 $operations[] = 'seo_description_deleted';
             }
         }
@@ -272,17 +369,17 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function processSocialMetadata(int $contentID, array $payload, array &$operations): void
     {
-        $socialTitleKey = strtolower(WPWebPageMetaTag::TAG_TYPE_SOCIAL_TITLE);
-        $socialDescriptionKey = strtolower(WPWebPageMetaTag::TAG_TYPE_SOCIAL_DESCRIPTION);
+        $socialTitleKey = 'social_title';
+        $socialDescriptionKey = 'social_description';
 
         // Process social title
         if (isset($payload[$socialTitleKey])) {
             $socialTitle = $this->sanitizeMetaValue($payload[$socialTitleKey]);
             if (!empty($socialTitle)) {
-                update_post_meta($contentID, self::META_SOCIAL_TITLE, $socialTitle);
+                $this->upsertTag($contentID, 'social_title', $socialTitle);
                 $operations[] = 'social_title_updated';
             } else {
-                delete_post_meta($contentID, self::META_SOCIAL_TITLE);
+                $this->deleteTag($contentID, 'social_title');
                 $operations[] = 'social_title_deleted';
             }
         }
@@ -291,13 +388,52 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         if (isset($payload[$socialDescriptionKey])) {
             $socialDescription = $this->sanitizeMetaValue($payload[$socialDescriptionKey]);
             if (!empty($socialDescription)) {
-                update_post_meta($contentID, self::META_SOCIAL_DESCRIPTION, $socialDescription);
+                $this->upsertTag($contentID, 'social_description', $socialDescription);
                 $operations[] = 'social_description_updated';
             } else {
-                delete_post_meta($contentID, self::META_SOCIAL_DESCRIPTION);
+                $this->deleteTag($contentID, 'social_description');
                 $operations[] = 'social_description_deleted';
             }
         }
+    }
+
+    /**
+     * Upsert a tag row in the custom table.
+     *
+     * @param int $postId
+     * @param string $type
+     * @param string $template
+     */
+    private function upsertTag(int $postId, string $type, string $template): void
+    {
+        DatabaseManager::getInstance()->insertOrUpdate(
+            DatabaseTablesManager::DATABASE_MOD_METATAGS,
+            [
+                'post_id'  => $postId,
+                'type'     => $type,
+                'template' => $template,
+            ],
+            [
+                'template' => $template,
+            ]
+        );
+    }
+
+    /**
+     * Delete a tag row from the custom table.
+     *
+     * @param int $postId
+     * @param string $type
+     */
+    private function deleteTag(int $postId, string $type): void
+    {
+        DatabaseManager::getInstance()->delete(
+            DatabaseTablesManager::DATABASE_MOD_METATAGS,
+            [
+                'post_id' => $postId,
+                'type'    => $type,
+            ]
+        );
     }
 
     /**
@@ -326,33 +462,34 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             return;
         }
 
-        // Store the original keywords
-        update_post_meta($contentID, BaseConstants::META_KEY_SEO_KEYWORDS, $keywordsString);
         $operations[] = 'keywords_updated';
 
         // Parse and separate primary/secondary keywords
         $keywordsArray = $this->parseKeywordsArray($keywordsString);
         
+        $primaryKeyword = '';
+        $secondaryArray = [];
+
         if (!empty($keywordsArray)) {
             $primaryKeyword = array_shift($keywordsArray);
-            
-            // Update primary keyword
-            update_post_meta($contentID, BaseConstants::META_KEY_PRIMARY_KEYWORD, $primaryKeyword);
+            $secondaryArray = $keywordsArray;
             $operations[] = 'primary_keyword_updated';
-            
-            // Update secondary keywords
-            if (!empty($keywordsArray)) {
-                $secondaryKeywords = implode(',', $keywordsArray);
-                update_post_meta($contentID, self::META_SEO_SECONDARY_KEYWORDS, $secondaryKeywords);
+
+            if (!empty($secondaryArray)) {
                 $operations[] = 'secondary_keywords_updated';
             } else {
-                delete_post_meta($contentID, self::META_SEO_SECONDARY_KEYWORDS);
                 $operations[] = 'secondary_keywords_deleted';
             }
         } else {
             $this->cleanupKeywordsMeta($contentID);
             $operations[] = 'keywords_cleaned_invalid';
         }
+
+        // Save to native MetaTags table
+        $this->upsertTag($contentID, 'keywords', (string) wp_json_encode([
+            'primaryKeyword'     => $primaryKeyword,
+            'additionalKeywords' => array_values($secondaryArray),
+        ]));
     }
 
     /**
@@ -408,9 +545,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function cleanupKeywordsMeta(int $contentID): void
     {
-        delete_post_meta($contentID, BaseConstants::META_KEY_SEO_KEYWORDS);
-        delete_post_meta($contentID, BaseConstants::META_KEY_PRIMARY_KEYWORD);
-        delete_post_meta($contentID, self::META_SEO_SECONDARY_KEYWORDS);
+        $this->deleteTag($contentID, 'keywords');
     }
 
     /**
@@ -428,10 +563,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         if (isset($payload[$viewportKey])) {
             $viewport = $this->sanitizeViewportValue($payload[$viewportKey]);
             if (!empty($viewport)) {
-                update_post_meta($contentID, self::META_VIEWPORT, $viewport);
+                $this->upsertTag($contentID, 'viewport', $viewport);
                 $operations[] = 'viewport_updated';
             } else {
-                delete_post_meta($contentID, self::META_VIEWPORT);
+                $this->deleteTag($contentID, 'viewport');
                 $operations[] = 'viewport_deleted';
             }
             
@@ -1091,5 +1226,189 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     public function getMetaTagsPriority(): int {
         return 5;
+    }
+
+    /**
+     * Parse a legacy template string into a structured JSON array.
+     *
+     * @param string $template
+     * @return array
+     */
+    private function parseLegacyTemplateToArray(string $template): array
+    {
+        $trimmed = trim($template);
+        if (str_starts_with($trimmed, '[') && str_ends_with($trimmed, ']')) {
+            try {
+                $decoded = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
+                if (is_array($decoded)) {
+                    return $decoded;
+                }
+            } catch (\Throwable $e) {
+            }
+        }
+
+        if ($template === '') {
+            return [];
+        }
+
+        $pattern = '/({% (variable|separator):([a-zA-Z0-9_-]+) %})/';
+        $parts = preg_split($pattern, $template, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+        $result = [];
+        $i = 0;
+        while ($i < count($parts)) {
+            $text = $parts[$i];
+            if ($text !== '') {
+                $result[] = [
+                    'type'    => 'text',
+                    'content' => $text,
+                ];
+            }
+            if (isset($parts[$i + 1])) {
+                $type = $parts[$i + 2];
+                $key = $parts[$i + 3];
+                $result[] = [
+                    'type' => $type,
+                    'key'  => $key,
+                ];
+                $i += 4;
+            } else {
+                $i++;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
+     * Map a metadata database row to the structured response format.
+     *
+     * @param array $row
+     * @param string $type
+     * @return array
+     */
+    private function mapRowToResponse(array $row, string $type): array
+    {
+        $template = $row['template'] ?? '';
+
+        $mapped = [
+            'id'       => (int) ($row['id'] ?? 0),
+            'postId'   => (int) ($row['post_id'] ?? 0),
+            'type'     => $row['type'] ?? $type,
+        ];
+
+        if (in_array($type, ['title', 'description', 'social_title', 'social_description'], true)) {
+            $mapped['template'] = $this->parseLegacyTemplateToArray($template);
+        } else {
+            $mapped['template'] = $template;
+        }
+
+        if ($type === 'keywords') {
+            try {
+                $keywordsData = json_decode($template, true, 512, JSON_THROW_ON_ERROR) ?: [];
+            } catch (\Throwable $e) {
+                $keywordsData = [];
+            }
+            $mapped['primaryKeyword']     = $keywordsData['primaryKeyword'] ?? '';
+            $mapped['additionalKeywords'] = $keywordsData['additionalKeywords'] ?? [];
+        }
+
+        return $mapped;
+    }
+
+    /**
+     * Retrieve a metadata row from the database.
+     *
+     * @param int $postId
+     * @param string $type
+     * @return array|null
+     */
+    private function getTagRow(int $postId, string $type): ?array
+    {
+        $row = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
+            ->select(['*'])
+            ->where('post_id', $postId)
+            ->where('type', $type)
+            ->first();
+
+        return $row ? (array) $row : null;
+    }
+
+    /**
+     * Retrieve all metadata for a post structured for the API, with fallback logic.
+     *
+     * @param int $postId
+     * @return array
+     */
+    public function getMetaTagsData(int $postId): array
+    {
+        $titleRow = $this->getTagRow($postId, 'title');
+        $descRow  = $this->getTagRow($postId, 'description');
+        $kwRow    = $this->getTagRow($postId, 'keywords');
+        $socialTitleRow = $this->getTagRow($postId, 'social_title');
+        $socialDescRow = $this->getTagRow($postId, 'social_description');
+
+        $response = [
+            'title'             => $titleRow ? $this->mapRowToResponse($titleRow, 'title') : null,
+            'description'       => $descRow  ? $this->mapRowToResponse($descRow, 'description') : null,
+            'keywords'          => $kwRow    ? $this->mapRowToResponse($kwRow, 'keywords') : null,
+            'socialTitle'       => $socialTitleRow ? $this->mapRowToResponse($socialTitleRow, 'social_title') : null,
+            'socialDescription' => $socialDescRow ? $this->mapRowToResponse($socialDescRow, 'social_description') : null,
+        ];
+
+        if ($response['title'] === null) {
+            $template = get_post_meta($postId, 'rankingcoach_seo_title_template', true)
+                ?: (get_post_meta($postId, 'rankingcoach_seo_title', true) ?: (get_post_meta($postId, '_yoast_wpseo_title', true) ?: get_the_title($postId)));
+
+            $response['title'] = $this->mapRowToResponse([
+                'id'      => 0,
+                'post_id' => $postId,
+                'type'    => 'title',
+                'template' => $template,
+            ], 'title');
+        }
+
+        if ($response['description'] === null) {
+            $template = get_post_meta($postId, 'rankingcoach_seo_description_template', true)
+                ?: (get_post_meta($postId, 'rankingcoach_seo_description', true) ?: (get_post_meta($postId, '_yoast_wpseo_metadesc', true) ?: ''));
+
+            $response['description'] = $this->mapRowToResponse([
+                'id'      => 0,
+                'post_id' => $postId,
+                'type'    => 'description',
+                'template' => $template,
+            ], 'description');
+        }
+
+        if ($response['socialTitle'] === null) {
+            $template = get_post_meta($postId, 'rankingcoach_social_title', true)
+                ?: (get_post_meta($postId, 'rankingcoach_og_title', true) ?: get_post_meta($postId, 'rankingcoach_twitter_title', true));
+
+            $response['socialTitle'] = $this->mapRowToResponse([
+                'id'      => 0,
+                'post_id' => $postId,
+                'type'    => 'social_title',
+                'template' => $template ?: '',
+            ], 'social_title');
+        }
+
+        if ($response['socialDescription'] === null) {
+            $template = get_post_meta($postId, 'rankingcoach_social_description', true)
+                ?: (get_post_meta($postId, 'rankingcoach_og_description', true) ?: get_post_meta($postId, 'rankingcoach_twitter_description', true));
+
+            $response['socialDescription'] = $this->mapRowToResponse([
+                'id'      => 0,
+                'post_id' => $postId,
+                'type'    => 'social_description',
+                'template' => $template ?: '',
+            ], 'social_description');
+        }
+
+        $response['selectedImageSource'] = SocialMediaHelper::getSelectedSocialImageSource($postId);
+        $response['selectedImageUrl'] = SocialMediaHelper::getSelectedSocialImageUrl($postId);
+        $response['imageSources'] = SocialMediaHelper::getSocialImageSources($postId);
+
+        return $response;
     }
 }

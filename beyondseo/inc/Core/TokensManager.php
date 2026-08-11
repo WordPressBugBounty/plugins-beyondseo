@@ -11,7 +11,6 @@ use RankingCoach\Inc\Exceptions\CommunicationOptInDisabledException;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Core\Api\Tokens\TokensApiManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
-use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Exceptions\InvalidTokenException;
 use RankingCoach\Inc\Exceptions\MissingTokenException;
@@ -290,60 +289,60 @@ class TokensManager
         return round(($currentTime - $expiration) / (24 * 60 * 60)) ?? 0;
     }
 
-	/**
-	 * Reset all onboarding, activation, and other constants related to a successful activation.
-	 *
-	 * @return void
-	 */
-	public function resetActivationData(): void {
-		// 1. Delete Tokens
-		$this->deleteTokens();
+    /**
+     * Check the status of the iframe URL.
+     * @param string $iframeUrl
+     * @return int|null
+     */
+    public function checkIframeUrlStatus(string $iframeUrl): ?int {
+        $response = wp_remote_get($iframeUrl, [
+            'redirection' => 0,
+            'timeout'     => 10,
+        ]);
 
-		// 2. Delete Activation Code and Account info
-		delete_option( BaseConstants::OPTION_ACTIVATION_CODE );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID );
+        return is_wp_error($response)
+            ? null
+            : wp_remote_retrieve_response_code($response);
+    }
 
-		// 3. Delete Subscription Data
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION_HISTORY );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS );
+    /**
+     * Reset all onboarding, activation, and other constants related to a successful activation.
+     *
+     * @return void
+     */
+    public function resetActivationData(): void {
+        // 1. Delete Tokens
+        $this->deleteTokens();
 
-		// 4. Delete Onboarding status
-		delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_COMPLETED );
-		delete_option( BaseConstants::OPTION_ONBOARDING_COLLECT_DATE );
-		delete_option( BaseConstants::OPTION_ONBOARDING_FINISH_DATE );
-		delete_option( BaseConstants::OPTION_ONBOARDING_STEPS );
-		delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC );
-		delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC_LAST_UPDATE );
-		delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP );
-		delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP_LAST_UPDATE );
-		delete_option( BaseConstants::OPTION_RANKINGCOACH_ONBOARDING_URL );
+        // 2. Delete Activation Code and Account info
+        delete_option( BaseConstants::OPTION_ACTIVATION_CODE );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID );
 
-		// 5. Delete Settings/Setup
-		delete_option( BaseConstants::OPTION_IS_RESELLER_ACCOUNT );
-		delete_option( BaseConstants::OPTION_LOCATION_SETUP_SETTINGS );
-		delete_option( BaseConstants::OPTION_ACCOUNT_SETUP_SETTINGS );
+        // 3. Delete Subscription Data
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION_HISTORY );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS );
 
-		// 6. Reset Flow State / FlowGuard
-		$store = new OptionStore();
-		$store->resetFlowGuardState();
-	}
+        // 4. Delete Onboarding status
+        delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_COMPLETED );
+        delete_option( BaseConstants::OPTION_ONBOARDING_COLLECT_DATE );
+        delete_option( BaseConstants::OPTION_ONBOARDING_FINISH_DATE );
+        delete_option( BaseConstants::OPTION_ONBOARDING_STEPS );
+        delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC );
+        delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC_LAST_UPDATE );
+        delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP );
+        delete_option( BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP_LAST_UPDATE );
+        delete_option( BaseConstants::OPTION_RANKINGCOACH_ONBOARDING_URL );
 
-	/**
-	 * Check the status of the iframe URL.
-	 * @param string $iframeUrl
-	 * @return int|null
-	 */
-	public function checkIframeUrlStatus(string $iframeUrl): ?int {
-		$response = wp_remote_get($iframeUrl, [
-			'redirection' => 0,
-			'timeout'     => 10,
-		]);
+        // 5. Delete Settings/Setup
+        delete_option( BaseConstants::OPTION_IS_RESELLER_ACCOUNT );
+        delete_option( BaseConstants::OPTION_LOCATION_SETUP_SETTINGS );
+        delete_option( BaseConstants::OPTION_ACCOUNT_SETUP_SETTINGS );
 
-		return is_wp_error($response)
-			? null
-			: wp_remote_retrieve_response_code($response);
-	}
+        // 6. Reset Flow State
+        $store = new OptionStore();
+        $store->resetFlowStateOnly();
+    }
 }

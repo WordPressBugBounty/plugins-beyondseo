@@ -6,7 +6,6 @@ namespace RankingCoach\Inc\Core\Api;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use RankingCoach\Inc\Exceptions\HttpApiException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 /**
  * Class RetryHandler

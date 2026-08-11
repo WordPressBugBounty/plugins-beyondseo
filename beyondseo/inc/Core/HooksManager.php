@@ -9,8 +9,7 @@ if ( !defined('ABSPATH') ) {
 }
 
 use ActionScheduler;
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\Optimiser\Base\Adapters\WordPressProvider;
-use BeyondSEODeps\Doctrine\Persistence\Mapping\MappingException;
+use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Admin\WpCronDisabledNotice;
@@ -22,6 +21,8 @@ use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\Frontend\FrontendManager;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Initializers\Hooks;
+use RankingCoach\Inc\Core\PluginConfiguration;
+use RankingCoach\Inc\Core\NotificationManager;
 use RankingCoach\Inc\Core\Jobs\AccountSyncJob;
 use RankingCoach\Inc\Core\Jobs\BrokenLinkCheckerJob;
 use RankingCoach\Inc\Core\Jobs\LogCleanupJob;
@@ -265,7 +266,6 @@ class HooksManager
      */
     public function registerEarlyComponents(): void
     {
-        $this->registerAutoUpdater();
     }
 
     /**
@@ -383,7 +383,6 @@ class HooksManager
 
         // Load the Dev tools only in local or staging environments
         if (
-            wp_get_environment_type() !== 'production' &&
             file_exists(RANKINGCOACH_PLUGIN_DIR . 'tools/Dev/bootstrap.php')
         ) {
             require_once RANKINGCOACH_PLUGIN_DIR . 'tools/Dev/bootstrap.php';
@@ -540,17 +539,6 @@ class HooksManager
     }
 
     /**
-     * Registers the auto-updater functionality.
-     * @return void
-     * @throws MappingException
-     */
-    public function registerAutoUpdater(): void
-    {
-        /** @var CustomVersionLoader $autoUpdater */
-        CustomVersionLoader::getInstance();
-    }
-
-    /**
      * Loads custom integrations.
      * @return void
      */
@@ -599,6 +587,17 @@ class HooksManager
 
             // Check if our plugin is in the list of updated plugins
             if (isset($hook_extra['plugins']) && in_array($plugin_basename, $hook_extra['plugins'])) {
+
+                // Sync plugin version to wp_options
+                try {
+                    $pluginData = PluginConfiguration::getInstance()->getPluginData();
+                    $currentVersion = $pluginData['Version'] ?? '';
+                    if (!empty($currentVersion)) {
+                        update_option(BaseConstants::OPTION_PLUGIN_VERSION, $currentVersion);
+                    }
+                } catch (Throwable $e) {
+                    $this->log('Failed to sync plugin version on update: ' . $e->getMessage(), 'ERROR');
+                }
 
                 // Sync new settings from WPSettings without altering existing values
                 SettingsManager::instance()->syncNewSettingsFromDefaults();

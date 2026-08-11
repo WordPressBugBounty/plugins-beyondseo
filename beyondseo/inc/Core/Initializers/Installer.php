@@ -13,7 +13,6 @@ use ActionScheduler_Store;
 use Elementor\Core\Admin\Admin;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
-use RankingCoach\Inc\Core\CustomVersionLoader;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
@@ -116,9 +115,6 @@ class Installer implements InitializerInterface
      * @throws Throwable
      */
     public function initializeHooks(): void {
-        // Initialize CustomVersionLoader early to ensure version tracking works in all contexts
-        $this->initializeCustomVersionLoader();
-
         // Initialize the hook actions manager
         (new Hooks(new HooksManager()))->initialize();
 
@@ -166,20 +162,6 @@ class Installer implements InitializerInterface
         // If that setting is not in the database, it will be added
         // If it is in the database, it will not be overwritten
         SettingsManager::instance()->registerDefaultSettings();
-    }
-
-    /**
-     * Initializes the CustomVersionLoader to ensure version tracking works in all contexts.
-     * 
-     * @return void
-     */
-    private function initializeCustomVersionLoader(): void {
-        try {
-            // Initialize CustomVersionLoader early to ensure it's available in all update contexts
-            CustomVersionLoader::getInstance();
-        } catch (Exception $e) {
-            $this->log('Failed to initialize CustomVersionLoader: ' . $e->getMessage(), 'ERROR');
-        }
     }
 
     /**

@@ -7,20 +7,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use RankingCoach\Inc\Core\Helpers\Attributes\RcDocumentation;
 use RankingCoach\Inc\Core\Helpers\RestHelpers;
 use RankingCoach\Inc\Modules\ModuleBase\BaseSubmoduleApi;
 use RankingCoach\Inc\Modules\ModuleBase\ModuleInterface;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\CreateRedirectRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\CreateRedirectResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\DeleteRedirectRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\DeleteRedirectResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\GetRedirectRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\GetRedirectResponseDto;
 use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\GetRedirectsRequestDto;
 use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\GetRedirectsResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\UpdateRedirectRequestDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Links\RedirectManager\Dtos\UpdateRedirectResponseDto;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -238,12 +229,6 @@ class RedirectManagerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: GetRedirectsRequestDto::class,
-        responseDto: GetRedirectsResponseDto::class,
-        description: 'Get all redirects',
-        summary: 'Get All Redirects'
-    )]
     public function getRedirects(WP_REST_Request $request): WP_REST_Response {
         $result = $this->module->getRedirects();
         
@@ -256,12 +241,6 @@ class RedirectManagerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: GetRedirectRequestDto::class,
-        responseDto: GetRedirectResponseDto::class,
-        description: 'Get a single redirect by ID',
-        summary: 'Get Redirect'
-    )]
     public function getRedirect(WP_REST_Request $request): WP_REST_Response {
         $id = (int) $request->get_param('id');
         
@@ -284,12 +263,6 @@ class RedirectManagerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: CreateRedirectRequestDto::class,
-        responseDto: CreateRedirectResponseDto::class,
-        description: 'Create a new redirect',
-        summary: 'Create Redirect'
-    )]
     public function createRedirect(WP_REST_Request $request): WP_REST_Response {
         $source_uri = $request->get_param('source_uri');
         $destination_url = $request->get_param('destination_url');
@@ -326,12 +299,6 @@ class RedirectManagerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: UpdateRedirectRequestDto::class,
-        responseDto: UpdateRedirectResponseDto::class,
-        description: 'Update an existing redirect',
-        summary: 'Update Redirect'
-    )]
     public function updateRedirect(WP_REST_Request $request): WP_REST_Response {
         $id = (int) $request->get_param('id');
         
@@ -379,12 +346,6 @@ class RedirectManagerApi extends BaseSubmoduleApi {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: DeleteRedirectRequestDto::class,
-        responseDto: DeleteRedirectResponseDto::class,
-        description: 'Delete a redirect',
-        summary: 'Delete Redirect'
-    )]
     public function deleteRedirect(WP_REST_Request $request): WP_REST_Response {
         $id = (int) $request->get_param('id');
         

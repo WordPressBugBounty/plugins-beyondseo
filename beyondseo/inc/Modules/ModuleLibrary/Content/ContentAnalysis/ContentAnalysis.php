@@ -7,16 +7,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Domain\Common\Entities\Keywords\Keyword;
-use BeyondSEO\Domain\Common\Entities\Keywords\Keywords;
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\WebPages\Content\Elements\ContentAnalysis\Keywords\WPAdditionalKeywords;
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\WebPages\Content\Elements\ContentAnalysis\Keywords\WPPrimaryKeyword;
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Entities\WebPages\Content\Elements\ContentAnalysis\WPKeywordsAnalysis;
-use BeyondSEODeps\DDD\Infrastructure\Exceptions\BadRequestException;
-use BeyondSEODeps\DDD\Infrastructure\Exceptions\InternalErrorException;
-use BeyondSEODeps\Doctrine\ORM\Mapping\MappingException;
+use RankingCoach\Inc\Core\Seo\Entities\Keywords\Keyword;
+use RankingCoach\Inc\Core\Seo\Entities\Keywords\Keywords;
+use RankingCoach\Inc\Core\Seo\Entities\Keywords\WPAdditionalKeywords;
+use RankingCoach\Inc\Core\Seo\Entities\Keywords\WPPrimaryKeyword;
+use RankingCoach\Inc\Core\Seo\Entities\ContentAnalysis\WPKeywordsAnalysis;
 use Exception;
-use Psr\Cache\InvalidArgumentException;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Exceptions\HttpApiException;

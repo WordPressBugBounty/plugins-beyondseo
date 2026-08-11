@@ -20,12 +20,9 @@ use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
-use RankingCoach\Inc\Core\TokensManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
-use RankingCoach\Inc\Exceptions\InvalidTokenException;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use ReflectionException;
-use Throwable;
 use WP_REST_Request;
 use WP_Error;
 
@@ -259,6 +256,15 @@ class UpsellPage extends AdminPage
      */
     public function page_content(): void
     {
+        // For new users who haven't completed onboarding yet, we allow access to the
+        // Connect page (UpsellPage) without token validation.
+        if (!CoreHelper::isOnboarded()) {
+            // Load the appropriate view template based on channel
+            $channel = (new OptionStore())->getChannel();
+            include __DIR__ . '/views/upsell-dc-page.php';
+            return;
+        }
+
         // Use ChannelResolver for consistent channel detection
         $store = new OptionStore();
         $resolver = new ChannelResolver($store);
@@ -269,13 +275,26 @@ class UpsellPage extends AdminPage
         if (!$this->accessControlHandled) {
             // Guarded by feature flag; performs render/redirect and exits when enabled
             $this->applyFlowGuard();
+
+            // Legacy path parity: when the load-{$page_hook} pattern did not run,
+            // upgrade deep links still need to be resolved before the view renders.
+            $this->maybeHandlePlanUpgradeRequest();
         }
 
         // Load the appropriate view template based on the detected channel.
         // IONOS gets its dedicated upsell view; every other channel falls back
-        // to the direct-channel (DC) view.
-        $channel = (new OptionStore())->getChannel();
-        if ($channel === 'ionos') {
+        // to the direct-channel (DC) view. Decide from the resolved channel OR the live
+        // IONOS brand signal (both normalized), so an IONOS install always gets its
+        // dedicated view even if one of the two signals is momentarily unavailable.
+        $resolvedChannel = strtolower(trim((string) $channel));
+        $ionosBrand      = strtolower(trim((string) get_option('ionos_group_brand')));
+        $isIonos         = $resolvedChannel === 'ionos' || $ionosBrand === 'ionos';
+
+        // IONOS only gets its dedicated plans view once onboarding has finished;
+        // before that the shared connect view (React app) renders, guiding the
+        // user through the connect/registration flow first. Non-IONOS channels
+        // always use the direct-channel view, which handles both states itself.
+        if ($isIonos && WordpressHelpers::isOnboardingCompleted()) {
             include __DIR__ . '/views/upsell-ionos-page.php';
         } else {
             include __DIR__ . '/views/upsell-dc-page.php';
@@ -306,63 +325,51 @@ class UpsellPage extends AdminPage
         // Mark that access control has been handled, so page_content() skips FlowGuard
         $this->accessControlHandled = true;
 
-        if ($this->flowGuardEnabled) {
-            $this->applyFlowGuard();
-        }
+        // Upgrade deep links (step=upsell&planSelected=...) must be processed here,
+        // before headers are sent, so the browser can be redirected to the purchase URL.
+        $this->maybeHandlePlanUpgradeRequest();
 
-        // For new users who haven't completed onboarding yet, we allow access to the
-        // Connect page (UpsellPage) without token validation.
-        if (!CoreHelper::isOnboarded()) {
+        if (!$this->flowGuardEnabled) {
+            return;
+        }
+    }
+
+    /**
+     * Redirect plan upgrade deep links to their upsell purchase URL.
+     *
+     * The channel upsell views (DC and IONOS) render their "Upgrade" buttons as links
+     * back to this page carrying step=upsell&planSelected=<plan>. When such a request
+     * arrives, fetch the plan's upsell magic link from the RC API and send the browser
+     * there. Falls through to normal page rendering when the link cannot be resolved.
+     *
+     * @return void
+     */
+    private function maybeHandlePlanUpgradeRequest(): void
+    {
+        $step         = WordpressHelpers::sanitize_input('GET', 'step') ?: '';
+        $planSelected = WordpressHelpers::sanitize_input('GET', 'planSelected') ?: '';
+
+        if ($step !== 'upsell' || $planSelected === '') {
             return;
         }
 
-        // 1. Token validation and refresh (must run first so the upselling API call
-        // below always has a valid, non-expired access token).
-        /** @var TokensManager $tokensManager */
-        $tokensManager = TokensManager::instance();
-        $refreshToken = $tokensManager->getStoredRefreshToken();
-        $accessToken = $tokensManager->getStoredAccessToken();
-
-        try {
-            if (!$tokensManager::validateToken($accessToken)) {
-                if (empty($refreshToken) || !$tokensManager::validateToken($refreshToken)) {
-                    if (self::$managerInstance instanceof AdminManager) {
-                        self::$managerInstance->redirectPage(AdminPage::PAGE_REGISTRATION);
-                    }
-                    exit;
-                }
-                $tokensManager->generateAndSaveAccessToken($refreshToken);
-            }
-        } catch (Throwable $e) {
-            $this->log('Token validation failed in handleAccessControl: ' . $e->getMessage(), 'ERROR');
-            if (self::$managerInstance instanceof AdminManager) {
-                self::$managerInstance->redirectPage(AdminPage::PAGE_REGISTRATION);
-            }
-            exit;
+        // Plan purchases are only possible once onboarding has finished; before
+        // that the connect view renders and no upgrade buttons exist yet.
+        if (!WordpressHelpers::isOnboardingCompleted()) {
+            return;
         }
 
-        // 2. Handle plan selection / upselling redirect
-        $step = WordpressHelpers::sanitize_input('GET', 'step') ?: false;
-        $planSelected = WordpressHelpers::sanitize_input('GET', 'planSelected') ?: false;
+        try {
+            $upsellingResult = UserApiManager::handleUpselling($planSelected);
 
-        if ($step === 'upsell' && $planSelected) {
-            try {
-                $upsellingResult = UserApiManager::handleUpselling($planSelected);
-                if ($upsellingResult && !empty($upsellingResult['upsellUrl'])) {
-                    wp_redirect($upsellingResult['upsellUrl']);
-                    exit;
-                }
-            } catch (Throwable $e) {
-                $this->log('Upselling API error in handleAccessControl: ' . $e->getMessage(), 'ERROR');
-            }
-
-            // Fallback to a previously stored upsell URL if the live API call failed
-            // (e.g. transient network issue or upstream API downtime).
-            $storedUpsellUrl = UserApiManager::getStoredUpsellUrl($planSelected);
-            if (!empty($storedUpsellUrl)) {
-                wp_redirect($storedUpsellUrl);
+            if ($upsellingResult && !empty($upsellingResult['upsellUrl'])) {
+                wp_redirect($upsellingResult['upsellUrl']);
                 exit;
             }
+
+            $this->log(sprintf('Upselling: no upsell URL returned for plan "%s"', $planSelected), 'ERROR');
+        } catch (\Throwable $e) {
+            $this->log('Upselling API error: ' . $e->getMessage(), 'ERROR');
         }
     }
 
@@ -385,8 +392,7 @@ class UpsellPage extends AdminPage
             $step   = $result['next_step'] ?? '';
 
             // Allowed on UpsellPage: done (which maps to main/upsell)
-            // Also allowed: register and onboarding (for the "Connect" view for new users)
-            if ($step === 'done' || $step === 'register' || $step === 'onboarding') {
+            if ($step === 'done') {
                 return;
             }
 

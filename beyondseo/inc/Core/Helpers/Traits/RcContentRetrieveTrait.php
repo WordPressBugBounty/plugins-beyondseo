@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Seo\Services\WPSeoOptimiserService;
+use RankingCoach\Inc\Core\Seo\Services\SeoOptimiserService;
 use Elementor\Plugin;
 use Exception;
 use Normalizer;

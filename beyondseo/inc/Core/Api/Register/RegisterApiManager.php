@@ -9,7 +9,6 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Exceptions\HttpApiException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\HttpClientInterface;
 
 if (!defined('ABSPATH')) {
     exit;

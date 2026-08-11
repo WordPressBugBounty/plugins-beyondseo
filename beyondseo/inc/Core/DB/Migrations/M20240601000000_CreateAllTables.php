@@ -5,7 +5,6 @@ namespace RankingCoach\Inc\Core\DB\Migrations;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-use BeyondSEO\Domain\Integrations\WordPress\Setup\Entities\Flows\WPFlowRequirements;
 use RankingCoach\Inc\Core\DB\AbstractMigration;
 use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 
@@ -388,14 +387,14 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateCollectorsTable(string $tableName): void
     {
-        $collectors = array_values(WPFlowRequirements::allCollectors());
+        $collectors = ['Database', 'WordPress', 'Extendify', 'RankingCoach'];
         
         foreach ($collectors as $index => $collectorItem) {
             $priority = $index + 1;
             $data = [
                 'collector' => $collectorItem,
                 'settings' => null,
-                'className' => 'BeyondSEO\\Domain\\Integrations\\WordPress\\Setup\\Entities\\Flows\\Collectors\\Data\\' . ucfirst($collectorItem) . 'DataCollector',
+                'className' => $collectorItem,
                 'priority' => $priority,
                 'active' => 1,
             ];
@@ -415,16 +414,23 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateStepsTable(string $tableName): void
     {
-        $steps = WPFlowRequirements::allSteps();
+        $steps = [
+            'SETUP_STEP_BUSINESS_SHORT_DESCRIPTION' => 'businessWebsiteUrl,businessDescription',
+            'SETUP_STEP_BUSINESS_NAME' => 'businessName',
+            'SETUP_STEP_BUSINESS_DETAILED_DESCRIPTION' => 'businessKeywords,businessCategories',
+            'SETUP_STEP_BUSINESS_LOCATION_ADDRESS' => 'businessAddress',
+            'SETUP_STEP_BUSINESS_SERVICE_AREA' => 'businessServiceArea',
+            'SETUP_STEP_BUSINESS_SPECIFIC_DESCRIPTION' => 'businessDescription,businessKeywords,businessCategories',
+        ];
         $countSteps = count($steps);
         $index = 0;
         
-        foreach ($steps as $stepName => $requireItems) {
+        foreach ($steps as $stepName => $requirements) {
             $index = $index + 1;
             $last = $index === $countSteps;
             $data = [
                 'step' => $stepName,
-                'requirements' => implode(',', $requireItems),
+                'requirements' => $requirements,
                 'priority' => $index,
                 'isFinalStep' => $last ? 1 : 0,
                 'active' => 1,
@@ -446,8 +452,32 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateQuestionsTable(string $tableName): void
     {
-        $questionsStepsConfig = WPFlowRequirements::SETUP_STEPS_QUESTIONS;
-        $stepsTableName = $this->getTableName(DatabaseTablesManager::DATABASE_SETUP_STEPS);
+        $questionsStepsConfig = [
+            'SETUP_STEP_BUSINESS_SHORT_DESCRIPTION' => [
+                'Let\'s get started.',
+                'First, could you tell me what your website or project is about?'
+            ],
+            'SETUP_STEP_BUSINESS_NAME' => [
+                'Awesome!',
+                'Do you already have a name for your website, project, or business?'
+            ],
+            'SETUP_STEP_BUSINESS_DETAILED_DESCRIPTION' => [
+                'Wonderful!',
+                'Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?'
+            ],
+            'SETUP_STEP_BUSINESS_LOCATION_ADDRESS' => [
+                'Just tasty! Thanks for sharing!',
+                'Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?'
+            ],
+            'SETUP_STEP_BUSINESS_SERVICE_AREA' => [
+                'I see.',
+                'Where do you primarily want to focus your reach? Is there a particular city or region you\'d like to target, or do you want to go nationwide?'
+            ],
+            'SETUP_STEP_BUSINESS_SPECIFIC_DESCRIPTION' => [
+                'Thanks for providing that!',
+                'Lastly, is there anything else you\'d like to highlight about your project or business, something that makes it unique or special?'
+            ]
+        ];
         
         foreach ($questionsStepsConfig as $stepName => $stepQuestions) {
             // Get the step ID using DatabaseManager's getRow method
@@ -490,7 +520,18 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateSetupTable(string $tableName): void
     {
-        $allRequirements = array_values(WPFlowRequirements::allRequirements());
+        $allRequirements = [
+            'businessEmailAddress',
+            'businessWebsiteUrl',
+            'businessName',
+            'businessDescription',
+            'businessAddress',
+            'businessGeoAddress',
+            'businessServiceArea',
+            'businessKeywords',
+            'businessCategories',
+            'businessSpecificDescription',
+        ];
         
         foreach ($allRequirements as $requirement) {
             $value = null;

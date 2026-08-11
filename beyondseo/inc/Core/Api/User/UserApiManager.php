@@ -19,7 +19,6 @@ use RankingCoach\Inc\Core\Api\HttpApiClient;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\TokensManager;
 use ReflectionException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
 use WP_Error;
 
@@ -147,7 +146,7 @@ class UserApiManager extends HttpApiClient
                 'base_url_resolved' => (isset($this->configuration['baseUrl']) && isset($this->configuration['prefix'])) ? sprintf($this->configuration['baseUrl'], $this->configuration['prefix']) : null,
                 'final_url' => $this->url ?? null,
                 'debug_params' => (is_string($this->url) ? (str_contains($this->url, 'debug=1') && str_contains($this->url, 'noCache=1')) : null),
-                'config_source' => RANKINGCOACH_PLUGIN_APP_DIR . 'config/app/externalIntegrations.php',
+                'config_source' => RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php',
                 'request_headers_keys' => array_keys($this->defaultHeaders ?? []),
                 'payload' => $payload,
                 'response_content' => $response['content']
@@ -521,15 +520,15 @@ class UserApiManager extends HttpApiClient
         }
         // If the geoaddress is not empty, we need to update the business geolocation
         if(!empty($data['geoaddress'])) {
-            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessGeoAddress', json_encode($data['geoaddress']));
+            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessGeoAddress', $data['geoaddress']);
         }
         // Categories (if any
         if(!empty($categories)) {
-            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessCategories', json_encode(array_map(static fn($cat) => (int) $cat['categoryId'], $categories), JSON_THROW_ON_ERROR));
+            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessCategories', array_map(static fn($cat) => (int) $cat['categoryId'], $categories));
         }
 
         if(!empty($keywords)) {
-            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessKeywords', json_encode(array_map(static fn($keyword) => (string)$keyword['keyword']['name'], $keywords), JSON_THROW_ON_ERROR));
+            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessKeywords', array_map(static fn($keyword) => (string)$keyword['keyword']['name'], $keywords));
         }
 
     }
@@ -657,25 +656,11 @@ class UserApiManager extends HttpApiClient
     public static function getStoredUpsellUrl(string $planSelected): ?string
     {
         $upsellUrls = get_option(BaseConstants::OPTION_UPSELL_URLS, []);
-
-        if (!is_array($upsellUrls) || !isset($upsellUrls[$planSelected])) {
-            return null;
+        
+        if (is_array($upsellUrls) && isset($upsellUrls[$planSelected])) {
+            return $upsellUrls[$planSelected];
         }
-
-        $storedEntry = $upsellUrls[$planSelected];
-
-        if (is_string($storedEntry)) {
-            return $storedEntry;
-        }
-
-        if (is_object($storedEntry) && !empty($storedEntry->upsellUrl)) {
-            return (string) $storedEntry->upsellUrl;
-        }
-
-        if (is_array($storedEntry) && !empty($storedEntry['upsellUrl'])) {
-            return (string) $storedEntry['upsellUrl'];
-        }
-
+        
         return null;
     }
 

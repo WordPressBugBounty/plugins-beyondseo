@@ -8,9 +8,7 @@ if ( !defined( 'ABSPATH' ) ) {
 }
 
 use Exception;
-use InvalidArgumentException;
 use RankingCoach\Inc\Core\Base\BaseConstants;
-use RankingCoach\Inc\Core\Base\BaseRequirements;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -34,12 +32,6 @@ final class RankingCoachPlugin
 
     /** @var string $version Plugin version. */
     public string $plugin_version = RANKINGCOACH_VERSION;
-
-    /** @var string $wordpress_version Minimum version of WordPress required to run RankingCoach-SEO. */
-    private string $wordpress_version;
-
-    /** @var string $php_version Minimum version of PHP required to run RankingCoach-SEO. */
-    private string $php_version;
 
     /** @var RankingCoachPlugin|null $instance The single instance of the class. */
     protected static ?RankingCoachPlugin $instance = null;
@@ -70,22 +62,11 @@ final class RankingCoachPlugin
     /**
      * Returns a single instance of the RankingCoach, initializing it if not already created.
      *
-     * @param array $plugin_data - The plugin data array.
-     *
      * @return RankingCoachPlugin - The single instance of the RankingCoach class.
-     * @throws InvalidArgumentException If called with different parameters after initialization.
      */
-    public static function instance( array $plugin_data ): RankingCoachPlugin {
-        if ( self::$initialized && self::$instance !== null ) {
-            return self::$instance;
-        }
-
-        if ( self::$initialized ) {
-            throw new InvalidArgumentException( 'Singleton already initialized with different parameters' );
-        }
-
+    public static function instance(): RankingCoachPlugin {
         if ( self::$instance === null ) {
-            self::$instance = new RankingCoachPlugin( $plugin_data );
+            self::$instance = new RankingCoachPlugin();
             self::$initialized = true;
         }
 
@@ -94,23 +75,9 @@ final class RankingCoachPlugin
 
     /**
      * Constructor for the RankingCoach class.
-     *
-     * Initializes the WordPress and PHP version requirements for the plugin.
-     *
-     * @param array $plugin_data An array containing plugin data.
-     *                           Expected to have 'WordPress_Requires' and 'PHP_Requires' keys.
-     * @throws InvalidArgumentException If required keys are missing from plugin_data.
      */
-    private function __construct( array $plugin_data ) {
-        if ( !isset( $plugin_data['WordPress_Requires'] ) || !isset( $plugin_data['PHP_Requires'] ) ) {
-            throw new InvalidArgumentException( 'Plugin data must contain WordPress_Requires and PHP_Requires keys' );
-        }
-
-        $this->wordpress_version = $plugin_data['WordPress_Requires'];
-        $this->php_version       = $plugin_data['PHP_Requires'];
-
-        // Register activation hook to clear cache on plugin activation
-        register_activation_hook(RANKINGCOACH_FILE, 'beyondseo_rcdc');
+    private function __construct() {
+        // Constructor logic if needed
     }
 
     /**
@@ -185,9 +152,6 @@ final class RankingCoachPlugin
                 do_action('rankingcoach_plugin/circuit_breaker_active');
                 return;
             }
-
-            // Check if the plugin base requirements are met
-            (new BaseRequirements($this->wordpress_version, $this->php_version))->setup();
 
             // Initialize REST API first to ensure API routes are registered early
             (new RestInitializer())->initialize();
@@ -445,9 +409,6 @@ final class RankingCoachPlugin
      */
     private function initializeWordPressComponents(): void {
 
-        // Load Composer dependencies
-        $autoload_path = RANKINGCOACH_PLUGIN_APP_DIR . 'vendor/autoload.php';
-        beyondseo_load_wrapped_autoloader($autoload_path);
         // Initialize WordPress-specific components
         try {
             (new Installer())->initialize();

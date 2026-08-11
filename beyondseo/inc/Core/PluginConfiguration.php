@@ -113,15 +113,6 @@ class PluginConfiguration implements PluginConfigurationInterface, JsonSerializa
 	}
 
 	/**
-	 * Returns the app namespace.
-	 *
-	 * @return string
-	 */
-	public function getAppNamespace(): string {
-		return RANKINGCOACH_APP_NAMESPACE;
-	}
-
-	/**
 	 * Returns the configuration as an array.
 	 *
 	 * @return array
@@ -136,7 +127,6 @@ class PluginConfiguration implements PluginConfigurationInterface, JsonSerializa
 			'plugin_url' => $this->getPluginUrl(),
 			'plugin_environment' => $this->getPluginEnvironment(),
 			'plugin_namespace' => $this->getPluginNamespace(),
-			'app_namespace' => $this->getAppNamespace(),
 		];
 	}
 

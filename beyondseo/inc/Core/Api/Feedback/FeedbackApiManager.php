@@ -10,7 +10,6 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Core\Api\HttpApiClient;
 use ReflectionException;
-use BeyondSEODeps\Symfony\Contracts\HttpClient\HttpClientInterface;
 use Throwable;
 
 /**

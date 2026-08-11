@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-07-25 09:08+0000\n"
+"PO-Revision-Date: 2026-08-11 06:35+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -9746,6 +9746,14 @@ msgstr "Anda saat ini memiliki paket ini"
 
 
 
+msgid "Missing setupRequirement."
+msgstr ""
+
+
+msgid "An unknown error occurred."
+msgstr ""
+
+
 msgid "Authentication Required"
 msgstr "Autentikasi Diperlukan"
 
@@ -9757,4 +9765,3 @@ msgstr "Atur Ulang dan Aktifkan Kembali"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Butuh bantuan? Hubungi tim dukungan kami untuk mendapatkan bantuan."
-

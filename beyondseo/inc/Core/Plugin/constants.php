@@ -18,7 +18,7 @@ if ( ! defined('RANKINGCOACH_COMMON_DEV_ENVIRONMENT_HOST') ) {
     // default: https://rankingcoach.com
     // leave it NULL and will use the WP site URL
     //define('RANKINGCOACH_COMMON_DEV_ENVIRONMENT_HOST', 'https://www.aradon.ro');
-    define('RANKINGCOACH_COMMON_DEV_ENVIRONMENT_HOST', 'https://www.arg.ro');
+    define('RANKINGCOACH_COMMON_DEV_ENVIRONMENT_HOST', 'https://www.bihon.ro');
 }
 if ( ! defined('RANKINGCOACH_COMMON_DEV_ENVIRONMENT_EMAIL') ) {
     // default: romeo.tamas@gmail.com
@@ -91,12 +91,6 @@ if(empty($beyondseo_brandSlug)) {
 defined('RANKINGCOACH_BRAND_NAME')      || define('RANKINGCOACH_BRAND_NAME', $beyondseo_brandName);
 defined('RANKINGCOACH_BRAND_SLUG')      || define('RANKINGCOACH_BRAND_SLUG', sanitize_title($beyondseo_brandSlug));
 
-// Requirements (original preserved as JSON string)
-defined('RANKINGCOACH_PLUGIN_REQUIRES') || define('RANKINGCOACH_PLUGIN_REQUIRES', json_encode([
-    'WordPress_Requires' => 'Requires at least',
-    'PHP_Requires'       => 'Requires PHP'
-]));
-
 // === File References ===
 if (defined('RANKINGCOACH_FILE')) {
     defined('RANKINGCOACH_FILENAME') || define('RANKINGCOACH_FILENAME', strtolower(pathinfo(RANKINGCOACH_FILE, PATHINFO_FILENAME)));
@@ -111,7 +105,6 @@ if (defined('RANKINGCOACH_FILE')) {
 // === Namespaces ===
 defined('RANKINGCOACH_NAMESPACE')       || define('RANKINGCOACH_NAMESPACE', 'RankingCoach\\');
 defined('RANKINGCOACH_INC_NAMESPACE')   || define('RANKINGCOACH_INC_NAMESPACE', RANKINGCOACH_NAMESPACE . 'Inc\\');
-defined('RANKINGCOACH_APP_NAMESPACE')   || define('RANKINGCOACH_APP_NAMESPACE', 'App\\');
 
 // === Environment & Debug ===
 defined('RANKINGCOACH_ENABLE_LOGGING')  || define('RANKINGCOACH_ENABLE_LOGGING', true);
@@ -120,14 +113,11 @@ defined('RANKINGCOACH_WP_DEBUG')        || define('RANKINGCOACH_WP_DEBUG', (defi
 // === REST API ===
 defined('RANKINGCOACH_REST_API_LEGACY_BASE') || define('RANKINGCOACH_REST_API_LEGACY_BASE', 'seo');
 defined('RANKINGCOACH_REST_API_BASE')     || define('RANKINGCOACH_REST_API_BASE', 'rankingcoach/' . RANKINGCOACH_REST_API_LEGACY_BASE);
-defined('RANKINGCOACH_REST_API_APP_BASE') || define('RANKINGCOACH_REST_API_APP_BASE', 'api');
-defined('RANKINGCOACH_REST_APP_BASE')     || define('RANKINGCOACH_REST_APP_BASE', 'rankingcoach/' . RANKINGCOACH_REST_API_APP_BASE);
+defined('RANKINGCOACH_REST_APP_BASE')     || define('RANKINGCOACH_REST_APP_BASE', 'rankingcoach/' . RANKINGCOACH_REST_API_LEGACY_BASE);
 defined('RANKINGCOACH_JWT_AUTH_CORS_ENABLE') || define('RANKINGCOACH_JWT_AUTH_CORS_ENABLE', false);
 
 // === Directory Structure (Base) ===
 defined('RANKINGCOACH_PLUGIN_INCLUDES_DIR')     || define('RANKINGCOACH_PLUGIN_INCLUDES_DIR', RANKINGCOACH_PLUGIN_DIR . 'inc' . DIRECTORY_SEPARATOR);
-defined('RANKINGCOACH_PLUGIN_APPLICATION_DIR')  || define('RANKINGCOACH_PLUGIN_APPLICATION_DIR', RANKINGCOACH_PLUGIN_DIR . 'app' . DIRECTORY_SEPARATOR);
-defined('RANKINGCOACH_PLUGIN_APP_DIR')          || define('RANKINGCOACH_PLUGIN_APP_DIR', RANKINGCOACH_PLUGIN_APPLICATION_DIR);
 defined('RANKINGCOACH_PLUGIN_REACT_DIR')        || define('RANKINGCOACH_PLUGIN_REACT_DIR', RANKINGCOACH_PLUGIN_DIR . 'react' . DIRECTORY_SEPARATOR);
 defined('RANKINGCOACH_PLUGIN_LANGUAGE_DIR')     || define('RANKINGCOACH_PLUGIN_LANGUAGE_DIR', RANKINGCOACH_PLUGIN_DIR . 'languages' . DIRECTORY_SEPARATOR);
 
@@ -142,7 +132,6 @@ defined('RANKINGCOACH_PLUGIN_MODULES_LIBRARY_DIR')  || define('RANKINGCOACH_PLUG
 
 // === Logging ===
 defined('RANKINGCOACH_LOG_DIR')                     || define('RANKINGCOACH_LOG_DIR',   wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'beyondseo' . DIRECTORY_SEPARATOR);
-defined('RANKINGCOACH_CACHE_DIR')                   || define('RANKINGCOACH_CACHE_DIR', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'beyondseo' . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR);
 defined('RANKINGCOACH_API_LOG_DIR')                 || define('RANKINGCOACH_API_LOG_DIR', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'beyondseo' . DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'api' . DIRECTORY_SEPARATOR);
 defined('RANKINGCOACH_LOG_VERBOSE')                 || define('RANKINGCOACH_LOG_VERBOSE', RANKINGCOACH_WP_DEBUG && RANKINGCOACH_ENABLE_LOGGING && RANKINGCOACH_ENVIRONMENT !== RANKINGCOACH_PRODUCTION_ENVIRONMENT);
 

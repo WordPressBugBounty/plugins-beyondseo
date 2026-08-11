@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 use DirectoryIterator;
 use Exception;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\Helpers\RequirementHelper;
 use ReflectionClass;
 use Throwable;
 
@@ -194,13 +195,7 @@ class DatabaseTablesManager
      */
     public function updateSetupRequirements(string $requirement, $value): void
     {
-        $tableName = self::DATABASE_SETUP;
-        
-        $this->getDbManager()->update(
-            $tableName,
-            ['value' => $value],
-            ['setupRequirement' => $requirement]
-        );
+        RequirementHelper::updateRequirement($requirement, $value);
     }
 
     /**

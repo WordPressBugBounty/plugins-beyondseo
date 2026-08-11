@@ -5,8 +5,6 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit();
 }
 
-use BeyondSEODeps\DDD\Domain\Base\Repo\DB\Doctrine\EntityManagerFactory;
-use BeyondSEODeps\Doctrine\Persistence\Mapping\MappingException;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
@@ -114,24 +112,6 @@ function beyondseo_rcren(Exception $e): void { //phpcs:ignore WordPress.NamingCo
     } else {
         beyondseo_rclh($e->getMessage(), 'ERROR');
     }
-}
-
-/**
- * Helper function to parse the plugin metadata
- * Naming: rcppd - rankingCoach parse plugin data
- *
- * @param array $headers
- * @return array|null
- */
-function beyondseo_rcppd(array $headers = []): ?array { //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-    if (empty($headers)) {
-        $headers = [
-            'WordPress_Requires' => 'Requires at least',
-            'PHP_Requires'       => 'Requires PHP',
-        ];
-    }
-
-    return get_file_data( RANKINGCOACH_FILE, $headers ) ?? null;
 }
 
 /**
@@ -467,109 +447,6 @@ function beyondseo_get_translated_categories(string $locale = 'en', string $asso
         return $result;
     } catch (Throwable $e) {
         return [];
-    }
-}
-
-/**
- * Delete Symfony cache directory to reset caching
- * Naming: rcdc - rankingCoach delete cache
- *
- * This function checks if the app/var/cache directory exists and deletes it recursively.
- * It's typically called after plugin updates to ensure fresh cache.
- * Uses WordPress's WP_Filesystem API if available, otherwise falls back to custom recursive deletion.
- *
- * @return bool - Returns true if cache was deleted successfully or didn't exist, false on error
- * @throws MappingException
- */
-function beyondseo_rcdc(): bool { //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-
-    // Clear EntityManager cache for prefix issues
-    if (class_exists('\BeyondSEODeps\DDD\Domain\Base\Repo\DB\Doctrine\EntityManagerFactory')) {
-        EntityManagerFactory::clearAllInstanceCaches();
-        wp_cache_flush();
-    }
-
-    try {
-        // Use the constant for cache directory path
-        $cache_dir = RANKINGCOACH_CACHE_DIR;
-
-        // Try to use WordPress's WP_Filesystem API if available (class should already be loaded)
-        if (class_exists('WP_Filesystem_Direct')) {
-            $filesystem = new WP_Filesystem_Direct(null);
-            $result = $filesystem->delete($cache_dir, true, 'd');
-            
-            if ($result) {
-                beyondseo_rclh('Successfully deleted Symfony cache directory using WP_Filesystem: ' . $cache_dir, 'INFO');
-                return true;
-            }
-
-            beyondseo_rclh('WP_Filesystem delete failed, falling back to custom recursive deletion', 'WARNING');
-        }
-
-        // Fallback to custom recursive deletion
-        $result = beyondseo_rcdc_recursive($cache_dir);
-
-        if ($result) {
-            beyondseo_rclh('Successfully deleted Symfony cache directory using custom recursive deletion: ' . $cache_dir, 'INFO');
-            return true;
-        }
-
-        beyondseo_rclh('Failed to delete Symfony cache directory: ' . $cache_dir, 'ERROR');
-        return false;
-
-    } catch (Throwable $e) {
-        beyondseo_rclh('Exception while deleting Symfony cache: ' . $e->getMessage(), 'ERROR');
-        return false;
-    }
-}
-
-/**
- * Recursively delete a directory and its contents
- * Helper function for rcdc()
- *
- * @param string $dir - The directory path to delete
- * @return bool - Returns true on success, false on failure
- */
-function beyondseo_rcdc_recursive(string $dir): bool { //phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
-    try {
-        if (!file_exists($dir)) {
-            return true;
-        }
-
-        if (!is_dir($dir)) {
-            return wp_delete_file($dir) !== false;
-        }
-
-        $items = scandir($dir);
-        if ($items === false) {
-            beyondseo_rclh('Failed to scan directory: ' . $dir, 'ERROR');
-            return false;
-        }
-
-        foreach ($items as $item) {
-            if ($item === '.' || $item === '..') {
-                continue;
-            }
-
-            $path = $dir . DIRECTORY_SEPARATOR . $item;
-
-            if (is_dir($path)) {
-                if (!beyondseo_rcdc_recursive($path)) {
-                    return false;
-                }
-            } else {
-                if (wp_delete_file($path) === false) {
-                    beyondseo_rclh('Failed to delete file: ' . $path, 'WARNING');
-                    return false;
-                }
-            }
-        }
-
-        return wp_delete_file($dir) !== false;
-
-    } catch (Throwable $e) {
-        beyondseo_rclh('Exception in recursive cache deletion: ' . $e->getMessage(), 'ERROR');
-        return false;
     }
 }
 

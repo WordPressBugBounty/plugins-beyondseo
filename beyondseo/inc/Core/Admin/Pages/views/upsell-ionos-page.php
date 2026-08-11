@@ -19,6 +19,9 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+use RankingCoach\Inc\Core\Admin\AdminManager;
+
 // IONOS-specific data preparation
 $headerBgColor = '#021B41';
 $logoUrl = plugin_dir_url(RANKINGCOACH_FILE) . 'inc/Core/Admin/assets/icons/upsell-logo-small.png';
@@ -75,7 +78,7 @@ $plans = [
 		'upgradeButton' => [
 			'show' => true,
 			'text' => __('Upgrade', 'beyondseo'),
-			'link' => admin_url('admin.php?page=rankingcoach-connect&step=upsell&planSelected=momentum_search'),
+			'link' => AdminManager::getPageUrl(AdminManager::PAGE_UPSELL, '&step=upsell&planSelected=momentum_search'),
 		],
 		'hasTermsAndConditions' => false,
 		'termsLink' => '',
@@ -108,7 +111,7 @@ $plans = [
 		'upgradeButton' => [
 			'show' => true,
 			'text' => __('Upgrade', 'beyondseo'),
-			'link' => admin_url('admin.php?page=rankingcoach-connect&step=upsell&planSelected=momentum_reputation'),
+			'link' => AdminManager::getPageUrl(AdminManager::PAGE_UPSELL, '&step=upsell&planSelected=momentum_reputation'),
 		],
 		'hasTermsAndConditions' => false,
 		'termsLink' => '',
@@ -139,7 +142,7 @@ $plans = [
 		'upgradeButton' => [
 			'show' => true,
 			'text' => __('Upgrade', 'beyondseo'),
-			'link' => admin_url('admin.php?page=rankingcoach-connect&step=upsell&planSelected=momentum_marketing'),
+			'link' => AdminManager::getPageUrl(AdminManager::PAGE_UPSELL, '&step=upsell&planSelected=momentum_marketing'),
 		],
 		'hasTermsAndConditions' => false,
 		'termsLink' => '',

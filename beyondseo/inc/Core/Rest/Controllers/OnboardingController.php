@@ -1,0 +1,811 @@
+<?php
+declare(strict_types=1);
+
+namespace RankingCoach\Inc\Core\Rest\Controllers;
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+use RankingCoach\Inc\Core\Api\Content\ContentApiManager;
+use RankingCoach\Inc\Core\Api\RC\RCApiManager;
+use RankingCoach\Inc\Core\Api\User\UserApiManager;
+use RankingCoach\Inc\Core\AutoSetup\Onboarding\AutoSetupOnboarding;
+use RankingCoach\Inc\Core\AutoSetup\Onboarding\Collectors\CollectorManager;
+use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
+use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
+use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
+use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Helpers\RequirementHelper;
+use RankingCoach\Inc\Core\Seo\Services\SeoOptimiserService;
+use Throwable;
+use WP_REST_Request;
+use WP_REST_Response;
+
+class OnboardingController
+{
+    use RcApiTrait;
+    use RcLoggerTrait;
+
+    public function getRequirements(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $rows = DatabaseManager::getInstance()
+                ->table(DatabaseTablesManager::DATABASE_SETUP)
+                ->select(['*'])
+                ->get();
+
+            $rows = is_array($rows) ? array_map(fn($r) => is_object($r) ? (array) $r : $r, $rows) : [];
+
+            foreach ($rows as &$row) {
+                $alias = $row['entityAlias'] ?? '';
+                $setupRequirement = $row['setupRequirement'] ?? '';
+                if (($alias === 'categories' || $setupRequirement === 'businessCategories') && !empty($row['value'])) {
+                    $row['value'] = $this->mapCategoryIdsToNames($row['value']);
+                }
+            }
+            unset($row);
+
+            return new WP_REST_Response(['requirements' => ['elements' => $rows]], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::getRequirements: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function addRequirement(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $body = $request->get_json_params() ?: [];
+
+            $payload = (isset($body['requirement']) && is_array($body['requirement']))
+                ? $body['requirement']
+                : $body;
+
+            $setupRequirement = sanitize_text_field($payload['setupRequirement'] ?? '');
+            $entityAlias      = sanitize_text_field($payload['entityAlias'] ?? '');
+            $value            = $payload['value'] ?? '';
+
+            if ($setupRequirement === '') {
+                return $this->generateErrorResponse(null, __('Missing setupRequirement.', 'beyondseo'), 400);
+            }
+
+            RequirementHelper::updateRequirement($setupRequirement, $value);
+
+            $existing = DatabaseManager::getInstance()->table(DatabaseTablesManager::DATABASE_SETUP)
+                ->select(['id'])
+                ->where('setupRequirement', $setupRequirement)
+                ->first();
+            $id = $existing ? (int) ($existing->id ?? $existing['id'] ?? 0) : 0;
+
+            return new WP_REST_Response(['id' => $id], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::addRequirement: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function updateRequirement(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $requirementId = (int) $request->get_param('requirementId');
+            $body = $request->get_json_params() ?: [];
+
+            $existing = DatabaseManager::getInstance()
+                ->table(DatabaseTablesManager::DATABASE_SETUP)
+                ->select(['*'])
+                ->where('id', $requirementId)
+                ->first();
+            $existing = is_object($existing) ? (array) $existing : ($existing ?: []);
+
+            $setupRequirement = sanitize_text_field($body['setupRequirement'] ?? $existing['setupRequirement'] ?? '');
+
+            if (isset($body['value'])) {
+                RequirementHelper::updateRequirement($setupRequirement, $body['value']);
+            }
+
+            return new WP_REST_Response(['id' => $requirementId], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::updateRequirement: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function getCategories(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $search = sanitize_text_field($request->get_param('search') ?? '');
+
+            $locale = WordpressHelpers::current_language_code_helper();
+            $translatedCategories = \beyondseo_get_translated_categories($locale, 'id');
+
+            if (!empty($search)) {
+                $rows = array_filter($translatedCategories, static function ($category) use ($search) {
+                    return isset($category['name']) && stripos($category['name'], $search) !== false;
+                });
+            } else {
+                $rows = $translatedCategories;
+            }
+
+            $formattedRows = [];
+            foreach ($rows as $category) {
+                $formattedRows[] = [
+                    'id'         => $category['id'] ?? null,
+                    'categoryId' => $category['id'] ?? null,
+                    'name'       => $category['name'] ?? '',
+                    'externalId' => $category['externalId'] ?? '',
+                ];
+            }
+
+            return new WP_REST_Response(['categories' => ['elements' => $formattedRows]], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::getCategories: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function getStep(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $stepId = sanitize_text_field($request->get_param('stepId') ?? '');
+
+            $step = DatabaseManager::getInstance()
+                ->table(DatabaseTablesManager::DATABASE_SETUP_STEPS)
+                ->select(['*'])
+                ->where('step', $stepId)
+                ->first();
+
+            $step = is_object($step) ? (array) $step : ($step ?: null);
+
+            return new WP_REST_Response(['step' => $step], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::getStep: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function submit(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $requirementsData = $this->getFormattedRequirementsData();
+
+            RCApiManager::getInstance()->submitOnboarding($requirementsData);
+
+            try {
+                $this->withRemoteErrorsAsExceptions(
+                    fn() => UserApiManager::getInstance(bearerToken: true)->fetchAndInsertAccountData()
+                );
+            } catch (Throwable $e) {
+                $this->log('Post-onboarding account data sync failed: ' . $e->getMessage(), 'ERROR');
+            }
+
+            $now = time();
+            update_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP, true);
+            update_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP_LAST_UPDATE, $now);
+            update_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC, true);
+            update_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC_LAST_UPDATE, $now);
+            update_option(BaseConstants::OPTION_ACCOUNT_ONBOARDING_COMPLETED, true);
+
+            $store = new OptionStore();
+            $store->updateFlowState(function ($flowState) {
+                $flowState->registered = true;
+                $flowState->emailVerified = true;
+                $flowState->activated = true;
+                $flowState->onboarded = true;
+                return $flowState;
+            });
+            OptionStore::disableFlowGuard();
+
+            try {
+                $posts = get_posts(['post_type' => ['post', 'page'], 'numberposts' => -1, 'fields' => 'ids']);
+                foreach ($posts as $postId) {
+                    SeoOptimiserService::getInstance()->analyzeFullOptimiser((int) $postId, [], false);
+                }
+            } catch (Throwable $e) {
+            }
+
+            $setupData = [
+                'isPluginOnboarded'      => true,
+                'lastPluginUpdate'       => $now,
+                'isApplicationOnboarded' => true,
+                'lastApplicationUpdate'  => $now,
+                'account'                => null,
+            ];
+
+            return new WP_REST_Response(['setupData' => $setupData], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::submit: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function scan(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $posts = get_posts(['post_type' => ['post', 'page'], 'numberposts' => -1, 'fields' => 'ids']);
+
+            foreach ($posts as $postId) {
+                SeoOptimiserService::getInstance()->analyzeFullOptimiser((int) $postId, [], false);
+            }
+
+            SeoOptimiserService::getInstance()->calculateAndSaveAverageScore();
+
+            return new WP_REST_Response(['scanned' => count($posts)], 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::scan: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    /**
+     * Run a remote RC API call so that HTTP error responses are raised as catchable
+     * exceptions instead of rendering a fatal error page and exiting the request.
+     *
+     * By default the HTTP layer hands 4xx/5xx responses to the global exception handler,
+     * which — outside of AJAX/Postman contexts — renders an error page and terminates the
+     * request (ExceptionHandler::error() is #[NoReturn]). That makes it impossible for a
+     * controller to recover. Enabling the `rankingcoach_http_api_response_throw_exception`
+     * filter for the duration of the call flips that behaviour to `throw`, so onboarding
+     * can catch the failure and degrade gracefully instead of hard-failing.
+     *
+     * @param callable $fn
+     * @return mixed
+     */
+    private function withRemoteErrorsAsExceptions(callable $fn): mixed
+    {
+        $throwFilter = static fn() => true;
+        add_filter('rankingcoach_http_api_response_throw_exception', $throwFilter);
+        try {
+            return $fn();
+        } finally {
+            remove_filter('rankingcoach_http_api_response_throw_exception', $throwFilter);
+        }
+    }
+
+    private function getFormattedRequirementsData(): array
+    {
+        // The remote onboarding DTO (PostWPOnboardingRequestDto) is strict: every scalar
+        // property it declares must be PRESENT in the request body, otherwise it throws
+        // "Property X is missing" and the whole onboarding call (generateSteps / submit)
+        // fails — which blocks onboarding entirely, not just auto onboarding.
+        //
+        // The setup rows are seeded with a NULL value (see the CreateAllTables migration),
+        // and NULL values used to be dropped from the payload below. So at the start of
+        // onboarding scalar properties such as "name" and "description" were missing and
+        // the request was rejected. Seed every known scalar requirement with an empty
+        // string up front so it is ALWAYS sent (blank rather than missing); real values
+        // and the complex array/object requirements are layered on top below.
+        $requirementsData = [
+            'emailaddress'        => '',
+            'websiteurl'          => '',
+            'name'                => '',
+            'description'         => '',
+            'address'             => '',
+            'servicearea'         => '',
+            'specificdescription' => '',
+            // Complex (array/object) requirements must also be present for the strict
+            // DTO. Default them to empty arrays; real values overwrite them below.
+            'keywords'            => [],
+            'categories'          => [],
+            'geoaddress'          => [],
+        ];
+
+        $requirements = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP)
+            ->select(['*'])
+            ->get();
+
+        if (is_array($requirements)) {
+            foreach ($requirements as $row) {
+                $row = is_object($row) ? (array) $row : $row;
+                if (empty($row['entityAlias'])) {
+                    continue;
+                }
+                $alias = $row['entityAlias'];
+                $setupRequirement = $row['setupRequirement'] ?? '';
+                $value = $row['value'] ?? null;
+
+                $isComplex = in_array($alias, ['keywords', 'categories', 'geoaddress'], true)
+                    || in_array($setupRequirement, ['businessKeywords', 'businessCategories', 'businessGeoAddress'], true);
+
+                if ($isComplex) {
+                    // Complex (array/object) requirements are only sent when they actually
+                    // carry data — an empty scalar would be the wrong shape for them.
+                    if ($value === null || $value === '') {
+                        continue;
+                    }
+                    try {
+                        $requirementsData[$alias] = json_decode($value, true, 512, JSON_THROW_ON_ERROR) ?? $value;
+                    } catch (Throwable $e) {
+                        $requirementsData[$alias] = $value;
+                    }
+                } else {
+                    // Scalar: never send NULL (the DTO rejects a missing/null prop) — send
+                    // the stored value or an empty string.
+                    $requirementsData[$alias] = $value ?? '';
+                }
+            }
+        }
+
+        if (empty($requirementsData['websiteurl'])) {
+            $siteUrl = sanitize_url(get_option('siteurl'));
+            if (wp_get_environment_type() !== 'production' && str_contains($siteUrl, 'local') !== false) {
+                $siteUrl = RANKINGCOACH_COMMON_DEV_ENVIRONMENT_HOST ?? $siteUrl;
+            }
+            $requirementsData['websiteurl'] = $siteUrl;
+        }
+
+        return $requirementsData;
+    }
+
+    public function generateSteps(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $collectorManager = new CollectorManager();
+            $collectorManager->run();
+
+            $body = $request->get_json_params() ?: [];
+
+            $requirementsData = $this->getFormattedRequirementsData();
+
+            $params = array_merge($requirementsData, $body);
+
+            // Remote step generation returns AI-tailored steps, but it is a best-effort
+            // enhancement layered on top of the locally seeded default steps. If it fails
+            // for any reason (e.g. the remote DDD service throws and returns a non-JSON
+            // "Unhandled exception" body), onboarding must still proceed with the local
+            // default steps rather than hard-failing. Errors are raised as catchable
+            // exceptions (see withRemoteErrorsAsExceptions) and swallowed here.
+            try {
+                $result = $this->withRemoteErrorsAsExceptions(
+                    fn() => RCApiManager::getInstance()->generateSteps($params)
+                );
+
+                if (!empty($result['steps'])) {
+                    foreach ($result['steps'] as $step) {
+                        DatabaseManager::getInstance()->insertOrUpdate(
+                            DatabaseTablesManager::DATABASE_SETUP_STEPS,
+                            [
+                                'step'     => sanitize_text_field($step['step'] ?? ''),
+                                'priority' => (int) ($step['priority'] ?? 0),
+                                'active'   => (int) ($step['active'] ?? 1),
+                            ],
+                            [
+                                'priority' => (int) ($step['priority'] ?? 0),
+                                'active'   => (int) ($step['active'] ?? 1),
+                            ]
+                        );
+                    }
+                }
+            } catch (Throwable $e) {
+                $this->log('Remote step generation failed; falling back to locally seeded default steps: ' . $e->getMessage(), 'WARNING');
+            }
+
+            $formattedSteps = $this->getFormattedSteps();
+
+            $response = [
+                'steps'                     => [
+                    'elements' => $formattedSteps,
+                ],
+                'prefillAddressRequirement' => false,
+            ];
+
+            return new WP_REST_Response($response, 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::generateSteps: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    /**
+     * Fetch, format, and translate steps natively
+     *
+     * @return array
+     */
+    private function getFormattedSteps(): array
+    {
+        $requirementsRows = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP)
+            ->select(['setupRequirement', 'value'])
+            ->get();
+
+        $satisfiedRequirements = [];
+        if (is_array($requirementsRows)) {
+            foreach ($requirementsRows as $reqRow) {
+                $reqRow = (array) $reqRow;
+                $reqName = $reqRow['setupRequirement'] ?? '';
+                $reqValue = $reqRow['value'] ?? null;
+                if ($reqValue !== null && $reqValue !== '') {
+                    $decoded = json_decode($reqValue, true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        if (!empty($decoded)) {
+                            $satisfiedRequirements[$reqName] = $decoded;
+                        }
+                    } else {
+                        $satisfiedRequirements[$reqName] = $reqValue;
+                    }
+                }
+            }
+        }
+
+        $questionsRows = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP_QUESTIONS)
+            ->select(['*'])
+            ->get();
+
+        $questionsByStep = [];
+        if (is_array($questionsRows)) {
+            foreach ($questionsRows as $qRow) {
+                $qRow = (array) $qRow;
+                $sId = (int) ($qRow['stepId'] ?? 0);
+                if (!isset($questionsByStep[$sId])) {
+                    $questionsByStep[$sId] = [];
+                }
+                $questionsByStep[$sId][] = $qRow;
+            }
+        }
+
+        $completionsRows = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP_COMPLETIONS)
+            ->select(['*'])
+            ->get();
+
+        $completionsByStep = [];
+        if (is_array($completionsRows)) {
+            foreach ($completionsRows as $cRow) {
+                $cRow = (array) $cRow;
+                $sId = (int) ($cRow['stepId'] ?? 0);
+                if (!isset($completionsByStep[$sId])) {
+                    $completionsByStep[$sId] = [];
+                }
+                $completionsByStep[$sId][] = [
+                    'id' => (int) ($cRow['id'] ?? 0),
+                    'stepId' => $sId,
+                    'collectorId' => isset($cRow['collectorId']) ? (int) $cRow['collectorId'] : null,
+                    'questionId' => isset($cRow['questionId']) ? (int) $cRow['questionId'] : null,
+                    'answer' => $cRow['answer'] ?? '',
+                    'data' => $cRow['data'] ?? null,
+                    'timeOfCompletion' => isset($cRow['timeOfCompletion']) ? (int) $cRow['timeOfCompletion'] : null,
+                    'isCompleted' => (bool) ($cRow['isCompleted'] ?? false),
+                ];
+            }
+        }
+
+        $questionTranslations = [
+            1  => __("Let's get started.", 'beyondseo'),
+            2  => __('First, could you tell me what your website or project is about?', 'beyondseo'),
+            3  => __('Awesome!', 'beyondseo'),
+            4  => __('Do you already have a name for your website, project, or business?', 'beyondseo'),
+            5  => __('Wonderful!', 'beyondseo'),
+            6  => __('Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?', 'beyondseo'),
+            7  => __('Just tasty! Thanks for sharing!', 'beyondseo'),
+            8  => __('Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?', 'beyondseo'),
+            9  => __('I see.', 'beyondseo'),
+            10 => __("Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?", 'beyondseo'),
+            11 => __('Thanks for providing that!', 'beyondseo'),
+            12 => __("Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?", 'beyondseo')
+        ];
+
+        $dbSteps = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP_STEPS)
+            ->select(['*'])
+            ->orderBy('priority', 'ASC')
+            ->get();
+
+        $formattedSteps = [];
+        if (is_array($dbSteps)) {
+            foreach ($dbSteps as $stepRow) {
+                $stepRow = (array) $stepRow;
+                $stepIdInt = (int) $stepRow['id'];
+
+                $stepRequirementsStr = $stepRow['requirements'] ?? '';
+                $stepRequirements = array_filter(array_map('trim', explode(',', $stepRequirementsStr)));
+
+                $allSatisfied = true;
+                if (empty($stepRequirements)) {
+                    $allSatisfied = false;
+                } else {
+                    foreach ($stepRequirements as $req) {
+                        if (!isset($satisfiedRequirements[$req])) {
+                            $allSatisfied = false;
+                            break;
+                        }
+                    }
+                }
+
+                $isStepCompleted = ((int) ($stepRow['completed'] ?? 0) === 1) || $allSatisfied;
+
+                if (!$stepRow['completed'] && $isStepCompleted) {
+                    DatabaseManager::getInstance()->update(
+                        DatabaseTablesManager::DATABASE_SETUP_STEPS,
+                        ['completed' => 1],
+                        ['id' => $stepIdInt]
+                    );
+                }
+
+                $stepQuestions = [];
+                if (isset($questionsByStep[$stepIdInt])) {
+                    foreach ($questionsByStep[$stepIdInt] as $q) {
+                        $qId = (int) ($q['id'] ?? 0);
+                        $translatedQuestion = isset($questionTranslations[$qId]) ? $questionTranslations[$qId] : ($q['question'] ?? '');
+                        $stepQuestions[] = [
+                            'id' => $qId,
+                            'parentId' => isset($q['parentId']) ? (int) $q['parentId'] : null,
+                            'stepId' => (int) ($q['stepId'] ?? 0),
+                            'question' => $translatedQuestion,
+                            'sequence' => (int) ($q['sequence'] ?? 1),
+                            'aiContext' => $q['aiContext'] ?? null,
+                            'isAiGenerated' => (bool) ($q['isAiGenerated'] ?? false),
+                        ];
+                    }
+                }
+
+                usort($stepQuestions, function($a, $b) {
+                    return $a['sequence'] <=> $b['sequence'];
+                });
+
+                $currentQuestionObj = null;
+                if (!empty($stepQuestions)) {
+                    $currentQuestionObj = $stepQuestions[count($stepQuestions) - 1];
+                }
+
+                $formattedSteps[] = [
+                    'id' => $stepIdInt,
+                    'step' => $stepRow['step'] ?? '',
+                    'requirements' => $stepRow['requirements'] ?? '',
+                    'priority' => (int) ($stepRow['priority'] ?? 0),
+                    'isFinalStep' => (bool) ($stepRow['isFinalStep'] ?? false),
+                    'active' => (bool) ($stepRow['active'] ?? true),
+                    'completed' => $isStepCompleted,
+                    'userSaveCount' => (int) ($stepRow['userSaveCount'] ?? 0),
+                    'questions' => [
+                        'elements' => $stepQuestions,
+                    ],
+                    'currentQuestion' => $currentQuestionObj,
+                    'completions' => [
+                        'elements' => isset($completionsByStep[$stepIdInt]) ? $completionsByStep[$stepIdInt] : [],
+                    ],
+                ];
+            }
+        }
+
+        return $formattedSteps;
+    }
+
+    public function extractAuto(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $countryCode = get_option(BaseConstants::OPTION_RANKINGCOACH_REGISTER_COUNTRY_CODE);
+            if (empty($countryCode)) {
+                $defaultCountry = WordpressHelpers::getDefaultCountry();
+                $countryCode = key($defaultCountry);
+            }
+
+            $onboarding = new AutoSetupOnboarding();
+            $content = $onboarding->getOnboardingContent(true);
+
+            $params = [
+                'countryCode' => $countryCode,
+                'content'     => $content,
+            ];
+
+            $result = $this->withRemoteErrorsAsExceptions(
+                fn() => RCApiManager::getInstance()->extractAuto($params)
+            );
+
+            // Save the extracted requirements to the local database
+            $extractedValues = $result['extractedValues'] ?? null;
+            if (is_array($extractedValues)) {
+                $prefilledAddress = (bool)($result['prefillCountryRelevantAddress'] ?? false);
+                
+                $businessGeoAddress = $extractedValues['businessGeoAddress'] ?? '';
+                try {
+                    $decodedAddress = json_decode((string)$businessGeoAddress, true, 512, JSON_THROW_ON_ERROR);
+                    $decodedAddress['prefilledAddress'] = $prefilledAddress;
+                    $businessGeoAddress = json_encode($decodedAddress, JSON_THROW_ON_ERROR);
+                } catch (Throwable $e) {
+                    $businessGeoAddress = '';
+                }
+
+                if ($prefilledAddress) {
+                    update_option(BaseConstants::OPTION_PREFILLED_ADDRESS, $extractedValues['businessAddress'] ?? '');
+                }
+
+                $requirements = [
+                    'businessDescription' => $extractedValues['businessDescription'] ?? '',
+                    'businessName'        => $extractedValues['businessName'] ?? '',
+                    'businessKeywords'    => $extractedValues['businessKeywords'] ?? [],
+                    'businessCategories'  => $extractedValues['businessCategories'] ?? [],
+                    'businessAddress'     => $extractedValues['businessAddress'] ?? '',
+                    'businessGeoAddress'  => $businessGeoAddress,
+                    'businessServiceArea' => $extractedValues['businessServiceArea'] ?? false,
+                ];
+
+                RequirementHelper::updateRequirements($requirements);
+            }
+
+            return new WP_REST_Response($result, 200);
+        } catch (Throwable $e) {
+            // Auto onboarding is a best-effort enhancement: it pre-fills the setup
+            // requirements from the site's own content so the user has less to type.
+            // It must NEVER abort onboarding. If it fails for any reason — including the
+            // remote DDD DTO (PostWPOnboardingRequestDto) rejecting the request because a
+            // property such as "name" or "description" could not be extracted — we
+            // swallow the error and return an empty, successful (200) result. The
+            // frontend then simply continues into the normal (manual) onboarding flow
+            // instead of surfacing a fatal "Unexpected Error".
+            $this->log('Auto onboarding extraction failed; falling back to normal onboarding: ' . $e->getMessage(), 'WARNING');
+            return new WP_REST_Response(['autoOnboardingFailed' => true], 200);
+        }
+    }
+
+    public function submitStep(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $body = $request->get_json_params() ?: [];
+            $completionData = $body['completion'] ?? $body;
+
+            $result = RCApiManager::getInstance()->submitStepAnswer($completionData);
+
+            $stepId = null;
+            if (!empty($completionData['stepId'])) {
+                $stepId = sanitize_text_field((string)$completionData['stepId']);
+
+                $stepRow = DatabaseManager::getInstance()
+                    ->table(DatabaseTablesManager::DATABASE_SETUP_STEPS)
+                    ->select(['*'])
+                    ->where('id', (int) $stepId)
+                    ->first();
+
+                if (!$stepRow) {
+                    $stepRow = DatabaseManager::getInstance()
+                        ->table(DatabaseTablesManager::DATABASE_SETUP_STEPS)
+                        ->select(['*'])
+                        ->where('step', $stepId)
+                        ->first();
+                }
+
+                if ($stepRow) {
+                    $stepRow = (array) $stepRow;
+                    $actualStepId = (int) $stepRow['id'];
+
+                    $existingCompletion = DatabaseManager::getInstance()
+                        ->table(DatabaseTablesManager::DATABASE_SETUP_COMPLETIONS)
+                        ->select(['id'])
+                        ->where('stepId', $actualStepId)
+                        ->where('questionId', isset($completionData['questionId']) ? (int) $completionData['questionId'] : null)
+                        ->first();
+
+                    $sanitizedAnswer = sanitize_text_field((string)($completionData['answer'] ?? ''));
+
+                    if ($existingCompletion) {
+                        DatabaseManager::getInstance()->update(
+                            DatabaseTablesManager::DATABASE_SETUP_COMPLETIONS,
+                            [
+                                'answer' => $sanitizedAnswer,
+                                'isCompleted' => 1,
+                                'timeOfCompletion' => time(),
+                            ],
+                            ['id' => (int) $existingCompletion->id]
+                        );
+                    } else {
+                        DatabaseManager::getInstance()->insert(
+                            DatabaseTablesManager::DATABASE_SETUP_COMPLETIONS,
+                            [
+                                'stepId' => $actualStepId,
+                                'questionId' => isset($completionData['questionId']) ? (int) $completionData['questionId'] : null,
+                                'answer' => $sanitizedAnswer,
+                                'isCompleted' => 1,
+                                'timeOfCompletion' => time(),
+                            ]
+                        );
+                    }
+                }
+            }
+
+            $currentStep = null;
+            $nextStep = null;
+            $allStepsCompleted = true;
+
+            $formattedSteps = $this->getFormattedSteps();
+            foreach ($formattedSteps as $fStep) {
+                if (!$fStep['completed']) {
+                    $allStepsCompleted = false;
+                }
+            }
+
+            if ($stepId !== null) {
+                foreach ($formattedSteps as $fStep) {
+                    if ($fStep['id'] === (int) $stepId || $fStep['step'] === $stepId) {
+                        $currentStep = $fStep;
+                        break;
+                    }
+                }
+
+                if ($currentStep !== null) {
+                    foreach ($formattedSteps as $fStep) {
+                        if ($fStep['completed']) {
+                            continue;
+                        }
+                        if ($fStep['priority'] > $currentStep['priority']) {
+                            $nextStep = $fStep;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            $response = [
+                'completion' => $completionData,
+                'step' => $currentStep,
+                'nextStep' => $nextStep,
+                'allStepsCompleted' => $allStepsCompleted,
+                'evaluationSucceeded' => sprintf(__('The API call (JSON response) is valid: %s', 'beyondseo'), json_encode(true)),
+                'failedAPICallFromResult' => sprintf(__('The API call (text/html or error property on JSON): %s', 'beyondseo'), json_encode(false)),
+            ];
+
+            return new WP_REST_Response($response, 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::submitStep: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    public function locationSuggestions(WP_REST_Request $request): WP_REST_Response
+    {
+        try {
+            $body = $request->get_json_params() ?: [];
+
+            $params = [
+                'address' => sanitize_text_field((string) ($body['address'] ?? '')),
+                'country' => sanitize_text_field((string) ($body['country'] ?? '')),
+                'city'    => sanitize_text_field((string) ($body['city'] ?? '')),
+                'zip'     => sanitize_text_field((string) ($body['zip'] ?? '')),
+            ];
+
+            $result = RCApiManager::getInstance()->getLocationSuggestions($params);
+
+            return new WP_REST_Response($result, 200);
+        } catch (Throwable $e) {
+            $this->log('Error in OnboardingController::locationSuggestions: ' . $e->getMessage(), 'ERROR');
+            return $this->generateErrorResponse($e, null, 500);
+        }
+    }
+
+    /**
+     * Map category IDs stored in the database to localized names
+     *
+     * @param string $value JSON encoded array of category IDs
+     * @return string JSON encoded array of category names
+     */
+    private function mapCategoryIdsToNames(string $value): string
+    {
+        try {
+            $ids = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+            if (!is_array($ids) || empty($ids)) {
+                return $value;
+            }
+
+            $locale = WordpressHelpers::current_language_code_helper();
+            $translatedCategories = \beyondseo_get_translated_categories($locale, 'id');
+            if (empty($translatedCategories)) {
+                return $value;
+            }
+
+            $names = [];
+            foreach ($ids as $id) {
+                $key = (int) $id;
+                if (isset($translatedCategories[$key])) {
+                    $names[] = $translatedCategories[$key]['name'];
+                }
+            }
+
+            return json_encode(array_values($names), JSON_THROW_ON_ERROR);
+        } catch (Throwable $e) {
+            return $value;
+        }
+    }
+}

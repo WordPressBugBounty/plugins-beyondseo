@@ -8,11 +8,8 @@ if (!defined('ABSPATH')) {
 }
 
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\CircuitBreaker\Breakers\PDOExtensionBreaker;
 use RankingCoach\Inc\Core\CircuitBreaker\Breakers\PermalinkStructureBreaker;
-use RankingCoach\Inc\Core\CircuitBreaker\Breakers\PHPVersionBreaker;
 use RankingCoach\Inc\Core\CircuitBreaker\Breakers\RestApiBreaker;
-use RankingCoach\Inc\Core\CircuitBreaker\Breakers\WordPressVersionBreaker;
 use RankingCoach\Inc\Core\NotificationManager;
 use RankingCoach\Inc\Core\Notification;
 use RuntimeException;
@@ -96,12 +93,6 @@ class CircuitBreakerManager {
      * Register default circuit breakers
      */
     private function register_default_breakers(): void {
-        /**
-         * @TODO: Re-enable PHP version breaker when we can fix the issues with PHP 7.4+ compatibility
-         */
-        //$this->register_breaker(new PHPVersionBreaker());
-        $this->register_breaker(new PDOExtensionBreaker());
-        $this->register_breaker(new WordPressVersionBreaker());
         $this->register_breaker(new PermalinkStructureBreaker());
         $this->register_breaker(new RestApiBreaker());
     }

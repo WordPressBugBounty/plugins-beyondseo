@@ -15,13 +15,17 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-use BeyondSEO\Domain\Integrations\WordPress\Plugin\Entities\WPSettings;
-use BeyondSEO\Presentation\Api\Client\Integrations\WordPress\Dtos\ModulesResponseDto;
-use BeyondSEODeps\DDD\Infrastructure\Reflection\ReflectionClass;
-use BeyondSEODeps\DDD\Infrastructure\Reflection\ReflectionProperty;
+use RankingCoach\Inc\Core\Rest\Dtos\ModulesResponseDto;
 use Exception;
+use RankingCoach\Inc\Core\Rest\Controllers\AdvancedSettingsController;
+use RankingCoach\Inc\Core\Rest\Controllers\IntegrationController;
+use RankingCoach\Inc\Core\Rest\Controllers\MetaTagsController;
+use RankingCoach\Inc\Core\Rest\Controllers\OnboardingController;
+use RankingCoach\Inc\Core\Rest\Controllers\OptimiserController;
+use RankingCoach\Inc\Core\Rest\Controllers\PluginInformationController;
+use RankingCoach\Inc\Core\Rest\Controllers\SocialController;
+use RankingCoach\Inc\Core\Rest\Controllers\SyncController;
 use RankingCoach\Inc\Core\Api\User\UserApiManager;
-use RankingCoach\Inc\Core\CustomVersionLoader;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Breadcrumbs\BreadcrumbsMultipleResponseHandler;
@@ -30,18 +34,19 @@ use RankingCoach\Inc\Core\Breadcrumbs\Dtos\BreadcrumbsResponseDto;
 use RankingCoach\Inc\Core\CapabilityManager;
 use RankingCoach\Inc\Core\CurrentUserManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
-use RankingCoach\Inc\Core\Helpers\Attributes\RcDocumentation;
+use RankingCoach\Inc\Core\PluginSettings;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\RestHelpers;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
-use RankingCoach\Inc\Core\OpenApiGenerator;
 use RankingCoach\Inc\Core\Settings\Dtos\SettingsRequestDto;
 use RankingCoach\Inc\Core\Settings\Dtos\SettingsResponseDto;
 use RankingCoach\Inc\Core\Settings\Dtos\SingleSettingRequestDto;
 use RankingCoach\Inc\Core\Settings\Dtos\SingleSettingResponseDto;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Modules\ModuleManager;
+use ReflectionClass;
+use ReflectionProperty;
 use ReflectionException;
 use Throwable;
 use WP_Error;
@@ -72,25 +77,11 @@ class RestManager extends WP_REST_Controller {
     private string $tokenOptionPrefix = 'rankingcoach_download_logs_token_';
 
     /**
-     * Prefix for SDK generation token options.
-     *
-     * @var string
-     */
-    private string $sdkTokenOptionPrefix = 'rankingcoach_sdk_gen_token_';
-
-    /**
      * Time-to-live for download tokens in seconds.
      *
      * @var int
      */
     private int $tokenTTL = 300;
-
-    /**
-     * Time-to-live for SDK tokens in seconds (10 minutes).
-     *
-     * @var int
-     */
-    private int $sdkTokenTTL = 600;
 
     /**
      * Constructor.
@@ -133,108 +124,25 @@ class RestManager extends WP_REST_Controller {
      * @return void
      */
     public function registerAllRoutes(): void {
-        // Register Symfony proxy routes (external API integration)
-        $this->registerSdkDocumentationRoutes();
-        $this->registerServiceIntegrationRoutes();
-        $this->registerServiceSyncRoutes();
-        $this->registerAdminRoutes();
-        $this->registerConfigRoutes();
-        $this->registerMetatagsRoutes();
-        $this->registerContentAnalysisRoutes();
-        $this->registerOnboardingRoutes();
-        $this->registerPluginInformationRoutes();
-        $this->registerOptimiserRoutes();
-        $this->registerAdvancedSettingsRoutes();
-        $this->registerSocialRoutes();
-
         // Register legacy/native WordPress routes
         $this->registerLegacyRoutes();
+
+        $this->registerV1Routes();
     }
 
     /*
     |--------------------------------------------------------------------------
-    | SDK Documentation Routes
+
     |--------------------------------------------------------------------------
     |
-    | Routes for SDK/OpenAPI documentation generation.
-    | Requires SDK token authentication for security.
+
+
     |
     */
 
-    /**
-     * Register SDK documentation routes.
-     *
-     * These endpoints provide OpenAPI/Swagger documentation for SDK generation.
-     * Access requires a valid SDK token generated via the /sdk_token endpoint.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerSdkDocumentationRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/documentation',
-            [
-                [
-                    'methods'             => WP_REST_Server::READABLE,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkSdkDocumentationPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        // Documentation sub-routes (e.g., /documentation/openapi.json)
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/documentation/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::READABLE,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkSdkDocumentationPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Documentation sub-path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
-    /**
-     * Check permission for SDK documentation endpoints.
-     *
-     * Validates SDK token authentication for documentation access.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The REST request object.
-     * @return bool|WP_Error True if authorized, WP_Error on failure.
-     */
-    public function checkSdkDocumentationPermission(WP_REST_Request $request): bool|WP_Error {
-        if (!$this->verifySdkTokenAuth($request)) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('Invalid or missing SDK token. Generate a token via POST /sdk_token endpoint.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
 
-        return true;
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -246,59 +154,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register integration service routes.
-     *
-     * These endpoints handle external service integrations (e.g., rankingCoach API).
-     * Access requires WordPress Application Password authentication.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerServiceIntegrationRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/integration',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkServiceIntegrationPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        // Integration sub-routes
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/integration/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkServiceIntegrationPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Integration endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for service integration endpoints.
@@ -342,59 +198,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register sync service routes.
-     *
-     * These endpoints handle data synchronization with external services.
-     * Access requires WordPress Application Password authentication.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerServiceSyncRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/sync',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkServiceSyncPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        // Sync sub-routes
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/sync/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkServiceSyncPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Sync endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for sync service endpoints.
@@ -438,59 +242,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register admin management routes.
-     *
-     * These endpoints handle administrative plugin functions.
-     * Access requires nonce authentication and manage_options capability.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerAdminRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/admin',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkAdminPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        // Admin sub-routes
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/admin/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkAdminPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Admin endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for admin endpoints.
@@ -542,59 +294,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register configuration routes.
-     *
-     * These endpoints handle plugin configuration settings.
-     * Access requires nonce authentication and manage_options capability.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerConfigRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/config',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkConfigPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        // Config sub-routes
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/config/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkConfigPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Config endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for config endpoints.
@@ -635,55 +335,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register meta tags management routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerMetatagsRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/metatags',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/metatags/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Metatags endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for metatags endpoints.
@@ -722,55 +374,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register content analysis routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerContentAnalysisRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/contentAnalysis',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkContentAnalysisPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/contentAnalysis/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkContentAnalysisPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Content analysis endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for content analysis endpoints.
@@ -810,55 +414,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register onboarding routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerOnboardingRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/onboarding',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkOnboardingPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/onboarding/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkOnboardingPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Onboarding endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for onboarding endpoints.
@@ -897,55 +453,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register plugin information routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerPluginInformationRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/pluginInformation',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkPluginInformationPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/pluginInformation/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkPluginInformationPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Plugin information endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for plugin information endpoints.
@@ -984,58 +492,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register SEO optimizer routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerOptimiserRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/optimiser',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkOptimiserPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/optimiser/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkOptimiserPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Optimiser endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'validate_callback' => function ($param) {
-                                return is_numeric($param) && (int) $param > 0;
-                            },
-                            'sanitize_callback' => 'absint',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for optimizer endpoints.
@@ -1078,58 +535,7 @@ class RestManager extends WP_REST_Controller {
 |
 */
 
-    /**
-     * Register social media management routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerAdvancedSettingsRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/advancedSettings',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkAdvancedSettingsPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/advancedSettings/(?P<post_id>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
-                    'args'                => [
-                        'post_id' => [
-                            'description'       => 'The ID of the post to manage advanced settings for',
-                            'type'              => 'integer',
-                            'required'          => true,
-                            'validate_callback' => function ($param) {
-                                return is_numeric($param) && (int) $param > 0;
-                            },
-                            'sanitize_callback' => 'absint',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for social media endpoints.
@@ -1168,55 +574,7 @@ class RestManager extends WP_REST_Controller {
     |
     */
 
-    /**
-     * Register social media management routes.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    private function registerSocialRoutes(): void {
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/social',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
 
-        register_rest_route(
-            RANKINGCOACH_REST_APP_BASE,
-            '/social/(?P<path>.+)',
-            [
-                [
-                    'methods'             => WP_REST_Server::ALLMETHODS,
-                    'callback'            => [$this, 'handleSymfonyProxy'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
-                    'args'                => [
-                        'path' => [
-                            'description'       => 'Social media endpoint path',
-                            'type'              => 'string',
-                            'required'          => true,
-                            'sanitize_callback' => 'sanitize_text_field',
-                        ],
-                    ],
-                ],
-                [
-                    'methods'             => 'OPTIONS',
-                    'callback'            => [$this, 'handleOptionsRequest'],
-                    'permission_callback' => '__return_true',
-                ],
-            ]
-        );
-    }
 
     /**
      * Check permission for social media endpoints.
@@ -1250,15 +608,14 @@ class RestManager extends WP_REST_Controller {
     | Legacy/Native WordPress Routes
     |--------------------------------------------------------------------------
     |
-    | WordPress handles These routes directly without proxying to Symfony.
+    | WordPress handles These routes directly.
     |
     */
 
     /**
      * Register legacy WordPress routes.
      *
-     * These endpoints are handled natively by WordPress and don't require
-     * the Symfony proxy. Each route has explicit capability requirements.
+     * These endpoints are handled natively by WordPress. Each route has explicit capability requirements.
      *
      * @since 1.0.0
      * @return void
@@ -1324,30 +681,6 @@ class RestManager extends WP_REST_Controller {
                         'sanitize_callback' => 'absint',
                     ],
                 ],
-            ]
-        );
-
-        // OpenAPI specification generator
-        register_rest_route(
-            $this->namespace,
-            '/generate_sdk',
-            [
-                'methods'             => WP_REST_Server::READABLE,
-                'callback'            => [$this, 'generateOpenApiSpecifications'],
-                'permission_callback' => [$this, 'checkSdkDocumentationPermission'],
-            ]
-        );
-
-        // SDK token generation
-        register_rest_route(
-            $this->namespace,
-            '/sdk_token',
-            [
-                'methods'             => WP_REST_Server::CREATABLE,
-                'callback'            => [$this, 'createSdkGenerationToken'],
-                'permission_callback' => function () {
-                    return current_user_can('manage_options');
-                },
             ]
         );
 
@@ -1464,37 +797,414 @@ class RestManager extends WP_REST_Controller {
 
     /*
     |--------------------------------------------------------------------------
+    | V1 Native Routes
+    |--------------------------------------------------------------------------
+    */
+
+    private function registerV1Routes(): void
+    {
+        $this->registerV1MetaTagsRoutes();
+        $this->registerV1SocialRoutes();
+        $this->registerV1AdvancedSettingsRoutes();
+        $this->registerV1OnboardingPartialRoutes();
+        $this->registerV1OnboardingRemoteRoutes();
+        $this->registerV1OptimiserRoutes();
+        $this->registerV1PluginInfoRoutes();
+        $this->registerV1IntegrationRoutes();
+        $this->registerV1SyncRoutes();
+    }
+
+    private function registerV1MetaTagsRoutes(): void
+    {
+        $controller = new MetaTagsController();
+
+        $postIdArg = [
+            'postId' => [
+                'description'       => 'Post ID',
+                'type'              => 'integer',
+                'required'          => true,
+                'validate_callback' => fn($p) => is_numeric($p) && (int) $p > 0,
+                'sanitize_callback' => 'absint',
+            ],
+        ];
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'get'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'save'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)/keyword/swap',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$controller, 'swapKeyword'],
+                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'args'                => $postIdArg,
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)/keyword',
+            [
+                [
+                    'methods'             => WP_REST_Server::EDITABLE,
+                    'callback'            => [$controller, 'assignKeyword'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::DELETABLE,
+                    'callback'            => [$controller, 'detachKeyword'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)/keywords',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'listKeywords'],
+                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'args'                => $postIdArg,
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)/content/keywords',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$controller, 'extractContentKeywords'],
+                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'args'                => $postIdArg,
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/metatags/(?P<postId>\d+)/separator',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'getSeparator'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::EDITABLE,
+                    'callback'            => [$controller, 'saveSeparator'],
+                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+    }
+
+    private function registerV1SocialRoutes(): void
+    {
+        $controller = new SocialController();
+
+        $postIdArg = [
+            'postId' => [
+                'description'       => 'Post ID',
+                'type'              => 'integer',
+                'required'          => true,
+                'validate_callback' => fn($p) => is_numeric($p) && (int) $p > 0,
+                'sanitize_callback' => 'absint',
+            ],
+        ];
+
+        register_rest_route(
+            $this->namespace,
+            '/social/(?P<postId>\d+)',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'get'],
+                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'save'],
+                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/social/(?P<postId>\d+)/image_sources',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'imageSources'],
+                'permission_callback' => [$this, 'checkSocialPermission'],
+                'args'                => $postIdArg,
+            ]
+        );
+    }
+
+    private function registerV1AdvancedSettingsRoutes(): void
+    {
+        $controller = new AdvancedSettingsController();
+
+        $postIdArg = [
+            'postId' => [
+                'description'       => 'Post ID',
+                'type'              => 'integer',
+                'required'          => true,
+                'validate_callback' => fn($p) => is_numeric($p) && (int) $p > 0,
+                'sanitize_callback' => 'absint',
+            ],
+        ];
+
+        register_rest_route(
+            $this->namespace,
+            '/advanced-settings/(?P<postId>\d+)',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'get'],
+                    'permission_callback' => [$this, 'checkAdvancedSettingsPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'save'],
+                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+    }
+
+    private function registerV1OnboardingPartialRoutes(): void
+    {
+        $controller = new OnboardingController();
+
+        register_rest_route(
+            $this->namespace,
+            '/onboarding/requirements',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'getRequirements'],
+                    'permission_callback' => [$this, 'checkOnboardingPermission'],
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'addRequirement'],
+                    'permission_callback' => [$this, 'checkOnboardingPermission'],
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/onboarding/requirements/(?P<requirementId>\d+)',
+            [
+                'methods'             => WP_REST_Server::EDITABLE,
+                'callback'            => [$controller, 'updateRequirement'],
+                'permission_callback' => [$this, 'checkOnboardingPermission'],
+                'args'                => [
+                    'requirementId' => [
+                        'description'       => 'Requirement ID',
+                        'type'              => 'integer',
+                        'required'          => true,
+                        'validate_callback' => fn($p) => is_numeric($p) && (int) $p > 0,
+                        'sanitize_callback' => 'absint',
+                    ],
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/onboarding/categories',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'getCategories'],
+                'permission_callback' => [$this, 'checkOnboardingPermission'],
+                'args'                => [
+                    'search' => [
+                        'description'       => 'Search term',
+                        'type'              => 'string',
+                        'required'          => false,
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/onboarding/steps/(?P<stepId>[a-zA-Z0-9_\-]+)',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'getStep'],
+                'permission_callback' => [$this, 'checkOnboardingPermission'],
+                'args'                => [
+                    'stepId' => [
+                        'description'       => 'Step ID',
+                        'type'              => 'string',
+                        'required'          => true,
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ],
+            ]
+        );
+    }
+
+    private function registerV1OnboardingRemoteRoutes(): void
+    {
+        $controller = new OnboardingController();
+
+        $remoteRoutes = [
+            '/onboarding/submit'             => 'submit',
+            '/onboarding/scan'               => 'scan',
+            '/onboarding/steps/generate'     => 'generateSteps',
+            '/onboarding/extract'            => 'extractAuto',
+            '/onboarding/steps/submit'       => 'submitStep',
+            '/onboarding/location/suggestions' => 'locationSuggestions',
+        ];
+
+        foreach ($remoteRoutes as $path => $method) {
+            register_rest_route(
+                $this->namespace,
+                $path,
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, $method],
+                    'permission_callback' => [$this, 'checkOnboardingPermission'],
+                ]
+            );
+        }
+    }
+
+    private function registerV1OptimiserRoutes(): void
+    {
+        $controller = new OptimiserController();
+
+        $postIdArg = [
+            'postId' => [
+                'description'       => 'Post ID',
+                'type'              => 'integer',
+                'required'          => true,
+                'validate_callback' => fn($p) => is_numeric($p) && (int) $p > 0,
+                'sanitize_callback' => 'absint',
+            ],
+        ];
+
+        register_rest_route(
+            $this->namespace,
+            '/optimiser/(?P<postId>\d+)',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$controller, 'get'],
+                    'permission_callback' => [$this, 'checkOptimiserPermission'],
+                    'args'                => $postIdArg,
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'run'],
+                    'permission_callback' => [$this, 'checkOptimiserPermission'],
+                    'args'                => $postIdArg,
+                ],
+            ]
+        );
+
+        register_rest_route(
+            $this->namespace,
+            '/optimiser/(?P<postId>\d+)/data',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'exportData'],
+                'permission_callback' => [$this, 'checkOptimiserPermission'],
+                'args'                => array_merge($postIdArg, [
+                    'export' => [
+                        'description'       => 'Export format',
+                        'type'              => 'string',
+                        'required'          => false,
+                        'sanitize_callback' => 'sanitize_text_field',
+                    ],
+                ]),
+            ]
+        );
+    }
+
+    private function registerV1PluginInfoRoutes(): void
+    {
+        $controller = new PluginInformationController();
+
+        register_rest_route(
+            $this->namespace,
+            '/pluginInformation',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$controller, 'info'],
+                'permission_callback' => [$this, 'checkPluginInformationPermission'],
+            ]
+        );
+    }
+
+    private function registerV1IntegrationRoutes(): void
+    {
+        $controller = new IntegrationController();
+
+        register_rest_route(
+            $this->namespace,
+            '/integration/status',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$controller, 'status'],
+                'permission_callback' => [$this, 'checkServiceIntegrationPermission'],
+            ]
+        );
+    }
+
+    private function registerV1SyncRoutes(): void
+    {
+        $controller = new SyncController();
+
+        register_rest_route(
+            $this->namespace,
+            '/sync/keywords',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$controller, 'keywords'],
+                'permission_callback' => [$this, 'checkServiceSyncPermission'],
+            ]
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     | Request Handlers
     |--------------------------------------------------------------------------
     */
 
-    /**
-     * Handle Symfony proxy requests.
-     *
-     * This method proxies REST API requests to the Symfony application
-     * for endpoints that require Symfony's routing and controllers.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The REST request object.
-     * @return void
-     */
-    public function handleSymfonyProxy(WP_REST_Request $request): void {
-        // Define API context constant
-        if (!defined('RANKINGCOACH_API_CONTEXT')) {
-            define('RANKINGCOACH_API_CONTEXT', true);
-        }
 
-        // Set JSON content type header
-        header('Content-Type: application/json');
-
-        // Set SCRIPT_FILENAME to the Symfony entry point
-        // This is required for proper Symfony routing
-        // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
-        $_SERVER['SCRIPT_FILENAME'] = RANKINGCOACH_PLUGIN_APP_DIR . 'public/index.php';
-
-        // Load Symfony runtime
-        require_once RANKINGCOACH_PLUGIN_APP_DIR . 'vendor/autoload_runtime.php';
-    }
 
     /**
      * Handle OPTIONS requests for CORS preflight.
@@ -1512,65 +1222,6 @@ class RestManager extends WP_REST_Controller {
     | Authentication Methods
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * Verify SDK token authentication.
-     *
-     * Validates a temporary SDK token for documentation access.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The request object.
-     * @return bool True if authenticated, false otherwise.
-     */
-    private function verifySdkTokenAuth(WP_REST_Request $request): bool {
-        // Get token from header or query parameter
-        $token = $request->get_header('X-SDK-Token');
-        if (empty($token)) {
-            $token = $request->get_param('sdk_token');
-        }
-
-        if (empty($token)) {
-            $this->log('SDK token authentication failed: Missing token', 'WARNING');
-            return false;
-        }
-
-        // Validate token exists
-        $tokenData = get_option($this->sdkTokenOptionPrefix . $token);
-        if (!$tokenData) {
-            $this->log('SDK token authentication failed: Invalid token', 'WARNING');
-            return false;
-        }
-
-        // Check expiration
-        if (time() > $tokenData['expires_at']) {
-            delete_option($this->sdkTokenOptionPrefix . $token);
-            $this->log('SDK token authentication failed: Token expired', 'WARNING');
-            return false;
-        }
-
-        // Check usage count
-        $maxUsageCount = 10;
-        $usageCount = $tokenData['usage_count'] ?? 0;
-        if ($usageCount >= $maxUsageCount) {
-            delete_option($this->sdkTokenOptionPrefix . $token);
-            $this->log('SDK token authentication failed: Max usage count exceeded', 'WARNING');
-            return false;
-        }
-
-        // Clean up old tokens
-        DatabaseManager::getInstance()->deleteOptionsByPrefix(
-            $this->sdkTokenOptionPrefix,
-            [$this->sdkTokenOptionPrefix . $token]
-        );
-
-        // Update usage count
-        $tokenData['usage_count'] = $usageCount + 1;
-        $tokenData['last_used_at'] = time();
-        update_option($this->sdkTokenOptionPrefix . $token, $tokenData);
-
-        $this->log('SDK token authentication successful', 'INFO');
-        return true;
-    }
 
     /**
      * Verify WordPress Application Password authentication.
@@ -1693,11 +1344,6 @@ class RestManager extends WP_REST_Controller {
      * @throws ReflectionException
      * @throws Exception
      */
-    #[RcDocumentation(
-        responseDto: ModulesResponseDto::class,
-        description: 'Returns the list of available modules with their names.',
-        summary: 'Get the list of available modules.'
-    )]
     public function rankingcoachModules(WP_REST_Request $request): WP_REST_Response {
         if ('GET' !== $request->get_method()) {
             return $this->generateErrorResponse(null, 'Method not allowed', 405);
@@ -1725,10 +1371,6 @@ class RestManager extends WP_REST_Controller {
      * @return WP_REST_Response
      * @throws Throwable
      */
-    #[RcDocumentation(
-        description: 'Returns the rankingCoach account details including user data, subscription data, and other account details.',
-        summary: 'Get the current logged account details.'
-    )]
     public function rankingcoachAccountDetails(WP_REST_Request $request): WP_REST_Response {
         if ('GET' !== $request->get_method()) {
             return $this->generateErrorResponse(null, 'Method not allowed', 405);
@@ -1751,10 +1393,6 @@ class RestManager extends WP_REST_Controller {
      * @return WP_REST_Response
      * @throws Throwable
      */
-    #[RcDocumentation(
-        description: 'Returns from rankingCoach the location keywords for the current logged account.',
-        summary: 'Get the location keywords.'
-    )]
     public function rankingcoachLocationKeywords(WP_REST_Request $request): WP_REST_Response {
         if ('GET' !== $request->get_method()) {
             return $this->generateErrorResponse(null, 'Method not allowed', 405);
@@ -1776,10 +1414,6 @@ class RestManager extends WP_REST_Controller {
      * @param WP_REST_Request $request Full data about the request.
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        description: 'Returns the available variables for a post.',
-        summary: 'Get the available variables for a post.'
-    )]
     public function rankingcoachVariables(WP_REST_Request $request): WP_REST_Response {
         if ('GET' !== $request->get_method()) {
             return $this->generateErrorResponse(null, 'Method not allowed', 405);
@@ -1800,73 +1434,7 @@ class RestManager extends WP_REST_Controller {
         }
     }
 
-    /**
-     * Generate OpenAPI specification for the plugin.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request Full data about the request.
-     * @return WP_REST_Response|void
-     */
-    #[RcDocumentation(
-        description: 'Generates the OpenAPI spec for registered routes. This is used for generating stores on frontend.',
-        summary: 'Generate OpenAPI specification.'
-    )]
-    public function generateOpenApiSpecifications(WP_REST_Request $request) {
-        if ('GET' !== $request->get_method()) {
-            return $this->generateErrorResponse(null, 'Method not allowed', 405);
-        }
 
-        $generator = new OpenApiGenerator();
-        header('Content-Type: application/json');
-        echo wp_json_encode($generator->getOpenApi(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-        exit;
-    }
-
-    /**
-     * Create SDK generation token.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request Full data about the request.
-     * @return WP_REST_Response
-     * @throws Throwable
-     */
-    #[RcDocumentation(
-        description: 'Creates a temporary token for SDK generation. The token is valid for 10 minutes and allows access to documentation/OpenAPI endpoints.',
-        summary: 'Create SDK Generation Token'
-    )]
-    public function createSdkGenerationToken(WP_REST_Request $request): WP_REST_Response {
-        if ('POST' !== $request->get_method()) {
-            return $this->generateErrorResponse(null, 'Method not allowed', 405);
-        }
-
-        $token = CoreHelper::generateSecureToken();
-        $expires_at = time() + $this->sdkTokenTTL;
-
-        $tokenData = [
-            'expires_at'  => $expires_at,
-            'created_at'  => time(),
-            'usage_count' => 0,
-            'created_by'  => get_current_user_id(),
-        ];
-
-        update_option($this->sdkTokenOptionPrefix . $token, $tokenData);
-
-        $this->log('SDK generation token created for user: ' . get_current_user_id(), 'INFO');
-
-        return $this->generateSuccessResponse([
-            'data' => [
-                'token'       => $token,
-                'expires_at'  => gmdate('c', $expires_at),
-                'ttl_seconds' => $this->sdkTokenTTL,
-                'message'     => 'SDK token created successfully. Use this token with --token parameter or X-SDK-Token header.',
-                'usage'       => [
-                    'cli'         => 'npm run gen:SDK --base=http://your-site.local --token=' . $token,
-                    'header'      => 'X-SDK-Token: ' . $token,
-                    'query_param' => 'sdk_token=' . $token,
-                ],
-            ],
-        ]);
-    }
 
     /**
      * Apply CORS headers for REST API requests.
@@ -2010,12 +1578,6 @@ class RestManager extends WP_REST_Controller {
      * @param WP_REST_Request $request The REST request object
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: SettingsRequestDto::class,
-        responseDto: SettingsResponseDto::class,
-        description: 'Handle general settings CRUD operations',
-        summary: 'General Settings Management'
-    )]
     public function handleGeneralSettings(WP_REST_Request $request): WP_REST_Response {
         try {
             $method = $request->get_method();
@@ -2053,12 +1615,6 @@ class RestManager extends WP_REST_Controller {
      * @param WP_REST_Request $request The REST request object
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: SingleSettingRequestDto::class,
-        responseDto: SingleSettingResponseDto::class,
-        description: 'Handle individual setting CRUD operations',
-        summary: 'Single Setting Management'
-    )]
     public function handleSingleSetting(WP_REST_Request $request): WP_REST_Response {
         try {
             $method = $request->get_method();
@@ -2100,12 +1656,6 @@ class RestManager extends WP_REST_Controller {
      * @param WP_REST_Request $request The REST request object
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: BreadcrumbsRequestDto::class,
-        responseDto: BreadcrumbsResponseDto::class,
-        description: 'Generate breadcrumbs for multiple context types with full customization support. Supports post types, archives, search results, 404 pages, taxonomies, and date archives. Context-aware generation based on provided parameters.',
-        summary: 'Multi-context Breadcrumbs Generator'
-    )]
     public function handleBreadcrumbs(WP_REST_Request $request): WP_REST_Response {
         try {
             $method = $request->get_method();
@@ -2548,17 +2098,8 @@ class RestManager extends WP_REST_Controller {
         static $validKeys = null;
 
         if ($validKeys === null) {
-            try {
-                $reflection = new ReflectionClass(WPSettings::class);
-                $validKeys = [];
-
-                foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
-                    $validKeys[] = strtolower($property->getName());
-                }
-            } catch (ReflectionException $e) {
-                $this->log('Error getting valid setting keys: ' . $e->getMessage(), 'ERROR');
-                $validKeys = [];
-            }
+            $settings = PluginSettings::instance()->get_all();
+            $validKeys = array_map('strtolower', array_keys($settings));
         }
 
         return $validKeys;
@@ -2698,14 +2239,7 @@ class RestManager extends WP_REST_Controller {
      * @return mixed|null Default value or null if not found.
      */
     private function getDefaultSettingValue(string $key): mixed {
-        try {
-            $reflection = new ReflectionClass(WPSettings::class);
-            $property = $reflection->getProperty($key);
-            return $property->getDefaultValue();
-        } catch (ReflectionException $e) {
-            $this->log("Error getting default value for setting '{$key}': " . $e->getMessage(), 'ERROR');
-            return null;
-        }
+        return PluginSettings::instance()->getDefault($key);
     }
 
     /**

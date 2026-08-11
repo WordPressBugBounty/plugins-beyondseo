@@ -15,6 +15,7 @@ use RankingCoach\Inc\Core\Builders\Elementor\ElementorContentRenderer;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 use RankingCoach\Inc\Modules\ModuleManager;
+use Throwable;
 use WP_Post;
 use WP_Post_Type;
 use WP_Query;
@@ -772,6 +773,219 @@ class WordpressHelpers {
             ],
         ];
     }
+
+    /**
+     * Resolve a template (either a JSON-structured array or a legacy string template)
+     * containing text, variables, and separators into a final, human-readable string.
+     *
+     * Supports legacy strings containing `{% variable:<key> %}` and `{% separator:<key> %}`
+     * as well as new JSON format: `[{"type": "text", "content": "..."}, {"type": "variable", "key": "..."}, {"type": "separator", "key": "..."}]`.
+     *
+     * @param int    $postId   The post ID to resolve variables against.
+     * @param string $template The raw template (JSON string or legacy string).
+     *
+     * @return string The resolved string.
+     */
+    public static function resolveTemplate(int $postId, string $template): string {
+        if (empty($postId) || empty($template)) {
+            return '';
+        }
+
+        $post = get_post($postId);
+        $variables = self::get_available_WPVariables(['post' => $post]);
+
+        $is_json = false;
+        $decoded = null;
+        $trimmed_template = trim($template);
+
+        if (str_starts_with($trimmed_template, '[') && str_ends_with($trimmed_template, ']')) {
+            try {
+                $decoded = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
+                if (is_array($decoded)) {
+                    $is_json = true;
+                }
+            } catch (Exception $e) {
+                $is_json = false;
+            }
+        }
+
+        if ($is_json) {
+            $resolved_parts = [];
+
+            foreach ($decoded as $element) {
+                if (!is_array($element) || !isset($element['type'])) {
+                    continue;
+                }
+
+                $type = $element['type'];
+
+                if ($type === 'text') {
+                    $resolved_parts[] = $element['content'] ?? '';
+                } elseif ($type === 'separator') {
+                    $key = $element['key'] ?? '';
+                    if ($key !== '') {
+                        $resolved_parts[] = self::getSeparatorChar($key);
+                    }
+                } elseif ($type === 'variable') {
+                    $key = $element['key'] ?? '';
+                    if ($key !== '') {
+                        $found = false;
+                        foreach ($variables as $var) {
+                            if ($var['key'] === $key) {
+                                $resolved_parts[] = html_entity_decode((string) $var['value']);
+                                $found = true;
+                                break;
+                            }
+                        }
+                        if (!$found) {
+                            $resolved_parts[] = '';
+                        }
+                    }
+                }
+            }
+
+            $resolved = implode('', $resolved_parts);
+        } else {
+            $resolved = preg_replace_callback(
+                '/{% (variable|separator):([a-zA-Z0-9_-]+) %}/',
+                function ($matches) use ($variables) {
+                    $type = $matches[1];
+                    $key = $matches[2];
+
+                    if ($type === 'separator') {
+                        return self::getSeparatorChar($key);
+                    }
+
+                    if ($type === 'variable') {
+                        foreach ($variables as $var) {
+                            if ($var['key'] === $key) {
+                                return html_entity_decode((string) $var['value']);
+                            }
+                        }
+                    }
+
+                    return '';
+                },
+                $template
+            );
+        }
+
+        return trim(preg_replace('/\s+/', ' ', $resolved));
+    }
+
+    /**
+     * Map a separator key (as used in the React `SeparatorOptions` list) to its character.
+     *
+     * @param string $key The separator key.
+     *
+     * @return string The separator character, or '-' as a fallback.
+     */
+    private static function getSeparatorChar(string $key): string {
+        $separators = [
+            'angle_double' => '»',
+            'angle_single' => '›',
+            'asterisk' => '*',
+            'backslash' => '\\',
+            'bullet' => '•',
+            'colon' => ':',
+            'dash' => '-',
+            'dot' => '·',
+            'ellipsis' => '…',
+            'em_dash' => '—',
+            'en_dash' => '–',
+            'equals' => '=',
+            'pipe' => '|',
+            'plus' => '+',
+            'slash' => '/',
+            'tilde' => '~',
+        ];
+
+        return $separators[$key] ?? '-';
+    }
+
+    /**
+     * Sanitize structured template input (JSON array or legacy string).
+     *
+     * @param mixed $template   The template to sanitize.
+     * @param bool  $isTextArea Whether the content is from a textarea (preserves newlines).
+     *
+     * @return string Sanitized JSON string or plain text.
+     */
+    public static function sanitizeTemplateInput($template, bool $isTextArea = false): string
+    {
+        if (is_array($template)) {
+            $sanitized = [];
+            foreach ($template as $element) {
+                if (!is_array($element) || !isset($element['type'])) {
+                    continue;
+                }
+                $type = sanitize_text_field($element['type']);
+                $item = ['type' => $type];
+                if ($type === 'text') {
+                    $content = (string) ($element['content'] ?? '');
+                    $item['content'] = self::sanitizeTemplateTextContent($content, $isTextArea);
+                } elseif ($type === 'separator' || $type === 'variable') {
+                    $item['key'] = sanitize_text_field($element['key'] ?? '');
+                }
+                $sanitized[] = $item;
+            }
+            return wp_json_encode($sanitized);
+        }
+
+        if (is_string($template)) {
+            $trimmed = trim($template);
+            if (str_starts_with($trimmed, '[') && str_ends_with($trimmed, ']')) {
+                try {
+                    $decoded = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
+                    if (is_array($decoded)) {
+                        return self::sanitizeTemplateInput($decoded, $isTextArea);
+                    }
+                } catch (Throwable $e) {
+                }
+            }
+            return $isTextArea ? sanitize_textarea_field($template) : sanitize_text_field($template);
+        }
+
+        return '';
+    }
+
+    /**
+     * Sanitize the content of a structured-template text element while
+     * preserving user-authored whitespace. Spacing around variables and
+     * separators lives in dedicated text nodes (e.g. `{"type":"text",
+     * "content":"  "}`), where every space is significant — but
+     * sanitize_text_field() trims edges and collapses space runs to one.
+     *
+     * Mirrors _sanitize_text_fields() (invalid UTF-8, tag stripping,
+     * percent-encoded octet removal, newline/tab normalization for
+     * single-line fields) without the space collapsing and trimming.
+     *
+     * @param string $content    The content to sanitize.
+     * @param bool   $isTextArea Whether to preserve newlines and tabs.
+     *
+     * @return string Sanitized content.
+     */
+    public static function sanitizeTemplateTextContent(string $content, bool $isTextArea): string
+    {
+        $filtered = (string) wp_check_invalid_utf8($content);
+
+        if (str_contains($filtered, '<')) {
+            $filtered = wp_pre_kses_less_than($filtered);
+            $filtered = wp_strip_all_tags($filtered, false);
+            $filtered = str_replace("<\n", "&lt;\n", $filtered);
+        }
+
+        if (!$isTextArea) {
+            $filtered = preg_replace('/[\r\n\t]/', ' ', $filtered);
+        }
+
+        while (preg_match('/%[a-f0-9]{2}/i', $filtered, $match)) {
+            $filtered = str_replace($match[0], '', $filtered);
+        }
+
+        return $filtered;
+    }
+
 
 	/**
 	     * Determine the current screen in WordPress admin.
@@ -3070,12 +3284,7 @@ class WordpressHelpers {
         $settingsManager = SettingsManager::instance();
         $options = $settingsManager->get_options();
 
-        if (!($options instanceof \BeyondSEO\Domain\Integrations\WordPress\Plugin\Entities\WPSettings) || !property_exists($options, 'allowed_countries')) {
-            // Fallback: Manually instantiate WPSettings to get defaults
-            $options = new \BeyondSEO\Domain\Integrations\WordPress\Plugin\Entities\WPSettings();
-        }
-
-        $allowedCountries = $options->allowed_countries ?? [];
+        $allowedCountries = $options['allowed_countries'] ?? [];
 
         // Ensure it's an array of string => string
         if (!is_array($allowedCountries) || empty($allowedCountries)) {

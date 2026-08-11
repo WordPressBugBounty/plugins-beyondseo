@@ -173,6 +173,9 @@ class ToolbarManager
             'parent' => 'rc-assistant',
             'title'  => __('Support', 'beyondseo'),
             'href'   => CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support'),
+            'meta'   => [
+                'target' => '_blank',
+            ],
         ]);
 
         // Submenu: Connect

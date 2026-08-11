@@ -365,6 +365,18 @@ class Database
     }
 
     /**
+     * Alias for table() method.
+     * 
+     * @param string $table The table name.
+     * @param string|null $as Optional alias for the table.
+     * @return self
+     */
+    public function from(string $table, ?string $as = null): self
+    {
+        return $this->table($table, $as);
+    }
+
+    /**
      * Set the statement type for the query.
      *
      * @param string $statement The statement type (SELECT, INSERT, UPDATE, DELETE, etc.).
@@ -474,8 +486,14 @@ class Database
      */
     public function where(string $column, mixed $value, string $operator = '='): self
     {
-        $escapedValue = $this->escapeValue($value);
-        $this->where[] = "$column $operator $escapedValue";
+        if ($value instanceof \Closure) {
+            $subQuery = new self();
+            $value($subQuery);
+            $this->where[] = "$column $operator (" . $subQuery->toSql() . ")";
+        } else {
+            $escapedValue = $this->escapeValue($value);
+            $this->where[] = "$column $operator $escapedValue";
+        }
         return $this;
     }
 
@@ -919,9 +937,17 @@ class Database
         if (is_int($value) || is_float($value)) {
             return (string)$value;
         }
+
+        if (!is_scalar($value)) {
+            try {
+                $value = json_encode($value, JSON_THROW_ON_ERROR);
+            } catch (\Throwable $e) {
+                $value = '';
+            }
+        }
         
         if ($this->stripTags || ($this->escapeOptions & self::ESCAPE_STRIP_HTML)) {
-            $value = wp_strip_all_tags($value);
+            $value = wp_strip_all_tags((string)$value);
         }
         
         if ($this->escapeOptions & self::ESCAPE_QUOTE) {
@@ -1010,6 +1036,16 @@ class Database
      *
      * @return string The query string.
      */
+    /**
+     * Return the SQL string for the query.
+     *
+     * @return string The SQL string.
+     */
+    public function toSql(): string
+    {
+        return $this->__toString();
+    }
+
     public function __toString(): string
     {
         switch (strtoupper($this->statement)) {

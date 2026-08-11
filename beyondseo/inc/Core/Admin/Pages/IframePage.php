@@ -22,7 +22,6 @@ use RankingCoach\Inc\Core\Jobs\AccountSyncJob;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
 use RankingCoach\Inc\Core\TokensManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
-use RankingCoach\Inc\Exceptions\InvalidTokenException;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use ReflectionException;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -221,7 +220,7 @@ class IframePage extends AdminPage
         }
 
         // Build iframe URL from config
-        $config    = require RANKINGCOACH_PLUGIN_APP_DIR . 'config/app/externalIntegrations.php';
+        $config    = require RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php';
         $language  = WordpressHelpers::current_language_code_helper(WordpressHelpers::get_wp_locale()) ?? 'en';
         $locale    = WordpressHelpers::get_wp_locale();
         $baseEnv   = RankingCoachPlugin::isProductionMode() ? 'liveEnv' : 'devEnv';

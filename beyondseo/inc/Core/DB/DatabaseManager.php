@@ -25,7 +25,7 @@ class DatabaseManager
     /**
      * @var string Database version
      */
-    private const BEYONDSEO_DB_VERSION = '1.0.1';
+    private const BEYONDSEO_DB_VERSION = '1.0.2';
 
     /**
      * @var Database The Database instance

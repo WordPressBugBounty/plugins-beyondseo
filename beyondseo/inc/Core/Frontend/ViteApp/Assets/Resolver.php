@@ -7,14 +7,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
-use BeyondSEODeps\Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Exception;
 
 trait Resolver {
     private array $manifest = [];
 
     /**
      * @return void
-     * @throws FileNotFoundException|\JsonException
+     * @throws Exception|\JsonException
      */
     public function load(): void {
         $path = ReactApp::get()?->config()->get( 'manifest.path' );
@@ -22,12 +22,17 @@ trait Resolver {
 		    wp_die( wp_kses_post( __( 'Run <code>npm run build</code> in your application root!', 'beyondseo' ) ) );
 	    }
 	    try {
-		    $data = ReactApp::get()?->filesystem()->get($path);
+            global $wp_filesystem;
+            if ( empty( $wp_filesystem ) ) {
+                WP_Filesystem();
+            }
+
+		    $data = $wp_filesystem->get_contents( $path );
 		    if (!empty($data)) {
                 $this->manifest = json_decode($data, true, 512, JSON_THROW_ON_ERROR);
             }
-        } catch ( FileNotFoundException $e ) {
-            throw new FileNotFoundException( esc_html( $e->getMessage() ) );
+        } catch ( Exception $e ) {
+            throw new Exception( esc_html( $e->getMessage() ) );
         }
     }
 

@@ -9,13 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use Exception;
 use RankingCoach\Inc\Core\Base\BaseConstants;
-use RankingCoach\Inc\Core\Helpers\Attributes\RcDocumentation;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Interfaces\MetaHeadBuilderInterface;
 use RankingCoach\Inc\Modules\ModuleBase\BaseModule;
-use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Dtos\SchemaMarkupGetDataRequestDto;
 use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Dtos\SchemaMarkupGetDataResponseDto;
-use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Dtos\SchemaMarkupPostSaveDataRequestDto;
 use RankingCoach\Inc\Modules\ModuleManager;
 use ReflectionException;
 use WP_Query;
@@ -101,12 +98,6 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-    #[RcDocumentation(
-        requestDto: SchemaMarkupPostSaveDataRequestDto::class,
-        responseDto: SchemaMarkupGetDataResponseDto ::class,
-        description: 'Save the schema settings data for the module',
-        summary: 'Save Schema Data',
-    )]
     public function saveSchemaDataForPost(WP_REST_Request $request): WP_REST_Response {
 
         // Verify nonce from REST request header
@@ -156,12 +147,6 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
      * @param WP_REST_Request $request
      * @return WP_REST_Response
      */
-	#[RcDocumentation(
-		requestDto: SchemaMarkupGetDataRequestDto::class,
-        responseDto: SchemaMarkupGetDataResponseDto ::class,
-        description: 'Get the schema settings data for the module.',
-        summary: 'Get Schema Data',
-	)]
     public function getSchemaData(WP_REST_Request $request): WP_REST_Response {
         $postId = $request->get_param('id');
         $settings = $this->retrieveSchemaMarkupSettings($postId);

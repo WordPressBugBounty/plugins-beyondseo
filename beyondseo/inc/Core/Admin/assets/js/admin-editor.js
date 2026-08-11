@@ -342,7 +342,7 @@ class RankingCoachGutenbergHandler {
 
 
             // Build the API URL with query parameters
-            const apiUrl = `/wp-json/rankingcoach/api/optimiser/${postId}?ref=editor&noCache=1&debug=1`;
+            const apiUrl = `/wp-json/rankingcoach/seo/optimiser/${postId}?ref=editor&noCache=1&debug=1`;
             
             // Create the fetch request
             const response = await fetch(apiUrl, {

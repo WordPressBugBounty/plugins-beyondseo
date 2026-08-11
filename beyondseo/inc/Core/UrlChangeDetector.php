@@ -287,7 +287,10 @@ class UrlChangeDetector
         $newUrl = $this->originToUrl($newOrigin);
 
         // Trigger API update with retry logic
-        $this->updateWebsiteUrlWithRetry($newUrl);
+        $storedOnboardingUrl = (string) get_option(BaseConstants::OPTION_RANKINGCOACH_ONBOARDING_URL, '');
+        if ($storedOnboardingUrl === '' || $storedOnboardingUrl !== $newUrl) {
+            $this->updateWebsiteUrlWithRetry($newUrl);
+        }
 
         // Fire action for other components
         do_action('rankingcoach_url_changed', 
