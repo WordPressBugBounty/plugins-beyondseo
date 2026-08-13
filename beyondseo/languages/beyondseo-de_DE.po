@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-11 06:35+0000\n"
+"PO-Revision-Date: 2026-08-12 14:28+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: de\n"
@@ -10,6 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: \n"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 msgid "%1$s: %2$s"
@@ -7868,279 +7870,209 @@ msgstr "KI-Posting für Social Media"
 msgid "Agency or Enterprise? Talk to us"
 msgstr "Agentur oder Enterprise? Sprechen Sie mit uns"
 
-
 msgid "Activation failed."
 msgstr "Aktivierung fehlgeschlagen."
-
 
 msgid "Enter the activation code provided by your provider."
 msgstr "Geben Sie den von Ihrem Anbieter bereitgestellten Aktivierungscode ein."
 
-
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr "Sie werden in 5 Sekunden automatisch weitergeleitet..."
-
 
 msgid "Communication Opt-In is disabled. The BeyondSEO dashboard requires it to be enabled."
 msgstr "Kommunikations-Einwilligung ist deaktiviert. Das BeyondSEO-Dashboard erfordert, dass sie aktiviert ist."
 
-
 msgid "Go to Settings"
 msgstr "Zu den Einstellungen"
-
 
 msgid "1. Which subscription is suitable for small businesses?"
 msgstr "1. Welches Abonnement ist für kleine Unternehmen geeignet?"
 
-
 msgid "All of our plans are built for small and medium-sized businesses. Just pick the one that matches your goal, and you're ready to go."
 msgstr "Alle unsere Pläne sind für kleine und mittlere Unternehmen konzipiert. Wählen Sie einfach den Plan, der zu Ihrem Ziel passt, und schon kann es losgehen."
-
 
 msgid "2. Do I need any technical skills?"
 msgstr "2. Benötige ich technische Kenntnisse?"
 
-
 msgid "Not at all. You don't need any prior knowledge or experience, and with agents handling many of your marketing tasks, promoting your business is easier than ever."
 msgstr "Überhaupt nicht. Sie benötigen keine Vorkenntnisse oder Erfahrung, und da Agenten viele Ihrer Marketingaufgaben übernehmen, ist die Förderung Ihres Unternehmens einfacher denn je."
-
 
 msgid "Yes. You can find all the details about subscription management and cancellation through your provider."
 msgstr "Ja. Alle Details zur Abonnementverwaltung und Kündigung finden Sie bei Ihrem Anbieter."
 
-
 msgid "AI agents that handle your marketing"
 msgstr "KI-Agenten, die Ihr Marketing übernehmen"
-
 
 msgid "Select the AI assistant that best fits your needs and start growing your online presence, reputation, or social media performance."
 msgstr "Wählen Sie den KI-Assistenten, der am besten zu Ihren Bedürfnissen passt, und beginnen Sie, Ihre Online-Präsenz, Ihren Ruf oder Ihre Social-Media-Performance auszubauen."
 
-
 msgid "AI Search Manager"
 msgstr "KI Search-Manager"
-
 
 msgid "Be found where customers search"
 msgstr "Gefunden werden, wo Kunden suchen"
 
-
 msgid "AI Presence agent"
 msgstr "KI-Präsenz-Agent"
-
 
 msgid "Create a Google Ads campaign with AI"
 msgstr "Erstellen Sie eine Google Ads-Kampagne mit KI"
 
-
 msgid "Publish to GBP, Facebook & major online directories"
 msgstr "Veröffentlichen auf GBP, Facebook & wichtigen Online-Verzeichnissen"
-
 
 msgid "Monitor your visibility across major AI models"
 msgstr "Überwachen Sie Ihre Sichtbarkeit bei den wichtigsten KI-Modellen"
 
-
 msgid "Get expert guidance from AI Advisors"
 msgstr "Erhalten Sie Expertenberatung von KI-Beratern"
-
 
 msgid "Google Analytics integration (GA4)"
 msgstr "Google Analytics-Integration (GA4)"
 
-
 msgid "SEO tasks with video tutorials"
 msgstr "SEO-Aufgaben mit Video-Tutorials"
-
 
 msgid "AI text SEO"
 msgstr "KI-Text-SEO"
 
-
 msgid "Detailed SEO insights"
 msgstr "Detaillierte SEO-Einblicke"
-
 
 msgid "AI Reputation Manager"
 msgstr "KI Reputationsmanager"
 
-
 msgid "Grow and protect your reputation"
 msgstr "Bauen Sie Ihren Ruf aus und schützen Sie ihn"
-
 
 msgid "AI Reputation agent"
 msgstr "KI-Reputations-Agent"
 
-
 msgid "Manage all your reviews in one place"
 msgstr "Verwalten Sie alle Ihre Bewertungen an einem Ort"
-
 
 msgid "AI auto-reply to reviews"
 msgstr "Automatische KI-Antwort auf Bewertungen"
 
-
 msgid "AI reputation sentiment analysis"
 msgstr "KI-Stimmungsanalyse der Reputation"
-
 
 msgid "Generate AI replies that match your brand's voice"
 msgstr "Generieren Sie KI-Antworten, die zur Stimme Ihrer Marke passen"
 
-
 msgid "Collect & display reviews on your website with widgets"
 msgstr "Bewertungen auf Ihrer Website mit Widgets sammeln und anzeigen"
-
 
 msgid "Get more reviews via email & printable materials"
 msgstr "Mehr Bewertungen per E-Mail und Druckmaterialien erhalten"
 
-
 msgid "Publish to Google, Facebook & major online directories"
 msgstr "Veröffentlichen auf Google, Facebook & wichtigen Online-Verzeichnissen"
-
 
 msgid "See how you compare to local competitors with AI"
 msgstr "Sehen Sie mit KI, wie Sie im Vergleich zu lokalen Wettbewerbern abschneiden"
 
-
 msgid "Detailed Reputation insights"
 msgstr "Detaillierte Reputations-Einblicke"
-
 
 msgid "Get instant alerts for new reviews"
 msgstr "Sofortige Benachrichtigungen bei neuen Bewertungen erhalten"
 
-
 msgid "AI Marketing Manager"
 msgstr "KI Marketing-Manager"
-
 
 msgid "Create content effortlessly"
 msgstr "Inhalte mühelos erstellen"
 
-
 msgid "AI Social agent"
 msgstr "KI-Social-Agent"
-
 
 msgid "Create & publish posts on multiple channels with AI"
 msgstr "Beiträge mit KI auf mehreren Kanälen erstellen und veröffentlichen"
 
-
 msgid "Create entire series of posts with AI"
 msgstr "Ganze Beitragsserien mit KI erstellen"
-
 
 msgid "Generate text & images with AI"
 msgstr "Texte und Bilder mit KI generieren"
 
-
 msgid "Schedule posts in advance"
 msgstr "Beiträge im Voraus planen"
-
 
 msgid "Plan everything in calendar"
 msgstr "Alles im Kalender planen"
 
-
 msgid "Track link performance"
 msgstr "Link-Performance verfolgen"
-
 
 msgid "Detailed Social Media insights"
 msgstr "Detaillierte Social-Media-Einblicke"
 
-
 msgid "Rank higher in AI search results"
 msgstr "Höher in KI-Suchergebnissen ranken"
-
 
 msgid "Follow step-by-step SEO video tutorials. Optimise your pages with AI, connect Google Analytics, track keyword rankings against competitors, and access performance reports anytime. No SEO experience needed."
 msgstr "Folgen Sie Schritt-für-Schritt-SEO-Video-Tutorials. Optimieren Sie Ihre Seiten mit KI, verbinden Sie Google Analytics, verfolgen Sie Keyword-Rankings im Vergleich zu Wettbewerbern und greifen Sie jederzeit auf Leistungsberichte zu. Keine SEO-Erfahrung erforderlich."
 
-
 msgid "Your agent makes sure customers find you online"
 msgstr "Ihr Agent stellt sicher, dass Kunden Sie online finden"
-
 
 msgid "The Presence agent scans online directories such as Google Business Profile, Facebook or Waze and instantly spots what's missing or incomplete. Then it automatically publishes your profile on all major directories. Simply approve it, and the agent will handle the rest."
 msgstr "Der Präsenz-Agent scannt Online-Verzeichnisse wie Google Unternehmensprofil, Facebook oder Waze und erkennt sofort, was fehlt oder unvollständig ist. Dann veröffentlicht er automatisch Ihr Profil in allen wichtigen Verzeichnissen. Einfach bestätigen, und der Agent erledigt den Rest."
 
-
 msgid "See how AI models recommend your business"
 msgstr "Sehen Sie, wie KI-Modelle Ihr Unternehmen empfehlen"
-
 
 msgid "Understand how platforms like ChatGPT, Gemini, and Perplexity see your brand. Get clear, actionable recommendations to improve your visibility and boost your chances of being found by potential customers."
 msgstr "Verstehen Sie, wie Plattformen wie ChatGPT, Gemini und Perplexity Ihre Marke wahrnehmen. Erhalten Sie klare, umsetzbare Empfehlungen, um Ihre Sichtbarkeit zu verbessern und Ihre Chancen zu erhöhen, von potenziellen Kunden gefunden zu werden."
 
-
 msgid "All your reviews in one place"
 msgstr "Alle Ihre Bewertungen an einem Ort"
-
 
 msgid "See and manage reviews from Google, Facebook, and other platforms in a single location. Stay on top of feedback and respond faster, all from one place."
 msgstr "Sehen und verwalten Sie Bewertungen von Google, Facebook und anderen Plattformen an einem einzigen Ort. Behalten Sie das Feedback im Blick und antworten Sie schneller – alles von einem Ort aus."
 
-
 msgid "Your agent protects your reputation around the clock"
 msgstr "Ihr Agent schützt Ihren Ruf rund um die Uhr"
-
 
 msgid "No more missed reviews or uncertainty about how to reply. The Reputation agent responds in your voice, reads the emotion behind every review, and flags exactly what needs your attention. Then it suggests the best next steps to protect and improve your reputation."
 msgstr "Keine verpassten Bewertungen oder Unsicherheit mehr, wie man antwortet. Der Reputations-Agent antwortet in Ihrer Stimme, liest die Emotion hinter jeder Bewertung und markiert genau das, was Ihre Aufmerksamkeit erfordert. Dann schlägt er die besten nächsten Schritte vor, um Ihren Ruf zu schützen und zu verbessern."
 
-
 msgid "Get more reviews effortlessly"
 msgstr "Mehr Bewertungen mühelos erhalten"
-
 
 msgid "Make it simple for customers to leave reviews. Send requests by email, or display printed materials with QR codes at your location so customers can leave a review in seconds."
 msgstr "Machen Sie es Kunden einfach, Bewertungen zu hinterlassen. Senden Sie Anfragen per E-Mail oder zeigen Sie gedruckte Materialien mit QR-Codes an Ihrem Standort an, damit Kunden in Sekunden eine Bewertung abgeben können."
 
-
 msgid "Write once and post everywhere"
 msgstr "Einmal schreiben und überall veröffentlichen"
-
 
 msgid "No more copying and pasting the same content on different platforms. Write your post once and publish it across all major social media channels with a single click. Your content is automatically adapted to each platform's requirements."
 msgstr "Kein lästiges Kopieren und Einfügen derselben Inhalte auf verschiedenen Plattformen mehr. Schreiben Sie Ihren Beitrag einmal und veröffentlichen Sie ihn mit einem einzigen Klick auf allen wichtigen Social-Media-Kanälen. Ihr Inhalt wird automatisch an die Anforderungen jeder Plattform angepasst."
 
-
 msgid "The agent helps your business stay active on social media"
 msgstr "Der Agent hilft Ihrem Unternehmen, in sozialen Medien aktiv zu bleiben"
-
 
 msgid "We know posting regularly can be hard. That's why the Social agent makes it simple. It can create, schedule, and publish posts for you, whether you want a single post or an entire series. Just approve them, and the agent takes care of the rest."
 msgstr "Wir wissen, dass regelmäßiges Posten schwierig sein kann. Deshalb macht es der Social-Agent einfach. Er kann Beiträge für Sie erstellen, planen und veröffentlichen, egal ob Sie einen einzelnen Beitrag oder eine ganze Serie möchten. Einfach bestätigen, und der Agent kümmert sich um den Rest."
 
-
 msgid "Turn your idea into a complete series in seconds"
 msgstr "Verwandeln Sie Ihre Idee in Sekunden in eine vollständige Serie"
-
 
 msgid "Building a series of posts that truly connects, matches your vision, and goes out on time can be a headache. We make it easy. Just describe your idea, and our AI writes every post, picks the best times to publish, and ties it all together into one clear, cohesive story."
 msgstr "Eine Beitragsserie zu erstellen, die wirklich verbindet, Ihrer Vision entspricht und pünktlich veröffentlicht wird, kann mühsam sein. Wir machen es einfach. Beschreiben Sie einfach Ihre Idee, und unsere KI schreibt jeden Beitrag, wählt die besten Veröffentlichungszeiten und fügt alles zu einer klaren, zusammenhängenden Geschichte zusammen."
 
-
 msgid "Radar Free"
 msgstr "Radar Free"
-
 
 msgid "You currently have this plan"
 msgstr "Sie haben derzeit diesen Plan"
 
-
-
 msgid "Missing setupRequirement."
-msgstr ""
-
+msgstr "Fehlende setupRequirement."
 
 msgid "An unknown error occurred."
-msgstr ""
-
+msgstr "Ein unbekannter Fehler ist aufgetreten."
 
 msgid "Authentication Required"
 msgstr "Authentifizierung erforderlich"
@@ -8153,3 +8085,168 @@ msgstr "Zurücksetzen und reaktivieren"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Benötigen Sie Hilfe? Wenden Sie sich an unser Support-Team, um Unterstützung zu erhalten."
+
+msgid "Copied!"
+msgstr "Kopiert!"
+
+msgid "Activate your free account to track your visibility, improve your rankings and grow your business"
+msgstr "Aktivieren Sie Ihr kostenloses Konto, um Ihre Sichtbarkeit zu verfolgen, Ihre Rankings zu verbessern und Ihr Geschäft auszubauen."
+
+msgid "of"
+msgstr "von"
+
+msgid "Analyzing details"
+msgstr "Details analysieren"
+
+msgid "Checking name"
+msgstr "Name überprüfen"
+
+msgid "Reviewing details"
+msgstr "Details überprüfen"
+
+msgid "Locating business"
+msgstr "Unternehmen finden"
+
+msgid "Determining focus"
+msgstr "Fokus bestimmen"
+
+msgid "Highlighting features"
+msgstr "Hervorhebung von Funktionen"
+
+msgid "Enter your email and we'll get you set up."
+msgstr "Geben Sie Ihre E-Mail-Adresse ein, und wir richten alles für Sie ein."
+
+msgid "Follow the instructions in the email we've sent to "
+msgstr "Befolgen Sie die Anweisungen in der E-Mail, die wir gesendet haben."
+
+msgid "Follow the instructions in the email we've sent to this address: "
+msgstr "Befolgen Sie die Anweisungen in der E-Mail, die wir an diese Adresse gesendet haben:"
+
+msgid "Verify"
+msgstr "Überprüfen"
+
+msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
+msgstr "Zeigen Sie den Nutzern ihren Standort auf einer Website mit klickbaren Links zu übergeordneten Seiten, die als sekundäres Navigationswerkzeug fungieren. In unserem BeyondSEO-Plugin können Sie deren Aussehen an Ihre Website anpassen. Sie werden automatisch zum Schema-Markup hinzugefügt, um die SEO und Crawlbarkeit zu verbessern, ohne dass zusätzliche Einstellungen erforderlich sind."
+
+msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
+msgstr "Aktivieren Sie diese Option, um die Berechnung des SEO-Scores automatisch auszuführen, wenn eine Seite oder ein Beitrag gespeichert wird."
+
+msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
+msgstr "Aktivieren Sie diese Option, um Schlüsselwörter von Ihrer WordPress-Website mit der rC-Plattform zu synchronisieren."
+
+msgid "Enable this option to run the broken link checker job that scans your site for broken links"
+msgstr "Aktivieren Sie diese Option, um den Job des defekten Linkprüfers auszuführen, der Ihre Website nach defekten Links durchsucht."
+
+msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
+msgstr "Erlauben Sie dem Plugin, mit den Backend-Servern von beyondseo zu kommunizieren, um seine Dienste bereitzustellen. Erforderlich für Kontofunktionen, Keyword-Synchronisierung und Dashboard-Funktionalität. Sie können Ihre Einwilligung jederzeit widerrufen."
+
+msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
+msgstr "Aktivieren Sie diese Option, um den WordPress-Herzschlagdienst zu deaktivieren, der regelmäßig AJAX-Anfragen an admin-ajax.php sendet. Dies kann die Leistung verbessern, indem die Serverlast verringert wird."
+
+msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
+msgstr "Aktivieren Sie diese Option, um das RankingCoach-Dashboard in einem neuen Browser-Tab anstelle des aktuellen Tabs zu öffnen."
+
+msgid "Switching to our SEO Plugin? Import your settings from other SEO plugins like Yoast SEO, All in One SEO, Rank Math, or SEOPress in just a few clicks. We'll ensure your data is safely transferred."
+msgstr "Wechseln Sie zu unserem SEO-Plugin? Importieren Sie Ihre Einstellungen von anderen SEO-Plugins wie Yoast SEO, All in One SEO, Rank Math oder SEOPress in nur wenigen Klicks. Wir sorgen dafür, dass Ihre Daten sicher übertragen werden."
+
+msgid "Before importing settings, we strongly recommend creating a full backup of your WordPress site to avoid any data loss."
+msgstr "Bevor Sie die Einstellungen importieren, empfehlen wir dringend, ein vollständiges Backup Ihrer WordPress-Website zu erstellen, um Datenverlust zu vermeiden."
+
+msgid "Choose the SEO plugin you're currently using. We've detected the following plugins installed on your site."
+msgstr "Wählen Sie das SEO-Plugin aus, das Sie derzeit verwenden. Wir haben die folgenden Plugins auf Ihrer Website erkannt."
+
+msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
+msgstr "Wenn aktiviert, wird Ihre Sitemap-URL automatisch zu Ihrer robots.txt-Datei hinzugefügt."
+
+msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
+msgstr "Die robots.txt-Datei teilt Suchmaschinen mit, welche Seiten oder Dateien sie von Ihrer Website anfordern dürfen oder nicht."
+
+msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
+msgstr "Dieses Feature wird verwendet, um automatisch Inhalte zu Ihrem RSS-Feed hinzuzufügen. Genauer gesagt ermöglicht es Ihnen, Links zu Ihrem Blog und Ihren Blogbeiträgen hinzuzufügen, sodass Scraper diese Links ebenfalls automatisch hinzufügen. Dies hilft Suchmaschinen, Sie als die ursprüngliche Quelle des Inhalts zu identifizieren."
+
+msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
+msgstr "Die Sitemap wird automatisch neu generiert, wenn Sie neue Inhalte veröffentlichen. Sie können sie auch manuell mit der Schaltfläche oben generieren."
+
+msgid "Prevents this page from being indexed by search engines. Adds a noindex tag to exclude this page from search results."
+msgstr "Verhindert, dass diese Seite von Suchmaschinen indexiert wird. Fügt ein Noindex-Tag hinzu, um diese Seite von den Suchergebnissen auszuschließen."
+
+msgid "Disables automatic detection of phone numbers, email addresses, and physical addresses in this page’s content. Prevents mobile browsers from converting them into clickable links."
+msgstr "Deaktiviert die automatische Erkennung von Telefonnummern, E-Mail-Adressen und physischen Adressen im Inhalt dieser Seite. Verhindert, dass mobile Browser sie in klickbare Links umwandeln."
+
+msgid "Adds a responsive viewport meta tag to this page. Ensures proper display on mobile devices by setting width=device-width and initial-scale=1."
+msgstr "Fügt einen responsiven Viewport-Meta-Tag zu dieser Seite hinzu. Stellt die ordnungsgemäße Anzeige auf mobilen Geräten sicher, indem die Breite auf device-width und die Anfangsvergrößerung auf 1 gesetzt wird."
+
+msgid "It takes only one click to publish your business in 46 directories, and along with that, you get features that help you automate repetitive tasks with AI, launch a Google ads campaign, and more. See how our plans can help you grow and stand out faster."
+msgstr "Es braucht nur einen Klick, um Ihr Unternehmen in 46 Verzeichnissen zu veröffentlichen, und dazu erhalten Sie Funktionen, die Ihnen helfen, sich wiederholende Aufgaben mit KI zu automatisieren, eine Google-Werbekampagne zu starten und mehr. Sehen Sie, wie unsere Pläne Ihnen helfen können, schneller zu wachsen und sich abzuheben."
+
+msgid "One bad review can drop customers' trust by 42%."
+msgstr "Eine schlechte Bewertung kann das Vertrauen der Kunden um 42 % senken."
+
+msgid "That’s not just feedback, it’s lost revenue."
+msgstr "Das ist nicht nur Feedback, es ist verlorener Umsatz."
+
+msgid "Every review shapes how you're seen"
+msgstr "Jede Bewertung beeinflusst, wie man wahrgenommen wird."
+
+msgid "If maintaining your social media keeps eating up your time, you’re not alone. Many business owners want the same thing:"
+msgstr "Wenn die Pflege Ihrer sozialen Medien weiterhin Ihre Zeit in Anspruch nimmt, sind Sie nicht allein. Viele Geschäftsinhaber wünschen sich dasselbe:"
+
+msgid "Internal links help search engines understand your content structure and improve your SEO rankings."
+msgstr "Interne Links helfen Suchmaschinen, Ihre Inhaltsstruktur zu verstehen und verbessern Ihre SEO-Rankings."
+
+msgid "Redirects help preserve your SEO rankings when URLs change or pages are removed. They ensure users and search engines are sent to the correct destination."
+msgstr "Weiterleitungen helfen, Ihre SEO-Rankings zu erhalten, wenn sich URLs ändern oder Seiten entfernt werden. Sie stellen sicher, dass Benutzer und Suchmaschinen zum richtigen Ziel geleitet werden."
+
+msgid "Set up redirects to avoid broken links, retain link equity, and deliver a smoother experience to your visitors and search engines."
+msgstr "Richten Sie Weiterleitungen ein, um defekte Links zu vermeiden, Link-Eigenkapital zu erhalten und Ihren Besuchern sowie Suchmaschinen ein reibungsloseres Erlebnis zu bieten."
+
+msgid "Update redirect:"
+msgstr "Aktualisieren Sie die Weiterleitung:"
+
+msgid "Use when the original page will come back, like during maintenance or testing."
+msgstr "Verwenden Sie es, wenn die ursprüngliche Seite zurückkommt, z. B. während Wartungsarbeiten oder Tests."
+
+msgid "Update Redirect"
+msgstr "Aktualisieren Weiterleitung"
+
+msgid "You've laid the foundation."
+msgstr "Du hast das Fundament gelegt."
+
+msgid "Now let's take it further."
+msgstr "Jetzt lassen Sie uns einen Schritt weiter gehen."
+
+msgid "Ready to unlock your business's full potential?"
+msgstr "Bereit, das volle Potenzial Ihres Unternehmens freizusetzen?"
+
+msgid "They improved my website's ranking. Simple, intuitive actions and fair pricing."
+msgstr "Sie haben das Ranking meiner Website verbessert. Einfache, intuitive Aktionen und faire Preise."
+
+msgid "It is simply the best tool to control, optimize and position your business from one place. Highly recommended!"
+msgstr "Es ist einfach das beste Werkzeug, um Ihr Geschäft von einem Ort aus zu steuern, zu optimieren und zu positionieren. Sehr empfehlenswert!"
+
+msgid "A clear overview of what is happening on your site and what to do to improve it. We are very satisfied - TOP!"
+msgstr "Eine klare Übersicht darüber, was auf Ihrer Seite passiert und was zu tun ist, um sie zu verbessern. Wir sind sehr zufrieden - SPITZE!"
+
+msgid "A really great tool for work. It's helped me get more clients and reach more people."
+msgstr "Ein wirklich großartiges Werkzeug für die Arbeit. Es hat mir geholfen, mehr Kunden zu gewinnen und mehr Menschen zu erreichen."
+
+msgid "I really like this tool. Setting your competitors in the config gives you very useful insights to help you improve."
+msgstr "Ich mag dieses Tool wirklich. Die Eingabe Ihrer Wettbewerber in die Konfiguration gibt Ihnen sehr nützliche Einblicke, um sich zu verbessern."
+
+msgid "Full AI-powered SEO. Get personalised guidance and video tutorials. No experience needed."
+msgstr "Vollständig KI-gestütztes SEO. Erhalten Sie persönliche Anleitung und Video-Tutorials. Keine Erfahrung erforderlich."
+
+msgid "Create AI-powered ads in 3 steps. Professional Google Ads, ready to launch immediately."
+msgstr "Erstellen Sie KI-gestützte Anzeigen in 3 Schritten. Professionelle Google Ads, sofort einsatzbereit."
+
+msgid "Publish your business automatically in 46+ directories. Visible everywhere with one click."
+msgstr "Veröffentlichen Sie Ihr Unternehmen automatisch in über 46 Verzeichnissen. Überall mit einem Klick sichtbar."
+
+msgid "Find out instantly when your business is mentioned online. Stay informed at all times."
+msgstr "Erfahren Sie sofort, wenn Ihr Unternehmen online erwähnt wird. Bleiben Sie jederzeit informiert."
+
+msgid "Create entire series of connected posts with AI. Build cohesive campaigns effortlessly."
+msgstr "Erstellen Sie eine gesamte Reihe von verbundenen Beiträgen mit KI. Gestalten Sie kohärente Kampagnen mühelos."
+
+msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
+msgstr "Nur noch wenige Plätze zu diesem Preis verfügbar – sobald sie weg sind, endet das Angebot dauerhaft."

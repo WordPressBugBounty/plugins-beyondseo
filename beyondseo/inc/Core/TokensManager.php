@@ -11,6 +11,10 @@ use RankingCoach\Inc\Exceptions\CommunicationOptInDisabledException;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Core\Api\Tokens\TokensApiManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
+use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Exceptions\InvalidTokenException;
 use RankingCoach\Inc\Exceptions\MissingTokenException;
@@ -21,6 +25,7 @@ use ReflectionException;
 class TokensManager
 {
     use SingletonTrait;
+    use RcLoggerTrait;
 
     protected static ?self $instance = null;
 	public const ACCESS_TOKEN = BaseConstants::OPTION_ACCESS_TOKEN;
@@ -341,8 +346,39 @@ class TokensManager
         delete_option( BaseConstants::OPTION_LOCATION_SETUP_SETTINGS );
         delete_option( BaseConstants::OPTION_ACCOUNT_SETUP_SETTINGS );
 
-        // 6. Reset Flow State
+        // 6. Drop keywords
+        $this->resetKeywordsData();
+
+        // 7. Reset Flow State
         $store = new OptionStore();
         $store->resetFlowStateOnly();
+    }
+
+    /**
+     * Clear the locally cached keywords and the keyword onboarding requirement.
+     *
+     * @return void
+     */
+    private function resetKeywordsData(): void {
+        try {
+            $dbManager = DatabaseManager::getInstance();
+
+            if ($dbManager->tableExists(DatabaseTablesManager::DATABASE_APP_KEYWORDS)) {
+                $dbManager->truncate(DatabaseTablesManager::DATABASE_APP_KEYWORDS);
+            }
+
+            // Back to the seeded state: an empty value is skipped when the onboarding
+            // payload is assembled, so nothing stale is submitted.
+            if ($dbManager->tableExists(DatabaseTablesManager::DATABASE_SETUP)) {
+                $dbManager->update(
+                    DatabaseTablesManager::DATABASE_SETUP,
+                    ['value' => ''],
+                    ['setupRequirement' => 'businessKeywords']
+                );
+            }
+        } catch (\Throwable $e) {
+            // Resetting activation must not fail because of the local keyword cache.
+            $this->log('Failed to reset local keywords data: ' . $e->getMessage(), 'WARNING');
+        }
     }
 }

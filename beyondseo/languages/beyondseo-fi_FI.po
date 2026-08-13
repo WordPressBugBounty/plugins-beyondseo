@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-11 06:36+0000\n"
+"PO-Revision-Date: 2026-08-12 14:29+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: fi_FI\n"
@@ -10,6 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: \n"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 #, fuzzy
@@ -9484,279 +9486,209 @@ msgstr "Tekoälyllä toimiva sosiaalisen median julkaisu"
 msgid "Agency or Enterprise? Talk to us"
 msgstr "Toimisto tai Enterprise? Ota yhteyttä"
 
-
 msgid "Activation failed."
 msgstr "Aktivointi epäonnistui."
-
 
 msgid "Enter the activation code provided by your provider."
 msgstr "Kirjoita palveluntarjoajasi antama aktivointikoodi."
 
-
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr "Sinut ohjataan automaattisesti uudelleen 5 sekunnissa..."
-
 
 msgid "Communication Opt-In is disabled. The BeyondSEO dashboard requires it to be enabled."
 msgstr "Viestintä on poistettu käytöstä. BeyondSEO-koontinäyttö vaatii sen käyttöönottamisen."
 
-
 msgid "Go to Settings"
 msgstr "Siirry asetuksiin"
-
 
 msgid "1. Which subscription is suitable for small businesses?"
 msgstr "1. Mikä tilaus sopii pienille yrityksille?"
 
-
 msgid "All of our plans are built for small and medium-sized businesses. Just pick the one that matches your goal, and you're ready to go."
 msgstr "Kaikki palvelupaketit on rakennettu pienille ja keskisuurille yrityksille. Valitse vain sinulle sopiva vaihtoehto, ja olet valmis."
-
 
 msgid "2. Do I need any technical skills?"
 msgstr "2. Tarvitsenko teknisiä taitoja?"
 
-
 msgid "Not at all. You don't need any prior knowledge or experience, and with agents handling many of your marketing tasks, promoting your business is easier than ever."
 msgstr "Ei ollenkaan. Sinulla ei tarvitse olla aikaisempaa osaamista tai kokemusta, ja koska agentit hoitavat monia markkinointitehtäviäsi, yrityksen mainostaminen on helpompaa kuin koskaan."
-
 
 msgid "Yes. You can find all the details about subscription management and cancellation through your provider."
 msgstr "Kyllä. Löydät kaikki tiedot tilauksen hallinnasta ja peruuttamisesta palveluntarjoajasi kautta."
 
-
 msgid "AI agents that handle your marketing"
 msgstr "AI-agentit, jotka hoitavat markkinointisi"
-
 
 msgid "Select the AI assistant that best fits your needs and start growing your online presence, reputation, or social media performance."
 msgstr "Valitse sinulle parhaiten sopiva AI-avustaja ja ala kasvattaa verkkoläsnäoloasi, mainettasi tai sosiaalisen median suorituskykyä."
 
-
 msgid "AI Search Manager"
 msgstr "AI-hakupäällikkö"
-
 
 msgid "Be found where customers search"
 msgstr "Löydy siellä, missä asiakkaat etsivät"
 
-
 msgid "AI Presence agent"
 msgstr "AI-läsnäolo-agentti"
-
 
 msgid "Create a Google Ads campaign with AI"
 msgstr "Luo Google Ads -kampanja tekoälyn avulla"
 
-
 msgid "Publish to GBP, Facebook & major online directories"
 msgstr "Julkaise Google Business Profile -palveluun, Facebookiin ja tärkeimpiin verkkokansioon"
-
 
 msgid "Monitor your visibility across major AI models"
 msgstr "Valvo näkyvyyttäsi suurimmissa AI-malleissa"
 
-
 msgid "Get expert guidance from AI Advisors"
 msgstr "Saa asiantuntijaohjausta AI-neuvonantajilta"
-
 
 msgid "Google Analytics integration (GA4)"
 msgstr "Google Analytics -integraatio (GA4)"
 
-
 msgid "SEO tasks with video tutorials"
 msgstr "SEO-tehtävät videoopetuksilla"
-
 
 msgid "AI text SEO"
 msgstr "AI-teksti SEO"
 
-
 msgid "Detailed SEO insights"
 msgstr "Yksityiskohtaiset SEO-näkemykset"
-
 
 msgid "AI Reputation Manager"
 msgstr "AI-maineenhallinta"
 
-
 msgid "Grow and protect your reputation"
 msgstr "Kasvata ja suojaa mainettasi"
-
 
 msgid "AI Reputation agent"
 msgstr "AI-maineen-agentti"
 
-
 msgid "Manage all your reviews in one place"
 msgstr "Hallinnoi kaikki arvostelusi yhdessä paikassa"
-
 
 msgid "AI auto-reply to reviews"
 msgstr "AI:n automaattinen vastaaminen arvioihin"
 
-
 msgid "AI reputation sentiment analysis"
 msgstr "AI-maineen sentimenttianalyysi"
-
 
 msgid "Generate AI replies that match your brand's voice"
 msgstr "Luo AI-vastaukset, jotka vastaavat brändisi ääntä"
 
-
 msgid "Collect & display reviews on your website with widgets"
 msgstr "Kerää ja näytä arvostelut verkkosivustollasi widgeteillä"
-
 
 msgid "Get more reviews via email & printable materials"
 msgstr "Saa enemmän arvosteluja sähköpostin ja tulostettavien materiaalien avulla"
 
-
 msgid "Publish to Google, Facebook & major online directories"
 msgstr "Julkaise Googlessa, Facebookissa ja suurimmissa verkkokansiossa"
-
 
 msgid "See how you compare to local competitors with AI"
 msgstr "Katso, miten vertautuu paikallisiin kilpailijoihin tekoälyn avulla"
 
-
 msgid "Detailed Reputation insights"
 msgstr "Yksityiskohtaiset maineen näkemykset"
-
 
 msgid "Get instant alerts for new reviews"
 msgstr "Saa välittömät ilmoitukset uusista arvosteluista"
 
-
 msgid "AI Marketing Manager"
 msgstr "AI-markkinointipäällikkö"
-
 
 msgid "Create content effortlessly"
 msgstr "Luo sisältöä vaivattomasti"
 
-
 msgid "AI Social agent"
 msgstr "AI-sosiaalinen-agentti"
-
 
 msgid "Create & publish posts on multiple channels with AI"
 msgstr "Luo ja julkaise viestejä monilla kanavilla tekoälyn avulla"
 
-
 msgid "Create entire series of posts with AI"
 msgstr "Luo kokonaisia viestisarjoja tekoälyn avulla"
-
 
 msgid "Generate text & images with AI"
 msgstr "Luo tekstiä ja kuvia tekoälyn avulla"
 
-
 msgid "Schedule posts in advance"
 msgstr "Ajoita viestit etukäteen"
-
 
 msgid "Plan everything in calendar"
 msgstr "Suunnittele kaikki kalenterissa"
 
-
 msgid "Track link performance"
 msgstr "Seuraa linkkien suorituskykyä"
-
 
 msgid "Detailed Social Media insights"
 msgstr "Yksityiskohtaiset sosiaalisen median näkemykset"
 
-
 msgid "Rank higher in AI search results"
 msgstr "Sijoitu korkeammalle AI-hakutuloksissa"
-
 
 msgid "Follow step-by-step SEO video tutorials. Optimise your pages with AI, connect Google Analytics, track keyword rankings against competitors, and access performance reports anytime. No SEO experience needed."
 msgstr "Seuraa vaiheittaisia SEO-videoopetuksia. Optimoi sivujasi tekoälyn avulla, yhdistä Google Analytics, seuraa avainsanojen sijoituksia kilpailijoita vastaan ja pääsy suorituskertomusten mihin tahansa aikaan. SEO-kokemus ei ole tarpeen."
 
-
 msgid "Your agent makes sure customers find you online"
 msgstr "Agenttisi varmistaa, että asiakkaat löytävät sinut verkossa"
-
 
 msgid "The Presence agent scans online directories such as Google Business Profile, Facebook or Waze and instantly spots what's missing or incomplete. Then it automatically publishes your profile on all major directories. Simply approve it, and the agent will handle the rest."
 msgstr "Presence-agentti skannaa verkkokansiota, kuten Google Business Profile-, Facebook- ja Waze-palvelua, ja havaitsee välittömästi, mikä puuttuu tai on epätäydellinen. Sitten se julkaisee profiilisi automaattisesti kaikissa suurimmissa kansiossa. Hyväksy se vain, ja agentti hoitaa loput."
 
-
 msgid "See how AI models recommend your business"
 msgstr "Katso, kuinka AI-mallit suosittelevat yritystäsi"
-
 
 msgid "Understand how platforms like ChatGPT, Gemini, and Perplexity see your brand. Get clear, actionable recommendations to improve your visibility and boost your chances of being found by potential customers."
 msgstr "Ymmärrä, kuinka ChatGPT-, Gemini- ja Perplexity-kaltaiset alustat näkevät brändisi. Saa selkeitä ja toimivia suosituksia näkyvyyden parantamiseksi ja mahdollisuuksien lisäämiseksi, että potentiaaliset asiakkaat löytävät sinut."
 
-
 msgid "All your reviews in one place"
 msgstr "Kaikki arvostelut yhdessä paikassa"
-
 
 msgid "See and manage reviews from Google, Facebook, and other platforms in a single location. Stay on top of feedback and respond faster, all from one place."
 msgstr "Näe ja hallinnoi arvosteluja Googlelta, Facebookista ja muista alustoista yhdessä paikassa. Pyssy palautteen päällä ja vastaa nopeammin, kaikki yhdessä paikassa."
 
-
 msgid "Your agent protects your reputation around the clock"
 msgstr "Agenttisi suojaa mainettasi ympäri vuorokauden"
-
 
 msgid "No more missed reviews or uncertainty about how to reply. The Reputation agent responds in your voice, reads the emotion behind every review, and flags exactly what needs your attention. Then it suggests the best next steps to protect and improve your reputation."
 msgstr "Ei enää menetettyjä arvosteluja tai epävarmuutta siitä, miten vastata. Reputation-agentti vastaa sinun äänellään, lukee jokaisen arvostelun taakse piilotetun tunteet ja merkitsee tarkalleen, mihin sinun on kiinnitettävä huomiota. Sitten se ehdottaa parhaita seuraavia vaiheita maineen suojelemiseksi ja parantamiseksi."
 
-
 msgid "Get more reviews effortlessly"
 msgstr "Saa enemmän arvosteluja vaivattomasti"
-
 
 msgid "Make it simple for customers to leave reviews. Send requests by email, or display printed materials with QR codes at your location so customers can leave a review in seconds."
 msgstr "Tee asiakkaille helppoa jättää arvosteluja. Lähetä pyynnöt sähköpostilla tai näytä tulostettuja materiaaleja QR-koodeilla sijainnissasi, jotta asiakkaat voivat jättää arvostelun sekunneissa."
 
-
 msgid "Write once and post everywhere"
 msgstr "Kirjoita kerran ja julkaise kaikkialla"
-
 
 msgid "No more copying and pasting the same content on different platforms. Write your post once and publish it across all major social media channels with a single click. Your content is automatically adapted to each platform's requirements."
 msgstr "Ei enää samaan sisältöön kopiointia ja liittämistä eri alustoilla. Kirjoita viestisi kerran ja julkaise se kaikilla suurimmilla sosiaalisen median kanavilla yhdellä napsautuksella. Sisältösi mukautuu automaattisesti kunkin alustan vaatimuksiin."
 
-
 msgid "The agent helps your business stay active on social media"
 msgstr "Agentti auttaa yritystäsi pysymään aktiivisena sosiaalisessa mediassa"
-
 
 msgid "We know posting regularly can be hard. That's why the Social agent makes it simple. It can create, schedule, and publish posts for you, whether you want a single post or an entire series. Just approve them, and the agent takes care of the rest."
 msgstr "Tiedämme, että säännöllinen julkaiseminen voi olla vaikeaa. Siksi Social-agentti tekee siitä yksinkertaista. Se voi luoda, ajoittaa ja julkaista viestejä sinulle, halusitpa sitten yksittäisen viestin tai kokonaisen sarjan. Hyväksy ne vain, ja agentti hoitaa loput."
 
-
 msgid "Turn your idea into a complete series in seconds"
 msgstr "Muuta ideasi täydelliseksi sarjaksi sekunneissa"
-
 
 msgid "Building a series of posts that truly connects, matches your vision, and goes out on time can be a headache. We make it easy. Just describe your idea, and our AI writes every post, picks the best times to publish, and ties it all together into one clear, cohesive story."
 msgstr "Viestisarjan rakentaminen, joka todella yhdistää, vastaa visiota ja julkaistaan ajoissa, voi olla päänsärkyä. Teemme sen helpoksi. Kuvaile vain ideasi, ja tekoälymme kirjoittaa jokaisen viestin, valitsee parhaat julkaisuajat ja sitoo kaiken yhteen selkeäksi, yhtenäiseksi tarinaksi."
 
-
 msgid "Radar Free"
 msgstr "Radar Free"
-
 
 msgid "You currently have this plan"
 msgstr "Sinulla on tällä hetkellä tämä palvelu"
 
-
-
 msgid "Missing setupRequirement."
-msgstr ""
-
+msgstr "Puuttuva setupRequirement."
 
 msgid "An unknown error occurred."
-msgstr ""
-
+msgstr "Tuntematon virhe tapahtui."
 
 msgid "Authentication Required"
 msgstr "Kirjautuminen vaaditaan"
@@ -9769,3 +9701,168 @@ msgstr "Nollaa ja aktivoi uudelleen"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Tarvitsetko apua? Ota yhteyttä tukitiimiimme saadaksesi apua."
+
+msgid "Copied!"
+msgstr "Kopioitu!"
+
+msgid "Activate your free account to track your visibility, improve your rankings and grow your business"
+msgstr "Aktivoi ilmainen tilisi seurataksesi näkyvyyttäsi, parantaaksesi sijoituksiasi ja kasvattaaksesi liiketoimintaasi."
+
+msgid "of"
+msgstr "of"
+
+msgid "Analyzing details"
+msgstr "Yksityiskohtien analysointi"
+
+msgid "Checking name"
+msgstr "Nimen tarkistaminen"
+
+msgid "Reviewing details"
+msgstr "Yksityiskohtien tarkastelu"
+
+msgid "Locating business"
+msgstr "Liiketoiminnan paikantaminen"
+
+msgid "Determining focus"
+msgstr "Kohdistuksen määrittäminen"
+
+msgid "Highlighting features"
+msgstr "Korostavat ominaisuudet"
+
+msgid "Enter your email and we'll get you set up."
+msgstr "Syötä sähköpostiosoitteesi, niin autamme sinua pääsemään alkuun."
+
+msgid "Follow the instructions in the email we've sent to "
+msgstr "Noudata sähköpostissa antamamme ohjeita."
+
+msgid "Follow the instructions in the email we've sent to this address: "
+msgstr "Noudata sähköpostissa tähän osoitteeseen lähettämiämme ohjeita:"
+
+msgid "Verify"
+msgstr "Vahvista"
+
+msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
+msgstr "Näytä käyttäjille heidän sijaintinsa verkkosivustolla napsautettavilla linkeillä vanhempiin sivuihin, toimien toissijaisena navigointityökaluna. BeyondSEO-laajennuksessamme voit mukauttaa niiden ulkoasun sopimaan sivustollesi. Ne lisätään automaattisesti skeemamerkintään paremman SEO:n ja indeksoitavuuden saavuttamiseksi, eikä ylimääräistä asetusta tarvita."
+
+msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
+msgstr "Ota tämä vaihtoehto käyttöön, jotta SEO-pisteytyksen laskenta suoritetaan automaattisesti, kun sivu tai julkaisu tallennetaan."
+
+msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
+msgstr "Ota tämä vaihtoehto käyttöön synkronoidaaksesi avainsanat WordPress-sivustoltasi rC-alustalle."
+
+msgid "Enable this option to run the broken link checker job that scans your site for broken links"
+msgstr "Ota tämä vaihtoehto käyttöön suorittaaksesi rikkinäisten linkkien tarkistustehtävän, joka skannaa sivustosi rikkinäisten linkkien varalta."
+
+msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
+msgstr "Salli liitännäisen kommunikoida beyondseo-taustapalvelimien kanssa tarjotakseen palveluitaan. Tarvitaan tilitoimintoja, avainsanojen synkronointia ja hallintapaneelin toimintoja varten. Voit peruuttaa suostumuksesi milloin tahansa."
+
+msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
+msgstr "Ota tämä vaihtoehto käyttöön poistaaksesi WordPressin sydämen palvelun käytöstä, joka lähettää säännöllisiä AJAX-pyyntöjä admin-ajax.php:lle. Tämä voi parantaa suorituskykyä vähentämällä palvelimen kuormitusta."
+
+msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
+msgstr "Ota tämä vaihtoehto käyttöön avataksesi RankingCoach-hallintapaneelin uudessa selainvälilehdessä nykyisen sijaan."
+
+msgid "Switching to our SEO Plugin? Import your settings from other SEO plugins like Yoast SEO, All in One SEO, Rank Math, or SEOPress in just a few clicks. We'll ensure your data is safely transferred."
+msgstr "Siirtyminen SEO-laajennukseemme? Tuo asetuksesi muista SEO-laajennuksista, kuten Yoast SEO, All in One SEO, Rank Math tai SEOPress vain muutamalla napsautuksella. Varmistamme, että tietosi siirretään turvallisesti."
+
+msgid "Before importing settings, we strongly recommend creating a full backup of your WordPress site to avoid any data loss."
+msgstr "Ennen asetusten tuomista suosittelemme vahvasti, että teet täydellisen varmuuskopion WordPress-sivustostasi välttääksesi tietojen menetyksen."
+
+msgid "Choose the SEO plugin you're currently using. We've detected the following plugins installed on your site."
+msgstr "Valitse SEO-laajennus, jota käytät tällä hetkellä. Olemme havainneet seuraavat laajennukset asennettuna sivustollesi."
+
+msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
+msgstr "Kun se on käytössä, sivustokarttasi URL-osoite lisätään automaattisesti robots.txt-tiedostoon."
+
+msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
+msgstr "robots.txt-tiedosto kertoo hakukoneille, mitkä sivut tai tiedostot ne voivat tai eivät voi pyytää sivustoltasi."
+
+msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
+msgstr "Tämä ominaisuus käytetään automaattisesti lisäämään sisältöä sivustosi RSS-syötteeseen. Tarkemmin sanottuna se mahdollistaa linkkien lisäämisen takaisin blogiisi ja blogikirjoituksiisi, jotta tietojen kerääjät lisäävät myös nämä linkit automaattisesti. Tämä auttaa hakukoneita tunnistamaan sinut sisällön alkuperäisenä lähteenä."
+
+msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
+msgstr "Sivustokartta luodaan automaattisesti uudelleen, kun julkaiset uutta sisältöä. Voit myös luoda sen manuaalisesti käyttämällä yllä olevaa painiketta."
+
+msgid "Prevents this page from being indexed by search engines. Adds a noindex tag to exclude this page from search results."
+msgstr "Estää tämän sivun indeksoimisen hakukoneissa. Lisää noindex-tagin, jotta tämä sivu suljetaan hakutuloksista."
+
+msgid "Disables automatic detection of phone numbers, email addresses, and physical addresses in this page’s content. Prevents mobile browsers from converting them into clickable links."
+msgstr "Estää puhelinnumeroiden, sähköpostiosoitteiden ja fyysisten osoitteiden automaattisen tunnistamisen tämän sivun sisällössä. Estää mobiiliselaimia muuntamasta niitä napsautettaviksi linkeiksi."
+
+msgid "Adds a responsive viewport meta tag to this page. Ensures proper display on mobile devices by setting width=device-width and initial-scale=1."
+msgstr "Lisää tälle sivulle responsiivinen viewport-meta-tagi. Varmistaa oikean näyttämisen mobiililaitteilla asettamalla width=device-width ja initial-scale=1."
+
+msgid "It takes only one click to publish your business in 46 directories, and along with that, you get features that help you automate repetitive tasks with AI, launch a Google ads campaign, and more. See how our plans can help you grow and stand out faster."
+msgstr "Yksi napsautus riittää julkaistaksesi yrityksesi 46 hakemistossa, ja sen mukana saat ominaisuuksia, jotka auttavat sinua automatisoimaan toistuvia tehtäviä tekoälyn avulla, käynnistämään Google-mainoskampanjan ja paljon muuta. Katso, miten suunnitelmamme voivat auttaa sinua kasvamaan ja erottumaan nopeammin."
+
+msgid "One bad review can drop customers' trust by 42%."
+msgstr "Yksi huono arvostelu voi vähentää asiakkaiden luottamusta 42 %."
+
+msgid "That’s not just feedback, it’s lost revenue."
+msgstr "Se ei ole vain palautetta, se on menetettyä tuloa."
+
+msgid "Every review shapes how you're seen"
+msgstr "Jokainen arvio muokkaa sitä, miten sinut nähdään."
+
+msgid "If maintaining your social media keeps eating up your time, you’re not alone. Many business owners want the same thing:"
+msgstr "Jos sosiaalisen median ylläpito vie jatkuvasti aikaasi, et ole yksin. Monet yritysten omistajat haluavat samaa:"
+
+msgid "Internal links help search engines understand your content structure and improve your SEO rankings."
+msgstr "Sisäiset linkit auttavat hakukoneita ymmärtämään sisältösi rakennetta ja parantamaan SEO-rankingiasi."
+
+msgid "Redirects help preserve your SEO rankings when URLs change or pages are removed. They ensure users and search engines are sent to the correct destination."
+msgstr "Uudelleenohjaukset auttavat säilyttämään SEO-rankingit, kun URL-osoitteet muuttuvat tai sivuja poistetaan. Ne varmistavat, että käyttäjät ja hakukoneet ohjataan oikeaan kohteeseen."
+
+msgid "Set up redirects to avoid broken links, retain link equity, and deliver a smoother experience to your visitors and search engines."
+msgstr "Aseta uudelleenohjauksia välttääksesi rikkinäisiä linkkejä, säilyttääksesi linkkien arvon ja tarjotaksesi sujuvamman kokemuksen kävijöillesi ja hakukoneille."
+
+msgid "Update redirect:"
+msgstr "Päivitä uudelleenohjaus:"
+
+msgid "Use when the original page will come back, like during maintenance or testing."
+msgstr "Käytä, kun alkuperäinen sivu palaa, kuten huollon tai testauksen aikana."
+
+msgid "Update Redirect"
+msgstr "Päivitä uudelleenohjaus"
+
+msgid "You've laid the foundation."
+msgstr "Olet luonut perustan."
+
+msgid "Now let's take it further."
+msgstr "Siirrytään nyt eteenpäin."
+
+msgid "Ready to unlock your business's full potential?"
+msgstr "Valmis vapauttamaan liiketoimintasi täyden potentiaalin?"
+
+msgid "They improved my website's ranking. Simple, intuitive actions and fair pricing."
+msgstr "He paransivat verkkosivustoni sijoitusta. Yksinkertaiset, intuitiiviset toimet ja kohtuullinen hinnoittelu."
+
+msgid "It is simply the best tool to control, optimize and position your business from one place. Highly recommended!"
+msgstr "Se on yksinkertaisesti paras työkalu hallita, optimoida ja sijoittaa liiketoimintaasi yhdestä paikasta. Suosittelen lämpimästi!"
+
+msgid "A clear overview of what is happening on your site and what to do to improve it. We are very satisfied - TOP!"
+msgstr "Selkeä yleiskatsaus siitä, mitä sivustollasi tapahtuu ja mitä voit tehdä sen parantamiseksi. Olemme erittäin tyytyväisiä - HUIPPU!"
+
+msgid "A really great tool for work. It's helped me get more clients and reach more people."
+msgstr "Todella loistava työkalu. Se on auttanut minua saamaan enemmän asiakkaita ja tavoittamaan enemmän ihmisiä."
+
+msgid "I really like this tool. Setting your competitors in the config gives you very useful insights to help you improve."
+msgstr "Pidän todella paljon tästä työkalusta. Kilpailijoiden asettaminen asetuksiin antaa sinulle erittäin hyödyllisiä näkemyksiä, jotka auttavat sinua parantamaan."
+
+msgid "Full AI-powered SEO. Get personalised guidance and video tutorials. No experience needed."
+msgstr "Täysin tekoälypohjainen SEO. Saat henkilökohtaista ohjausta ja videokoulutuksia. Ei vaadita aiempaa kokemusta."
+
+msgid "Create AI-powered ads in 3 steps. Professional Google Ads, ready to launch immediately."
+msgstr "Luo tekoälyllä varustettuja mainoksia kolmessa vaiheessa. Ammattimaiset Google-mainokset, valmiina julkaistavaksi heti."
+
+msgid "Publish your business automatically in 46+ directories. Visible everywhere with one click."
+msgstr "Julkaise yrityksesi automaattisesti yli 46 hakemistossa. Näkyvissä kaikkialla yhdellä napsautuksella."
+
+msgid "Find out instantly when your business is mentioned online. Stay informed at all times."
+msgstr "Saat heti tiedon, kun yrityksesi mainitaan verkossa. Pysy ajan tasalla koko ajan."
+
+msgid "Create entire series of connected posts with AI. Build cohesive campaigns effortlessly."
+msgstr "Luo kokonainen sarja yhteydessä olevia julkaisuja tekoälyn avulla. Rakenna yhtenäisiä kampanjoita vaivattomasti."
+
+msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
+msgstr "Vain muutama paikka jäljellä tässä hinnassa — kun ne on myyty, tarjous päättyy pysyvästi."

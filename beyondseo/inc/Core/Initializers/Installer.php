@@ -86,8 +86,6 @@ class Installer implements InitializerInterface
         // Exceptions won't prevent plugin activation/deactivation
         add_action(self::ACTION_PLUGIN_ACTIVATED, [$this, 'handlePluginActivation']);
 
-        add_action(self::ACTION_PLUGIN_DEACTIVATED, [$this, 'handlePluginDeactivation']);
-
         // Register activation/deactivation hooks
         // These run in an isolated environment with limited WordPress access
         // Exceptions will prevent plugin activation/deactivation
@@ -359,48 +357,6 @@ class Installer implements InitializerInterface
             return;
         }
         $this->networkActivateDeactivate(false);
-    }
-
-    /**
-     * Handles plugin deactivation events.
-     *
-     * This method is called whenever any plugin is deactivated in WordPress.
-     * It runs in the normal WordPress flow with full environment access.
-     * Exceptions won't prevent plugin deactivation since this runs after deactivation is complete.
-     *
-     * @param string $plugin The path to the plugin file relative to the plugins directory
-     * @return void
-     */
-    public function handlePluginDeactivation(string $plugin): void {
-
-        // If it's not our plugin being deactivated, we're done
-        if ($plugin !== RANKINGCOACH_PLUGIN_BASENAME) {
-            return;
-        }
-
-        // Handle conflict notifications for any deactivated plugin
-        ConflictManager::getInstance()->removeConflictNotification($plugin);
-
-        // Clean up the pending-deletion flag now that the plugin is actually deactivated
-        delete_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION);
-
-        delete_option(BaseConstants::OPTION_PLUGIN_SETTINGS);
-        delete_option(BaseConstants::OPTION_LOADED_MODULES);
-
-        // Log deactivation for debugging purposes
-        $this->logDeactivationEvent($plugin);
-    }
-    
-    /**
-     * Logs plugin deactivation event with debug information.
-     * 
-     * @param string $plugin The plugin being deactivated
-     * @return void
-     */
-    private function logDeactivationEvent(string $plugin): void {
-        // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
-        $backtrace = debug_backtrace();
-        $this->log('Deactivated RC plugin: ' . $plugin . ' - Backtrace: ' . json_encode($backtrace), 'DEBUG');
     }
 
     /**

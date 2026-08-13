@@ -36,6 +36,22 @@ class UserApiManager extends HttpApiClient
 	/** @var int $userId The current user ID */
 	protected int $userId;
 
+    /**
+     * Keyword scopes the plugin owns.
+     *
+     * checkAccount returns EVERY keyword_sites row of the location flattened into one
+     * list, both SEO scope and Google-Ads scope. Ads-scope rows belong to the Ads
+     * flows: they are a separate namespace, they are frequently the very same keyword
+     * that is already tracked for SEO (which is what made every keyword show up twice
+     * locally), and they carry dozens of machine-generated suggestions on top — pushing
+     * the flat list past the subscription's keyword allowance. Only SEO-scope rows are
+     * plugin keywords. A missing type is treated as SEO for backwards compatibility
+     * with older API responses.
+     *
+     * @var string[]
+     */
+    private const SEO_KEYWORD_TYPES = ['seo'];
+
 	/**
 	 * Get the singleton instance.
 	 *
@@ -528,13 +544,96 @@ class UserApiManager extends HttpApiClient
         }
 
         if(!empty($keywords)) {
-            DatabaseManager::getInstance()->tables()->updateSetupRequirements('businessKeywords', array_map(static fn($keyword) => (string)$keyword['keyword']['name'], $keywords));
+            // Normalize before storing: this row IS the onboarding payload, so ads-scope
+            // rows, duplicates and anything beyond the subscription allowance must never
+            // reach it. Writing the raw list here is what made onboarding submit ~30
+            // names (21 distinct) against a limit of 20 and fail.
+            $normalizedKeywords = $this->normalizeRcKeywords($keywords);
+            if (!empty($normalizedKeywords)) {
+                DatabaseManager::getInstance()->tables()->updateSetupRequirements(
+                    'businessKeywords',
+                    array_values(array_map(static fn(array $keyword) => (string) $keyword['name'], $normalizedKeywords))
+                );
+            }
         }
 
     }
 
     /**
-     * @param array $keywords
+     * Reduce a raw checkAccount keywords payload to the set the plugin owns.
+     *
+     * Applies, in order: SEO-scope filtering (see self::SEO_KEYWORD_TYPES), one entry
+     * per alias, ordering by the priority the API assigned, and a cap at the
+     * subscription's keyword allowance. Every keyword that leaves this plugin — local
+     * table, onboarding payload, keyword sync — must go through here, otherwise the
+     * remote side rejects the request with "maximum of N keywords".
+     *
+     * @param array $elements Raw `keywords.elements` from the API response
+     * @return array<string, array<string, mixed>> Keyword rows keyed by alias
+     */
+    public function normalizeRcKeywords(array $elements): array
+    {
+        $maxAllowed = (int) get_option(BaseConstants::OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS, 0);
+        $byAlias = [];
+
+        foreach ($elements as $element) {
+            $element = is_object($element) ? (array) $element : $element;
+            if (!is_array($element)) {
+                continue;
+            }
+
+            if (!in_array(strtolower((string) ($element['type'] ?? 'seo')), self::SEO_KEYWORD_TYPES, true)) {
+                continue;
+            }
+
+            $keyword = $element['keyword'] ?? null;
+            $keyword = is_object($keyword) ? (array) $keyword : $keyword;
+            if (!is_array($keyword)) {
+                continue;
+            }
+
+            // The alias is the keyword's stable identity on both sides of the API.
+            $alias = (string) ($keyword['alias'] ?? '');
+            $name  = (string) ($keyword['name'] ?? '');
+            if ($alias === '' || $name === '' || isset($byAlias[$alias])) {
+                continue;
+            }
+
+            $byAlias[$alias] = [
+                // externalId is the RC *keyword* id, not the id of the location-keyword
+                // relation that wraps it. Keying on the wrapper id is what defeated the
+                // duplicate check here and grew the table on every checkAccount call.
+                'externalId' => ((int) ($keyword['id'] ?? 0)) ?: null,
+                'name'       => $name,
+                'alias'      => $alias,
+                'hash'       => (string) ($keyword['hash'] ?? ''),
+                'priority'   => (int) ($element['priority'] ?? PHP_INT_MAX),
+            ];
+        }
+
+        uasort($byAlias, static fn(array $a, array $b) => $a['priority'] <=> $b['priority']);
+
+        if ($maxAllowed > 0 && count($byAlias) > $maxAllowed) {
+            $this->log(sprintf(
+                'checkAccount returned %d SEO keywords but the subscription allows %d; keeping the %d highest-priority ones.',
+                count($byAlias),
+                $maxAllowed,
+                $maxAllowed
+            ), 'WARNING');
+            $byAlias = array_slice($byAlias, 0, $maxAllowed, true);
+        }
+
+        return $byAlias;
+    }
+
+    /**
+     * Mirror the account's SEO keywords into the local keywords table.
+     *
+     * RC is authoritative: aliases it reports are inserted or updated, aliases it no
+     * longer reports are removed, and duplicate rows left behind by earlier plugin
+     * versions are collapsed onto the newest row.
+     *
+     * @param array $keywords Raw `keywords.elements` from the API response
      * @return void
      * @throws Exception
      */
@@ -546,31 +645,73 @@ class UserApiManager extends HttpApiClient
             return;
         }
 
-        foreach ($keywords as $keyword) {
+        $normalized = $this->normalizeRcKeywords($keywords);
 
-            $keywordId = (int)$keyword['id'];
-            $keywordData = [
-                'externalId' => $keyword['keyword']['id'] ?? null,
-                'name' => $keyword['keyword']['name'] ?? '',
-                'alias' => $keyword['keyword']['alias'] ?? '',
-                'hash' => $keyword['keyword']['hash'] ?? ''
-            ];
+        // An ads-only (or otherwise empty) payload is not an instruction to wipe the
+        // local set — leave the table untouched rather than emptying the keyword picker.
+        if (empty($normalized)) {
+            return;
+        }
 
-            $exists = $dbManager->db()->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)->select('id')->where('externalId', $keywordId)->value('id');
+        // Index the current rows by alias. Older versions of this method inserted a
+        // fresh row on every call, so one alias can legitimately map to many rows here.
+        $idsByAlias = [];
+        $existingRows = $dbManager->db()
+            ->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)
+            ->select(['id', 'alias'])
+            ->get();
 
-            if($exists) {
-                $dbManager->db()->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)->delete()->where('externalId', $exists)->get();
+        foreach (($existingRows ?: []) as $existingRow) {
+            $existingRow = is_object($existingRow) ? (array) $existingRow : $existingRow;
+            $existingAlias = (string) ($existingRow['alias'] ?? '');
+            if ($existingAlias === '') {
+                continue;
+            }
+            $idsByAlias[$existingAlias][] = (int) ($existingRow['id'] ?? 0);
+        }
+
+        // Rows to drop: every alias RC no longer reports, plus the older copies of the
+        // aliases it does report.
+        $staleIds = [];
+        foreach ($idsByAlias as $existingAlias => $ids) {
+            rsort($ids);
+            $staleIds = array_merge($staleIds, isset($normalized[$existingAlias]) ? array_slice($ids, 1) : $ids);
+        }
+
+        try {
+            foreach ($normalized as $alias => $keywordData) {
+                unset($keywordData['priority']); // ordering hint only, not a table column
+
+                if (isset($idsByAlias[$alias])) {
+                    $dbManager->db()
+                        ->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)
+                        ->update()
+                        ->set($keywordData)
+                        ->where('alias', $alias)
+                        ->get();
+                    continue;
+                }
+
+                $dbManager->db()
+                    ->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)
+                    ->insert()
+                    ->set($keywordData)
+                    ->get();
             }
 
-            try {
-                $dbManager->db()->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)->insert()->set($keywordData)->get();
-            } catch (Exception $e) {
-                throw new Exception(sprintf(
-                    /* translators: %1$s is the error message */
-                    esc_html__('Keyword insert failed. Error: %1$s', 'beyondseo'),
-                    esc_html($e->getMessage())
-                ));
+            if (!empty($staleIds)) {
+                $dbManager->db()
+                    ->table(DatabaseTablesManager::DATABASE_APP_KEYWORDS)
+                    ->delete()
+                    ->whereIn('id', array_values(array_unique($staleIds)))
+                    ->get();
             }
+        } catch (Exception $e) {
+            throw new Exception(sprintf(
+                /* translators: %1$s is the error message */
+                esc_html__('Keyword insert failed. Error: %1$s', 'beyondseo'),
+                esc_html($e->getMessage())
+            ));
         }
     }
 

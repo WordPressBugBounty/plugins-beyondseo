@@ -330,6 +330,10 @@ class OnboardingController
             }
         }
 
+        if (!empty($requirementsData['keywords']) && is_array($requirementsData['keywords'])) {
+            $requirementsData['keywords'] = $this->normalizeKeywordsForPayload($requirementsData['keywords']);
+        }
+
         if (empty($requirementsData['websiteurl'])) {
             $siteUrl = sanitize_url(get_option('siteurl'));
             if (wp_get_environment_type() !== 'production' && str_contains($siteUrl, 'local') !== false) {
@@ -339,6 +343,52 @@ class OnboardingController
         }
 
         return $requirementsData;
+    }
+
+    /**
+     * Dedupe and cap a keyword name list before it leaves the plugin.
+     *
+     * Keywords are identified case- and whitespace-insensitively, mirroring the alias
+     * the remote side derives from the name, and the first occurrence wins so the
+     * user's ordering is preserved.
+     *
+     * @param array $keywords Keyword names (tolerates {name: …} shapes)
+     * @return string[]
+     */
+    private function normalizeKeywordsForPayload(array $keywords): array
+    {
+        $maxAllowed = (int) get_option(BaseConstants::OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS, 0);
+        $unique = [];
+
+        foreach ($keywords as $keyword) {
+            if (is_array($keyword) || is_object($keyword)) {
+                $keyword = ((array) $keyword)['name'] ?? '';
+            }
+
+            $name = trim((string) preg_replace('/\s+/u', ' ', (string) $keyword));
+            if ($name === '') {
+                continue;
+            }
+
+            $identity = function_exists('mb_strtolower') ? mb_strtolower($name) : strtolower($name);
+            if (!isset($unique[$identity])) {
+                $unique[$identity] = $name;
+            }
+        }
+
+        $normalized = array_values($unique);
+
+        if ($maxAllowed > 0 && count($normalized) > $maxAllowed) {
+            $this->log(sprintf(
+                'Onboarding payload holds %d keywords but the subscription allows %d; sending the first %d.',
+                count($normalized),
+                $maxAllowed,
+                $maxAllowed
+            ), 'WARNING');
+            $normalized = array_slice($normalized, 0, $maxAllowed);
+        }
+
+        return $normalized;
     }
 
     public function generateSteps(WP_REST_Request $request): WP_REST_Response
@@ -364,8 +414,10 @@ class OnboardingController
                     fn() => RCApiManager::getInstance()->generateSteps($params)
                 );
 
-                if (!empty($result['steps'])) {
-                    foreach ($result['steps'] as $step) {
+                $responseArray = isset($result['content']) ? json_decode(json_encode($result['content']), true) : [];
+
+                if (!empty($responseArray['steps'])) {
+                    foreach ($responseArray['steps'] as $step) {
                         DatabaseManager::getInstance()->insertOrUpdate(
                             DatabaseTablesManager::DATABASE_SETUP_STEPS,
                             [
@@ -596,35 +648,53 @@ class OnboardingController
                 fn() => RCApiManager::getInstance()->extractAuto($params)
             );
 
+            $responseArray = isset($result['content']) ? json_decode(json_encode($result['content']), true) : [];
+
             // Save the extracted requirements to the local database
-            $extractedValues = $result['extractedValues'] ?? null;
+            $extractedValues = $responseArray['extractedValues'] ?? null;
             if (is_array($extractedValues)) {
-                $prefilledAddress = (bool)($result['prefillCountryRelevantAddress'] ?? false);
-                
-                $businessGeoAddress = $extractedValues['businessGeoAddress'] ?? '';
-                try {
-                    $decodedAddress = json_decode((string)$businessGeoAddress, true, 512, JSON_THROW_ON_ERROR);
-                    $decodedAddress['prefilledAddress'] = $prefilledAddress;
-                    $businessGeoAddress = json_encode($decodedAddress, JSON_THROW_ON_ERROR);
-                } catch (Throwable $e) {
-                    $businessGeoAddress = '';
+                $prefilledAddress = (bool)($responseArray['prefillCountryRelevantAddress'] ?? false);
+
+                $requirements = [];
+
+                if (array_key_exists('businessDescription', $extractedValues)) {
+                    $requirements['businessDescription'] = $extractedValues['businessDescription'] ?? '';
+                }
+                if (array_key_exists('businessName', $extractedValues)) {
+                    $requirements['businessName'] = $extractedValues['businessName'] ?? '';
+                }
+                if (array_key_exists('businessKeywords', $extractedValues)) {
+                    $requirements['businessKeywords'] = $extractedValues['businessKeywords'] ?? [];
+                }
+                if (array_key_exists('businessCategories', $extractedValues)) {
+                    $requirements['businessCategories'] = $extractedValues['businessCategories'] ?? [];
+                }
+                if (array_key_exists('businessAddress', $extractedValues)) {
+                    $requirements['businessAddress'] = $extractedValues['businessAddress'] ?? '';
+                    if ($prefilledAddress) {
+                        update_option(BaseConstants::OPTION_PREFILLED_ADDRESS, $requirements['businessAddress']);
+                    }
+                }
+                if (array_key_exists('businessGeoAddress', $extractedValues)) {
+                    $businessGeoAddress = $extractedValues['businessGeoAddress'] ?? '';
+                    try {
+                        $decodedAddress = json_decode((string)$businessGeoAddress, true, 512, JSON_THROW_ON_ERROR);
+                        if (is_array($decodedAddress)) {
+                            $decodedAddress['prefilledAddress'] = $prefilledAddress;
+                            $businessGeoAddress = json_encode($decodedAddress, JSON_THROW_ON_ERROR);
+                        }
+                    } catch (Throwable $e) {
+                        $businessGeoAddress = '';
+                    }
+                    $requirements['businessGeoAddress'] = $businessGeoAddress;
+                }
+                if (array_key_exists('businessServiceArea', $extractedValues)) {
+                    $requirements['businessServiceArea'] = $extractedValues['businessServiceArea'] ?? false;
                 }
 
-                if ($prefilledAddress) {
-                    update_option(BaseConstants::OPTION_PREFILLED_ADDRESS, $extractedValues['businessAddress'] ?? '');
+                if (!empty($requirements)) {
+                    RequirementHelper::updateRequirements($requirements);
                 }
-
-                $requirements = [
-                    'businessDescription' => $extractedValues['businessDescription'] ?? '',
-                    'businessName'        => $extractedValues['businessName'] ?? '',
-                    'businessKeywords'    => $extractedValues['businessKeywords'] ?? [],
-                    'businessCategories'  => $extractedValues['businessCategories'] ?? [],
-                    'businessAddress'     => $extractedValues['businessAddress'] ?? '',
-                    'businessGeoAddress'  => $businessGeoAddress,
-                    'businessServiceArea' => $extractedValues['businessServiceArea'] ?? false,
-                ];
-
-                RequirementHelper::updateRequirements($requirements);
             }
 
             return new WP_REST_Response($result, 200);

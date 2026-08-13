@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-11 06:34+0000\n"
+"PO-Revision-Date: 2026-08-12 14:27+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -10,6 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: \n"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 msgid "%1$s: %2$s"
@@ -7873,279 +7875,209 @@ msgstr "AI-posts voor sociale media"
 msgid "Agency or Enterprise? Talk to us"
 msgstr "Agency of Enterprise? Neem contact met ons op"
 
-
 msgid "Activation failed."
 msgstr "Activering mislukt."
-
 
 msgid "Enter the activation code provided by your provider."
 msgstr "Voer de activeringscode in die door uw provider is verstrekt."
 
-
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr "U wordt automatisch doorgestuurd in 5 seconden..."
-
 
 msgid "Communication Opt-In is disabled. The BeyondSEO dashboard requires it to be enabled."
 msgstr "Communicatie-opt-in is uitgeschakeld. Het BeyondSEO-dashboard vereist dat dit ingeschakeld is."
 
-
 msgid "Go to Settings"
 msgstr "Ga naar Instellingen"
-
 
 msgid "1. Which subscription is suitable for small businesses?"
 msgstr "1. Welk abonnement is geschikt voor kleine bedrijven?"
 
-
 msgid "All of our plans are built for small and medium-sized businesses. Just pick the one that matches your goal, and you're ready to go."
 msgstr "Al onze abonnementen zijn gebouwd voor kleine en middelgrote bedrijven. Kies gewoon degene die bij je doel past, en je bent klaar."
-
 
 msgid "2. Do I need any technical skills?"
 msgstr "2. Heb ik technische vaardigheden nodig?"
 
-
 msgid "Not at all. You don't need any prior knowledge or experience, and with agents handling many of your marketing tasks, promoting your business is easier than ever."
 msgstr "Helemaal niet. Je hebt geen voorkennis of ervaring nodig, en met agents die veel van je marketingtaken afhandelen, is het promoten van je bedrijf eenvoudiger dan ooit."
-
 
 msgid "Yes. You can find all the details about subscription management and cancellation through your provider."
 msgstr "Ja. Je kunt alle details over abonnementsbeheer en opzegging vinden bij je provider."
 
-
 msgid "AI agents that handle your marketing"
 msgstr "AI-agents die je marketing afhandelen"
-
 
 msgid "Select the AI assistant that best fits your needs and start growing your online presence, reputation, or social media performance."
 msgstr "Selecteer de AI-assistent die het beste bij je behoeften past en begin je online aanwezigheid, reputatie of socialmediaperformance te vergroten."
 
-
 msgid "AI Search Manager"
 msgstr "AI search manager"
-
 
 msgid "Be found where customers search"
 msgstr "Word gevonden waar klanten zoeken"
 
-
 msgid "AI Presence agent"
 msgstr "AI-aanwezigheidsagent"
-
 
 msgid "Create a Google Ads campaign with AI"
 msgstr "Maak een Google Ads-campagne met AI"
 
-
 msgid "Publish to GBP, Facebook & major online directories"
 msgstr "Publiceer naar GBP, Facebook & grote online directories"
-
 
 msgid "Monitor your visibility across major AI models"
 msgstr "Monitor je zichtbaarheid in grote AI-modellen"
 
-
 msgid "Get expert guidance from AI Advisors"
 msgstr "Krijg deskundig advies van AI-adviseurs"
-
 
 msgid "Google Analytics integration (GA4)"
 msgstr "Google Analytics-integratie (GA4)"
 
-
 msgid "SEO tasks with video tutorials"
 msgstr "SEO-taken met videotutorials"
-
 
 msgid "AI text SEO"
 msgstr "AI-tekst-SEO"
 
-
 msgid "Detailed SEO insights"
 msgstr "Gedetailleerde SEO-inzichten"
-
 
 msgid "AI Reputation Manager"
 msgstr "AI reputatiemanager"
 
-
 msgid "Grow and protect your reputation"
 msgstr "Vergroot en bescherm je reputatie"
-
 
 msgid "AI Reputation agent"
 msgstr "AI-reputatieagent"
 
-
 msgid "Manage all your reviews in one place"
 msgstr "Beheer al je reviews op één plek"
-
 
 msgid "AI auto-reply to reviews"
 msgstr "AI-automatisch antwoord op reviews"
 
-
 msgid "AI reputation sentiment analysis"
 msgstr "AI-sentimentanalyse voor reputatie"
-
 
 msgid "Generate AI replies that match your brand's voice"
 msgstr "Genereer AI-antwoorden die passen bij je merkidentiteit"
 
-
 msgid "Collect & display reviews on your website with widgets"
 msgstr "Verzamel en toon reviews op je website met widgets"
-
 
 msgid "Get more reviews via email & printable materials"
 msgstr "Krijg meer reviews via e-mail & drukwerk"
 
-
 msgid "Publish to Google, Facebook & major online directories"
 msgstr "Publiceer naar Google, Facebook & grote online directories"
-
 
 msgid "See how you compare to local competitors with AI"
 msgstr "Bekijk hoe je je verhoudt tot lokale concurrenten met AI"
 
-
 msgid "Detailed Reputation insights"
 msgstr "Gedetailleerde reputatie-inzichten"
-
 
 msgid "Get instant alerts for new reviews"
 msgstr "Ontvang direct meldingen voor nieuwe reviews"
 
-
 msgid "AI Marketing Manager"
 msgstr "AI marketingmanage"
-
 
 msgid "Create content effortlessly"
 msgstr "Maak moeiteloos content"
 
-
 msgid "AI Social agent"
 msgstr "AI-socialagent"
-
 
 msgid "Create & publish posts on multiple channels with AI"
 msgstr "Maak & publiceer posts op meerdere kanalen met AI"
 
-
 msgid "Create entire series of posts with AI"
 msgstr "Maak volledige reeksen posts met AI"
-
 
 msgid "Generate text & images with AI"
 msgstr "Genereer tekst & afbeeldingen met AI"
 
-
 msgid "Schedule posts in advance"
 msgstr "Plan posts van tevoren in"
-
 
 msgid "Plan everything in calendar"
 msgstr "Plan alles in kalender"
 
-
 msgid "Track link performance"
 msgstr "Volg linkprestaties"
-
 
 msgid "Detailed Social Media insights"
 msgstr "Gedetailleerde socialmedia-inzichten"
 
-
 msgid "Rank higher in AI search results"
 msgstr "Rank hoger in AI-zoekresultaten"
-
 
 msgid "Follow step-by-step SEO video tutorials. Optimise your pages with AI, connect Google Analytics, track keyword rankings against competitors, and access performance reports anytime. No SEO experience needed."
 msgstr "Volg stap-voor-stap SEO-videotutorials. Optimaliseer je pagina's met AI, verbind Google Analytics, volg trefwoordrankings tegen concurrenten en access prestatierapportages op elk moment. Geen SEO-ervaring nodig."
 
-
 msgid "Your agent makes sure customers find you online"
 msgstr "Je agent ziet erop toe dat klanten je online vinden"
-
 
 msgid "The Presence agent scans online directories such as Google Business Profile, Facebook or Waze and instantly spots what's missing or incomplete. Then it automatically publishes your profile on all major directories. Simply approve it, and the agent will handle the rest."
 msgstr "De Presence-agent scant online directories zoals Google Business Profile, Facebook of Waze en spot onmiddellijk wat ontbreekt of onvolledig is. Vervolgens publiceert het automatisch je profiel op alle grote directories. Goedkeuren maar, en de agent regelt de rest."
 
-
 msgid "See how AI models recommend your business"
 msgstr "Zie hoe AI-modellen je bedrijf aanbevelen"
-
 
 msgid "Understand how platforms like ChatGPT, Gemini, and Perplexity see your brand. Get clear, actionable recommendations to improve your visibility and boost your chances of being found by potential customers."
 msgstr "Begrijp hoe platforms zoals ChatGPT, Gemini en Perplexity je merk zien. Krijg duidelijke, bruikbare aanbevelingen om je zichtbaarheid te verbeteren en je kansen op potentiële klanten te vergroten."
 
-
 msgid "All your reviews in one place"
 msgstr "Al je reviews op één plek"
-
 
 msgid "See and manage reviews from Google, Facebook, and other platforms in a single location. Stay on top of feedback and respond faster, all from one place."
 msgstr "Bekijk en beheer reviews van Google, Facebook en andere platforms op één plek. Blijf bovenop de feedback en reageer sneller, allemaal op één plek."
 
-
 msgid "Your agent protects your reputation around the clock"
 msgstr "Je agent beschermt je reputatie dag en nacht"
-
 
 msgid "No more missed reviews or uncertainty about how to reply. The Reputation agent responds in your voice, reads the emotion behind every review, and flags exactly what needs your attention. Then it suggests the best next steps to protect and improve your reputation."
 msgstr "Geen gemiste reviews meer of onzekerheid over hoe je moet antwoorden. De Reputation-agent reageert in jouw stem, leest de emotie achter elke review en markeert precies wat je aandacht nodig heeft. Vervolgens suggereert het de beste volgende stappen om je reputatie te beschermen en te verbeteren."
 
-
 msgid "Get more reviews effortlessly"
 msgstr "Krijg moeiteloos meer reviews"
-
 
 msgid "Make it simple for customers to leave reviews. Send requests by email, or display printed materials with QR codes at your location so customers can leave a review in seconds."
 msgstr "Maak het klanten eenvoudig om reviews achter te laten. Stuur verzoeken per e-mail of toon drukwerk met QR-codes op je locatie zodat klanten in seconden een review kunnen achterlaten."
 
-
 msgid "Write once and post everywhere"
 msgstr "Schrijf eenmaal en post overal"
-
 
 msgid "No more copying and pasting the same content on different platforms. Write your post once and publish it across all major social media channels with a single click. Your content is automatically adapted to each platform's requirements."
 msgstr "Geen kopiëren en plakken meer van dezelfde content op verschillende platforms. Schrijf je post eenmaal en publiceer het over alle grote socialmediakanalen met één klik. Je content wordt automatisch aangepast aan de vereisten van elk platform."
 
-
 msgid "The agent helps your business stay active on social media"
 msgstr "De agent helpt je bedrijf actief te blijven op social media"
-
 
 msgid "We know posting regularly can be hard. That's why the Social agent makes it simple. It can create, schedule, and publish posts for you, whether you want a single post or an entire series. Just approve them, and the agent takes care of the rest."
 msgstr "We weten dat regelmatig posten moeilijk kan zijn. Daarom maakt de Social-agent het eenvoudig. Het kan posts voor je maken, inplannen en publiceren, of je nu één post of een hele reeks wilt. Goedkeuren maar, en de agent regelt de rest."
 
-
 msgid "Turn your idea into a complete series in seconds"
 msgstr "Zet je idee in seconden om in een volledige reeks"
-
 
 msgid "Building a series of posts that truly connects, matches your vision, and goes out on time can be a headache. We make it easy. Just describe your idea, and our AI writes every post, picks the best times to publish, and ties it all together into one clear, cohesive story."
 msgstr "Het bouwen van een reeks posts die echt aansluit, je visie aansluit en op tijd wordt uitgegeven, kan een nachtmerrie zijn. We maken het makkelijk. Beschrijf gewoon je idee, en onze AI schrijft elke post, kiest de beste publicatietijden en bindt alles samen tot één duidelijk, samenhangend verhaal."
 
-
 msgid "Radar Free"
 msgstr "Radar Gratis"
-
 
 msgid "You currently have this plan"
 msgstr "Je hebt momenteel dit abonnement"
 
-
-
 msgid "Missing setupRequirement."
-msgstr ""
-
+msgstr "Ontbrekende setupvereiste."
 
 msgid "An unknown error occurred."
-msgstr ""
-
+msgstr "Er is een onbekende fout opgetreden."
 
 msgid "Authentication Required"
 msgstr "Authenticatie vereist"
@@ -8158,3 +8090,168 @@ msgstr "Resetten en opnieuw activeren"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Hulp nodig? Neem contact op met ons ondersteuningsteam voor hulp."
+
+msgid "Copied!"
+msgstr "Gekopieerd!"
+
+msgid "Activate your free account to track your visibility, improve your rankings and grow your business"
+msgstr "Activeer je gratis account om je zichtbaarheid te volgen, je rankings te verbeteren en je bedrijf te laten groeien."
+
+msgid "of"
+msgstr "van"
+
+msgid "Analyzing details"
+msgstr "Details analyseren"
+
+msgid "Checking name"
+msgstr "Naam controleren"
+
+msgid "Reviewing details"
+msgstr "Details bekijken"
+
+msgid "Locating business"
+msgstr "Bedrijf lokaliseren"
+
+msgid "Determining focus"
+msgstr "Focus bepalen"
+
+msgid "Highlighting features"
+msgstr "Kenmerken benadrukken"
+
+msgid "Enter your email and we'll get you set up."
+msgstr "Voer uw e-mailadres in en we zorgen ervoor dat u alles geregeld krijgt."
+
+msgid "Follow the instructions in the email we've sent to "
+msgstr "Volg de instructies in de e-mail die we hebben gestuurd naar"
+
+msgid "Follow the instructions in the email we've sent to this address: "
+msgstr "Volg de instructies in de e-mail die we naar dit adres hebben gestuurd:"
+
+msgid "Verify"
+msgstr "Verifiëren"
+
+msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
+msgstr "Toon gebruikers hun locatie op een website met klikbare links naar ouderpagina's, die fungeren als een secundaire navigatietool. In onze BeyondSEO-plugin kun je hun uiterlijk aanpassen aan je site. Ze worden automatisch toegevoegd aan schema-markup voor betere SEO en doorzoekbaarheid, zonder extra instellingen nodig."
+
+msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
+msgstr "Schakel deze optie in om de SEO-scoreberekening automatisch uit te voeren wanneer een pagina of bericht wordt opgeslagen."
+
+msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
+msgstr "Schakel deze optie in om trefwoorden van uw WordPress-site naar het rC-platform te synchroniseren."
+
+msgid "Enable this option to run the broken link checker job that scans your site for broken links"
+msgstr "Schakel deze optie in om de functie voor het controleren van gebroken links uit te voeren die uw site scant op gebroken links."
+
+msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
+msgstr "Sta de plugin toe om te communiceren met de backendservers van beyondseo om zijn diensten te verlenen. Vereist voor accountfuncties, sleutelwoord-synchronisatie en dashboardfunctionaliteit. U kunt op elk moment uw toestemming intrekken."
+
+msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
+msgstr "Schakel deze optie in om de WordPress heartbeat-service uit te schakelen die periodieke AJAX-verzoeken naar admin-ajax.php verzendt. Dit kan de prestaties verbeteren door de serverbelasting te verminderen."
+
+msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
+msgstr "Schakel deze optie in om het RankingCoach-dashboard in een nieuw browsertabblad te openen in plaats van het huidige tabblad."
+
+msgid "Switching to our SEO Plugin? Import your settings from other SEO plugins like Yoast SEO, All in One SEO, Rank Math, or SEOPress in just a few clicks. We'll ensure your data is safely transferred."
+msgstr "Overschakelen naar onze SEO-plugin? Importeer uw instellingen van andere SEO-plugins zoals Yoast SEO, All in One SEO, Rank Math of SEOPress in slechts een paar klikken. We zorgen ervoor dat uw gegevens veilig worden overgedragen."
+
+msgid "Before importing settings, we strongly recommend creating a full backup of your WordPress site to avoid any data loss."
+msgstr "Voordat u instellingen importeert, raden we ten zeerste aan om een volledige back-up van uw WordPress-site te maken om dataverlies te voorkomen."
+
+msgid "Choose the SEO plugin you're currently using. We've detected the following plugins installed on your site."
+msgstr "Kies de SEO-plugin die je momenteel gebruikt. We hebben de volgende plugins op je site gedetecteerd."
+
+msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
+msgstr "Wanneer ingeschakeld, wordt uw sitemap-URL automatisch toegevoegd aan uw robots.txt-bestand."
+
+msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
+msgstr "Het robots.txt-bestand vertelt zoekmachines welke pagina's of bestanden ze wel of niet van uw site kunnen opvragen."
+
+msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
+msgstr "Deze functie wordt gebruikt om automatisch inhoud toe te voegen aan de RSS-feed van uw site. Meer specifiek stelt het u in staat om links terug naar uw blog en uw blogposts toe te voegen, zodat scrapers deze links ook automatisch toevoegen. Dit helpt zoekmachines u te identificeren als de oorspronkelijke bron van de inhoud."
+
+msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
+msgstr "De sitemap wordt automatisch opnieuw gegenereerd wanneer je nieuwe inhoud publiceert. Je kunt het ook handmatig genereren met de knop hierboven."
+
+msgid "Prevents this page from being indexed by search engines. Adds a noindex tag to exclude this page from search results."
+msgstr "Voorkomt dat deze pagina wordt geïndexeerd door zoekmachines. Voegt een noindex-tag toe om deze pagina uit de zoekresultaten te sluiten."
+
+msgid "Disables automatic detection of phone numbers, email addresses, and physical addresses in this page’s content. Prevents mobile browsers from converting them into clickable links."
+msgstr "Schakelt de automatische detectie van telefoonnummers, e-mailadressen en fysieke adressen in de inhoud van deze pagina uit. Voorkomt dat mobiele browsers ze omzetten in klikbare links."
+
+msgid "Adds a responsive viewport meta tag to this page. Ensures proper display on mobile devices by setting width=device-width and initial-scale=1."
+msgstr "Voegt een responsieve viewport meta-tag toe aan deze pagina. Zorgt voor een goede weergave op mobiele apparaten door de breedte in te stellen op device-width en de initiële schaal op 1."
+
+msgid "It takes only one click to publish your business in 46 directories, and along with that, you get features that help you automate repetitive tasks with AI, launch a Google ads campaign, and more. See how our plans can help you grow and stand out faster."
+msgstr "Het kost slechts één klik om uw bedrijf in 46 directories te publiceren, en daarbij krijgt u functies die u helpen repetitieve taken te automatiseren met AI, een Google Ads-campagne te lanceren en meer. Zie hoe onze plannen u kunnen helpen sneller te groeien en op te vallen."
+
+msgid "One bad review can drop customers' trust by 42%."
+msgstr "Één slechte beoordeling kan het vertrouwen van klanten met 42% verminderen."
+
+msgid "That’s not just feedback, it’s lost revenue."
+msgstr "Dat is niet alleen feedback, het is verloren omzet."
+
+msgid "Every review shapes how you're seen"
+msgstr "Elke beoordeling vormt hoe je wordt gezien."
+
+msgid "If maintaining your social media keeps eating up your time, you’re not alone. Many business owners want the same thing:"
+msgstr "Als het onderhouden van je sociale media je steeds meer tijd kost, ben je niet alleen. Veel ondernemers willen hetzelfde:"
+
+msgid "Internal links help search engines understand your content structure and improve your SEO rankings."
+msgstr "Interne links helpen zoekmachines uw contentstructuur te begrijpen en verbeteren uw SEO-rangschikkingen."
+
+msgid "Redirects help preserve your SEO rankings when URLs change or pages are removed. They ensure users and search engines are sent to the correct destination."
+msgstr "Redirects helpen uw SEO-rangschikkingen te behouden wanneer URL's veranderen of pagina's worden verwijderd. Ze zorgen ervoor dat gebruikers en zoekmachines naar de juiste bestemming worden gestuurd."
+
+msgid "Set up redirects to avoid broken links, retain link equity, and deliver a smoother experience to your visitors and search engines."
+msgstr "Stel omleidingen in om gebroken links te voorkomen, linkwaarde te behouden en een soepelere ervaring voor uw bezoekers en zoekmachines te bieden."
+
+msgid "Update redirect:"
+msgstr "Update omleiden:"
+
+msgid "Use when the original page will come back, like during maintenance or testing."
+msgstr "Gebruik wanneer de originele pagina terugkomt, zoals tijdens onderhoud of testen."
+
+msgid "Update Redirect"
+msgstr "Update omleiden"
+
+msgid "You've laid the foundation."
+msgstr "Je hebt de basis gelegd."
+
+msgid "Now let's take it further."
+msgstr "Laten we het nu verder brengen."
+
+msgid "Ready to unlock your business's full potential?"
+msgstr "Klaar om het volledige potentieel van uw bedrijf te ontgrendelen?"
+
+msgid "They improved my website's ranking. Simple, intuitive actions and fair pricing."
+msgstr "Ze hebben de ranking van mijn website verbeterd. Eenvoudige, intuïtieve acties en eerlijke prijzen."
+
+msgid "It is simply the best tool to control, optimize and position your business from one place. Highly recommended!"
+msgstr "Het is simpelweg het beste hulpmiddel om uw bedrijf vanuit één plek te beheren, te optimaliseren en te positioneren. Zeer aanbevolen!"
+
+msgid "A clear overview of what is happening on your site and what to do to improve it. We are very satisfied - TOP!"
+msgstr "Een duidelijk overzicht van wat er op uw site gebeurt en wat u kunt doen om het te verbeteren. We zijn zeer tevreden - TOP!"
+
+msgid "A really great tool for work. It's helped me get more clients and reach more people."
+msgstr "Een echt geweldig hulpmiddel voor werk. Het heeft me geholpen om meer klanten te krijgen en meer mensen te bereiken."
+
+msgid "I really like this tool. Setting your competitors in the config gives you very useful insights to help you improve."
+msgstr "Ik vind dit hulpmiddel echt geweldig. Het instellen van je concurrenten in de configuratie geeft je zeer nuttige inzichten om je te helpen verbeteren."
+
+msgid "Full AI-powered SEO. Get personalised guidance and video tutorials. No experience needed."
+msgstr "Volledige AI-gestuurde SEO. Krijg persoonlijke begeleiding en videotutorials. Geen ervaring nodig."
+
+msgid "Create AI-powered ads in 3 steps. Professional Google Ads, ready to launch immediately."
+msgstr "Maak AI-gestuurde advertenties in 3 stappen. Professionele Google Ads, direct klaar om te lanceren."
+
+msgid "Publish your business automatically in 46+ directories. Visible everywhere with one click."
+msgstr "Publiceer uw bedrijf automatisch in meer dan 46 directories. Overal zichtbaar met één klik."
+
+msgid "Find out instantly when your business is mentioned online. Stay informed at all times."
+msgstr "Ontdek onmiddellijk wanneer uw bedrijf online wordt genoemd. Blijf te allen tijde op de hoogte."
+
+msgid "Create entire series of connected posts with AI. Build cohesive campaigns effortlessly."
+msgstr "Creëer een hele serie verbonden berichten met AI. Bouw moeiteloos samenhangende campagnes."
+
+msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
+msgstr "Er zijn nog maar een paar plekken beschikbaar tegen deze prijs — zodra ze weg zijn, sluit de aanbieding permanent."

@@ -20,7 +20,7 @@ if ( !defined('ABSPATH') ) {
  * @wordpress-plugin
  * Plugin Name:       BeyondSEO
  * Description:       Get found online with AI SEO, listings, reviews, social media, and Google Ads in one WordPress plugin. For SMBs & web professionals.
- * Version: 1.3.0
+ * Version: 1.3.1
  * RcAPI Version:     v1
  * WpAPI Version:     v1
  * Requires at least: 6.5

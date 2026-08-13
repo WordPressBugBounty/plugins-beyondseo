@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-11 06:34+0000\n"
+"PO-Revision-Date: 2026-08-12 14:27+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -9767,3 +9767,224 @@ msgstr "Resetați și reactivați"
 
 msgid "Need help? Contact our support team for assistance."
 msgstr "Aveți nevoie de ajutor? Contactați echipa noastră de asistență pentru ajutor."
+
+
+msgid "Copied!"
+msgstr ""
+
+
+msgid "Activate your free account to track your visibility, improve your rankings and grow your business"
+msgstr ""
+
+
+msgid "of"
+msgstr ""
+
+
+msgid "Analyzing details"
+msgstr ""
+
+
+msgid "Checking name"
+msgstr ""
+
+
+msgid "Reviewing details"
+msgstr ""
+
+
+msgid "Locating business"
+msgstr ""
+
+
+msgid "Determining focus"
+msgstr ""
+
+
+msgid "Highlighting features"
+msgstr ""
+
+
+msgid "Enter your email and we'll get you set up."
+msgstr ""
+
+
+msgid "Follow the instructions in the email we've sent to "
+msgstr ""
+
+
+msgid "Follow the instructions in the email we've sent to this address: "
+msgstr ""
+
+
+msgid "Verify"
+msgstr ""
+
+
+msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
+msgstr ""
+
+
+msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
+msgstr ""
+
+
+msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
+msgstr ""
+
+
+msgid "Enable this option to run the broken link checker job that scans your site for broken links"
+msgstr ""
+
+
+msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
+msgstr ""
+
+
+msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
+msgstr ""
+
+
+msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
+msgstr ""
+
+
+msgid "Switching to our SEO Plugin? Import your settings from other SEO plugins like Yoast SEO, All in One SEO, Rank Math, or SEOPress in just a few clicks. We'll ensure your data is safely transferred."
+msgstr ""
+
+
+msgid "Before importing settings, we strongly recommend creating a full backup of your WordPress site to avoid any data loss."
+msgstr ""
+
+
+msgid "Choose the SEO plugin you're currently using. We've detected the following plugins installed on your site."
+msgstr ""
+
+
+msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
+msgstr ""
+
+
+msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
+msgstr ""
+
+
+msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
+msgstr ""
+
+
+msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
+msgstr ""
+
+
+msgid "Prevents this page from being indexed by search engines. Adds a noindex tag to exclude this page from search results."
+msgstr ""
+
+
+msgid "Disables automatic detection of phone numbers, email addresses, and physical addresses in this page’s content. Prevents mobile browsers from converting them into clickable links."
+msgstr ""
+
+
+msgid "Adds a responsive viewport meta tag to this page. Ensures proper display on mobile devices by setting width=device-width and initial-scale=1."
+msgstr ""
+
+
+msgid "It takes only one click to publish your business in 46 directories, and along with that, you get features that help you automate repetitive tasks with AI, launch a Google ads campaign, and more. See how our plans can help you grow and stand out faster."
+msgstr ""
+
+
+msgid "One bad review can drop customers' trust by 42%."
+msgstr ""
+
+
+msgid "That’s not just feedback, it’s lost revenue."
+msgstr ""
+
+
+msgid "Every review shapes how you're seen"
+msgstr ""
+
+
+msgid "If maintaining your social media keeps eating up your time, you’re not alone. Many business owners want the same thing:"
+msgstr ""
+
+
+msgid "Internal links help search engines understand your content structure and improve your SEO rankings."
+msgstr ""
+
+
+msgid "Redirects help preserve your SEO rankings when URLs change or pages are removed. They ensure users and search engines are sent to the correct destination."
+msgstr ""
+
+
+msgid "Set up redirects to avoid broken links, retain link equity, and deliver a smoother experience to your visitors and search engines."
+msgstr ""
+
+
+msgid "Update redirect:"
+msgstr ""
+
+
+msgid "Use when the original page will come back, like during maintenance or testing."
+msgstr ""
+
+
+msgid "Update Redirect"
+msgstr ""
+
+
+msgid "You've laid the foundation."
+msgstr ""
+
+
+msgid "Now let's take it further."
+msgstr ""
+
+
+msgid "Ready to unlock your business's full potential?"
+msgstr ""
+
+
+msgid "They improved my website's ranking. Simple, intuitive actions and fair pricing."
+msgstr ""
+
+
+msgid "It is simply the best tool to control, optimize and position your business from one place. Highly recommended!"
+msgstr ""
+
+
+msgid "A clear overview of what is happening on your site and what to do to improve it. We are very satisfied - TOP!"
+msgstr ""
+
+
+msgid "A really great tool for work. It's helped me get more clients and reach more people."
+msgstr ""
+
+
+msgid "I really like this tool. Setting your competitors in the config gives you very useful insights to help you improve."
+msgstr ""
+
+
+msgid "Full AI-powered SEO. Get personalised guidance and video tutorials. No experience needed."
+msgstr ""
+
+
+msgid "Create AI-powered ads in 3 steps. Professional Google Ads, ready to launch immediately."
+msgstr ""
+
+
+msgid "Publish your business automatically in 46+ directories. Visible everywhere with one click."
+msgstr ""
+
+
+msgid "Find out instantly when your business is mentioned online. Stay informed at all times."
+msgstr ""
+
+
+msgid "Create entire series of connected posts with AI. Build cohesive campaigns effortlessly."
+msgstr ""
+
+
+msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
+msgstr ""
+

@@ -9,419 +9,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-11T06:34:11+00:00\n"
+"POT-Creation-Date: 2026-08-12T14:27:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
-
-#: react/src/main.tsx:221
-msgid "Checking your page for<br>existing keywords"
-msgstr ""
-
-#: react/src/main.tsx:222
-msgid "This page doesn`t have keywords"
-msgstr ""
-
-#: react/src/main.tsx:224
-msgid "Using the right keywords can significantly increase your website`s visibility, making it easier for people to find it."
-msgstr ""
-
-#: react/src/main.tsx:225
-msgid "Close"
-msgstr ""
-
-#: react/src/main.tsx:226
-msgid "Use these keywords"
-msgstr ""
-
-#: react/src/main.tsx:227
-msgid "Skip this"
-msgstr ""
-
-#. Plugin Name of the plugin
-#: react/src/main.tsx:415
-#: beyondseo.php
-msgid "BeyondSEO"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:27
-#: react/src/components/TabsManager/TabsManager.tsx:41
-msgid "General"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:28
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:222
-msgid "Breadcrumbs"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:29
-msgid "Really Simple Syndication"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:30
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:111
-msgid "Sitemap"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:31
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:90
-msgid "Robots.txt"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:195
-#: inc/Core/Admin/AdminManager.php:461
-#: inc/Core/Admin/AdminManager.php:462
-#: inc/Core/ToolbarManager.php:166
-msgid "Settings"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:232
-msgid "Check my account"
-msgstr ""
-
-#: react/src/components/Settings/Settings.tsx:236
-msgid "Plugin version:"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/SeparatorSettings.tsx:47
-msgid "Separator"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:233
-msgid "Enable breadcrumbs"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:252
-msgid "Display options"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:260
-msgid "Anchor text for homepage"
-msgstr ""
-
-#. Translators: This refers to the homepage of the site.
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:263
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:551
-msgid "Home"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:272
-msgid "Advanced options"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:278
-msgid "Prefix for breadcrumb path"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:289
-msgid "Suffix for archive breadcrumbs"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:292
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:516
-msgid "Archives for"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:302
-msgid "Suffix for search page breadcrumbs"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:305
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:467
-msgid "Search results for"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:315
-msgid "Breadcrumbs for 404 Page"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:318
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:488
-msgid "Error 404: Page not found"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:325
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:365
-msgid "Preview"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:365
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:265
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:162
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:164
-msgid "Save changes"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:106
-msgid "Content exceeds maximum length of 255 characters"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:186
-msgid "RSS"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:197
-msgid "Enable RSS"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:216
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:117
-msgid "Options"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:222
-msgid "Content to put before each post in the feed"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:236
-msgid "Content to put after each post in the feed"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:248
-msgid "Your RSS feed URL:"
-msgstr ""
-
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:253
-msgid "View RSS Feed"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:50
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:116
-msgid "Import settings"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:52
-msgid "Coming soon"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:63
-msgid "Step 1. Backup your site"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:72
-msgid "Learn how to backup your site"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:76
-msgid "Step 2. Select Plugin to import from"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:95
-msgid "Yoast SEO"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:106
-msgid "All in One SEO"
-msgstr ""
-
-#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:120
-msgid "This feature will be available soon."
-msgstr ""
-
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:93
-msgid "View your robots.txt file to check search engine crawling instructions."
-msgstr ""
-
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:98
-msgid "Enable robots.txt"
-msgstr ""
-
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:124
-msgid "Include sitemap URL in robots.txt file"
-msgstr ""
-
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:136
-msgid "Your robots.txt URL:"
-msgstr ""
-
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:141
-msgid "View Robots.txt"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:57
-msgid "Allow run score calculation on page/post save"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:65
-msgid "Allow synchronisation the keywords an interval basis"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:73
-msgid "Enable WP-Cron service"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
-msgid "Enable this option to use the WP-Cron service for scheduling tasks"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:78
-msgid "Allow to run broken link checker an interval basis"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:86
-msgid "Allow communication with rankingCoach servers"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:94
-msgid "Disable WordPress heartbeat admin-ajax service"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:102
-msgid "Open rC dashboard in new tab"
-msgstr ""
-
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:113
-msgid "General Settings"
-msgstr ""
-
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:114
-msgid "Generate and manage your XML sitemap for better search engine indexing."
-msgstr ""
-
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:119
-msgid "Enable sitemap"
-msgstr ""
-
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:134
-#: inc/Core/Admin/Pages/CachePage.php:433
-msgid "Last updated:"
-msgstr ""
-
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:147
-msgid "Your sitemap URL:"
-msgstr ""
-
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:152
-msgid "View Sitemap"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:468
-msgid "Sign in or create an account"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:480
-msgid "Optimize WordPress SEO"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:483
-msgid "Manage local listings"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:486
-msgid "Track keyword rankings"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:489
-msgid "Start your personal online marketing agent"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:494
-#: react/src/components/Upsell/upsellConfig.ts:612
-#: inc/Core/Admin/Pages/views/registration-page.php:106
-msgid "Email"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:498
-msgid "Enter your email"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:504
-#: inc/Core/Admin/Pages/views/registration-page.php:120
-msgid "Country"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:519
-#: react/src/components/Activation/Activation.tsx:117
-msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:521
-#: react/src/components/Activation/Activation.tsx:119
-msgid "Privacy Policy"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:523
-#: react/src/components/Activation/Activation.tsx:121
-msgid " and the "
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:525
-#: react/src/components/Activation/Activation.tsx:123
-msgid "Terms and Conditions"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:533
-msgid "Have an activation code instead? "
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:535
-msgid "Enter it here"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:547
-msgid "Claim your existing account"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:548
-msgid "Verify your email"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:565
-msgid " to claim your existing account."
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:571
-msgid ". This helps keep your account secure."
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:591
-msgid "Change Email address"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:602
-msgid "Next"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:609
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:23
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:847
-#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:221
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:157
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:190
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:496
-#: react/src/components/Onboarding/Onboarding.tsx:103
-msgid "Something went wrong from our side, please try again!"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:611
-msgid "Try again"
-msgstr ""
-
-#: react/src/components/Registration/RegistrationWelcome.tsx:39
-msgid "Welcome, how would you like to get started?"
-msgstr ""
-
-#: react/src/components/Registration/RegistrationWelcome.tsx:46
-msgid "Continue with email"
-msgstr ""
-
-#: react/src/components/Registration/RegistrationWelcome.tsx:49
-msgid "Log in or create a free account to start using the plugin."
-msgstr ""
-
-#: react/src/components/Registration/RegistrationWelcome.tsx:57
-msgid "Use an activation code"
-msgstr ""
-
-#: react/src/components/Registration/RegistrationWelcome.tsx:60
-msgid "Already received a code by email? Enter it here to activate your plugin."
-msgstr ""
-
-#: react/src/components/ScoreButtonHeader/ScoreButtonHeader.tsx:32
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:230
-msgid "rC Icon"
-msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:39
 #: inc/Core/Admin/Pages/ActivationPage.php:288
@@ -439,8 +30,8 @@ msgstr ""
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:86
 #: react/src/components/Activation/Activation.tsx:101
+#: react/src/components/Activation/Activation.tsx:86
 msgid "Enter your activation code"
 msgstr ""
 
@@ -450,6 +41,26 @@ msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:97
 msgid "Activation Code"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:117
+#: react/src/components/Registration/Registration.tsx:519
+msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:119
+#: react/src/components/Registration/Registration.tsx:521
+msgid "Privacy Policy"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:121
+#: react/src/components/Registration/Registration.tsx:523
+msgid " and the "
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:123
+#: react/src/components/Registration/Registration.tsx:525
+msgid "Terms and Conditions"
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:139
@@ -476,954 +87,163 @@ msgstr ""
 msgid "Continue onboarding"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:48
-msgid "General features"
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:23
+#: react/src/components/Onboarding/Onboarding.tsx:103
+#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:221
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:847
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:157
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:190
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:496
+#: react/src/components/Registration/Registration.tsx:609
+msgid "Something went wrong from our side, please try again!"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:49
-#: react/src/components/Upsell/upsellConfig.ts:59
-#: react/src/components/Upsell/upsellConfig.ts:82
-#: react/src/components/Upsell/upsellConfig.ts:87
-#: react/src/components/Upsell/upsellConfig.ts:115
-#: react/src/components/Upsell/upsellConfig.ts:129
-#: react/src/components/Upsell/upsellConfig.ts:153
-#: react/src/components/Upsell/upsellConfig.ts:187
-#: react/src/components/Upsell/Upsell.tsx:133
-#: react/src/components/Upsell/Upsell.tsx:631
-msgid "Limited"
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:28
+msgid "Contact customer support"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:53
-msgid "Projects Included"
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:96
+msgid "Error details"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:58
-#: react/src/components/Upsell/upsellConfig.ts:403
-msgid "BeyondSEO WordPress plugin"
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:100
+msgid "Copied!"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:66
-#: react/src/components/Upsell/upsellConfig.ts:353
-msgid "Brand Monitoring"
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:100
+msgid "Copy Error"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:71
-#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:76
-msgid "Brand & competitor monitoring feed"
+#: react/src/components/Connect/Connect.tsx:41
+msgid "See your performance instantly"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:75
-msgid "Weekly reports"
+#: react/src/components/Connect/Connect.tsx:47
+msgid "See where you stand vs competitors"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:76
-msgid "Email alerts"
+#: react/src/components/Connect/Connect.tsx:53
+msgid "Always know what’s happening with your business online"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:81
-#: react/src/components/Upsell/upsellConfig.ts:312
-#: react/src/components/Upsell/Upsell.tsx:309
-msgid "SEO"
+#: react/src/components/Connect/Connect.tsx:59
+msgid "Spot what’s holding back your visibility"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:86
-msgid "Tasks with video tutorials"
+#: react/src/components/Connect/Connect.tsx:65
+msgid "Stay on top of your reviews and protect your reputation"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:90
-msgid "AI-powered SEO tasks"
+#: react/src/components/Connect/Connect.tsx:71
+msgid "Track your progress over time"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:91
-msgid "AI text optimisation"
+#: react/src/components/Connect/Connect.tsx:78
+msgid "Basic SEO checks only"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:92
-#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:74
-msgid "AI URL optimiser"
+#: react/src/components/Connect/Connect.tsx:79
+msgid "No keyword or ranking tracking"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:94
-msgid "Keyword tracking"
+#: react/src/components/Connect/Connect.tsx:80
+msgid "No competitor data"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:99
-msgid "Locations tracked"
+#: react/src/components/Connect/Connect.tsx:81
+msgid "No clear performance insights"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:104
-msgid "Competitors monitoring"
+#: react/src/components/Connect/Connect.tsx:82
+msgid "Limited visibility into your results"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:108
-msgid "Google Analytics integration"
+#: react/src/components/Connect/Connect.tsx:86
+msgid "Start tracking your own rankings, keywords & competitors"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:109
-msgid "Detailed SEO reports"
+#: react/src/components/Connect/Connect.tsx:87
+msgid "Finally see how visible you are on Google"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:114
-#: react/src/components/Upsell/upsellConfig.ts:334
-msgid "Online Presence"
+#: react/src/components/Connect/Connect.tsx:88
+msgid "Track how your performance improves over time"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:118
-msgid "Directory checker"
+#: react/src/components/Connect/Connect.tsx:89
+msgid "Compare your results with competitors"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:119
-msgid "Business Profile creation"
+#: react/src/components/Connect/Connect.tsx:90
+msgid "Monitor your reviews and online reputation"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:120
-msgid "Profile fine-tuning"
+#: react/src/components/Connect/Connect.tsx:109
+msgid "Turn your free plugin into a growth engine"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:122
-msgid "Publish Business Profile on"
+#: react/src/components/Connect/Connect.tsx:114
+msgid "Activate your free account to track your visibility, improve your rankings and grow your business"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:123
-msgid "Just on Google Business Profile & Facebook"
+#: react/src/components/Connect/Connect.tsx:126
+#: react/src/components/Connect/Connect.tsx:216
+#: react/src/components/Connect/Connect.tsx:316
+msgid "Activate your free account"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:124
-msgid "Google Business Profile, Facebook and up to 46 directories"
+#: react/src/components/Connect/Connect.tsx:131
+#: react/src/components/Connect/Connect.tsx:320
+msgid "100% free  • No credit card  • Takes less than 2 minutes"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:126
-msgid "Listings protection"
+#: react/src/components/Connect/Connect.tsx:143
+msgid "4.84/5 | 5,000+ Reviews"
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:128
-msgid "Online Presence insights"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:136
-#: react/src/components/Upsell/upsellConfig.ts:323
-msgid "Google Ads"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:140
-msgid "Campaign creation"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:142
-msgid "Automatically generated ad texts"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:146
-msgid "Budget control"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:147
-msgid "Performance insights"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:152
-#: react/src/components/Upsell/upsellConfig.ts:380
-#: react/src/components/TabsManager/TabsManager.tsx:57
-msgid "Social"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:157
-msgid "Create & publish events on Google Business Profile"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:162
-msgid "Create & publish posts on"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:163
-msgid "Just on Google Business Profile, Facebook, Instagram"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:164
-msgid "Google Business Profile, Facebook, Instagram, X, LinkedIn"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:166
-msgid "AI image generator"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:168
-msgid "Social Media Planner with calendar view"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:172
-msgid "Boost posts with Meta ads"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:174
-msgid "Competitor-based post suggestions"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:178
-msgid "AI content for posts & events"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:179
-#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:139
-msgid "View & respond to post comments"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:180
-msgid "Link performance"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:181
-msgid "Social Media insights"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:186
-#: react/src/components/Upsell/upsellConfig.ts:345
-msgid "Web Reputation"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:191
-msgid "View reviews from multiple platforms"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:195
-#: react/src/components/Upsell/upsellConfig.ts:398
-msgid "Manual review replies"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:197
-msgid "Generate replies to reviews with AI"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:201
-#: react/src/components/Upsell/upsellConfig.ts:409
-msgid "Automatic replies with AI"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:203
-msgid "Review booster (Send review requests via email and print materials)"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:207
-msgid "Showcase Reviews widget"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:208
-msgid "Collect Reviews widget"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:209
-msgid "Additional review sources"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:210
-msgid "Mentions"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:211
-msgid "Reputation sentiment analysis"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:212
-msgid "Reputation insights"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:220
-msgid "Google ads clicks"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:221
-msgid "Boosted posts engagement"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:222
-msgid "AI auto-replies"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:223
-msgid "Reach"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:227
-msgid "Hours saved weekly"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:228
-msgid "Avg. visibility increase"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:229
-msgid "Directory integrations"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:236
-msgid "Agenzia Grafica Milano"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:245
-msgid "Play Music Co."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:254
-msgid "John Nieuwenburg"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:260
-msgid "Irving Gandars"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:265
-msgid "Excellent tool with great visibility. Simple, efficient, and powerful. I recommend it."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:266
-msgid "Expert Coaching Solutions (ECS)"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:275
-msgid "Fran Quesada"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:280
-msgid "REVIEWS.io"
-msgstr ""
-
+#: react/src/components/Connect/Connect.tsx:147
+#: react/src/components/Connect/Connect.tsx:278
+#: react/src/components/Upsell/Upsell.tsx:785
 #: react/src/components/Upsell/upsellConfig.ts:284
-msgid "Web Agency"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:285
-msgid "Manage multiple client websites and campaigns from one dashboard."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:289
-msgid "Enterprise"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:290
-msgid "Custom solutions for large organizations with multiple locations."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:294
-msgid "Freelancer / Consultant"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:295
-msgid "Handle your clients professionally and efficiently."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:301
-msgid "Manage all client projects in one place"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:302
-msgid "Advanced analytics and performance insights"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:303
-msgid "Comprehensive white-label reporting"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:304
-msgid "Task time tracking and monitoring"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:305
-msgid "Sub-account and user permissions management"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:306
-msgid "Give your clients bespoke account access to their white-label reports"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:346
-msgid "Never miss a review again. AI responds automatically in your preferred tone."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:364
-msgid "Competitor Analysis"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:365
-msgid "Track up to 5 competitors. See their strategies and outrank them."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:372
-msgid "AI Features"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:373
-msgid "Generate images, get content suggestions, and more. Let AI do the work."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:392
-msgid "BeyondSEO WordPress plugin (limited)"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:393
-msgid "Limited SEO features"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:394
-msgid "Track 3 keywords"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:395
-msgid "Profile publishing restricted to Facebook & Google"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:396
-msgid "No Google Ads"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:397
-msgid "No AI content series for social media"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:399
-msgid "No post boosting"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:404
-msgid "Full AI-powered SEO"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:405
-msgid "Track 50 keywords"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:406
-msgid "Publish Profile in up to 46 directories automatically"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:407
-msgid "Create Google Ads in minutes"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:408
-msgid "Create entire series of social media posts with AI"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:410
-msgid "Boosts posts with Meta ads"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:503
-msgid "%d%% off"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:507
-#: react/src/components/Upsell/upsellConfig.ts:522
-msgid "%s/year"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:508
-msgid "%d%% off vs. monthly billing"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:516
-msgid "≈ %s/month"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:523
-msgid "%d%% more expensive"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:526
-msgid "Full first year for %s"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:529
-msgid "Start for %s — Get Full Access"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:534
-msgid "Your WordPress Launch Offer"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:535
-msgid "For a limited time only. Exclusively for WordPress users."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:536
-msgid "launch spots — almost gone"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:537
-msgid "Limited to max 5,000"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:544
-msgid "Founders price"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:545
-msgid "Annual · Year 1"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:547
-msgid "/year"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:548
-msgid "≈ $8.25/month"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:549
-#: react/src/components/Upsell/upsellConfig.ts:558
-msgid "$600/year"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:550
-msgid "monthly"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:551
-msgid "83% off vs. monthly billing"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:555
-msgid "Monthly billing"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:557
-msgid "/month"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:559
-msgid "506% more expensive"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:563
-msgid "Full first year for $99"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:564
-msgid "50 keywords tracked daily"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:565
-msgid "up to 46+ directories synced"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:566
-msgid "AI content & Google Ads"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:567
-msgid "AI review management"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:568
-msgid "5 competitors monitored"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:569
-msgid "Weekly AI growth reports"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:570
-msgid "AI Social Media Posting"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:572
-msgid "Start for $99 — Get Full Access"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:573
-msgid "Annual billing · Instant access · Cancel anytime"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:602
-msgid "Company name"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:603
-msgid "Your company name"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:607
-msgid "Name"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:608
-msgid "Your full name"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:613
-msgid "Your email address"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:617
-msgid "Phone number"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:618
-msgid "Enter your phone number"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:622
-#: react/src/components/Upsell/upsellConfig.ts:623
-msgid "Industry"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:626
-msgid "Technology"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:627
-msgid "Healthcare"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:628
-msgid "Finance"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:629
-msgid "Retail"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:630
-msgid "Education"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:631
-msgid "Hospitality"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:632
-msgid "Real Estate"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:633
-msgid "Marketing & Advertising"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:634
-msgid "Manufacturing"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:635
-#: react/src/components/Upsell/upsellConfig.ts:649
-#: inc/Core/Admin/Pages/FeedbackPage.php:139
-msgid "Other"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:639
-#: react/src/components/Upsell/upsellConfig.ts:640
-msgid "How did you find us?"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:643
-msgid "Search Engine"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:644
-msgid "Social Media"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:645
-msgid "Referral"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:646
-msgid "Advertisement"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:647
-msgid "WordPress Plugin Directory"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:648
-msgid "Blog/Article"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:653
-msgid "Message"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:654
-msgid "Enter your message"
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:659
-msgid "I agree to receive other communications from RankingCoach 360."
-msgstr ""
-
-#: react/src/components/Upsell/upsellConfig.ts:660
-msgid "Contact us"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:287
-msgid "Limited time only: Your Wordpress Launch Offer!"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:293
-msgid "Limited Offer: First 3 months only $5/month!"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:305
-msgid "Your "
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:308
-msgid "business"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:310
-msgid "website"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:311
-msgid "GEO"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:312
-msgid "reputation"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:313
-msgid "social media"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:316
-msgid " deserves"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:320
-msgid "its full potential"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:325
-msgid "Connect now to get rankingCoach Radar to access all features in your SEO, Online Presence, Social, and Reputation blocks, as well as new ones."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:337
-msgid "Upgrade to rankingCoach 360 now"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:338
-#: react/src/components/Upsell/Upsell.tsx:646
-msgid "Connect for free"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:349
-#: react/src/components/Upsell/Upsell.tsx:480
-#: react/src/components/Upsell/Upsell.tsx:873
-msgid "Monthly"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:360
-msgid "Annual"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:365
-msgid "* Annual payment"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:366
-msgid "* Monthly payment"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:410
-msgid "The free rankingCoach Radar plugin is a great start. To continue growing your business, you need the full power."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:428
-msgid "rankingCoach Radar"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:431
-#: react/src/components/Upsell/Upsell.tsx:501
-#: react/src/components/Upsell/Upsell.tsx:894
-msgid "/ month"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:433
-msgid "Free"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:434
-msgid "Current plan"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:456
-msgid "Better chances to appear"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:458
-msgid " in AI search results"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:466
-#: react/src/components/Upsell/Upsell.tsx:859
-msgid "Limited time offer"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:474
-#: react/src/components/Upsell/Upsell.tsx:867
-msgid "SAVE 83%"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:484
-#: react/src/components/Upsell/Upsell.tsx:877
-msgid "rankingCoach 360"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:489
-#: react/src/components/Upsell/Upsell.tsx:882
-msgid "$40 / month"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:490
-#: react/src/components/Upsell/Upsell.tsx:883
-msgid "Save 83%"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:493
-#: react/src/components/Upsell/Upsell.tsx:886
-msgid "/ first 3 months"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:495
-#: react/src/components/Upsell/Upsell.tsx:888
-msgid "then $40/month"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:496
-#: react/src/components/Upsell/Upsell.tsx:889
-msgid "Annual contract"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:503
-#: react/src/components/Upsell/Upsell.tsx:896
-msgid "Monthly contract"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:515
-#: react/src/components/Upsell/Upsell.tsx:645
-#: react/src/components/Upsell/Upsell.tsx:908
-msgid "Upgrade now"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:519
-#: react/src/components/Upsell/Upsell.tsx:912
-msgid "Everything in RankingCoach Radar, plus:"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:544
-msgid "What you get with free rankingCoach Radar"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:548
-msgid "See the difference: With rankingCoach 360 you have all the tools for your online success."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:556
-msgid "Feature"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:559
-msgid "RankingCoach Radar"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:563
-msgid "RankingCoach 360"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:624
-msgid "Full access"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:628
-msgid "No access"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:632
-msgid "Partial access"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:660
-msgid "+45 features. 8 areas. 1 easy upgrade. 0 compromises."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:663
-msgid "rankingCoach free combines everything you need for successful online marketing. Simple, effective, affordable."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:720
-msgid "Agency or Enterprise? Talk to us"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:734
-msgid "What our customers say"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:745
-#: react/src/components/Connect/Connect.tsx:248
-msgid "4.84 out of 5"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:773
-#: react/src/components/Connect/Connect.tsx:141
-#: react/src/components/Connect/Connect.tsx:272
 msgid "Google Partner"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:790
-msgid "FOR PROFESSIONALS"
+#: react/src/components/Connect/Connect.tsx:155
+msgid "What you unlock with your free account"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:794
-msgid "Are you a Web Professional, Agency or Enterprise?"
+#: react/src/components/Connect/Connect.tsx:158
+msgid "It is 100% free, no credit card needed and it takes less than 2 minutes to activate"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:798
-msgid "Managing SEO and Digital Marketing for clients or multiple businesses? Talk to our sales team to learn about our special offers and partner programs."
+#: react/src/components/Connect/Connect.tsx:165
+msgid "Right now"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:818
-msgid "Get a custom quote for your business"
+#: react/src/components/Connect/Connect.tsx:189
+msgid "After activation"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:822
-msgid "Volume discounts and white-label solutions available."
+#: react/src/components/Connect/Connect.tsx:224
+msgid "Everything you need to start growing"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:832
-msgid "Talk to sales"
+#: react/src/components/Connect/Connect.tsx:243
+msgid "Join 1M+ businesses already growing"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:844
-msgid "Upgrade now to unlock all features that help grow your business with less effort."
+#: react/src/components/Connect/Connect.tsx:254
+#: react/src/components/Upsell/Upsell.tsx:757
+msgid "4.84 out of 5"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:934
-msgid "Agency, Enterprise or Freelancer?"
+#: react/src/components/Connect/Connect.tsx:303
+msgid "Activate your free account and start seeing results today"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:937
-msgid "Deliver growth to your clients."
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:946
-msgid "Contact sales"
-msgstr ""
-
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:99
-msgid "Issues"
-msgstr ""
-
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:100
-msgid "Recommendations"
-msgstr ""
-
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:101
-msgid "Optimisation level"
-msgstr ""
-
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:234
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:266
-msgid "Status Icon"
+#: react/src/components/Connect/Connect.tsx:307
+msgid "Track your performance and see results in minutes"
 msgstr ""
 
 #: react/src/components/MultiAdornmentInput/AdornmentControls/AdornmentControls.tsx:20
@@ -1439,652 +259,16 @@ msgstr ""
 msgid "recommended"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:28
-msgid "Contact customer support"
+#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:49
+msgid "Message cannot exceed 255 characters"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:96
-msgid "Error details"
+#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:50
+msgid "Text contains URL or is missing a space after a period (.)"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:100
-msgid "Copy Error"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:237
-msgid "Set noindex for this page:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:258
-msgid "Disable mobile auto-links for this page:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:279
-msgid "Enable viewport meta tag for this page:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:300
-msgid "Exclude this page from sitemap:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:313
-msgid "Canonical URL"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:318
-msgid "Enter canonical URL"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:14
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/FacebookPreview.tsx:13
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/LinkedInPreview.tsx:14
-msgid "Your page title will appear here"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:15
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/FacebookPreview.tsx:14
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/LinkedInPreview.tsx:15
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:370
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:376
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:382
-msgid "yourdomain.com"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:32
-msgid "From"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:369
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:375
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:381
-msgid "Enter a title"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:391
-msgid "Image Source"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:412
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:92
-msgid "Title"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:414
-msgid "Enter meta title"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:432
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:166
-msgid "Description"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:434
-msgid "Enter meta description"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTabSEOOptimiser.tsx:307
-msgid "No suggestions found"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTabSEOOptimiser.tsx:367
-msgid "rankingCoach logo"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTab.tsx:86
-msgid "SEO Plug-in"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:59
-msgid "Both Source URL and Target URL are required"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:108
-msgid "Failed to update redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:133
-msgid "Failed to add redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:139
-msgid "An error occurred while updating the redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:140
-msgid "An error occurred while adding the redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:221
-msgid "No redirects data found in the response"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:224
-msgid "Failed to load redirects data"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:261
-msgid "Permanent (301)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:262
-msgid "Temporary (302)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:268
-msgid "Permanent"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:270
-msgid "Temporary"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:280
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:84
-#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:228
-msgid "Error:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:295
-msgid "Redirects Overview"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:305
-msgid "To create a redirect:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:310
-msgid "Source URL should be a local path (e.g. /old-page)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:315
-msgid "Destination URL can be any full link (internal or external)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:330
-msgid "Current redirects:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:338
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:426
-msgid "Source URL"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:343
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:451
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:93
-msgid "Target URL"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:348
-msgid "Type"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:353
-msgid "Hits"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:358
-msgid "Status"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:363
-msgid "Actions"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:406
-msgid "No redirects found. Use the form below to create one."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:415
-msgid "Add new redirect:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:424
-msgid "Source URL (e.g., /old-page)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:449
-msgid "Target URL (e.g., /new-page)"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:473
-msgid "Redirect type"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:484
-msgid "301 – Permanent Redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:487
-msgid "Best for SEO. Use when a page is moved or replaced permanently."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:497
-msgid "302 – Temporary Redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:517
-msgid "Add Redirect"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:522
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:736
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:488
-msgid "Cancel"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:42
-msgid "No link assistant data found"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:45
-msgid "Failed to load link assistant data"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:70
-msgid "Failed to scan links"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:95
-msgid "Link Assistant Overview"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:105
-msgid "Link Status Guide:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:111
-msgid "Not yet scanned - Click `Scan Links` to analyze"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:116
-msgid "Working links - SEO-friendly"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:120
-msgid "Broken links - Need attention"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:133
-msgid "Scan Links"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:138
-msgid "Inbound Internal:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:140
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:69
-msgid "No internal links found."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:144
-msgid "Outbound Internal:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:146
-msgid "No outbound links found."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:150
-msgid "External:"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:152
-msgid "No external links found."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:13
-msgid "broken"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:14
-msgid "active"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:15
-msgid "unscanned"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:88
-msgid "Source Page"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:98
-msgid "Link Text"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:103
-msgid "Link Status"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:144
-msgid "Schema in use"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:173
-msgid "Generate Schema"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:205
-msgid "Schema loaded from cache"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:209
-msgid "Schema generated successfully"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:21
-msgid "Why take 46 steps when one click gets you there?"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:30
-msgid "See how to stand out"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:42
-msgid "Every slow reply signals a lack of care"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:43
-msgid "Every unanswered review weakens trust"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:46
-msgid "The Advanced plan helps you with every part of your reputation and more."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:47
-msgid "See how to build trust"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:52
-msgid "Social Media seems like a chore, but it pays off more than you’d think."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:58
-msgid "Stop forgetting to post regularly"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:59
-msgid "Stop writing the same post 5 times"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:60
-msgid "Stop taking from your free time"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:63
-msgid "The Social add-on takes the pressure off and can help turn your social platforms into real gains."
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:64
-msgid "Add Social Features"
-msgstr ""
-
-#: react/src/components/TabsManager/Tabs/GeneralTab/GeneralTabPlaceholder.tsx:16
-msgid "Save draft and refresh page to access BeyondSEO General Tab"
-msgstr ""
-
-#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:22
-msgid "And more"
-msgstr ""
-
-#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:37
-msgid "Feature illustration"
-msgstr ""
-
-#: react/src/components/TabsManager/TabsManager.tsx:49
-msgid "Optimisation"
-msgstr ""
-
-#: react/src/components/TabsManager/TabsManager.tsx:65
-msgid "Schema"
-msgstr ""
-
-#: react/src/components/TabsManager/TabsManager.tsx:73
-msgid "Link assistant"
-msgstr ""
-
-#: react/src/components/TabsManager/TabsManager.tsx:81
-msgid "Redirects"
-msgstr ""
-
-#: react/src/components/TabsManager/TabsManager.tsx:89
-msgid "Advanced"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:40
-msgid "See your performance instantly"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:46
-msgid "See where you stand vs competitors"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:52
-msgid "Always know what’s happening with your business online"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:58
-msgid "Spot what’s holding back your visibility"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:64
-msgid "Stay on top of your reviews and protect your reputation"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:70
-msgid "Track your progress over time"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:77
-msgid "Basic SEO checks only"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:78
-msgid "No keyword or ranking tracking"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:79
-msgid "No competitor data"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:80
-msgid "No clear performance insights"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:81
-msgid "Limited visibility into your results"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:85
-msgid "Start tracking your own rankings, keywords & competitors"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:86
-msgid "Finally see how visible you are on Google"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:87
-msgid "Track how your performance improves over time"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:88
-msgid "Compare your results with competitors"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:89
-msgid "Monitor your reviews and online reputation"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:103
-msgid "Turn your free plugin into a growth engine"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:120
-#: react/src/components/Connect/Connect.tsx:210
-#: react/src/components/Connect/Connect.tsx:310
-msgid "Activate your free account"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:125
-#: react/src/components/Connect/Connect.tsx:314
-msgid "100% free  • No credit card  • Takes less than 2 minutes"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:137
-msgid "4.84/5 | 5,000+ Reviews"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:149
-msgid "What you unlock with your free account"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:152
-msgid "It is 100% free, no credit card needed and it takes less than 2 minutes to activate"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:159
-msgid "Right now"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:183
-msgid "After activation"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:218
-msgid "Everything you need to start growing"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:237
-msgid "Join 1M+ businesses already growing"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:297
-msgid "Activate your free account and start seeing results today"
-msgstr ""
-
-#: react/src/components/Connect/Connect.tsx:301
-msgid "Track your performance and see results in minutes"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:5
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:25
-msgid "Remove"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:26
-msgid "Post title"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:27
-msgid "Post slug"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:29
-msgid "Post date"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:30
-msgid "Author name"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:31
-msgid "Site title"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:32
-msgid "Site tagline"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:33
-msgid "Category"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:34
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:678
-msgid "Categories"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:37
-msgid "Current date"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:38
-msgid "Current time"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:39
-msgid "Year"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:40
-msgid "Month"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:41
-msgid "Day"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:43
-msgid "Search term"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:24
-msgid "Add Variable"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:25
-msgid "Add Separator"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SERPPreview/SERPPreview.tsx:152
-msgid "SERP Preview"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:181
-msgid "Enter SEO meta description"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:176
-msgid "Keywords"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:194
-msgid "Write words that you want to search"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:240
-msgid "Certain special characters are not allowed."
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:251
-msgid "Primary keyword"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:257
-msgid "Add a primary keyword"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:289
-msgid "Additional keywords"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:295
-msgid "Add additional keywords"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:255
-msgid "Generated by AI"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:266
-msgid "Set as primary"
-msgstr ""
-
-#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:280
-msgid "Remove keyword"
+#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:190
+msgid "Write here to communicate"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:151
@@ -2104,7 +288,19 @@ msgid "Loading more..."
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:186
+msgid "of"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:186
 msgid "categories"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:201
+msgid "All fields are required. To finish onboarding, set your address on the map and add at least five keywords and one category."
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:208
+msgid "We cannot accept names with certain special characters, because these names must be published later uniformly in online directories, which partially reject these characters. This is in the best interest of your company, as publishing information in many online directories will significantly improve your local visibility and local rankings on Google"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:395
@@ -2156,12 +352,23 @@ msgstr ""
 msgid "You don`t have any website description at the moment"
 msgstr ""
 
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:678
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:34
+msgid "Categories"
+msgstr ""
+
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:696
 msgid "Search category eg.: Computer repair shop"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:724
 msgid "You dont have any categories at the moment"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:736
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:488
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:522
+msgid "Cancel"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:752
@@ -2201,13 +408,29 @@ msgstr ""
 msgid "Enter website URL"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:79
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:171
+msgid "Business Address"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:185
+msgid "Update Address"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:202
+msgid "Address is not precise enough, please confirm your location on the map."
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:215
+msgid "Edit business address"
+msgstr ""
+
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:124
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:79
 msgid "A keyword can have max 80 characters"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:85
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:130
+#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:85
 msgid "You have reached max number of keywords"
 msgstr ""
 
@@ -2237,34 +460,6 @@ msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:209
 msgid "You don`t have any keywords at the moment"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:171
-msgid "Business Address"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:185
-msgid "Update Address"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:202
-msgid "Address is not precise enough, please confirm your location on the map."
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryAddress.tsx:215
-msgid "Edit business address"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:49
-msgid "Message cannot exceed 255 characters"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:50
-msgid "Text contains URL or is missing a space after a period (.)"
-msgstr ""
-
-#: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:190
-msgid "Write here to communicate"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:43
@@ -2376,7 +571,15 @@ msgid "Finalising project fine tuning"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:84
+msgid "Analyzing details"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:84
 msgid "Processing input"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
+msgid "Checking name"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
@@ -2384,7 +587,15 @@ msgid "Verifying availability"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
+msgid "Reviewing details"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
 msgid "Understanding scope"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
+msgid "Locating business"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
@@ -2392,7 +603,15 @@ msgid "Validating area"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
+msgid "Determining focus"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
 msgid "Mapping region"
+msgstr ""
+
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
+msgid "Highlighting features"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
@@ -2431,6 +650,1978 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
+#: react/src/components/Registration/Registration.tsx:468
+msgid "Sign in or create an account"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:475
+msgid "Enter your email and we'll get you set up."
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:494
+#: react/src/components/Upsell/upsellConfig.ts:616
+#: inc/Core/Admin/Pages/views/registration-page.php:106
+msgid "Email"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:498
+msgid "Enter your email"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:504
+#: inc/Core/Admin/Pages/views/registration-page.php:120
+msgid "Country"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:547
+msgid "Claim your existing account"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:548
+msgid "Verify your email"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:563
+msgid "Follow the instructions in the email we've sent to "
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:565
+msgid " to claim your existing account."
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:569
+msgid "Follow the instructions in the email we've sent to this address: "
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:571
+msgid ". This helps keep your account secure."
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:591
+msgid "Change Email address"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:602
+msgid "Verify"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:602
+msgid "Next"
+msgstr ""
+
+#: react/src/components/Registration/Registration.tsx:611
+msgid "Try again"
+msgstr ""
+
+#: react/src/components/Registration/RegistrationWelcome.tsx:39
+msgid "Welcome, how would you like to get started?"
+msgstr ""
+
+#: react/src/components/Registration/RegistrationWelcome.tsx:46
+msgid "Continue with email"
+msgstr ""
+
+#: react/src/components/Registration/RegistrationWelcome.tsx:49
+msgid "Log in or create a free account to start using the plugin."
+msgstr ""
+
+#: react/src/components/Registration/RegistrationWelcome.tsx:57
+msgid "Use an activation code"
+msgstr ""
+
+#: react/src/components/Registration/RegistrationWelcome.tsx:60
+msgid "Already received a code by email? Enter it here to activate your plugin."
+msgstr ""
+
+#: react/src/components/ScoreButtonHeader/ScoreButtonHeader.tsx:32
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:230
+msgid "rC Icon"
+msgstr ""
+
+#: react/src/components/SEO/SEOOptimiser/SEOOptimiser.tsx:260
+#: react/src/main.tsx:224
+msgid "Using the right keywords can significantly increase your website`s visibility, making it easier for people to find it."
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:176
+msgid "Keywords"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:179
+msgid "Enter the main keyword that best describes the focus of your content. This primary keyword will help search engines understand the core topic of your page and improve your ranking for this specific term."
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:194
+msgid "Write words that you want to search"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:240
+msgid "Certain special characters are not allowed."
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:251
+msgid "Primary keyword"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:257
+msgid "Add a primary keyword"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:258
+msgid "This keyword should capture a key aspect of your content to boost search visibility"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:289
+msgid "Additional keywords"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:295
+msgid "Add additional keywords"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:296
+msgid "These keywords should capture key aspects of your content to boost search visibility"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:255
+msgid "Generated by AI"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:266
+msgid "Set as primary"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordsTable/KeywordsTable.tsx:280
+msgid "Remove keyword"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:166
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:432
+msgid "Description"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:181
+msgid "Enter SEO meta description"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:25
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:5
+msgid "Remove"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:26
+msgid "Post title"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:27
+msgid "Post slug"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:29
+msgid "Post date"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:30
+msgid "Author name"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:31
+msgid "Site title"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:32
+msgid "Site tagline"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:33
+msgid "Category"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:37
+msgid "Current date"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:38
+msgid "Current time"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:39
+msgid "Year"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:40
+msgid "Month"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:41
+msgid "Day"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:43
+msgid "Search term"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:24
+msgid "Add Variable"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:25
+msgid "Add Separator"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:92
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:412
+msgid "Title"
+msgstr ""
+
+#: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SERPPreview/SERPPreview.tsx:152
+msgid "SERP Preview"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:99
+msgid "Issues"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:100
+msgid "Recommendations"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:101
+msgid "Optimisation level"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:234
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:266
+msgid "Status Icon"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:222
+#: react/src/components/Settings/Settings.tsx:28
+msgid "Breadcrumbs"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:225
+msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:233
+msgid "Enable breadcrumbs"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:252
+msgid "Display options"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:260
+msgid "Anchor text for homepage"
+msgstr ""
+
+#. Translators: This refers to the homepage of the site.
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:263
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:551
+msgid "Home"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:272
+msgid "Advanced options"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:278
+msgid "Prefix for breadcrumb path"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:289
+msgid "Suffix for archive breadcrumbs"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:292
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:516
+msgid "Archives for"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:302
+msgid "Suffix for search page breadcrumbs"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:305
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:467
+msgid "Search results for"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:315
+msgid "Breadcrumbs for 404 Page"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:318
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:488
+msgid "Error 404: Page not found"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:325
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:365
+msgid "Preview"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:365
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:265
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:162
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:164
+msgid "Save changes"
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/SeparatorSettings.tsx:47
+msgid "Separator"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:57
+msgid "Allow run score calculation on page/post save"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:58
+msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:65
+msgid "Allow synchronisation the keywords an interval basis"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:66
+msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:73
+msgid "Enable WP-Cron service"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
+msgid "Enable this option to use the WP-Cron service for scheduling tasks"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:78
+msgid "Allow to run broken link checker an interval basis"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:79
+msgid "Enable this option to run the broken link checker job that scans your site for broken links"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:86
+msgid "Allow communication with rankingCoach servers"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:87
+msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:94
+msgid "Disable WordPress heartbeat admin-ajax service"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:95
+msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:102
+msgid "Open rC dashboard in new tab"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:103
+msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:113
+msgid "General Settings"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:116
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:50
+msgid "Import settings"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:52
+msgid "Coming soon"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:55
+msgid "Switching to our SEO Plugin? Import your settings from other SEO plugins like Yoast SEO, All in One SEO, Rank Math, or SEOPress in just a few clicks. We'll ensure your data is safely transferred."
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:63
+msgid "Step 1. Backup your site"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:66
+msgid "Before importing settings, we strongly recommend creating a full backup of your WordPress site to avoid any data loss."
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:72
+msgid "Learn how to backup your site"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:76
+msgid "Step 2. Select Plugin to import from"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:79
+msgid "Choose the SEO plugin you're currently using. We've detected the following plugins installed on your site."
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:95
+msgid "Yoast SEO"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:106
+msgid "All in One SEO"
+msgstr ""
+
+#: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:120
+msgid "This feature will be available soon."
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:90
+#: react/src/components/Settings/Settings.tsx:31
+msgid "Robots.txt"
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:93
+msgid "View your robots.txt file to check search engine crawling instructions."
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:98
+msgid "Enable robots.txt"
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:124
+msgid "Include sitemap URL in robots.txt file"
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:128
+msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:136
+msgid "Your robots.txt URL:"
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:141
+msgid "View Robots.txt"
+msgstr ""
+
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:148
+msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:106
+msgid "Content exceeds maximum length of 255 characters"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:186
+#: react/src/components/Settings/Settings.tsx:29
+msgid "RSS"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:189
+msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:197
+msgid "Enable RSS"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:216
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:117
+msgid "Options"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:222
+msgid "Content to put before each post in the feed"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:236
+msgid "Content to put after each post in the feed"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:248
+msgid "Your RSS feed URL:"
+msgstr ""
+
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:253
+msgid "View RSS Feed"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:27
+#: react/src/components/TabsManager/TabsManager.tsx:41
+msgid "General"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:29
+msgid "Really Simple Syndication"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:30
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:111
+msgid "Sitemap"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:195
+#: inc/Core/Admin/AdminManager.php:461
+#: inc/Core/Admin/AdminManager.php:462
+#: inc/Core/ToolbarManager.php:166
+msgid "Settings"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:232
+msgid "Checking…"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:232
+msgid "Check my account"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:236
+msgid "Plugin version:"
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:114
+msgid "Generate and manage your XML sitemap for better search engine indexing."
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:119
+msgid "Enable sitemap"
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:134
+#: inc/Core/Admin/Pages/CachePage.php:433
+msgid "Last updated:"
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:140
+msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:147
+msgid "Your sitemap URL:"
+msgstr ""
+
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:152
+msgid "View Sitemap"
+msgstr ""
+
+#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:22
+msgid "And more"
+msgstr ""
+
+#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:37
+msgid "Feature illustration"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:237
+msgid "Set noindex for this page:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:241
+msgid "Prevents this page from being indexed by search engines. Adds a noindex tag to exclude this page from search results."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:258
+msgid "Disable mobile auto-links for this page:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:262
+msgid "Disables automatic detection of phone numbers, email addresses, and physical addresses in this page’s content. Prevents mobile browsers from converting them into clickable links."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:279
+msgid "Enable viewport meta tag for this page:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:283
+msgid "Adds a responsive viewport meta tag to this page. Ensures proper display on mobile devices by setting width=device-width and initial-scale=1."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:313
+msgid "Canonical URL"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/AdvancedTab/AdvancedTab.tsx:318
+msgid "Enter canonical URL"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:21
+msgid "Why take 46 steps when one click gets you there?"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:22
+msgid "It takes only one click to publish your business in 46 directories, and along with that, you get features that help you automate repetitive tasks with AI, launch a Google ads campaign, and more. See how our plans can help you grow and stand out faster."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:30
+msgid "See how to stand out"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:35
+msgid "One bad review can drop customers' trust by 42%."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:36
+msgid "That’s not just feedback, it’s lost revenue."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:41
+msgid "Every review shapes how you're seen"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:42
+msgid "Every slow reply signals a lack of care"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:43
+msgid "Every unanswered review weakens trust"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:46
+msgid "The Advanced plan helps you with every part of your reputation and more."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:47
+msgid "See how to build trust"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:52
+msgid "Social Media seems like a chore, but it pays off more than you’d think."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:53
+msgid "If maintaining your social media keeps eating up your time, you’re not alone. Many business owners want the same thing:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:58
+msgid "Stop forgetting to post regularly"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:59
+msgid "Stop writing the same post 5 times"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:60
+msgid "Stop taking from your free time"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:63
+msgid "The Social add-on takes the pressure off and can help turn your social platforms into real gains."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/bannerConfig.ts:64
+msgid "Add Social Features"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/GeneralTab/GeneralTabPlaceholder.tsx:16
+msgid "Save draft and refresh page to access BeyondSEO General Tab"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:42
+msgid "No link assistant data found"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:45
+msgid "Failed to load link assistant data"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:70
+msgid "Failed to scan links"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:84
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:280
+#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:228
+msgid "Error:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:95
+msgid "Link Assistant Overview"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:98
+msgid "Internal links help search engines understand your content structure and improve your SEO rankings."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:105
+msgid "Link Status Guide:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:111
+msgid "Not yet scanned - Click `Scan Links` to analyze"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:116
+msgid "Working links - SEO-friendly"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:120
+msgid "Broken links - Need attention"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:133
+msgid "Scan Links"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:138
+msgid "Inbound Internal:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:140
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:69
+msgid "No internal links found."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:144
+msgid "Outbound Internal:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:146
+msgid "No outbound links found."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:150
+msgid "External:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTab.tsx:152
+msgid "No external links found."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:13
+msgid "broken"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:14
+msgid "active"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:15
+msgid "unscanned"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:88
+msgid "Source Page"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:93
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:343
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:451
+msgid "Target URL"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:98
+msgid "Link Text"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/LinkAssistantTab/LinkAssistantTable.tsx:103
+msgid "Link Status"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTab.tsx:86
+msgid "SEO Plug-in"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTabSEOOptimiser.tsx:307
+msgid "No suggestions found"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTabSEOOptimiser.tsx:367
+msgid "rankingCoach logo"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:59
+msgid "Both Source URL and Target URL are required"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:108
+msgid "Failed to update redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:133
+msgid "Failed to add redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:139
+msgid "An error occurred while updating the redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:140
+msgid "An error occurred while adding the redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:221
+msgid "No redirects data found in the response"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:224
+msgid "Failed to load redirects data"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:261
+msgid "Permanent (301)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:262
+msgid "Temporary (302)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:268
+msgid "Permanent"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:270
+msgid "Temporary"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:295
+msgid "Redirects Overview"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:298
+msgid "Redirects help preserve your SEO rankings when URLs change or pages are removed. They ensure users and search engines are sent to the correct destination."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:305
+msgid "To create a redirect:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:310
+msgid "Source URL should be a local path (e.g. /old-page)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:315
+msgid "Destination URL can be any full link (internal or external)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:321
+msgid "Set up redirects to avoid broken links, retain link equity, and deliver a smoother experience to your visitors and search engines."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:330
+msgid "Current redirects:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:338
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:426
+msgid "Source URL"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:348
+msgid "Type"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:353
+msgid "Hits"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:358
+msgid "Status"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:363
+msgid "Actions"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:406
+msgid "No redirects found. Use the form below to create one."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:415
+msgid "Update redirect:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:415
+msgid "Add new redirect:"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:424
+msgid "Source URL (e.g., /old-page)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:449
+msgid "Target URL (e.g., /new-page)"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:473
+msgid "Redirect type"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:484
+msgid "301 – Permanent Redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:487
+msgid "Best for SEO. Use when a page is moved or replaced permanently."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:497
+msgid "302 – Temporary Redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:500
+msgid "Use when the original page will come back, like during maintenance or testing."
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:517
+msgid "Update Redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:517
+msgid "Add Redirect"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:144
+msgid "Schema in use"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:173
+msgid "Generate Schema"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SchemaTab/SchemaTab.tsx:209
+msgid "Schema generated successfully"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:369
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:375
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:381
+msgid "Enter a title"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:370
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:376
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:382
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/FacebookPreview.tsx:14
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/LinkedInPreview.tsx:15
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:15
+msgid "yourdomain.com"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:391
+msgid "Image Source"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:414
+msgid "Enter meta title"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:434
+msgid "Enter meta description"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/FacebookPreview.tsx:13
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/LinkedInPreview.tsx:14
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:14
+msgid "Your page title will appear here"
+msgstr ""
+
+#: react/src/components/TabsManager/Tabs/SocialTab/SocialTabPreviews/XPreview.tsx:32
+msgid "From"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:49
+msgid "Optimisation"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:57
+#: react/src/components/Upsell/upsellConfig.ts:156
+#: react/src/components/Upsell/upsellConfig.ts:384
+msgid "Social"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:65
+msgid "Schema"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:73
+msgid "Link assistant"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:81
+msgid "Redirects"
+msgstr ""
+
+#: react/src/components/TabsManager/TabsManager.tsx:89
+msgid "Advanced"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:145
+#: react/src/components/Upsell/Upsell.tsx:643
+#: react/src/components/Upsell/upsellConfig.ts:119
+#: react/src/components/Upsell/upsellConfig.ts:133
+#: react/src/components/Upsell/upsellConfig.ts:157
+#: react/src/components/Upsell/upsellConfig.ts:191
+#: react/src/components/Upsell/upsellConfig.ts:53
+#: react/src/components/Upsell/upsellConfig.ts:63
+#: react/src/components/Upsell/upsellConfig.ts:86
+#: react/src/components/Upsell/upsellConfig.ts:91
+msgid "Limited"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:299
+msgid "Limited time only: Your Wordpress Launch Offer!"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:305
+msgid "Limited Offer: First 3 months only $5/month!"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:317
+msgid "Your "
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:320
+msgid "business"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:321
+#: react/src/components/Upsell/upsellConfig.ts:316
+#: react/src/components/Upsell/upsellConfig.ts:85
+msgid "SEO"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:322
+msgid "website"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:323
+msgid "GEO"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:324
+msgid "reputation"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:325
+msgid "social media"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:328
+msgid " deserves"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:332
+msgid "its full potential"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:337
+msgid "Connect now to get rankingCoach Radar to access all features in your SEO, Online Presence, Social, and Reputation blocks, as well as new ones."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:349
+msgid "Upgrade to rankingCoach 360 now"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:350
+#: react/src/components/Upsell/Upsell.tsx:658
+msgid "Connect for free"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:361
+#: react/src/components/Upsell/Upsell.tsx:492
+#: react/src/components/Upsell/Upsell.tsx:885
+msgid "Monthly"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:372
+#: react/src/components/Upsell/Upsell.tsx:486
+#: react/src/components/Upsell/Upsell.tsx:879
+msgid "Annual"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:377
+msgid "* Annual payment"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:378
+msgid "* Monthly payment"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:415
+msgid "You've laid the foundation."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:418
+msgid "Now let's take it further."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:422
+msgid "The free rankingCoach Radar plugin is a great start. To continue growing your business, you need the full power."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:440
+msgid "rankingCoach Radar"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:443
+#: react/src/components/Upsell/Upsell.tsx:513
+#: react/src/components/Upsell/Upsell.tsx:906
+msgid "/ month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:445
+msgid "Free"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:446
+msgid "Current plan"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:468
+msgid "Better chances to appear"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:470
+msgid " in AI search results"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:478
+#: react/src/components/Upsell/Upsell.tsx:871
+msgid "Limited time offer"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:486
+#: react/src/components/Upsell/Upsell.tsx:879
+msgid "SAVE 83%"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:496
+#: react/src/components/Upsell/Upsell.tsx:889
+msgid "rankingCoach 360"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:501
+#: react/src/components/Upsell/Upsell.tsx:894
+msgid "$40 / month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:502
+#: react/src/components/Upsell/Upsell.tsx:895
+msgid "Save 83%"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:505
+#: react/src/components/Upsell/Upsell.tsx:898
+msgid "/ first 3 months"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:507
+#: react/src/components/Upsell/Upsell.tsx:900
+msgid "then $40/month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:508
+#: react/src/components/Upsell/Upsell.tsx:901
+msgid "Annual contract"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:515
+#: react/src/components/Upsell/Upsell.tsx:908
+msgid "Monthly contract"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:527
+#: react/src/components/Upsell/Upsell.tsx:657
+#: react/src/components/Upsell/Upsell.tsx:920
+msgid "Upgrade now"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:531
+#: react/src/components/Upsell/Upsell.tsx:924
+msgid "Everything in RankingCoach Radar, plus:"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:556
+msgid "What you get with free rankingCoach Radar"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:560
+msgid "See the difference: With rankingCoach 360 you have all the tools for your online success."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:568
+msgid "Feature"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:571
+msgid "RankingCoach Radar"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:575
+msgid "RankingCoach 360"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:636
+msgid "Full access"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:640
+msgid "No access"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:644
+msgid "Partial access"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:672
+msgid "+45 features. 8 areas. 1 easy upgrade. 0 compromises."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:675
+msgid "rankingCoach free combines everything you need for successful online marketing. Simple, effective, affordable."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:732
+msgid "Agency or Enterprise? Talk to us"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:746
+msgid "What our customers say"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:802
+msgid "FOR PROFESSIONALS"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:806
+msgid "Are you a Web Professional, Agency or Enterprise?"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:810
+msgid "Managing SEO and Digital Marketing for clients or multiple businesses? Talk to our sales team to learn about our special offers and partner programs."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:830
+msgid "Get a custom quote for your business"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:834
+msgid "Volume discounts and white-label solutions available."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:844
+msgid "Talk to sales"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:853
+msgid "Ready to unlock your business's full potential?"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:856
+msgid "Upgrade now to unlock all features that help grow your business with less effort."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:946
+msgid "Agency, Enterprise or Freelancer?"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:949
+msgid "Deliver growth to your clients."
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:958
+msgid "Contact sales"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:52
+msgid "General features"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:57
+msgid "Projects Included"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:407
+#: react/src/components/Upsell/upsellConfig.ts:62
+msgid "BeyondSEO WordPress plugin"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:357
+#: react/src/components/Upsell/upsellConfig.ts:70
+msgid "Brand Monitoring"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:75
+#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:76
+msgid "Brand & competitor monitoring feed"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:79
+msgid "Weekly reports"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:80
+msgid "Email alerts"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:90
+msgid "Tasks with video tutorials"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:94
+msgid "AI-powered SEO tasks"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:95
+msgid "AI text optimisation"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:96
+#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:74
+msgid "AI URL optimiser"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:98
+msgid "Keyword tracking"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:103
+msgid "Locations tracked"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:108
+msgid "Competitors monitoring"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:112
+msgid "Google Analytics integration"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:113
+msgid "Detailed SEO reports"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:118
+#: react/src/components/Upsell/upsellConfig.ts:338
+msgid "Online Presence"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:122
+msgid "Directory checker"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:123
+msgid "Business Profile creation"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:124
+msgid "Profile fine-tuning"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:126
+msgid "Publish Business Profile on"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:127
+msgid "Just on Google Business Profile & Facebook"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:128
+msgid "Google Business Profile, Facebook and up to 46 directories"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:130
+msgid "Listings protection"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:132
+msgid "Online Presence insights"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:140
+#: react/src/components/Upsell/upsellConfig.ts:327
+msgid "Google Ads"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:144
+msgid "Campaign creation"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:146
+msgid "Automatically generated ad texts"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:150
+msgid "Budget control"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:151
+msgid "Performance insights"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:161
+msgid "Create & publish events on Google Business Profile"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:166
+msgid "Create & publish posts on"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:167
+msgid "Just on Google Business Profile, Facebook, Instagram"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:168
+msgid "Google Business Profile, Facebook, Instagram, X, LinkedIn"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:170
+msgid "AI image generator"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:172
+msgid "Social Media Planner with calendar view"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:176
+msgid "Boost posts with Meta ads"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:178
+msgid "Competitor-based post suggestions"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:182
+msgid "AI content for posts & events"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:183
+#: inc/Core/Admin/Pages/views/upsell-ionos-page.php:139
+msgid "View & respond to post comments"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:184
+msgid "Link performance"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:185
+msgid "Social Media insights"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:190
+#: react/src/components/Upsell/upsellConfig.ts:349
+msgid "Web Reputation"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:195
+msgid "View reviews from multiple platforms"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:199
+#: react/src/components/Upsell/upsellConfig.ts:402
+msgid "Manual review replies"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:201
+msgid "Generate replies to reviews with AI"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:205
+#: react/src/components/Upsell/upsellConfig.ts:413
+msgid "Automatic replies with AI"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:207
+msgid "Review booster (Send review requests via email and print materials)"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:211
+msgid "Showcase Reviews widget"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:212
+msgid "Collect Reviews widget"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:213
+msgid "Additional review sources"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:214
+msgid "Mentions"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:215
+msgid "Reputation sentiment analysis"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:216
+msgid "Reputation insights"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:224
+msgid "Google ads clicks"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:225
+msgid "Boosted posts engagement"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:226
+msgid "AI auto-replies"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:227
+msgid "Reach"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:231
+msgid "Hours saved weekly"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:232
+msgid "Avg. visibility increase"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:233
+msgid "Directory integrations"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:239
+msgid "They improved my website's ranking. Simple, intuitive actions and fair pricing."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:240
+msgid "Agenzia Grafica Milano"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:245
+msgid "It is simply the best tool to control, optimize and position your business from one place. Highly recommended!"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:249
+msgid "Play Music Co."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:254
+msgid "A clear overview of what is happening on your site and what to do to improve it. We are very satisfied - TOP!"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:258
+msgid "John Nieuwenburg"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:263
+msgid "A really great tool for work. It's helped me get more clients and reach more people."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:264
+msgid "Irving Gandars"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:269
+msgid "Excellent tool with great visibility. Simple, efficient, and powerful. I recommend it."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:270
+msgid "Expert Coaching Solutions (ECS)"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:275
+msgid "I really like this tool. Setting your competitors in the config gives you very useful insights to help you improve."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:279
+msgid "Fran Quesada"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:284
+msgid "REVIEWS.io"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:288
+msgid "Web Agency"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:289
+msgid "Manage multiple client websites and campaigns from one dashboard."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:293
+msgid "Enterprise"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:294
+msgid "Custom solutions for large organizations with multiple locations."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:298
+msgid "Freelancer / Consultant"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:299
+msgid "Handle your clients professionally and efficiently."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:305
+msgid "Manage all client projects in one place"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:306
+msgid "Advanced analytics and performance insights"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:307
+msgid "Comprehensive white-label reporting"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:308
+msgid "Task time tracking and monitoring"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:309
+msgid "Sub-account and user permissions management"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:310
+msgid "Give your clients bespoke account access to their white-label reports"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:317
+msgid "Full AI-powered SEO. Get personalised guidance and video tutorials. No experience needed."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:328
+msgid "Create AI-powered ads in 3 steps. Professional Google Ads, ready to launch immediately."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:339
+msgid "Publish your business automatically in 46+ directories. Visible everywhere with one click."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:350
+msgid "Never miss a review again. AI responds automatically in your preferred tone."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:358
+msgid "Find out instantly when your business is mentioned online. Stay informed at all times."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:368
+msgid "Competitor Analysis"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:369
+msgid "Track up to 5 competitors. See their strategies and outrank them."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:376
+msgid "AI Features"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:377
+msgid "Generate images, get content suggestions, and more. Let AI do the work."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:385
+msgid "Create entire series of connected posts with AI. Build cohesive campaigns effortlessly."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:396
+msgid "BeyondSEO WordPress plugin (limited)"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:397
+msgid "Limited SEO features"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:398
+msgid "Track 3 keywords"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:399
+msgid "Profile publishing restricted to Facebook & Google"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:400
+msgid "No Google Ads"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:401
+msgid "No AI content series for social media"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:403
+msgid "No post boosting"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:408
+msgid "Full AI-powered SEO"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:409
+msgid "Track 50 keywords"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:410
+msgid "Publish Profile in up to 46 directories automatically"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:411
+msgid "Create Google Ads in minutes"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:412
+msgid "Create entire series of social media posts with AI"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:414
+msgid "Boosts posts with Meta ads"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:507
+msgid "%d%% off"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:511
+#: react/src/components/Upsell/upsellConfig.ts:526
+msgid "%s/year"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:512
+msgid "%d%% off vs. monthly billing"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:520
+msgid "≈ %s/month"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:527
+msgid "%d%% more expensive"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:530
+msgid "Full first year for %s"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:533
+msgid "Start for %s — Get Full Access"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:538
+msgid "Your WordPress Launch Offer"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:539
+msgid "For a limited time only. Exclusively for WordPress users."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:540
+msgid "launch spots — almost gone"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:541
+msgid "Limited to max 5,000"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:542
+msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:548
+msgid "Founders price"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:549
+msgid "Annual · Year 1"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:551
+msgid "/year"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:552
+msgid "≈ $8.25/month"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:553
+#: react/src/components/Upsell/upsellConfig.ts:562
+msgid "$600/year"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:554
+msgid "monthly"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:555
+msgid "83% off vs. monthly billing"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:559
+msgid "Monthly billing"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:561
+msgid "/month"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:563
+msgid "506% more expensive"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:567
+msgid "Full first year for $99"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:568
+msgid "50 keywords tracked daily"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:569
+msgid "up to 46+ directories synced"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:570
+msgid "AI content & Google Ads"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:571
+msgid "AI review management"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:572
+msgid "5 competitors monitored"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:573
+msgid "Weekly AI growth reports"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:574
+msgid "AI Social Media Posting"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:576
+msgid "Start for $99 — Get Full Access"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:577
+msgid "Annual billing · Instant access · Cancel anytime"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:606
+msgid "Company name"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:607
+msgid "Your company name"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:611
+msgid "Name"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:612
+msgid "Your full name"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:617
+msgid "Your email address"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:621
+msgid "Phone number"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:622
+msgid "Enter your phone number"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:626
+#: react/src/components/Upsell/upsellConfig.ts:627
+msgid "Industry"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:630
+msgid "Technology"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:631
+msgid "Healthcare"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:632
+msgid "Finance"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:633
+msgid "Retail"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:634
+msgid "Education"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:635
+msgid "Hospitality"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:636
+msgid "Real Estate"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:637
+msgid "Marketing & Advertising"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:638
+msgid "Manufacturing"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:639
+#: react/src/components/Upsell/upsellConfig.ts:653
+#: inc/Core/Admin/Pages/FeedbackPage.php:139
+msgid "Other"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:643
+#: react/src/components/Upsell/upsellConfig.ts:644
+msgid "How did you find us?"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:647
+msgid "Search Engine"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:648
+msgid "Social Media"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:649
+msgid "Referral"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:650
+msgid "Advertisement"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:651
+msgid "WordPress Plugin Directory"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:652
+msgid "Blog/Article"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:657
+msgid "Message"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:658
+msgid "Enter your message"
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:663
+msgid "I agree to receive other communications from RankingCoach 360."
+msgstr ""
+
+#: react/src/components/Upsell/upsellConfig.ts:664
+msgid "Contact us"
+msgstr ""
+
 #: react/src/helpers/score-helpers.ts:17
 msgid "Poor SEO score — major improvements needed."
 msgstr ""
@@ -2441,6 +2632,32 @@ msgstr ""
 
 #: react/src/helpers/score-helpers.ts:22
 msgid "You have good optimisation level on this page"
+msgstr ""
+
+#: react/src/main.tsx:221
+msgid "Checking your page for<br>existing keywords"
+msgstr ""
+
+#: react/src/main.tsx:222
+msgid "This page doesn`t have keywords"
+msgstr ""
+
+#: react/src/main.tsx:225
+msgid "Close"
+msgstr ""
+
+#: react/src/main.tsx:226
+msgid "Use these keywords"
+msgstr ""
+
+#: react/src/main.tsx:227
+msgid "Skip this"
+msgstr ""
+
+#. Plugin Name of the plugin
+#: react/src/main.tsx:415
+#: beyondseo.php
+msgid "BeyondSEO"
 msgstr ""
 
 #. Description of the plugin
@@ -3701,73 +3918,73 @@ msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
 #: inc/Core/HooksManager.php:283
-#: inc/Core/Rest/Controllers/OnboardingController.php:478
+#: inc/Core/Rest/Controllers/OnboardingController.php:528
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
 #: inc/Core/HooksManager.php:284
-#: inc/Core/Rest/Controllers/OnboardingController.php:479
+#: inc/Core/Rest/Controllers/OnboardingController.php:529
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
 #: inc/Core/HooksManager.php:285
-#: inc/Core/Rest/Controllers/OnboardingController.php:480
+#: inc/Core/Rest/Controllers/OnboardingController.php:530
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
 #: inc/Core/HooksManager.php:286
-#: inc/Core/Rest/Controllers/OnboardingController.php:481
+#: inc/Core/Rest/Controllers/OnboardingController.php:531
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
 #: inc/Core/HooksManager.php:287
-#: inc/Core/Rest/Controllers/OnboardingController.php:482
+#: inc/Core/Rest/Controllers/OnboardingController.php:532
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
 #: inc/Core/HooksManager.php:288
-#: inc/Core/Rest/Controllers/OnboardingController.php:483
+#: inc/Core/Rest/Controllers/OnboardingController.php:533
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
 #: inc/Core/HooksManager.php:289
-#: inc/Core/Rest/Controllers/OnboardingController.php:484
+#: inc/Core/Rest/Controllers/OnboardingController.php:534
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
 #: inc/Core/HooksManager.php:290
-#: inc/Core/Rest/Controllers/OnboardingController.php:485
+#: inc/Core/Rest/Controllers/OnboardingController.php:535
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
 #: inc/Core/HooksManager.php:291
-#: inc/Core/Rest/Controllers/OnboardingController.php:486
+#: inc/Core/Rest/Controllers/OnboardingController.php:536
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
 #: inc/Core/HooksManager.php:292
-#: inc/Core/Rest/Controllers/OnboardingController.php:487
+#: inc/Core/Rest/Controllers/OnboardingController.php:537
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
 #: inc/Core/HooksManager.php:293
-#: inc/Core/Rest/Controllers/OnboardingController.php:488
+#: inc/Core/Rest/Controllers/OnboardingController.php:538
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
 #: inc/Core/HooksManager.php:294
-#: inc/Core/Rest/Controllers/OnboardingController.php:489
+#: inc/Core/Rest/Controllers/OnboardingController.php:539
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
 
@@ -3776,7 +3993,7 @@ msgid "Request failed after multiple retries: "
 msgstr ""
 
 #. translators: %1$s is the error message
-#: inc/Core/Api/User/UserApiManager.php:570
+#: inc/Core/Api/User/UserApiManager.php:712
 #, php-format
 msgid "Keyword insert failed. Error: %1$s"
 msgstr ""
@@ -4031,12 +4248,12 @@ msgstr ""
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:746
+#: inc/Core/Rest/Controllers/OnboardingController.php:796
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:747
+#: inc/Core/Rest/Controllers/OnboardingController.php:797
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""
