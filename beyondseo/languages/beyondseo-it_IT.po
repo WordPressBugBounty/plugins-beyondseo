@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:28+0000\n"
+"PO-Revision-Date: 2026-08-18 19:56+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -8253,3 +8253,29 @@ msgstr "Crea un'intera serie di post connessi con l'IA. Costruisci campagne coes
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr "Rimangono solo pochi posti a questo prezzo: una volta esauriti, l'offerta chiude permanentemente."
+
+
+msgid "Back"
+msgstr "Indietro"
+
+
+msgid "Create a Free Account"
+msgstr "Crea un account gratuito"
+
+
+msgid "OR"
+msgstr "OPPURE"
+
+
+msgid "Connect to an Existing Account"
+msgstr "Collegati a un account esistente"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "Il tuo sito non è collegato a %1$s. %2$sCollegati ora%3$s per iniziare a ottimizzare la tua SEO e farti trovare online."
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "Valuta %s su WordPress.org"
+

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:30+0000\n"
+"PO-Revision-Date: 2026-08-18 19:57+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -9864,3 +9864,29 @@ msgstr "AIを使って一連の関連投稿を作成します。手間いらず�
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr "この価格での残りのスポットはわずかです — なくなり次第、オファーは永久に終了します。"
+
+
+msgid "Back"
+msgstr "戻る"
+
+
+msgid "Create a Free Account"
+msgstr "無料アカウントを作成"
+
+
+msgid "OR"
+msgstr "または"
+
+
+msgid "Connect to an Existing Account"
+msgstr "既存のアカウントに接続"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "サイトは%1$sに接続されていません。%2$s今すぐ接続%3$sして、SEOの最適化を始め、オンラインで見つけてもらいましょう。"
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "WordPress.orgで%sを評価する"
+

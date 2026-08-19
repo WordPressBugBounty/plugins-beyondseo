@@ -2,88 +2,94 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.0\n"
+"Project-Id-Version: BeyondSEO 1.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-12T14:27:05+00:00\n"
+"POT-Creation-Date: 2026-08-18T19:52:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
 
-#: react/src/components/Activation/Activation.tsx:39
+#: react/src/components/Activation/Activation.tsx:40
 #: inc/Core/Admin/Pages/ActivationPage.php:288
 #: inc/Core/Admin/Pages/IframePage.php:184
 #: inc/Core/Admin/Pages/IframePage.php:274
 msgid "Activation code is required."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:57
+#: react/src/components/Activation/Activation.tsx:58
 msgid "Activation failed."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:61
+#: react/src/components/Activation/Activation.tsx:62
 #: inc/Exceptions/ErrorContextFactory.php:44
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:101
-#: react/src/components/Activation/Activation.tsx:86
+#: react/src/components/Activation/Activation.tsx:102
+#: react/src/components/Activation/Activation.tsx:87
 msgid "Enter your activation code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:93
+#: react/src/components/Activation/Activation.tsx:94
 msgid "Enter the activation code provided by your provider."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:97
+#: react/src/components/Activation/Activation.tsx:98
 msgid "Activation Code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:117
+#: react/src/components/Activation/Activation.tsx:118
 #: react/src/components/Registration/Registration.tsx:519
 msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:119
+#: react/src/components/Activation/Activation.tsx:120
 #: react/src/components/Registration/Registration.tsx:521
 msgid "Privacy Policy"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:121
+#: react/src/components/Activation/Activation.tsx:122
 #: react/src/components/Registration/Registration.tsx:523
 msgid " and the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:123
+#: react/src/components/Activation/Activation.tsx:124
 #: react/src/components/Registration/Registration.tsx:525
 msgid "Terms and Conditions"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:139
+#: react/src/components/Activation/Activation.tsx:140
 msgid "Contact support"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:151
+#: react/src/components/Activation/Activation.tsx:152
 msgid "Activation done"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:154
+#: react/src/components/Activation/Activation.tsx:155
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:172
+#: react/src/components/Activation/Activation.tsx:174
+#: react/src/components/Registration/Registration.tsx:591
+#: react/src/components/Registration/RegistrationWelcome.tsx:80
+msgid "Back"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:184
 msgid "Activate"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:182
+#: react/src/components/Activation/Activation.tsx:195
 msgid "Try another code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:192
+#: react/src/components/Activation/Activation.tsx:205
 msgid "Continue onboarding"
 msgstr ""
 
@@ -95,7 +101,7 @@ msgstr ""
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:190
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:496
-#: react/src/components/Registration/Registration.tsx:609
+#: react/src/components/Registration/Registration.tsx:608
 msgid "Something went wrong from our side, please try again!"
 msgstr ""
 
@@ -697,39 +703,35 @@ msgstr ""
 msgid ". This helps keep your account secure."
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:591
-msgid "Change Email address"
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:602
+#: react/src/components/Registration/Registration.tsx:601
 msgid "Verify"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:602
+#: react/src/components/Registration/Registration.tsx:601
 msgid "Next"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:611
+#: react/src/components/Registration/Registration.tsx:610
 msgid "Try again"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:39
+#: react/src/components/Registration/RegistrationWelcome.tsx:40
 msgid "Welcome, how would you like to get started?"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:46
+#: react/src/components/Registration/RegistrationWelcome.tsx:47
 msgid "Continue with email"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:49
+#: react/src/components/Registration/RegistrationWelcome.tsx:50
 msgid "Log in or create a free account to start using the plugin."
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:57
+#: react/src/components/Registration/RegistrationWelcome.tsx:58
 msgid "Use an activation code"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:60
+#: react/src/components/Registration/RegistrationWelcome.tsx:61
 msgid "Already received a code by email? Enter it here to activate your plugin."
 msgstr ""
 
@@ -896,7 +898,7 @@ msgid "Status Icon"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:222
-#: react/src/components/Settings/Settings.tsx:28
+#: react/src/components/Settings/Settings.tsx:29
 msgid "Breadcrumbs"
 msgstr ""
 
@@ -973,64 +975,76 @@ msgstr ""
 msgid "Separator"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:57
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:58
 msgid "Allow run score calculation on page/post save"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:58
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:59
 msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:65
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:66
 msgid "Allow synchronisation the keywords an interval basis"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:66
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:67
 msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:73
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
 msgid "Enable WP-Cron service"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:75
 msgid "Enable this option to use the WP-Cron service for scheduling tasks"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:78
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:79
 msgid "Allow to run broken link checker an interval basis"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:79
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:80
 msgid "Enable this option to run the broken link checker job that scans your site for broken links"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:86
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:87
 msgid "Allow communication with rankingCoach servers"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:87
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:88
 msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:94
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:95
 msgid "Disable WordPress heartbeat admin-ajax service"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:95
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:96
 msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:102
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:103
 msgid "Open rC dashboard in new tab"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:103
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:104
 msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:113
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:114
 msgid "General Settings"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:120
+msgid "Create a Free Account"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:123
+msgid "OR"
+msgstr ""
+
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:126
+msgid "Connect to an Existing Account"
 msgstr ""
 
 #: react/src/components/Settings/ImportSettingsPage/ImportSettingsPage.tsx:116
@@ -1079,7 +1093,7 @@ msgid "This feature will be available soon."
 msgstr ""
 
 #: react/src/components/Settings/RobotsPage/RobotsPage.tsx:90
-#: react/src/components/Settings/Settings.tsx:31
+#: react/src/components/Settings/Settings.tsx:32
 msgid "Robots.txt"
 msgstr ""
 
@@ -1116,7 +1130,7 @@ msgid "Content exceeds maximum length of 255 characters"
 msgstr ""
 
 #: react/src/components/Settings/RSSPage/RSSPage.tsx:186
-#: react/src/components/Settings/Settings.tsx:29
+#: react/src/components/Settings/Settings.tsx:30
 msgid "RSS"
 msgstr ""
 
@@ -1149,36 +1163,36 @@ msgstr ""
 msgid "View RSS Feed"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:27
+#: react/src/components/Settings/Settings.tsx:28
 #: react/src/components/TabsManager/TabsManager.tsx:41
 msgid "General"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:29
+#: react/src/components/Settings/Settings.tsx:30
 msgid "Really Simple Syndication"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:30
+#: react/src/components/Settings/Settings.tsx:31
 #: react/src/components/Settings/SitemapPage/SitemapPage.tsx:111
 msgid "Sitemap"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:195
-#: inc/Core/Admin/AdminManager.php:461
-#: inc/Core/Admin/AdminManager.php:462
+#: react/src/components/Settings/Settings.tsx:201
+#: inc/Core/Admin/AdminManager.php:465
+#: inc/Core/Admin/AdminManager.php:466
 #: inc/Core/ToolbarManager.php:166
 msgid "Settings"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:232
+#: react/src/components/Settings/Settings.tsx:238
 msgid "Checking…"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:232
+#: react/src/components/Settings/Settings.tsx:238
 msgid "Check my account"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:236
+#: react/src/components/Settings/Settings.tsx:242
 msgid "Plugin version:"
 msgstr ""
 
@@ -2675,41 +2689,41 @@ msgstr ""
 msgid "https://grow.rankingcoach.com/wordpress?utm_source=wordpress-plugin&utm_medium=plugin&utm_campaign=beyondseo&utm_content=by-rankingcoach"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:272
+#: inc/Core/Admin/AdminManager.php:276
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:337
 msgid "Show more"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:273
+#: inc/Core/Admin/AdminManager.php:277
 msgid "Show less"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:479
-#: inc/Core/Admin/AdminManager.php:480
+#: inc/Core/Admin/AdminManager.php:483
+#: inc/Core/Admin/AdminManager.php:484
 msgid "Activation"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:497
-#: inc/Core/Admin/AdminManager.php:498
+#: inc/Core/Admin/AdminManager.php:501
+#: inc/Core/Admin/AdminManager.php:502
 #: inc/Core/Admin/Pages/views/registration-page.php:94
 msgid "Registration"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:515
-#: inc/Core/Admin/AdminManager.php:516
+#: inc/Core/Admin/AdminManager.php:519
+#: inc/Core/Admin/AdminManager.php:520
 msgid "Onboarding"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:535
-#: inc/Core/Admin/AdminManager.php:536
-#: inc/Core/Admin/AdminManager.php:638
+#: inc/Core/Admin/AdminManager.php:539
+#: inc/Core/Admin/AdminManager.php:540
+#: inc/Core/Admin/AdminManager.php:642
 #: inc/Core/ToolbarManager.php:186
 msgid "Connect"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:547
-#: inc/Core/Admin/AdminManager.php:548
-#: inc/Core/Admin/AdminManager.php:646
+#: inc/Core/Admin/AdminManager.php:551
+#: inc/Core/Admin/AdminManager.php:552
+#: inc/Core/Admin/AdminManager.php:650
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:80
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:113
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:144
@@ -2718,15 +2732,27 @@ msgstr ""
 msgid "Upgrade"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:570
-#: inc/Core/Admin/AdminManager.php:571
-#: inc/Core/Admin/AdminManager.php:631
+#: inc/Core/Admin/AdminManager.php:574
+#: inc/Core/Admin/AdminManager.php:575
+#: inc/Core/Admin/AdminManager.php:635
 #: inc/Core/ToolbarManager.php:174
 msgid "Support"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:625
+#: inc/Core/Admin/AdminManager.php:629
 msgid "Documentation"
+msgstr ""
+
+#. translators: %s: plugin brand name
+#: inc/Core/Admin/AdminManager.php:672
+#, php-format
+msgid "Rate %s on WordPress.org"
+msgstr ""
+
+#. translators: 1: plugin brand name wrapped in bold tags, 2: opening anchor tag linking to the connect page, 3: closing anchor tag
+#: inc/Core/Admin/NotConnectedNotice.php:58
+#, php-format
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:154
@@ -3918,73 +3944,73 @@ msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
 #: inc/Core/HooksManager.php:283
-#: inc/Core/Rest/Controllers/OnboardingController.php:528
+#: inc/Core/Rest/Controllers/OnboardingController.php:530
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
 #: inc/Core/HooksManager.php:284
-#: inc/Core/Rest/Controllers/OnboardingController.php:529
+#: inc/Core/Rest/Controllers/OnboardingController.php:531
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
 #: inc/Core/HooksManager.php:285
-#: inc/Core/Rest/Controllers/OnboardingController.php:530
+#: inc/Core/Rest/Controllers/OnboardingController.php:532
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
 #: inc/Core/HooksManager.php:286
-#: inc/Core/Rest/Controllers/OnboardingController.php:531
+#: inc/Core/Rest/Controllers/OnboardingController.php:533
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
 #: inc/Core/HooksManager.php:287
-#: inc/Core/Rest/Controllers/OnboardingController.php:532
+#: inc/Core/Rest/Controllers/OnboardingController.php:534
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
 #: inc/Core/HooksManager.php:288
-#: inc/Core/Rest/Controllers/OnboardingController.php:533
+#: inc/Core/Rest/Controllers/OnboardingController.php:535
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
 #: inc/Core/HooksManager.php:289
-#: inc/Core/Rest/Controllers/OnboardingController.php:534
+#: inc/Core/Rest/Controllers/OnboardingController.php:536
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
 #: inc/Core/HooksManager.php:290
-#: inc/Core/Rest/Controllers/OnboardingController.php:535
+#: inc/Core/Rest/Controllers/OnboardingController.php:537
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
 #: inc/Core/HooksManager.php:291
-#: inc/Core/Rest/Controllers/OnboardingController.php:536
+#: inc/Core/Rest/Controllers/OnboardingController.php:538
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
 #: inc/Core/HooksManager.php:292
-#: inc/Core/Rest/Controllers/OnboardingController.php:537
+#: inc/Core/Rest/Controllers/OnboardingController.php:539
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
 #: inc/Core/HooksManager.php:293
-#: inc/Core/Rest/Controllers/OnboardingController.php:538
+#: inc/Core/Rest/Controllers/OnboardingController.php:540
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
 #: inc/Core/HooksManager.php:294
-#: inc/Core/Rest/Controllers/OnboardingController.php:539
+#: inc/Core/Rest/Controllers/OnboardingController.php:541
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
 
@@ -4248,12 +4274,12 @@ msgstr ""
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:796
+#: inc/Core/Rest/Controllers/OnboardingController.php:816
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:797
+#: inc/Core/Rest/Controllers/OnboardingController.php:817
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""

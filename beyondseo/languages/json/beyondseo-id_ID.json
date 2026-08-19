@@ -6573,5 +6573,23 @@
   ],
   "Enable communication by going to BeyondSEO > Settings > Allow communication with rankingCoach servers and toggling the option to \"On\".": [
     "Enable communication by going to BeyondSEO > Settings > Allow communication with rankingCoach servers and toggling the option to \"On\"."
+  ],
+  "Back": [
+    "Kembali"
+  ],
+  "Create a Free Account": [
+    "Buat Akun Gratis"
+  ],
+  "OR": [
+    "ATAU"
+  ],
+  "Connect to an Existing Account": [
+    "Hubungkan ke Akun yang Sudah Ada"
+  ],
+  "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online.": [
+    "Situs Anda belum terhubung ke %1$s. %2$sHubungkan sekarang%3$s untuk mulai mengoptimalkan SEO Anda dan ditemukan secara online."
+  ],
+  "Rate %s on WordPress.org": [
+    "Beri nilai %s di WordPress.org"
   ]
 }

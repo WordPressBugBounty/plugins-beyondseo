@@ -29,6 +29,23 @@ class CoreHelper {
 	public const RC_NONCE_ACTION_NAME = 'rc_sec_nonce_admin_action';
 	public const RC_NONCE_SALT = '7b9f9a0728a0c9185fb055a2df7bdba92951a9dbd1268dffb5782d866648c2ad';
 
+    /**
+     * List of option prefixes that should be managed (e.g. deleted on deactivation)
+     */
+    public const OPTION_PREFIXES = [
+        'rankingcoach_',
+        'rc_',
+        'bseo_',
+        'beyondseo_'
+    ];
+
+    /**
+     * List of specific option keys that should NEVER be deleted even if they match a prefix
+     */
+    public const EXCLUDED_OPTION_KEYS = [
+        BaseConstants::OPTION_PARTNER_INTEGRATION
+    ];
+
     public const RC_FREE_SUBSCRIPTIONS = [
         'seo_wp_free',      // IONOS free
         'radar_wp_test',    // DC test free
@@ -391,7 +408,8 @@ class CoreHelper {
         string $utm_source = 'wordpress_plugin',
         ?string $utm_content = null,
         string $utm_medium = 'plugin',
-        string $utm_campaign = 'beyondseo'
+        string $utm_campaign = 'beyondseo',
+        bool $raw = false
     ): string {
         $params = [
             'utm_source'   => $utm_source,
@@ -403,7 +421,11 @@ class CoreHelper {
             $params['utm_content'] = $utm_content;
         }
 
-        return esc_url( add_query_arg( $params, $url ) );
+        // $raw for non-display contexts (e.g. wp_localize_script) where esc_url()'s
+        // entity-encoded ampersands would corrupt the query string.
+        return $raw
+            ? esc_url_raw( add_query_arg( $params, $url ) )
+            : esc_url( add_query_arg( $params, $url ) );
     }
 
 	/**
@@ -1622,6 +1644,34 @@ class CoreHelper {
         }
 
         return rtrim(wp_parse_url($domain, PHP_URL_HOST) ?? $domain, '/');
+    }
+
+    /**
+     * Retrieves the list of option prefixes that should be managed.
+     *
+     * @return array Array of option prefixes.
+     */
+    public static function getOptionPrefixes(): array
+    {
+        return self::OPTION_PREFIXES;
+    }
+
+    /**
+     * Retrieves the list of specific option keys that should be excluded from deletion.
+     *
+     * @return array Array of excluded option keys.
+     */
+    public static function getExcludedOptionKeys(): array
+    {
+        return self::EXCLUDED_OPTION_KEYS;
+    }
+
+    public static function filterExcludedOptions(array $options): array
+    {
+        $excluded = self::getExcludedOptionKeys();
+        return array_filter($options, static function ($option) use ($excluded) {
+            return !in_array($option, $excluded, true);
+        });
     }
 
     /**

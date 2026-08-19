@@ -6648,5 +6648,23 @@
   ],
   "Enable communication by going to BeyondSEO > Settings > Allow communication with rankingCoach servers and toggling the option to \"On\".": [
     "Aktivieren Sie die Kommunikation, indem Sie zu BeyondSEO > Einstellungen > Kommunikation mit rankingCoach-Servern zulassen navigieren und die Option auf „Ein“ stellen."
+  ],
+  "Back": [
+    "Zurück"
+  ],
+  "Create a Free Account": [
+    "Kostenloses Konto erstellen"
+  ],
+  "OR": [
+    "ODER"
+  ],
+  "Connect to an Existing Account": [
+    "Mit einem bestehenden Konto verbinden"
+  ],
+  "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online.": [
+    "Ihre Website ist nicht mit %1$s verbunden. %2$sJetzt verbinden%3$s, um Ihre SEO zu optimieren und online gefunden zu werden."
+  ],
+  "Rate %s on WordPress.org": [
+    "Bewerten Sie %s auf WordPress.org"
   ]
 }

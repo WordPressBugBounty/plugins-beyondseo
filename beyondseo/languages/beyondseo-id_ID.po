@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:28+0000\n"
+"PO-Revision-Date: 2026-08-18 19:55+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -9862,3 +9862,29 @@ msgstr "Buat serangkaian pos terhubung dengan AI. Bangun kampanye yang kohesif d
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr "Hanya tersisa beberapa tempat dengan harga ini — setelah habis, penawaran akan ditutup selamanya."
+
+
+msgid "Back"
+msgstr "Kembali"
+
+
+msgid "Create a Free Account"
+msgstr "Buat Akun Gratis"
+
+
+msgid "OR"
+msgstr "ATAU"
+
+
+msgid "Connect to an Existing Account"
+msgstr "Hubungkan ke Akun yang Sudah Ada"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "Situs Anda belum terhubung ke %1$s. %2$sHubungkan sekarang%3$s untuk mulai mengoptimalkan SEO Anda dan ditemukan secara online."
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "Beri nilai %s di WordPress.org"
+

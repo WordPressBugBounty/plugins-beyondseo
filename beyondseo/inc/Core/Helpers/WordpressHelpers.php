@@ -1940,6 +1940,23 @@ class WordpressHelpers {
         return $accountId && $projectId && $locationId && $refCode;
     }
 
+    /**
+     * Whether this install was provisioned through a partner integration.
+     *
+     * Partner-provisioned installs must use the activation-code flow exclusively;
+     * the email registration flow is hidden and its endpoints are refused.
+     * Only explicit truthy representations (true, 1, '1', 'true', 'on', 'yes')
+     * enable it — anything else, including a missing option, stays false.
+     *
+     * @return bool
+     */
+    public static function isPartnerIntegration(): bool {
+        return filter_var(
+            get_option( BaseConstants::OPTION_PARTNER_INTEGRATION, false ),
+            FILTER_VALIDATE_BOOLEAN
+        );
+    }
+
 	/**
 	 * Checks if the onboarding process has been completed successfully.
 	 * 

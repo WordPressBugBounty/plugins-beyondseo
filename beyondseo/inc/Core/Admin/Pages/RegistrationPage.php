@@ -182,6 +182,14 @@ class RegistrationPage extends AdminPage
         // Mark that access control has been handled, so page_content() skips FlowGuard
         $this->accessControlHandled = true;
 
+        // Partner-provisioned installs have no email registration flow at all:
+        // send them straight to the activation-code page (runs before headers are sent).
+        if (WordpressHelpers::isPartnerIntegration()
+            && !WordpressHelpers::sanitize_input('GET', 'bypass_flow')) {
+            wp_safe_redirect(AdminManager::getPageUrl(AdminManager::PAGE_ACTIVATION));
+            exit;
+        }
+
         // Check channel enforcer first
         if (!WordpressHelpers::sanitize_input('GET','bypass_flow')) {
             $store = new OptionStore();
@@ -586,6 +594,15 @@ class RegistrationPage extends AdminPage
      */
     public function handleRegister(WP_REST_Request $request): array|WP_Error
     {
+        // Partner-provisioned installs must use the activation-code flow only
+        if (WordpressHelpers::isPartnerIntegration()) {
+            return new WP_Error(
+                'registration_disabled',
+                __('Email registration is not available for this installation. Please use your activation code.', 'beyondseo'),
+                ['status' => 403]
+            );
+        }
+
         // INPUT PARAMS
         $email     = trim((string)$request->get_param('email'));
         $country   = strtoupper(trim((string)$request->get_param('country')));
@@ -764,6 +781,15 @@ class RegistrationPage extends AdminPage
      */
     public function handleFinalizeRegister(WP_REST_Request $request): array|WP_Error
     {
+        // Partner-provisioned installs must use the activation-code flow only
+        if (WordpressHelpers::isPartnerIntegration()) {
+            return new WP_Error(
+                'registration_disabled',
+                __('Email registration is not available for this installation. Please use your activation code.', 'beyondseo'),
+                ['status' => 403]
+            );
+        }
+
         $email = trim((string) ($request->get_param('email') ?? ''));
         $country   = strtoupper(trim((string)$request->get_param('country')));
         $typeRaw   = (string)($request->get_param('type') ?? '');

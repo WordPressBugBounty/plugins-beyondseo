@@ -70,6 +70,7 @@ class Assets {
             'brandName' => RANKINGCOACH_BRAND_NAME,
             'brandSlug' => RANKINGCOACH_BRAND_SLUG,
             'countryShortCode' => $countryShortCode,
+            'supportUrl' => $this->getSupportUrl($locale, (new OptionStore())->getChannel()),
             'pluginInformation' => $this->getPluginInformationData()
         ];
 
@@ -145,6 +146,13 @@ class Assets {
         ];
 
         $activeRegistrationOptions = $registrationOptions[$channel] ?? ['showEmail' => true, 'showActivation' => true];
+
+        // Partner-provisioned installs get the activation-code flow only, regardless of channel.
+        $isPartnerIntegration = WordpressHelpers::isPartnerIntegration();
+        if ($isPartnerIntegration) {
+            $activeRegistrationOptions = ['showEmail' => false, 'showActivation' => true];
+        }
+
         $showEmail = $this->boolToJs($activeRegistrationOptions['showEmail']);
         $showActivation = $this->boolToJs($activeRegistrationOptions['showActivation']);
 
@@ -173,6 +181,8 @@ class Assets {
             'iframeMapUrl' => esc_url_raw($this->generateMapUrl()),
             'countryShortCode' => $countryShortCode,
             'channel' => $channel,
+            'supportUrl' => $this->getSupportUrl($locale, $channel),
+            'partnerIntegration' => $this->boolToJs($isPartnerIntegration),
             'registrationShowEmail' => $showEmail,
             'registrationShowActivation' => $showActivation,
             'pluginInformation' => $this->getPluginInformationData(),
@@ -202,6 +212,22 @@ class Assets {
 
     private function boolToJs(bool $value): string {
         return $value ? 'true' : 'false';
+    }
+
+    /**
+     * Resolve the customer-support URL for the current install:
+     * IONOS support (locale-aware) for the ionos channel, rankingCoach support otherwise.
+     */
+    private function getSupportUrl(string $locale, ?string $channel): string {
+        if ($channel === 'ionos') {
+            return esc_url_raw(
+                str_starts_with(strtolower($locale), 'de')
+                    ? BaseConstants::URL_SUPPORT_IONOS_DE
+                    : BaseConstants::URL_SUPPORT_IONOS
+            );
+        }
+
+        return CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support', raw: true);
     }
 
     /** Languages supported, each with its default locale */

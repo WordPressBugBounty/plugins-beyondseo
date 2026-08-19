@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:29+0000\n"
+"PO-Revision-Date: 2026-08-18 19:57+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: el_GR\n"
@@ -9859,3 +9859,29 @@ msgstr "Δημιουργήστε ολόκληρες σειρές συνδεδε�
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr "Μόνο λίγες θέσεις απομένουν σε αυτή την τιμή — μόλις εξαντληθούν, η προσφορά κλείνει μόνιμα."
+
+
+msgid "Back"
+msgstr "Πίσω"
+
+
+msgid "Create a Free Account"
+msgstr "Δημιουργία δωρεάν λογαριασμού"
+
+
+msgid "OR"
+msgstr "Ή"
+
+
+msgid "Connect to an Existing Account"
+msgstr "Σύνδεση με υπάρχοντα λογαριασμό"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "Ο ιστότοπός σας δεν είναι συνδεδεμένος με το %1$s. %2$sΣυνδεθείτε τώρα%3$s για να βελτιστοποιήσετε το SEO σας και να σας βρίσκουν online."
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "Αξιολογήστε το %s στο WordPress.org"
+

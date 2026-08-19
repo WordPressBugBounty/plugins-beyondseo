@@ -190,6 +190,10 @@ class AdminManager
         add_action('admin_enqueue_scripts', [$this, 'enqueue_admin_scripts'], 0);
         // Add plugin action links
         add_filter('plugin_action_links_' . RANKINGCOACH_PLUGIN_BASENAME, [$this, 'plugin_action_links']);
+        // Add plugin row meta (five-star review link)
+        add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 2);
+        // Show a "not connected" notice on the Plugins page until onboarding is completed
+        (new NotConnectedNotice())->init();
     }
 
     /**
@@ -648,5 +652,39 @@ class AdminManager
         }
 
         return array_merge($new_links, $links);
+    }
+
+    /**
+     * Add a five-star review link to the plugin's row meta on the Plugins page.
+     *
+     * @param array $plugin_meta
+     * @param string $plugin_file
+     * @return array
+     */
+    public function plugin_row_meta(array $plugin_meta, string $plugin_file): array
+    {
+        if ($plugin_file !== RANKINGCOACH_PLUGIN_BASENAME) {
+            return $plugin_meta;
+        }
+
+        $label = sprintf(
+            /* translators: %s: plugin brand name */
+            __('Rate %s on WordPress.org', 'beyondseo'),
+            RANKINGCOACH_BRAND_NAME
+        );
+
+        $stars = str_repeat(
+            '<span class="dashicons dashicons-star-filled" style="font-size: 14px; width: 14px; height: 14px; vertical-align: middle;" aria-hidden="true"></span>',
+            5
+        );
+
+        $plugin_meta[] = sprintf(
+            '<a href="%1$s" target="_blank" rel="noopener noreferrer" class="rankingcoach-rate-us" style="color: #ffb900; text-decoration: none;" aria-label="%2$s" title="%2$s">%3$s</a>',
+            esc_url(BaseConstants::URL_REVIEW),
+            esc_attr($label),
+            $stars
+        );
+
+        return $plugin_meta;
     }
 }

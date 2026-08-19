@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:27+0000\n"
+"PO-Revision-Date: 2026-08-18 19:53+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -9987,4 +9987,30 @@ msgstr ""
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr ""
+
+
+
+msgid "Back"
+msgstr "Înapoi"
+
+
+msgid "Create a Free Account"
+msgstr "Creează un cont gratuit"
+
+
+msgid "OR"
+msgstr "SAU"
+
+
+msgid "Connect to an Existing Account"
+msgstr "Conectează-te la un cont existent"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "Site-ul tău nu este conectat la %1$s. %2$sConectează-te acum%3$s pentru a începe să îți optimizezi SEO și pentru a fi găsit online."
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "Evaluează %s pe WordPress.org"
 

@@ -649,7 +649,8 @@ class Installer implements InitializerInterface
         // Reset the notifications option to an empty array
         NotificationManager::instance()->removeAllNotifications();
 
-        // Remove all options with the 'rankingcoach_', 'rc_', 'bseo_' prefix
+        // Remove all plugin-prefixed options (rankingcoach_, rc_, bseo_, beyondseo_)
+        // while respecting exclusions defined in CoreHelper::EXCLUDED_OPTION_KEYS
         PluginConfiguration::getInstance()->removeOptions();
 
         // Remove all tables

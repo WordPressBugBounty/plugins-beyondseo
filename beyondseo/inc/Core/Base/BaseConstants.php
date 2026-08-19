@@ -26,6 +26,7 @@ class BaseConstants
     public const OPTION_LAST_REGISTRATION_ATTEMPT = 'rankingcoach_last_registration_attempt';
     public const OPTION_REGISTRATION_COUNTRY_SHORTCODE = 'rankingcoach_registration_country_shortcode';
     public const OPTION_REGISTRATION_EMAIL_ADDRESS = 'rankingcoach_registration_email_address';
+    public const OPTION_PARTNER_INTEGRATION = 'partner_integration_beyondseo';
 
     // INSTALLATION & ONBOARDING CONSTANTS
     public const OPTION_INSTALLATION_DATE = 'rankingcoach_installation_date';
@@ -75,6 +76,7 @@ class BaseConstants
     public const OPTION_SYNC_KEYWORDS_REMAINS_KEYWORDS = 'rankingcoach_sync_keywords_remains_keywords';
     public const OPTION_WP_CRON_LAST_CHECK = 'rankingcoach_wp_cron_last_check';
     public const OPTION_WP_CRON_DISABLED_NOTICE = 'rankingcoach_wp_cron_disabled_notice';
+    public const OPTION_NOT_CONNECTED_NOTICE_DISMISSED = 'rankingcoach_not_connected_notice_dismissed';
     public const OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS = 'rankingcoach_max_allowed_keywords';
     public const OPTION_USE_PLUGIN_PAGE_KEYWORDS_DATA = 'rankingcoach_use_plugin_page_keywords_data';
     
@@ -167,6 +169,9 @@ class BaseConstants
     // EXTERNAL URLS
     public const URL_DOCUMENTATION = 'https://grow.rankingcoach.com/wordpress';
     public const URL_SUPPORT = 'https://grow.rankingcoach.com/wordpress/contact';
+    public const URL_SUPPORT_IONOS = 'https://my.ionos.com/support/contact';
+    public const URL_SUPPORT_IONOS_DE = 'https://mein.ionos.de/support/contact';
+    public const URL_REVIEW = 'https://wordpress.org/support/plugin/beyondseo/reviews/#new-post';
 
     // ORIGINS CONSTANTS
     public const OPTION_LAST_KNOWN_ORIGIN = 'rankingcoach_last_known_origin';
@@ -181,8 +186,20 @@ class BaseConstants
      */
     public static function getOptionNames(): array
     {
-        // Using reflection to get all constants in this class
         $reflectionClass = new ReflectionClass(__CLASS__);
-        return $reflectionClass->getConstants();
+        $constants = $reflectionClass->getConstants();
+        $optionNames = [];
+
+        foreach ($constants as $key => $value) {
+            if (strpos($key, 'OPTION_') === 0 && $key !== 'OPTION_ANALYSIS_HASH_ALGORITHM') {
+                $optionNames[$key] = $value;
+            }
+        }
+
+        if (class_exists('RankingCoach\Inc\Core\Helpers\CoreHelper') && method_exists('RankingCoach\Inc\Core\Helpers\CoreHelper', 'filterExcludedOptions')) {
+            $optionNames = \RankingCoach\Inc\Core\Helpers\CoreHelper::filterExcludedOptions($optionNames);
+        }
+
+        return $optionNames;
     }
 }

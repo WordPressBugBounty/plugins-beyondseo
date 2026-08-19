@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-12 14:29+0000\n"
+"PO-Revision-Date: 2026-08-18 19:57+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: fi_FI\n"
@@ -9866,3 +9866,29 @@ msgstr "Luo kokonainen sarja yhteydessä olevia julkaisuja tekoälyn avulla. Rak
 
 msgid "Only a few spots remaining at this price — once they're gone, the offer closes permanently."
 msgstr "Vain muutama paikka jäljellä tässä hinnassa — kun ne on myyty, tarjous päättyy pysyvästi."
+
+
+msgid "Back"
+msgstr "Takaisin"
+
+
+msgid "Create a Free Account"
+msgstr "Luo ilmainen tili"
+
+
+msgid "OR"
+msgstr "TAI"
+
+
+msgid "Connect to an Existing Account"
+msgstr "Yhdistä olemassa olevaan tiliin"
+
+
+msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr "Sivustoasi ei ole yhdistetty palveluun %1$s. %2$sYhdistä nyt%3$s, niin voit optimoida SEO:si ja tulla löydetyksi verkossa."
+
+
+
+msgid "Rate %s on WordPress.org"
+msgstr "Arvostele %s WordPress.orgissa"
+
