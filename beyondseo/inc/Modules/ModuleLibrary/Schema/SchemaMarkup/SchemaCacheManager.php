@@ -150,17 +150,41 @@ class SchemaCacheManager {
 
     /**
      * Initialize batch processing for secondary invalidations.
+     *
+     * Registers the cleanup callback only. Actual scheduling (wp_schedule_event)
+     * is handled separately via scheduleCleanupCron()/unscheduleCleanupCron(), which
+     * should only be called on plugin activation/deactivation to avoid a
+     * wp_next_scheduled() check on every request.
      */
     private static function initBatchProcessing(): void
     {
         // Process batched invalidations on shutdown
         add_action('shutdown', [self::class, 'processBatchedInvalidations'], 5);
-        
-        // Schedule cleanup via WP-Cron
+
+        add_action('rankingcoach_schema_cache_cleanup', [self::class, 'cleanupExpiredCache']);
+    }
+
+    /**
+     * Schedule the schema cache cleanup cron event.
+     * Should only be called from plugin activation, not on every request.
+     */
+    public static function scheduleCleanupCron(): void
+    {
         if (!wp_next_scheduled('rankingcoach_schema_cache_cleanup')) {
             wp_schedule_event(time(), 'daily', 'rankingcoach_schema_cache_cleanup');
         }
-        add_action('rankingcoach_schema_cache_cleanup', [self::class, 'cleanupExpiredCache']);
+    }
+
+    /**
+     * Unschedule the schema cache cleanup cron event.
+     * Should only be called from plugin deactivation.
+     */
+    public static function unscheduleCleanupCron(): void
+    {
+        $timestamp = wp_next_scheduled('rankingcoach_schema_cache_cleanup');
+        if ($timestamp) {
+            wp_unschedule_event($timestamp, 'rankingcoach_schema_cache_cleanup');
+        }
     }
 
     /**

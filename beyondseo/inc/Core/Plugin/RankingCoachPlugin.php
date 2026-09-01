@@ -256,7 +256,8 @@ final class RankingCoachPlugin
             str_starts_with( $action, 'rc_' ) ||
             str_contains( $action, '_rc_' ) ||
             str_contains( $action, 'as_async_request_queue_runner' ) ||
-            $action === 'heartbeat';
+            $action === 'heartbeat' ||
+            in_array( $action, [ 'update-plugin', 'install-plugin', 'activate-plugin', 'delete-plugin' ], true );
 
         // Validate that request is for admin-ajax.php
         $isAdminAjax = str_contains( $request_uri, '/admin-ajax.php' );

@@ -8,11 +8,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-use ActionScheduler;
-use ActionScheduler_Store;
 use Elementor\Core\Admin\Admin;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
+use RankingCoach\Inc\Core\CacheManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
@@ -23,6 +22,10 @@ use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\HooksManager;
+use RankingCoach\Inc\Core\Jobs\AccountSyncJob;
+use RankingCoach\Inc\Core\Jobs\BrokenLinkCheckerJob;
+use RankingCoach\Inc\Core\Jobs\LogCleanupJob;
+use RankingCoach\Inc\Core\Jobs\SyncKeywordsJob;
 use RankingCoach\Inc\Core\NotificationManager;
 use RankingCoach\Inc\Core\PluginConfiguration;
 use RankingCoach\Inc\Core\RobotsTxt\RobotsTxtManager;
@@ -30,6 +33,7 @@ use RankingCoach\Inc\Core\Rss\FeedManager;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Core\UrlChangeDetector;
 use RankingCoach\Inc\Interfaces\InitializerInterface;
+use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\SchemaCacheManager;
 use RankingCoach\Inc\Modules\ModuleManager;
 use RankingCoach\Inc\Traits\ConfigManager;
 use RankingCoach\Inc\Traits\HookManager;
@@ -145,7 +149,6 @@ class Installer implements InitializerInterface
         // AdminManager class handles all possible form submissions
         new AdminManager();
     }
-
 
     /**
      * Registers the default plugin settings.
@@ -279,6 +282,54 @@ class Installer implements InitializerInterface
 
         // Initialize URLChangeDetector baseline
         UrlChangeDetector::getInstance()->initializeOriginBaseline();
+
+        // Schedule all recurring WP-Cron jobs owned by the plugin
+        $this->scheduleCronJobs();
+    }
+
+    /**
+     * Schedules all recurring WP-Cron jobs owned by the plugin.
+     *
+     * Onboarding/settings-dependent jobs are scheduled through their own
+     * initializeScheduling() method, which already checks whether their
+     * respective conditions (enabled setting, onboarding completed, module
+     * active, etc.) are met before actually scheduling the event.
+     *
+     * @return void
+     */
+    private function scheduleCronJobs(): void {
+        try {
+            CronJobManager::instance()->scheduleCronJobs();
+            CacheManager::getInstance()->scheduleCleanupCron();
+            SchemaCacheManager::scheduleCleanupCron();
+
+            SyncKeywordsJob::instance()->initializeScheduling();
+            BrokenLinkCheckerJob::instance()->initializeScheduling();
+            LogCleanupJob::instance()->initializeScheduling();
+            AccountSyncJob::instance()->initializeScheduling();
+        } catch (Throwable $e) {
+            $this->log('Failed to schedule cron jobs during activation: ' . $e->getMessage(), 'ERROR');
+        }
+    }
+
+    /**
+     * Unschedules all recurring WP-Cron jobs owned by the plugin.
+     *
+     * @return void
+     */
+    private function unscheduleCronJobs(): void {
+        try {
+            CronJobManager::instance()->clearAllCronJobs();
+            CacheManager::getInstance()->unscheduleCleanupCron();
+            SchemaCacheManager::unscheduleCleanupCron();
+
+            SyncKeywordsJob::instance()->unscheduleJob();
+            BrokenLinkCheckerJob::instance()->unscheduleJob();
+            LogCleanupJob::instance()->unscheduleJob();
+            AccountSyncJob::instance()->unscheduleJob();
+        } catch (Throwable $e) {
+            $this->log('Failed to unschedule cron jobs during deactivation: ' . $e->getMessage(), 'ERROR');
+        }
     }
 
     private function initializeSitemapOptions(): void {
@@ -376,6 +427,15 @@ class Installer implements InitializerInterface
         // How can check if the hook was triggered with php command?
         // $wasTriggered = did_action(Hooks::RANKINGCOACH_ACTION_PLUGIN_DEACTIVATING);
 
+        // Always unschedule all plugin cron jobs on deactivation, regardless of
+        // whether the user opted to delete their data, so WordPress cron
+        // stops running plugin tasks for a deactivated plugin.
+        $this->unscheduleCronJobs();
+
+        // Legacy safety net: also clear any leftover scheduled hooks by name,
+        // in case events were scheduled under old/obsolete hook names.
+        $this->clearAllWpCronEvents();
+
         // Clean all data related to the plugin, including application passwords, cron jobs, and database tables
         if (get_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION)) {
             delete_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION);
@@ -392,61 +452,26 @@ class Installer implements InitializerInterface
             }
         }
     }
-    
-    /**
-     * Cleans up plugin resources during deactivation.
-     * 
-     * @return void
-     * @throws Exception If cleanup fails
-     */
-    public function cleanActionSchedulerJobs(): void {
 
-        // Remove Action-Scheduler related options
-        delete_option('schema-ActionScheduler_LoggerSchema');
-        delete_option('schema-ActionScheduler_StoreSchema');
+    public function clearAllWpCronEvents(): void {
+        $cronHooks = [
+            'rankingcoach_daily_event',
+            'rankingcoach_twice_hourly_event',
+            'rankingcoach_hourly_event',
+            'rankingcoach_wp_cron_enabler',
+            'rankingcoach_account_sync',
+            'rankingcoach_broken_link_checker_scan',
+            'rankingcoach_log_cleanup',
+            'rankingcoach_keywords_synchronization',
+            'rankingcoach_cache_cleanup',
+            'rankingcoach_schema_cache_cleanup',
+        ];
 
-        if (class_exists('ActionScheduler') && method_exists('ActionScheduler', 'is_initialized')) {
-            $initialized = ActionScheduler::is_initialized(true);
-            if ($initialized) {
-                // Cancel all jobs in the RANKINGCOACH_BRAND_NAME group
-                if (function_exists('as_unschedule_all_actions')) {
-                    as_unschedule_all_actions('', [], RANKINGCOACH_BRAND_NAME);
-                }
-
-                // Cancel jobs by hook patterns for fallback
-                $hookPatterns = [
-                    'rankingcoach_',
-                    'beyondseo_',
-                    'rc_'
-                ];
-
-                foreach ($hookPatterns as $pattern) {
-                    if (function_exists('as_get_scheduled_actions')) {
-                        $actions = as_get_scheduled_actions([
-                            'hook' => $pattern,
-                            'status' => ActionScheduler_Store::STATUS_PENDING,
-                            'per_page' => -1
-                        ]);
-
-                        foreach ($actions as $action) {
-                            if (function_exists('as_unschedule_action')) {
-                                as_unschedule_action($action->get_hook(), $action->get_args(), $action->get_group());
-                            }
-                        }
-                    }
-                }
-
-                // Direct database cleanup for any remaining jobs
-                $dbManager = DatabaseManager::getInstance();
-                $dbManager->db()->queryRaw(
-                    /* @lang=MySQL */"DELETE FROM " . $dbManager->db()->prefixTable('actionscheduler_actions') . " WHERE hook LIKE 'rankingcoach_%' OR hook LIKE 'rc_%' OR group_id IN (
-                        SELECT group_id FROM " . $dbManager->db()->prefixTable('actionscheduler_groups') . " WHERE slug = " . $dbManager->db()->escapeValue(RANKINGCOACH_BRAND_NAME) . "
-                    )"
-                );
-            }
+        foreach ($cronHooks as $hook) {
+            wp_clear_scheduled_hook($hook);
         }
     }
-
+    
     /**
      * Manages the activation or deactivation of the plugin across a network.
      *
@@ -634,7 +659,10 @@ class Installer implements InitializerInterface
      */
     public static function handleUninstall(): void
     {
-       // This method is intentionally left empty for now.
+        try {
+            self::getInstance()->clearAllWpCronEvents();
+        } catch (Throwable $e) {
+        }
     }
 
     /**
@@ -658,9 +686,6 @@ class Installer implements InitializerInterface
 
         // Remove all users & posts metadata
         DatabaseTablesManager::getInstance()->removeUsersAndPostsMetadata();
-
-        // Perform Action-Scheduler cleanup operations
-        $this->cleanActionSchedulerJobs();
 
         // Remove testing environment flag if it exists
         delete_option('testing_environment');

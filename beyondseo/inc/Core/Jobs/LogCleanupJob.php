@@ -8,29 +8,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\DB\DatabaseManager;
 use Throwable;
 
 
 /**
  * Class LogCleanupJob
  * 
- * Handles automatic cleanup of old log files using ActionScheduler.
+ * Handles automatic cleanup of old log files using WP_Cron.
  * This job runs daily to remove log files older than the configured retention period,
  * helping to manage disk space and maintain system performance.
  */
-class LogCleanupJob extends ActionSchedulerClass
+class LogCleanupJob extends WpCronJobClass
 {
     use RcLoggerTrait;
 
-    /** @var string The ActionScheduler hook name for log cleanup */
+    /** @var string The WP_Cron hook name for log cleanup */
     protected const ACTION_HOOK = 'rankingcoach_log_cleanup';
 
     /** @var string The settings option key that controls cleanup enablement */
     protected const ENABLE_SETTING_KEY = 'enable_log_cleanup';
 
-    /** @var int Default interval in hours (24 hours = daily) */
-    protected const DEFAULT_INTERVAL_HOURS = 24;
+    /** @var string The recurrence interval */
+    protected const RECURRENCE = 'daily';
 
     /** @var int Number of days to keep log files (files older than this will be deleted) */
     protected const LOG_RETENTION_DAYS = 7;
@@ -64,7 +63,7 @@ class LogCleanupJob extends ActionSchedulerClass
 
     /**
      * Execute the log cleanup process.
-     * This method is called by ActionScheduler when the scheduled action runs.
+     * This method is called by WP_Cron when the scheduled action runs.
      *
      * @param bool $forceExecute
      * @return void
@@ -91,12 +90,8 @@ class LogCleanupJob extends ActionSchedulerClass
             // Execute file-based log cleanup using the trait method
             $deletedFilesCount = $this->deleteOldLogFiles(static::LOG_RETENTION_DAYS);
             
-            // Execute database log cleanup using DatabaseManager
-            $databaseManager = DatabaseManager::getInstance();
-            $deletedDbLogsCount = $databaseManager->deleteOldActionSchedulerLogs(static::LOG_RETENTION_DAYS);
-            
             // Calculate total deletions
-            $totalDeletions = $deletedFilesCount + ($deletedDbLogsCount ?: 0);
+            $totalDeletions = $deletedFilesCount;
 
             $this->log_json([
                 'operation_type' => 'log_cleanup',
@@ -105,7 +100,6 @@ class LogCleanupJob extends ActionSchedulerClass
                 'context_type' => 'cleanup',
                 'retention_days' => static::LOG_RETENTION_DAYS,
                 'files_deleted' => $deletedFilesCount,
-                'db_logs_deleted' => $deletedDbLogsCount ?: 0,
                 'total_deletions' => $totalDeletions,
                 'timestamp' => current_time('mysql')
             ], static::LOG_CONTEXT);

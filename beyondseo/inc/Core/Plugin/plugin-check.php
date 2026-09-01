@@ -7,8 +7,6 @@ if (!defined('ABSPATH')) exit;
  * Configure plugin-check tool to ignore third-party dependencies
  */
 add_filter('wp_plugin_check_ignore_directories', function(array $directories): array {
-    // Add action-scheduler directory to ignored directories
-    $directories[] = 'inc/Core/Plugin/action-scheduler';
     // Add shell directory to ignored directories
     $directories[] = 'shell';
     // Add tools directory to ignored directories
@@ -26,16 +24,6 @@ add_filter('wp_plugin_check_ignore_directories', function(array $directories): a
  * Additional file-level exclusions for external dependencies
  */
 add_filter('wp_plugin_check_ignore_files', function(array $files): array {
-
-    // Add all PHP files in action-scheduler directory to ignored files
-    $action_scheduler_files = glob(RANKINGCOACH_PLUGIN_INCLUDES_DIR . 'Core/Plugin/action-scheduler/**/*.php');
-    if ($action_scheduler_files) {
-        foreach ($action_scheduler_files as $file) {
-            // Convert absolute path to relative path from plugin root
-            $relative_path = str_replace(RANKINGCOACH_PLUGIN_DIR, '', $file);
-            $files[] = ltrim($relative_path, '/');
-        }
-    }
 
     // Add shell directory to ignored directories
     $shell_files = glob(RANKINGCOACH_PLUGIN_DIR . 'shell/*.php');
@@ -92,23 +80,3 @@ add_filter('wp_plugin_check_ignore_files', function(array $files): array {
 
     return $files;
 }, 10, 1);
-
-// Check if Action Scheduler is already loaded (possibly by WooCommerce or another plugin)
-// Only load our version if no other version is loaded or if our version is newer
-// AND ensure our plugin still exists and is active
-if (
-    defined('RANKINGCOACH_PLUGIN_INCLUDES_DIR') &&
-    file_exists(RANKINGCOACH_PLUGIN_INCLUDES_DIR . 'Core/Plugin/action-scheduler/action-scheduler.php') &&
-    function_exists('is_plugin_active') && is_plugin_active(RANKINGCOACH_PLUGIN_BASENAME) &&
-    !function_exists('action_scheduler_register_3_dot_9_dot_2') &&
-    (
-        !class_exists('ActionScheduler_Versions', false) ||
-        (
-            class_exists('ActionScheduler_Versions', false) &&
-            ActionScheduler_Versions::instance()->latest_version() &&
-            version_compare((string)ActionScheduler_Versions::instance()->latest_version(), '3.9.2', '<')
-        )
-    )
-) {
-    require_once RANKINGCOACH_PLUGIN_INCLUDES_DIR . 'Core/Plugin/action-scheduler/action-scheduler.php';
-}

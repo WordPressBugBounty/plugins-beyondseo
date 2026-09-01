@@ -62,11 +62,37 @@ class CacheManager
         add_action('clean_term_cache', [$this, 'onTermCacheClean'], 10, 2);
         add_action('clean_user_cache', [$this, 'onUserCacheClean']);
 
-        // Schedule periodic cache cleanup
+        // Register the cleanup callback. Actual scheduling (wp_schedule_event) is
+        // performed on plugin activation/deactivation, see scheduleCleanupCron()
+        // and unscheduleCleanupCron(), to avoid wp_next_scheduled() checks on every request.
+        add_action('rankingcoach_cache_cleanup', [$this, 'performScheduledCleanup']);
+    }
+
+    /**
+     * Schedule the periodic cache cleanup cron event.
+     * Should only be called from plugin activation, not on every request.
+     *
+     * @return void
+     */
+    public function scheduleCleanupCron(): void
+    {
         if (!wp_next_scheduled('rankingcoach_cache_cleanup')) {
             wp_schedule_event(time(), 'daily', 'rankingcoach_cache_cleanup');
         }
-        add_action('rankingcoach_cache_cleanup', [$this, 'performScheduledCleanup']);
+    }
+
+    /**
+     * Unschedule the periodic cache cleanup cron event.
+     * Should only be called from plugin deactivation.
+     *
+     * @return void
+     */
+    public function unscheduleCleanupCron(): void
+    {
+        $timestamp = wp_next_scheduled('rankingcoach_cache_cleanup');
+        if ($timestamp) {
+            wp_unschedule_event($timestamp, 'rankingcoach_cache_cleanup');
+        }
     }
 
     /**
@@ -491,7 +517,16 @@ class CacheManager
     }
 
     /**
+     * Maximum number of expired transients removed per cleanup run,
+     * to avoid long-running/locking bulk deletes on large wp_options tables.
+     */
+    private const MAX_TRANSIENTS_PER_CLEANUP = 500;
+
+    /**
      * Clear expired transients
+     *
+     * Performs bulk DELETE queries (with a row limit) instead of querying
+     * expired rows and deleting them one-by-one in PHP.
      *
      * @return int Number of expired transients cleared
      */
@@ -499,44 +534,79 @@ class CacheManager
     {
         global $wpdb;
         $cleared = 0;
-        
+
         try {
             $dbManager = DatabaseManager::getInstance();
-            
-            // Clear expired regular transients
+
+            // Find expired regular transients (limited batch)
             $expiredResults = $dbManager->db()
                 ->table($wpdb->options)
                 ->select("REPLACE(option_name, '_transient_timeout_', '') as transient_name")
                 ->whereLike('option_name', '_transient_timeout_%')
                 ->whereRaw('option_value < UNIX_TIMESTAMP()')
+                ->limit(self::MAX_TRANSIENTS_PER_CLEANUP)
                 ->get();
-            
-            foreach ($expiredResults as $row) {
-                delete_transient($row->transient_name);
-                $cleared++;
+
+            $transientNames = array_map(static fn($row) => $row->transient_name, (array) $expiredResults);
+
+            if (!empty($transientNames)) {
+                $optionNames = [];
+                foreach ($transientNames as $name) {
+                    $optionNames[] = '_transient_' . $name;
+                    $optionNames[] = '_transient_timeout_' . $name;
+                }
+
+                $placeholders = implode(',', array_fill(0, count($optionNames), '%s'));
+                // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+                $cleared += (int) $wpdb->query(
+                    $wpdb->prepare("DELETE FROM {$wpdb->options} WHERE option_name IN ($placeholders)", $optionNames)
+                );
+
+                // Keep the object cache consistent for sites running a persistent cache backend.
+                foreach ($transientNames as $name) {
+                    wp_cache_delete($name, 'transient');
+                    wp_cache_delete('timeout_' . $name, 'transient');
+                }
             }
-            
-            // Clear expired site transients (multisite)
+
+            // Clear expired site transients (multisite, limited batch)
             if (is_multisite()) {
                 $expiredSiteResults = $dbManager->db()
                     ->table($wpdb->sitemeta)
                     ->select("REPLACE(meta_key, '_site_transient_timeout_', '') as transient_name")
                     ->whereLike('meta_key', '_site_transient_timeout_%')
                     ->whereRaw('meta_value < UNIX_TIMESTAMP()')
+                    ->limit(self::MAX_TRANSIENTS_PER_CLEANUP)
                     ->get();
-                
-                foreach ($expiredSiteResults as $row) {
-                    delete_site_transient($row->transient_name);
-                    $cleared++;
+
+                $siteTransientNames = array_map(static fn($row) => $row->transient_name, (array) $expiredSiteResults);
+
+                if (!empty($siteTransientNames)) {
+                    $metaKeys = [];
+                    foreach ($siteTransientNames as $name) {
+                        $metaKeys[] = '_site_transient_' . $name;
+                        $metaKeys[] = '_site_transient_timeout_' . $name;
+                    }
+
+                    $placeholders = implode(',', array_fill(0, count($metaKeys), '%s'));
+                    // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+                    $cleared += (int) $wpdb->query(
+                        $wpdb->prepare("DELETE FROM {$wpdb->sitemeta} WHERE meta_key IN ($placeholders)", $metaKeys)
+                    );
+
+                    foreach ($siteTransientNames as $name) {
+                        wp_cache_delete($name, 'site-transient');
+                        wp_cache_delete('timeout_' . $name, 'site-transient');
+                    }
                 }
             }
-            
+
             $this->updateCacheStats('expired_transients_cleared', $cleared);
-            
+
         } catch (Throwable $e) {
             $this->log('Error clearing expired transients: ' . $e->getMessage());
         }
-        
+
         return $cleared;
     }
 

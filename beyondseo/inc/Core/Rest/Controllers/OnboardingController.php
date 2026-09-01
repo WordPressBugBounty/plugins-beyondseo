@@ -172,7 +172,11 @@ class OnboardingController
         try {
             $requirementsData = $this->getFormattedRequirementsData();
 
-            RCApiManager::getInstance()->submitOnboarding($requirementsData);
+            // Raised as a catchable exception (not the #[NoReturn] error page) so a
+            // remote failure surfaces as a structured REST error the frontend can show.
+            $this->withRemoteErrorsAsExceptions(
+                fn() => RCApiManager::getInstance()->submitOnboarding($requirementsData)
+            );
 
             try {
                 $this->withRemoteErrorsAsExceptions(

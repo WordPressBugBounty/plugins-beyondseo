@@ -6,6 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'RankingCoach\\Tools\\Dev\\' => array($baseDir . '/tools/Dev'),
     'RankingCoach\\Inc\\' => array($baseDir . '/inc'),
 );

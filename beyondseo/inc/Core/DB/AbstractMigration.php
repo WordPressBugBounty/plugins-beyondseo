@@ -34,8 +34,21 @@ abstract class AbstractMigration implements MigrationInterface
     protected function executeQuery(string $sql): bool
     {
         try {
+            // dbDelta() never throws — a query MySQL rejects (e.g. an index over the
+            // host's key-length limit) only lands in $wpdb->last_error. Without checking
+            // it, a failed CREATE reports success, the migration gets recorded, and the
+            // table silently never exists.
+            $wpdb = $this->dbManager->db()->db;
+            $wpdb->last_error = '';
+
             // Use the dbDelta method from DatabaseManager instead of calling dbDelta directly
             $this->dbManager->dbDelta($sql);
+
+            if (!empty($wpdb->last_error)) {
+                $this->log('Migration query failed: ' . $wpdb->last_error . ' — SQL: ' . $sql, 'ERROR');
+                return false;
+            }
+
             return true;
         } catch (\Throwable $e) {
             $this->log('Migration error: ' . $e->getMessage(), 'ERROR');

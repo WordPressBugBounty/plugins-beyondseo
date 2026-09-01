@@ -16,23 +16,23 @@ use Throwable;
 /**
  * Class BrokenLinkCheckerJob
  * 
- * Handles scheduled broken link checking across all posts and pages using ActionScheduler.
+ * Handles scheduled broken link checking across all posts and pages using WP_Cron.
  * This job manages the scheduling, execution, and cleanup of link status verification operations
  * based on plugin settings and module availability.
  * 
  * The job scans all links stored in the database and updates their status (active/broken)
  * by performing HTTP requests to verify link accessibility.
  */
-class BrokenLinkCheckerJob extends ActionSchedulerClass
+class BrokenLinkCheckerJob extends WpCronJobClass
 {
-    /** @var string The ActionScheduler hook name for broken link checking */
+    /** @var string The WP_Cron hook name for broken link checking */
     protected const ACTION_HOOK = 'rankingcoach_broken_link_checker_scan';
 
     /** @var string The settings option key that controls link checking enablement */
     protected const ENABLE_SETTING_KEY = 'enable_broken_link_checker_job';
 
-    /** @var int Default check interval in hours (daily) */
-    protected const DEFAULT_INTERVAL_HOURS = 24;
+    /** @var string The recurrence interval */
+    protected const RECURRENCE = 'daily';
 
     /** @var string Log context for broken link checking operations */
     protected const LOG_CONTEXT = 'broken_link_checker_job';
@@ -63,7 +63,7 @@ class BrokenLinkCheckerJob extends ActionSchedulerClass
 
     /**
      * Execute the broken link checking process.
-     * This method is called by ActionScheduler when the scheduled action runs.
+     * This method is called by WP_Cron when the scheduled action runs.
      *
      * Performs comprehensive link status verification across all stored links,
      * updating their status based on HTTP response codes and accessibility.
@@ -106,37 +106,54 @@ class BrokenLinkCheckerJob extends ActionSchedulerClass
                 return;
             }
 
-            // Record job execution start
-            $startTime = microtime(true);
-            
-            $this->log_json([
-                'operation_type' => 'broken_link_checking',
-                'operation_status' => 'started',
-                'context_entity' => 'broken_link_checker_job',
-                'context_type' => 'link_verification',
-                'message' => 'Starting comprehensive link status verification',
-                'timestamp' => current_time('mysql')
-            ], static::LOG_CONTEXT);
+            // Prevent overlapping scans (e.g. duplicate cron triggers)
+            if (!$this->acquireLock()) {
+                $this->log_json([
+                    'operation_type' => 'broken_link_checking',
+                    'operation_status' => 'skipped_locked',
+                    'context_entity' => 'broken_link_checker_job',
+                    'context_type' => 'link_verification',
+                    'message' => 'Another link checking run is already in progress, skipping',
+                    'timestamp' => current_time('mysql')
+                ], static::LOG_CONTEXT);
+                return;
+            }
 
-            // Execute the actual link checking process
-            $brokenLinkChecker->checkAllLinks();
-            
-            // Calculate execution time
-            $executionTime = round((microtime(true) - $startTime) * 1000, 2);
+            try {
+                // Record job execution start
+                $startTime = microtime(true);
 
-            // Get post-execution statistics
-            $stats = $this->getLinkCheckingStatistics();
+                $this->log_json([
+                    'operation_type' => 'broken_link_checking',
+                    'operation_status' => 'started',
+                    'context_entity' => 'broken_link_checker_job',
+                    'context_type' => 'link_verification',
+                    'message' => 'Starting comprehensive link status verification',
+                    'timestamp' => current_time('mysql')
+                ], static::LOG_CONTEXT);
 
-            $this->log_json([
-                'operation_type' => 'broken_link_checking',
-                'operation_status' => 'completed_successfully',
-                'context_entity' => 'broken_link_checker_job',
-                'context_type' => 'link_verification',
-                'execution_time_ms' => $executionTime,
-                'statistics' => $stats,
-                'message' => 'Link status verification completed successfully',
-                'timestamp' => current_time('mysql')
-            ], static::LOG_CONTEXT);
+                // Execute the actual link checking process
+                $brokenLinkChecker->checkAllLinks();
+
+                // Calculate execution time
+                $executionTime = round((microtime(true) - $startTime) * 1000, 2);
+
+                // Get post-execution statistics
+                $stats = $this->getLinkCheckingStatistics();
+
+                $this->log_json([
+                    'operation_type' => 'broken_link_checking',
+                    'operation_status' => 'completed_successfully',
+                    'context_entity' => 'broken_link_checker_job',
+                    'context_type' => 'link_verification',
+                    'execution_time_ms' => $executionTime,
+                    'statistics' => $stats,
+                    'message' => 'Link status verification completed successfully',
+                    'timestamp' => current_time('mysql')
+                ], static::LOG_CONTEXT);
+            } finally {
+                $this->releaseLock();
+            }
 
         } catch (Throwable $e) {
             $this->log_json([

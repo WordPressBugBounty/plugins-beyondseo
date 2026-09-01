@@ -8,11 +8,9 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
-use ActionScheduler;
 use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
-use RankingCoach\Inc\Core\Admin\WpCronDisabledNotice;
 use RankingCoach\Inc\Core\Api\User\UserApiManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Traits\SingletonTrait;
@@ -27,7 +25,6 @@ use RankingCoach\Inc\Core\Jobs\AccountSyncJob;
 use RankingCoach\Inc\Core\Jobs\BrokenLinkCheckerJob;
 use RankingCoach\Inc\Core\Jobs\LogCleanupJob;
 use RankingCoach\Inc\Core\Jobs\SyncKeywordsJob;
-use RankingCoach\Inc\Core\Jobs\WpConfigCronEnablerJob;
 use RankingCoach\Inc\Core\Rest\RestManager;
 use RankingCoach\Inc\Core\Security\SecurityManager;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -55,6 +52,9 @@ class HooksManager
     use HookManager;
     use ConfigManager;
     use SingletonTrait;
+
+    /** @var string Notification ID used to warn admins that WP-Cron is disabled */
+    private const WP_CRON_DISABLED_NOTIFICATION_ID = 'rc_wp_cron_disabled';
 
     /**
      * After the plugin is loaded
@@ -87,16 +87,25 @@ class HooksManager
         add_action('plugins_loaded', [$this, 'pageAndPostSessionHandlers'], 1);
         add_action('plugins_loaded', [$this, 'initializeUrlChangeDetector'], 1);
 
+        // Re-evaluate cron scheduling whenever the onboarding state changes,
+        // instead of checking wp_next_scheduled() on every request.
+        add_action('update_option_' . BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_WP, [$this, 'refreshCronScheduling'], 10, 0);
+        add_action('update_option_' . BaseConstants::OPTION_ACCOUNT_ONBOARDING_ON_RC, [$this, 'refreshCronScheduling'], 10, 0);
+
         // this happens only if the onboarding is completed
         if (WordpressHelpers::isOnboardingCompleted()) {
-            // Initialize jobs after ActionScheduler is ready (init hook with priority 15)
-            if(class_exists('ActionScheduler')) {
-                add_action('init', [$this, 'initializeKeywordSynchronization'], 15);
-                add_action('init', [$this, 'initializeWpCronEnabler'], 15);
-                add_action('init', [$this, 'initializeBrokenLinkChecker'], 15);
-                add_action('init', [$this, 'initializeLogCleanupJob'], 15);
-                add_action('init', [$this, 'initializeAccountSyncJob'], 15);
-            }
+            // Initialize jobs (init hook with priority 15)
+            // Note: this only registers the cron action hooks/listeners (cheap, no DB calls).
+            // Actual scheduling (wp_next_scheduled/wp_schedule_event) happens on plugin
+            // activation/deactivation and when onboarding/settings state changes, see
+            // refreshCronScheduling() and Installer.
+            add_action('init', [$this, 'initializeKeywordSynchronization'], 15);
+            add_action('init', [$this, 'initializeBrokenLinkChecker'], 15);
+            add_action('init', [$this, 'initializeLogCleanupJob'], 15);
+            add_action('init', [$this, 'initializeAccountSyncJob'], 15);
+
+            // Notify the admin (without touching wp-config.php) if WordPress cron is disabled
+            add_action('admin_init', [$this, 'maybeNotifyWpCronDisabled'], 20);
 
             // This hook is based on "handleUpselling", which provides the upsell URL to the client,
             // and redirects them to the upsell page in the partner account, when the force check option is set.
@@ -581,13 +590,40 @@ class HooksManager
     public function pluginUpgraderProcessComplete(WP_Upgrader $upgrader, array $hook_extra = []): void
     {
         // Check if our plugin was updated
-        if ($hook_extra['action'] === 'update' && $hook_extra['type'] === 'plugin') {
-            // Get the plugin basename
-            $plugin_basename = RANKINGCOACH_PLUGIN_BASENAME;
+        if (($hook_extra['action'] ?? '') === 'update' && ($hook_extra['type'] ?? '') === 'plugin') {
+            $plugin_basename = 'beyondseo/beyondseo.php';
+            if (defined('RANKINGCOACH_PLUGIN_BASENAME')) {
+                $plugin_basename = RANKINGCOACH_PLUGIN_BASENAME;
+            } elseif (defined('RANKINGCOACH_FILE')) {
+                $plugin_basename = plugin_basename(RANKINGCOACH_FILE);
+            }
+
+            $plugins = [];
+            if (!empty($hook_extra['plugin']) && is_string($hook_extra['plugin'])) {
+                $plugins[] = $hook_extra['plugin'];
+            }
+            if (!empty($hook_extra['plugins']) && is_array($hook_extra['plugins'])) {
+                $plugins = array_merge($plugins, $hook_extra['plugins']);
+            }
+
+            $is_our_plugin = false;
+            foreach ($plugins as $plugin) {
+                if (
+                    $plugin === $plugin_basename
+                    || $plugin === 'beyond-seo/beyond-seo.php'
+                    || $plugin === 'beyondseo/beyondseo.php'
+                    || str_contains($plugin, 'beyond-seo.php')
+                    || str_contains($plugin, 'beyondseo.php')
+                    || dirname($plugin) === 'beyond-seo'
+                    || dirname($plugin) === 'beyondseo'
+                ) {
+                    $is_our_plugin = true;
+                    break;
+                }
+            }
 
             // Check if our plugin is in the list of updated plugins
-            if (isset($hook_extra['plugins']) && in_array($plugin_basename, $hook_extra['plugins'])) {
-
+            if ($is_our_plugin) {
                 // Sync plugin version to wp_options
                 try {
                     $pluginData = PluginConfiguration::getInstance()->getPluginData();
@@ -603,7 +639,11 @@ class HooksManager
                 SettingsManager::instance()->syncNewSettingsFromDefaults();
 
                 // Initialize default settings for any new or existing modules
-                ModuleManager::instance()->initialize();
+                try {
+                    ModuleManager::instance()->initialize();
+                } catch (Throwable $e) {
+                    $this->log('Error initializing modules on update: ' . $e->getMessage(), 'ERROR');
+                }
 
                 // Clear all notifications
                 NotificationManager::instance()?->removeAllNotifications();
@@ -729,31 +769,6 @@ class HooksManager
         ];
     }
 
-    /**
-     * Ensure Action Scheduler is loaded for async tasks. Safe if missing.
-     */
-    public function ensureActionSchedulerLoaded(): void
-    {
-        if (function_exists('as_enqueue_async_action') || function_exists('as_schedule_single_action')) {
-            return;
-        }
-
-        // Try to load bundled Action Scheduler
-        $as_path = RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Plugin/action-scheduler/action-scheduler.php';
-        if (file_exists($as_path)) {
-            require_once $as_path;
-            // In most cases Action Scheduler bootstraps itself on include.
-            if (class_exists('ActionScheduler') && method_exists('ActionScheduler', 'init')) {
-                try {
-                    ActionScheduler::init(RANKINGCOACH_PLUGIN_BASENAME);
-                } catch (Throwable $e) {
-                    // Silently ignore; we provide WP-Cron fallback elsewhere
-                    beyondseo_rclh('Action Scheduler init failed: ' . $e->getMessage(), 'WARNING');
-                }
-            }
-        }
-    }
-
     public function initializeLogCleanupJob(): void {
         try {
             // Initialize the log cleanup job
@@ -782,18 +797,60 @@ class HooksManager
     }
 
     /**
-     * Initialize the WP-Cron Enabler job.
-     * This method sets up the job to ensure WP-Cron is enabled and scheduled correctly.
+     * Notify the admin if WordPress cron (DISABLE_WP_CRON) is disabled.
+     * This is purely advisory - the plugin never modifies wp-config.php.
      *
      * @return void
      */
-    public function initializeWpCronEnabler(): void
+    public function maybeNotifyWpCronDisabled(): void
     {
         try {
-            WpConfigCronEnablerJob::instance()->initialize();
-            (new WpCronDisabledNotice())->init();
+            $notificationManager = NotificationManager::instance();
+
+            if (!(defined('DISABLE_WP_CRON') && DISABLE_WP_CRON)) {
+                return;
+            }
+
+            if ($notificationManager?->has_notification(self::WP_CRON_DISABLED_NOTIFICATION_ID)) {
+                return;
+            }
+
+            $message = sprintf(
+                '<p>%s</p>',
+                __('WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.', 'beyondseo')
+            );
+
+            $notificationManager?->add(
+                $message,
+                [
+                    'id' => self::WP_CRON_DISABLED_NOTIFICATION_ID,
+                    'type' => Notification::WARNING,
+                    'screen' => Notification::SCREEN_ANY,
+                    'dismissible' => true,
+                    'persistent' => true,
+                ]
+            );
         } catch (Throwable $e) {
-            $this->log('Failed to initialize WP-Cron-Enabler job: ' . $e->getMessage(), 'ERROR');
+            $this->log('Failed to check/notify WP-Cron disabled state: ' . $e->getMessage(), 'ERROR');
+        }
+    }
+
+    /**
+     * Re-evaluate cron job scheduling for all cron-based jobs.
+     * Called when onboarding state changes, instead of running wp_next_scheduled()
+     * checks on every request via the init hook.
+     *
+     * @return void
+     */
+    public function refreshCronScheduling(): void
+    {
+        try {
+            SyncKeywordsJob::instance()->initializeScheduling();
+            BrokenLinkCheckerJob::instance()->initializeScheduling();
+            LogCleanupJob::instance()->initializeScheduling();
+            AccountSyncJob::instance()->initializeScheduling();
+        } catch (Throwable $e) {
+            $this->log('Failed to refresh cron scheduling: ' . $e->getMessage(), 'ERROR');
         }
     }
 

@@ -112,6 +112,18 @@ class BrokenLinkChecker extends BaseModule {
     }
     
     /**
+     * Maximum number of links to process per cron execution to avoid
+     * saturating PHP-FPM workers on sites with many links.
+     */
+    private const MAX_LINKS_PER_RUN = 30;
+
+    /**
+     * Maximum execution time budget (in seconds) for a single run of checkAllLinks().
+     * Prevents long-running scans from blocking WP-Cron workers indefinitely.
+     */
+    private const MAX_EXECUTION_TIME_SECONDS = 15;
+
+    /**
      * Check all links in the database and update their status.
      * 
      * @return void
@@ -119,14 +131,19 @@ class BrokenLinkChecker extends BaseModule {
     public function checkAllLinks($linkIds = []): void
     {
         $tableName = DatabaseTablesManager::DATABASE_MOD_BROKEN_LINK_CHECKER;
-        
-        // Get all URLs from the database
+        $sevenDaysAgo = gmdate('Y-m-d H:i:s', time() - (7 * DAY_IN_SECONDS));
+
+        // Get URLs that are not currently marked broken, and were either never
+        // scanned or scanned more than 7 days ago. Limit the batch size to avoid
+        // processing the entire link table in a single cron run.
         $urls = $this->dbManager->table($tableName)
-            ->whereOr(function($query) {
-                $query->where('status', 'broken', '!=')
-                    ->whereNull('scan_date')
-                    ->where('scan_date', '(DATE_SUB(NOW(), INTERVAL 7 DAY)', '<');
-            });
+            ->where('status', 'broken', '!=')
+            ->whereOr(function($query) use ($sevenDaysAgo) {
+                $query->whereNull('scan_date')
+                    ->where('scan_date', $sevenDaysAgo, '<');
+            })
+            ->limit(self::MAX_LINKS_PER_RUN);
+
         if (count($linkIds) > 0) {
             $urls->whereIn('id', $linkIds);
         }
@@ -137,11 +154,18 @@ class BrokenLinkChecker extends BaseModule {
             return;
         }
         
+        $startTime = microtime(true);
+
         // Process URLs in batches for parallel processing
         $batches = array_chunk($urlsArray, 10);
         
         foreach ($batches as $batch) {
             $this->processUrlBatch($batch);
+
+            // Stop processing further batches if we've exceeded the execution time budget
+            if ((microtime(true) - $startTime) > self::MAX_EXECUTION_TIME_SECONDS) {
+                break;
+            }
         }
     }
     

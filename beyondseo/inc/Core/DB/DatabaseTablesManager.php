@@ -59,10 +59,12 @@ class DatabaseTablesManager
     public const DATABASE_MOD_BROKEN_LINK_CHECKER = 'rankingcoach_broken_link_checker';
     public const DATABASE_MOD_METATAGS = 'rankingcoach_metatags';
 
+    // Indexed VARCHARs must stay <= 191 chars: utf8mb4 costs 4 bytes/char and the
+    // smallest index key limit across shared hosts is 767 bytes (191 * 4 = 764).
     public const TABLE_MIGRATIONS = [
         'schema' => "CREATE TABLE {table_name} (
             id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            migration_name VARCHAR(255) NOT NULL,
+            migration_name VARCHAR(191) NOT NULL,
             migration_file VARCHAR(255) NOT NULL,
             batch INT UNSIGNED NOT NULL,
             executed_at DATETIME NOT NULL,

@@ -17,23 +17,23 @@ use Throwable;
 /**
  * Class AccountSyncJob
  * 
- * Handles automatic synchronization of customer account data using ActionScheduler.
+ * Handles automatic synchronization of customer account data using WP_Cron.
  * This job runs periodically to check and update subscription data from the API,
  * ensuring the local data stays in sync with the remote account information.
  * When subscription data is successfully updated, it resets upsell retry mechanisms.
  */
-class AccountSyncJob extends ActionSchedulerClass
+class AccountSyncJob extends WpCronJobClass
 {
     use RcLoggerTrait;
 
-    /** @var string The ActionScheduler hook name for account sync */
+    /** @var string The WP_Cron hook name for account sync */
     protected const ACTION_HOOK = 'rankingcoach_account_sync';
 
     /** @var string The settings option key that controls sync enablement */
     protected const ENABLE_SETTING_KEY = 'enable_account_sync';
 
-    /** @var int Default interval in hours (12 hours) */
-    protected const DEFAULT_INTERVAL_HOURS = 12;
+    /** @var string The recurrence interval */
+    protected const RECURRENCE = 'twicedaily';
 
     /** @var string Log context for account sync operations */
     protected const LOG_CONTEXT = 'account_sync';
@@ -64,7 +64,7 @@ class AccountSyncJob extends ActionSchedulerClass
 
     /**
      * Execute the account synchronization process.
-     * This method is called by ActionScheduler when the scheduled action runs.
+     * This method is called by WP_Cron when the scheduled action runs.
      *
      * @param bool $forceExecute
      * @return void
@@ -88,45 +88,62 @@ class AccountSyncJob extends ActionSchedulerClass
                 return;
             }
 
-            $currentSubscription = get_option(BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION, null);
-
-            // Get UserApiManager instance
-            $uam = UserApiManager::getInstance(bearerToken: true);
-            
-            // Fetch account data from API
-            $accountDetails = $uam->fetchAndUpdateAccountDetails();
-
-            if (!$accountDetails) {
+            // Prevent overlapping runs (e.g. duplicate cron triggers or API latency)
+            if (!$this->acquireLock()) {
                 $this->log_json([
                     'operation_type' => 'account_sync',
-                    'operation_status' => 'failed_update',
+                    'operation_status' => 'skipped_locked',
                     'context_entity' => 'account_sync_job',
                     'context_type' => 'sync',
-                    'message' => 'Failed to update subscription data',
+                    'message' => 'Another account sync run is already in progress, skipping',
                     'timestamp' => current_time('mysql')
                 ], static::LOG_CONTEXT);
                 return;
             }
 
+            try {
+                $currentSubscription = get_option(BaseConstants::OPTION_RANKINGCOACH_SUBSCRIPTION, null);
 
-            // Check if subscription has changed
-            $newSubscription = $accountDetails->subscription ?? null;
-            $subscriptionChanged = ($currentSubscription !== $newSubscription);
+                // Get UserApiManager instance
+                $uam = UserApiManager::getInstance(bearerToken: true);
 
-            // Reset upsell retry mechanisms after successful sync
-            $this->resetUpsellRetryMechanisms();
+                // Fetch account data from API
+                $accountDetails = $uam->fetchAndUpdateAccountDetails();
 
-            $this->log_json([
-                'operation_type' => 'account_sync',
-                'operation_status' => 'completed_successfully',
-                'context_entity' => 'account_sync_job',
-                'context_type' => 'sync',
-                'subscription_changed' => $subscriptionChanged,
-                'old_subscription' => $currentSubscription,
-                'new_subscription' => $newSubscription,
-                'upsell_retry_reset' => true,
-                'timestamp' => current_time('mysql')
-            ], static::LOG_CONTEXT);
+                if (!$accountDetails) {
+                    $this->log_json([
+                        'operation_type' => 'account_sync',
+                        'operation_status' => 'failed_update',
+                        'context_entity' => 'account_sync_job',
+                        'context_type' => 'sync',
+                        'message' => 'Failed to update subscription data',
+                        'timestamp' => current_time('mysql')
+                    ], static::LOG_CONTEXT);
+                    return;
+                }
+
+
+                // Check if subscription has changed
+                $newSubscription = $accountDetails->subscription ?? null;
+                $subscriptionChanged = ($currentSubscription !== $newSubscription);
+
+                // Reset upsell retry mechanisms after successful sync
+                $this->resetUpsellRetryMechanisms();
+
+                $this->log_json([
+                    'operation_type' => 'account_sync',
+                    'operation_status' => 'completed_successfully',
+                    'context_entity' => 'account_sync_job',
+                    'context_type' => 'sync',
+                    'subscription_changed' => $subscriptionChanged,
+                    'old_subscription' => $currentSubscription,
+                    'new_subscription' => $newSubscription,
+                    'upsell_retry_reset' => true,
+                    'timestamp' => current_time('mysql')
+                ], static::LOG_CONTEXT);
+            } finally {
+                $this->releaseLock();
+            }
 
         } catch (HttpApiException $e) {
             $this->log_json([

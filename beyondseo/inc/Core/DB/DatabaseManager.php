@@ -25,7 +25,7 @@ class DatabaseManager
     /**
      * @var string Database version
      */
-    private const BEYONDSEO_DB_VERSION = '1.0.2';
+    private const BEYONDSEO_DB_VERSION = '1.0.3';
 
     /**
      * @var Database The Database instance
@@ -549,38 +549,6 @@ class DatabaseManager
             
             return false;
         }
-    }
-
-    /**
-     * Delete old ActionScheduler log entries using the builder pattern
-     * 
-     * This method creates a fluent interface for deleting old log entries from the
-     * actionscheduler_logs table based on the log_date_gmt column and retention period.
-     *
-     * @param int $retentionDays Number of days to keep log entries (entries older than this will be deleted)
-     * @return int|false The number of rows deleted or false on failure
-     */
-    public function deleteOldActionSchedulerLogs(int $retentionDays): int|false
-    {
-        $logsDeleted = $this->deleteOldEntriesByDate('actionscheduler_logs', 'log_date_gmt', $retentionDays);
-        $actionsDeleted = $this->deleteOldEntriesByDate('actionscheduler_actions', 'last_attempt_local', $retentionDays);
-
-        $logsIsInt = is_int($logsDeleted);
-        $actionsIsInt = is_int($actionsDeleted);
-
-        if ($logsIsInt && $actionsIsInt) {
-            return $logsDeleted + $actionsDeleted;
-        }
-
-        if ($logsIsInt) {
-            return $logsDeleted;
-        }
-
-        if ($actionsIsInt) {
-            return $actionsDeleted;
-        }
-
-        return false;
     }
 
     /**

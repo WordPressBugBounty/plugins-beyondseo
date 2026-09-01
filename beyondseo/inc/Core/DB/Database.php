@@ -968,7 +968,7 @@ class Database
      */
     public function queryRaw(string $sql, string $output = 'OBJECT'): mixed
     {
-        if (stripos($sql, 'SELECT') !== 0) {
+        if (preg_match('/^\s*(SELECT|SHOW|DESCRIBE|DESC|EXPLAIN)\b/i', $sql)) {
             return $this->db->get_results($sql, $output);
         }
         

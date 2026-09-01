@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 8.0
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,10 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.3 =
+* Update UI/UX for better user experience
+* Bug fixes and stability improvements
 
 = 1.3.2 =
 * Update UI/UX for better user experience

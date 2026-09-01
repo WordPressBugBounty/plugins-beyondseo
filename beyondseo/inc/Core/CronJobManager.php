@@ -50,19 +50,31 @@ class CronJobManager
     }
 
     /**
-     * Initializes default cron jobs during plugin activation.
+     * Registers cron-related hooks and the token status check action.
+     * This is cheap (no DB calls) and safe to run on every request/plugins_loaded.
+     *
+     * Actual scheduling (wp_schedule_event) is handled separately via
+     * scheduleCronJobs()/clearAllCronJobs(), which should only be invoked on
+     * plugin activation/deactivation to avoid wp_next_scheduled() checks on
+     * every request.
      *
      * @return void
      */
     public function initialize(): void
     {
-        // Register the cron schedules
-        add_filter('cron_schedules', [$this, 'define_cron_schedules']);
         // Register token validity check task
         add_action(BaseConstants::OPTION_CRONJOB_TWICE_HOURLY_EVENT, [$this, 'rankingcoach_twice_hourly_task_handler']);
-        $this->add_cron_job(BaseConstants::OPTION_CRONJOB_DAILY_EVENT, 'daily', [$this, 'rankingcoach_daily_task_handler']);
-        $this->add_cron_job(BaseConstants::OPTION_CRONJOB_TWICE_HOURLY_EVENT, 'twice_hourly', [$this, 'rankingcoach_twice_hourly_task_handler']);
-        $this->add_cron_job(BaseConstants::OPTION_CRONJOB_HOURLY_EVENT, 'hourly', [$this, 'rankingcoach_hourly_task_handler']);
+    }
+
+    /**
+     * Schedules the plugin's recurring cron jobs.
+     * Should only be called from plugin activation, not on every request.
+     *
+     * @return void
+     */
+    public function scheduleCronJobs(): void
+    {
+        $this->add_cron_job(BaseConstants::OPTION_CRONJOB_TWICE_HOURLY_EVENT, 'daily', [$this, 'rankingcoach_twice_hourly_task_handler']);
     }
     /**
      * Registers a new cron job with the specified recurrence interval.
@@ -101,9 +113,7 @@ class CronJobManager
      */
     public function clearAllCronJobs(): void
     {
-        $this->remove_cron_job(BaseConstants::OPTION_CRONJOB_DAILY_EVENT);
         $this->remove_cron_job(BaseConstants::OPTION_CRONJOB_TWICE_HOURLY_EVENT);
-        $this->remove_cron_job(BaseConstants::OPTION_CRONJOB_HOURLY_EVENT);
     }
     /**
      * Checks if a specified cron job is scheduled.
@@ -131,20 +141,7 @@ class CronJobManager
         }
     }
     /**
-     * Handles the daily task for this plugin.
-     *
-     * @return void
-     */
-    public function rankingcoach_daily_task_handler(): void
-    {
-        if (!FunctionalityBlocker::instance()->getCircuitBreaker()->check_circuit_state()) {
-            return;
-        }
-        // Logic for a daily task.
-        $this->log_event('Daily task executed.');
-    }
-    /**
-     * Handles the daily task for this plugin.
+     * Handles the token status check task for this plugin.
      *
      * @return void
      * @throws Throwable
@@ -159,20 +156,6 @@ class CronJobManager
         /** @var TokensManager $tokensManager */
         $tokensManager = TokensManager::getInstance();
         $tokensManager->calculateRefreshTokenRemainingDays();
-    }
-    /**
-     * Handles the hourly task for this plugin.
-     *
-     * @return void
-     * @throws Throwable
-     */
-    public function rankingcoach_hourly_task_handler(): void
-    {
-        if (!FunctionalityBlocker::instance()->getCircuitBreaker()->check_circuit_state()) {
-            return;
-        }
-        // Logic for an hourly task.
-        $this->log_event('Hourly task executed.');
     }
     /**
      * Logs cron events for debugging purposes.
@@ -196,18 +179,9 @@ class CronJobManager
      */
     public function define_cron_schedules(array $schedules): array
     {
-        // Add a new interval of 30 minutes
-        if (!isset($schedules['twice_hourly'])) {
-            $schedules['twice_hourly'] = ['interval' => MINUTE_IN_SECONDS * 30, 'display' => 'Every 30 minutes'];
-        }
-        // Add a new interval of 1 day
-        if (!isset($schedules['daily'])) {
-            $schedules['daily'] = ['interval' => DAY_IN_SECONDS, 'display' => 'Once Daily'];
-        }
-        // Add a new interval of 1 hour
-        if (!isset($schedules['hourly'])) {
-            $schedules['hourly'] = ['interval' => HOUR_IN_SECONDS, 'display' => 'Once Hourly'];
-        }
+        // WordPress already ships with a 'daily' schedule; no custom
+        // intervals are required anymore now that all plugin cron jobs
+        // run on WordPress' built-in recurrences.
         return $schedules;
     }
     /**

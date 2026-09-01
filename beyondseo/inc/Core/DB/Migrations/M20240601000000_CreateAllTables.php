@@ -105,16 +105,17 @@ class M20240601000000_CreateAllTables extends AbstractMigration
         $tableName = $this->getTableName(DatabaseTablesManager::DATABASE_SETUP_COLLECTORS);
         $charsetCollate = $this->getCharsetCollate();
         
+        // collector is unique-indexed: VARCHAR(100) keeps the key at 400 bytes,
+        // under the 767-byte limit on hosts without large index prefixes.
         $sql = "CREATE TABLE IF NOT EXISTS $tableName (
             id BIGINT NOT NULL AUTO_INCREMENT,
-            collector VARCHAR(255) NOT NULL,
+            collector VARCHAR(100) NOT NULL,
             settings TEXT DEFAULT NULL,
             className VARCHAR(255) NOT NULL,
             priority INT(11) NOT NULL DEFAULT 0,
             active tinyint(1) NOT NULL DEFAULT 0,
             PRIMARY KEY (id),
             UNIQUE KEY unique_collector (collector),
-            KEY idx_collector (collector),
             KEY idx_active (active)
         ) $charsetCollate;";
         
@@ -137,9 +138,11 @@ class M20240601000000_CreateAllTables extends AbstractMigration
         $tableName = $this->getTableName(DatabaseTablesManager::DATABASE_SETUP_STEPS);
         $charsetCollate = $this->getCharsetCollate();
         
+        // step is unique-indexed: VARCHAR(100) keeps the key at 400 bytes,
+        // under the 767-byte limit on hosts without large index prefixes.
         $sql = "CREATE TABLE IF NOT EXISTS $tableName (
             id BIGINT NOT NULL AUTO_INCREMENT,
-            step VARCHAR(255) NOT NULL,
+            step VARCHAR(100) NOT NULL,
             requirements VARCHAR(255) NOT NULL,
             priority INT(11) NOT NULL DEFAULT 0,
             isFinalStep tinyint(1) NOT NULL DEFAULT 0,
@@ -148,7 +151,6 @@ class M20240601000000_CreateAllTables extends AbstractMigration
             userSaveCount INT(11) NOT NULL DEFAULT 0,
             PRIMARY KEY (id),
             UNIQUE KEY unique_step (step),
-            KEY idx_step (step),
             KEY idx_isFinalStep (isFinalStep),
             KEY idx_active (active),
             KEY idx_completed (completed)
@@ -256,12 +258,17 @@ class M20240601000000_CreateAllTables extends AbstractMigration
         $tableName = $this->getTableName(DatabaseTablesManager::DATABASE_SETUP);
         $charsetCollate = $this->getCharsetCollate();
         
+        // The original (setupRequirement, entityAlias) VARCHAR(255) composite index was
+        // 2040 bytes under utf8mb4, over the 767-byte key limit on hosts without large
+        // index prefixes (MyISAM defaults, InnoDB COMPACT) — there CREATE fails, dbDelta
+        // swallows the error, and the table silently never exists. Columns are sized to
+        // their real content (requirement names <= ~30 chars, aliases <= ~20).
         $sql = "CREATE TABLE IF NOT EXISTS $tableName (
             id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-            setupRequirement VARCHAR(255) NOT NULL,
-            entityAlias VARCHAR(255) NOT NULL,
+            setupRequirement VARCHAR(100) NOT NULL,
+            entityAlias VARCHAR(50) NOT NULL,
             value TEXT NULL,
-            INDEX idx_setup_entity (setupRequirement, entityAlias)
+            INDEX idx_setup_requirement (setupRequirement)
         ) $charsetCollate;";
         
         $result = $this->executeQuery($sql);
@@ -387,8 +394,12 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateCollectorsTable(string $tableName): void
     {
+        if (!$this->tableIsEmpty($tableName)) {
+            return;
+        }
+
         $collectors = ['Database', 'WordPress', 'Extendify', 'RankingCoach'];
-        
+
         foreach ($collectors as $index => $collectorItem) {
             $priority = $index + 1;
             $data = [
@@ -414,6 +425,10 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateStepsTable(string $tableName): void
     {
+        if (!$this->tableIsEmpty($tableName)) {
+            return;
+        }
+
         $steps = [
             'SETUP_STEP_BUSINESS_SHORT_DESCRIPTION' => 'businessWebsiteUrl,businessDescription',
             'SETUP_STEP_BUSINESS_NAME' => 'businessName',
@@ -452,6 +467,10 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateQuestionsTable(string $tableName): void
     {
+        if (!$this->tableIsEmpty($tableName)) {
+            return;
+        }
+
         $questionsStepsConfig = [
             'SETUP_STEP_BUSINESS_SHORT_DESCRIPTION' => [
                 'Let\'s get started.',
@@ -520,6 +539,10 @@ class M20240601000000_CreateAllTables extends AbstractMigration
      */
     private function populateSetupTable(string $tableName): void
     {
+        if (!$this->tableIsEmpty($tableName)) {
+            return;
+        }
+
         $allRequirements = [
             'businessEmailAddress',
             'businessWebsiteUrl',
@@ -548,5 +571,18 @@ class M20240601000000_CreateAllTables extends AbstractMigration
                 $data
             );
         }
+    }
+
+    /**
+     * Whether a table currently holds no rows — the populate methods only seed
+     * empty tables, so a re-run of this migration cannot duplicate seed data.
+     *
+     * @param string $tableName The table name with prefix
+     * @return bool
+     */
+    private function tableIsEmpty(string $tableName): bool
+    {
+        $rows = $this->dbManager->queryRaw("SELECT 1 FROM `$tableName` LIMIT 1");
+        return empty($rows);
     }
 }

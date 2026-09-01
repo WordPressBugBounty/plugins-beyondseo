@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.1\n"
+"Project-Id-Version: BeyondSEO 1.3.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-18T19:52:43+00:00\n"
+"POT-Creation-Date: 2026-08-27T13:17:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
@@ -44,22 +44,22 @@ msgid "Activation Code"
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:118
-#: react/src/components/Registration/Registration.tsx:519
+#: react/src/components/Registration/Registration.tsx:531
 msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:120
-#: react/src/components/Registration/Registration.tsx:521
+#: react/src/components/Registration/Registration.tsx:533
 msgid "Privacy Policy"
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:122
-#: react/src/components/Registration/Registration.tsx:523
+#: react/src/components/Registration/Registration.tsx:535
 msgid " and the "
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:124
-#: react/src/components/Registration/Registration.tsx:525
+#: react/src/components/Registration/Registration.tsx:537
 msgid "Terms and Conditions"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgid "You will be automatically redirected in 5 seconds..."
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:174
-#: react/src/components/Registration/Registration.tsx:591
+#: react/src/components/Registration/Registration.tsx:603
 #: react/src/components/Registration/RegistrationWelcome.tsx:80
 msgid "Back"
 msgstr ""
@@ -101,7 +101,7 @@ msgstr ""
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:190
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:496
-#: react/src/components/Registration/Registration.tsx:608
+#: react/src/components/Registration/Registration.tsx:620
 msgid "Something went wrong from our side, please try again!"
 msgstr ""
 
@@ -109,15 +109,15 @@ msgstr ""
 msgid "Contact customer support"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:96
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:94
 msgid "Error details"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:100
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:98
 msgid "Copied!"
 msgstr ""
 
-#: react/src/components/Common/ErrorModal/ErrorModal.tsx:100
+#: react/src/components/Common/ErrorModal/ErrorModal.tsx:98
 msgid "Copy Error"
 msgstr ""
 
@@ -656,62 +656,62 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:468
+#: react/src/components/Registration/Registration.tsx:480
 msgid "Sign in or create an account"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:475
+#: react/src/components/Registration/Registration.tsx:487
 msgid "Enter your email and we'll get you set up."
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:494
+#: react/src/components/Registration/Registration.tsx:506
 #: react/src/components/Upsell/upsellConfig.ts:616
 #: inc/Core/Admin/Pages/views/registration-page.php:106
 msgid "Email"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:498
+#: react/src/components/Registration/Registration.tsx:510
 msgid "Enter your email"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:504
+#: react/src/components/Registration/Registration.tsx:516
 #: inc/Core/Admin/Pages/views/registration-page.php:120
 msgid "Country"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:547
+#: react/src/components/Registration/Registration.tsx:559
 msgid "Claim your existing account"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:548
+#: react/src/components/Registration/Registration.tsx:560
 msgid "Verify your email"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:563
+#: react/src/components/Registration/Registration.tsx:575
 msgid "Follow the instructions in the email we've sent to "
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:565
+#: react/src/components/Registration/Registration.tsx:577
 msgid " to claim your existing account."
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:569
+#: react/src/components/Registration/Registration.tsx:581
 msgid "Follow the instructions in the email we've sent to this address: "
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:571
+#: react/src/components/Registration/Registration.tsx:583
 msgid ". This helps keep your account secure."
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:601
+#: react/src/components/Registration/Registration.tsx:613
 msgid "Verify"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:601
+#: react/src/components/Registration/Registration.tsx:613
 msgid "Next"
 msgstr ""
 
-#: react/src/components/Registration/Registration.tsx:610
+#: react/src/components/Registration/Registration.tsx:622
 msgid "Try again"
 msgstr ""
 
@@ -2750,32 +2750,51 @@ msgid "Rate %s on WordPress.org"
 msgstr ""
 
 #. translators: 1: plugin brand name wrapped in bold tags, 2: opening anchor tag linking to the connect page, 3: closing anchor tag
-#: inc/Core/Admin/NotConnectedNotice.php:58
+#: inc/Core/Admin/NotConnectedNotice.php:90
 #, php-format
 msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizing your SEO and get found online."
+msgstr ""
+
+#: inc/Core/Admin/NotConnectedNotice.php:146
+#: inc/Core/NotificationManager.php:269
+#: inc/Core/SeoOptimiserAjax.php:72
+#: inc/Core/SeoOptimiserAjax.php:113
+msgid "You do not have sufficient permissions to perform this action."
+msgstr ""
+
+#: inc/Core/Admin/NotConnectedNotice.php:155
+#: inc/Core/NotificationManager.php:280
+#: inc/Core/SeoOptimiserAjax.php:78
+#: inc/Core/SeoOptimiserAjax.php:119
+msgid "Security check failed. Please try again."
+msgstr ""
+
+#: inc/Core/Admin/NotConnectedNotice.php:163
+#: inc/Core/NotificationManager.php:294
+msgid "Notification dismissed successfully."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:154
 #: inc/Core/Admin/Pages/ActivationPage.php:428
 #: inc/Core/Admin/Pages/IframePage.php:89
-#: inc/Core/Admin/Pages/RegistrationPage.php:285
-#: inc/Core/Admin/Pages/RegistrationPage.php:313
-#: inc/Core/Admin/Pages/RegistrationPage.php:347
-#: inc/Core/Admin/Pages/RegistrationPage.php:397
-#: inc/Core/Admin/Pages/RegistrationPage.php:447
-#: inc/Core/Admin/Pages/RegistrationPage.php:465
+#: inc/Core/Admin/Pages/RegistrationPage.php:293
+#: inc/Core/Admin/Pages/RegistrationPage.php:321
+#: inc/Core/Admin/Pages/RegistrationPage.php:355
+#: inc/Core/Admin/Pages/RegistrationPage.php:405
+#: inc/Core/Admin/Pages/RegistrationPage.php:455
+#: inc/Core/Admin/Pages/RegistrationPage.php:473
 msgid "You do not have sufficient permissions."
 msgstr ""
 
 #: inc/Core/Admin/Pages/ActivationPage.php:158
 #: inc/Core/Admin/Pages/ActivationPage.php:433
 #: inc/Core/Admin/Pages/IframePage.php:94
-#: inc/Core/Admin/Pages/RegistrationPage.php:289
-#: inc/Core/Admin/Pages/RegistrationPage.php:316
-#: inc/Core/Admin/Pages/RegistrationPage.php:350
-#: inc/Core/Admin/Pages/RegistrationPage.php:400
-#: inc/Core/Admin/Pages/RegistrationPage.php:450
-#: inc/Core/Admin/Pages/RegistrationPage.php:468
+#: inc/Core/Admin/Pages/RegistrationPage.php:297
+#: inc/Core/Admin/Pages/RegistrationPage.php:324
+#: inc/Core/Admin/Pages/RegistrationPage.php:358
+#: inc/Core/Admin/Pages/RegistrationPage.php:408
+#: inc/Core/Admin/Pages/RegistrationPage.php:458
+#: inc/Core/Admin/Pages/RegistrationPage.php:476
 msgid "Nonce verification failed."
 msgstr ""
 
@@ -3339,12 +3358,17 @@ msgstr ""
 msgid "Please accept marketing communications to continue."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:487
+#: inc/Core/Admin/Pages/RegistrationPage.php:495
 msgid "Please provide a valid email."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:498
+#: inc/Core/Admin/Pages/RegistrationPage.php:506
 msgid "Challenge creation failed."
+msgstr ""
+
+#: inc/Core/Admin/Pages/RegistrationPage.php:601
+#: inc/Core/Admin/Pages/RegistrationPage.php:788
+msgid "Email registration is not available for this installation. Please use your activation code."
 msgstr ""
 
 #: inc/Core/Admin/Pages/UpsellPage.php:151
@@ -3837,20 +3861,6 @@ msgstr ""
 msgid "You currently have this plan"
 msgstr ""
 
-#: inc/Core/Admin/WpCronDisabledNotice.php:50
-msgid "BeyondSEO: WordPress Cron is disabled"
-msgstr ""
-
-#. translators: %s: link to WordPress documentation
-#: inc/Core/Admin/WpCronDisabledNotice.php:56
-#, php-format
-msgid "DISABLE_WP_CRON is set to true in your wp-config.php. This prevents the plugin's scheduled tasks from running automatically. To fix this, remove or change define('DISABLE_WP_CRON', true); in your wp-config.php, or set up a real server-side cron job. %s"
-msgstr ""
-
-#: inc/Core/Admin/WpCronDisabledNotice.php:60
-msgid "Learn more"
-msgstr ""
-
 #: inc/Core/Api/Content/ContentApiManager.php:84
 msgid "No keywords found to synchronize"
 msgstr ""
@@ -3943,74 +3953,74 @@ msgid "Unsupported HTTP method: %s"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
-#: inc/Core/HooksManager.php:283
-#: inc/Core/Rest/Controllers/OnboardingController.php:530
+#: inc/Core/HooksManager.php:292
+#: inc/Core/Rest/Controllers/OnboardingController.php:534
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
-#: inc/Core/HooksManager.php:284
-#: inc/Core/Rest/Controllers/OnboardingController.php:531
+#: inc/Core/HooksManager.php:293
+#: inc/Core/Rest/Controllers/OnboardingController.php:535
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
-#: inc/Core/HooksManager.php:285
-#: inc/Core/Rest/Controllers/OnboardingController.php:532
+#: inc/Core/HooksManager.php:294
+#: inc/Core/Rest/Controllers/OnboardingController.php:536
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
-#: inc/Core/HooksManager.php:286
-#: inc/Core/Rest/Controllers/OnboardingController.php:533
+#: inc/Core/HooksManager.php:295
+#: inc/Core/Rest/Controllers/OnboardingController.php:537
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
-#: inc/Core/HooksManager.php:287
-#: inc/Core/Rest/Controllers/OnboardingController.php:534
+#: inc/Core/HooksManager.php:296
+#: inc/Core/Rest/Controllers/OnboardingController.php:538
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
-#: inc/Core/HooksManager.php:288
-#: inc/Core/Rest/Controllers/OnboardingController.php:535
+#: inc/Core/HooksManager.php:297
+#: inc/Core/Rest/Controllers/OnboardingController.php:539
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
-#: inc/Core/HooksManager.php:289
-#: inc/Core/Rest/Controllers/OnboardingController.php:536
+#: inc/Core/HooksManager.php:298
+#: inc/Core/Rest/Controllers/OnboardingController.php:540
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
-#: inc/Core/HooksManager.php:290
-#: inc/Core/Rest/Controllers/OnboardingController.php:537
+#: inc/Core/HooksManager.php:299
+#: inc/Core/Rest/Controllers/OnboardingController.php:541
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
-#: inc/Core/HooksManager.php:291
-#: inc/Core/Rest/Controllers/OnboardingController.php:538
+#: inc/Core/HooksManager.php:300
+#: inc/Core/Rest/Controllers/OnboardingController.php:542
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
-#: inc/Core/HooksManager.php:292
-#: inc/Core/Rest/Controllers/OnboardingController.php:539
+#: inc/Core/HooksManager.php:301
+#: inc/Core/Rest/Controllers/OnboardingController.php:543
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
-#: inc/Core/HooksManager.php:293
-#: inc/Core/Rest/Controllers/OnboardingController.php:540
+#: inc/Core/HooksManager.php:302
+#: inc/Core/Rest/Controllers/OnboardingController.php:544
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
-#: inc/Core/HooksManager.php:294
-#: inc/Core/Rest/Controllers/OnboardingController.php:541
+#: inc/Core/HooksManager.php:303
+#: inc/Core/Rest/Controllers/OnboardingController.php:545
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
 
@@ -4249,37 +4259,25 @@ msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %1$s: opening link tag, %2$s: closing link tag
-#: inc/Core/HooksManager.php:450
+#: inc/Core/HooksManager.php:459
 #, php-format
 msgid "You have reached your keyword tracking limit. %1$sUpgrade your plan%2$s to continue tracking more keywords and improve your SEO performance."
 msgstr ""
 
-#: inc/Core/NotificationManager.php:269
-#: inc/Core/SeoOptimiserAjax.php:72
-#: inc/Core/SeoOptimiserAjax.php:113
-msgid "You do not have sufficient permissions to perform this action."
-msgstr ""
-
-#: inc/Core/NotificationManager.php:280
-#: inc/Core/SeoOptimiserAjax.php:78
-#: inc/Core/SeoOptimiserAjax.php:119
-msgid "Security check failed. Please try again."
-msgstr ""
-
-#: inc/Core/NotificationManager.php:294
-msgid "Notification dismissed successfully."
+#: inc/Core/HooksManager.php:789
+msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
 msgstr ""
 
 #: inc/Core/Rest/Controllers/OnboardingController.php:73
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:816
+#: inc/Core/Rest/Controllers/OnboardingController.php:822
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:817
+#: inc/Core/Rest/Controllers/OnboardingController.php:823
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""
