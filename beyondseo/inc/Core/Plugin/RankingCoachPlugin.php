@@ -17,6 +17,7 @@ use RankingCoach\Inc\Core\Initializers\NotificationInitializer;
 use RankingCoach\Inc\Core\Initializers\RestInitializer;
 use RankingCoach\Inc\Core\CircuitBreaker\FunctionalityBlocker;
 use RankingCoach\Inc\Core\CronJobManager;
+use RankingCoach\Inc\Core\Sitemap\Sitemap;
 use ReflectionClass;
 use Throwable;
 use function apply_filters;
@@ -155,6 +156,15 @@ final class RankingCoachPlugin
 
             // Initialize REST API first to ensure API routes are registered early
             (new RestInitializer())->initialize();
+
+            // Sitemap hooks must be active in every context, not only browser page
+            // requests: content and robots-meta changes arrive through core REST
+            // (Gutenberg saves), WP-CLI and cron too, and each of them has to
+            // invalidate the generated sitemap. Serving stays frontend-only via
+            // template_redirect.
+            add_action('plugins_loaded', static function () {
+                (new Sitemap())->init();
+            }, 99);
 
             // Allow just WordPress built-in context (filter cli, some ajax, and system requests etc)
             if ($this->isWordPressContext()) {

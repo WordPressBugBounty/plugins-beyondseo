@@ -8,10 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Exception;
+use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Graphs;
 use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Graphs\Traits\Schema\ReviewRating;
 use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\SchemaManager;
 use RankingCoach\Inc\Modules\ModuleManager;
+use WP_Post;
+use WP_User;
 
 /**
  * Recipe graph class.
@@ -45,6 +48,11 @@ class Recipe extends Graphs\Graph {
         /** @var SchemaManager $schema */
         $schema = $moduleManager->get_module('schemaMarkup')->schema;
 
+		// Resolve the author from the post itself; the global $authordata used by
+		// get_the_author_meta() without an ID is not set outside The Loop.
+		$post       = WordpressHelpers::retrieve_post();
+		$postAuthor = $post instanceof WP_Post ? get_userdata( (int) $post->post_author ) : false;
+
 		$data = [
 			'@type'              => 'Recipe',
 			'@id'                => ! empty( $graphData->id ) ? $schema->context['url'] . $graphData->id : $schema->context['url'] . '#recipe',
@@ -52,7 +60,9 @@ class Recipe extends Graphs\Graph {
 			'description'        => ! empty( $graphData->properties->description ) ? $graphData->properties->description : '',
 			'author'             => [
 				'@type' => 'Person',
-				'name'  => ! empty( $graphData->properties->author ) ? $graphData->properties->author : get_the_author_meta( 'display_name' )
+				'name'  => ! empty( $graphData->properties->author )
+					? $graphData->properties->author
+					: ( $postAuthor instanceof WP_User ? $postAuthor->display_name : '' )
 			],
 			'image'              => ! empty( $graphData->properties->image ) ? $this->image( $graphData->properties->image ) : $this->getFeaturedImage(),
 			'recipeCategory'     => ! empty( $graphData->properties->dishType ) ? $graphData->properties->dishType : '',

@@ -724,9 +724,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             $this->contentId = get_queried_object_id();
         }
 
-        $supportedLanguages = SettingsManager::instance()->supported_languages;
         $locale = get_locale();
-        $currentLanguage = substr($locale, 0, 2);
 
         // Get SEO description with fallback logic using the centralized helper
         $customSeoDescription = get_post_meta($this->contentId, self::META_SEO_DESCRIPTION, true);
@@ -772,8 +770,8 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         // Locale and language tags
         $metaTags .= "\r\n\t" . '<meta property="og:locale" content="' . esc_attr($locale) . '" />';
 
-        // Alternate language tags with proper translated URLs (WPML/Polylang support)
-        $metaTags .= $this->generateHreflangTags($supportedLanguages, $currentLanguage);
+        // Alternate language tags, only when real translated URLs exist (WPML/Polylang)
+        $metaTags .= $this->generateHreflangTags();
 
         // Format detection: telephone=no, email=no, address=no
         $disableAutoLinks = get_post_meta($this->contentId, MetaTags::META_DISABLE_AUTO_LINKS, true);
@@ -1138,63 +1136,77 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
     }
 
     /**
-     * Generates hreflang tags with proper translated URLs.
-     * Supports WPML, Polylang, and falls back to basic language tags.
+     * Generates hreflang tags from real translated URLs (WPML/Polylang).
      *
-     * @param array|object|null $supportedLanguages Array or object of supported languages from settings.
-     * @param string $currentLanguage Current language code.
-     * @return string The generated hreflang meta tags.
+     * Tags are only emitted when at least two distinct alternate-language URLs
+     * actually exist; single-language sites get no hreflang output at all
+     * (WORDPRESS-979: never fabricate language variants pointing to one URL).
+     *
+     * @return string The generated hreflang meta tags, or empty string.
      */
-    private function generateHreflangTags(array|object|null $supportedLanguages, string $currentLanguage): string
+    private function generateHreflangTags(): string
     {
-        // Convert stdClass to array if needed (SettingsManager may return stdClass)
-        if ($supportedLanguages instanceof \stdClass) {
-            $supportedLanguages = (array) $supportedLanguages;
+        // Actual translated URLs only exist when WPML/Polylang provides them
+        $translatedUrls = WordpressHelpers::getTranslatedUrls($this->contentId);
+
+        // Require at least two languages resolving to distinct URLs
+        if (count($translatedUrls) < 2 || count(array_unique($translatedUrls)) < 2) {
+            return '';
         }
-        
+
         $hreflangTags = '';
         $defaultLanguage = WordpressHelpers::getDefaultLanguage();
         $defaultUrl = null;
 
-        // Try to get actual translated URLs from WPML/Polylang
-        $translatedUrls = WordpressHelpers::getTranslatedUrls($this->contentId);
+        foreach ($translatedUrls as $langCode => $url) {
+            $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="' . esc_attr($langCode) . '" href="' . esc_url($url) . '" />';
 
-        if (!empty($translatedUrls) && count($translatedUrls) > 1) {
-            // We have translations from WPML or Polylang
-            foreach ($translatedUrls as $langCode => $url) {
-                $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="' . esc_attr($langCode) . '" href="' . esc_url($url) . '" />';
-                
-                // Track the default language URL for x-default
-                if ($langCode === $defaultLanguage) {
-                    $defaultUrl = $url;
-                }
+            // Track the default language URL for x-default
+            if ($langCode === $defaultLanguage) {
+                $defaultUrl = $url;
             }
-
-            // Add x-default pointing to the default language URL
-            if ($defaultUrl) {
-                $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="x-default" href="' . esc_url($defaultUrl) . '" />';
-            } else {
-                // Fallback to first URL if default language not found
-                $firstUrl = reset($translatedUrls);
-                $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="x-default" href="' . esc_url($firstUrl) . '" />';
-            }
-        } elseif ($supportedLanguages && is_array($supportedLanguages) && count($supportedLanguages) > 1) {
-            // Fallback to supported languages from settings (without actual translations)
-            // Note: This outputs same URL for all languages when no translation plugin is active
-            $currentUrl = get_permalink($this->contentId);
-            
-            foreach ($supportedLanguages as $language => $langName) {
-                $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="' . esc_attr($language) . '" href="' . esc_url($currentUrl) . '" />';
-            }
-            $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="x-default" href="' . esc_url($currentUrl) . '" />';
-        } else {
-            // Single language site - output current language and x-default
-            $currentUrl = get_permalink($this->contentId);
-            $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="' . esc_attr($currentLanguage) . '" href="' . esc_url($currentUrl) . '" />';
-            $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="x-default" href="' . esc_url($currentUrl) . '" />';
         }
 
+        // x-default points to the default language URL, first URL as fallback
+        $hreflangTags .= "\r\n\t" . '<link rel="alternate" hreflang="x-default" href="' . esc_url($defaultUrl ?: reset($translatedUrls)) . '" />';
+
+        // Ours is the single source of hreflang truth on the page
+        $this->suppressThirdPartyHreflangTags();
+
         return $hreflangTags;
+    }
+
+    /**
+     * Prevents WPML and Polylang from printing their own hreflang tags on wp_head,
+     * so BeyondSEO's set is the only one on the page. Called only when this module
+     * is about to output hreflang tags itself; runs on the `wp` hook, before any
+     * wp_head callback fires.
+     *
+     * @return void
+     */
+    private function suppressThirdPartyHreflangTags(): void
+    {
+        // Polylang applies this filter to its hreflang set right before printing
+        if (WordpressHelpers::isPolylangActive()) {
+            add_filter('pll_rel_hreflang_attributes', '__return_empty_array', 99);
+        }
+
+        // WPML prints via SitePress::head_langs / WPML_SEO_HeadLangs::head_langs,
+        // hooked to wp_head at a settings-dependent priority — unhook by method name
+        if (WordpressHelpers::isWpmlActive()) {
+            global $wp_filter;
+            if (empty($wp_filter['wp_head']->callbacks)) {
+                return;
+            }
+            foreach ($wp_filter['wp_head']->callbacks as $priority => $callbacks) {
+                foreach ($callbacks as $callback) {
+                    $function = $callback['function'] ?? null;
+                    if (is_array($function) && isset($function[0], $function[1]) && $function[1] === 'head_langs') {
+                        remove_action('wp_head', $function, $priority);
+                    }
+                }
+            }
+        }
     }
 
     /**

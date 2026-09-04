@@ -15,6 +15,7 @@ use RankingCoach\Inc\Modules\ModuleLibrary\Schema\SchemaMarkup\Graphs;
 use RankingCoach\Inc\Modules\ModuleManager;
 use ReflectionException;
 use WP_Post;
+use WP_User;
 
 /**
  * Article schema markup generator.
@@ -73,7 +74,7 @@ class Article extends Graphs\Graph {
             'headline'         => $this->getArticleHeadline( $graphData ),
             'description'      => $this->getArticleDescription( $graphData ),
             'articleBody'      => $this->getArticleBody( $graphData, $post ),
-            'author'           => $this->buildAuthorData( $graphData ),
+            'author'           => $this->buildAuthorData( $graphData, $post ),
             'publisher'        => $this->buildPublisherReference( $options ),
             'image'            => $articleImage,
             'datePublished'    => $this->getPublishedDate( $graphData, $post ),
@@ -229,19 +230,26 @@ class Article extends Graphs\Graph {
     /**
      * Builds author data structure.
      *
+     * The author is resolved from the post's author, not via get_the_author_meta()
+     * without an ID: schema is generated outside The Loop (wp_head, REST), where
+     * the global $authordata is not set and the display name would come back empty.
+     *
      * @param object|null $graphData Custom graph data.
+     * @param WP_Post     $post      WordPress post object.
      *
      * @return array
      */
-    private function buildAuthorData( $graphData ): array {
+    private function buildAuthorData( $graphData, WP_Post $post ): array {
+        $author = get_userdata( (int) $post->post_author );
+
         return [
             '@type' => 'Person',
             'name'  => ( $graphData && isset( $graphData->properties->author->name ) && ! empty( $graphData->properties->author->name ) )
-                ? $graphData->properties->author->name 
-                : get_the_author_meta( 'display_name' ),
+                ? $graphData->properties->author->name
+                : ( $author instanceof WP_User ? $author->display_name : '' ),
             'url'   => ( $graphData && isset( $graphData->properties->author->url ) && ! empty( $graphData->properties->author->url ) )
-                ? $graphData->properties->author->url 
-                : get_author_posts_url( get_the_author_meta( 'ID' ) ),
+                ? $graphData->properties->author->url
+                : ( $author instanceof WP_User ? get_author_posts_url( $author->ID ) : '' ),
         ];
     }
 

@@ -9,7 +9,7 @@ if ( !defined('ABSPATH') ) {
 
 use Exception;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 use WP_Post;
 use WP_Term;
 use WP_User;
@@ -26,6 +26,12 @@ class EntryBuilder
     private const DAY_IN_SECONDS = 86400;
     private const MAX_POSTS_PER_BATCH = 1000;
     private const CACHE_DURATION = 3600; // 1 hour
+
+    /** @var string[] Post types included in the sitemap. */
+    public const POST_TYPES = ['post', 'page'];
+
+    private const TRANSIENT_POST_ENTRIES = 'rankingcoach_sitemap_post_entries';
+    private const TRANSIENT_TAXONOMY_ENTRIES = 'rankingcoach_sitemap_taxonomy_entries';
 
     /**
      * Get entries based on type with error handling and caching
@@ -61,9 +67,11 @@ class EntryBuilder
     private function getPostEntries(array &$urlsIndex): array
     {
         // Check cache first
-        $cache_key = 'rankingcoach_post_entries_' . md5(serialize($urlsIndex));
-        $cached_entries = get_transient($cache_key);
+        $cached_entries = get_transient(self::TRANSIENT_POST_ENTRIES);
         if ($cached_entries !== false) {
+            foreach ($cached_entries as $entry) {
+                $urlsIndex[$entry['loc']] = true;
+            }
             return $cached_entries;
         }
 
@@ -82,7 +90,7 @@ class EntryBuilder
         do {
             try {
                 $posts = get_posts([
-                    'post_type' => ['post', 'page'],
+                    'post_type' => self::POST_TYPES,
                     'post_status' => 'publish',
                     'numberposts' => $posts_per_batch,
                     'offset' => $offset,
@@ -92,6 +100,11 @@ class EntryBuilder
 
                 foreach ($posts as $post) {
                     try {
+                        // Skip posts marked noindex or explicitly excluded from the sitemap
+                        if ($this->isPostExcluded($post)) {
+                            continue;
+                        }
+
                         // Generate permalink respecting the current structure
                         $permalink = $this->generatePermalinkAwareUrl($post, $permalinkStructure);
                         
@@ -140,9 +153,22 @@ class EntryBuilder
         } while (count($posts) === $posts_per_batch && $offset < $total_count);
 
         // Cache the results
-        set_transient($cache_key, $entries, self::CACHE_DURATION);
-        
+        set_transient(self::TRANSIENT_POST_ENTRIES, $entries, self::CACHE_DURATION);
+
         return $entries;
+    }
+
+    /**
+     * Checks whether a post must be left out of the sitemap.
+     *
+     * A post is excluded when it is marked noindex (the sitemap must never
+     * list URLs the rendered robots meta forbids indexing for) or when it is
+     * explicitly excluded from the sitemap via its advanced settings.
+     */
+    private function isPostExcluded(WP_Post $post): bool
+    {
+        return get_post_meta($post->ID, MetaTags::META_NOINDEX_FOR_PAGE, true)
+            || get_post_meta($post->ID, MetaTags::META_EXCLUDE_SITEMAP_FOR_PAGE, true);
     }
 
     /**
@@ -649,9 +675,11 @@ class EntryBuilder
     private function getTaxonomyEntries(array &$urlsIndex): array
     {
         // Check cache first
-        $cache_key = 'rankingcoach_taxonomy_entries_' . md5(serialize($urlsIndex));
-        $cached_entries = get_transient($cache_key);
+        $cached_entries = get_transient(self::TRANSIENT_TAXONOMY_ENTRIES);
         if ($cached_entries !== false) {
+            foreach ($cached_entries as $entry) {
+                $urlsIndex[$entry['loc']] = true;
+            }
             return $cached_entries;
         }
 
@@ -719,8 +747,8 @@ class EntryBuilder
         }
 
         // Cache the results
-        set_transient($cache_key, $entries, self::CACHE_DURATION);
-        
+        set_transient(self::TRANSIENT_TAXONOMY_ENTRIES, $entries, self::CACHE_DURATION);
+
         return $entries;
     }
 
@@ -730,10 +758,20 @@ class EntryBuilder
     private function getHomepageEntry(array &$urlsIndex): array
     {
         $homeUrl = trailingslashit(home_url());
-        
+
         if (isset($urlsIndex[$homeUrl])) {
             return [];
         }
+
+        // A static front page marked noindex/excluded keeps the homepage out too
+        $frontPageId = (int) get_option('page_on_front');
+        if ($frontPageId) {
+            $frontPage = get_post($frontPageId);
+            if ($frontPage && $this->isPostExcluded($frontPage)) {
+                return [];
+            }
+        }
+
         $urlsIndex[$homeUrl] = true;
 
         return [[
@@ -882,34 +920,12 @@ class EntryBuilder
     }
 
     /**
-     * Clear all sitemap-related caches
+     * Clear the cached sitemap entries so the next generation rebuilds them
+     * from the current posts, terms and per-page settings.
      */
     public function clearCache(): void
     {
-        global $wpdb;
-        
-        try {
-            $dbManager = DatabaseManager::getInstance();
-            
-            // Clear all sitemap-related transients
-            $dbManager->db()
-                ->table($wpdb->options)
-                ->delete()
-                ->whereOr(function ($q) {
-                    $q->whereLike('option_name', '_transient_rankingcoach_%');
-                    $q->whereLike('option_name', '_transient_timeout_rankingcoach_%');
-                })
-                ->get();
-            
-            // Clear object cache if available
-            if (function_exists('wp_cache_flush')) {
-                wp_cache_flush();
-            }
-            
-            $this->log('Sitemap: Cache cleared successfully');
-            
-        } catch (Exception $e) {
-            $this->log('Sitemap: Error clearing cache: ' . $e->getMessage());
-        }
+        delete_transient(self::TRANSIENT_POST_ENTRIES);
+        delete_transient(self::TRANSIENT_TAXONOMY_ENTRIES);
     }
 }

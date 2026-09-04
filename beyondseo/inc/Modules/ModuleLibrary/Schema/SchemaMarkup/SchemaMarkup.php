@@ -162,14 +162,19 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
     public function retrieveSchemaMarkupSettings(?int $postId = null): array {
         $this->settings = get_option(BaseConstants::OPTION_PLUGIN_SETTINGS, null);
         
+        $post = $postId ? get_post($postId) : null;
+        $isPage = $post && $post->post_type === 'page';
+        $defaultSchemaType = $isPage ? 'WebPage' : ($this->settings['default_schema_type'] ?? 'BlogPosting');
+        
         $data = [
-            'enableLocalSeo' => $this->settings['enable_local_seo'],
-            'defaultBusinessType' => $this->settings['default_business_type'],
-            'enableSchemaMarkup' => $this->settings['enable_schema_markup'],
-            'defaultSchemaType' => $this->settings['default_schema_type'],
+            'enableLocalSeo' => $this->settings['enable_local_seo'] ?? false,
+            'defaultBusinessType' => $this->settings['default_business_type'] ?? null,
+            'enableSchemaMarkup' => $this->settings['enable_schema_markup'] ?? true,
+            'defaultSchemaType' => $defaultSchemaType,
             'currentPostSchemaType' => $postId ? get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true) : null,
             'currentPostSchemaData' => $postId ? get_post_meta($postId, BaseConstants::OPTION_SCHEMA_CACHE, true) : null,
             'schemaTypes' => [
+                'WebPage',
                 'BlogPosting',
                 'NewsArticle',
                 'SocialMediaPosting',
@@ -264,14 +269,15 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
             return null;
         }
         
-        // Create a minimal query context for the post
+        $isPage = $post->post_type === 'page';
         $wp_query = new WP_Query([
             'p' => $postId,
             'post_type' => $post->post_type
         ]);
         $wp_query->queried_object = $post;
         $wp_query->queried_object_id = $postId;
-        $wp_query->is_single = true;
+        $wp_query->is_single = !$isPage;
+        $wp_query->is_page = $isPage;
         $wp_query->is_singular = true;
         
         try {

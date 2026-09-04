@@ -20,13 +20,13 @@ if ( !defined('ABSPATH') ) {
  * @wordpress-plugin
  * Plugin Name:       BeyondSEO
  * Description:       Get found online with AI SEO, listings, reviews, social media, and Google Ads in one WordPress plugin. For SMBs & web professionals.
- * Version: 1.3.3
+ * Version: 1.3.4
  * RcAPI Version:     v1
  * WpAPI Version:     v1
  * Requires at least: 6.5
  * Author:            rankingCoach
  * Author URI:        https://grow.rankingcoach.com/wordpress?utm_source=wordpress-plugin&utm_medium=plugin&utm_campaign=beyondseo&utm_content=by-rankingcoach
- * Tested up to:      7.0
+ * Tested up to:      7.1
  * Requires PHP:      8.0
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

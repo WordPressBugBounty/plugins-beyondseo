@@ -799,20 +799,38 @@ class SchemaManager {
     {
         $schemaTypes = [];
         
-        // Post-specific schema type has highest priority
-        if (is_singular() && get_the_ID()) {
-            $postSchemaType = get_post_meta(get_the_ID(), BaseConstants::OPTION_SCHEMA_TYPE, true);
-            if (!empty($postSchemaType) && $this->validateGraphName($postSchemaType)) {
-                $schemaTypes[] = $postSchemaType;
+        if (is_singular()) {
+            $postId = get_the_ID() ?: null;
+            $post = $postId ? get_post($postId) : WordpressHelpers::retrieve_post();
+            if ($post instanceof \WP_Post) {
+                $postId = $post->ID;
+                $postType = $post->post_type;
+            } else {
+                $postType = $postId ? get_post_type($postId) : get_post_type();
+            }
+
+            if ($postId) {
+                $postSchemaType = get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true);
+                if (!empty($postSchemaType) && $this->validateGraphName($postSchemaType)) {
+                    $schemaTypes[] = $postSchemaType;
+                }
+            }
+            
+            if (empty($schemaTypes)) {
+                if ($postType === 'post') {
+                    if (!empty($options['default_schema_type']) && $this->validateGraphName($options['default_schema_type'])) {
+                        $schemaTypes[] = $options['default_schema_type'];
+                    }
+                } elseif (!empty($postType) && !in_array($postType, ['page', 'product', 'attachment'], true)) {
+                    if (post_type_supports($postType, 'author') && !empty($options['default_schema_type']) && $this->validateGraphName($options['default_schema_type'])) {
+                        if (in_array($options['default_schema_type'], ['Article', 'BlogPosting', 'NewsArticle'], true)) {
+                            $schemaTypes[] = $options['default_schema_type'];
+                        }
+                    }
+                }
             }
         }
         
-        // Default schema type as fallback
-        if (!empty($options['default_schema_type']) && $this->validateGraphName($options['default_schema_type'])) {
-            $schemaTypes[] = $options['default_schema_type'];
-        }
-        
-        // Merge with existing graphs, prioritizing schema types
         $this->graphs = array_merge($schemaTypes, $this->graphs);
     }
 
@@ -844,48 +862,47 @@ class SchemaManager {
      */
     private function processGraphsWithErrorHandling(array &$schema): void
     {
-        // Create a copy for iteration to prevent modification during processing
-        $graphsToProcess = array_values($this->graphs);
         $processedGraphs = [];
 
-        foreach ($graphsToProcess as $graphName) {
-            if (in_array($graphName, $processedGraphs, true)) {
-                continue; // Prevent duplicate processing
-            }
-            
-            if (!$this->validateGraphName($graphName)) {
-                $this->log("RankingCoach Schema: Invalid graph name: $graphName", 'DEBUG');
-                continue;
-            }
+        // Graphs can append further graphs to $this->graphs while being generated
+        // (e.g. Article adds PersonAuthor to resolve the author @id reference),
+        // so keep draining the list until no unprocessed graph names remain.
+        while ($pendingGraphs = array_diff(array_values($this->graphs), $processedGraphs)) {
+            foreach ($pendingGraphs as $graphName) {
+                $processedGraphs[] = $graphName;
 
-            $processedGraphs[] = $graphName;
-            
-            try {
-                $namespace = $this->getGraphNamespace($graphName);
-                if (!$namespace) {
-                    $this->log("RankingCoach Schema: Namespace not found for graph: $graphName", 'DEBUG');
+                if (!$this->validateGraphName($graphName)) {
+                    $this->log("RankingCoach Schema: Invalid graph name: $graphName", 'DEBUG');
                     continue;
                 }
-                
-                if (!class_exists($namespace)) {
-                    $this->log("RankingCoach Schema: Class does not exist: $namespace", 'DEBUG');
+
+                try {
+                    $namespace = $this->getGraphNamespace($graphName);
+                    if (!$namespace) {
+                        $this->log("RankingCoach Schema: Namespace not found for graph: $graphName", 'DEBUG');
+                        continue;
+                    }
+
+                    if (!class_exists($namespace)) {
+                        $this->log("RankingCoach Schema: Class does not exist: $namespace", 'DEBUG');
+                        continue;
+                    }
+
+                    $graphInstance = new $namespace();
+                    if (!method_exists($graphInstance, 'get')) {
+                        $this->log("RankingCoach Schema: Class missing get() method: $namespace", 'DEBUG');
+                        continue;
+                    }
+
+                    $schemaElement = $graphInstance->get();
+                    if (!empty($schemaElement)) {
+                        $schema['@graph'][] = $schemaElement;
+                    }
+
+                } catch (Throwable $e) {
+                    $this->log("RankingCoach Schema: Error generating schema for graph $graphName: " . $e->getMessage(), 'ERROR');
                     continue;
                 }
-                
-                $graphInstance = new $namespace();
-                if (!method_exists($graphInstance, 'get')) {
-                    $this->log("RankingCoach Schema: Class missing get() method: $namespace", 'DEBUG');
-                    continue;
-                }
-                
-                $schemaElement = $graphInstance->get();
-                if (!empty($schemaElement)) {
-                    $schema['@graph'][] = $schemaElement;
-                }
-                
-            } catch (Throwable $e) {
-                $this->log("RankingCoach Schema: Error generating schema for graph $graphName: " . $e->getMessage(), 'ERROR');
-                continue;
             }
         }
     }

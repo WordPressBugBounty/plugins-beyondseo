@@ -9,11 +9,19 @@ if ( !defined('ABSPATH') ) {
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
+use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 
 /**
  * Handles our sitemaps.
  */
 class Sitemap {
+
+    /** @var string[] Post meta keys that change which URLs belong in the sitemap. */
+    private const INVALIDATING_META_KEYS = [
+        MetaTags::META_NOINDEX_FOR_PAGE,
+        MetaTags::META_EXCLUDE_SITEMAP_FOR_PAGE,
+    ];
+
     public function __construct() {
         $this->disableSitemap();
         $this->registerCleanupHooks();
@@ -34,23 +42,7 @@ class Sitemap {
             remove_filter('wp_sitemaps_enabled', '__return_false');
 
             // Remove generated sitemap files
-            $upload_dir = wp_upload_dir();
-
-            if (!empty($upload_dir['error'])) {
-                return;
-            }
-
-            $pattern = trailingslashit($upload_dir['basedir']) . 'sitemap-*.xml';
-            $sitemap_files = glob($pattern);
-
-            if ($sitemap_files) {
-                foreach ($sitemap_files as $file) {
-                    if (file_exists($file) && wp_is_writable($file)) {
-                        // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
-                        @unlink($file);
-                    }
-                }
-            }
+            self::deleteSitemapFiles();
 
             // Flush rewrite rules to clean up
             flush_rewrite_rules();
@@ -64,16 +56,41 @@ class Sitemap {
     {
         // Schedule sitemap regeneration
         add_action('rankingcoach_static_sitemap_regeneration', function () {
+            self::invalidate();
             (new Generator())->generate();
         });
 
-        // Regenerate sitemap when a post is published
-        add_action('wp_insert_post', function ($post_id, $post) {
-            // Only regenerate for published posts
-            if ($post->post_status === 'publish' && SettingsManager::instance()->sitemap->enabled) {
-                (new Generator())->generate();
+        // Invalidate the sitemap when a post/page is published, unpublished or updated
+        add_action('transition_post_status', function ($new_status, $old_status, $post) {
+            if (($new_status === 'publish' || $old_status === 'publish')
+                && in_array($post->post_type, EntryBuilder::POST_TYPES, true)
+                && SettingsManager::instance()->sitemap->enabled
+            ) {
+                self::invalidate();
+            }
+        }, 10, 3);
+
+        // Invalidate the sitemap when a post/page is permanently deleted
+        add_action('deleted_post', function ($post_id, $post) {
+            if ($post && in_array($post->post_type, EntryBuilder::POST_TYPES, true)
+                && SettingsManager::instance()->sitemap->enabled
+            ) {
+                self::invalidate();
             }
         }, 10, 2);
+
+        // Invalidate the sitemap when per-page robots/sitemap settings change,
+        // so pages set to noindex or excluded drop out (and reappear when reverted)
+        $onRobotsMetaChange = function ($meta_id, $post_id, $meta_key) {
+            if (in_array($meta_key, self::INVALIDATING_META_KEYS, true)
+                && SettingsManager::instance()->sitemap->enabled
+            ) {
+                self::invalidate();
+            }
+        };
+        add_action('added_post_meta', $onRobotsMetaChange, 10, 3);
+        add_action('updated_post_meta', $onRobotsMetaChange, 10, 3);
+        add_action('deleted_post_meta', $onRobotsMetaChange, 10, 3);
 
         // Prevent WordPress from adding trailing slashes to sitemap.xml
         add_filter('redirect_canonical', function($redirect_url, $requested_url) {
@@ -149,6 +166,42 @@ class Sitemap {
                 exit;
             }
         });
+    }
+
+    /**
+     * Invalidates the generated sitemap so the next sitemap request serves fresh data.
+     *
+     * Clears the cached sitemap entries and removes the static sitemap files;
+     * the request handler regenerates the sitemap on demand once the file is gone.
+     */
+    public static function invalidate(): void
+    {
+        (new EntryBuilder())->clearCache();
+        self::deleteSitemapFiles();
+    }
+
+    /**
+     * Removes all generated static sitemap files from the uploads directory.
+     */
+    private static function deleteSitemapFiles(): void
+    {
+        $upload_dir = wp_upload_dir();
+
+        if (!empty($upload_dir['error'])) {
+            return;
+        }
+
+        $pattern = trailingslashit($upload_dir['basedir']) . 'sitemap-*.xml';
+        $sitemap_files = glob($pattern);
+
+        if ($sitemap_files) {
+            foreach ($sitemap_files as $file) {
+                if (file_exists($file) && wp_is_writable($file)) {
+                    // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
+                    @unlink($file);
+                }
+            }
+        }
     }
 
     /**

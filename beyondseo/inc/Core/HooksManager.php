@@ -83,7 +83,6 @@ class HooksManager
         // The module handles proper viewport output with 'width=device-width, initial-scale=1'
         // Use the 'rankingcoach_viewport_enabled' filter to disable if needed on specific pages
 
-        add_action('plugins_loaded', [$this, 'initializeSitemap'], 99);
         add_action('plugins_loaded', [$this, 'pageAndPostSessionHandlers'], 1);
         add_action('plugins_loaded', [$this, 'initializeUrlChangeDetector'], 1);
 
@@ -200,18 +199,6 @@ class HooksManager
     public function initializeUrlChangeDetector(): void
     {
         UrlChangeDetector::getInstance()->boot();
-    }
-
-    /**
-     * Initialize the Sitemap functionality.
-     *
-     * @return void
-     */
-    public function initializeSitemap(): void
-    {
-        // Initialize sitemap functionality
-        $sitemap = new Sitemap();
-        $sitemap->init();
     }
 
     /**
@@ -654,6 +641,10 @@ class HooksManager
                 } catch (Throwable $e) {
                     $this->log('Error running database migrations: ' . $e->getMessage(), 'ERROR');
                 }
+
+                // Invalidate the generated sitemap so the next request rebuilds it
+                // honoring the current per-page robots/sitemap settings
+                Sitemap::invalidate();
             }
         }
     }
