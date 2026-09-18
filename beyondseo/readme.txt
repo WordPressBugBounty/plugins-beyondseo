@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,17 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.5 =
+* Added activation code recovery by email.
+* Improved activation handling and error logging.
+* Improved onboarding with existing-data detection and automatic data extraction.
+* Improved support URLs with plugin version and channel tracking.
+* Added partner-aware handling for support and other external links.
+* Improved subscription handling with a fallback for unknown plans.
+* Improved category mapping to support both category IDs and names.
+* Improved upsell redirect handling.
+* General localization and stability improvements.
 
 = 1.3.4 =
 * Added WordPress 7.1 support

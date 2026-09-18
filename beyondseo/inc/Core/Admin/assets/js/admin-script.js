@@ -63,8 +63,23 @@
 
     // Potentially used for the upsell redirect
     window.addEventListener("message", function (event) {
+        let data = event.data;
+        if (!data) {
+            return;
+        }
 
-        const data = event.data;
+        if (typeof data === "string") {
+            try {
+                data = JSON.parse(data);
+            } catch (e) {
+                return;
+            }
+        }
+
+        if (!data || typeof data !== "object") {
+            return;
+        }
+
         switch (data.type) {
             case 'registration.ready':
                 //
@@ -87,8 +102,16 @@
                 //console.warn('Unknown message type:', message.type);
         }
 
-        if (data.action === "redirect_upsell" && data.relativeUrl) {
-            window.location.href = window.location.origin + data.relativeUrl;
+        if (data.action === "redirect_upsell" || data.type === "redirect_upsell") {
+            const rawUrl = data.relativeUrl || data.url;
+            if (rawUrl && typeof rawUrl === "string") {
+                const rewrittenUrl = rawUrl.replace(/page=rankingcoach-upsell/g, "page=rankingcoach-connect");
+                if (rewrittenUrl.startsWith("http://") || rewrittenUrl.startsWith("https://") || rewrittenUrl.startsWith("//")) {
+                    window.location.href = rewrittenUrl;
+                } else {
+                    window.location.href = window.location.origin + (rewrittenUrl.startsWith("/") ? "" : "/") + rewrittenUrl;
+                }
+            }
         }
     });
 

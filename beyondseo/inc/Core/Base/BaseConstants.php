@@ -27,6 +27,7 @@ class BaseConstants
     public const OPTION_REGISTRATION_COUNTRY_SHORTCODE = 'rankingcoach_registration_country_shortcode';
     public const OPTION_REGISTRATION_EMAIL_ADDRESS = 'rankingcoach_registration_email_address';
     public const OPTION_PARTNER_INTEGRATION = 'partner_integration_beyondseo';
+    public const OPTION_PARTNER_INTEGRATION_NAME = 'partner_integration_beyondseo_name';
 
     // INSTALLATION & ONBOARDING CONSTANTS
     public const OPTION_INSTALLATION_DATE = 'rankingcoach_installation_date';
@@ -75,7 +76,6 @@ class BaseConstants
     public const OPTION_SYNC_KEYWORDS_LAST_SYNC = 'rankingcoach_sync_keywords_last_sync';
     public const OPTION_SYNC_KEYWORDS_REMAINS_KEYWORDS = 'rankingcoach_sync_keywords_remains_keywords';
     public const OPTION_WP_CRON_LAST_CHECK = 'rankingcoach_wp_cron_last_check';
-    public const OPTION_WP_CRON_DISABLED_NOTICE = 'rankingcoach_wp_cron_disabled_notice';
     public const OPTION_NOT_CONNECTED_NOTICE_DISMISSED = 'rankingcoach_not_connected_notice_dismissed';
     public const OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS = 'rankingcoach_max_allowed_keywords';
     public const OPTION_USE_PLUGIN_PAGE_KEYWORDS_DATA = 'rankingcoach_use_plugin_page_keywords_data';
@@ -172,6 +172,29 @@ class BaseConstants
     public const URL_SUPPORT_IONOS = 'https://my.ionos.com/support/contact';
     public const URL_SUPPORT_IONOS_DE = 'https://mein.ionos.de/support/contact';
     public const URL_REVIEW = 'https://wordpress.org/support/plugin/beyondseo/reviews/#new-post';
+    public const URL_PRIVACY_POLICY = 'https://www.rankingcoach.com/en-us/privacy-policy';
+    public const URL_TERMS_AND_CONDITIONS = 'https://www.rankingcoach.com/en-us/terms-and-conditions';
+    public const URL_CUSTOMER_REVIEWS = 'https://www.reviews.io/company-reviews/store/www.rankingcoach.com#page:Qr';
+
+    // PARTNER CHANNELS (as detected and stored by ChannelFlow\ChannelResolver)
+    public const CHANNEL_DIRECT = 'direct';
+    // Channel value reported to rankingCoach support for direct-channel installs ("dc" = direct channel).
+    public const SUPPORT_CHANNEL_DEFAULT = 'dc';
+    public const CHANNEL_IONOS = 'ionos';
+    public const CHANNEL_EXTENDIFY = 'extendify';
+
+    /**
+     * Support desks of partners that handle customer support themselves, keyed by partner
+     * channel and then by market code (uppercase, e.g. "DE"). PARTNER_SUPPORT_DEFAULT_MARKET
+     * is the partner-wide fallback when the market is unknown or has no dedicated entry.
+     */
+    public const PARTNER_SUPPORT_DEFAULT_MARKET = '*';
+    public const PARTNER_SUPPORT_URLS = [
+        self::CHANNEL_IONOS => [
+            'DE' => self::URL_SUPPORT_IONOS_DE,
+            self::PARTNER_SUPPORT_DEFAULT_MARKET => self::URL_SUPPORT_IONOS,
+        ],
+    ];
 
     // ORIGINS CONSTANTS
     public const OPTION_LAST_KNOWN_ORIGIN = 'rankingcoach_last_known_origin';

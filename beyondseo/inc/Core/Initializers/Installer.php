@@ -255,7 +255,7 @@ class Installer implements InitializerInterface
             $dbm = DatabaseManager::getInstance();
             $dbm->createAllTables();
             HooksManager::getInstance()->runDbMigration();
-        } catch (Exception $e) {
+        } catch (Throwable $e) {
             // Log the error and prevent activation
             $this->log('Error during plugin activation: ' . $e->getMessage(), 'ERROR');
             /* translators: %s: error message */
@@ -608,41 +608,63 @@ class Installer implements InitializerInterface
      */
     public function maybeActivateOnce(): void
     {
-        // Fast path: already done or not in admin context
-        if (get_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_DONE) || !is_admin()) {
+        $currentFilter = (string) current_filter();
+        $pluginBasename = plugin_basename(RANKINGCOACH_FILE);
+        $isDirectActivation = ($currentFilter === 'activate_' . $pluginBasename)
+            || (defined('RANKINGCOACH_PLUGIN_BASENAME') && $currentFilter === 'activate_' . RANKINGCOACH_PLUGIN_BASENAME);
+
+        if (!$isDirectActivation && get_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_DONE)) {
             return;
         }
 
-        // Don't re-activate during the WordPress deactivation redirect
-        // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         if (isset($_GET['action']) && $_GET['action'] === 'deactivate') {
             return;
         }
 
-        if (get_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION)
-            && current_filter() !== 'activate_' . RANKINGCOACH_PLUGIN_BASENAME
-        ) {
-            return;
+        if (!$isDirectActivation) {
+            $isRest = (defined('REST_REQUEST') && REST_REQUEST)
+                || (isset($_SERVER['REQUEST_URI']) && str_contains((string)$_SERVER['REQUEST_URI'], '/wp-json/'));
+            $isCli = (defined('WP_CLI') && WP_CLI);
+
+            if (!is_admin() && !$isRest && !$isCli) {
+                return;
+            }
+
+            if (get_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION)) {
+                return;
+            }
+
+            $activePlugins = (array) get_option('active_plugins', []);
+            $isActive = in_array($pluginBasename, $activePlugins, true)
+                || (defined('RANKINGCOACH_PLUGIN_BASENAME') && in_array(RANKINGCOACH_PLUGIN_BASENAME, $activePlugins, true));
+
+            if (is_multisite() && !$isActive) {
+                $sitewidePlugins = (array) get_site_option('active_sitewide_plugins', []);
+                $isActive = isset($sitewidePlugins[$pluginBasename])
+                    || (defined('RANKINGCOACH_PLUGIN_BASENAME') && isset($sitewidePlugins[RANKINGCOACH_PLUGIN_BASENAME]));
+            }
+
+            if (!$isActive) {
+                return;
+            }
         }
 
-        if (!in_array(RANKINGCOACH_PLUGIN_BASENAME, (array) get_option('active_plugins', []), true)) {
-            return;
+        $lockTime = (int) get_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_LOCK, 0);
+        if ($lockTime > 0 && (time() - $lockTime) > 60) {
+            delete_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_LOCK);
         }
 
-        // Atomic lock: add_option returns false if it already exists
         if (! add_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_LOCK, time(), '', 'no')) {
-            return; // another request is running it
+            return;
         }
 
         try {
-            if (! get_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_DONE)) {
-                // Call our existing activation flow
+            if ($isDirectActivation || ! get_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_DONE)) {
                 $this->activationOnce();
                 update_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_DONE, 1, true);
             }
         } catch (\Throwable $e) {
             $this->log('activationOnce failed: ' . $e->getMessage(), 'ERROR');
-            // do NOT set OPT_ACTIVATION_DONE; we want a retry next load
         } finally {
             delete_option(BaseConstants::OPTION_PLUGIN_ACTIVATION_LOCK);
         }

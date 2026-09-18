@@ -46,12 +46,14 @@ class CoreHelper {
         BaseConstants::OPTION_PARTNER_INTEGRATION
     ];
 
+    public const FALLBACK_WP_SUBSCRIPTION = 'dc_wp_free_int';
     public const RC_FREE_SUBSCRIPTIONS = [
         'seo_wp_free',      // IONOS free
         'radar_wp_test',    // DC test free
         'dc_wp_free_eu',    // DC free EU
         'dc_wp_free_us',    // DC free US
-        'dc_wp_free_int'    // DC free International
+        'dc_wp_free_int',   // DC free International
+        'ventraip_wp_free', // VentraIP free
     ];
 
     /**
@@ -163,7 +165,7 @@ class CoreHelper {
             $currentPlanName = strtolower(trim($subscription['plan_name']));
 
             $currentLevel = match ($currentPlanName) {
-                'seo_wp_free' => 0,
+                'seo_wp_free', 'ventraip_wp_free' => 0,
                 'seo_wp_standard', 'seo_ai_small' => 1,
                 'seo_ai_medium', 'seo_ai_medium2025', 'seo_wp_advanced', 'seo_wp_advanced2025' => 2,
                 'seo_ai_social', 'seo_ai_large', 'seo_wp_pro', 'seo_wp_social', 'annual_360', 'monthly_360', '360_wp_test', 'monthly_360_eu', 'annual_360_eu', 'monthly_360_int', 'annual_360_int', 'monthly_360_us', 'annual_360_us' => 3,
@@ -401,6 +403,22 @@ class CoreHelper {
             'rcProjectId'         => get_option(BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID, null),
             'userData'            => null,
         ];
+    }
+
+    /**
+     * Installed plugin version: the RANKINGCOACH_VERSION constant (read from the plugin
+     * header at bootstrap), falling back to the stored option when the constant is not
+     * defined yet. Empty string when neither is available.
+     *
+     * @return string
+     */
+    public static function getPluginVersion(): string
+    {
+        $version = defined('RANKINGCOACH_VERSION')
+            ? RANKINGCOACH_VERSION
+            : get_option(BaseConstants::OPTION_PLUGIN_VERSION, '');
+
+        return is_scalar($version) ? trim((string) $version) : '';
     }
 
     public static function buildUtmUrl(

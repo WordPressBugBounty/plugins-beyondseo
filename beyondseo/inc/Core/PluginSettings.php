@@ -23,6 +23,7 @@ class PluginSettings {
         'enable_log_cleanup' => true,
         'allow_seo_optimiser_on_saved_posts' => true,
         'beyondseo_comm_opt_in' => false,
+        'activation_code_recovery_count' => 0,
         'enable_wp_cron_service' => false,
         'remove_settings_on_deactivation' => false,
         'enable_broken_link_checker_job' => true,

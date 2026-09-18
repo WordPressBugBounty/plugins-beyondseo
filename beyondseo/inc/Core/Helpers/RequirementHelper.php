@@ -59,24 +59,30 @@ class RequirementHelper
             $val = json_decode(json_encode($val, JSON_THROW_ON_ERROR), true, 512, JSON_THROW_ON_ERROR);
         }
 
-        // Handle category name to ID mapping
-        if ($name === 'businessCategories' && is_array($val)) {
-            $isListOfIds = !empty($val) && array_reduce($val, fn($carry, $item) => $carry && is_int($item), true);
-            
-            if (!$isListOfIds) {
-                $locale = WordpressHelpers::current_language_code_helper();
-                $translatedByName = \beyondseo_get_translated_categories($locale, 'name');
-                if (!empty($translatedByName)) {
-                    $ids = [];
-                    foreach ($val as $catName) {
-                        $formattedName = ucfirst(strtolower((string)$catName));
-                        if (isset($translatedByName[$formattedName])) {
-                            $ids[] = (int) $translatedByName[$formattedName]['id'];
-                        }
-                    }
-                    $val = array_values($ids);
+        // Decode JSON string for complex requirements if provided as serialized JSON
+        if (is_string($val) && in_array($name, ['businessKeywords', 'businessCategories', 'businessGeoAddress'], true)) {
+            $trimmed = trim($val);
+            if (str_starts_with($trimmed, '[') || str_starts_with($trimmed, '{')) {
+                $decoded = json_decode($trimmed, true);
+                if (json_last_error() === JSON_ERROR_NONE) {
+                    $val = $decoded;
                 }
             }
+        }
+
+        // Clean category items (preserving both category IDs and custom/localized category names)
+        if ($name === 'businessCategories' && is_array($val)) {
+            $cleaned = [];
+            foreach ($val as $cat) {
+                if (is_int($cat) || (is_string($cat) && ctype_digit($cat))) {
+                    $cleaned[] = (int) $cat;
+                } elseif (is_string($cat) && trim($cat) !== '') {
+                    $cleaned[] = trim($cat);
+                } elseif (is_array($cat) && !empty($cat['name']) && is_string($cat['name'])) {
+                    $cleaned[] = trim($cat['name']);
+                }
+            }
+            $val = array_values($cleaned);
         }
 
         // Format value for database

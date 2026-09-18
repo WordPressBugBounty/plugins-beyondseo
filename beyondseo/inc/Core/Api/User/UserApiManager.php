@@ -126,6 +126,24 @@ class UserApiManager extends HttpApiClient
     }
 
     /**
+     * Asks rankingCoach to re-send the activation code for the given email + this site's URL.
+     * No token exists yet, so no security headers are prepared (same as RegisterApiManager::register()).
+     * Bypasses the communication opt-in gate: the user has not consented yet at this point (decision D2).
+     *
+     * @param string $email
+     * @return mixed
+     * @throws HttpApiException
+     * @throws Throwable
+     */
+    public function recoverActivationCode(string $email): mixed {
+        $this->bypassOptIn = true;
+        $this->setUrl('activation/recover', 'publicApi');
+        $payload = CoreHelper::generateCommonSecurityPayload(['email' => $email]); // carries siteUrl + siteDomain
+        $response = $this->post($payload);
+        return $response['content'] ?? false;
+    }
+
+    /**
      * Get the user account details from RankingCoach API.
      *
      * @param string|null $locale
@@ -434,7 +452,8 @@ class UserApiManager extends HttpApiClient
 
             $subscriptionExternal = $data['subscription'] ?? '';
             if (empty($subscriptionExternal)) {
-                $subscriptionExternal = 'seo_wp_free';
+                // Unknown plan: treat it as a free, direct-channel plan — never as a partner (IONOS) one.
+                $subscriptionExternal = CoreHelper::FALLBACK_WP_SUBSCRIPTION;
             }
             $subscriptionHistory = $data['subscriptionHistory'] ?? null;
             $maxKeywords = $data['maxAllowedKeywords'] ?? null;

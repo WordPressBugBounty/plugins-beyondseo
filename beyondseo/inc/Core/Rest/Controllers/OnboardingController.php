@@ -172,6 +172,10 @@ class OnboardingController
         try {
             $requirementsData = $this->getFormattedRequirementsData();
 
+            if (!empty($requirementsData['categories']) && is_array($requirementsData['categories'])) {
+                $requirementsData['categories'] = $this->mapCategoriesNamesToIds($requirementsData['categories']);
+            }
+
             // Raised as a catchable exception (not the #[NoReturn] error page) so a
             // remote failure surfaces as a structured REST error the frontend can show.
             $this->withRemoteErrorsAsExceptions(
@@ -631,9 +635,44 @@ class OnboardingController
         return $formattedSteps;
     }
 
+    private function hasExistingSetupData(): bool
+    {
+        $requirements = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SETUP)
+            ->select(['setupRequirement', 'value'])
+            ->get();
+
+        if (!is_array($requirements)) {
+            return false;
+        }
+
+        foreach ($requirements as $row) {
+            $row = is_object($row) ? (array) $row : $row;
+            $reqName = $row['setupRequirement'] ?? '';
+            $value = $row['value'] ?? null;
+
+            if ($value === null || $value === '' || $value === '[]' || $value === '{}') {
+                continue;
+            }
+
+            if (in_array($reqName, ['businessKeywords', 'businessCategories'], true)) {
+                $decoded = json_decode((string)$value, true);
+                if (is_array($decoded) && !empty($decoded)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     public function extractAuto(WP_REST_Request $request): WP_REST_Response
     {
         try {
+            if ($this->hasExistingSetupData()) {
+                return new WP_REST_Response(['alreadyConfigured' => true], 200);
+            }
+
             $countryCode = get_option(BaseConstants::OPTION_RANKINGCOACH_REGISTER_COUNTRY_CODE);
             if (empty($countryCode)) {
                 $defaultCountry = WordpressHelpers::getDefaultCountry();
@@ -654,35 +693,34 @@ class OnboardingController
 
             $responseArray = isset($result['content']) ? json_decode(json_encode($result['content']), true) : [];
 
-            // Save the extracted requirements to the local database
             $extractedValues = $responseArray['extractedValues'] ?? null;
             if (is_array($extractedValues)) {
                 $prefilledAddress = (bool)($responseArray['prefillCountryRelevantAddress'] ?? false);
 
                 $requirements = [];
 
-                if (array_key_exists('businessDescription', $extractedValues)) {
-                    $requirements['businessDescription'] = $extractedValues['businessDescription'] ?? '';
+                if (!empty($extractedValues['businessDescription'])) {
+                    $requirements['businessDescription'] = (string)$extractedValues['businessDescription'];
                 }
-                if (array_key_exists('businessName', $extractedValues)) {
-                    $requirements['businessName'] = $extractedValues['businessName'] ?? '';
+                if (!empty($extractedValues['businessName'])) {
+                    $requirements['businessName'] = (string)$extractedValues['businessName'];
                 }
-                if (array_key_exists('businessKeywords', $extractedValues)) {
-                    $requirements['businessKeywords'] = $extractedValues['businessKeywords'] ?? [];
+                if (!empty($extractedValues['businessKeywords']) && is_array($extractedValues['businessKeywords'])) {
+                    $requirements['businessKeywords'] = $extractedValues['businessKeywords'];
                 }
-                if (array_key_exists('businessCategories', $extractedValues)) {
-                    $requirements['businessCategories'] = $extractedValues['businessCategories'] ?? [];
+                if (!empty($extractedValues['businessCategories']) && is_array($extractedValues['businessCategories'])) {
+                    $requirements['businessCategories'] = $extractedValues['businessCategories'];
                 }
-                if (array_key_exists('businessAddress', $extractedValues)) {
-                    $requirements['businessAddress'] = $extractedValues['businessAddress'] ?? '';
+                if (!empty($extractedValues['businessAddress'])) {
+                    $requirements['businessAddress'] = (string)$extractedValues['businessAddress'];
                     if ($prefilledAddress) {
                         update_option(BaseConstants::OPTION_PREFILLED_ADDRESS, $requirements['businessAddress']);
                     }
                 }
-                if (array_key_exists('businessGeoAddress', $extractedValues)) {
-                    $businessGeoAddress = $extractedValues['businessGeoAddress'] ?? '';
+                if (!empty($extractedValues['businessGeoAddress'])) {
+                    $businessGeoAddress = (string)$extractedValues['businessGeoAddress'];
                     try {
-                        $decodedAddress = json_decode((string)$businessGeoAddress, true, 512, JSON_THROW_ON_ERROR);
+                        $decodedAddress = json_decode($businessGeoAddress, true, 512, JSON_THROW_ON_ERROR);
                         if (is_array($decodedAddress)) {
                             $decodedAddress['prefilledAddress'] = $prefilledAddress;
                             $businessGeoAddress = json_encode($decodedAddress, JSON_THROW_ON_ERROR);
@@ -690,10 +728,12 @@ class OnboardingController
                     } catch (Throwable $e) {
                         $businessGeoAddress = '';
                     }
-                    $requirements['businessGeoAddress'] = $businessGeoAddress;
+                    if (!empty($businessGeoAddress)) {
+                        $requirements['businessGeoAddress'] = $businessGeoAddress;
+                    }
                 }
-                if (array_key_exists('businessServiceArea', $extractedValues)) {
-                    $requirements['businessServiceArea'] = $extractedValues['businessServiceArea'] ?? false;
+                if (isset($extractedValues['businessServiceArea']) && $extractedValues['businessServiceArea'] !== '' && $extractedValues['businessServiceArea'] !== null) {
+                    $requirements['businessServiceArea'] = $extractedValues['businessServiceArea'];
                 }
 
                 if (!empty($requirements)) {
@@ -703,14 +743,6 @@ class OnboardingController
 
             return new WP_REST_Response($result, 200);
         } catch (Throwable $e) {
-            // Auto onboarding is a best-effort enhancement: it pre-fills the setup
-            // requirements from the site's own content so the user has less to type.
-            // It must NEVER abort onboarding. If it fails for any reason — including the
-            // remote DDD DTO (PostWPOnboardingRequestDto) rejecting the request because a
-            // property such as "name" or "description" could not be extracted — we
-            // swallow the error and return an empty, successful (200) result. The
-            // frontend then simply continues into the normal (manual) onboarding flow
-            // instead of surfacing a fatal "Unexpected Error".
             $this->log('Auto onboarding extraction failed; falling back to normal onboarding: ' . $e->getMessage(), 'WARNING');
             return new WP_REST_Response(['autoOnboardingFailed' => true], 200);
         }
@@ -850,36 +882,79 @@ class OnboardingController
     }
 
     /**
-     * Map category IDs stored in the database to localized names
+     * Map category IDs stored in the database to localized names, while preserving string names.
      *
-     * @param string $value JSON encoded array of category IDs
+     * @param string $value JSON encoded array of category IDs or names
      * @return string JSON encoded array of category names
      */
     private function mapCategoryIdsToNames(string $value): string
     {
         try {
-            $ids = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
-            if (!is_array($ids) || empty($ids)) {
+            $items = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+            if (!is_array($items) || empty($items)) {
                 return $value;
             }
 
             $locale = WordpressHelpers::current_language_code_helper();
             $translatedCategories = \beyondseo_get_translated_categories($locale, 'id');
-            if (empty($translatedCategories)) {
-                return $value;
-            }
 
             $names = [];
-            foreach ($ids as $id) {
-                $key = (int) $id;
-                if (isset($translatedCategories[$key])) {
-                    $names[] = $translatedCategories[$key]['name'];
+            foreach ($items as $item) {
+                if (is_int($item) || (is_string($item) && ctype_digit($item))) {
+                    $key = (int) $item;
+                    if (!empty($translatedCategories) && isset($translatedCategories[$key]['name'])) {
+                        $names[] = $translatedCategories[$key]['name'];
+                    } else {
+                        $names[] = (string) $item;
+                    }
+                } elseif (is_string($item) && trim($item) !== '') {
+                    $names[] = trim($item);
+                } elseif (is_array($item) && !empty($item['name']) && is_string($item['name'])) {
+                    $names[] = trim($item['name']);
+                } elseif (is_object($item) && !empty($item->name) && is_string($item->name)) {
+                    $names[] = trim($item->name);
                 }
             }
 
-            return json_encode(array_values($names), JSON_THROW_ON_ERROR);
+            return !empty($names) ? json_encode(array_values($names), JSON_THROW_ON_ERROR) : $value;
         } catch (Throwable $e) {
             return $value;
+        }
+    }
+
+    /**
+     * Map category names to their numeric category IDs.
+     *
+     * @param array $names Array of category names (or already numeric IDs)
+     * @return array Array of category IDs. Names that couldn't be resolved are dropped.
+     */
+    private function mapCategoriesNamesToIds(array $names): array
+    {
+        try {
+            $locale = WordpressHelpers::current_language_code_helper();
+            $translatedCategories = \beyondseo_get_translated_categories($locale, 'name');
+
+            $ids = [];
+            foreach ($names as $item) {
+                if (is_int($item) || (is_string($item) && ctype_digit($item))) {
+                    $ids[] = (int) $item;
+                    continue;
+                }
+
+                if (!is_string($item) || trim($item) === '') {
+                    continue;
+                }
+
+                $key = ucfirst(strtolower(trim($item)));
+                if (!empty($translatedCategories) && isset($translatedCategories[$key]['id'])) {
+                    $ids[] = (int) $translatedCategories[$key]['id'];
+                }
+            }
+
+            return array_values(array_unique($ids));
+        } catch (Throwable $e) {
+            $this->log('Error mapping category names to IDs: ' . $e->getMessage(), 'ERROR');
+            return $names;
         }
     }
 }

@@ -45,6 +45,12 @@ class ActivationPage extends AdminPage
     /** @var string Action name used in form submission */
     protected const SAVE_ACTIVATION_ACTION = 'save_rankingcoach_activation';
 
+    /** Plugin setting (settings row in wp_options) counting the recovery mails actually sent for this website. */
+    private const OPTION_ACTIVATION_CODE_RECOVERY_COUNT = 'activation_code_recovery_count';
+
+    /** Recovery mails allowed per website before the flow refers the admin to customer support (rc-webapp enforces the same cap per subscription). */
+    private const MAX_ACTIVATION_CODE_RECOVERIES = 3;
+
     /** @var string Page slug name */
     public string $name = 'activation';
 
@@ -149,16 +155,7 @@ class ActivationPage extends AdminPage
             [
                 'methods'  => 'POST',
                 'callback' => [$this, 'handleActivateRestRequest'],
-                'permission_callback' => function (WP_REST_Request $request): bool|WP_Error {
-                    if (!current_user_can('manage_options')) {
-                        return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
-                    }
-                    $nonce = (string) $request->get_header('X-WP-Nonce');
-                    if ($nonce === '' || !wp_verify_nonce($nonce, 'wp_rest')) {
-                        return new WP_Error('invalid_nonce', __('Nonce verification failed.', 'beyondseo'), ['status' => 403]);
-                    }
-                    return true;
-                },
+                'permission_callback' => fn(WP_REST_Request $request): bool|WP_Error => $this->activationRoutePermissionCallback($request),
                 'args' => [
                     'activationCode' => [
                         'required'          => true,
@@ -173,6 +170,41 @@ class ActivationPage extends AdminPage
                 ],
             ]
         );
+
+        register_rest_route(
+            RANKINGCOACH_REST_API_BASE,
+            '/account/recoverActivationCode',
+            [
+                'methods'  => 'POST',
+                'callback' => [$this, 'handleRecoverActivationCodeRestRequest'],
+                'permission_callback' => fn(WP_REST_Request $request): bool|WP_Error => $this->activationRoutePermissionCallback($request),
+                'args' => [
+                    'email' => [
+                        'required'          => true,
+                        'validate_callback' => fn($p) => is_string($p) && is_email($p),
+                        'sanitize_callback' => 'sanitize_email',
+                    ],
+                ],
+            ]
+        );
+    }
+
+    /**
+     * Shared permission check for the activation REST routes: manage_options + wp_rest nonce.
+     *
+     * @param WP_REST_Request $request
+     * @return bool|WP_Error
+     */
+    private function activationRoutePermissionCallback(WP_REST_Request $request): bool|WP_Error
+    {
+        if (!current_user_can('manage_options')) {
+            return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
+        }
+        $nonce = (string) $request->get_header('X-WP-Nonce');
+        if ($nonce === '' || !wp_verify_nonce($nonce, 'wp_rest')) {
+            return new WP_Error('invalid_nonce', __('Nonce verification failed.', 'beyondseo'), ['status' => 403]);
+        }
+        return true;
     }
 
     public function handleActivateRestRequest(WP_REST_Request $request): WP_REST_Response|WP_Error
@@ -227,6 +259,116 @@ class ActivationPage extends AdminPage
         });
 
         return new WP_REST_Response(['success' => true], 200);
+    }
+
+    /**
+     * Handles the "lost activation code" request: asks rankingCoach to re-send the activation
+     * code to the given email. Only an email is sent - no flow state, tokens or options change,
+     * and the communication opt-in is deliberately not stored here (no consent step on this form).
+     * Failures return a translated, cause-specific `message` plus a `details` string (reason code
+     * and the remote error text) so the admin and customer support can see what actually happened.
+     *
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
+    public function handleRecoverActivationCodeRestRequest(WP_REST_Request $request): WP_REST_Response
+    {
+        $email = (string) $request->get_param('email');
+
+        // Per-installation brake, kept in the plugin's settings row in wp_options: once MAX_ACTIVATION_CODE_RECOVERIES
+        // recovery mails were actually sent for this website, the flow points at customer support instead of the API.
+        $recoveryCount = (int) SettingsManager::instance()->get_option(self::OPTION_ACTIVATION_CODE_RECOVERY_COUNT, 0);
+        if ($recoveryCount >= self::MAX_ACTIVATION_CODE_RECOVERIES) {
+            $this->log('Activation code recovery refused: local limit reached', 'WARNING', false, 'activation', [
+                'reason'        => 'local_recovery_limit_reached',
+                'recoveryCount' => $recoveryCount,
+            ]);
+            return $this->recoveryFailureResponse(
+                __('The activation code has already been re-sent the maximum number of times for this website. Please contact customer support.', 'beyondseo'),
+                'local_recovery_limit_reached'
+            );
+        }
+
+        $this->enableApiErrorPropagation();
+        try {
+            $result = (new UserApiManager())->recoverActivationCode($email);
+        } catch (Throwable $e) {
+            $this->log('Activation code recovery failed', 'WARNING', false, 'activation', [
+                'reason'        => 'exception',
+                'httpCode'      => $e->getCode(),
+                'remoteMessage' => $e->getMessage(),
+            ]);
+            if ($e instanceof HttpApiException && $e->getCode() >= 400) {
+                /* translators: 1: HTTP status code, 2: error text returned by the rankingCoach service */
+                $message = sprintf(__('The rankingCoach service rejected the request (HTTP %1$d): %2$s', 'beyondseo'), $e->getCode(), $e->getMessage());
+                $code    = 'http_' . $e->getCode();
+            } else {
+                /* translators: %s: error text */
+                $message = sprintf(__('Could not reach the rankingCoach service: %s', 'beyondseo'), $e->getMessage());
+                $code    = 'transport_error';
+            }
+            return $this->recoveryFailureResponse($message, $code);
+        } finally {
+            $this->disableApiErrorPropagation();
+        }
+
+        if ($result && ($result->success ?? false) === true) {
+            SettingsManager::instance()->update_option(self::OPTION_ACTIVATION_CODE_RECOVERY_COUNT, $recoveryCount + 1);
+            return new WP_REST_Response(['success' => true], 200);
+        }
+
+        $reason        = (string) ($result->reason ?? '');
+        $remoteMessage = (string) ($result->message ?? '');
+        $this->log('Activation code recovery failed', 'WARNING', false, 'activation', [
+            'reason'        => $reason,
+            'remoteMessage' => $remoteMessage,
+        ]);
+
+        return $this->recoveryFailureResponse(
+            $this->recoveryFailureMessage($reason, $remoteMessage),
+            $reason !== '' ? $reason : 'unexpected_response',
+            $remoteMessage
+        );
+    }
+
+    /**
+     * Builds the 422 failure response: translated `message` for the user, `details` (reason code plus the remote
+     * error text when it adds information) for support.
+     *
+     * @param string $message
+     * @param string $code
+     * @param string $remoteMessage
+     * @return WP_REST_Response
+     */
+    private function recoveryFailureResponse(string $message, string $code, string $remoteMessage = ''): WP_REST_Response
+    {
+        $details = $code;
+        if ($remoteMessage !== '' && $remoteMessage !== $message) {
+            $details .= ' - ' . $remoteMessage;
+        }
+        return new WP_REST_Response(['success' => false, 'message' => $message, 'details' => $details], 422);
+    }
+
+    /**
+     * Maps the rankingCoach recovery `reason` code onto a translated, cause-specific message.
+     * The other website's domain is never revealed for subscription_bound_to_other_website.
+     * Unknown or missing reasons fall back to the remote message, then to a generic text.
+     *
+     * @param string $reason
+     * @param string $remoteMessage
+     * @return string
+     */
+    private function recoveryFailureMessage(string $reason, string $remoteMessage = ''): string
+    {
+        return match ($reason) {
+            'account_not_found'                   => __('We could not find a rankingCoach account with this email address. Use the address your activation code was originally sent to.', 'beyondseo'),
+            'no_wordpress_subscription'           => __('This account has no active WordPress subscription.', 'beyondseo'),
+            'subscription_bound_to_other_website' => __('The WordPress subscription for this account is already linked to a different website.', 'beyondseo'),
+            'recovery_limit_reached'              => __('The activation code for this subscription has already been re-sent the maximum number of times. Please contact customer support.', 'beyondseo'),
+            'email_send_failed'                   => __('We could not send the email. Please try again later.', 'beyondseo'),
+            ''                                    => $remoteMessage !== '' ? $remoteMessage : __('The rankingCoach service returned an unexpected response. Please try again later.', 'beyondseo'),
+            default                               => $remoteMessage !== '' ? $remoteMessage : __('We could not send a recovery email. Please contact customer support.', 'beyondseo'),
+        };
     }
 
     /** Enables API error propagation through filters. */

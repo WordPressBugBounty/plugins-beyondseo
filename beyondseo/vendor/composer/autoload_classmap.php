@@ -106,6 +106,7 @@ return array(
     'RankingCoach\\Inc\\Core\\HeadMetaManager' => $baseDir . '/inc/Core/HeadMetaManager.php',
     'RankingCoach\\Inc\\Core\\Helpers\\CoreHelper' => $baseDir . '/inc/Core/Helpers/CoreHelper.php',
     'RankingCoach\\Inc\\Core\\Helpers\\Datafilter' => $baseDir . '/inc/Core/Helpers/Datafilter.php',
+    'RankingCoach\\Inc\\Core\\Helpers\\ExternalLinks' => $baseDir . '/inc/Core/Helpers/ExternalLinks.php',
     'RankingCoach\\Inc\\Core\\Helpers\\JavaScriptHelper' => $baseDir . '/inc/Core/Helpers/JavaScriptHelper.php',
     'RankingCoach\\Inc\\Core\\Helpers\\RequirementHelper' => $baseDir . '/inc/Core/Helpers/RequirementHelper.php',
     'RankingCoach\\Inc\\Core\\Helpers\\RestHelpers' => $baseDir . '/inc/Core/Helpers/RestHelpers.php',

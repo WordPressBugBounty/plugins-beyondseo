@@ -140,6 +140,7 @@ class PluginInformationController
             switch ($subscription) {
                 case 'seo_wp_free':
                 case 'radar_wp_test':
+                case 'ventraip_wp_free':
                     $rcSubscriptionName = 'Free';
                     break;
                 case 'seo_ai_small':

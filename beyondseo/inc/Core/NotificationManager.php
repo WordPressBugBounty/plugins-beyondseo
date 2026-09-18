@@ -275,7 +275,7 @@ class NotificationManager {
 		// Verify nonce with proper action name
         $nonce = WordpressHelpers::sanitize_input('POST', 'security');
 
-        if ( ! wp_verify_nonce( $nonce, 'rankingcoach_helpers_notice_dismissible' . $notification_id ) ) {
+        if ( ! wp_verify_nonce( $nonce, 'rankingcoach_helpers_notice_dismissible' . $notification_id ) && ! wp_verify_nonce( $nonce, $notification_id ) ) {
             wp_send_json_error([
                     'message' => __( 'Security check failed. Please try again.', 'beyondseo' ),
             ]);

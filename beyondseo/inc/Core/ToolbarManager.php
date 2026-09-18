@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
+use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Traits\SingletonTrait;
 
@@ -172,7 +173,7 @@ class ToolbarManager
             'id'     => 'rc-assistant-support',
             'parent' => 'rc-assistant',
             'title'  => __('Support', 'beyondseo'),
-            'href'   => CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support'),
+            'href'   => ExternalLinks::getSupportUrl(),
             'meta'   => [
                 'target' => '_blank',
             ],

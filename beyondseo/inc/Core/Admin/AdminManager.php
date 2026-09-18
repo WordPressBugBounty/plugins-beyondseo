@@ -8,7 +8,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Exception;
-use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Admin\Pages\ActivationPage;
 use RankingCoach\Inc\Core\Admin\Pages\CachePage;
 use RankingCoach\Inc\Core\Admin\Pages\GeneralSettingsPage;
@@ -21,6 +20,7 @@ use RankingCoach\Inc\Core\CacheManager;
 use RankingCoach\Inc\Core\DashboardWidgetManager;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
+use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\ToolbarManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
@@ -394,14 +394,24 @@ class AdminManager
     /**
      * Outputs custom admin footer scripts.
      *
+     * The "Support" entry of the plugin menu (see create_admin_pages()) is a plain external URL and
+     * WordPress menus cannot set target="_blank", so it is opened in a new tab from here. The anchor
+     * is matched on host + path of the resolved, partner-aware support URL (rankingCoach or a partner
+     * desk such as IONOS) and scoped to the plugin menu so no other link on the page is affected.
+     *
      * @return void
      */
     public function admin_footer_scripts(): void
     {
+        $supportUrlParts  = wp_parse_url(ExternalLinks::getSupportUrl(true));
+        $supportUrlNeedle = ($supportUrlParts['host'] ?? '') . ($supportUrlParts['path'] ?? '');
+        if ($supportUrlNeedle === '') {
+            return;
+        }
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function($) {
-                $('a[href*="grow.rankingcoach.com/wordpress/contact"]').attr('target', '_blank');
+                $('#toplevel_page_rankingcoach-main a[href*=<?php echo wp_json_encode($supportUrlNeedle, JSON_UNESCAPED_SLASHES); ?>]').attr('target', '_blank');
             });
         </script>
         <?php
@@ -568,13 +578,15 @@ class AdminManager
         // ===================================================================================
         // SUPPORT LINK
         // ===================================================================================
-        $supportUrl = CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support');
+        // Partner-aware (IONOS desk for IONOS installs, rankingCoach otherwise) and already escaped
+        // for output. The entry is opened in a new tab by admin_footer_scripts().
+        $supportUrl = ExternalLinks::getSupportUrl();
         add_submenu_page(
             'rankingcoach-main',
             __('Support', 'beyondseo'),
             __('Support', 'beyondseo'),
             'manage_options',
-            esc_url($supportUrl)
+            $supportUrl
         );
     }
 
@@ -625,13 +637,14 @@ class AdminManager
 
         $new_links['documentation'] = sprintf(
             '<a href="%1$s" target="_blank">%2$s</a>',
-            CoreHelper::buildUtmUrl(BaseConstants::URL_DOCUMENTATION, utm_content: 'wordpress'),
+            ExternalLinks::getDocumentationUrl(),
             esc_html__('Documentation', 'beyondseo')
         );
 
+        // Partner-aware: IONOS installs get the IONOS support desk, everything else rankingCoach support.
         $new_links['support'] = sprintf(
             '<a href="%1$s" target="_blank">%2$s</a>',
-            CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support'),
+            ExternalLinks::getSupportUrl(),
             esc_html__('Support', 'beyondseo')
         );
 
@@ -680,7 +693,7 @@ class AdminManager
 
         $plugin_meta[] = sprintf(
             '<a href="%1$s" target="_blank" rel="noopener noreferrer" class="rankingcoach-rate-us" style="color: #ffb900; text-decoration: none;" aria-label="%2$s" title="%2$s">%3$s</a>',
-            esc_url(BaseConstants::URL_REVIEW),
+            ExternalLinks::getReviewUrl(),
             esc_attr($label),
             $stars
         );

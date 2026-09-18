@@ -2,95 +2,150 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.3\n"
+"Project-Id-Version: BeyondSEO 1.3.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-27T13:17:03+00:00\n"
+"POT-Creation-Date: 2026-09-10T08:36:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
 
-#: react/src/components/Activation/Activation.tsx:40
-#: inc/Core/Admin/Pages/ActivationPage.php:288
+#: react/src/components/Activation/Activation.tsx:49
+#: inc/Core/Admin/Pages/ActivationPage.php:430
 #: inc/Core/Admin/Pages/IframePage.php:184
 #: inc/Core/Admin/Pages/IframePage.php:274
 msgid "Activation code is required."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:58
+#: react/src/components/Activation/Activation.tsx:67
 msgid "Activation failed."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:62
+#: react/src/components/Activation/Activation.tsx:72
 #: inc/Exceptions/ErrorContextFactory.php:44
 msgid "An unexpected error occurred."
 msgstr ""
 
+#: react/src/components/Activation/Activation.tsx:84
+#: inc/Core/Admin/Pages/RegistrationPage.php:155
+msgid "Please enter a valid email address."
+msgstr ""
+
 #: react/src/components/Activation/Activation.tsx:102
-#: react/src/components/Activation/Activation.tsx:87
+#: react/src/components/Activation/Activation.tsx:107
+#: inc/Core/Admin/Pages/ActivationPage.php:370
+msgid "We could not send a recovery email. Please contact customer support."
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:133
+#: react/src/components/Activation/Activation.tsx:148
 msgid "Enter your activation code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:94
+#: react/src/components/Activation/Activation.tsx:140
 msgid "Enter the activation code provided by your provider."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:98
+#: react/src/components/Activation/Activation.tsx:144
 msgid "Activation Code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:118
+#: react/src/components/Activation/Activation.tsx:159
+msgid "Can't find your activation code?"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:162
+msgid "Recover it here"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:172
 #: react/src/components/Registration/Registration.tsx:531
 msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:120
+#: react/src/components/Activation/Activation.tsx:174
 #: react/src/components/Registration/Registration.tsx:533
 msgid "Privacy Policy"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:122
+#: react/src/components/Activation/Activation.tsx:176
 #: react/src/components/Registration/Registration.tsx:535
 msgid " and the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:124
+#: react/src/components/Activation/Activation.tsx:178
 #: react/src/components/Registration/Registration.tsx:537
 msgid "Terms and Conditions"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:140
+#: react/src/components/Activation/Activation.tsx:195
+msgid "Details: %s"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:199
 msgid "Contact support"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:152
+#: react/src/components/Activation/Activation.tsx:211
 msgid "Activation done"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:155
+#: react/src/components/Activation/Activation.tsx:214
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:174
+#: react/src/components/Activation/Activation.tsx:226
+msgid "Recover your activation code"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:233
+msgid "Enter the email address your rankingCoach subscription is registered with. We will send your activation code to that address."
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:237
+#: react/src/components/Registration/Registration.tsx:506
+#: react/src/components/Upsell/upsellConfig.ts:616
+#: inc/Core/Admin/Pages/views/registration-page.php:106
+msgid "Email"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:259
+msgid "Check your inbox"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:262
+msgid "We have sent your activation code to %s. Enter it below once it arrives."
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:281
+#: react/src/components/Activation/Activation.tsx:326
 #: react/src/components/Registration/Registration.tsx:603
 #: react/src/components/Registration/RegistrationWelcome.tsx:80
 msgid "Back"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:184
+#: react/src/components/Activation/Activation.tsx:291
 msgid "Activate"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:195
+#: react/src/components/Activation/Activation.tsx:302
 msgid "Try another code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:205
+#: react/src/components/Activation/Activation.tsx:312
 msgid "Continue onboarding"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:336
+msgid "Send recovery email"
+msgstr ""
+
+#: react/src/components/Activation/Activation.tsx:347
+msgid "Enter activation code"
 msgstr ""
 
 #: react/src/components/Common/ErrorModal/ErrorModal.tsx:23
@@ -662,12 +717,6 @@ msgstr ""
 
 #: react/src/components/Registration/Registration.tsx:487
 msgid "Enter your email and we'll get you set up."
-msgstr ""
-
-#: react/src/components/Registration/Registration.tsx:506
-#: react/src/components/Upsell/upsellConfig.ts:616
-#: inc/Core/Admin/Pages/views/registration-page.php:106
-msgid "Email"
 msgstr ""
 
 #: react/src/components/Registration/Registration.tsx:510
@@ -2774,8 +2823,8 @@ msgstr ""
 msgid "Notification dismissed successfully."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:154
-#: inc/Core/Admin/Pages/ActivationPage.php:428
+#: inc/Core/Admin/Pages/ActivationPage.php:201
+#: inc/Core/Admin/Pages/ActivationPage.php:570
 #: inc/Core/Admin/Pages/IframePage.php:89
 #: inc/Core/Admin/Pages/RegistrationPage.php:293
 #: inc/Core/Admin/Pages/RegistrationPage.php:321
@@ -2786,8 +2835,8 @@ msgstr ""
 msgid "You do not have sufficient permissions."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:158
-#: inc/Core/Admin/Pages/ActivationPage.php:433
+#: inc/Core/Admin/Pages/ActivationPage.php:205
+#: inc/Core/Admin/Pages/ActivationPage.php:575
 #: inc/Core/Admin/Pages/IframePage.php:94
 #: inc/Core/Admin/Pages/RegistrationPage.php:297
 #: inc/Core/Admin/Pages/RegistrationPage.php:324
@@ -2798,40 +2847,80 @@ msgstr ""
 msgid "Nonce verification failed."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:188
-#: inc/Core/Admin/Pages/ActivationPage.php:302
-#: inc/Core/Admin/Pages/ActivationPage.php:392
+#: inc/Core/Admin/Pages/ActivationPage.php:220
+#: inc/Core/Admin/Pages/ActivationPage.php:444
+#: inc/Core/Admin/Pages/ActivationPage.php:534
 msgid "Invalid activation code."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:201
-#: inc/Core/Admin/Pages/ActivationPage.php:316
+#: inc/Core/Admin/Pages/ActivationPage.php:233
+#: inc/Core/Admin/Pages/ActivationPage.php:458
 msgid "Missing refresh token in activation response."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:209
-#: inc/Core/Admin/Pages/ActivationPage.php:327
+#: inc/Core/Admin/Pages/ActivationPage.php:241
+#: inc/Core/Admin/Pages/ActivationPage.php:469
 msgid "Error fetching account data."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:215
-#: inc/Core/Admin/Pages/ActivationPage.php:333
+#: inc/Core/Admin/Pages/ActivationPage.php:247
+#: inc/Core/Admin/Pages/ActivationPage.php:475
 msgid "Activation succeeded but data could not be saved."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:297
+#: inc/Core/Admin/Pages/ActivationPage.php:287
+msgid "The activation code has already been re-sent the maximum number of times for this website. Please contact customer support."
+msgstr ""
+
+#. translators: 1: HTTP status code, 2: error text returned by the rankingCoach service
+#: inc/Core/Admin/Pages/ActivationPage.php:303
+#, php-format
+msgid "The rankingCoach service rejected the request (HTTP %1$d): %2$s"
+msgstr ""
+
+#. translators: %s: error text
+#: inc/Core/Admin/Pages/ActivationPage.php:307
+#, php-format
+msgid "Could not reach the rankingCoach service: %s"
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:364
+msgid "We could not find a rankingCoach account with this email address. Use the address your activation code was originally sent to."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:365
+msgid "This account has no active WordPress subscription."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:366
+msgid "The WordPress subscription for this account is already linked to a different website."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:367
+msgid "The activation code for this subscription has already been re-sent the maximum number of times. Please contact customer support."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:368
+msgid "We could not send the email. Please try again later."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:369
+msgid "The rankingCoach service returned an unexpected response. Please try again later."
+msgstr ""
+
+#: inc/Core/Admin/Pages/ActivationPage.php:439
 msgid "Invalid response during account activation."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:325
+#: inc/Core/Admin/Pages/ActivationPage.php:467
 msgid "This activation code is already linked to another website URL. Changing the website URL address is not allowed. Please use a different code or contact support."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:373
+#: inc/Core/Admin/Pages/ActivationPage.php:515
 msgid "Refresh token saved successfully."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:374
+#: inc/Core/Admin/Pages/ActivationPage.php:516
 msgid "Failed to save refresh token."
 msgstr ""
 
@@ -3344,10 +3433,6 @@ msgstr ""
 
 #: inc/Core/Admin/Pages/RegistrationPage.php:154
 msgid "Resend verification email"
-msgstr ""
-
-#: inc/Core/Admin/Pages/RegistrationPage.php:155
-msgid "Please enter a valid email address."
 msgstr ""
 
 #: inc/Core/Admin/Pages/RegistrationPage.php:156
@@ -3953,73 +4038,73 @@ msgid "Unsupported HTTP method: %s"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
-#: inc/Core/HooksManager.php:292
+#: inc/Core/HooksManager.php:279
 #: inc/Core/Rest/Controllers/OnboardingController.php:534
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
-#: inc/Core/HooksManager.php:293
+#: inc/Core/HooksManager.php:280
 #: inc/Core/Rest/Controllers/OnboardingController.php:535
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
-#: inc/Core/HooksManager.php:294
+#: inc/Core/HooksManager.php:281
 #: inc/Core/Rest/Controllers/OnboardingController.php:536
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
-#: inc/Core/HooksManager.php:295
+#: inc/Core/HooksManager.php:282
 #: inc/Core/Rest/Controllers/OnboardingController.php:537
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
-#: inc/Core/HooksManager.php:296
+#: inc/Core/HooksManager.php:283
 #: inc/Core/Rest/Controllers/OnboardingController.php:538
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
-#: inc/Core/HooksManager.php:297
+#: inc/Core/HooksManager.php:284
 #: inc/Core/Rest/Controllers/OnboardingController.php:539
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
-#: inc/Core/HooksManager.php:298
+#: inc/Core/HooksManager.php:285
 #: inc/Core/Rest/Controllers/OnboardingController.php:540
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
-#: inc/Core/HooksManager.php:299
+#: inc/Core/HooksManager.php:286
 #: inc/Core/Rest/Controllers/OnboardingController.php:541
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
-#: inc/Core/HooksManager.php:300
+#: inc/Core/HooksManager.php:287
 #: inc/Core/Rest/Controllers/OnboardingController.php:542
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
-#: inc/Core/HooksManager.php:301
+#: inc/Core/HooksManager.php:288
 #: inc/Core/Rest/Controllers/OnboardingController.php:543
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
-#: inc/Core/HooksManager.php:302
+#: inc/Core/HooksManager.php:289
 #: inc/Core/Rest/Controllers/OnboardingController.php:544
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
-#: inc/Core/HooksManager.php:303
+#: inc/Core/HooksManager.php:290
 #: inc/Core/Rest/Controllers/OnboardingController.php:545
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
@@ -4029,7 +4114,7 @@ msgid "Request failed after multiple retries: "
 msgstr ""
 
 #. translators: %1$s is the error message
-#: inc/Core/Api/User/UserApiManager.php:712
+#: inc/Core/Api/User/UserApiManager.php:731
 #, php-format
 msgid "Keyword insert failed. Error: %1$s"
 msgstr ""
@@ -4259,12 +4344,12 @@ msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %1$s: opening link tag, %2$s: closing link tag
-#: inc/Core/HooksManager.php:459
+#: inc/Core/HooksManager.php:446
 #, php-format
 msgid "You have reached your keyword tracking limit. %1$sUpgrade your plan%2$s to continue tracking more keywords and improve your SEO performance."
 msgstr ""
 
-#: inc/Core/HooksManager.php:789
+#: inc/Core/HooksManager.php:811
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
 msgstr ""
 
@@ -4272,12 +4357,12 @@ msgstr ""
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:822
+#: inc/Core/Rest/Controllers/OnboardingController.php:820
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:823
+#: inc/Core/Rest/Controllers/OnboardingController.php:821
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""
@@ -7281,7 +7366,7 @@ msgstr ""
 msgid "Ensure the token generation process has been completed."
 msgstr ""
 
-#: inc/Modules/ModuleLibrary/Schema/SchemaMarkup/Graphs/Recipe.php:83
+#: inc/Modules/ModuleLibrary/Schema/SchemaMarkup/Graphs/Recipe.php:93
 msgid "Calories"
 msgstr ""
 

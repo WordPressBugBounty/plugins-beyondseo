@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
+use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
@@ -70,9 +71,10 @@ class Assets {
             'brandName' => RANKINGCOACH_BRAND_NAME,
             'brandSlug' => RANKINGCOACH_BRAND_SLUG,
             'countryShortCode' => $countryShortCode,
-            'supportUrl' => $this->getSupportUrl($locale, (new OptionStore())->getChannel()),
             'pluginInformation' => $this->getPluginInformationData()
         ];
+
+        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData());
 
         if (WordpressHelpers::is_edit_post_context()) {
             // Get the post ID (if editing an existing post).
@@ -181,12 +183,14 @@ class Assets {
             'iframeMapUrl' => esc_url_raw($this->generateMapUrl()),
             'countryShortCode' => $countryShortCode,
             'channel' => $channel,
-            'supportUrl' => $this->getSupportUrl($locale, $channel),
             'partnerIntegration' => $this->boolToJs($isPartnerIntegration),
             'registrationShowEmail' => $showEmail,
             'registrationShowActivation' => $showActivation,
             'pluginInformation' => $this->getPluginInformationData(),
         ];
+
+        // Outbound links (supportUrl, documentationUrl, ...): partner-aware, resolved in one place.
+        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData());
 
         $post_id = WordpressHelpers::sanitize_input('GET', 'post');
         $post_type = $post_id ? get_post_type($post_id) : null;
@@ -212,22 +216,6 @@ class Assets {
 
     private function boolToJs(bool $value): string {
         return $value ? 'true' : 'false';
-    }
-
-    /**
-     * Resolve the customer-support URL for the current install:
-     * IONOS support (locale-aware) for the ionos channel, rankingCoach support otherwise.
-     */
-    private function getSupportUrl(string $locale, ?string $channel): string {
-        if ($channel === 'ionos') {
-            return esc_url_raw(
-                str_starts_with(strtolower($locale), 'de')
-                    ? BaseConstants::URL_SUPPORT_IONOS_DE
-                    : BaseConstants::URL_SUPPORT_IONOS
-            );
-        }
-
-        return CoreHelper::buildUtmUrl(BaseConstants::URL_SUPPORT, utm_content: 'support', raw: true);
     }
 
     /** Languages supported, each with its default locale */

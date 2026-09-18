@@ -121,6 +121,7 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Core\\HeadMetaManager' => __DIR__ . '/../..' . '/inc/Core/HeadMetaManager.php',
         'RankingCoach\\Inc\\Core\\Helpers\\CoreHelper' => __DIR__ . '/../..' . '/inc/Core/Helpers/CoreHelper.php',
         'RankingCoach\\Inc\\Core\\Helpers\\Datafilter' => __DIR__ . '/../..' . '/inc/Core/Helpers/Datafilter.php',
+        'RankingCoach\\Inc\\Core\\Helpers\\ExternalLinks' => __DIR__ . '/../..' . '/inc/Core/Helpers/ExternalLinks.php',
         'RankingCoach\\Inc\\Core\\Helpers\\JavaScriptHelper' => __DIR__ . '/../..' . '/inc/Core/Helpers/JavaScriptHelper.php',
         'RankingCoach\\Inc\\Core\\Helpers\\RequirementHelper' => __DIR__ . '/../..' . '/inc/Core/Helpers/RequirementHelper.php',
         'RankingCoach\\Inc\\Core\\Helpers\\RestHelpers' => __DIR__ . '/../..' . '/inc/Core/Helpers/RestHelpers.php',

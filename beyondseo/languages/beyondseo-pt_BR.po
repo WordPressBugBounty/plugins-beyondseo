@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-08-18 19:54+0000\n"
+"PO-Revision-Date: 2026-09-10 08:36+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: pt\n"
@@ -8406,4 +8406,97 @@ msgstr "Seu site não está conectado ao %1$s. %2$sConecte agora%3$s para começ
 
 msgid "Rate %s on WordPress.org"
 msgstr "Avalie o %s no WordPress.org"
+
+
+
+msgid "We could not send a recovery email. Please contact customer support."
+msgstr ""
+
+
+msgid "Recover your activation code"
+msgstr ""
+
+
+msgid "Enter the email address your rankingCoach subscription is registered with. We will send your activation code to that address."
+msgstr ""
+
+
+msgid "Check your inbox"
+msgstr ""
+
+
+msgid "We have sent your activation code to %s. Enter it below once it arrives."
+msgstr ""
+
+
+msgid "Send recovery email"
+msgstr ""
+
+
+msgid "Enter activation code"
+msgstr ""
+
+
+msgid "We could not find a rankingCoach account for this email address."
+msgstr ""
+
+
+msgid "This account has no active WordPress subscription."
+msgstr ""
+
+
+msgid "The WordPress subscription for this account is already linked to a different website."
+msgstr ""
+
+
+msgid "We could not send the email. Please try again later."
+msgstr ""
+
+
+msgid "Email registration is not available for this installation. Please use your activation code."
+msgstr ""
+
+
+msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
+msgstr ""
+
+
+
+msgid "Details: %s"
+msgstr ""
+
+
+msgid "The rankingCoach service rejected the request (HTTP %1$d): %2$s"
+msgstr ""
+
+
+msgid "Could not reach the rankingCoach service: %s"
+msgstr ""
+
+
+msgid "We could not find a rankingCoach account with this email address. Use the address your activation code was originally sent to."
+msgstr ""
+
+
+msgid "The rankingCoach service returned an unexpected response. Please try again later."
+msgstr ""
+
+
+
+msgid "The activation code has already been re-sent the maximum number of times for this website. Please contact customer support."
+msgstr ""
+
+
+msgid "The activation code for this subscription has already been re-sent the maximum number of times. Please contact customer support."
+msgstr ""
+
+
+
+msgid "Can't find your activation code?"
+msgstr ""
+
+
+
+msgid "Recover it here"
+msgstr ""
 

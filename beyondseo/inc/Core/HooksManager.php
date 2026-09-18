@@ -53,9 +53,6 @@ class HooksManager
     use ConfigManager;
     use SingletonTrait;
 
-    /** @var string Notification ID used to warn admins that WP-Cron is disabled */
-    private const WP_CRON_DISABLED_NOTIFICATION_ID = 'rc_wp_cron_disabled';
-
     /**
      * After the plugin is loaded
      * @return void
@@ -102,9 +99,6 @@ class HooksManager
             add_action('init', [$this, 'initializeBrokenLinkChecker'], 15);
             add_action('init', [$this, 'initializeLogCleanupJob'], 15);
             add_action('init', [$this, 'initializeAccountSyncJob'], 15);
-
-            // Notify the admin (without touching wp-config.php) if WordPress cron is disabled
-            add_action('admin_init', [$this, 'maybeNotifyWpCronDisabled'], 20);
 
             // This hook is based on "handleUpselling", which provides the upsell URL to the client,
             // and redirects them to the upsell page in the partner account, when the force check option is set.
@@ -784,45 +778,6 @@ class HooksManager
             $this->manageKeywordLimitNotification();
         } catch (Throwable $e) {
             $this->log('Failed to initialize keyword synchronization job: ' . $e->getMessage(), 'ERROR');
-        }
-    }
-
-    /**
-     * Notify the admin if WordPress cron (DISABLE_WP_CRON) is disabled.
-     * This is purely advisory - the plugin never modifies wp-config.php.
-     *
-     * @return void
-     */
-    public function maybeNotifyWpCronDisabled(): void
-    {
-        try {
-            $notificationManager = NotificationManager::instance();
-
-            if (!(defined('DISABLE_WP_CRON') && DISABLE_WP_CRON)) {
-                return;
-            }
-
-            if ($notificationManager?->has_notification(self::WP_CRON_DISABLED_NOTIFICATION_ID)) {
-                return;
-            }
-
-            $message = sprintf(
-                '<p>%s</p>',
-                __('WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.', 'beyondseo')
-            );
-
-            $notificationManager?->add(
-                $message,
-                [
-                    'id' => self::WP_CRON_DISABLED_NOTIFICATION_ID,
-                    'type' => Notification::WARNING,
-                    'screen' => Notification::SCREEN_ANY,
-                    'dismissible' => true,
-                    'persistent' => true,
-                ]
-            );
-        } catch (Throwable $e) {
-            $this->log('Failed to check/notify WP-Cron disabled state: ' . $e->getMessage(), 'ERROR');
         }
     }
 

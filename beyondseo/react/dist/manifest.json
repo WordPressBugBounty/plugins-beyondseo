@@ -1,78 +1,78 @@
 {
   "../languages/json/beyondseo-de_DE.json": {
-    "file": "beyondseo-de_DE.Bhrz5Bww.js",
+    "file": "beyondseo-de_DE.K2u7Eva4.js",
     "name": "beyondseo-de_DE",
     "src": "../languages/json/beyondseo-de_DE.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-el_GR.json": {
-    "file": "beyondseo-el_GR.mFZxydMK.js",
+    "file": "beyondseo-el_GR.C0eRZayn.js",
     "name": "beyondseo-el_GR",
     "src": "../languages/json/beyondseo-el_GR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-en_US.json": {
-    "file": "beyondseo-en_US.Di1LwWDM.js",
+    "file": "beyondseo-en_US.Bh0i5Zxg.js",
     "name": "beyondseo-en_US",
     "src": "../languages/json/beyondseo-en_US.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-es_ES.json": {
-    "file": "beyondseo-es_ES.Ds2inslH.js",
+    "file": "beyondseo-es_ES.BQV_ykQ-.js",
     "name": "beyondseo-es_ES",
     "src": "../languages/json/beyondseo-es_ES.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-fi_FI.json": {
-    "file": "beyondseo-fi_FI.D41pzWck.js",
+    "file": "beyondseo-fi_FI.BztyjgkQ.js",
     "name": "beyondseo-fi_FI",
     "src": "../languages/json/beyondseo-fi_FI.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-fr_FR.json": {
-    "file": "beyondseo-fr_FR.DLhCgZDy.js",
+    "file": "beyondseo-fr_FR.CFgPWrII.js",
     "name": "beyondseo-fr_FR",
     "src": "../languages/json/beyondseo-fr_FR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-id_ID.json": {
-    "file": "beyondseo-id_ID.Dg0XbQM7.js",
+    "file": "beyondseo-id_ID.DbOFPeK6.js",
     "name": "beyondseo-id_ID",
     "src": "../languages/json/beyondseo-id_ID.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-it_IT.json": {
-    "file": "beyondseo-it_IT.Bzhw9FIm.js",
+    "file": "beyondseo-it_IT.DVLFYmml.js",
     "name": "beyondseo-it_IT",
     "src": "../languages/json/beyondseo-it_IT.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-ja_JP.json": {
-    "file": "beyondseo-ja_JP.uvvdNMTS.js",
+    "file": "beyondseo-ja_JP.DMYyJ_N2.js",
     "name": "beyondseo-ja_JP",
     "src": "../languages/json/beyondseo-ja_JP.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-nl_NL.json": {
-    "file": "beyondseo-nl_NL.ULGKoyi3.js",
+    "file": "beyondseo-nl_NL.B1VdWlzR.js",
     "name": "beyondseo-nl_NL",
     "src": "../languages/json/beyondseo-nl_NL.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-pl_PL.json": {
-    "file": "beyondseo-pl_PL.aWE0mVyO.js",
+    "file": "beyondseo-pl_PL.DPraCSto.js",
     "name": "beyondseo-pl_PL",
     "src": "../languages/json/beyondseo-pl_PL.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-pt_BR.json": {
-    "file": "beyondseo-pt_BR.CJj1DzRU.js",
+    "file": "beyondseo-pt_BR.DuHCFiww.js",
     "name": "beyondseo-pt_BR",
     "src": "../languages/json/beyondseo-pt_BR.json",
     "isDynamicEntry": true
   },
   "../languages/json/beyondseo-sv_SE.json": {
-    "file": "beyondseo-sv_SE.C3u0TKmr.js",
+    "file": "beyondseo-sv_SE.CZW5T_-k.js",
     "name": "beyondseo-sv_SE",
     "src": "../languages/json/beyondseo-sv_SE.json",
     "isDynamicEntry": true
@@ -1961,7 +1961,7 @@
     "isEntry": true
   },
   "src/App.tsx": {
-    "file": "app.ByOdy0fG.js",
+    "file": "app.DMqENX2x.js",
     "name": "app",
     "src": "src/App.tsx",
     "isEntry": true,
@@ -2387,7 +2387,7 @@
     "src": "src/assets/white-loading-animation.gif"
   },
   "src/main.tsx": {
-    "file": "main.Czw8Y_ec.js",
+    "file": "main.BJW6nleN.js",
     "name": "main",
     "src": "src/main.tsx",
     "isEntry": true,
@@ -2410,7 +2410,7 @@
       "../languages/json/beyondseo-sv_SE.json"
     ],
     "css": [
-      "assets/main-CzAMNESn.css",
+      "assets/main-DFFcvWt3.css",
       "assets/styles-B0eIDMsn.css"
     ],
     "assets": [
