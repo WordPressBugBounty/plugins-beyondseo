@@ -152,6 +152,7 @@ return array(
     'RankingCoach\\Inc\\Core\\Rest\\Controllers\\OptimiserController' => $baseDir . '/inc/Core/Rest/Controllers/OptimiserController.php',
     'RankingCoach\\Inc\\Core\\Rest\\Controllers\\PluginInformationController' => $baseDir . '/inc/Core/Rest/Controllers/PluginInformationController.php',
     'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SocialController' => $baseDir . '/inc/Core/Rest/Controllers/SocialController.php',
+    'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SupportController' => $baseDir . '/inc/Core/Rest/Controllers/SupportController.php',
     'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SyncController' => $baseDir . '/inc/Core/Rest/Controllers/SyncController.php',
     'RankingCoach\\Inc\\Core\\Rest\\Dtos\\ModulesResponseDto' => $baseDir . '/inc/Core/Rest/Dtos/ModulesResponseDto.php',
     'RankingCoach\\Inc\\Core\\Rest\\RestManager' => $baseDir . '/inc/Core/Rest/RestManager.php',

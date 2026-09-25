@@ -160,6 +160,12 @@ class WordpressHelpers {
 
             // Romanian
             'ro_ro' => 'ro_RO', // Romania
+
+            // Czech
+            'cs_cz' => 'cs_CZ', // Česko
+
+            // Slovak
+            'sk_sk' => 'sk_SK', // Slovensko
         ];
         
         $normalized_key = strtolower($locale);

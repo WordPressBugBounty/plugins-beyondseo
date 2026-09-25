@@ -2,160 +2,157 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.4\n"
+"Project-Id-Version: BeyondSEO 1.3.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-10T08:36:03+00:00\n"
+"POT-Creation-Date: 2026-09-24T10:14:44+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
 
-#: react/src/components/Activation/Activation.tsx:49
+#: react/src/components/Activation/Activation.tsx:67
 #: inc/Core/Admin/Pages/ActivationPage.php:430
 #: inc/Core/Admin/Pages/IframePage.php:184
 #: inc/Core/Admin/Pages/IframePage.php:274
 msgid "Activation code is required."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:67
+#: react/src/components/Activation/Activation.tsx:85
 msgid "Activation failed."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:72
+#: react/src/components/Activation/Activation.tsx:91
 #: inc/Exceptions/ErrorContextFactory.php:44
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:84
+#: react/src/components/Activation/Activation.tsx:104
 #: inc/Core/Admin/Pages/RegistrationPage.php:155
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:102
-#: react/src/components/Activation/Activation.tsx:107
+#: react/src/components/Activation/Activation.tsx:123
+#: react/src/components/Activation/Activation.tsx:130
 #: inc/Core/Admin/Pages/ActivationPage.php:370
 msgid "We could not send a recovery email. Please contact customer support."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:133
-#: react/src/components/Activation/Activation.tsx:148
+#: react/src/components/Activation/Activation.tsx:153
+#: react/src/components/Activation/Activation.tsx:165
 msgid "Enter your activation code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:140
+#: react/src/components/Activation/Activation.tsx:157
 msgid "Enter the activation code provided by your provider."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:144
+#: react/src/components/Activation/Activation.tsx:161
 msgid "Activation Code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:159
-msgid "Can't find your activation code?"
+#: react/src/components/Activation/Activation.tsx:177
+msgid "Check your email for your activation code. Didn’t receive it? Recover it"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:162
-msgid "Recover it here"
+#: react/src/components/Activation/Activation.tsx:186
+msgid "here"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:172
+#: react/src/components/Activation/Activation.tsx:196
 #: react/src/components/Registration/Registration.tsx:531
 msgid "I agree that the BeyondSEO plugin may create/authenticate my account and communicate with rankingCoach servers to provide its services. I have read and accept the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:174
+#: react/src/components/Activation/Activation.tsx:201
 #: react/src/components/Registration/Registration.tsx:533
 msgid "Privacy Policy"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:176
+#: react/src/components/Activation/Activation.tsx:203
 #: react/src/components/Registration/Registration.tsx:535
 msgid " and the "
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:178
+#: react/src/components/Activation/Activation.tsx:205
 #: react/src/components/Registration/Registration.tsx:537
 msgid "Terms and Conditions"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:195
+#: react/src/components/Activation/Activation.tsx:223
 msgid "Details: %s"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:199
+#: react/src/components/Activation/Activation.tsx:227
 msgid "Contact support"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:211
+#: react/src/components/Activation/Activation.tsx:235
 msgid "Activation done"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:214
+#: react/src/components/Activation/Activation.tsx:238
 msgid "You will be automatically redirected in 5 seconds..."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:226
+#: react/src/components/Activation/Activation.tsx:246
 msgid "Recover your activation code"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:233
+#: react/src/components/Activation/Activation.tsx:250
 msgid "Enter the email address your rankingCoach subscription is registered with. We will send your activation code to that address."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:237
+#: react/src/components/Activation/Activation.tsx:257
 #: react/src/components/Registration/Registration.tsx:506
 #: react/src/components/Upsell/upsellConfig.ts:616
 #: inc/Core/Admin/Pages/views/registration-page.php:106
 msgid "Email"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:259
+#: react/src/components/Activation/Activation.tsx:275
 msgid "Check your inbox"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:262
+#: react/src/components/Activation/Activation.tsx:279
 msgid "We have sent your activation code to %s. Enter it below once it arrives."
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:281
-#: react/src/components/Activation/Activation.tsx:326
+#: react/src/components/Activation/Activation.tsx:302
+#: react/src/components/Activation/Activation.tsx:325
+#: react/src/components/Activation/Activation.tsx:351
 #: react/src/components/Registration/Registration.tsx:603
-#: react/src/components/Registration/RegistrationWelcome.tsx:80
+#: react/src/components/Registration/RegistrationWelcome.tsx:78
 msgid "Back"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:291
+#: react/src/components/Activation/Activation.tsx:312
 msgid "Activate"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:302
-msgid "Try another code"
-msgstr ""
-
-#: react/src/components/Activation/Activation.tsx:312
+#: react/src/components/Activation/Activation.tsx:337
 msgid "Continue onboarding"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:336
+#: react/src/components/Activation/Activation.tsx:361
 msgid "Send recovery email"
 msgstr ""
 
-#: react/src/components/Activation/Activation.tsx:347
+#: react/src/components/Activation/Activation.tsx:368
 msgid "Enter activation code"
 msgstr ""
 
 #: react/src/components/Common/ErrorModal/ErrorModal.tsx:23
-#: react/src/components/Onboarding/Onboarding.tsx:103
+#: react/src/components/Onboarding/Onboarding.tsx:136
 #: react/src/components/Onboarding/OnboardingSteps/OnboardingStep.tsx:221
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:847
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:157
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:172
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:190
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:496
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:158
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:173
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:191
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:500
 #: react/src/components/Registration/Registration.tsx:620
 msgid "Something went wrong from our side, please try again!"
 msgstr ""
@@ -176,67 +173,67 @@ msgstr ""
 msgid "Copy Error"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:41
+#: react/src/components/Connect/Connect.tsx:42
 msgid "See your performance instantly"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:47
+#: react/src/components/Connect/Connect.tsx:48
 msgid "See where you stand vs competitors"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:53
+#: react/src/components/Connect/Connect.tsx:54
 msgid "Always know what’s happening with your business online"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:59
+#: react/src/components/Connect/Connect.tsx:60
 msgid "Spot what’s holding back your visibility"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:65
+#: react/src/components/Connect/Connect.tsx:66
 msgid "Stay on top of your reviews and protect your reputation"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:71
+#: react/src/components/Connect/Connect.tsx:72
 msgid "Track your progress over time"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:78
+#: react/src/components/Connect/Connect.tsx:79
 msgid "Basic SEO checks only"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:79
+#: react/src/components/Connect/Connect.tsx:80
 msgid "No keyword or ranking tracking"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:80
+#: react/src/components/Connect/Connect.tsx:81
 msgid "No competitor data"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:81
+#: react/src/components/Connect/Connect.tsx:82
 msgid "No clear performance insights"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:82
+#: react/src/components/Connect/Connect.tsx:83
 msgid "Limited visibility into your results"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:86
+#: react/src/components/Connect/Connect.tsx:87
 msgid "Start tracking your own rankings, keywords & competitors"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:87
+#: react/src/components/Connect/Connect.tsx:88
 msgid "Finally see how visible you are on Google"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:88
+#: react/src/components/Connect/Connect.tsx:89
 msgid "Track how your performance improves over time"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:89
+#: react/src/components/Connect/Connect.tsx:90
 msgid "Compare your results with competitors"
 msgstr ""
 
-#: react/src/components/Connect/Connect.tsx:90
+#: react/src/components/Connect/Connect.tsx:91
 msgid "Monitor your reviews and online reputation"
 msgstr ""
 
@@ -265,7 +262,7 @@ msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:147
 #: react/src/components/Connect/Connect.tsx:278
-#: react/src/components/Upsell/Upsell.tsx:785
+#: react/src/components/Upsell/Upsell.tsx:786
 #: react/src/components/Upsell/upsellConfig.ts:284
 msgid "Google Partner"
 msgstr ""
@@ -295,7 +292,7 @@ msgid "Join 1M+ businesses already growing"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:254
-#: react/src/components/Upsell/Upsell.tsx:757
+#: react/src/components/Upsell/Upsell.tsx:758
 msgid "4.84 out of 5"
 msgstr ""
 
@@ -386,7 +383,7 @@ msgid "You can not add more than 10 categories"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:527
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:341
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:345
 msgid "An unexpected error occurred"
 msgstr ""
 
@@ -427,7 +424,7 @@ msgid "You dont have any categories at the moment"
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:736
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:488
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:492
 #: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:522
 msgid "Cancel"
 msgstr ""
@@ -523,190 +520,190 @@ msgstr ""
 msgid "You don`t have any keywords at the moment"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:43
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:44
 msgid "Hey there, I`m your assistant."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:44
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:45
 msgid "I`m here to make SEO simple and effective for your website."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:45
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:46
 msgid "Ready to dive in?"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:52
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:53
 msgid "Please wait, I’m setting this up now. We’ll continue in just a few minutes."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:54
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:55
 msgid "After I`ll open Wordpress, and we can continue on optimising your website and content from there."
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:59
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:60
 msgid "Connecting WordPress integration"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:60
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:61
 msgid "Adding project name"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:61
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:62
 msgid "Saving project contact details"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:62
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:63
 msgid "Setting project type"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:63
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:64
 msgid "Adding project address"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:64
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:65
 msgid "Connecting project website"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:65
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:66
 msgid "Defining local service areas"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:66
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:67
 msgid "Adding weekday hours"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:67
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:68
 msgid "Adding weekend hours"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:68
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:69
 msgid "Setting primary category"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:69
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:70
 msgid "Adding secondary categories"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:70
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:71
 msgid "Adding primary keywords"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:71
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:72
 msgid "Adding additional keywords"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:72
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:73
 msgid "Adding competitors"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:73
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:74
 msgid "Setting up main goal"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:74
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:75
 msgid "Setting up secondary goal"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:75
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:76
 msgid "Adding short description"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:76
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:77
 msgid "Adding long description"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:77
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:78
 msgid "Searching listings"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:78
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:79
 msgid "Getting status of listings"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:79
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:80
 msgid "Checking connections"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:80
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:81
 msgid "Finalising project fine tuning"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:84
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
 msgid "Analyzing details"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:84
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
 msgid "Processing input"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
 msgid "Checking name"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:85
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
 msgid "Verifying availability"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
 msgid "Reviewing details"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:86
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
 msgid "Understanding scope"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
 msgid "Locating business"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:87
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
 msgid "Validating area"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
 msgid "Determining focus"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:88
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
 msgid "Mapping region"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:90
 msgid "Highlighting features"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:89
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:90
 msgid "Finding uniqueness"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:93
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:94
 msgid "Processing your input"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:110
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:111
 msgid "Let`s get started!"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:131
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:132
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:215
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:216
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:133
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:221
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:222
 msgid "Provide details to continue"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:283
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:289
 msgid "Please proceed with the next step"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:382
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:386
 msgid "Skip to manual input"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:424
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:428
 msgid "Start"
 msgstr ""
 
-#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:447
+#: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:451
 #: inc/Core/Admin/Pages/UpsellPage.php:150
 msgid "Loading..."
 msgstr ""
@@ -764,23 +761,23 @@ msgstr ""
 msgid "Try again"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:40
+#: react/src/components/Registration/RegistrationWelcome.tsx:38
 msgid "Welcome, how would you like to get started?"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:47
+#: react/src/components/Registration/RegistrationWelcome.tsx:45
 msgid "Continue with email"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:50
+#: react/src/components/Registration/RegistrationWelcome.tsx:48
 msgid "Log in or create a free account to start using the plugin."
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:58
+#: react/src/components/Registration/RegistrationWelcome.tsx:56
 msgid "Use an activation code"
 msgstr ""
 
-#: react/src/components/Registration/RegistrationWelcome.tsx:61
+#: react/src/components/Registration/RegistrationWelcome.tsx:59
 msgid "Already received a code by email? Enter it here to activate your plugin."
 msgstr ""
 
@@ -947,7 +944,7 @@ msgid "Status Icon"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:222
-#: react/src/components/Settings/Settings.tsx:29
+#: react/src/components/Settings/Settings.tsx:30
 msgid "Breadcrumbs"
 msgstr ""
 
@@ -1014,9 +1011,9 @@ msgid "Preview"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:365
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:265
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:162
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:164
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:262
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:160
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:162
 msgid "Save changes"
 msgstr ""
 
@@ -1141,140 +1138,182 @@ msgstr ""
 msgid "This feature will be available soon."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:90
-#: react/src/components/Settings/Settings.tsx:32
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:88
+#: react/src/components/Settings/Settings.tsx:33
 msgid "Robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:93
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:91
 msgid "View your robots.txt file to check search engine crawling instructions."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:98
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:96
 msgid "Enable robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:124
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:122
 msgid "Include sitemap URL in robots.txt file"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:128
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:126
 msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:136
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:134
 msgid "Your robots.txt URL:"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:141
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:139
 msgid "View Robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:148
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:146
 msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:106
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:104
 msgid "Content exceeds maximum length of 255 characters"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:186
-#: react/src/components/Settings/Settings.tsx:30
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:183
+#: react/src/components/Settings/Settings.tsx:31
 msgid "RSS"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:189
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:186
 msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:197
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:194
 msgid "Enable RSS"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:216
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:117
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:213
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:115
 msgid "Options"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:222
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:219
 msgid "Content to put before each post in the feed"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:236
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:233
 msgid "Content to put after each post in the feed"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:248
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:245
 msgid "Your RSS feed URL:"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:253
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:250
 msgid "View RSS Feed"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:28
+#: react/src/components/Settings/Settings.tsx:29
 #: react/src/components/TabsManager/TabsManager.tsx:41
 msgid "General"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:30
+#: react/src/components/Settings/Settings.tsx:31
 msgid "Really Simple Syndication"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:31
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:111
+#: react/src/components/Settings/Settings.tsx:32
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:109
 msgid "Sitemap"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:201
-#: inc/Core/Admin/AdminManager.php:465
-#: inc/Core/Admin/AdminManager.php:466
-#: inc/Core/ToolbarManager.php:166
+#: react/src/components/Settings/Settings.tsx:34
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:73
+#: inc/Core/Admin/AdminManager.php:586
+#: inc/Core/Admin/AdminManager.php:587
+#: inc/Core/Admin/AdminManager.php:648
+#: inc/Core/ToolbarManager.php:175
+msgid "Support"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:203
+#: inc/Core/Admin/AdminManager.php:475
+#: inc/Core/Admin/AdminManager.php:476
+#: inc/Core/ToolbarManager.php:167
 msgid "Settings"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:238
+#: react/src/components/Settings/Settings.tsx:240
 msgid "Checking…"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:238
+#: react/src/components/Settings/Settings.tsx:240
 msgid "Check my account"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:242
+#: react/src/components/Settings/Settings.tsx:244
 msgid "Plugin version:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:114
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:112
 msgid "Generate and manage your XML sitemap for better search engine indexing."
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:119
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:117
 msgid "Enable sitemap"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:134
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:132
 #: inc/Core/Admin/Pages/CachePage.php:433
 msgid "Last updated:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:140
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:138
 msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:147
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:145
 msgid "Your sitemap URL:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:152
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:150
 msgid "View Sitemap"
 msgstr ""
 
-#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:22
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:76
+msgid "Need help? Get in touch with our support team and copy your site information below."
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:81
+#: react/src/components/Upsell/upsellConfig.ts:664
+msgid "Contact us"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:89
+msgid "Contact Support"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:96
+msgid "Site info"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:104
+msgid "Failed to load site info. Please try again."
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:111
+msgid "Retry"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:122
+msgid "Copy site info to clipboard"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:126
+msgid "Copied to clipboard"
+msgstr ""
+
+#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:23
 msgid "And more"
 msgstr ""
 
-#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:37
+#: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:38
 msgid "Feature illustration"
 msgstr ""
 
@@ -1711,8 +1750,8 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:145
-#: react/src/components/Upsell/Upsell.tsx:643
+#: react/src/components/Upsell/Upsell.tsx:147
+#: react/src/components/Upsell/Upsell.tsx:644
 #: react/src/components/Upsell/upsellConfig.ts:119
 #: react/src/components/Upsell/upsellConfig.ts:133
 #: react/src/components/Upsell/upsellConfig.ts:157
@@ -1724,268 +1763,268 @@ msgstr ""
 msgid "Limited"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:299
+#: react/src/components/Upsell/Upsell.tsx:300
 msgid "Limited time only: Your Wordpress Launch Offer!"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:305
+#: react/src/components/Upsell/Upsell.tsx:306
 msgid "Limited Offer: First 3 months only $5/month!"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:317
+#: react/src/components/Upsell/Upsell.tsx:318
 msgid "Your "
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:320
+#: react/src/components/Upsell/Upsell.tsx:321
 msgid "business"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:321
+#: react/src/components/Upsell/Upsell.tsx:322
 #: react/src/components/Upsell/upsellConfig.ts:316
 #: react/src/components/Upsell/upsellConfig.ts:85
 msgid "SEO"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:322
+#: react/src/components/Upsell/Upsell.tsx:323
 msgid "website"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:323
+#: react/src/components/Upsell/Upsell.tsx:324
 msgid "GEO"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:324
+#: react/src/components/Upsell/Upsell.tsx:325
 msgid "reputation"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:325
+#: react/src/components/Upsell/Upsell.tsx:326
 msgid "social media"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:328
+#: react/src/components/Upsell/Upsell.tsx:329
 msgid " deserves"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:332
+#: react/src/components/Upsell/Upsell.tsx:333
 msgid "its full potential"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:337
+#: react/src/components/Upsell/Upsell.tsx:338
 msgid "Connect now to get rankingCoach Radar to access all features in your SEO, Online Presence, Social, and Reputation blocks, as well as new ones."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:349
+#: react/src/components/Upsell/Upsell.tsx:350
 msgid "Upgrade to rankingCoach 360 now"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:350
-#: react/src/components/Upsell/Upsell.tsx:658
+#: react/src/components/Upsell/Upsell.tsx:351
+#: react/src/components/Upsell/Upsell.tsx:659
 msgid "Connect for free"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:361
-#: react/src/components/Upsell/Upsell.tsx:492
-#: react/src/components/Upsell/Upsell.tsx:885
+#: react/src/components/Upsell/Upsell.tsx:362
+#: react/src/components/Upsell/Upsell.tsx:493
+#: react/src/components/Upsell/Upsell.tsx:886
 msgid "Monthly"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:372
-#: react/src/components/Upsell/Upsell.tsx:486
-#: react/src/components/Upsell/Upsell.tsx:879
+#: react/src/components/Upsell/Upsell.tsx:373
+#: react/src/components/Upsell/Upsell.tsx:487
+#: react/src/components/Upsell/Upsell.tsx:880
 msgid "Annual"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:377
+#: react/src/components/Upsell/Upsell.tsx:378
 msgid "* Annual payment"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:378
+#: react/src/components/Upsell/Upsell.tsx:379
 msgid "* Monthly payment"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:415
+#: react/src/components/Upsell/Upsell.tsx:416
 msgid "You've laid the foundation."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:418
+#: react/src/components/Upsell/Upsell.tsx:419
 msgid "Now let's take it further."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:422
+#: react/src/components/Upsell/Upsell.tsx:423
 msgid "The free rankingCoach Radar plugin is a great start. To continue growing your business, you need the full power."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:440
+#: react/src/components/Upsell/Upsell.tsx:441
 msgid "rankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:443
-#: react/src/components/Upsell/Upsell.tsx:513
-#: react/src/components/Upsell/Upsell.tsx:906
+#: react/src/components/Upsell/Upsell.tsx:444
+#: react/src/components/Upsell/Upsell.tsx:514
+#: react/src/components/Upsell/Upsell.tsx:907
 msgid "/ month"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:445
+#: react/src/components/Upsell/Upsell.tsx:446
 msgid "Free"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:446
+#: react/src/components/Upsell/Upsell.tsx:447
 msgid "Current plan"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:468
+#: react/src/components/Upsell/Upsell.tsx:469
 msgid "Better chances to appear"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:470
+#: react/src/components/Upsell/Upsell.tsx:471
 msgid " in AI search results"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:478
-#: react/src/components/Upsell/Upsell.tsx:871
+#: react/src/components/Upsell/Upsell.tsx:479
+#: react/src/components/Upsell/Upsell.tsx:872
 msgid "Limited time offer"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:486
-#: react/src/components/Upsell/Upsell.tsx:879
+#: react/src/components/Upsell/Upsell.tsx:487
+#: react/src/components/Upsell/Upsell.tsx:880
 msgid "SAVE 83%"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:496
-#: react/src/components/Upsell/Upsell.tsx:889
+#: react/src/components/Upsell/Upsell.tsx:497
+#: react/src/components/Upsell/Upsell.tsx:890
 msgid "rankingCoach 360"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:501
-#: react/src/components/Upsell/Upsell.tsx:894
-msgid "$40 / month"
 msgstr ""
 
 #: react/src/components/Upsell/Upsell.tsx:502
 #: react/src/components/Upsell/Upsell.tsx:895
+msgid "$40 / month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:503
+#: react/src/components/Upsell/Upsell.tsx:896
 msgid "Save 83%"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:505
-#: react/src/components/Upsell/Upsell.tsx:898
+#: react/src/components/Upsell/Upsell.tsx:506
+#: react/src/components/Upsell/Upsell.tsx:899
 msgid "/ first 3 months"
-msgstr ""
-
-#: react/src/components/Upsell/Upsell.tsx:507
-#: react/src/components/Upsell/Upsell.tsx:900
-msgid "then $40/month"
 msgstr ""
 
 #: react/src/components/Upsell/Upsell.tsx:508
 #: react/src/components/Upsell/Upsell.tsx:901
+msgid "then $40/month"
+msgstr ""
+
+#: react/src/components/Upsell/Upsell.tsx:509
+#: react/src/components/Upsell/Upsell.tsx:902
 msgid "Annual contract"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:515
-#: react/src/components/Upsell/Upsell.tsx:908
+#: react/src/components/Upsell/Upsell.tsx:516
+#: react/src/components/Upsell/Upsell.tsx:909
 msgid "Monthly contract"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:527
-#: react/src/components/Upsell/Upsell.tsx:657
-#: react/src/components/Upsell/Upsell.tsx:920
+#: react/src/components/Upsell/Upsell.tsx:528
+#: react/src/components/Upsell/Upsell.tsx:658
+#: react/src/components/Upsell/Upsell.tsx:921
 msgid "Upgrade now"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:531
-#: react/src/components/Upsell/Upsell.tsx:924
+#: react/src/components/Upsell/Upsell.tsx:532
+#: react/src/components/Upsell/Upsell.tsx:925
 msgid "Everything in RankingCoach Radar, plus:"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:556
+#: react/src/components/Upsell/Upsell.tsx:557
 msgid "What you get with free rankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:560
+#: react/src/components/Upsell/Upsell.tsx:561
 msgid "See the difference: With rankingCoach 360 you have all the tools for your online success."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:568
+#: react/src/components/Upsell/Upsell.tsx:569
 msgid "Feature"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:571
+#: react/src/components/Upsell/Upsell.tsx:572
 msgid "RankingCoach Radar"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:575
+#: react/src/components/Upsell/Upsell.tsx:576
 msgid "RankingCoach 360"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:636
+#: react/src/components/Upsell/Upsell.tsx:637
 msgid "Full access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:640
+#: react/src/components/Upsell/Upsell.tsx:641
 msgid "No access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:644
+#: react/src/components/Upsell/Upsell.tsx:645
 msgid "Partial access"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:672
+#: react/src/components/Upsell/Upsell.tsx:673
 msgid "+45 features. 8 areas. 1 easy upgrade. 0 compromises."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:675
+#: react/src/components/Upsell/Upsell.tsx:676
 msgid "rankingCoach free combines everything you need for successful online marketing. Simple, effective, affordable."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:732
+#: react/src/components/Upsell/Upsell.tsx:733
 msgid "Agency or Enterprise? Talk to us"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:746
+#: react/src/components/Upsell/Upsell.tsx:747
 msgid "What our customers say"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:802
+#: react/src/components/Upsell/Upsell.tsx:803
 msgid "FOR PROFESSIONALS"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:806
+#: react/src/components/Upsell/Upsell.tsx:807
 msgid "Are you a Web Professional, Agency or Enterprise?"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:810
+#: react/src/components/Upsell/Upsell.tsx:811
 msgid "Managing SEO and Digital Marketing for clients or multiple businesses? Talk to our sales team to learn about our special offers and partner programs."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:830
+#: react/src/components/Upsell/Upsell.tsx:831
 msgid "Get a custom quote for your business"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:834
+#: react/src/components/Upsell/Upsell.tsx:835
 msgid "Volume discounts and white-label solutions available."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:844
+#: react/src/components/Upsell/Upsell.tsx:845
 msgid "Talk to sales"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:853
+#: react/src/components/Upsell/Upsell.tsx:854
 msgid "Ready to unlock your business's full potential?"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:856
+#: react/src/components/Upsell/Upsell.tsx:857
 msgid "Upgrade now to unlock all features that help grow your business with less effort."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:946
+#: react/src/components/Upsell/Upsell.tsx:947
 msgid "Agency, Enterprise or Freelancer?"
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:949
+#: react/src/components/Upsell/Upsell.tsx:950
 msgid "Deliver growth to your clients."
 msgstr ""
 
-#: react/src/components/Upsell/Upsell.tsx:958
+#: react/src/components/Upsell/Upsell.tsx:959
 msgid "Contact sales"
 msgstr ""
 
@@ -2681,10 +2720,6 @@ msgstr ""
 msgid "I agree to receive other communications from RankingCoach 360."
 msgstr ""
 
-#: react/src/components/Upsell/upsellConfig.ts:664
-msgid "Contact us"
-msgstr ""
-
 #: react/src/helpers/score-helpers.ts:17
 msgid "Poor SEO score — major improvements needed."
 msgstr ""
@@ -2747,53 +2782,46 @@ msgstr ""
 msgid "Show less"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:483
-#: inc/Core/Admin/AdminManager.php:484
+#: inc/Core/Admin/AdminManager.php:493
+#: inc/Core/Admin/AdminManager.php:494
 msgid "Activation"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:501
-#: inc/Core/Admin/AdminManager.php:502
+#: inc/Core/Admin/AdminManager.php:511
+#: inc/Core/Admin/AdminManager.php:512
 #: inc/Core/Admin/Pages/views/registration-page.php:94
 msgid "Registration"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:519
-#: inc/Core/Admin/AdminManager.php:520
+#: inc/Core/Admin/AdminManager.php:529
+#: inc/Core/Admin/AdminManager.php:530
 msgid "Onboarding"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:539
-#: inc/Core/Admin/AdminManager.php:540
-#: inc/Core/Admin/AdminManager.php:642
-#: inc/Core/ToolbarManager.php:186
+#: inc/Core/Admin/AdminManager.php:549
+#: inc/Core/Admin/AdminManager.php:550
+#: inc/Core/Admin/AdminManager.php:655
+#: inc/Core/ToolbarManager.php:187
 msgid "Connect"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:551
-#: inc/Core/Admin/AdminManager.php:552
-#: inc/Core/Admin/AdminManager.php:650
+#: inc/Core/Admin/AdminManager.php:561
+#: inc/Core/Admin/AdminManager.php:562
+#: inc/Core/Admin/AdminManager.php:663
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:80
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:113
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:144
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:317
-#: inc/Core/ToolbarManager.php:196
+#: inc/Core/ToolbarManager.php:197
 msgid "Upgrade"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:574
-#: inc/Core/Admin/AdminManager.php:575
-#: inc/Core/Admin/AdminManager.php:635
-#: inc/Core/ToolbarManager.php:174
-msgid "Support"
-msgstr ""
-
-#: inc/Core/Admin/AdminManager.php:629
+#: inc/Core/Admin/AdminManager.php:641
 msgid "Documentation"
 msgstr ""
 
 #. translators: %s: plugin brand name
-#: inc/Core/Admin/AdminManager.php:672
+#: inc/Core/Admin/AdminManager.php:685
 #, php-format
 msgid "Rate %s on WordPress.org"
 msgstr ""
@@ -3988,124 +4016,124 @@ msgstr ""
 msgid "Error processing keywords sync response: %s"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:213
+#: inc/Core/Api/HttpApiClient.php:214
 msgid "API endpoint cannot be empty."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:255
+#: inc/Core/Api/HttpApiClient.php:256
 msgid "Invalid URL format: "
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:479
+#: inc/Core/Api/HttpApiClient.php:480
 msgid "Communication opt-in is disabled."
 msgstr ""
 
 #. translators: %s: transport error message
-#: inc/Core/Api/HttpApiClient.php:532
+#: inc/Core/Api/HttpApiClient.php:533
 #, php-format
 msgid "Transport error occurred during request: %s"
 msgstr ""
 
 #. translators: %s: JSON error message
-#: inc/Core/Api/HttpApiClient.php:578
+#: inc/Core/Api/HttpApiClient.php:579
 #, php-format
 msgid "Error decoding JSON response: %s"
 msgstr ""
 
 #. translators: %s: unsupported content type
-#: inc/Core/Api/HttpApiClient.php:584
+#: inc/Core/Api/HttpApiClient.php:585
 msgid "Unsupported content type."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:589
+#: inc/Core/Api/HttpApiClient.php:590
 msgid "Unknown error"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:590
+#: inc/Core/Api/HttpApiClient.php:591
 msgid "Unknown message"
 msgstr ""
 
 #. translators: 1: error type, 2: error message
-#: inc/Core/Api/HttpApiClient.php:592
+#: inc/Core/Api/HttpApiClient.php:593
 #, php-format
 msgid "API error: %1$s - %2$s"
 msgstr ""
 
 #. translators: %s: HTTP method type
-#: inc/Core/Api/HttpApiClient.php:607
+#: inc/Core/Api/HttpApiClient.php:608
 #, php-format
 msgid "Unsupported HTTP method: %s"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
-#: inc/Core/HooksManager.php:279
-#: inc/Core/Rest/Controllers/OnboardingController.php:534
+#: inc/Core/HooksManager.php:273
+#: inc/Core/Rest/Controllers/OnboardingController.php:538
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
-#: inc/Core/HooksManager.php:280
-#: inc/Core/Rest/Controllers/OnboardingController.php:535
+#: inc/Core/HooksManager.php:274
+#: inc/Core/Rest/Controllers/OnboardingController.php:539
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
-#: inc/Core/HooksManager.php:281
-#: inc/Core/Rest/Controllers/OnboardingController.php:536
+#: inc/Core/HooksManager.php:275
+#: inc/Core/Rest/Controllers/OnboardingController.php:540
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
-#: inc/Core/HooksManager.php:282
-#: inc/Core/Rest/Controllers/OnboardingController.php:537
+#: inc/Core/HooksManager.php:276
+#: inc/Core/Rest/Controllers/OnboardingController.php:541
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
-#: inc/Core/HooksManager.php:283
-#: inc/Core/Rest/Controllers/OnboardingController.php:538
+#: inc/Core/HooksManager.php:277
+#: inc/Core/Rest/Controllers/OnboardingController.php:542
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
-#: inc/Core/HooksManager.php:284
-#: inc/Core/Rest/Controllers/OnboardingController.php:539
+#: inc/Core/HooksManager.php:278
+#: inc/Core/Rest/Controllers/OnboardingController.php:543
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
-#: inc/Core/HooksManager.php:285
-#: inc/Core/Rest/Controllers/OnboardingController.php:540
+#: inc/Core/HooksManager.php:279
+#: inc/Core/Rest/Controllers/OnboardingController.php:544
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
-#: inc/Core/HooksManager.php:286
-#: inc/Core/Rest/Controllers/OnboardingController.php:541
+#: inc/Core/HooksManager.php:280
+#: inc/Core/Rest/Controllers/OnboardingController.php:545
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
-#: inc/Core/HooksManager.php:287
-#: inc/Core/Rest/Controllers/OnboardingController.php:542
+#: inc/Core/HooksManager.php:281
+#: inc/Core/Rest/Controllers/OnboardingController.php:546
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
-#: inc/Core/HooksManager.php:288
-#: inc/Core/Rest/Controllers/OnboardingController.php:543
+#: inc/Core/HooksManager.php:282
+#: inc/Core/Rest/Controllers/OnboardingController.php:547
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
-#: inc/Core/HooksManager.php:289
-#: inc/Core/Rest/Controllers/OnboardingController.php:544
+#: inc/Core/HooksManager.php:283
+#: inc/Core/Rest/Controllers/OnboardingController.php:548
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
-#: inc/Core/HooksManager.php:290
-#: inc/Core/Rest/Controllers/OnboardingController.php:545
+#: inc/Core/HooksManager.php:284
+#: inc/Core/Rest/Controllers/OnboardingController.php:549
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
 
@@ -4314,193 +4342,194 @@ msgid "College graduate (Very difficult)"
 msgstr ""
 
 #. translators: %s: author name
-#: inc/Core/Helpers/WordpressHelpers.php:1469
+#: inc/Core/Helpers/WordpressHelpers.php:1475
 #, php-format
 msgid "Written by %s"
 msgstr ""
 
 #. translators: %s: date
-#: inc/Core/Helpers/WordpressHelpers.php:1479
+#: inc/Core/Helpers/WordpressHelpers.php:1485
 #, php-format
 msgid "Content from %s"
 msgstr ""
 
 #. translators: %s: search term
-#: inc/Core/Helpers/WordpressHelpers.php:1489
+#: inc/Core/Helpers/WordpressHelpers.php:1495
 #, php-format
 msgid "Found results for: %s"
 msgstr ""
 
 #. translators: %s: tag name
-#: inc/Core/Helpers/WordpressHelpers.php:1499
+#: inc/Core/Helpers/WordpressHelpers.php:1505
 #, php-format
 msgid "Tagged: %s"
 msgstr ""
 
 #. translators: %s: search term
-#: inc/Core/Helpers/WordpressHelpers.php:1550
+#: inc/Core/Helpers/WordpressHelpers.php:1556
 #, php-format
 msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %1$s: opening link tag, %2$s: closing link tag
-#: inc/Core/HooksManager.php:446
+#: inc/Core/HooksManager.php:440
 #, php-format
 msgid "You have reached your keyword tracking limit. %1$sUpgrade your plan%2$s to continue tracking more keywords and improve your SEO performance."
-msgstr ""
-
-#: inc/Core/HooksManager.php:811
-msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
 msgstr ""
 
 #: inc/Core/Rest/Controllers/OnboardingController.php:73
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:820
+#: inc/Core/Rest/Controllers/OnboardingController.php:852
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:821
+#: inc/Core/Rest/Controllers/OnboardingController.php:853
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:173
-#: inc/Core/Rest/RestManager.php:217
+#: inc/Core/Rest/RestManager.php:174
+#: inc/Core/Rest/RestManager.php:218
 msgid "Authentication required. Use WordPress Application Password with Basic Auth."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:182
+#: inc/Core/Rest/RestManager.php:183
 msgid "You do not have permission to access integration endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:226
+#: inc/Core/Rest/RestManager.php:227
 msgid "You do not have permission to access sync endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:261
-#: inc/Core/Rest/RestManager.php:312
-#: inc/Core/Rest/RestManager.php:351
-#: inc/Core/Rest/RestManager.php:390
-#: inc/Core/Rest/RestManager.php:430
-#: inc/Core/Rest/RestManager.php:469
-#: inc/Core/Rest/RestManager.php:511
-#: inc/Core/Rest/RestManager.php:551
-#: inc/Core/Rest/RestManager.php:590
+#: inc/Core/Rest/RestManager.php:262
+#: inc/Core/Rest/RestManager.php:313
+#: inc/Core/Rest/RestManager.php:352
+#: inc/Core/Rest/RestManager.php:391
+#: inc/Core/Rest/RestManager.php:431
+#: inc/Core/Rest/RestManager.php:470
+#: inc/Core/Rest/RestManager.php:507
+#: inc/Core/Rest/RestManager.php:549
+#: inc/Core/Rest/RestManager.php:589
+#: inc/Core/Rest/RestManager.php:628
 msgid "Invalid or missing security nonce."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:270
+#: inc/Core/Rest/RestManager.php:271
 msgid "You do not have permission to access admin endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:279
+#: inc/Core/Rest/RestManager.php:280
 msgid "You do not have the required plugin capability."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:320
+#: inc/Core/Rest/RestManager.php:321
 msgid "You do not have permission to access config endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:359
+#: inc/Core/Rest/RestManager.php:360
 msgid "You do not have permission to access metatags endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:399
+#: inc/Core/Rest/RestManager.php:400
 msgid "You do not have permission to access content analysis."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:438
+#: inc/Core/Rest/RestManager.php:439
 msgid "You do not have permission to access onboarding."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:477
+#: inc/Core/Rest/RestManager.php:478
 msgid "You do not have permission to access plugin information."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:520
+#: inc/Core/Rest/RestManager.php:515
+msgid "You do not have permission to access support information."
+msgstr ""
+
+#: inc/Core/Rest/RestManager.php:558
 msgid "You do not have permission to access the SEO Optimiser."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:559
-#: inc/Core/Rest/RestManager.php:598
+#: inc/Core/Rest/RestManager.php:597
+#: inc/Core/Rest/RestManager.php:636
 msgid "You do not have permission to access social media settings."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1425
+#: inc/Core/Rest/RestManager.php:1479
 #: inc/Core/Seo/Optimiser/Base/Operation.php:95
 #: inc/Modules/ModuleLibrary/Links/LinkAnalyzer/LinkAnalyzerApi.php:188
 #: inc/Modules/ModuleLibrary/Links/LinkAnalyzer/LinkAnalyzerApi.php:210
 msgid "Invalid post ID"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1596
+#: inc/Core/Rest/RestManager.php:1650
 msgid "Method not allowed"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1605
-#: inc/Core/Rest/RestManager.php:1646
-#: inc/Core/Rest/RestManager.php:1708
+#: inc/Core/Rest/RestManager.php:1659
+#: inc/Core/Rest/RestManager.php:1700
+#: inc/Core/Rest/RestManager.php:1762
 #, php-format
 msgid "Internal server error: %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1741
+#: inc/Core/Rest/RestManager.php:1795
 msgid "Failed to retrieve settings"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1761
+#: inc/Core/Rest/RestManager.php:1815
 msgid "Invalid request body. Expected JSON object with settings."
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1807
+#: inc/Core/Rest/RestManager.php:1861
 #, php-format
 msgid "Failed to update settings: %s"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:1827
-#: inc/Core/Rest/RestManager.php:1873
-#: inc/Core/Rest/RestManager.php:1934
-#: inc/Core/Rest/RestManager.php:1985
+#: inc/Core/Rest/RestManager.php:1881
+#: inc/Core/Rest/RestManager.php:1927
+#: inc/Core/Rest/RestManager.php:1988
+#: inc/Core/Rest/RestManager.php:2039
 #, php-format
 msgid "Invalid setting key: %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1852
+#: inc/Core/Rest/RestManager.php:1906
 msgid "Failed to retrieve setting"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1914
+#: inc/Core/Rest/RestManager.php:1968
 #, php-format
 msgid "Failed to update setting: %s"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1965
+#: inc/Core/Rest/RestManager.php:2019
 #, php-format
 msgid "Failed to reset setting: %s"
 msgstr ""
 
 #. translators: 1: setting key name, 2: error message
-#: inc/Core/Rest/RestManager.php:1992
+#: inc/Core/Rest/RestManager.php:2046
 #, php-format
 msgid "Setting '%1$s': %2$s"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:2031
+#: inc/Core/Rest/RestManager.php:2085
 #, php-format
 msgid "Setting '%s' must be a boolean value"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:2039
+#: inc/Core/Rest/RestManager.php:2093
 #, php-format
 msgid "Setting '%s' must be a numeric value"
 msgstr ""
@@ -7193,7 +7222,7 @@ msgstr ""
 msgid "Invalid post ID for SEO score persistence"
 msgstr ""
 
-#: inc/Core/Seo/Services/SeoOptimiserService.php:740
+#: inc/Core/Seo/Services/SeoOptimiserService.php:615
 #, php-format
 msgid "Failed to calculate and save average SEO score: %s"
 msgstr ""
@@ -7208,16 +7237,16 @@ msgstr ""
 msgid "Post not found or insufficient permissions."
 msgstr ""
 
-#: inc/Core/ToolbarManager.php:100
+#: inc/Core/ToolbarManager.php:101
 msgid "Go to updates"
 msgstr ""
 
-#: inc/Core/ToolbarManager.php:101
+#: inc/Core/ToolbarManager.php:102
 msgid "Update"
 msgstr ""
 
 #. translators: %s is the brand/plugin name displayed in the menu title.
-#: inc/Core/ToolbarManager.php:155
+#: inc/Core/ToolbarManager.php:156
 #, php-format
 msgid "Menu %s"
 msgstr ""

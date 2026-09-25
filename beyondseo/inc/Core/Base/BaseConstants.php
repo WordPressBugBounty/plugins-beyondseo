@@ -191,8 +191,8 @@ class BaseConstants
     public const PARTNER_SUPPORT_DEFAULT_MARKET = '*';
     public const PARTNER_SUPPORT_URLS = [
         self::CHANNEL_IONOS => [
-            'DE' => self::URL_SUPPORT_IONOS_DE,
-            self::PARTNER_SUPPORT_DEFAULT_MARKET => self::URL_SUPPORT_IONOS,
+            'DE' => self::URL_SUPPORT,
+            self::PARTNER_SUPPORT_DEFAULT_MARKET => self::URL_SUPPORT,
         ],
     ];
 

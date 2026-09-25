@@ -167,6 +167,7 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Core\\Rest\\Controllers\\OptimiserController' => __DIR__ . '/../..' . '/inc/Core/Rest/Controllers/OptimiserController.php',
         'RankingCoach\\Inc\\Core\\Rest\\Controllers\\PluginInformationController' => __DIR__ . '/../..' . '/inc/Core/Rest/Controllers/PluginInformationController.php',
         'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SocialController' => __DIR__ . '/../..' . '/inc/Core/Rest/Controllers/SocialController.php',
+        'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SupportController' => __DIR__ . '/../..' . '/inc/Core/Rest/Controllers/SupportController.php',
         'RankingCoach\\Inc\\Core\\Rest\\Controllers\\SyncController' => __DIR__ . '/../..' . '/inc/Core/Rest/Controllers/SyncController.php',
         'RankingCoach\\Inc\\Core\\Rest\\Dtos\\ModulesResponseDto' => __DIR__ . '/../..' . '/inc/Core/Rest/Dtos/ModulesResponseDto.php',
         'RankingCoach\\Inc\\Core\\Rest\\RestManager' => __DIR__ . '/../..' . '/inc/Core/Rest/RestManager.php',

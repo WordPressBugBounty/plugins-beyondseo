@@ -780,7 +780,7 @@ class AutoSetupOnboarding
      * Organized by:
      * 1. Common system pages in English
      * 2. WordPress default pages (sample-page, hello-world) in all languages
-     * 3. System page translations for main European languages (de_DE, fr_FR, es_ES, it_IT, pt_PT, nl_NL, pl_PL, ro_RO)
+     * 3. System page translations for main European languages (de_DE, fr_FR, es_ES, it_IT, pt_PT, nl_NL, pl_PL, ro_RO, cs_CZ, sk_SK)
      */
     private const EXCLUDED_PAGES = [
         // =====================================================================
@@ -839,7 +839,10 @@ class AutoSetupOnboarding
         'mallisivu', 'hei-maailma',
 
         // Czech (cs_CZ)
-        'ukazkova-stranka', 'ahoj-svete',
+        'ukazkova-stranka', 'ahoj-svete', 'ahoj-vsichni',
+
+        // Slovak (sk_SK)
+        'vzorova-stranka', 'ahoj-svet',
 
         // Hungarian (hu_HU)
         'minta-oldal', 'hello-vilag',
@@ -1008,6 +1011,44 @@ class AutoSetupOnboarding
         'multumim',                      // thank-you
         'mentenanta',                    // maintenance
         'in-curand',                     // coming-soon
+
+        // =====================================================================
+        // SYSTEM PAGE TRANSLATIONS - Czech (cs_CZ)
+        // =====================================================================
+        'obchod',                        // shop
+        'kosik',                         // cart
+        'pokladna',                      // checkout
+        'ucet',                          // account
+        'muj-ucet',                      // my-account
+        'prihlaseni',                    // login
+        'registrace',                    // register
+        'zapomenute-heslo',              // lost-password
+        'hledat',                        // search
+        'vyhledavani',                   // search
+        'ochrana-osobnich-udaju',        // privacy-policy
+        'zasady-ochrany-osobnich-udaju', // privacy-policy
+        'obchodni-podminky',             // terms-of-service
+        'zasady-pouzivani-cookies',      // cookie-policy
+        'dekujeme',                      // thank-you
+        'udrzba',                        // maintenance
+        'jiz-brzy',                      // coming-soon
+
+        // =====================================================================
+        // SYSTEM PAGE TRANSLATIONS - Slovak (sk_SK)
+        // =====================================================================
+        // 'obchod', 'kosik', 'pokladna', 'ucet', 'udrzba' same as Czech
+        'moj-ucet',                      // my-account
+        'prihlasenie',                   // login
+        'registracia',                   // register
+        'zabudnute-heslo',               // lost-password
+        'hladat',                        // search
+        'vyhladavanie',                  // search
+        'ochrana-osobnych-udajov',       // privacy-policy
+        'zasady-ochrany-osobnych-udajov', // privacy-policy
+        'obchodne-podmienky',            // terms-of-service
+        'zasady-pouzivania-cookies',     // cookie-policy
+        'dakujeme',                      // thank-you
+        'uz-coskoro',                    // coming-soon
     ];
 
     /**

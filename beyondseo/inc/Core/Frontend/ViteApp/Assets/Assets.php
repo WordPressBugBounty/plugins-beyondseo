@@ -74,7 +74,7 @@ class Assets {
             'pluginInformation' => $this->getPluginInformationData()
         ];
 
-        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData());
+        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData(), $this->getInternalLinksData());
 
         if (WordpressHelpers::is_edit_post_context()) {
             // Get the post ID (if editing an existing post).
@@ -189,8 +189,8 @@ class Assets {
             'pluginInformation' => $this->getPluginInformationData(),
         ];
 
-        // Outbound links (supportUrl, documentationUrl, ...): partner-aware, resolved in one place.
-        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData());
+        // Outbound links (ExternalLinks, partner-aware) and links into this install (getInternalLinksData): resolved in one place.
+        $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData(), $this->getInternalLinksData());
 
         $post_id = WordpressHelpers::sanitize_input('GET', 'post');
         $post_type = $post_id ? get_post_type($post_id) : null;
@@ -212,6 +212,24 @@ class Assets {
 
         // Localize the script with data
 	    wp_localize_script( 'rankingcoach-react-vite-script', 'rankingCoachReactData', $rankingCoachReactData);
+    }
+
+    /**
+     * Links into this WordPress install exposed to the React app through the localized
+     * `rankingCoachReactData` object (raw form). Together with `adminurl` / `endpoint` above,
+     * these are what helpers/internal-links.ts reads on the React side, so components never
+     * build admin-page, REST or site-file URLs themselves (see ExternalLinks for outbound links).
+     *
+     * @return array<string, string>
+     */
+    private function getInternalLinksData(): array {
+        return [
+            'adminRootUrl' => admin_url(),
+            'restRootUrl'  => esc_url_raw( rest_url() ),
+            'robotsUrl'    => esc_url_raw( home_url( '/robots.txt' ) ),
+            'feedUrl'      => esc_url_raw( get_feed_link() ),
+            'sitemapUrl'   => esc_url_raw( home_url( '/sitemap.xml' ) ),
+        ];
     }
 
     private function boolToJs(bool $value): string {

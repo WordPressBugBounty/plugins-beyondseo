@@ -395,6 +395,7 @@ function beyondseo_rceh(): ExceptionHandler //phpcs:ignore WordPress.NamingConve
 /**
  * Read translated categories from categories_<locale>.json
  * - Verifies the directory and file exist.
+ * - Falls back to categories_en.json when the locale has no file of its own.
  * - Returns decoded JSON as array on success; empty array otherwise. Never throws.
  *
  * @param string $locale Locale identifier
@@ -415,6 +416,12 @@ function beyondseo_get_translated_categories(string $locale = 'en', string $asso
         // Sanitize locale
         $safeLocale = sanitize_text_field($locale);
         $filePath = RANKINGCOACH_DEFAULT_CATEGORIES_DIR . 'categories_' . $safeLocale . '.json';
+
+        // Locales without their own category file (e.g. cs, sk) use the English names rather than
+        // an empty list, which would leave the onboarding category picker with nothing to show.
+        if ($safeLocale !== 'en' && (!file_exists($filePath) || !is_readable($filePath))) {
+            $filePath = RANKINGCOACH_DEFAULT_CATEGORIES_DIR . 'categories_en.json';
+        }
 
         if (!file_exists($filePath) || !is_readable($filePath)) {
             return [];

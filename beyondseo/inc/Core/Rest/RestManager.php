@@ -24,6 +24,7 @@ use RankingCoach\Inc\Core\Rest\Controllers\OnboardingController;
 use RankingCoach\Inc\Core\Rest\Controllers\OptimiserController;
 use RankingCoach\Inc\Core\Rest\Controllers\PluginInformationController;
 use RankingCoach\Inc\Core\Rest\Controllers\SocialController;
+use RankingCoach\Inc\Core\Rest\Controllers\SupportController;
 use RankingCoach\Inc\Core\Rest\Controllers\SyncController;
 use RankingCoach\Inc\Core\Api\User\UserApiManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
@@ -484,6 +485,43 @@ class RestManager extends WP_REST_Controller {
 
     /*
     |--------------------------------------------------------------------------
+    | Support Routes
+    |--------------------------------------------------------------------------
+    |
+    | Routes for support/diagnostic information.
+    | Requires nonce authentication and admin capabilities.
+    |
+    */
+
+    /**
+     * Check permission for support endpoints.
+     *
+     * @since 1.0.0
+     * @param WP_REST_Request $request The REST request object.
+     * @return bool|WP_Error True if authorized, WP_Error on failure.
+     */
+    public function checkSupportPermission(WP_REST_Request $request): bool|WP_Error {
+        if (!$this->verifyNonceAuth($request)) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('Invalid or missing security nonce.', 'beyondseo'),
+                ['status' => rest_authorization_required_code()]
+            );
+        }
+
+        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS)) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('You do not have permission to access support information.', 'beyondseo'),
+                ['status' => rest_authorization_required_code()]
+            );
+        }
+
+        return true;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     | SEO Optimiser Routes
     |--------------------------------------------------------------------------
     |
@@ -812,6 +850,7 @@ class RestManager extends WP_REST_Controller {
         $this->registerV1PluginInfoRoutes();
         $this->registerV1IntegrationRoutes();
         $this->registerV1SyncRoutes();
+        $this->registerV1SupportRoutes();
     }
 
     private function registerV1MetaTagsRoutes(): void
@@ -1194,6 +1233,21 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::CREATABLE,
                 'callback'            => [$controller, 'keywords'],
                 'permission_callback' => [$this, 'checkServiceSyncPermission'],
+            ]
+        );
+    }
+
+    private function registerV1SupportRoutes(): void
+    {
+        $controller = new SupportController();
+
+        register_rest_route(
+            $this->namespace,
+            '/support/site-info',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'siteInfo'],
+                'permission_callback' => [$this, 'checkSupportPermission'],
             ]
         );
     }

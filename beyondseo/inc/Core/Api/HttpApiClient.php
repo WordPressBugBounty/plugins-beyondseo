@@ -6,6 +6,7 @@ namespace RankingCoach\Inc\Core\Api;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 use Exception;
+use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
