@@ -26,7 +26,6 @@ use RankingCoach\Inc\Core\Jobs\BrokenLinkCheckerJob;
 use RankingCoach\Inc\Core\Jobs\LogCleanupJob;
 use RankingCoach\Inc\Core\Jobs\SyncKeywordsJob;
 use RankingCoach\Inc\Core\Rest\RestManager;
-use RankingCoach\Inc\Core\Security\SecurityManager;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Core\Sitemap\Sitemap;
 use RankingCoach\Inc\Exceptions\ExceptionHandler;
@@ -65,9 +64,6 @@ class HooksManager
         }
 
         $this->loadTextDomain();
-
-        // Set the plugin security headers
-        new SecurityManager();
 
         // Load early custom integrations
         $this->loadCustomIntegrations();
@@ -554,7 +550,12 @@ class HooksManager
         $currentDbVersion = get_option(BaseConstants::OPTION_DB_VERSION, '1.0.0');
         if (version_compare(DatabaseManager::getInstance()->getDbVersion(), $currentDbVersion, '>')) {
             try {
-                DatabaseManager::getInstance()->runMigrations();
+                $results = DatabaseManager::getInstance()->runMigrations();
+                foreach ($results as $result) {
+                    if ($result['status'] !== 'success') {
+                        return;
+                    }
+                }
                 update_option(BaseConstants::OPTION_DB_VERSION, DatabaseManager::getInstance()->getDbVersion() );
             } catch (Throwable $e) {
                 $this->log('Error running database migrations: ' . $e->getMessage(), 'ERROR');

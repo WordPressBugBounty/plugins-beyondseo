@@ -6,12 +6,12 @@
  * It expects variables to be passed from the parent scope.
  * 
  * Expected Variables:
- * @var string $headerBgColor - Background color for the header section
- * @var string $logoUrl - URL to the logo image
- * @var array $currentPageContent - Array containing title, description, faqTitle, and faqs
- * @var array $plans - Array of plan configurations with pricing and features
- * @var array $assistantTabs - Tabs (visibility/reputation/social), each with 3 feature cards
- * @var array $faqSection - Array containing FAQ title and items
+ * @var string $beyondSEOHeaderBgColor - Background color for the header section
+ * @var string $beyondSEOLogoUrl - URL to the logo image
+ * @var array $beyondSEOCurrentPageContent - Array containing title, description, faqTitle, and faqs
+ * @var array $beyondSEOPlans - Array of plan configurations with pricing and features
+ * @var array $beyondSEOAssistantTabs - Tabs (visibility/reputation/social), each with 3 feature cards
+ * @var array $beyondSEOFaqSection - Array containing FAQ title and items
  * 
  * @package RankingCoach
  */
@@ -23,11 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 use RankingCoach\Inc\Core\Admin\AdminManager;
 
 // IONOS-specific data preparation
-$headerBgColor = '#021B41';
-$logoUrl = plugin_dir_url(RANKINGCOACH_FILE) . 'inc/Core/Admin/assets/icons/upsell-logo-small.png';
+$beyondSEOHeaderBgColor = '#021B41';
+$beyondSEOLogoUrl = plugin_dir_url(RANKINGCOACH_FILE) . 'inc/Core/Admin/assets/icons/upsell-logo-small.png';
 
 // Shared FAQ set shown across all plan levels
-$commonFaqs = [
+$beyondSEOCommonFaqs = [
 	[
 		'question' => __('1. Which subscription is suitable for small businesses?', 'beyondseo'),
 		'answer' => __("All of our plans are built for small and medium-sized businesses. Just pick the one that matches your goal, and you're ready to go.", 'beyondseo')
@@ -43,15 +43,15 @@ $commonFaqs = [
 ];
 
 // Page content — the same intro headline is shown for every plan level.
-$currentPageContent = [
+$beyondSEOCurrentPageContent = [
 	'title' => __('AI agents that handle your marketing', 'beyondseo'),
 	'description' => __("Select the AI assistant that best fits your needs and start growing your online presence, reputation, or social media performance.", 'beyondseo'),
 	'faqTitle' => __('FAQs', 'beyondseo'),
-	'faqs' => $commonFaqs
+	'faqs' => $beyondSEOCommonFaqs
 ];
 
 // Plans definitions
-$plans = [
+$beyondSEOPlans = [
 	// SEARCH
 	'search' => [
 		'plan' => 'momentum_search',
@@ -152,7 +152,7 @@ $plans = [
 
 // Assistant tabs — each tab shows 3 feature cards (illustration + text), in a
 // swipeable/tabbed carousel. Card layout alternates left/right by index.
-$assistantTabs = [
+$beyondSEOAssistantTabs = [
 	'search' => [
 		'label' => __('AI Search Manager', 'beyondseo'),
 		'cards' => [
@@ -216,31 +216,31 @@ $assistantTabs = [
 ];
 
 // FAQ section
-$faqSection = [
-	'title' => $currentPageContent['faqTitle'] ?? '',
-	'items' => $currentPageContent['faqs'] ?? []
+$beyondSEOFaqSection = [
+	'title' => $beyondSEOCurrentPageContent['faqTitle'] ?? '',
+	'items' => $beyondSEOCurrentPageContent['faqs'] ?? []
 ];
 
 ?>
 <div class='wrap rankingcoach-upsell-page'>
-    <div class='rankingcoach-upsell-header' style="background-color: <?php echo esc_attr($headerBgColor); ?>;">
+    <div class='rankingcoach-upsell-header' style="background-color: <?php echo esc_attr($beyondSEOHeaderBgColor); ?>;">
         <div class='rankingcoach-upsell-logo'>
-            <img src="<?php echo esc_url($logoUrl); ?>" alt='RankingCoach Logo'>
+            <img src="<?php echo esc_url($beyondSEOLogoUrl); ?>" alt='RankingCoach Logo'>
         </div>
     </div>
 
     <div class='rankingcoach-upsell-content'>
-        <h2 class='rankingcoach-upsell-title'><?php echo esc_html($currentPageContent['title']); ?></h2>
+        <h2 class='rankingcoach-upsell-title'><?php echo esc_html($beyondSEOCurrentPageContent['title']); ?></h2>
 
         <p class="rankingcoach-upsell-description">
-            <?php echo esc_html($currentPageContent['description']); ?>
+            <?php echo esc_html($beyondSEOCurrentPageContent['description']); ?>
         </p>
 
         <?php
         // Ownership is packet-based: customers who own no packets are on Radar Free.
         // Show the "currently using" banner only for those customers.
-        $hasOwnedPackets = !empty(\RankingCoach\Inc\Core\Helpers\CoreHelper::getActiveSubscriptions());
-        if (!$hasOwnedPackets) : ?>
+        $beyondSEOHasOwnedPackets = !empty(\RankingCoach\Inc\Core\Helpers\CoreHelper::getActiveSubscriptions());
+        if (!$beyondSEOHasOwnedPackets) : ?>
             <div class="rankingcoach-free-plan-message">
                 <?php echo sprintf(
                     /* translators: %s is the plan name */
@@ -251,87 +251,87 @@ $faqSection = [
         <?php endif; ?>
 
         <div class="rankingcoach-pricing-plans">
-                <?php if (empty($plans)) : ?>
+                <?php if (empty($beyondSEOPlans)) : ?>
                 <div class="rankingcoach-no-plans">
                     <p><?php echo esc_html__('No plans available at the moment. Please try again later.', 'beyondseo'); ?></p>
                 </div>
             <?php else :
                 // Dynamic plans display
-                $planKeys = array_keys($plans);
-                foreach ($planKeys as $index => $key) :
-                    $plan = $plans[$key];
+                $beyondSEOPlanKeys = array_keys($beyondSEOPlans);
+                foreach ($beyondSEOPlanKeys as $beyondSEOIndex => $beyondSEOKey) :
+                    $beyondSEOPlan = $beyondSEOPlans[$beyondSEOKey];
 
                     // Packet-based ownership: a customer may own several packets at the
                     // same time (e.g. momentum_search, momentum_reputation). All plans are
                     // always shown — owned ones are marked and disabled rather than skipped.
-                    $isOwned = !empty($plan['packet'])
-                        && \RankingCoach\Inc\Core\Helpers\CoreHelper::hasActiveSubscription($plan['packet']);
+                    $beyondSEOIsOwned = !empty($beyondSEOPlan['packet'])
+                        && \RankingCoach\Inc\Core\Helpers\CoreHelper::hasActiveSubscription($beyondSEOPlan['packet']);
 
                     // Greyed-out feature styling is not applied for owned plans here;
                     // ownership is conveyed via the label and disabled button instead.
-                    $shouldBeGreyedOut = false;
+                    $beyondSEOShouldBeGreyedOut = false;
 
                     // Mark owned plans as "current"
-                    $plan['isCurrent'] = $isOwned;
+                    $beyondSEOPlan['isCurrent'] = $beyondSEOIsOwned;
 
                     // Only offer the upgrade button for plans the customer does not yet own
-                    if (isset($plan['upgradeButton'])) {
-                        $plan['upgradeButton']['show'] = !$isOwned;
+                    if (isset($beyondSEOPlan['upgradeButton'])) {
+                        $beyondSEOPlan['upgradeButton']['show'] = !$beyondSEOIsOwned;
                     }
 
                     // Determine CSS classes for the plan
-                    $planClasses = [];
-                    if ($isOwned) {
-                        $planClasses[] = 'current-plan';
+                    $beyondSEOPlanClasses = [];
+                    if ($beyondSEOIsOwned) {
+                        $beyondSEOPlanClasses[] = 'current-plan';
                     }
             ?>
-                <div class="rankingcoach-plan <?php echo esc_attr(implode(' ', $planClasses)); ?>">
+                <div class="rankingcoach-plan <?php echo esc_attr(implode(' ', $beyondSEOPlanClasses)); ?>">
 
-                        <div class="plan-header <?php echo esc_attr($shouldBeGreyedOut ? 'greyed-out' : ''); ?>">
+                        <div class="plan-header <?php echo esc_attr($beyondSEOShouldBeGreyedOut ? 'greyed-out' : ''); ?>">
                             <?php
                             // Force the last word (e.g. "Assistant") onto its own line so every
                             // card title spans two lines consistently.
-                            $planName = $plan['name'] ?? '';
-                            $lastSpace = strrpos($planName, ' ');
-                            if ($lastSpace !== false) {
-                                $planNameHtml = esc_html(substr($planName, 0, $lastSpace)) . '<br>' . esc_html(substr($planName, $lastSpace + 1));
+                            $beyondSEOPlanName = $beyondSEOPlan['name'] ?? '';
+                            $beyondSEOLastSpace = strrpos($beyondSEOPlanName, ' ');
+                            if ($beyondSEOLastSpace !== false) {
+                                $beyondSEOPlanNameHtml = esc_html(substr($beyondSEOPlanName, 0, $beyondSEOLastSpace)) . '<br>' . esc_html(substr($beyondSEOPlanName, $beyondSEOLastSpace + 1));
                             } else {
-                                $planNameHtml = esc_html($planName);
+                                $beyondSEOPlanNameHtml = esc_html($beyondSEOPlanName);
                             }
                             ?>
-                            <h3 class="plan-name"><?php echo wp_kses($planNameHtml, ['br' => []]); ?></h3>
-                            <?php if (!empty($plan['subtitle'])) : ?>
-                                <p class="plan-subtitle"><?php echo esc_html($plan['subtitle']); ?></p>
+                            <h3 class="plan-name"><?php echo wp_kses($beyondSEOPlanNameHtml, ['br' => []]); ?></h3>
+                            <?php if (!empty($beyondSEOPlan['subtitle'])) : ?>
+                                <p class="plan-subtitle"><?php echo esc_html($beyondSEOPlan['subtitle']); ?></p>
                             <?php endif; ?>
                         </div>
 
-                    <?php if ($isOwned) : ?>
+                    <?php if ($beyondSEOIsOwned) : ?>
                             <div class="plan-cta">
                                 <button type="button" class="button upgrade-button disabled" disabled aria-disabled="true">
                                     <?php esc_html_e('You currently have this plan', 'beyondseo'); ?>
                                 </button>
                             </div>
-                        <?php elseif (isset($plan['upgradeButton']) && isset($plan['upgradeButton']['show']) && $plan['upgradeButton']['show']) : ?>
+                        <?php elseif (isset($beyondSEOPlan['upgradeButton']) && isset($beyondSEOPlan['upgradeButton']['show']) && $beyondSEOPlan['upgradeButton']['show']) : ?>
                                 <div class="plan-cta">
-                                    <a href="<?php echo esc_url($plan['upgradeButton']['link'] ?? '#'); ?>" class="button button-primary upgrade-button">
-                                        <?php echo esc_html($plan['upgradeButton']['text'] ?? __('Upgrade', 'beyondseo')); ?>
+                                    <a href="<?php echo esc_url($beyondSEOPlan['upgradeButton']['link'] ?? '#'); ?>" class="button button-primary upgrade-button">
+                                        <?php echo esc_html($beyondSEOPlan['upgradeButton']['text'] ?? __('Upgrade', 'beyondseo')); ?>
                                     </a>
                                 </div>
                         <?php endif; ?>
 
                         <div class="plan-features">
                             <ul>
-                                <?php if (isset($plan['features']) && is_array($plan['features'])) : ?>
-                                    <?php $visibleFeatures = 4; ?>
-                                    <?php foreach ($plan['features'] as $index => $feature) : ?>
-                                        <li class="<?php echo esc_attr(($shouldBeGreyedOut ? 'greyed-out-text' : '')); ?> <?php echo ($index >= $visibleFeatures) ? 'feature-hidden' : ''; ?>">
-                                            <span class="checkmark <?php echo esc_attr(($shouldBeGreyedOut ? 'greyed-out-checkmark' : '')); ?>">✓</span>
-                                            <?php echo esc_html($feature); ?>
+                                <?php if (isset($beyondSEOPlan['features']) && is_array($beyondSEOPlan['features'])) : ?>
+                                    <?php $beyondSEOVisibleFeatures = 4; ?>
+                                    <?php foreach ($beyondSEOPlan['features'] as $beyondSEOIndex => $beyondSEOFeature) : ?>
+                                        <li class="<?php echo esc_attr(($beyondSEOShouldBeGreyedOut ? 'greyed-out-text' : '')); ?> <?php echo ($beyondSEOIndex >= $beyondSEOVisibleFeatures) ? 'feature-hidden' : ''; ?>">
+                                            <span class="checkmark <?php echo esc_attr(($beyondSEOShouldBeGreyedOut ? 'greyed-out-checkmark' : '')); ?>">✓</span>
+                                            <?php echo esc_html($beyondSEOFeature); ?>
                                         </li>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </ul>
-                            <?php if (isset($plan['features']) && is_array($plan['features']) && count($plan['features']) > $visibleFeatures) : ?>
+                            <?php if (isset($beyondSEOPlan['features']) && is_array($beyondSEOPlan['features']) && count($beyondSEOPlan['features']) > $beyondSEOVisibleFeatures) : ?>
                                 <div class="show-more-container">
                                     <button class="show-more-btn" type="button">
                                         <span class="show-more-text"><?php esc_html_e('Show more', 'beyondseo'); ?></span>
@@ -350,45 +350,45 @@ $faqSection = [
         </div>
 
         <!-- Assistant Tabs (swipeable) -->
-        <?php $tabKeys = array_keys($assistantTabs); ?>
+        <?php $beyondSEOTabKeys = array_keys($beyondSEOAssistantTabs); ?>
         <div class="rankingcoach-assistant-tabs" data-active-index="0">
             <div class="assistant-tabs-nav" role="tablist">
-                <?php foreach ($tabKeys as $tabIndex => $tabKey) :
-                    $tab = $assistantTabs[$tabKey]; ?>
+                <?php foreach ($beyondSEOTabKeys as $beyondSEOTabIndex => $beyondSEOTabKey) :
+                    $beyondSEOTab = $beyondSEOAssistantTabs[$beyondSEOTabKey]; ?>
                     <button
                         type="button"
-                        class="assistant-tab <?php echo $tabIndex === 0 ? 'active' : ''; ?>"
+                        class="assistant-tab <?php echo $beyondSEOTabIndex === 0 ? 'active' : ''; ?>"
                         role="tab"
-                        aria-selected="<?php echo $tabIndex === 0 ? 'true' : 'false'; ?>"
-                        data-index="<?php echo esc_attr($tabIndex); ?>"
+                        aria-selected="<?php echo $beyondSEOTabIndex === 0 ? 'true' : 'false'; ?>"
+                        data-index="<?php echo esc_attr($beyondSEOTabIndex); ?>"
                     >
-                        <span class="assistant-tab-label"><?php echo esc_html($tab['label']); ?></span>
+                        <span class="assistant-tab-label"><?php echo esc_html($beyondSEOTab['label']); ?></span>
                     </button>
                 <?php endforeach; ?>
             </div>
 
             <div class="assistant-tabs-viewport">
                 <div class="assistant-tabs-track">
-                    <?php foreach ($tabKeys as $tabIndex => $tabKey) :
-                        $tab = $assistantTabs[$tabKey]; ?>
+                    <?php foreach ($beyondSEOTabKeys as $beyondSEOTabIndex => $beyondSEOTabKey) :
+                        $beyondSEOTab = $beyondSEOAssistantTabs[$beyondSEOTabKey]; ?>
                         <div
-                            class="assistant-tab-panel <?php echo $tabIndex === 0 ? 'active' : ''; ?>"
+                            class="assistant-tab-panel <?php echo $beyondSEOTabIndex === 0 ? 'active' : ''; ?>"
                             role="tabpanel"
-                            data-index="<?php echo esc_attr($tabIndex); ?>"
-                            <?php echo $tabIndex === 0 ? '' : 'aria-hidden="true"'; ?>
+                            data-index="<?php echo esc_attr($beyondSEOTabIndex); ?>"
+                            <?php echo $beyondSEOTabIndex === 0 ? '' : 'aria-hidden="true"'; ?>
                         >
                             <div class="rankingcoach-feature-cards">
-                                <?php foreach ($tab['cards'] as $cardIndex => $card) :
-                                    $layoutClass = ($cardIndex % 2 === 0) ? 'image-left' : 'image-right'; ?>
-                                    <div class="feature-card <?php echo esc_attr($layoutClass); ?>">
+                                <?php foreach ($beyondSEOTab['cards'] as $beyondSEOCardIndex => $beyondSEOCard) :
+                                    $beyondSEOLayoutClass = ($beyondSEOCardIndex % 2 === 0) ? 'image-left' : 'image-right'; ?>
+                                    <div class="feature-card <?php echo esc_attr($beyondSEOLayoutClass); ?>">
                                         <div class="feature-content">
-                                            <h3 class="feature-title"><?php echo esc_html($card['title'] ?? ''); ?></h3>
+                                            <h3 class="feature-title"><?php echo esc_html($beyondSEOCard['title'] ?? ''); ?></h3>
                                             <p class="feature-description">
-                                                <?php echo esc_html($card['description'] ?? ''); ?>
+                                                <?php echo esc_html($beyondSEOCard['description'] ?? ''); ?>
                                             </p>
                                         </div>
                                         <div class="feature-image">
-                                            <img src="<?php echo esc_url(plugin_dir_url( dirname( __DIR__ ) ) . ($card['image'] ?? '')); ?>" alt="<?php echo esc_attr($card['title'] ?? ''); ?>">
+                                            <img src="<?php echo esc_url(plugin_dir_url( dirname( __DIR__ ) ) . ($beyondSEOCard['image'] ?? '')); ?>" alt="<?php echo esc_attr($beyondSEOCard['title'] ?? ''); ?>">
                                         </div>
                                     </div>
                                 <?php endforeach; ?>
@@ -402,13 +402,13 @@ $faqSection = [
 
         <!-- FAQ Section -->
         <div class="rankingcoach-faq-section">
-            <h2 class="faq-section-title"><?php echo esc_html($faqSection['title']); ?></h2>
+            <h2 class="faq-section-title"><?php echo esc_html($beyondSEOFaqSection['title']); ?></h2>
             <div class="faq-items-container">
-                <?php if (!empty($faqSection['items'])) : ?>
-                    <?php foreach ($faqSection['items'] as $faq) : ?>
+                <?php if (!empty($beyondSEOFaqSection['items'])) : ?>
+                    <?php foreach ($beyondSEOFaqSection['items'] as $beyondSEOFaq) : ?>
                         <div class="faq-item">
-                            <h3 class="faq-question"><?php echo esc_html($faq['question']); ?></h3>
-                            <p class="faq-answer"><?php echo esc_html($faq['answer']); ?></p>
+                            <h3 class="faq-question"><?php echo esc_html($beyondSEOFaq['question']); ?></h3>
+                            <p class="faq-answer"><?php echo esc_html($beyondSEOFaq['answer']); ?></p>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>

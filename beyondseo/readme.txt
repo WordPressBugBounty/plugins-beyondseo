@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,16 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.7 =
+* Added quick editing for SEO titles and meta descriptions directly from the posts and pages list.
+* Added SEO information to the posts and pages list for easier content optimization.
+* Improved SEO analysis for new and unsaved posts.
+* Improved SEO metadata handling and cleanup when posts are deleted.
+* Improved API error messages with more detailed field-level feedback.
+* Improved permissions and security by removing legacy capabilities and strengthening access checks.
+* Improved the quick edit interface and compatibility with the WordPress admin UI.
+* General stability, cleanup, and compatibility improvements.
 
 = 1.3.6 =
 * Added Czech and Slovak language support.

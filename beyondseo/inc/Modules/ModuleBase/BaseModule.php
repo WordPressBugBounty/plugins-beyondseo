@@ -230,27 +230,6 @@ abstract class BaseModule implements ModuleInterface {
 		return $this->module_priority;
 	}
 
-	/**
-	 * Define capabilities specific to the LinkCounter module.
-	 */
-	public function defineCapabilities(
-		array $roles = [
-			'administrator',
-			'editor',
-			'author',
-			'contributor'
-		]
-	): void {
-		$moduleName = $this->getModuleName();
-		foreach ( $roles as $role ) {
-			$role = get_role( $role );
-			if ( $role ) {
-				$role->add_cap( 'rankingcoach_read_' . $moduleName );
-				$role->add_cap( 'rankingcoach_write_' . $moduleName );
-			}
-		}
-	}
-
 	// === Dependency and Installation Checks ===
 
 	/**

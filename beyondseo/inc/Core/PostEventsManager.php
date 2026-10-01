@@ -10,8 +10,11 @@ if ( !defined('ABSPATH') ) {
 use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\Seo\Services\SeoOptimiserService;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
+use RankingCoach\Inc\Modules\ModuleManager;
 use RuntimeException;
 use Throwable;
 use WP_Post;
@@ -68,6 +71,41 @@ class PostEventsManager {
         // Use a higher priority (20) to ensure we run after most other save_post handlers
         add_action( 'save_post', [ $this, 'handlePostSave' ], 20, 3 );
         add_action( 'load-post.php', [ $this, 'handlePostLoad' ] );
+        add_action( 'deleted_post', [ $this, 'handlePostDelete' ], 10, 2 );
+    }
+
+    /**
+     * Drop the plugin's per-post rows (optimiser analysis, meta tag templates) once WordPress
+     * has deleted a post. Post meta goes away with the post, but these rows live in plugin
+     * tables and used to be left behind. That now also covers the auto-drafts WordPress purges
+     * a week after an abandoned "Add New" visit, whose meta box can store SEO data since
+     * WORDPRESS-986.
+     *
+     * @param int          $post_id The deleted post ID.
+     * @param WP_Post|null $post    The deleted post object.
+     *
+     * @return void
+     */
+    public function handlePostDelete( int $post_id, ?WP_Post $post = null ): void {
+        // Revisions and menu items never own plugin rows; skip the extra queries.
+        if ( $post instanceof WP_Post && in_array( $post->post_type, [ 'revision', 'nav_menu_item' ], true ) ) {
+            return;
+        }
+
+        try {
+            SeoOptimiserService::getInstance()->deleteOptimiser( $post_id );
+        } catch ( Throwable $e ) {
+            $this->log( "Optimiser cleanup error for deleted post ID: $post_id - " . $e->getMessage(), 'WARNING' );
+        }
+
+        try {
+            $metaTags = ModuleManager::instance()->get_module( MetaTags::MODULE_NAME );
+            if ( $metaTags instanceof MetaTags ) {
+                $metaTags->deleteAllTags( $post_id );
+            }
+        } catch ( Throwable $e ) {
+            $this->log( "Meta tags cleanup error for deleted post ID: $post_id - " . $e->getMessage(), 'WARNING' );
+        }
     }
 
     /**
@@ -121,7 +159,13 @@ class PostEventsManager {
         if ( wp_is_post_revision( $post_id ) ) {
             return;
         }
-        
+
+        // Skip the empty auto-draft WordPress inserts on every "Add New" page view: there is
+        // nothing to sync or analyze yet, and the first real save fires this hook again.
+        if ( 'auto-draft' === $post->post_status ) {
+            return;
+        }
+
         // Skip if this is not a post or page
         if ( ! in_array( $post->post_type, [ 'post', 'page' ], true ) ) {
             return;

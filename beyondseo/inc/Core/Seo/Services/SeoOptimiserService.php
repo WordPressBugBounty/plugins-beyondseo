@@ -612,7 +612,8 @@ class SeoOptimiserService
             update_option(BaseConstants::OPTION_ANALYSIS_SCORE_MIN, $analysisResult['min_score'] ?? null);
             update_option(BaseConstants::OPTION_ANALYSIS_SCORE_MAX, $analysisResult['max_score'] ?? null);
         } catch (Throwable $e) {
-            throw new Exception(sprintf(__('Failed to calculate and save average SEO score: %s', 'beyondseo'), $e->getMessage()), $e->getCode(), $e);
+            /* translators: %s: Error message returned while calculating the average SEO score. */
+            throw new Exception(sprintf(esc_html__('Failed to calculate and save average SEO score: %s', 'beyondseo'), esc_html($e->getMessage())), $e->getCode(), $e);
         }
     }
 

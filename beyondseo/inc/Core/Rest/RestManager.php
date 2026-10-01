@@ -32,7 +32,6 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Breadcrumbs\BreadcrumbsMultipleResponseHandler;
 use RankingCoach\Inc\Core\Breadcrumbs\Dtos\BreadcrumbsRequestDto;
 use RankingCoach\Inc\Core\Breadcrumbs\Dtos\BreadcrumbsResponseDto;
-use RankingCoach\Inc\Core\CapabilityManager;
 use RankingCoach\Inc\Core\CurrentUserManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\PluginSettings;
@@ -177,7 +176,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Check user capability
-        if (!current_user_can(CapabilityManager::CAPABILITY_API_INTEGRATION)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access integration endpoints.', 'beyondseo'),
@@ -221,7 +220,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Check user capability
-        if (!current_user_can(CapabilityManager::CAPABILITY_API_SYNC)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access sync endpoints.', 'beyondseo'),
@@ -273,15 +272,6 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        // Check plugin-specific capability
-        if (!current_user_can(CapabilityManager::CAPABILITY_API_ADMIN)) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('You do not have the required plugin capability.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
         return true;
     }
 
@@ -315,7 +305,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_CONFIG)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access config endpoints.', 'beyondseo'),
@@ -354,7 +344,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_METATAGS)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access metatags endpoints.', 'beyondseo'),
@@ -394,7 +384,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Content analysis is available to users who can edit posts
-        if (!current_user_can('edit_posts') || !current_user_can(CapabilityManager::CAPABILITY_API_CONTENT_ANALYSIS)) {
+        if (!current_user_can('edit_posts')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access content analysis.', 'beyondseo'),
@@ -433,7 +423,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_ONBOARDING)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access onboarding.', 'beyondseo'),
@@ -472,7 +462,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_PLUGIN_INFO)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access plugin information.', 'beyondseo'),
@@ -509,7 +499,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access support information.', 'beyondseo'),
@@ -551,7 +541,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_OPTIMISER)) {
+        if (!current_user_can('manage_options')) {
             $this->log('Optimiser endpoint access denied: insufficient permissions', 'WARNING');
             return new WP_Error(
                 'rest_forbidden',
@@ -591,7 +581,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access social media settings.', 'beyondseo'),
@@ -630,7 +620,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options') || !current_user_can(CapabilityManager::CAPABILITY_API_SOCIAL)) {
+        if (!current_user_can('manage_options')) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access social media settings.', 'beyondseo'),
@@ -667,7 +657,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachModules'],
                 'permission_callback' => function () {
-                    return current_user_can(CapabilityManager::CAPABILITY_READ_MODULES_LIST);
+                    return current_user_can('edit_posts');
                 },
             ]
         );
@@ -680,7 +670,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachAccountDetails'],
                 'permission_callback' => function () {
-                    return current_user_can(CapabilityManager::CAPABILITY_READ_ACCOUNT_DETAILS);
+                    return current_user_can('manage_options');
                 },
             ]
         );
@@ -693,7 +683,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachLocationKeywords'],
                 'permission_callback' => function () {
-                    return current_user_can(CapabilityManager::CAPABILITY_READ_LOCATION_KEYWORDS);
+                    return current_user_can('manage_options');
                 },
             ]
         );
@@ -706,7 +696,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachVariables'],
                 'permission_callback' => function () {
-                    return current_user_can(CapabilityManager::CAPABILITY_READ_ACCOUNT_DETAILS);
+                    return current_user_can('manage_options');
                 },
                 'args'                => [
                     'id' => [
@@ -731,14 +721,14 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$this, 'handleGeneralSettings'],
                     'permission_callback' => function () {
-                        return current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS);
+                        return current_user_can('manage_options');
                     },
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$this, 'handleGeneralSettings'],
                     'permission_callback' => function () {
-                        return current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS);
+                        return current_user_can('manage_options');
                     },
                 ],
             ]
@@ -753,7 +743,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS);
+                        return current_user_can('manage_options');
                     },
                     'args'                => [
                         'key' => [
@@ -771,7 +761,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS);
+                        return current_user_can('manage_options');
                     },
                     'args'                => [
                         'key' => [
@@ -789,7 +779,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::DELETABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can(CapabilityManager::CAPABILITY_MANAGE_SETTINGS);
+                        return current_user_can('manage_options');
                     },
                     'args'                => [
                         'key' => [
@@ -814,7 +804,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::CREATABLE,
                 'callback'            => [$this, 'handleBreadcrumbs'],
                 'permission_callback' => function () {
-                    return current_user_can(CapabilityManager::CAPABILITY_READ_BREADCRUMBS);
+                    return current_user_can('edit_posts');
                 },
                 'args'                => [
                     'types' => [

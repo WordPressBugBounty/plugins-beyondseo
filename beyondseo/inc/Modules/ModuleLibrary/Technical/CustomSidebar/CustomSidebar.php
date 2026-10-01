@@ -55,9 +55,6 @@ class CustomSidebar extends BaseModule
             return;
         }
 
-        // Define capabilities specific to the module
-        $this->defineCapabilities();
-
         parent::initializeModule();
     }
 

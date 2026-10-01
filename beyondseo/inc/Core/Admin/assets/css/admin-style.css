@@ -247,3 +247,13 @@
     transform: translateY(0);
   }
 }
+
+/* Posts / pages list: the assistant column holds the score plus the SEO title and
+   description snippet, so give it a stable share of the fixed-layout table. */
+.wp-list-table.fixed .column-rc_assistant {
+  width: 22%;
+}
+
+.wp-list-table .column-rc_assistant .rc-react-postcell {
+  max-width: 100%;
+}

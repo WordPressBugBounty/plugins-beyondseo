@@ -849,7 +849,9 @@ class OnboardingController
                 'step' => $currentStep,
                 'nextStep' => $nextStep,
                 'allStepsCompleted' => $allStepsCompleted,
+                /* translators: %s: JSON-encoded boolean API response, either true or false. */
                 'evaluationSucceeded' => sprintf(__('The API call (JSON response) is valid: %s', 'beyondseo'), json_encode(true)),
+                /* translators: %s: JSON-encoded boolean API response, either true or false. */
                 'failedAPICallFromResult' => sprintf(__('The API call (text/html or error property on JSON): %s', 'beyondseo'), json_encode(false)),
             ];
 

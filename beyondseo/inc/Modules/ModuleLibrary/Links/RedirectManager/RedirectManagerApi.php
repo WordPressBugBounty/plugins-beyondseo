@@ -95,6 +95,10 @@ class RedirectManagerApi extends BaseSubmoduleApi {
         return;
     }
     
+    public function checkPermissionsPost(string $moduleName): bool {
+        return current_user_can('manage_options');
+    }
+
     /**
      * Arguments for the getRedirect route
      * 

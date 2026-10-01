@@ -247,7 +247,7 @@ class SeoOptimiser
     {
         // Validate post ID
         if (empty($this->postId) || !is_numeric($this->postId) || $this->postId <= 0) {
-            throw new Exception(__('Invalid post ID for SEO score persistence', 'beyondseo'));
+            throw new Exception(esc_html__('Invalid post ID for SEO score persistence', 'beyondseo'));
         }
 
         // Ensure score is calculated and normalized

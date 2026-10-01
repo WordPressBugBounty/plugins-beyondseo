@@ -11,11 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Elementor\Core\Admin\Admin;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
-use RankingCoach\Inc\Core\CacheManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\CapabilityManager;
 use RankingCoach\Inc\Core\ConflictManager;
 use RankingCoach\Inc\Core\CronJobManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
@@ -84,6 +82,7 @@ class Installer implements InitializerInterface
         $this->initializeHooks();
 
         add_action('plugins_loaded',  [$this, 'maybeActivateOnce'], 10);
+        add_action('init', [HooksManager::getInstance(), 'runDbMigration'], 1);
 
         // Register plugin lifecycle event listeners
         // These run in the normal WordPress flow with full environment access
@@ -268,9 +267,6 @@ class Installer implements InitializerInterface
         // Check for plugin conflicts
         $this->checkForPluginConflicts();
         
-        // Set up user capabilities
-        $this->setupUserCapabilities();
-
         // Initialize plugin modules
         $this->initializePluginModules();
 
@@ -300,9 +296,7 @@ class Installer implements InitializerInterface
     private function scheduleCronJobs(): void {
         try {
             CronJobManager::instance()->scheduleCronJobs();
-            CacheManager::getInstance()->scheduleCleanupCron();
             SchemaCacheManager::scheduleCleanupCron();
-
             SyncKeywordsJob::instance()->initializeScheduling();
             BrokenLinkCheckerJob::instance()->initializeScheduling();
             LogCleanupJob::instance()->initializeScheduling();
@@ -320,7 +314,6 @@ class Installer implements InitializerInterface
     private function unscheduleCronJobs(): void {
         try {
             CronJobManager::instance()->clearAllCronJobs();
-            CacheManager::getInstance()->unscheduleCleanupCron();
             SchemaCacheManager::unscheduleCleanupCron();
 
             SyncKeywordsJob::instance()->unscheduleJob();
@@ -345,16 +338,6 @@ class Installer implements InitializerInterface
      */
     private function checkForPluginConflicts(): void {
         ConflictManager::getInstance()->checkPluginConflicts();
-    }
-    
-    /**
-     * Sets up user capabilities for the plugin.
-     * 
-     * @return void
-     */
-    private function setupUserCapabilities(): void {
-        // Add capabilities for three user roles (admin, editor, author)
-        CapabilityManager::instance()->assignCapabilities();
     }
     
     /**

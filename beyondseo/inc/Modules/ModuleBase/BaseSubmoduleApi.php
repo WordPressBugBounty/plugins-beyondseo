@@ -188,7 +188,10 @@ abstract class BaseSubmoduleApi {
 		// Determine permission callback based on method
 		$permissionCallback = $method === WP_REST_Server::READABLE
 			? function() { return $this->checkPermissionsGet($this->module->getModuleName()); }
-			: function() { return $this->checkPermissionsPost($this->module->getModuleName()); };
+			: function(WP_REST_Request $request) {
+				return $this->checkPermissionsPost($this->module->getModuleName())
+					&& (!$request->has_param('post_id') || current_user_can('edit_post', (int) $request->get_param('post_id')));
+			};
 		
 		try {
 			RestHelpers::registerRoute(
@@ -277,7 +280,7 @@ abstract class BaseSubmoduleApi {
 	 * @return bool
 	 */
 	public function checkPermissionsGet(string $moduleName): bool {
-		return current_user_can('rankingcoach_read_' . $moduleName);
+		return current_user_can('edit_posts');
 	}
 
 	/**
@@ -286,7 +289,7 @@ abstract class BaseSubmoduleApi {
 	 * @return bool
 	 */
 	public function checkPermissionsPost(string $moduleName): bool {
-		return current_user_can('rankingcoach_write_' . $moduleName );
+		return current_user_can('edit_posts');
 	}
 
 	/**

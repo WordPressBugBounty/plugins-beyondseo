@@ -61,9 +61,6 @@ class LinkAnalyzer extends BaseModule {
             return;
         }
 
-        // Define capabilities specific to the module
-        $this->defineCapabilities();
-
         // Register the link analyzer data filter
         add_filter('beyondseo_analyzer/data', [$this, 'getData']);
 

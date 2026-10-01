@@ -192,22 +192,30 @@ class Assets {
         // Outbound links (ExternalLinks, partner-aware) and links into this install (getInternalLinksData): resolved in one place.
         $rankingCoachReactData = array_merge($rankingCoachReactData, ExternalLinks::getReactData(), $this->getInternalLinksData());
 
-        $post_id = WordpressHelpers::sanitize_input('GET', 'post');
-        $post_type = $post_id ? get_post_type($post_id) : null;
+        // The post being edited. On post.php it comes from the query string. post-new.php has no
+        // `post` parameter, but WordPress has already inserted the auto-draft
+        // (get_default_post_to_edit()) by the time admin_enqueue_scripts fires, and the global post
+        // carries the id the editor keeps for the lifetime of that post. Without it the React app
+        // cannot mount the meta box tabs until the user saves a draft and reloads (WORDPRESS-986).
+        $post_id = (int) WordpressHelpers::sanitize_input(
+            'GET',
+            'post',
+            filters: [FILTER_SANITIZE_NUMBER_INT],
+            validate: FILTER_VALIDATE_INT,
+            return: 'int'
+        );
+        if ($post_id <= 0 && WordpressHelpers::is_add_post_context()) {
+            $post_id = (int) (get_post()?->ID ?? 0);
+        }
+        $post_type = $post_id > 0 ? (get_post_type($post_id) ?: null) : null;
 
         if (WordpressHelpers::is_edit_post_context()) {
-            // Get the post ID (if editing an existing post).
-            // Add context-specific keys to the global object when editing a post or page.
+            // Context-specific keys for the post/page editor: post.php (editing) and post-new.php
+            // (adding, where the post is still WordPress' empty auto-draft).
             $rankingCoachReactData['isEditingPost'] = true;
-            $rankingCoachReactData['isAddingPost'] = false;
+            $rankingCoachReactData['isAddingPost'] = WordpressHelpers::is_add_post_context();
             $rankingCoachReactData['currentPostType'] = $post_type;
-            $rankingCoachReactData['currentPostId'] = $post_id;
-        }
-
-        if(WordpressHelpers::is_add_post_context()) {
-            // Add context-specific keys to the global object when adding a new post or page.
-            $rankingCoachReactData['isAddingPost'] = true;
-            $rankingCoachReactData['currentPostType'] = $post_type;
+            $rankingCoachReactData['currentPostId'] = $post_id > 0 ? $post_id : null;
         }
 
         // Localize the script with data

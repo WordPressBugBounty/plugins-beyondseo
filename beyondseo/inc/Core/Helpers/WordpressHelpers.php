@@ -394,7 +394,7 @@ class WordpressHelpers {
             [
                 'key' => 'post_title',
                 'description' => 'Post / Page title.',
-                'value' => isset($context['post']) && $context['post'] ? get_the_title($context['post']) : '',
+                'value' => isset($context['post']) && $context['post'] ? self::get_editable_post_title($context['post']) : '',
             ],
             [
                 'key' => 'post_slug',
@@ -2226,6 +2226,10 @@ class WordpressHelpers {
 	 * This method checks if the current screen is the "Add New Post" screen in the WordPress admin area.
 	 * It can be used to conditionally load scripts or styles specific to the post creation context.
 	 *
+	 * WordPress does not give post-new.php its own screen base: WP_Screen maps it to base `post`
+	 * with action `add` (post.php is base `post` with an empty action), so this is a narrower
+	 * check than is_edit_post_context(), which is true on both screens.
+	 *
 	 * @return bool True if the current context is the "Add New Post" screen, false otherwise.
 	 */
 	public static function is_add_post_context(): bool {
@@ -2235,13 +2239,38 @@ class WordpressHelpers {
 
 		// Get the current screen object.
 		$current_screen = get_current_screen();
-		if (!$current_screen || $current_screen->base !== 'post-new') {
+		if (!$current_screen || $current_screen->base !== 'post' || $current_screen->action !== 'add') {
 			return false;
 		}
 
 		// Optionally restrict to specific post types if needed.
 		$allowed_post_types = ['post', 'page'];
 		return in_array($current_screen->post_type, $allowed_post_types, true);
+	}
+
+	/**
+	 * Post title as the editor presents it.
+	 *
+	 * WordPress inserts every "Add New" post as an `auto-draft` row titled "Auto Draft"
+	 * (get_default_post_to_edit()) and blanks that placeholder again before rendering the
+	 * editor. Anything that reads the title from the database for a post the user has not
+	 * saved yet (SEO title fallback, the `post_title` template variable, the analysis) must
+	 * do the same, otherwise "Auto Draft" leaks into meta tags and previews.
+	 *
+	 * @param int|WP_Post|null $post Post ID or object; defaults to the global post.
+	 * @return string The title, or an empty string for a post that has never been saved.
+	 */
+	public static function get_editable_post_title( int|WP_Post|null $post = null ): string {
+		$post = get_post( $post );
+		if ( ! $post instanceof WP_Post ) {
+			return '';
+		}
+
+		if ( 'auto-draft' === $post->post_status ) {
+			return '';
+		}
+
+		return get_the_title( $post );
 	}
 
     /**

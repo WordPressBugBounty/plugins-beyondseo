@@ -57,9 +57,6 @@ class RankingCoachDashboard extends BaseModule {
 			return;
 		}
 
-		// Define capabilities specific to the module
-		$this->defineCapabilities();
-
 		// Register the dashboard data filter
 		add_filter('rankingcoach_dashboard/data', fn($null) => $this->getModuleData());
 

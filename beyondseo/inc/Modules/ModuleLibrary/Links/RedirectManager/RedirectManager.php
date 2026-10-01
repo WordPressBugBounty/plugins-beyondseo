@@ -57,17 +57,6 @@ class RedirectManager extends BaseModule {
     }
 	
 	/**
-	 * Initialize the module and register hooks
-	 * @return void
-	 */
-	public function initializeModule(): void {
-		parent::initializeModule();
-		
-		// Define capabilities for this module
-		$this->defineCapabilities();
-	}
-
-	/**
 	 * Get the table name for this module
 	 *
 	 * @return string The table name

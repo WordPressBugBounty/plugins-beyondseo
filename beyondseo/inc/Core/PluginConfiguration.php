@@ -313,36 +313,10 @@ class PluginConfiguration implements PluginConfigurationInterface, JsonSerializa
 
     /**
      * Clear WordPress caches related to options and plugin data
-     * Enhanced with comprehensive cache management using CacheManager
      *
      * @return void
      */
     private function clearRelatedCaches(): void
-    {
-        try {
-            // Use the comprehensive CacheManager for enhanced cache clearing
-            if (class_exists(CacheManager::class)) {
-                $cacheManager = CacheManager::getInstance();
-                $cacheManager->clearAllPluginCaches();
-
-            } else {
-                // Fallback to original cache clearing methods
-                $this->clearRelatedCachesFallback();
-            }
-        } catch (Throwable $e) {
-            $this->log('Error during cache cleanup: ' . $e->getMessage());
-            // Fallback to original methods if CacheManager fails
-            $this->clearRelatedCachesFallback();
-        }
-    }
-
-    /**
-     * Fallback cache clearing method (original implementation)
-     * Used when CacheManager is not available or fails
-     *
-     * @return void
-     */
-    private function clearRelatedCachesFallback(): void
     {
         try {
             if (function_exists('wp_cache_flush_group')) {
@@ -350,20 +324,6 @@ class PluginConfiguration implements PluginConfigurationInterface, JsonSerializa
                 wp_cache_flush_group('site-options');
                 wp_cache_flush_group('transient');
                 wp_cache_flush_group('site-transient');
-            }
-
-            if (function_exists('wp_cache_flush_group')) {
-                wp_cache_flush_group('options');
-                wp_cache_flush_group('site-options');
-            }
-
-            if (function_exists('opcache_reset') && opcache_get_status(false)['opcache_enabled']) {
-                opcache_reset();
-            }
-
-            flush_rewrite_rules(false);
-
-            if (function_exists('wp_cache_flush_group')) {
                 wp_cache_flush_group('posts');
                 wp_cache_flush_group('terms');
                 wp_cache_flush_group('users');
@@ -372,15 +332,20 @@ class PluginConfiguration implements PluginConfigurationInterface, JsonSerializa
                 wp_cache_flush_group('term_meta');
             }
 
+            if (function_exists('opcache_reset') && opcache_get_status(false)['opcache_enabled']) {
+                opcache_reset();
+            }
+
+            flush_rewrite_rules(false);
+
             $dbManager = DatabaseManager::getInstance();
             if (method_exists($dbManager->db()->db, 'flush')) {
                 $dbManager->db()->db->flush();
             }
 
-            $this->log('Fallback cache clearing completed successfully');
-
+            $this->log('Cache clearing completed successfully');
         } catch (Throwable $e) {
-            $this->log('Error during fallback cache cleanup: ' . $e->getMessage());
+            $this->log('Error during cache cleanup: ' . $e->getMessage());
         }
     }
 }

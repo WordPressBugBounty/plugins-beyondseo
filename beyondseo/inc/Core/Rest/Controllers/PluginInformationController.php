@@ -26,11 +26,11 @@ class PluginInformationController
             $installedAt = (string)($installedAtOpt ?? time());
 
             if (is_numeric($installedAt)) {
-                $installedDateTime = date('Y-m-d H:i:s', (int)$installedAt);
+                $installedDateTime = gmdate('Y-m-d H:i:s', (int)$installedAt);
             } elseif (strtotime($installedAt) !== false) {
-                $installedDateTime = date('Y-m-d H:i:s', strtotime($installedAt));
+                $installedDateTime = gmdate('Y-m-d H:i:s', strtotime($installedAt));
             } else {
-                $installedDateTime = date('Y-m-d H:i:s');
+                $installedDateTime = gmdate('Y-m-d H:i:s');
             }
 
             $siteUrl = get_site_url();

@@ -198,7 +198,7 @@ class ConflictManager {
         }
 
         if ( ! $this->isSimpleNotificationEnabled() ) {
-            wp_register_style( 'rankingcoach-conflict-notice', false, [], false );
+            wp_register_style( 'rankingcoach-conflict-notice', false, [], RANKINGCOACH_VERSION );
             wp_enqueue_style( 'rankingcoach-conflict-notice' );
             wp_add_inline_style( 'rankingcoach-conflict-notice', $this->getNotificationCss() );
         }

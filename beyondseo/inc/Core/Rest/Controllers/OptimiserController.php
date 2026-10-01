@@ -48,7 +48,9 @@ class OptimiserController
 
             $shouldThrottle = apply_filters(Hooks::RANKINGCOACH_FILTER_SHOULD_THROTTLE_SEO_ANALYSIS, false, $postId);
 
-            if (!$shouldThrottle) {
+            if ($this->isUnsavedNewPost($postId)) {
+                $analyseResult = $this->getAnalyseResult($postId);
+            } elseif (!$shouldThrottle) {
                 ModuleManager::instance()->initialize()->linkAnalyzer()->hooksComponent->analyzeLinks($postId);
                 $analyseResult = $this->performAnalysis($postId);
             } else {
@@ -66,11 +68,26 @@ class OptimiserController
     {
         $result = $this->getAnalyseResult($postId);
 
-        if ($result instanceof OptimiserResult && empty($result->analyzedAt)) {
+        // A read of a post that was never analyzed runs the first analysis on the spot.
+        if ($result instanceof OptimiserResult && empty($result->analyzedAt) && !$this->isUnsavedNewPost($postId)) {
             return $this->performAnalysis($postId);
         }
 
         return $result;
+    }
+
+    /**
+     * Whether the post is still the empty `auto-draft` WordPress inserts on every "Add New"
+     * page view. The editor meta box mounts on it (WORDPRESS-986), but it must not be analyzed:
+     * the content renderer flips a non-published post to `publish` in the database while it
+     * renders it (RcContentRetrieveTrait::executeWithTemporaryPublishStatus()), which would
+     * briefly expose an empty "Auto Draft" post on the live site, and every abandoned auto-draft
+     * would leave orphaned optimiser rows behind. The first save turns the post into a draft,
+     * and that save triggers the first analysis.
+     */
+    private function isUnsavedNewPost(int $postId): bool
+    {
+        return get_post_status($postId) === 'auto-draft';
     }
 
     private function performAnalysis(int $postId): OptimiserResult

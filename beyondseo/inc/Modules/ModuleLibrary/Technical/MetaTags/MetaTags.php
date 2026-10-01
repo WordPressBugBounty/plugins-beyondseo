@@ -116,9 +116,6 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             return;
         }
 
-        // Define capabilities specific to the module
-        $this->defineCapabilities();
-
         add_filter('get_post_metadata', [self::class, 'filterPostMetadata'], 10, 4);
 
         parent::initializeModule();
@@ -432,6 +429,22 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
             [
                 'post_id' => $postId,
                 'type'    => $type,
+            ]
+        );
+    }
+
+    /**
+     * Delete every tag row stored for a post (title, description, keywords, social, ...),
+     * e.g. once WordPress has deleted the post itself.
+     *
+     * @param int $postId
+     */
+    public function deleteAllTags(int $postId): void
+    {
+        DatabaseManager::getInstance()->delete(
+            DatabaseTablesManager::DATABASE_MOD_METATAGS,
+            [
+                'post_id' => $postId,
             ]
         );
     }
@@ -1348,6 +1361,56 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
     }
 
     /**
+     * Title and description meta tags of a post, with the same
+     * stored row -> legacy post meta -> post title fallbacks as getMetaTagsData(),
+     * but without the keyword, social and image lookups. Used where only the
+     * search snippet is needed, e.g. the assistant column of the posts/pages lists.
+     *
+     * @param int $postId
+     * @return array{title: array, description: array}
+     */
+    public function getTitleAndDescriptionData(int $postId): array
+    {
+        $titleRow = $this->getTagRow($postId, 'title');
+        $descRow  = $this->getTagRow($postId, 'description');
+
+        if ($titleRow) {
+            $title = $this->mapRowToResponse($titleRow, 'title');
+        } else {
+            // get_editable_post_title(): an unsaved "Add New" post is titled "Auto Draft" in the
+            // database and must fall back to an empty template, not to that placeholder.
+            $template = get_post_meta($postId, 'rankingcoach_seo_title_template', true)
+                ?: (get_post_meta($postId, 'rankingcoach_seo_title', true) ?: (get_post_meta($postId, '_yoast_wpseo_title', true) ?: WordpressHelpers::get_editable_post_title($postId)));
+
+            $title = $this->mapRowToResponse([
+                'id'       => 0,
+                'post_id'  => $postId,
+                'type'     => 'title',
+                'template' => $template,
+            ], 'title');
+        }
+
+        if ($descRow) {
+            $description = $this->mapRowToResponse($descRow, 'description');
+        } else {
+            $template = get_post_meta($postId, 'rankingcoach_seo_description_template', true)
+                ?: (get_post_meta($postId, 'rankingcoach_seo_description', true) ?: (get_post_meta($postId, '_yoast_wpseo_metadesc', true) ?: ''));
+
+            $description = $this->mapRowToResponse([
+                'id'       => 0,
+                'post_id'  => $postId,
+                'type'     => 'description',
+                'template' => $template,
+            ], 'description');
+        }
+
+        return [
+            'title'       => $title,
+            'description' => $description,
+        ];
+    }
+
+    /**
      * Retrieve all metadata for a post structured for the API, with fallback logic.
      *
      * @param int $postId
@@ -1355,43 +1418,15 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     public function getMetaTagsData(int $postId): array
     {
-        $titleRow = $this->getTagRow($postId, 'title');
-        $descRow  = $this->getTagRow($postId, 'description');
         $kwRow    = $this->getTagRow($postId, 'keywords');
         $socialTitleRow = $this->getTagRow($postId, 'social_title');
         $socialDescRow = $this->getTagRow($postId, 'social_description');
 
-        $response = [
-            'title'             => $titleRow ? $this->mapRowToResponse($titleRow, 'title') : null,
-            'description'       => $descRow  ? $this->mapRowToResponse($descRow, 'description') : null,
+        $response = $this->getTitleAndDescriptionData($postId) + [
             'keywords'          => $kwRow    ? $this->mapRowToResponse($kwRow, 'keywords') : null,
             'socialTitle'       => $socialTitleRow ? $this->mapRowToResponse($socialTitleRow, 'social_title') : null,
             'socialDescription' => $socialDescRow ? $this->mapRowToResponse($socialDescRow, 'social_description') : null,
         ];
-
-        if ($response['title'] === null) {
-            $template = get_post_meta($postId, 'rankingcoach_seo_title_template', true)
-                ?: (get_post_meta($postId, 'rankingcoach_seo_title', true) ?: (get_post_meta($postId, '_yoast_wpseo_title', true) ?: get_the_title($postId)));
-
-            $response['title'] = $this->mapRowToResponse([
-                'id'      => 0,
-                'post_id' => $postId,
-                'type'    => 'title',
-                'template' => $template,
-            ], 'title');
-        }
-
-        if ($response['description'] === null) {
-            $template = get_post_meta($postId, 'rankingcoach_seo_description_template', true)
-                ?: (get_post_meta($postId, 'rankingcoach_seo_description', true) ?: (get_post_meta($postId, '_yoast_wpseo_metadesc', true) ?: ''));
-
-            $response['description'] = $this->mapRowToResponse([
-                'id'      => 0,
-                'post_id' => $postId,
-                'type'    => 'description',
-                'template' => $template,
-            ], 'description');
-        }
 
         if ($response['socialTitle'] === null) {
             $template = get_post_meta($postId, 'rankingcoach_social_title', true)

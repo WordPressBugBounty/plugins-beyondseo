@@ -109,9 +109,6 @@ class LinkCounter extends BaseModule {
 			return;
 		}
 
-		// Define capabilities specific to the module
-		$this->defineCapabilities();
-
 		// Register the link counter data filter
 		add_filter('beyondseo_counter/data', fn() => $this->getLatestRow());
 

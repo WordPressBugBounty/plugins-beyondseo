@@ -9,14 +9,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use Exception;
 use RankingCoach\Inc\Core\Admin\Pages\ActivationPage;
-use RankingCoach\Inc\Core\Admin\Pages\CachePage;
 use RankingCoach\Inc\Core\Admin\Pages\GeneralSettingsPage;
 use RankingCoach\Inc\Core\Admin\Pages\IframePage;
 use RankingCoach\Inc\Core\Admin\Pages\OnboardingPage;
 use RankingCoach\Inc\Core\Admin\Pages\RegistrationPage;
 use RankingCoach\Inc\Core\Admin\Pages\FeedbackPage;
 use RankingCoach\Inc\Core\Admin\Pages\UpsellPage;
-use RankingCoach\Inc\Core\CacheManager;
 use RankingCoach\Inc\Core\DashboardWidgetManager;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
@@ -90,13 +88,6 @@ class AdminManager
     private ?FeedbackPage $feedback_page;
 
     /**
-     * The cache management page of the plugin.
-     *
-     * @var CachePage|null
-     */
-    private ?CachePage $cache_page;
-
-    /**
      * The name of the main admin page.
      *
      * @var string
@@ -108,7 +99,6 @@ class AdminManager
     public const PAGE_ONBOARDING        = 'rankingcoach-onboarding';
     public const PAGE_GENERAL_SETTINGS  = 'rankingcoach-generalSettings';
     public const PAGE_UPSELL            = 'rankingcoach-connect';
-    public const PAGE_CACHE             = 'rankingcoach-cache';
 
     /**
      * AdminManager constructor.
@@ -161,16 +151,12 @@ class AdminManager
         ToolbarManager::getInstance()->init();
         DashboardWidgetManager::getInstance()->init();
 
-        // Initialize cache manager
-        CacheManager::getInstance()->init();
-
         $this->main_page = IframePage::getInstance()->setManager($this);
         $this->activation_page = ActivationPage::getInstance()->setManager($this);
         $this->registration_page = RegistrationPage::getInstance()->setManager($this);
         $this->onboarding_page = OnboardingPage::getInstance()->setManager($this);
         $this->general_settings_page = GeneralSettingsPage::getInstance()->setManager($this);
         $this->upsell_page = UpsellPage::getInstance()->setManager($this);
-        $this->cache_page = CachePage::getInstance()->setManager($this);
         $this->feedback_page = FeedbackPage::getInstance()->setManager($this);
     }
 
@@ -288,6 +274,36 @@ class AdminManager
     }
 
     /**
+     * Stylesheets of a manifest entry and of every chunk it (transitively) imports, dependencies
+     * first and de-duplicated, the way Vite itself links them.
+     *
+     * Vite attributes a stylesheet to the chunk that owns the module importing it. Components
+     * main.tsx shares with the App.tsx entry (for example the SEO title chip editor used by the
+     * list quick editor) therefore end up in the App chunk's CSS, which the entry's own `css`
+     * list does not mention.
+     *
+     * @param array $manifest Decoded Vite manifest.
+     * @param string $entryKey Manifest key of the entry or chunk.
+     * @param array $visited Chunks already collected (guards against import cycles).
+     * @return string[] Relative CSS paths as listed in the manifest.
+     */
+    private function collectChunkCss(array $manifest, string $entryKey, array &$visited = []): array
+    {
+        if (isset($visited[$entryKey]) || !isset($manifest[$entryKey])) {
+            return [];
+        }
+        $visited[$entryKey] = true;
+
+        $css = [];
+        foreach ($manifest[$entryKey]['imports'] ?? [] as $import) {
+            $css = array_merge($css, $this->collectChunkCss($manifest, (string) $import, $visited));
+        }
+        $css = array_merge($css, $manifest[$entryKey]['css'] ?? []);
+
+        return array_values(array_unique($css));
+    }
+
+    /**
      * This function is used to mount react components to mounting points.
      *
      * @param string $hookSuffix The hook name where the script should be enqueued.
@@ -313,7 +329,7 @@ class AdminManager
 
         $bundle = $manifest[$entryKey];
         $jsFile = $bundle['file'] ?? null;
-        $cssFiles = $bundle['css'] ?? [];
+        $cssFiles = $this->collectChunkCss($manifest, $entryKey);
 
         if ($jsFile) {
             wp_enqueue_script(
@@ -616,9 +632,6 @@ class AdminManager
         }
         if (isset($this->upsell_page) && property_exists($this->upsell_page, 'name') && $this->upsell_page->page_name() === $pageName) {
             $this->upsell_page->redirect($queries);
-        }
-        if (isset($this->cache_page) && property_exists($this->cache_page, 'name') && $this->cache_page->page_name() === $pageName) {
-            $this->cache_page->redirect($queries);
         }
         if (isset($this->feedback_page) && property_exists($this->feedback_page, 'name') && $this->feedback_page->page_name() === $pageName) {
             $this->feedback_page->redirect($queries);

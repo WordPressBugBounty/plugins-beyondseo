@@ -77,8 +77,6 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
 			return;
 		}
 
-		$this->defineCapabilities();
-
 		parent::initializeModule();
     }
 

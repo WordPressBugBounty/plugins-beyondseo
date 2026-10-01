@@ -394,7 +394,8 @@ class WordPressProvider implements ContentProviderInterface
      */
     public function getPostTitle(int $postId): string
     {
-        return get_the_title($postId);
+        // Empty for an unsaved "Add New" post instead of WordPress' "Auto Draft" placeholder.
+        return WordpressHelpers::get_editable_post_title($postId);
     }
 
     /**

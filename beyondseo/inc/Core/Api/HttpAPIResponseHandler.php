@@ -37,6 +37,7 @@ class HttpAPIResponseHandler {
 
 			$error = 'Unknown error';
 			$message = '';
+			$fieldMessages = [];
 
 			if (json_last_error() !== JSON_ERROR_NONE) {
 				$error = 'Invalid JSON response';
@@ -50,17 +51,21 @@ class HttpAPIResponseHandler {
 				if (is_array($data)) {
 					$error = isset($data['error']) && is_string($data['error']) ? trim($data['error']) : 'Unknown error';
 					$message = isset($data['message']) && is_string($data['message']) ? trim($data['message']) : '';
+					$fieldMessages = $this->extractFieldMessages($data);
 				}
 			}
 
 			$parts = array_filter(array_map(static fn($part) => is_string($part) ? trim($part) : '', [ $error, $message ]), static fn($part) => $part !== '');
-			$errorText = $parts ? implode(' - ', array_unique($parts)) : 'Unknown error';
+			$errorText = $fieldMessages
+				? implode(' ', $fieldMessages)
+				: ($parts ? implode(' - ', array_unique($parts)) : 'Unknown error');
 			$exception = new HttpApiException($errorText, $statusCode);
 
 			$errorDetails = [
 				'status_code' => $statusCode,
 				'error' => $error,
 				'message' => $message,
+				'field_messages' => $fieldMessages,
 				'content' => $content,
 			];
 
@@ -73,6 +78,32 @@ class HttpAPIResponseHandler {
 			beyondseo_rceh()->error($exception, $content);
 		}
 		return $this;
+	}
+
+	/**
+	 * Extract field-level messages from a RankingCoach API error body.
+	 *
+	 * Validation failures use a generic `error` and put field-specific reasons in
+	 * `validationErrors` and/or `exceptionDetails`.
+	 *
+	 * @param array $data The decoded JSON error body.
+	 *
+	 * @return string[] Unique, non-empty messages in body order.
+	 */
+	private function extractFieldMessages(array $data): array
+	{
+		$messages = [];
+		foreach ($data['validationErrors']['elements'] ?? [] as $validationError) {
+			foreach ($validationError['elements'] ?? [] as $validationResult) {
+				$messages[] = $validationResult['errorMessage'] ?? '';
+			}
+		}
+		foreach ($data['exceptionDetails']['elements'] ?? [] as $exceptionDetail) {
+			$messages[] = $exceptionDetail['message'] ?? '';
+		}
+		$messages = array_map(static fn($message) => is_string($message) ? trim($message) : '', $messages);
+
+		return array_values(array_unique(array_filter($messages, static fn($message) => $message !== '')));
 	}
 
 	/**
