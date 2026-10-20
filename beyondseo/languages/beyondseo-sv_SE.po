@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:16+0000\n"
+"PO-Revision-Date: 2026-10-20 09:34+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -10,6 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: \n"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 #, fuzzy
@@ -8333,7 +8335,7 @@ msgid "Enter activation code"
 msgstr "Ange aktiveringskod"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Vi kunde inte hitta ett rankingCoach-konto för denna e-postadress."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Det här kontot har ingen aktiv WordPress-prenumeration."
@@ -8348,7 +8350,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "E-postregistrering är inte tillgänglig för denna installation. Använd din aktiveringskod."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "WordPress Cron är inaktiverat på denna webbplats (DISABLE_WP_CRON är inställt på sant). RankingCoach är beroende av WP-Cron för att köra schemalagda uppgifter som nyckelordsynkronisering och kontroll av brutna länkar. Vänligen se till att en systemcron-jobb är konfigurerad för att köra wp-cron.php regelbundet, annars kommer dessa schemalagda uppgifter inte att köras."
 
 msgid "Details: %s"
 msgstr "Detaljer: %s"
@@ -8372,46 +8374,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Aktiveringskoden för den här prenumerationen har redan skickats om maximalt antal gånger. Vänligen kontakta kundsupport."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Kan du inte hitta din aktiveringskod?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Återställ det här"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Kontrollera din e-post för din aktiveringskod. Fick du den inte? Återställ den"
 
 msgid "here"
-msgstr ""
-
+msgstr "här"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Behöver du hjälp? Kontakta vårt supportteam och kopiera din webbplatsinformation nedan."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Kontakta supporten"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Platsinformation"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Misslyckades med att ladda webbplatsinformation. Vänligen försök igen."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Försök igen"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Kopiera webbplatsinformation till urklipp"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Kopierad till urklipp"
 
 msgid "You do not have permission to access support information."
+msgstr "Du har inte behörighet att få åtkomst till supportinformation."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "SEO-analysen börjar efter den första sparningen av detta inlägg."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Dina ändringar kunde inte sparas. Vänligen försök igen."
+
+msgid "Edit SEO title and description"
+msgstr "Redigera SEO-titel och beskrivning"
+
+msgid "Open in editor"
+msgstr "Öppna i redigeraren"
+
+msgid "Add a meta description"
+msgstr "Lägg till en meta-beskrivning"
+
+msgid "No meta description"
+msgstr "Ingen metabeskrivning"
+
+msgid "Updating score…"
+msgstr "Uppdaterar poäng…"
+
+msgid "Saved"
+msgstr "Sparad"
+
+msgid "Yes, I love it"
+msgstr "Ja, jag älskar det."
+
+msgid "Not really"
+msgstr "Inte riktigt"
+
+msgid "Maybe later"
+msgstr "Kanske senare"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Recension av BeyondSEO på WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Njut av BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Vi skulle gärna vilja höra om din erfarenhet."
+
+msgid "Dismiss review request"
+msgstr "Avvisa granskningsbegäran"
+
+msgid "Your site score is above %s!"
+msgstr "Ditt webbplatsresultat är över %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Ditt innehållspoäng är över %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Tycker du om BeyondSEO? Vi skulle gärna vilja höra om din upplevelse."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Projektanslutningen kunde inte verifieras. Uppdatera kontot innan du försöker igen."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Kunde inte bekräfta projektets skapande. Ditt konto och lokala data har sparats. Uppdatera kontot och försök igen eller kontakta support."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Tjänsten kunde inte bekräfta borttagning av projektet. Din lokala anslutning har inte tagits bort. Försök igen eller kontakta support."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Tjänstens svar kunde inte verifieras. Uppdatera kontot innan du försöker igen. Om anslutningen är ofullständig, kontakta supporten innan du återansluter."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Projektets radering accepterades, men den lokala anslutningen kunde inte tas bort helt. Kontakta supporten innan du försöker igen eller återansluter. Uppdatera kontot för att kontrollera den aktuella anslutningen."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Det anslutna projektet har ändrats eller är inte längre anslutet. Uppdatera kontot och granska projektet innan du försöker igen."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Ett projektarbete pågår redan. Vänta tills det är klart och uppdatera kontot. Om detta kvarstår, kontakta support."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Det går inte att starta projektoperationen säkert. Vänligen försök igen eller kontakta supporten."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Anslut ditt konto innan du skapar ett projekt. Uppdatera kontot för att kontrollera din anslutning."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Tjänsten returnerade ett projekt, men dess lokala anslutning kunde inte sparas helt. Uppdatera kontot och försök igen eller kontakta supporten. Ditt konto och lokala data har sparats."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Aktivera kommunikation med rankingCoach i Inställningar innan du skapar ett projekt."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Aktivera kommunikation med rankingCoach i inställningarna innan du tar bort projektet. Din lokala anslutning har inte tagits bort."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Tjänsten kunde inte autentisera projektets skapande. Dina kontouppgifter har sparats. Kontakta supporten för att återfå åtkomst innan du försöker igen."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Tjänsten kunde inte autentisera raderingen av projektet. Din lokala anslutning har inte tagits bort. Kontakta supporten för att återfå åtkomst innan du försöker igen."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Kunde inte ladda den lokala projektanslutningen. Vänligen försök igen."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Åtkomst till kontot kunde inte verifieras. Ladda om denna sida och logga in som administratör innan du försöker igen."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Kunde inte ladda den lokala projektanslutningen. Kontrollera din anslutning och försök igen."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Skapelseresultatet kunde inte verifieras. Uppdatera kontot innan du försöker igen. Ditt konto och lokala data har behållits."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Borttagningsresultatet kunde inte verifieras. Uppdatera kontot innan du försöker igen. Om anslutningen är ofullständig, kontakta supporten innan du återansluter."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Tjänstens svar kunde inte verifieras. Uppdatera kontot innan du försöker igen."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Borttagningsresultatet kunde inte verifieras. Uppdatera kontot innan du försöker igen."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Ditt projekt är kopplat. Du kan öppna onboarding när du är redo. Dina befintliga onboardingdata och status har bevarats."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Projektets radering har accepterats och skjutits upp. Den lokala projektanslutningen har tagits bort. Ditt konto, inställningar och SEO-data är bevarade, och pluginet förblir aktivt."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Det fjärrprojektet har raderats och anslutningen till det lokala projektet har tagits bort. Ditt konto, inställningar och SEO-data är bevarade, och pluginet förblir aktivt."
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "Manage the project connected to this website."
+msgstr "Hantera projektet kopplat till denna webbplats."
+
+msgid "Loading project connection…"
+msgstr "Laddar projektanslutning…"
+
+msgid "Refresh Account"
+msgstr "Uppdatera konto"
+
+msgid "Account details"
+msgstr "Kontouppgifter"
+
+msgid "Activation code"
+msgstr "Aktiveringskod"
+
+msgid "Not available"
+msgstr "Inte tillgänglig"
+
+msgid "Project details"
+msgstr "Projektinformation"
+
+msgid "Project ID"
+msgstr "Projekt-ID"
+
+msgid "Not connected"
+msgstr "Inte ansluten"
+
+msgid "Location ID"
+msgstr "Plats-ID"
+
+msgid "Website"
+msgstr "Webbplats"
+
+msgid "Open onboarding"
+msgstr "Öppna onboarding"
+
+msgid "Delete project"
+msgstr "Ta bort projektet"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Ta bort det fjärrprojektet och ta bort denna webbplatsens anslutning. Dina lokala inställningar och SEO-data kommer att behållas. Detta avbryter inte ditt konto eller din prenumeration."
+
+msgid "Deleting project…"
+msgstr "Tar bort projekt…"
+
+msgid "Create project"
+msgstr "Skapa projekt"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Ditt konto är kopplat, men denna webbplats har inget projekt. Skapa ett projekt med ditt befintliga konto. Dina lokala inställningar, SEO-data och onboarding-framsteg kommer att sparas."
+
+msgid "Creating project…"
+msgstr "Skapar projekt…"
+
+msgid "Create Project"
+msgstr "Skapa projekt"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Skapar projekt… Vänligen vänta på bekräftelse."
+
+msgid "No project connected"
+msgstr "Inget projekt kopplat"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Anslut ett konto för att koppla denna webbplats till ett projekt. Dina befintliga inställningar och SEO-data är fortfarande tillgängliga."
+
+msgid "Delete this project?"
+msgstr "Ta bort detta projekt?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Detta tar bort det fjärrprojektet och tar bort den lokala anslutningen för denna webbplats. Borttagning av fjärrprojekt kan inte ångras."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Dina lokala inställningar och SEO-data kommer att bevaras. Tillägget kommer att förbli aktivt. Ditt konto och din prenumeration kommer inte att avbrytas."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Tar bort projektet… Vänligen vänta på bekräftelse."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Kunde inte ladda kontot. Vänligen försök igen."
+
+msgid "Retry loading Account"
+msgstr "Försök ladda kontot igen"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Kontakta vårt team för hjälp med BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Kopiera din webbplats tekniska detaljer för att dela med vårt supportteam."
+
+msgid "Loading site info"
+msgstr "Laddar webbplatsinformation"
+
+msgid "Edit SEO title"
+msgstr "Redigera SEO-titel"
+
+msgid "Edit meta description"
+msgstr "Redigera metabeskrivning"
+
+msgid "Set keywords"
+msgstr "Ställ in nyckelord"
+
+msgid "Essentials"
+msgstr "Nödvändigheter"
+
+msgid "Import"
+msgstr "Importera"
+
+msgid "Site check"
+msgstr "Platskontroll"
+
+msgid "Email tips"
+msgstr "E-posttips"
+
+msgid "rankingCoach account"
+msgstr "rankingCoach-konto"
+
+msgid "Check titles, keywords and headings"
+msgstr "Kontrollera titlar, nyckelord och rubriker"
+
+msgid "Review page-specific SEO issues"
+msgstr "Granska sidspecifika SEO-problem"
+
+msgid "Fix issues directly on your pages"
+msgstr "Åtgärda problem direkt på dina sidor"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Gå till BeyondSEO-inställningar"
+
+msgid "Keep growing your visibility"
+msgstr "Fortsätt öka din synlighet"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO hjälper dig att hitta och åtgärda sidproblem. Ett rankingCoach-konto ger kontinuerlig synlighetsinformation om din online-närvaro."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Ditt rankingCoach-konto är anslutet"
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Rankningar, konkurrenter och rapporter finns tillgängliga från BeyondSEO-instrumentpanelen."
+
+msgid "With BeyondSEO"
+msgstr "Med BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Skapa ditt gratis konto"
+
+msgid "I already have an account"
+msgstr "Jag har redan ett konto."
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Registrering och inloggning sker på BeyondSEO-anslutningssidorna. Du kan också göra detta senare från Inställningar."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Ange en giltig e-postadress eller hoppa över detta steg."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Välj kryssrutan för samtycke eller hoppa över detta steg."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Din e-postadress kunde inte sparas. Vänligen försök igen."
+
+msgid "Back to site check"
+msgstr "Tillbaka till platskontroll"
+
+msgid "Skip"
+msgstr "Hoppa över"
+
+msgid "Save and continue"
+msgstr "Spara och fortsätt"
+
+msgid "Get general SEO tips by email"
+msgstr "Få allmänna SEO-tips via e-post"
+
+msgid "Get SEO recommendations by email"
+msgstr "Få SEO-rekommendationer via e-post"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Sajtgranskningen blev inte klar, så vi kan ännu inte skicka specifika resultat för sidan. Du kan fortfarande få allmänna SEO-tips eller hoppa över det här steget."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Ta emot uppföljningsidéer efter att ha granskat din webbplats. Detta steg är valfritt och skapar inte ett rankingCoach-konto."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Denna adress är sparad för SEO-rekommendationer. Spara igen för att uppdatera den."
+
+msgid "Email address"
+msgstr "E-postadress"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Skicka mig SEO-rekommendationer och sporadiska uppdateringar om BeyondSEO / rankingCoach-produkter. Jag kan avprenumerera när som helst."
+
+msgid "Optional and separate from account creation."
+msgstr "Valfritt och separat från kontoskapande."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "SEO-detaljerna för startsidan kunde inte laddas. Du kan fortsätta och redigera dem senare."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Ingen slogan inställd"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Din startsida visar dina senaste inlägg, så sökmotorer ser webbplatsens titel och slogan."
+
+msgid "Change them in General settings"
+msgstr "Ändra dem i allmänna inställningar"
+
+msgid "Homepage SEO title"
+msgstr "Startsida SEO-titel"
+
+msgid "Meta description"
+msgstr "Meta beskrivning"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Beskriv din webbplats i en eller två meningar."
+
+msgid "Exit setup"
+msgstr "Avsluta installationen"
+
+msgid "Continue"
+msgstr "Fortsätt"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Förbättra hur din webbplats visas i sökresultat och hitta problem på dina sidor. Vi har förifyllt vad vi redan vet om din webbplats."
+
+msgid "Search preview"
+msgstr "Sökförhandsgranskning"
+
+msgid "XML sitemap"
+msgstr "XML-webbplatskarta"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Hjälper sökmotorer att upptäcka alla dina sidor."
+
+msgid "Search engine visibility"
+msgstr "Sökmotor synlighet"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Sökmotorer får indexera denna webbplats."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress ber för närvarande sökmotorer att inte indexera denna webbplats."
+
+msgid "Reading settings"
+msgstr "Läsinställningar"
+
+msgid "Discouraged"
+msgstr "Nedslagen"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Ett rankingCoach-konto kan lägga till synlighet och prestationsinformation senare. Först, låt oss granska din webbplats."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "SEO-importen misslyckades. Viss data kan ha importerats; vänligen försök igen."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Importerade %1$d inställningar och %2$d sidpostningar. %3$d poster var redan inställda i BeyondSEO eller kunde inte konverteras."
+
+msgid "Continue without import"
+msgstr "Fortsätt utan import"
+
+msgid "Keep your existing SEO work"
+msgstr "Behåll ditt befintliga SEO-arbete"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Ett annat SEO-plugin hittades på denna webbplats. BeyondSEO kan överföra sina SEO-titlar, beskrivningar, nyckelord och stödda webbplatsinställningar. Värden som du redan har sparat i BeyondSEO behålls, och den andra pluginens data förblir orörd."
+
+msgid "Import finished"
+msgstr "Importen är klar"
+
+msgid "Plugin to import from"
+msgstr "Plugin för att importera från"
+
+msgid "Active on this site"
+msgstr "Aktiv på denna webbplats"
+
+msgid "Installed but not active"
+msgstr "Installerad men inte aktiv"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Titlar och beskrivningar som använder icke stödda mallvariabler hoppas över. Du kan granska varje sida efteråt."
+
+msgid "The page details could not be loaded."
+msgstr "Sids detaljer kunde inte laddas."
+
+msgid "Enter a title or add a variable."
+msgstr "Ange en titel eller lägg till en variabel."
+
+msgid "Enter a meta description."
+msgstr "Ange en metabeskrivning."
+
+msgid "SEO title"
+msgstr "SEO-titel"
+
+msgid "The page keywords could not be loaded."
+msgstr "Sidan nyckelord kunde inte laddas."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Nyckelordet kunde inte sparas. Vänligen försök igen."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Nyckelordet kunde inte tas bort. Vänligen försök igen."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Ange de nyckelord som denna sida ska ranka för. Det första blir det primära nyckelordet, de andra ytterligare nyckelord; de är samma nyckelord som du ser i sidans Allmänt-flik."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Inga primära nyckelord än. Det första nyckelordet du lägger till blir det."
+
+msgid "No additional keywords yet."
+msgstr "Inga ytterligare nyckelord än."
+
+msgid "Done"
+msgstr "Färdig"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Sajtgranskningen kunde inte slutföras på servern. Stora webbplatser kan ta längre tid än vad servern tillåter."
+
+msgid "We could not complete the site check."
+msgstr "Vi kunde inte slutföra platskontrollen."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Skanningen avbröts. En kontroll som redan har påbörjats på servern kommer fortfarande att slutföras i bakgrunden."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Sidan kunde inte kontrolleras igen. Vänligen försök igen om en stund."
+
+msgid "Updated"
+msgstr "Uppdaterad"
+
+msgid "Recheck"
+msgstr "Kontrollera igen"
+
+msgid "All checked pages pass"
+msgstr "Alla kontrollerade sidor godkänns"
+
+msgid "Issues found on your pages"
+msgstr "Problem som hittats på dina sidor"
+
+msgid "Your pages pass every check"
+msgstr "Dina sidor klarar varje kontroll"
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Varje kontroll listar de sidor den gäller för. Åtgärda titlar, beskrivningar och nyckelord här, eller öppna sidan i redigeraren för allt annat."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "De genomförda kontrollerna hittade inget att åtgärda. Du kan köra skanningen igen efter att du har uppdaterat din webbplats."
+
+msgid "Some pages need another look"
+msgstr "Vissa sidor behöver en ny genomgång."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Varje sida fick 0, vilket vanligtvis betyder att webbplatsen inte kunde ladda sina egna sidor under kontrollen. Se till att webbplatsen är nåbar från sin server, och kör sedan skanningen igen."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Visar de senaste sidorna och inläggen. Varannan sida listas i översikten över inlägg och sidor."
+
+msgid "Checking your site"
+msgstr "Kontrollerar din webbplats"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Varje publicerad sida och inlägg analyseras på din server. Detta kan ta några minuter på större webbplatser."
+
+msgid "Collecting the results for your pages…"
+msgstr "Samlar in resultaten för dina sidor…"
+
+msgid "Analysing your published pages…"
+msgstr "Analyserar dina publicerade sidor…"
+
+msgid "The site check could not finish"
+msgstr "Sajtgranskningen kunde inte slutföras"
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Försök igen nu, eller fortsätt och kör kontrollen senare från instrumentpanelen."
+
+msgid "Identify issues on your pages"
+msgstr "Identifiera problem på dina sidor"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO kontrollerar varje publicerad sida och inlägg för följande, och visar sedan vilka sidor som behöver arbete."
+
+msgid "Retry scan"
+msgstr "Försök skanna igen"
+
+msgid "Run scan again"
+msgstr "Kör skanningen igen"
+
+msgid "Scanning…"
+msgstr "Skannar…"
+
+msgid "Start scan"
+msgstr "Börja skanna"
+
+msgid "Setup steps"
+msgstr "Installationssteg"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Steg %1$d av %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Installationsguide"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Ditt konto är anslutet, men ett projekt krävs för att använda BeyondSEO-instrumentpanelen. Skapa ett projekt i Inställningar > Konto för att fortsätta."
+
+msgid "Go to Account"
+msgstr "Gå till konto"
+
+msgid "The project location ID is invalid."
+msgstr "Projektets plats-ID är ogiltigt."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Tjänsten bekräftade inte projektets borttagning. Din lokala anslutning har inte tagits bort. Vänligen försök igen eller kontakta support."
+
+msgid "SEO titles"
+msgstr "SEO-titlar"
+
+msgid "SEO descriptions"
+msgstr "SEO-beskrivningar"
+
+msgid "Canonical URLs"
+msgstr "Kanoniska URL:er"
+
+msgid "Noindex directives"
+msgstr "Noindex-direktiv"
+
+msgid "Social titles"
+msgstr "Sociala titlar"
+
+msgid "Social descriptions"
+msgstr "Sociala beskrivningar"
+
+msgid "Facebook profile"
+msgstr "Facebook-profil"
+
+msgid "Twitter profile"
+msgstr "Twitter-profil"
+
+msgid "Instagram profile"
+msgstr "Instagram-profil"
+
+msgid "LinkedIn profile"
+msgstr "LinkedIn-profil"
+
+msgid "YouTube profile"
+msgstr "YouTube-profil"
+
+msgid "Organization or person name"
+msgstr "Organisations- eller personnamn"
+
+msgid "Sitemap enabled"
+msgstr "Sitemap aktiverad"
+
+msgid "Google verification code"
+msgstr "Google verifieringskod"
+
+msgid "Bing verification code"
+msgstr "Bing verifieringskod"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Kontot eller projektanslutningen har ändrats. Uppdatera kontot innan du försöker igen."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Projektets radering accepterades, men de lokala projektidentifierarna kunde inte tas bort helt. Ditt konto och lokala data har behållits. Uppdatera kontot och kontakta supporten innan du skapar ett annat projekt."
+
+msgid "Connect your account before creating a project."
+msgstr "Anslut ditt konto innan du skapar ett projekt."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Tjänsten returnerade inte ett giltigt projekt för ditt konto. Uppdatera kontot och försök igen eller kontakta supporten."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Tjänsten kunde inte bekräfta borttagning av projektet. Din lokala anslutning har inte tagits bort. Vänligen försök igen eller kontakta support."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Kunde inte bekräfta raderingen av projektet. Din lokala anslutning har inte tagits bort. Vänligen försök igen eller kontakta supporten."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Kan inte inspektera SEO-importalternativ. Vänligen försök igen."
+
+msgid "SEO import options must be an array of strings."
+msgstr "SEO-importalternativ måste vara en array av strängar."
+
+msgid "Invalid SEO import source."
+msgstr "Ogiltig SEO-importkälla."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "SEO-importalternativ måste endast innehålla stödda alternatividentifierare för den valda källan."
+
+msgid "SEO plugin is not installed."
+msgstr "SEO-plugin är inte installerad."
+
+msgid "Invalid Review event."
+msgstr "Ogiltig recensionshändelse."
+
+msgid "Unable to save Review state."
+msgstr "Kunde inte spara granskningsstatus."
+
+msgid "Go to Dashboard"
+msgstr "Gå till instrumentpanelen"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO hjälper dig att hitta och åtgärda sidproblem. Ditt rankingCoach-konto ger kontinuerlig synlighetsinformation om din online-närvaro."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Rankningar, konkurrenter och rapporter är redan tillgängliga från BeyondSEO-instrumentpanelen. Inget annat att ställa in här."
+
+msgid "With your rankingCoach account"
+msgstr "Med ditt rankingCoach-konto"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Sidor som påverkas: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Kontroller som behöver uppmärksamhet: %1$d av %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Kontrollerade sidor: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d av %2$d sidor kunde inte kontrolleras. Du kan fortsätta med de genomförda kontrollerna och försöka igen senare."

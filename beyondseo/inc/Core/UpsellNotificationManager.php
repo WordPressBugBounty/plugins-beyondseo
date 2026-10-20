@@ -12,6 +12,8 @@ use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Review\ReviewState;
+use Throwable;
 use WP_Screen;
 
 /**
@@ -153,6 +155,16 @@ class UpsellNotificationManager
         $pagesCount = get_option(BaseConstants::OPTION_ANALYSIS_WEBSITE_PAGES_COUNT, CoreHelper::getPublicPostsAndPagesCount());
         $scoreMin = get_option(BaseConstants::OPTION_ANALYSIS_SCORE_MIN, 0);
         $scoreMax = get_option(BaseConstants::OPTION_ANALYSIS_SCORE_MAX, 0);
+        $reviewGreen = false;
+        try {
+            $reviewGreen = (new ReviewState())->isValidSiteScore([
+                'average_score' => $websiteScore,
+                'count' => get_option(BaseConstants::OPTION_ANALYSIS_WEBSITE_PAGES_COUNT, false),
+                'min_score' => get_option(BaseConstants::OPTION_ANALYSIS_SCORE_MIN, false),
+                'max_score' => $scoreMax,
+            ]) && (float) $websiteScore > ReviewState::DASHBOARD_SCORE_THRESHOLD && (float) $scoreMax > 0;
+        } catch (Throwable $e) {
+        }
 
         // Calculate score percentage for progress bar
         $scorePercentage = $scoreMax > 0 ? min(100, max(0, ($websiteScore / 100) * 100)) : 0;

@@ -144,17 +144,7 @@ class Sitemap {
                 // Output the sitemap
                 header('Content-Type: application/xml; charset=UTF-8');
                 if ($xml && preg_match('/<\?xml/i', $xml)) {
-                    // Only output if it's valid XML (basic check)
-                    echo wp_kses($xml, [
-                        'urlset' => ['xmlns' => true],
-                        'url' => [],
-                        'loc' => [],
-                        'lastmod' => [],
-                        'changefreq' => [],
-                        'priority' => [],
-                        'sitemap' => [],
-                        'sitemapindex' => ['xmlns' => true]
-                    ]);
+                    echo $xml;
                 } else {
                     // Log error or handle invalid XML
                     if (defined('WP_DEBUG_LOG') && WP_DEBUG_LOG) {

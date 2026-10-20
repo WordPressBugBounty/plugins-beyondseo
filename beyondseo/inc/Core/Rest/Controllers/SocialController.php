@@ -8,11 +8,10 @@ if (!defined('ABSPATH')) {
 }
 
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\DB\DatabaseManager;
-use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\Helpers\SocialMediaHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Storage\MetaTagsStorage;
 use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 use RankingCoach\Inc\Modules\ModuleManager;
 use Throwable;
@@ -29,31 +28,7 @@ class SocialController
 
     private function upsertTagRow(int $postId, string $type, array $data): void
     {
-        $existing = DatabaseManager::getInstance()
-            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
-            ->select(['id'])
-            ->where('post_id', $postId)
-            ->where('type', $type)
-            ->first();
-
-        $rowData = array_merge([
-            'post_id'  => $postId,
-            'type'     => $type,
-            'template' => '',
-        ], $data);
-
-        if ($existing) {
-            DatabaseManager::getInstance()->update(
-                DatabaseTablesManager::DATABASE_MOD_METATAGS,
-                $rowData,
-                ['post_id' => $postId, 'type' => $type]
-            );
-        } else {
-            DatabaseManager::getInstance()->insert(
-                DatabaseTablesManager::DATABASE_MOD_METATAGS,
-                $rowData
-            );
-        }
+        (new MetaTagsStorage())->save($postId, $type, $data['template'] ?? '');
     }
 
     public function get(WP_REST_Request $request): WP_REST_Response

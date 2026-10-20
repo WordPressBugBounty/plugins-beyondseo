@@ -13,6 +13,7 @@ use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\Traits\RcTaxonomyTrait;
+use RankingCoach\Inc\Core\PluginSettings;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use ReflectionObject;
 use Throwable;
@@ -389,6 +390,7 @@ class CoreHelper {
                     'settings' => [
                         'homeUrl'          => get_home_url(),
                         'adminEmail'       => get_bloginfo('admin_email'),
+                        'searchEngineVisibility' => (bool) get_option('blog_public', 1),
                         'allowedCountries' => (object) ((array) $allowedCountries),
                     ],
                 ],
@@ -396,6 +398,7 @@ class CoreHelper {
                     'isPluginOnboarded'      => WordpressHelpers::isInternalOnboardingCompleted(),
                     'isApplicationOnboarded' => WordpressHelpers::isExternalOnboardingCompleted(),
                 ],
+                'setupWizard' => (object) $settings->get_option('setup_wizard', PluginSettings::instance()->getDefault('setup_wizard')),
             ],
             'rcSubscriptionName'  => $rcSubscriptionName,
             'rcRemainingKeywords' => (int) get_option(BaseConstants::OPTION_SYNC_KEYWORDS_REMAINS_KEYWORDS, 99999),

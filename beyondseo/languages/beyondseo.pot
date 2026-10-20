@@ -2,22 +2,22 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.5\n"
+"Project-Id-Version: BeyondSEO 1.3.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-24T10:14:44+00:00\n"
+"POT-Creation-Date: 2026-10-20T09:31:34+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
 
 #: react/src/components/Activation/Activation.tsx:67
-#: inc/Core/Admin/Pages/ActivationPage.php:430
-#: inc/Core/Admin/Pages/IframePage.php:184
-#: inc/Core/Admin/Pages/IframePage.php:274
+#: inc/Core/Admin/Pages/ActivationPage.php:438
+#: inc/Core/Admin/Pages/IframePage.php:195
+#: inc/Core/Admin/Pages/IframePage.php:285
 msgid "Activation code is required."
 msgstr ""
 
@@ -31,18 +31,19 @@ msgid "An unexpected error occurred."
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:104
-#: inc/Core/Admin/Pages/RegistrationPage.php:155
+#: inc/Core/Admin/Pages/RegistrationPage.php:158
 msgid "Please enter a valid email address."
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:123
 #: react/src/components/Activation/Activation.tsx:130
-#: inc/Core/Admin/Pages/ActivationPage.php:370
+#: inc/Core/Admin/Pages/ActivationPage.php:378
 msgid "We could not send a recovery email. Please contact customer support."
 msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:153
 #: react/src/components/Activation/Activation.tsx:165
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:157
 msgid "Enter your activation code"
 msgstr ""
 
@@ -108,6 +109,7 @@ msgstr ""
 
 #: react/src/components/Activation/Activation.tsx:257
 #: react/src/components/Registration/Registration.tsx:506
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:580
 #: react/src/components/Upsell/upsellConfig.ts:616
 #: inc/Core/Admin/Pages/views/registration-page.php:106
 msgid "Email"
@@ -126,6 +128,9 @@ msgstr ""
 #: react/src/components/Activation/Activation.tsx:351
 #: react/src/components/Registration/Registration.tsx:603
 #: react/src/components/Registration/RegistrationWelcome.tsx:78
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:61
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:73
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:567
 msgid "Back"
 msgstr ""
 
@@ -218,22 +223,27 @@ msgid "Limited visibility into your results"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:87
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:38
 msgid "Start tracking your own rankings, keywords & competitors"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:88
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:39
 msgid "Finally see how visible you are on Google"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:89
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:40
 msgid "Track how your performance improves over time"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:90
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:41
 msgid "Compare your results with competitors"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:91
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:42
 msgid "Monitor your reviews and online reputation"
 msgstr ""
 
@@ -280,6 +290,7 @@ msgid "Right now"
 msgstr ""
 
 #: react/src/components/Connect/Connect.tsx:189
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:128
 msgid "After activation"
 msgstr ""
 
@@ -304,6 +315,10 @@ msgstr ""
 msgid "Track your performance and see results in minutes"
 msgstr ""
 
+#: react/src/components/GutenbergSidebar/GutenbergSidebar.tsx:26
+msgid "The SEO analysis starts after the first save of this post."
+msgstr ""
+
 #: react/src/components/MultiAdornmentInput/AdornmentControls/AdornmentControls.tsx:20
 msgid "Add Adornments"
 msgstr ""
@@ -314,6 +329,9 @@ msgstr ""
 
 #: react/src/components/MultiAdornmentInput/MultiSelectAdornmentInput.tsx:174
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:129
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:410
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:269
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:168
 msgid "recommended"
 msgstr ""
 
@@ -425,6 +443,9 @@ msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:736
 #: react/src/components/Onboarding/OnboardingWelcome/OnboardingWelcome.tsx:492
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:434
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:191
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:558
 #: react/src/components/TabsManager/Tabs/RedirectsTab/RedirectsTab.tsx:522
 msgid "Cancel"
 msgstr ""
@@ -439,6 +460,7 @@ msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:773
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummary.tsx:813
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:200
 msgid "Save"
 msgstr ""
 
@@ -513,6 +535,7 @@ msgid "Minimum required keywords: 5."
 msgstr ""
 
 #: react/src/components/Onboarding/OnboardingSummary/OnboardingSummaryKeyword/OnboardingSummaryKeyword.tsx:190
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:197
 msgid "Add"
 msgstr ""
 
@@ -781,17 +804,61 @@ msgstr ""
 msgid "Already received a code by email? Enter it here to activate your plugin."
 msgstr ""
 
+#: react/src/components/Review/Review.tsx:63
+msgid "Yes, I love it"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:77
+msgid "Not really"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:84
+msgid "Maybe later"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:116
+msgid "Review BeyondSEO on WordPress.org"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:126
+#: react/src/components/Review/Review.tsx:281
+msgid "Enjoying BeyondSEO?"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:128
+#: react/src/components/Review/Review.tsx:285
+msgid "We'd love to hear about your experience."
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:133
+#: react/src/components/Review/Review.tsx:299
+msgid "Dismiss review request"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:278
+msgid "Your site score is above %s!"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:280
+msgid "Your content score is above %s!"
+msgstr ""
+
+#: react/src/components/Review/Review.tsx:284
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr ""
+
 #: react/src/components/ScoreButtonHeader/ScoreButtonHeader.tsx:32
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:230
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:321
 msgid "rC Icon"
 msgstr ""
 
 #: react/src/components/SEO/SEOOptimiser/SEOOptimiser.tsx:260
-#: react/src/main.tsx:224
+#: react/src/main.tsx:217
 msgid "Using the right keywords can significantly increase your website`s visibility, making it easier for people to find it."
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:176
+#: inc/Core/Import/ImportRunner.php:75
 msgid "Keywords"
 msgstr ""
 
@@ -800,14 +867,17 @@ msgid "Enter the main keyword that best describes the focus of your content. Thi
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:194
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:157
 msgid "Write words that you want to search"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:240
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:91
 msgid "Certain special characters are not allowed."
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:251
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:208
 msgid "Primary keyword"
 msgstr ""
 
@@ -820,6 +890,7 @@ msgid "This keyword should capture a key aspect of your content to boost search 
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOKeywords/KeywordManager/KeywordManager.tsx:289
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:220
 msgid "Additional keywords"
 msgstr ""
 
@@ -844,11 +915,15 @@ msgid "Remove keyword"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:166
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:392
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:414
 #: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:432
 msgid "Description"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaDescriptionEditor/SEOMetaDescriptionEditor.tsx:181
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:398
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:158
 msgid "Enter SEO meta description"
 msgstr ""
 
@@ -874,6 +949,7 @@ msgid "Author name"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/AdornmentOptions.ts:31
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:209
 msgid "Site title"
 msgstr ""
 
@@ -910,14 +986,22 @@ msgid "Search term"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:24
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:65
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:66
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:48
 msgid "Add Variable"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:25
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:70
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:67
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:49
 msgid "Add Separator"
 msgstr ""
 
 #: react/src/components/SEOMetadataAndKeywords/SEOMetadata/SEOMetaTitleEditor/SEOMetaTitleEditor.tsx:92
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:378
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:405
 #: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:412
 msgid "Title"
 msgstr ""
@@ -926,170 +1010,432 @@ msgstr ""
 msgid "SERP Preview"
 msgstr ""
 
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:99
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:122
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:182
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:133
+msgid "Your changes could not be saved. Please try again."
+msgstr ""
+
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:366
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:428
+msgid "Edit SEO title and description"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:422
+#: react/src/components/SetupWizard/issue-mapping.ts:50
+msgid "Open in editor"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/QuickEdit/SeoQuickEdit.tsx:444
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:358
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:250
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:155
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:153
+msgid "Save changes"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:135
 msgid "Issues"
 msgstr ""
 
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:100
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:136
 msgid "Recommendations"
 msgstr ""
 
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:101
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:137
 msgid "Optimisation level"
 msgstr ""
 
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:234
-#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:266
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:309
+msgid "Add a meta description"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:310
+msgid "No meta description"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:325
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:353
 msgid "Status Icon"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:222
-#: react/src/components/Settings/Settings.tsx:30
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:371
+msgid "Updating score…"
+msgstr ""
+
+#: react/src/components/SeoScoreCell/SeoScoreCell.tsx:387
+msgid "Saved"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:76
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:88
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:108
+#: inc/Core/Rest/Controllers/AccountProjectController.php:271
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:112
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:118
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:124
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:130
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:137
+#: inc/Core/Rest/Controllers/AccountProjectController.php:152
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:143
+#: inc/Core/Rest/Controllers/AccountProjectController.php:145
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:146
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:152
+#: inc/Core/Rest/Controllers/AccountProjectController.php:262
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:159
+#: inc/Core/Rest/Controllers/AccountProjectController.php:235
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:160
+#: inc/Core/Rest/Controllers/AccountProjectController.php:335
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:167
+#: inc/Core/Rest/Controllers/AccountProjectController.php:245
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:171
+#: inc/Core/Rest/Controllers/AccountProjectController.php:345
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:177
+#: inc/Core/Rest/Controllers/AccountProjectController.php:283
+msgid "Unable to load the local project connection. Please try again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:181
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:208
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:210
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:214
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:227
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:255
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:510
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:515
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:520
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:530
+#: react/src/components/Settings/Settings.tsx:45
+msgid "Account"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:533
+msgid "Manage the project connected to this website."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:553
+msgid "Loading project connection…"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:564
+msgid "Refresh Account"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:574
+msgid "Account details"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:581
+msgid "Activation code"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:585
+msgid "Not available"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:593
+msgid "Project details"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:597
+msgid "Project ID"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:598
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:602
+msgid "Not connected"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:601
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:733
+msgid "Location ID"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:605
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:737
+msgid "Website"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:619
+msgid "Open onboarding"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:627
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:649
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:718
+msgid "Delete project"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:630
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:649
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:718
+msgid "Deleting project…"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:656
+msgid "Create project"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:659
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:671
+msgid "Creating project…"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:671
+msgid "Create Project"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:676
+msgid "Creating project… Please wait for confirmation."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:683
+msgid "No project connected"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:686
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:698
+#: inc/Core/Admin/AdminManager.php:606
+#: inc/Core/Admin/AdminManager.php:607
+#: inc/Core/Admin/AdminManager.php:718
+#: inc/Core/ToolbarManager.php:187
+msgid "Connect"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:723
+msgid "Delete this project?"
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:726
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:742
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr ""
+
+#: react/src/components/Settings/AccountPage/AccountPage.tsx:750
+msgid "Deleting project… Please wait for confirmation."
+msgstr ""
+
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:214
+#: react/src/components/Settings/Settings.tsx:34
 msgid "Breadcrumbs"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:225
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:217
 msgid "Show users their location on a website with clickable links to parent pages, acting as a secondary navigation tool. In our BeyondSEO plugin, customize their look to fit your site. They're auto-added to schema markup for better SEO and crawlability, no extra setup needed."
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:233
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:226
 msgid "Enable breadcrumbs"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:252
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:245
 msgid "Display options"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:260
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:253
 msgid "Anchor text for homepage"
 msgstr ""
 
 #. Translators: This refers to the homepage of the site.
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:263
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:256
 #: inc/Core/Breadcrumbs/BreadcrumbsManager.php:551
 msgid "Home"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:272
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:265
 msgid "Advanced options"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:278
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:271
 msgid "Prefix for breadcrumb path"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:289
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:282
 msgid "Suffix for archive breadcrumbs"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:292
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:285
 #: inc/Core/Breadcrumbs/BreadcrumbsManager.php:516
 msgid "Archives for"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:302
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:295
 msgid "Suffix for search page breadcrumbs"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:305
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:298
 #: inc/Core/Breadcrumbs/BreadcrumbsManager.php:467
 msgid "Search results for"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:315
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:308
 msgid "Breadcrumbs for 404 Page"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:318
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:311
 #: inc/Core/Breadcrumbs/BreadcrumbsManager.php:488
 msgid "Error 404: Page not found"
 msgstr ""
 
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:325
+#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:318
 #: react/src/components/TabsManager/Tabs/SocialTab/SocialTab.tsx:365
 msgid "Preview"
-msgstr ""
-
-#: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:365
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:262
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:160
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:162
-msgid "Save changes"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/SeparatorSettings.tsx:47
 msgid "Separator"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:58
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:53
 msgid "Allow run score calculation on page/post save"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:59
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:54
 msgid "Enable this option to automatically run the SEO score calculation when a page or post is saved"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:66
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:61
 msgid "Allow synchronisation the keywords an interval basis"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:67
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:62
 msgid "Enable this option to synchronise keywords from your WordPress site to the rC platform"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:69
 msgid "Enable WP-Cron service"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:75
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:70
 msgid "Enable this option to use the WP-Cron service for scheduling tasks"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:79
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:74
 msgid "Allow to run broken link checker an interval basis"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:80
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:75
 msgid "Enable this option to run the broken link checker job that scans your site for broken links"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:87
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:82
 msgid "Allow communication with rankingCoach servers"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:88
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:83
 msgid "Allow the plugin to communicate with beyondseo backend servers to provide its services. Required for account features, keyword sync, and dashboard functionality. You can withdraw consent at any time."
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:95
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:90
 msgid "Disable WordPress heartbeat admin-ajax service"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:96
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:91
 msgid "Enable this option to disable the WordPress heartbeat service that sends periodic AJAX requests to admin-ajax.php. This can improve performance by reducing server load"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:103
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:98
 msgid "Open rC dashboard in new tab"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:104
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:99
 msgid "Enable this option to open the RankingCoach dashboard in a new browser tab instead of the current tab"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:114
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:109
 msgid "General Settings"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:120
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:115
 msgid "Create a Free Account"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:123
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:118
 msgid "OR"
 msgstr ""
 
-#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:126
+#: react/src/components/Settings/GeneralSettingsPage/GeneralSettingsPage.tsx:121
 msgid "Connect to an Existing Account"
 msgstr ""
 
@@ -1138,174 +1484,661 @@ msgstr ""
 msgid "This feature will be available soon."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:88
-#: react/src/components/Settings/Settings.tsx:33
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:82
+#: react/src/components/Settings/Settings.tsx:44
 msgid "Robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:91
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:85
 msgid "View your robots.txt file to check search engine crawling instructions."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:96
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:91
 msgid "Enable robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:122
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:117
 msgid "Include sitemap URL in robots.txt file"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:126
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:121
 msgid "When enabled, your sitemap URL will be automatically added to your robots.txt file."
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:134
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:129
 msgid "Your robots.txt URL:"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:139
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:134
 msgid "View Robots.txt"
 msgstr ""
 
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:146
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:141
 msgid "The robots.txt file tells search engines which pages or files they can or cannot request from your site."
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:104
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:105
 msgid "Content exceeds maximum length of 255 characters"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:183
-#: react/src/components/Settings/Settings.tsx:31
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:171
+#: react/src/components/Settings/Settings.tsx:37
 msgid "RSS"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:186
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:174
 msgid "This feature is used to automatically add content to your site's RSS feed. More specifically, it allows you to add links back to your blog and your blog posts so scrapers will automatically add these links too. This helps search engines identify you as the original source of the content."
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:194
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:183
 msgid "Enable RSS"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:213
-#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:115
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:202
+#: react/src/components/Settings/RobotsPage/RobotsPage.tsx:110
 msgid "Options"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:219
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:208
 msgid "Content to put before each post in the feed"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:233
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:222
 msgid "Content to put after each post in the feed"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:245
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:234
 msgid "Your RSS feed URL:"
 msgstr ""
 
-#: react/src/components/Settings/RSSPage/RSSPage.tsx:250
+#: react/src/components/Settings/RSSPage/RSSPage.tsx:239
 msgid "View RSS Feed"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:29
-#: react/src/components/TabsManager/TabsManager.tsx:41
+#: react/src/components/Settings/Settings.tsx:33
+#: react/src/components/TabsManager/TabsManager.tsx:47
 msgid "General"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:31
+#: react/src/components/Settings/Settings.tsx:41
 msgid "Really Simple Syndication"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:32
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:109
+#: react/src/components/Settings/Settings.tsx:43
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:99
 msgid "Sitemap"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:34
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:73
-#: inc/Core/Admin/AdminManager.php:586
-#: inc/Core/Admin/AdminManager.php:587
-#: inc/Core/Admin/AdminManager.php:648
-#: inc/Core/ToolbarManager.php:175
-msgid "Support"
+#: react/src/components/Settings/Settings.tsx:97
+msgid "Unable to load Account. Please try again."
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:203
-#: inc/Core/Admin/AdminManager.php:475
-#: inc/Core/Admin/AdminManager.php:476
+#: react/src/components/Settings/Settings.tsx:308
+#: inc/Core/Admin/AdminManager.php:514
+#: inc/Core/Admin/AdminManager.php:515
 #: inc/Core/ToolbarManager.php:167
 msgid "Settings"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:240
+#: react/src/components/Settings/Settings.tsx:351
+msgid "Retry loading Account"
+msgstr ""
+
+#: react/src/components/Settings/Settings.tsx:381
 msgid "Checking…"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:240
+#: react/src/components/Settings/Settings.tsx:381
 msgid "Check my account"
 msgstr ""
 
-#: react/src/components/Settings/Settings.tsx:244
+#: react/src/components/Settings/Settings.tsx:385
 msgid "Plugin version:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:112
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:102
 msgid "Generate and manage your XML sitemap for better search engine indexing."
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:117
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:108
 msgid "Enable sitemap"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:132
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:123
 msgid "Last updated:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:138
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:129
 msgid "The sitemap is automatically regenerated when you publish new content. You can also manually generate it using the button above."
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:145
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:136
 msgid "Your sitemap URL:"
 msgstr ""
 
-#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:150
+#: react/src/components/Settings/SitemapPage/SitemapPage.tsx:141
 msgid "View Sitemap"
 msgstr ""
 
 #: react/src/components/Settings/SupportPage/SupportPage.tsx:76
+#: inc/Core/Admin/AdminManager.php:637
+#: inc/Core/Admin/AdminManager.php:638
+#: inc/Core/Admin/AdminManager.php:705
+#: inc/Core/ToolbarManager.php:175
+msgid "Support"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:79
 msgid "Need help? Get in touch with our support team and copy your site information below."
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:81
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:91
 #: react/src/components/Upsell/upsellConfig.ts:664
 msgid "Contact us"
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:89
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:94
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:100
 msgid "Contact Support"
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:96
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:112
 msgid "Site info"
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:104
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:115
+msgid "Copy your site's technical details to share with our support team."
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:121
+msgid "Loading site info"
+msgstr ""
+
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:128
 msgid "Failed to load site info. Please try again."
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:111
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:132
 msgid "Retry"
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:122
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:143
 msgid "Copy site info to clipboard"
 msgstr ""
 
-#: react/src/components/Settings/SupportPage/SupportPage.tsx:126
+#: react/src/components/Settings/SupportPage/SupportPage.tsx:148
 msgid "Copied to clipboard"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:44
+msgid "Edit SEO title"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:46
+msgid "Edit meta description"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:48
+msgid "Set keywords"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:57
+#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:91
+msgid "Critical"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:59
+#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:90
+msgid "High"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:61
+#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:89
+msgid "Medium"
+msgstr ""
+
+#: react/src/components/SetupWizard/issue-mapping.ts:63
+#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:88
+msgid "Low"
+msgstr ""
+
+#: react/src/components/SetupWizard/SetupWizard.tsx:118
+msgid "Essentials"
+msgstr ""
+
+#: react/src/components/SetupWizard/SetupWizard.tsx:119
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:95
+msgid "Import"
+msgstr ""
+
+#: react/src/components/SetupWizard/SetupWizard.tsx:120
+msgid "Site check"
+msgstr ""
+
+#: react/src/components/SetupWizard/SetupWizard.tsx:121
+msgid "Email tips"
+msgstr ""
+
+#: react/src/components/SetupWizard/SetupWizard.tsx:122
+msgid "rankingCoach account"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:32
+msgid "Check titles, keywords and headings"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:33
+msgid "Review page-specific SEO issues"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:34
+msgid "Fix issues directly on your pages"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:72
+msgid "Go to Dashboard"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:78
+msgid "Keep growing your visibility"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:82
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:86
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:97
+msgid "Your rankingCoach account is connected"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:98
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:108
+msgid "With BeyondSEO"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:128
+msgid "With your rankingCoach account"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:156
+msgid "Create your free account"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:167
+msgid "I already have an account"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/AccountStep.tsx:177
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:50
+msgid "Enter a valid email address or skip this step."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:54
+msgid "Select the consent checkbox or skip this step."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:63
+msgid "Your email address could not be saved. Please try again."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:79
+msgid "Back to site check"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:85
+msgid "Skip"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:94
+msgid "Save and continue"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:102
+msgid "Get general SEO tips by email"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:103
+msgid "Get SEO recommendations by email"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:107
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:111
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:126
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:132
+msgid "Email address"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:143
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EmailStep.tsx:151
+msgid "Optional and separate from account creation."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:142
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:213
+msgid "Tagline"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:215
+msgid "No tagline set"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:217
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:222
+msgid "Change them in General settings"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:242
+msgid "Homepage SEO title"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:255
+msgid "Meta description"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:259
+msgid "Describe your website in one or two sentences"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:285
+msgid "Exit setup"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:296
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:85
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:580
+msgid "Continue"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:302
+msgid "Welcome to BeyondSEO"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:305
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:318
+msgid "Search preview"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:329
+msgid "XML sitemap"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:332
+msgid "Helps search engines discover all your pages."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:346
+msgid "Search engine visibility"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:350
+msgid "Search engines are allowed to index this site."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:351
+msgid "WordPress currently asks search engines not to index this site."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:353
+msgid "Reading settings"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:364
+msgid "Enabled"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:364
+msgid "Discouraged"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/EssentialsStep.tsx:370
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:43
+#: inc/Core/Rest/Controllers/ImportController.php:126
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:53
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:80
+msgid "Continue without import"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:103
+msgid "Keep your existing SEO work"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:106
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:118
+msgid "Import finished"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:122
+msgid "Plugin to import from"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:138
+msgid "Active on this site"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:138
+msgid "Installed but not active"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ImportStep.tsx:147
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:90
+msgid "The page details could not be loaded."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:108
+msgid "Enter a title or add a variable."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:115
+msgid "Enter a meta description."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/IssueFixPanel.tsx:143
+msgid "SEO title"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:61
+msgid "The page keywords could not be loaded."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:109
+msgid "The keyword could not be saved. Please try again."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:126
+msgid "The keyword could not be removed. Please try again."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:141
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:214
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:226
+msgid "No additional keywords yet."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/KeywordsPanel.tsx:236
+msgid "Done"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:115
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:122
+msgid "We could not complete the site check."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:193
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:239
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:274
+msgid "Updated"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:297
+msgid "Recheck"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:374
+msgid "All checked pages pass"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:400
+msgid "Issues found on your pages"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:401
+msgid "Your pages pass every check"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:405
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:409
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:422
+msgid "Some pages need another look"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:425
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:431
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:461
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:476
+msgid "Checking your site"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:480
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:484
+msgid "Collecting the results for your pages…"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:487
+msgid "Analysing your published pages…"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:498
+msgid "The site check could not finish"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:501
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:517
+msgid "Identify issues on your pages"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:520
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:575
+msgid "Retry scan"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:575
+msgid "Run scan again"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:590
+msgid "Scanning…"
+msgstr ""
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:590
+msgid "Start scan"
+msgstr ""
+
+#: react/src/components/SetupWizard/WizardStepper.tsx:17
+msgid "Setup steps"
+msgstr ""
+
+#: react/src/components/SetupWizard/WizardStepper.tsx:44
+msgid "Step %1$d of %2$d · %3$s"
 msgstr ""
 
 #: react/src/components/TabsManager/Common/UpsellTriggerBanner/UpsellTriggerBanner.tsx:23
@@ -1521,7 +2354,7 @@ msgstr ""
 msgid "Link Status"
 msgstr ""
 
-#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTab.tsx:86
+#: react/src/components/TabsManager/Tabs/OptimisationTab/OptimisationTab.tsx:87
 msgid "SEO Plug-in"
 msgstr ""
 
@@ -1723,29 +2556,29 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:49
+#: react/src/components/TabsManager/TabsManager.tsx:55
 msgid "Optimisation"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:57
+#: react/src/components/TabsManager/TabsManager.tsx:63
 #: react/src/components/Upsell/upsellConfig.ts:156
 #: react/src/components/Upsell/upsellConfig.ts:384
 msgid "Social"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:65
+#: react/src/components/TabsManager/TabsManager.tsx:71
 msgid "Schema"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:73
+#: react/src/components/TabsManager/TabsManager.tsx:79
 msgid "Link assistant"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:81
+#: react/src/components/TabsManager/TabsManager.tsx:87
 msgid "Redirects"
 msgstr ""
 
-#: react/src/components/TabsManager/TabsManager.tsx:89
+#: react/src/components/TabsManager/TabsManager.tsx:95
 msgid "Advanced"
 msgstr ""
 
@@ -2731,28 +3564,28 @@ msgstr ""
 msgid "You have good optimisation level on this page"
 msgstr ""
 
-#: react/src/main.tsx:221
+#: react/src/main.tsx:214
 msgid "Checking your page for<br>existing keywords"
 msgstr ""
 
-#: react/src/main.tsx:222
+#: react/src/main.tsx:215
 msgid "This page doesn`t have keywords"
 msgstr ""
 
-#: react/src/main.tsx:225
+#: react/src/main.tsx:218
 msgid "Close"
 msgstr ""
 
-#: react/src/main.tsx:226
+#: react/src/main.tsx:219
 msgid "Use these keywords"
 msgstr ""
 
-#: react/src/main.tsx:227
+#: react/src/main.tsx:220
 msgid "Skip this"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: react/src/main.tsx:415
+#: react/src/main.tsx:411
 #: beyondseo.php
 msgid "BeyondSEO"
 msgstr ""
@@ -2772,41 +3605,40 @@ msgstr ""
 msgid "https://grow.rankingcoach.com/wordpress?utm_source=wordpress-plugin&utm_medium=plugin&utm_campaign=beyondseo&utm_content=by-rankingcoach"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:276
+#: inc/Core/Admin/AdminManager.php:311
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:337
 msgid "Show more"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:277
+#: inc/Core/Admin/AdminManager.php:312
 msgid "Show less"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:493
-#: inc/Core/Admin/AdminManager.php:494
+#: inc/Core/Admin/AdminManager.php:532
+#: inc/Core/Admin/AdminManager.php:533
 msgid "Activation"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:511
-#: inc/Core/Admin/AdminManager.php:512
+#: inc/Core/Admin/AdminManager.php:550
+#: inc/Core/Admin/AdminManager.php:551
 #: inc/Core/Admin/Pages/views/registration-page.php:94
 msgid "Registration"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:529
-#: inc/Core/Admin/AdminManager.php:530
+#: inc/Core/Admin/AdminManager.php:568
+#: inc/Core/Admin/AdminManager.php:569
 msgid "Onboarding"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:549
-#: inc/Core/Admin/AdminManager.php:550
-#: inc/Core/Admin/AdminManager.php:655
-#: inc/Core/ToolbarManager.php:187
-msgid "Connect"
+#: inc/Core/Admin/AdminManager.php:586
+#: inc/Core/Admin/AdminManager.php:587
+#: inc/Core/Admin/AdminManager.php:711
+msgid "Setup wizard"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:561
-#: inc/Core/Admin/AdminManager.php:562
-#: inc/Core/Admin/AdminManager.php:663
+#: inc/Core/Admin/AdminManager.php:618
+#: inc/Core/Admin/AdminManager.php:619
+#: inc/Core/Admin/AdminManager.php:726
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:80
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:113
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:144
@@ -2815,12 +3647,12 @@ msgstr ""
 msgid "Upgrade"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:641
+#: inc/Core/Admin/AdminManager.php:699
 msgid "Documentation"
 msgstr ""
 
 #. translators: %s: plugin brand name
-#: inc/Core/Admin/AdminManager.php:685
+#: inc/Core/Admin/AdminManager.php:748
 #, php-format
 msgid "Rate %s on WordPress.org"
 msgstr ""
@@ -2850,110 +3682,105 @@ msgstr ""
 msgid "Notification dismissed successfully."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:201
-#: inc/Core/Admin/Pages/ActivationPage.php:570
+#: inc/Core/Admin/Pages/ActivationPage.php:204
+#: inc/Core/Admin/Pages/ActivationPage.php:584
 #: inc/Core/Admin/Pages/IframePage.php:89
-#: inc/Core/Admin/Pages/RegistrationPage.php:293
-#: inc/Core/Admin/Pages/RegistrationPage.php:321
-#: inc/Core/Admin/Pages/RegistrationPage.php:355
-#: inc/Core/Admin/Pages/RegistrationPage.php:405
-#: inc/Core/Admin/Pages/RegistrationPage.php:455
-#: inc/Core/Admin/Pages/RegistrationPage.php:473
+#: inc/Core/Admin/Pages/RegistrationPage.php:298
+#: inc/Core/Admin/Pages/RegistrationPage.php:326
+#: inc/Core/Admin/Pages/RegistrationPage.php:360
+#: inc/Core/Admin/Pages/RegistrationPage.php:410
+#: inc/Core/Admin/Pages/RegistrationPage.php:460
+#: inc/Core/Admin/Pages/RegistrationPage.php:478
 msgid "You do not have sufficient permissions."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:205
-#: inc/Core/Admin/Pages/ActivationPage.php:575
+#: inc/Core/Admin/Pages/ActivationPage.php:208
+#: inc/Core/Admin/Pages/ActivationPage.php:589
 #: inc/Core/Admin/Pages/IframePage.php:94
-#: inc/Core/Admin/Pages/RegistrationPage.php:297
-#: inc/Core/Admin/Pages/RegistrationPage.php:324
-#: inc/Core/Admin/Pages/RegistrationPage.php:358
-#: inc/Core/Admin/Pages/RegistrationPage.php:408
-#: inc/Core/Admin/Pages/RegistrationPage.php:458
-#: inc/Core/Admin/Pages/RegistrationPage.php:476
+#: inc/Core/Admin/Pages/RegistrationPage.php:302
+#: inc/Core/Admin/Pages/RegistrationPage.php:329
+#: inc/Core/Admin/Pages/RegistrationPage.php:363
+#: inc/Core/Admin/Pages/RegistrationPage.php:413
+#: inc/Core/Admin/Pages/RegistrationPage.php:463
+#: inc/Core/Admin/Pages/RegistrationPage.php:481
 msgid "Nonce verification failed."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:220
-#: inc/Core/Admin/Pages/ActivationPage.php:444
-#: inc/Core/Admin/Pages/ActivationPage.php:534
+#: inc/Core/Admin/Pages/ActivationPage.php:223
+#: inc/Core/Admin/Pages/ActivationPage.php:452
+#: inc/Core/Admin/Pages/ActivationPage.php:548
 msgid "Invalid activation code."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:233
-#: inc/Core/Admin/Pages/ActivationPage.php:458
+#: inc/Core/Admin/Pages/ActivationPage.php:236
+#: inc/Core/Admin/Pages/ActivationPage.php:466
 msgid "Missing refresh token in activation response."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:241
-#: inc/Core/Admin/Pages/ActivationPage.php:469
+#: inc/Core/Admin/Pages/ActivationPage.php:244
+#: inc/Core/Admin/Pages/ActivationPage.php:477
 msgid "Error fetching account data."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:247
-#: inc/Core/Admin/Pages/ActivationPage.php:475
+#: inc/Core/Admin/Pages/ActivationPage.php:250
+#: inc/Core/Admin/Pages/ActivationPage.php:483
 msgid "Activation succeeded but data could not be saved."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:287
+#: inc/Core/Admin/Pages/ActivationPage.php:295
 msgid "The activation code has already been re-sent the maximum number of times for this website. Please contact customer support."
 msgstr ""
 
 #. translators: 1: HTTP status code, 2: error text returned by the rankingCoach service
-#: inc/Core/Admin/Pages/ActivationPage.php:303
+#: inc/Core/Admin/Pages/ActivationPage.php:311
 #, php-format
 msgid "The rankingCoach service rejected the request (HTTP %1$d): %2$s"
 msgstr ""
 
 #. translators: %s: error text
-#: inc/Core/Admin/Pages/ActivationPage.php:307
+#: inc/Core/Admin/Pages/ActivationPage.php:315
 #, php-format
 msgid "Could not reach the rankingCoach service: %s"
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:364
+#: inc/Core/Admin/Pages/ActivationPage.php:372
 msgid "We could not find a rankingCoach account with this email address. Use the address your activation code was originally sent to."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:365
+#: inc/Core/Admin/Pages/ActivationPage.php:373
 msgid "This account has no active WordPress subscription."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:366
+#: inc/Core/Admin/Pages/ActivationPage.php:374
 msgid "The WordPress subscription for this account is already linked to a different website."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:367
+#: inc/Core/Admin/Pages/ActivationPage.php:375
 msgid "The activation code for this subscription has already been re-sent the maximum number of times. Please contact customer support."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:368
+#: inc/Core/Admin/Pages/ActivationPage.php:376
 msgid "We could not send the email. Please try again later."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:369
+#: inc/Core/Admin/Pages/ActivationPage.php:377
 msgid "The rankingCoach service returned an unexpected response. Please try again later."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:439
+#: inc/Core/Admin/Pages/ActivationPage.php:447
 msgid "Invalid response during account activation."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:467
+#: inc/Core/Admin/Pages/ActivationPage.php:475
 msgid "This activation code is already linked to another website URL. Changing the website URL address is not allowed. Please use a different code or contact support."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:515
+#: inc/Core/Admin/Pages/ActivationPage.php:529
 msgid "Refresh token saved successfully."
 msgstr ""
 
-#: inc/Core/Admin/Pages/ActivationPage.php:516
+#: inc/Core/Admin/Pages/ActivationPage.php:530
 msgid "Failed to save refresh token."
-msgstr ""
-
-#. translators: %s: cache type name
-#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:92
-msgid "Unknown"
 msgstr ""
 
 #: inc/Core/Admin/Pages/FeedbackPage.php:66
@@ -3022,56 +3849,64 @@ msgstr ""
 msgid "Thank you for your feedback!"
 msgstr ""
 
-#: inc/Core/Admin/Pages/IframePage.php:195
+#: inc/Core/Admin/Pages/IframePage.php:138
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr ""
+
+#: inc/Core/Admin/Pages/IframePage.php:140
+msgid "Go to Account"
+msgstr ""
+
+#: inc/Core/Admin/Pages/IframePage.php:206
 msgid "Communication Opt-In is disabled. The BeyondSEO dashboard requires it to be enabled."
 msgstr ""
 
-#: inc/Core/Admin/Pages/IframePage.php:197
+#: inc/Core/Admin/Pages/IframePage.php:208
 msgid "Go to Settings"
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:149
+#: inc/Core/Admin/Pages/RegistrationPage.php:152
 msgid "Verification link expired. Resend the email and try again."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:150
+#: inc/Core/Admin/Pages/RegistrationPage.php:153
 msgid "We couldn't check your email verification status. Please try again."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:151
+#: inc/Core/Admin/Pages/RegistrationPage.php:154
 msgid "We couldn't complete your registration. Please try again."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:152
+#: inc/Core/Admin/Pages/RegistrationPage.php:155
 msgid "We couldn't send the verification email. Please try again."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:153
+#: inc/Core/Admin/Pages/RegistrationPage.php:156
 msgid "Could not start registration. Please reload and try again."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:154
+#: inc/Core/Admin/Pages/RegistrationPage.php:157
 msgid "Resend verification email"
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:156
+#: inc/Core/Admin/Pages/RegistrationPage.php:159
 msgid "Please select a country."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:157
+#: inc/Core/Admin/Pages/RegistrationPage.php:160
 msgid "Please accept marketing communications to continue."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:495
+#: inc/Core/Admin/Pages/RegistrationPage.php:500
 msgid "Please provide a valid email."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:506
+#: inc/Core/Admin/Pages/RegistrationPage.php:511
 msgid "Challenge creation failed."
 msgstr ""
 
-#: inc/Core/Admin/Pages/RegistrationPage.php:601
-#: inc/Core/Admin/Pages/RegistrationPage.php:788
+#: inc/Core/Admin/Pages/RegistrationPage.php:606
+#: inc/Core/Admin/Pages/RegistrationPage.php:798
 msgid "Email registration is not available for this installation. Please use your activation code."
 msgstr ""
 
@@ -3607,124 +4442,125 @@ msgstr ""
 msgid "Error processing keywords sync response: %s"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:214
+#: inc/Core/Api/HttpApiClient.php:215
 msgid "API endpoint cannot be empty."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:256
+#: inc/Core/Api/HttpApiClient.php:257
 msgid "Invalid URL format: "
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:480
+#: inc/Core/Api/HttpApiClient.php:481
+#: inc/Core/Api/User/UserApiManager.php:125
 msgid "Communication opt-in is disabled."
 msgstr ""
 
 #. translators: %s: transport error message
-#: inc/Core/Api/HttpApiClient.php:533
+#: inc/Core/Api/HttpApiClient.php:534
 #, php-format
 msgid "Transport error occurred during request: %s"
 msgstr ""
 
 #. translators: %s: JSON error message
-#: inc/Core/Api/HttpApiClient.php:579
+#: inc/Core/Api/HttpApiClient.php:580
 #, php-format
 msgid "Error decoding JSON response: %s"
 msgstr ""
 
 #. translators: %s: unsupported content type
-#: inc/Core/Api/HttpApiClient.php:585
+#: inc/Core/Api/HttpApiClient.php:586
 msgid "Unsupported content type."
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:590
+#: inc/Core/Api/HttpApiClient.php:591
 msgid "Unknown error"
 msgstr ""
 
-#: inc/Core/Api/HttpApiClient.php:591
+#: inc/Core/Api/HttpApiClient.php:592
 msgid "Unknown message"
 msgstr ""
 
 #. translators: 1: error type, 2: error message
-#: inc/Core/Api/HttpApiClient.php:593
+#: inc/Core/Api/HttpApiClient.php:594
 #, php-format
 msgid "API error: %1$s - %2$s"
 msgstr ""
 
 #. translators: %s: HTTP method type
-#: inc/Core/Api/HttpApiClient.php:608
+#: inc/Core/Api/HttpApiClient.php:609
 #, php-format
 msgid "Unsupported HTTP method: %s"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:372
-#: inc/Core/HooksManager.php:273
-#: inc/Core/Rest/Controllers/OnboardingController.php:538
+#: inc/Core/HooksManager.php:269
+#: inc/Core/Rest/Controllers/OnboardingController.php:554
 msgid "Let's get started."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:373
-#: inc/Core/HooksManager.php:274
-#: inc/Core/Rest/Controllers/OnboardingController.php:539
+#: inc/Core/HooksManager.php:270
+#: inc/Core/Rest/Controllers/OnboardingController.php:555
 msgid "First, could you tell me what your website or project is about?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:374
-#: inc/Core/HooksManager.php:275
-#: inc/Core/Rest/Controllers/OnboardingController.php:540
+#: inc/Core/HooksManager.php:271
+#: inc/Core/Rest/Controllers/OnboardingController.php:556
 msgid "Awesome!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:375
-#: inc/Core/HooksManager.php:276
-#: inc/Core/Rest/Controllers/OnboardingController.php:541
+#: inc/Core/HooksManager.php:272
+#: inc/Core/Rest/Controllers/OnboardingController.php:557
 msgid "Do you already have a name for your website, project, or business?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:376
-#: inc/Core/HooksManager.php:277
-#: inc/Core/Rest/Controllers/OnboardingController.php:542
+#: inc/Core/HooksManager.php:273
+#: inc/Core/Rest/Controllers/OnboardingController.php:558
 msgid "Wonderful!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:377
-#: inc/Core/HooksManager.php:278
-#: inc/Core/Rest/Controllers/OnboardingController.php:543
+#: inc/Core/HooksManager.php:274
+#: inc/Core/Rest/Controllers/OnboardingController.php:559
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:378
-#: inc/Core/HooksManager.php:279
-#: inc/Core/Rest/Controllers/OnboardingController.php:544
+#: inc/Core/HooksManager.php:275
+#: inc/Core/Rest/Controllers/OnboardingController.php:560
 msgid "Just tasty! Thanks for sharing!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:379
-#: inc/Core/HooksManager.php:280
-#: inc/Core/Rest/Controllers/OnboardingController.php:545
+#: inc/Core/HooksManager.php:276
+#: inc/Core/Rest/Controllers/OnboardingController.php:561
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:380
-#: inc/Core/HooksManager.php:281
-#: inc/Core/Rest/Controllers/OnboardingController.php:546
+#: inc/Core/HooksManager.php:277
+#: inc/Core/Rest/Controllers/OnboardingController.php:562
 msgid "I see."
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:381
-#: inc/Core/HooksManager.php:282
-#: inc/Core/Rest/Controllers/OnboardingController.php:547
+#: inc/Core/HooksManager.php:278
+#: inc/Core/Rest/Controllers/OnboardingController.php:563
 msgid "Where do you primarily want to focus your reach? Is there a particular city or region you'd like to target, or do you want to go nationwide?"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:382
-#: inc/Core/HooksManager.php:283
-#: inc/Core/Rest/Controllers/OnboardingController.php:548
+#: inc/Core/HooksManager.php:279
+#: inc/Core/Rest/Controllers/OnboardingController.php:564
 msgid "Thanks for providing that!"
 msgstr ""
 
 #: inc/Core/Api/RC/RCApiManager.php:383
-#: inc/Core/HooksManager.php:284
-#: inc/Core/Rest/Controllers/OnboardingController.php:549
+#: inc/Core/HooksManager.php:280
+#: inc/Core/Rest/Controllers/OnboardingController.php:565
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
 msgstr ""
 
@@ -3732,8 +4568,17 @@ msgstr ""
 msgid "Request failed after multiple retries: "
 msgstr ""
 
+#: inc/Core/Api/User/UserApiManager.php:62
+#: inc/Core/Rest/Controllers/AccountProjectController.php:293
+msgid "The project location ID is invalid."
+msgstr ""
+
+#: inc/Core/Api/User/UserApiManager.php:83
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr ""
+
 #. translators: %1$s is the error message
-#: inc/Core/Api/User/UserApiManager.php:731
+#: inc/Core/Api/User/UserApiManager.php:879
 #, php-format
 msgid "Keyword insert failed. Error: %1$s"
 msgstr ""
@@ -3847,13 +4692,13 @@ msgid "Plugin Conflict Detected"
 msgstr ""
 
 #. translators: %s: brand name of the plugin
-#: inc/Core/ContentsManager.php:42
+#: inc/Core/ContentsManager.php:51
 #, php-format
 msgid "%s Assistant"
 msgstr ""
 
 #. translators: %s is the brand name of the plugin
-#: inc/Core/DashboardWidgetManager.php:40
+#: inc/Core/DashboardWidgetManager.php:48
 #, php-format
 msgid "%s Overview"
 msgstr ""
@@ -3933,194 +4778,307 @@ msgid "College graduate (Very difficult)"
 msgstr ""
 
 #. translators: %s: author name
-#: inc/Core/Helpers/WordpressHelpers.php:1475
+#: inc/Core/Helpers/WordpressHelpers.php:1521
 #, php-format
 msgid "Written by %s"
 msgstr ""
 
 #. translators: %s: date
-#: inc/Core/Helpers/WordpressHelpers.php:1485
+#: inc/Core/Helpers/WordpressHelpers.php:1531
 #, php-format
 msgid "Content from %s"
 msgstr ""
 
 #. translators: %s: search term
-#: inc/Core/Helpers/WordpressHelpers.php:1495
+#: inc/Core/Helpers/WordpressHelpers.php:1541
 #, php-format
 msgid "Found results for: %s"
 msgstr ""
 
 #. translators: %s: tag name
-#: inc/Core/Helpers/WordpressHelpers.php:1505
+#: inc/Core/Helpers/WordpressHelpers.php:1551
 #, php-format
 msgid "Tagged: %s"
 msgstr ""
 
 #. translators: %s: search term
-#: inc/Core/Helpers/WordpressHelpers.php:1556
+#: inc/Core/Helpers/WordpressHelpers.php:1602
 #, php-format
 msgid "Search results for: %s"
 msgstr ""
 
 #. translators: %1$s: opening link tag, %2$s: closing link tag
-#: inc/Core/HooksManager.php:440
+#: inc/Core/HooksManager.php:436
 #, php-format
 msgid "You have reached your keyword tracking limit. %1$sUpgrade your plan%2$s to continue tracking more keywords and improve your SEO performance."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:73
+#: inc/Core/Import/ImportRunner.php:73
+msgid "SEO titles"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:74
+msgid "SEO descriptions"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:76
+msgid "Canonical URLs"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:77
+msgid "Noindex directives"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:78
+msgid "Social titles"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:79
+msgid "Social descriptions"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:80
+msgid "Facebook profile"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:81
+msgid "Twitter profile"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:82
+msgid "Instagram profile"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:83
+msgid "LinkedIn profile"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:84
+msgid "YouTube profile"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:85
+msgid "Organization or person name"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:86
+msgid "Sitemap enabled"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:87
+msgid "Google verification code"
+msgstr ""
+
+#: inc/Core/Import/ImportRunner.php:88
+msgid "Bing verification code"
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:118
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:127
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:185
+msgid "Connect your account before creating a project."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:207
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:352
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/AccountProjectController.php:362
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/ImportController.php:75
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/ImportController.php:84
+#: inc/Core/Rest/Controllers/ImportController.php:88
+msgid "SEO import options must be an array of strings."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/ImportController.php:97
+msgid "Invalid SEO import source."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/ImportController.php:102
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/ImportController.php:121
+msgid "SEO plugin is not installed."
+msgstr ""
+
+#: inc/Core/Rest/Controllers/OnboardingController.php:74
 msgid "Missing setupRequirement."
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:852
+#. translators: %s: JSON-encoded boolean API response, either true or false.
+#: inc/Core/Rest/Controllers/OnboardingController.php:869
 #, php-format
 msgid "The API call (JSON response) is valid: %s"
 msgstr ""
 
-#: inc/Core/Rest/Controllers/OnboardingController.php:853
+#. translators: %s: JSON-encoded boolean API response, either true or false.
+#: inc/Core/Rest/Controllers/OnboardingController.php:871
 #, php-format
 msgid "The API call (text/html or error property on JSON): %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:174
-#: inc/Core/Rest/RestManager.php:218
+#: inc/Core/Rest/RestManager.php:176
+#: inc/Core/Rest/RestManager.php:220
 msgid "Authentication required. Use WordPress Application Password with Basic Auth."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:183
+#: inc/Core/Rest/RestManager.php:185
 msgid "You do not have permission to access integration endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:227
+#: inc/Core/Rest/RestManager.php:229
 msgid "You do not have permission to access sync endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:262
-#: inc/Core/Rest/RestManager.php:313
-#: inc/Core/Rest/RestManager.php:352
-#: inc/Core/Rest/RestManager.php:391
-#: inc/Core/Rest/RestManager.php:431
-#: inc/Core/Rest/RestManager.php:470
-#: inc/Core/Rest/RestManager.php:507
-#: inc/Core/Rest/RestManager.php:549
-#: inc/Core/Rest/RestManager.php:589
-#: inc/Core/Rest/RestManager.php:628
+#: inc/Core/Rest/RestManager.php:264
+#: inc/Core/Rest/RestManager.php:306
+#: inc/Core/Rest/RestManager.php:345
+#: inc/Core/Rest/RestManager.php:384
+#: inc/Core/Rest/RestManager.php:424
+#: inc/Core/Rest/RestManager.php:463
+#: inc/Core/Rest/RestManager.php:500
+#: inc/Core/Rest/RestManager.php:542
+#: inc/Core/Rest/RestManager.php:582
+#: inc/Core/Rest/RestManager.php:621
+#: inc/Core/Rest/RestManager.php:918
 msgid "Invalid or missing security nonce."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:271
+#: inc/Core/Rest/RestManager.php:273
 msgid "You do not have permission to access admin endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:280
-msgid "You do not have the required plugin capability."
-msgstr ""
-
-#: inc/Core/Rest/RestManager.php:321
+#: inc/Core/Rest/RestManager.php:314
 msgid "You do not have permission to access config endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:360
+#: inc/Core/Rest/RestManager.php:353
 msgid "You do not have permission to access metatags endpoints."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:400
+#: inc/Core/Rest/RestManager.php:393
 msgid "You do not have permission to access content analysis."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:439
+#: inc/Core/Rest/RestManager.php:432
 msgid "You do not have permission to access onboarding."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:478
+#: inc/Core/Rest/RestManager.php:471
 msgid "You do not have permission to access plugin information."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:515
+#: inc/Core/Rest/RestManager.php:508
 msgid "You do not have permission to access support information."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:558
+#: inc/Core/Rest/RestManager.php:551
 msgid "You do not have permission to access the SEO Optimiser."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:597
-#: inc/Core/Rest/RestManager.php:636
+#: inc/Core/Rest/RestManager.php:590
+#: inc/Core/Rest/RestManager.php:629
 msgid "You do not have permission to access social media settings."
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1479
+#: inc/Core/Rest/RestManager.php:933
+msgid "Invalid Review event."
+msgstr ""
+
+#: inc/Core/Rest/RestManager.php:953
+#: inc/Core/Rest/RestManager.php:969
+msgid "Unable to save Review state."
+msgstr ""
+
+#: inc/Core/Rest/RestManager.php:1643
 #: inc/Core/Seo/Optimiser/Base/Operation.php:95
 #: inc/Modules/ModuleLibrary/Links/LinkAnalyzer/LinkAnalyzerApi.php:188
 #: inc/Modules/ModuleLibrary/Links/LinkAnalyzer/LinkAnalyzerApi.php:210
 msgid "Invalid post ID"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1650
+#: inc/Core/Rest/RestManager.php:1814
 msgid "Method not allowed"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1659
-#: inc/Core/Rest/RestManager.php:1700
-#: inc/Core/Rest/RestManager.php:1762
+#: inc/Core/Rest/RestManager.php:1823
+#: inc/Core/Rest/RestManager.php:1864
+#: inc/Core/Rest/RestManager.php:1926
 #, php-format
 msgid "Internal server error: %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1795
+#: inc/Core/Rest/RestManager.php:1959
 msgid "Failed to retrieve settings"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1815
+#: inc/Core/Rest/RestManager.php:1979
 msgid "Invalid request body. Expected JSON object with settings."
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1861
+#: inc/Core/Rest/RestManager.php:2026
 #, php-format
 msgid "Failed to update settings: %s"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:1881
-#: inc/Core/Rest/RestManager.php:1927
-#: inc/Core/Rest/RestManager.php:1988
-#: inc/Core/Rest/RestManager.php:2039
+#: inc/Core/Rest/RestManager.php:2076
+#: inc/Core/Rest/RestManager.php:2122
+#: inc/Core/Rest/RestManager.php:2183
+#: inc/Core/Rest/RestManager.php:2234
 #, php-format
 msgid "Invalid setting key: %s"
 msgstr ""
 
-#: inc/Core/Rest/RestManager.php:1906
+#: inc/Core/Rest/RestManager.php:2101
 msgid "Failed to retrieve setting"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:1968
+#: inc/Core/Rest/RestManager.php:2163
 #, php-format
 msgid "Failed to update setting: %s"
 msgstr ""
 
 #. translators: %s: error message
-#: inc/Core/Rest/RestManager.php:2019
+#: inc/Core/Rest/RestManager.php:2214
 #, php-format
 msgid "Failed to reset setting: %s"
 msgstr ""
 
 #. translators: 1: setting key name, 2: error message
-#: inc/Core/Rest/RestManager.php:2046
+#: inc/Core/Rest/RestManager.php:2241
 #, php-format
 msgid "Setting '%1$s': %2$s"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:2085
+#: inc/Core/Rest/RestManager.php:2280
 #, php-format
 msgid "Setting '%s' must be a boolean value"
 msgstr ""
 
 #. translators: %s: setting key name
-#: inc/Core/Rest/RestManager.php:2093
+#: inc/Core/Rest/RestManager.php:2288
 #, php-format
 msgid "Setting '%s' must be a numeric value"
 msgstr ""
@@ -4172,12 +5130,12 @@ msgstr ""
 msgid "%1$s %2$s %3$s Feed"
 msgstr ""
 
-#: inc/Core/Seo/Adapters/WordPressProvider.php:705
+#: inc/Core/Seo/Adapters/WordPressProvider.php:706
 msgid "Invalid URL provided."
 msgstr ""
 
 #. translators: %d is the HTTP status code
-#: inc/Core/Seo/Adapters/WordPressProvider.php:774
+#: inc/Core/Seo/Adapters/WordPressProvider.php:775
 #, php-format
 msgid "HTTP error fetching URL. Status code: %d"
 msgstr ""
@@ -6026,20 +6984,8 @@ msgstr ""
 msgid "Notice suggestion"
 msgstr ""
 
-#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:88
-msgid "Low"
-msgstr ""
-
-#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:89
-msgid "Medium"
-msgstr ""
-
-#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:90
-msgid "High"
-msgstr ""
-
-#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:91
-msgid "Critical"
+#: inc/Core/Seo/Optimiser/Base/FactorSuggestion.php:92
+msgid "Unknown"
 msgstr ""
 
 #: inc/Core/Seo/Optimiser/Operations/AltTextToImages/AltTextPresenceCheckOperation.php:44
@@ -6813,7 +7759,8 @@ msgstr ""
 msgid "Invalid post ID for SEO score persistence"
 msgstr ""
 
-#: inc/Core/Seo/Services/SeoOptimiserService.php:615
+#. translators: %s: Error message returned while calculating the average SEO score.
+#: inc/Core/Seo/Services/SeoOptimiserService.php:683
 #, php-format
 msgid "Failed to calculate and save average SEO score: %s"
 msgstr ""
@@ -6842,19 +7789,19 @@ msgstr ""
 msgid "Menu %s"
 msgstr ""
 
-#: inc/Core/UpsellNotificationManager.php:116
+#: inc/Core/UpsellNotificationManager.php:118
 msgid "They show up everywhere. You can too."
 msgstr ""
 
-#: inc/Core/UpsellNotificationManager.php:117
+#: inc/Core/UpsellNotificationManager.php:119
 msgid "Your competitors are everywhere, not just on a website. Without multi-channel visibility, you`re losing customers. Upgrade now to stand out where it counts: Google, directories, social platforms, and reviews."
 msgstr ""
 
-#: inc/Core/UpsellNotificationManager.php:120
+#: inc/Core/UpsellNotificationManager.php:122
 msgid "Boost my visibility"
 msgstr ""
 
-#: inc/Core/UpsellNotificationManager.php:271
+#: inc/Core/UpsellNotificationManager.php:283
 msgid "Scanning..."
 msgstr ""
 
@@ -6994,12 +7941,12 @@ msgstr ""
 msgid "Not Found"
 msgstr ""
 
-#: inc/Modules/ModuleLibrary/Technical/MetaTags/MetaTags.php:273
+#: inc/Modules/ModuleLibrary/Technical/MetaTags/MetaTags.php:274
 msgid "Content ID must be a positive integer"
 msgstr ""
 
 #. translators: %d: post ID
-#: inc/Modules/ModuleLibrary/Technical/MetaTags/MetaTags.php:279
+#: inc/Modules/ModuleLibrary/Technical/MetaTags/MetaTags.php:280
 #, php-format
 msgid "Post with ID %d does not exist"
 msgstr ""

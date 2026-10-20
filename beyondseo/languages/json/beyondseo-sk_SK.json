@@ -5,19 +5,19 @@
     "lang": "sk"
   },
   "%1$s: %2$s": [
-    ""
+    "%1$s: %2$s"
   ],
   "1. Is the Pro plan suitable for small businesses?": [
-    ""
+    "1. Je Pro plán vhodný pre malé podniky?"
   ],
   "10th-12th grade (Fairly difficult)": [
     "10.–12. trieda (Pomerne ťažké)"
   ],
   "2. Can I directly upgrade from Standard to Pro?": [
-    ""
+    "Môžem priamo prejsť z verzie Standard na verziu Pro?"
   ],
   "3. What types of businesses benefit most from Pro?": [
-    ""
+    "3. Aké typy podnikov najviac profitujú z Pro?"
   ],
   "5th grade (Very easy to read)": [
     "5. trieda (Veľmi ľahko čitateľné)"
@@ -32,34 +32,34 @@
     "8.–9. trieda (Bežná angličtina)"
   ],
   "<strong>rankingCoach SEO</strong> is not compatible with the following plugin: <strong>%s</strong>": [
-    ""
+    "<strong>rankingCoach SEO</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%s</strong>"
   ],
   "<strong>rankingCoach SEO</strong> is not compatible with the following plugins:": [
-    ""
+    "<strong>rankingCoach SEO</strong> nie je kompatibilný s nasledujúcimi pluginmi:"
   ],
   "AI Text optimisation": [
-    ""
+    "Optimalizácia textu pomocou AI"
   ],
   "AI URL optimiser": [
     "Optimalizátor URL pomocou AI"
   ],
   "AI content for posts and events": [
-    ""
+    "AI obsah pre príspevky a podujatia"
   ],
   "AI powered SEO tasks": [
-    ""
+    "Úlohy SEO poháňané umelou inteligenciou"
   ],
   "AI streamlined onboarding": [
-    ""
+    "AI zjednodušil onboarding"
   ],
   "API endpoint cannot be empty.": [
     "Koncový bod API nemôže byť prázdny."
   ],
   "API error: %s - %s": [
-    ""
+    "Chyba API: %s - %s"
   ],
   "Absolutely! You can upgrade directly to Pro from Standard to immediately access all features and benefits.": [
-    ""
+    "Samozrejme! Môžete priamo prejsť na Pro z verzie Standard a okamžite získať prístup ku všetkým funkciám a výhodám."
   ],
   "Acceptable": [
     "Prijateľné"
@@ -152,7 +152,7 @@
     "Pridať ďalšie kľúčové slová"
   ],
   "Add additional review sources": [
-    ""
+    "Pridajte ďalšie zdroje recenzií"
   ],
   "Add an H1 Heading": [
     "Pridať nadpis H1"
@@ -170,7 +170,7 @@
     "Pridaj prechodové slová ako „avšak“, „ďalej“ alebo „následne“, aby si zlepšil plynulosť textu."
   ],
   "Adding structured data will help search engines better understand your business information.": [
-    ""
+    "Pridanie štruktúrovaných údajov pomôže vyhľadávačom lepšie pochopiť informácie o vašej firme."
   ],
   "Additional keywords": [
     "Ďalšie kľúčové slová"
@@ -194,13 +194,13 @@
     "Prispôsob tón svojho obsahu tak, aby lepšie zodpovedal očakávaniam v odvetví."
   ],
   "Admin Access Token": [
-    ""
+    "Admin prístupový token"
   ],
   "Advanced": [
     "Rozšírené"
   ],
   "After mentioning your keyword once, refer to it using pronouns or descriptive phrases": [
-    ""
+    "Po spomenutí vášho kľúčového slova raz, odkazujte naň pomocou zámen alebo popisných fráz."
   ],
   "Align Content with User Intent": [
     "Zosúlaď obsah so zámerom používateľa"
@@ -263,7 +263,7 @@
     "Analyzuje čitateľnosť obsahu pomocou Flesch-Kincaidových skóre, zložitosti viet, štruktúry odsekov, použitia trpného rodu a frekvencie prechodových slov. Poskytuje podrobné metriky a návrhy na zlepšenie čitateľnosti obsahu."
   ],
   "Analyzes image alt texts for the presence of the primary keyword, ensuring it is used naturally and not excessively. Provides suggestions for optimization based on keyword usage in alt attributes.": [
-    ""
+    "Analyzuje alt texty obrázkov na prítomnosť primárneho kľúčového slova, zabezpečuje, aby bolo použité prirodzene a nie nadmerne. Poskytuje návrhy na optimalizáciu na základe používania kľúčových slov v alt atribútoch."
   ],
   "Analyzes keyword competition, search volume, and CPC balance using external SEO API services. Provides insights on keyword difficulty and potential for content optimization.": [
     "Analyzuje konkurenciu kľúčových slov, objem vyhľadávania a rovnováhu CPC pomocou externých SEO API služieb. Poskytuje prehľad o náročnosti kľúčových slov a potenciáli pre optimalizáciu obsahu."
@@ -311,22 +311,22 @@
     "Analyzuje titulky, nadpisy a text tela na prítomnosť kľúčových slov špecifických pre lokalitu na vyhodnotenie sily lokálneho SEO. Meria distribúciu kľúčových slov naprieč prvkami obsahu a zvýrazňuje medzery, kde by sa mohli zakomponovať lokálne výrazy."
   ],
   "App password authentication failed: Invalid base64 encoding": [
-    ""
+    "Autentifikácia pomocou hesla aplikácie zlyhala: Neplatné kódovanie base64"
   ],
   "App password authentication failed: Invalid credential format": [
-    ""
+    "Autentifikácia pomocou hesla aplikácie zlyhala: Neplatný formát poverení"
   ],
   "App password authentication failed: Invalid username": [
-    ""
+    "Autentifikácia pomocou hesla aplikácie zlyhala: Neplatné používateľské meno"
   ],
   "App password authentication failed: Missing or invalid Authorization header": [
-    ""
+    "Autentifikácia pomocou hesla aplikácie zlyhala: Chýbajúci alebo neplatný hlavička autorizácie"
   ],
   "Archives for": [
     "Archívy pre"
   ],
   "Argus Entity can be imported only from the same Class, e.g. Entities\\Domain > Argus\\Domain": [
-    ""
+    "Entita Argus môže byť importovaná iba z tej istej triedy, napr. Entities\\Domain > Argus\\Domain"
   ],
   "Assesses how keywords are spread throughout page headings, paragraphs, and meta data. Identifies imbalances like concentration in specific sections and recommends a more even distribution for improved relevance.": [
     "Posudzuje, ako sú kľúčové slová rozložené v nadpisoch, odsekoch a meta dátach stránky. Identifikuje nerovnováhy, ako je koncentrácia v konkrétnych sekciách, a odporúča rovnomernejšie rozloženie pre lepšiu relevantnosť."
@@ -377,25 +377,25 @@
     "Vyváž svoj profil spätných odkazov"
   ],
   "Basic SEO insights": [
-    ""
+    "Základné SEO poznatky"
   ],
   "Basic performance monitoring": [
-    ""
+    "Základné monitorovanie výkonu"
   ],
   "Better: \"%s is important for your website. It can improve rankings.\"": [
-    ""
+    "Lepšie: \"%s je dôležité pre vašu webovú stránku. Môže zlepšiť hodnotenie.\""
   ],
   "Block Admin Sections in Robots.txt": [
     "Blokuj administrátorské sekcie v súbore robots.txt"
   ],
   "Boost an existing post with Meta ads": [
-    ""
+    "Zvýšte dosah existujúceho príspevku pomocou reklám na Meta."
   ],
   "Boost my visibility": [
     "Zvýšiť moju viditeľnosť"
   ],
   "Break Up Longer Keyword Phrases": [
-    ""
+    "Rozdeľte dlhšie kľúčové frázy"
   ],
   "Break down complex concepts into smaller, digestible points": [
     "Rozdeľ zložité koncepty na menšie, ľahko stráviteľné body"
@@ -422,7 +422,7 @@
     "Vytvorenie firemného profilu"
   ],
   "By clicking \"Upgrade\", you agree to our": [
-    ""
+    "Kliknutím na \"Upgrade\" súhlasíte s našimi"
   ],
   "Calculates keyword density across the page to detect excessive or insufficient usage. Evaluates primary and secondary terms, suggesting adjustments to keep frequencies within recommended ranges for natural, SEO-friendly content.": [
     "Vypočítava hustotu kľúčových slov na celej stránke na zistenie nadmerného alebo nedostatočného použitia. Vyhodnocuje primárne a sekundárne výrazy a navrhuje úpravy na udržanie frekvencií v odporúčaných rozsahoch pre prirodzený, SEO priateľský obsah."
@@ -431,7 +431,7 @@
     "Nie je možné vypočítať rovnováhu bez primárnych aj sekundárnych kľúčových slov"
   ],
   "Cannot fetch content from an empty or invalid URL: %s": [
-    ""
+    "Nie je možné načítať obsah z prázdnej alebo neplatnej URL: %s"
   ],
   "Canonical Tag Validation": [
     "Validácia kanonickej značky"
@@ -446,7 +446,7 @@
     "Kategórie"
   ],
   "Change how you incorporate keywords into sentences to make them flow naturally": [
-    ""
+    "Zmeňte spôsob, akým začleňujete kľúčové slová do viet, aby plynule zapadali."
   ],
   "Checks how easy the content is to read, how it is structured, and whether it suits the intended audience to improve engagement and clarity.": [
     "Kontroluje, ako ľahko sa obsah číta, ako je štruktúrovaný a či vyhovuje zamýšľanému publiku na zlepšenie zapojenia a zrozumiteľnosti."
@@ -476,19 +476,19 @@
     "Kontroluje meta značky robots, HTTP hlavičky a robots.txt na overenie, či sú dôležité stránky prehľadávateľné, zatiaľ čo nechcené sekcie sú obmedzené. Zvýrazňuje nesprávne nakonfigurované direktívy, ktoré by mohli brániť indexácii."
   ],
   "Chinese (Simplified)": [
-    ""
+    "čínština (zjednodušená)"
   ],
   "Chinese (Traditional)": [
-    ""
+    "čínština (tradičná)"
   ],
   "Click here to Deactivate.": [
-    ""
+    "Kliknite sem na deaktiváciu."
   ],
   "Click to deactivate.": [
-    ""
+    "Kliknite na deaktiváciu."
   ],
   "Client error: %s": [
-    ""
+    "Chyba klienta: %s"
   ],
   "College (Difficult)": [
     "Vysoká škola (Ťažké)"
@@ -557,10 +557,10 @@
     "Návrhy na aktualizáciu obsahu"
   ],
   "Content depth analysis completed successfully": [
-    ""
+    "Analýza hĺbky obsahu bola úspešne dokončená."
   ],
   "Content extraction completed successfully": [
-    ""
+    "Extrakcia obsahu bola úspešne dokončená."
   ],
   "Content focuses too heavily on primary keyword at the expense of topic diversity.": [
     "Obsah sa príliš zameriava na primárne kľúčové slovo na úkor rozmanitosti tém."
@@ -584,7 +584,7 @@
     "Analýza dĺžky obsahu bola úspešne dokončená"
   ],
   "Content update suggestions fetched successfully": [
-    ""
+    "Návrhy na aktualizáciu obsahu boli úspešne načítané."
   ],
   "Correct the Canonical Tag": [
     "Oprav kanonickú značku"
@@ -593,25 +593,25 @@
     "Nepodarilo sa načítať URL."
   ],
   "Could not retrieve post URL": [
-    ""
+    "Nepodarilo sa získať URL príspevku."
   ],
   "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?": [
     "Mohol by si podrobnejšie opísať, čo plánuješ robiť so svojou webovou stránkou? Napríklad, budeš ponúkať produkty alebo služby, zdieľať blogové články alebo niečo iné?"
   ],
   "Could you provide more details?": [
-    ""
+    "Môžete poskytnúť viac podrobností?"
   ],
   "Create & publish posts and events on Google Business Profile": [
-    ""
+    "Vytvorte a publikujte príspevky a udalosti na profile firmy Google."
   ],
   "Create & publish posts on Facebook and Instagram": [
-    ""
+    "Vytvorte a publikujte príspevky na Facebooku a Instagrame."
   ],
   "Create Curiosity in Opening Paragraph": [
     "Vzbudiť zvedavosť v úvodnom odseku"
   ],
   "Create Google Ads campaign": [
-    ""
+    "Vytvorte kampaň Google Ads"
   ],
   "Create a Keyword Map": [
     "Vytvor mapu kľúčových slov"
@@ -620,7 +620,7 @@
     "Vytvoriť súbor Robots.txt"
   ],
   "Create posts and events, fine-tune them with AI assistance. Schedule or publish them across multiple social media channels, adapted for each platform.": [
-    ""
+    "Vytvárajte príspevky a udalosti, dolaďte ich s pomocou AI. Naplánujte alebo publikujte ich na viacerých sociálnych médiách, prispôsobených pre každú platformu."
   ],
   "Critical": [
     "Kritická"
@@ -641,16 +641,16 @@
     "Aktuálne skóre"
   ],
   "Custom post type archives for": [
-    ""
+    "Archívy vlastných typov príspevkov pre"
   ],
   "Database connection parameters are not set in wp-config.php": [
-    ""
+    "Parametre pripojenia k databáze nie sú nastavené v súbore wp-config.php"
   ],
   "Dear Mr. %1$s %2$s": [
-    ""
+    "Vážený pán %1$s %2$s"
   ],
   "Dear Mrs. %1$s %2$s": [
-    ""
+    "Vážená pani %1$s %2$s"
   ],
   "Define technical terms when first introduced": [
     "Definuj technické termíny pri ich prvom predstavení"
@@ -665,7 +665,7 @@
     "Deteguje duplicitné stránky v rámci webu a kontroluje kanonické značky na zabezpečenie správnej konsolidácie. Používa simulované výsledky API na minimalizáciu zaťaženia a ukladá zistenia do vyrovnávacej pamäte, čím usmerňuje riešenie nadbytočného obsahu."
   ],
   "Detects keyword stuffing in the first paragraph of content and suggests natural alternatives. This is crucial for maintaining readability and avoiding penalties from search engines.": [
-    ""
+    "Detekuje preplnenie kľúčovými slovami v prvej odseku obsahu a navrhuje prirodzené alternatívy. To je kľúčové pre udržanie čitateľnosti a vyhnutie sa sankciám od vyhľadávačov."
   ],
   "Develop ideas more thoroughly with supporting evidence": [
     "Dôkladnejšie rozpracuj myšlienky s podpornými dôkazmi"
@@ -680,7 +680,7 @@
     "Máš už názov pre svoju webovú stránku, projekt alebo firmu?"
   ],
   "Don't risk remaining invisible.": [
-    ""
+    "Neriskujte, že zostanete neviditeľní."
   ],
   "Duplicate Content Detection": [
     "Detekcia duplicitného obsahu"
@@ -689,7 +689,7 @@
     "Analýza duplicitného obsahu je dokončená."
   ],
   "Dutch": [
-    ""
+    "holandský"
   ],
   "Easy: Conversational English for consumers": [
     "Jednoduché: Konverzačná angličtina pre spotrebiteľov"
@@ -704,7 +704,7 @@
     "Odstrániť zdroje blokujúce vykresľovanie"
   ],
   "Email Report management": [
-    ""
+    "Správa e-mailových správ"
   ],
   "Emphasize benefits and value propositions": [
     "Zdôrazni výhody a hodnotové ponuky"
@@ -713,10 +713,10 @@
     "Prázdny obsah stránky"
   ],
   "English": [
-    ""
+    "Angličtina"
   ],
   "English (UK)": [
-    ""
+    "Angličtina (Spojené kráľovstvo)"
   ],
   "Enhance Image Alt Text Descriptiveness": [
     "Zlepšiť popisnosť alt textu obrázkov"
@@ -749,16 +749,16 @@
     "Chyba pri dekódovaní odpovede JSON: %s"
   ],
   "Error dismissing notification": [
-    ""
+    "Chyba pri zamietnutí oznámenia"
   ],
   "Error fetching content: %s": [
     "Chyba pri načítavaní obsahu: %s"
   ],
   "Error fetching posts: %s": [
-    ""
+    "Chyba pri načítaní príspevkov: %s"
   ],
   "Error while collecting data from all available collectors. Exception: %s": [
-    ""
+    "Chyba pri zbieraní údajov zo všetkých dostupných zberačov. Výnimka: %s"
   ],
   "Establish Reader Connection in Opening": [
     "Vytvoriť spojenie s čitateľom v úvode"
@@ -809,10 +809,10 @@
     "Vyhodnocuje, či sa primárne kľúčové slovo objavuje v URL stránky a ako blízko je ku koreňovej doméne. Navrhuje úpravy, keď kľúčové slová chýbajú alebo sú hlboko zanoré v ceste."
   ],
   "Everything in Advanced, plus:": [
-    ""
+    "Všetko v pokročilom, plus:"
   ],
   "Everything in Standard, plus:": [
-    ""
+    "Všetko v štandardnej verzii, plus:"
   ],
   "Examines content for local business indicators and existing structured data. Recommends appropriate schema markup when location signals are missing, helping search engines understand and display local information more effectively.": [
     "Skúma obsah na prítomnosť indikátorov lokálneho podnikania a existujúcich štruktúrovaných dát. Odporúča vhodné značenie schémy, keď chýbajú signály lokality, čím pomáha vyhľadávačom lepšie pochopiť a zobraziť lokálne informácie."
@@ -851,13 +851,13 @@
     "Rozšír svoj obsah, aby si poskytol väčšiu hodnotu svojmu cieľovému publiku."
   ],
   "External API call is disabled by feature flag": [
-    ""
+    "Externé volanie API je zakázané funkčnou vlajkou."
   ],
   "FAQs": [
     "Často kladené otázky"
   ],
   "Failed to activate test account": [
-    ""
+    "Nepodarilo sa aktivovať testovací účet"
   ],
   "Failed to analyze images in content": [
     "Nepodarilo sa analyzovať obrázky v obsahu"
@@ -869,73 +869,73 @@
     "Nepodarilo sa vypočítať a uložiť priemerné SEO skóre: %s"
   ],
   "Failed to check account details.": [
-    ""
+    "Nepodarilo sa skontrolovať podrobnosti účtu."
   ],
   "Failed to create test account": [
-    ""
+    "Nepodarilo sa vytvoriť testovací účet"
   ],
   "Failed to extract content from post": [
-    ""
+    "Nepodarilo sa extrahovať obsah z príspevku."
   ],
   "Failed to extract content from the page": [
-    ""
+    "Nepodarilo sa extrahovať obsah z stránky"
   ],
   "Failed to fetch HTML content from URL": [
-    ""
+    "Nepodarilo sa načítať HTML obsah z URL."
   ],
   "Failed to fetch URL %s. Error: %s": [
-    ""
+    "Nepodarilo sa načítať URL %s. Chyba: %s"
   ],
   "Failed to fetch backlinks data from API": [
-    ""
+    "Nepodarilo sa získať údaje o spätných odkazoch z API"
   ],
   "Failed to fetch content": [
-    ""
+    "Nepodarilo sa načítať obsah"
   ],
   "Failed to fetch content for analysis": [
     "Nepodarilo sa načítať obsah na analýzu"
   ],
   "Failed to fetch content from URL": [
-    ""
+    "Nepodarilo sa načítať obsah z URL."
   ],
   "Failed to fetch content update suggestions from API": [
-    ""
+    "Nepodarilo sa načítať návrhy na aktualizáciu obsahu z API."
   ],
   "Failed to fetch indexation status from API": [
-    ""
+    "Nepodarilo sa získať stav indexácie z API"
   ],
   "Failed to fetch keyword metrics from API": [
-    ""
+    "Nepodarilo sa získať metriky kľúčových slov z API"
   ],
   "Failed to fetch page speed data from API": [
-    ""
+    "Nepodarilo sa získať údaje o rýchlosti stránky z API"
   ],
   "Failed to fetch referring domains data from API": [
-    ""
+    "Nepodarilo sa získať údaje o odkazujúcich doménach z API"
   ],
   "Failed to fetch safe browsing status from API": [
-    ""
+    "Nepodarilo sa získať stav bezpečného prehliadania z API"
   ],
   "Failed to generate unique key: %s": [
-    ""
+    "Nepodarilo sa vygenerovať jedinečný kľúč: %s"
   ],
   "Failed to get access token": [
-    ""
+    "Nepodarilo sa získať prístupový token."
   ],
   "Failed to get legacy test account": [
-    ""
+    "Nepodarilo sa získať starý testovací účet"
   ],
   "Failed to get refresh token": [
-    ""
+    "Nepodarilo sa získať obnovovací token."
   ],
   "Failed to initialize AutoUpdater: %s": [
-    ""
+    "Nepodarilo sa inicializovať AutoUpdater: %s"
   ],
   "Failed to initialize keyword synchronization job: %s": [
-    ""
+    "Nepodarilo sa inicializovať úlohu synchronizácie kľúčových slov: %s"
   ],
   "Failed to initialize log cleanup job: %s": [
-    ""
+    "Nepodarilo sa inicializovať úlohu čistenia protokolov: %s"
   ],
   "Failed to reset setting: %s": [
     "Nepodarilo sa resetovať nastavenie: %s"
@@ -953,10 +953,10 @@
     "Nepodarilo sa načítať nastavenia"
   ],
   "Failed to save meta tags through MetaTags service": [
-    ""
+    "Nepodarilo sa uložiť meta tagy prostredníctvom služby MetaTags."
   ],
   "Failed to update setting '%s': %s": [
-    ""
+    "Nepodarilo sa aktualizovať nastavenie '%s': %s"
   ],
   "Failed to update setting: %s": [
     "Nepodarilo sa aktualizovať nastavenie: %s"
@@ -971,7 +971,7 @@
     "Pomerne jednoduché: Ľahko zrozumiteľné pre 13 – 15-ročných študentov"
   ],
   "Feature flag availability is set to FALSE for operation '%s' under factor '%s', so this operation will be skipped.": [
-    ""
+    "Dostupnosť funkčnej vlajky je nastavená na FALSE pre operáciu '%s' pod faktorom '%s', takže táto operácia bude preskočená."
   ],
   "Fetches and analyzes the robots.txt file to confirm correct directives. Ensures important resources are accessible and harmful blocks are removed, providing tips to balance crawler control and SEO.": [
     "Načíta a analyzuje súbor robots.txt na potvrdenie správnych direktív. Zabezpečuje, že dôležité zdroje sú prístupné a škodlivé bloky sú odstránené, pričom poskytuje tipy na vyváženie kontroly prehľadávačov a SEO."
@@ -1034,16 +1034,16 @@
     "Sústreď sa skôr na fakty a dôkazy ako na názory"
   ],
   "For \"%s\", use descriptive phrases that convey the same meaning": [
-    ""
+    "Pre \"%s\" použite popisné frázy, ktoré vyjadrujú rovnaký význam."
   ],
   "For multi-word keywords, try separating the components across the sentence": [
-    ""
+    "Pre viacslovné kľúčové slová sa pokúste oddeliť komponenty v celej vete."
   ],
   "Free": [
     "Zadarmo"
   ],
   "French": [
-    ""
+    "Francúzsky"
   ],
   "General": [
     "Všeobecné"
@@ -1055,16 +1055,16 @@
     "Zistený všeobecný alternatívny text"
   ],
   "German": [
-    ""
+    "Nemecky"
   ],
   "Get powerful extra features like these — and more.": [
-    ""
+    "Získajte silné extra funkcie ako tieto — a ešte viac."
   ],
   "Get reviews widget": [
-    ""
+    "Získať widget recenzií"
   ],
   "Go further with": [
-    ""
+    "Pokračujte ďalej s"
   ],
   "Good": [
     "Dobré"
@@ -1097,10 +1097,10 @@
     "Značky nadpisov nie sú použité v správnom hierarchickom poradí (napr. preskočenie z H1 na H4). Použi správne vnorenie na zlepšenie sémantickej štruktúry a SEO."
   ],
   "Hi %s": [
-    ""
+    "Ahoj %s"
   ],
   "Hi there": [
-    ""
+    "Ahoj"
   ],
   "High": [
     "Vysoká"
@@ -1178,7 +1178,7 @@
     "Zlepšiť vizuálnu stabilitu"
   ],
   "Improved version: \"%s\"": [
-    ""
+    "Vylepšená verzia: \"%s\""
   ],
   "Include Missing Related Keywords": [
     "Zahrň chýbajúce súvisiace kľúčové slová"
@@ -1217,13 +1217,13 @@
     "Zahrň vizuálne pomôcky na vysvetlenie zložitých myšlienok"
   ],
   "Incomplete properties: %s": [
-    ""
+    "Neúplné vlastnosti: %s"
   ],
   "Incorporate Secondary Keywords": [
-    ""
+    "Zahrňte sekundárne kľúčové slová"
   ],
   "Incorporate into a broader statement: \"Many businesses find that implementing %s leads to...\"": [
-    ""
+    "Mnohé podniky zistia, že implementácia %s vedie k..."
   ],
   "Incorporate more industry-specific terminology": [
     "Zapoj viac terminológie špecifickej pre dané odvetvie"
@@ -1241,37 +1241,37 @@
     "Zvýš tematickú relevanciu spätných odkazov"
   ],
   "Increase your digital touch points. Get found easily.": [
-    ""
+    "Zvýšte svoje digitálne kontaktné body. Buďte ľahko nájditeľní."
   ],
   "Indexation status fetched successfully": [
-    ""
+    "Stav indexácie bol úspešne načítaný"
   ],
   "Informational suggestion": [
     "Informačný návrh"
   ],
   "Instead of always using \"%s\", try: %s": [
-    ""
+    "Namiesto stáleho používania \"%s\" vyskúšajte: %s"
   ],
   "Instead of repeatedly using \"%s\"": [
-    ""
+    "Namiesto opakovaného používania \"%s\""
   ],
   "Instead of repeating \"%s\", incorporate \"%s\" to add topical depth": [
-    ""
+    "Namiesto opakovania \"%s\" začleňte \"%s\" na pridanie tematickej hĺbky."
   ],
   "Instead of repeating the exact same keyword, use synonyms or related terms": [
-    ""
+    "Namiesto opakovania presne toho istého kľúčového slova použite synonymá alebo príbuzné výrazy."
   ],
   "Instead of repeating your primary keyword, strategically use related secondary keywords": [
-    ""
+    "Namiesto opakovania vašej primárnej kľúčovej frázy strategicky používajte súvisiace sekundárne kľúčové frázy."
   ],
   "Instead of: \"%s is important for your website. %s can improve rankings.\"": [
-    ""
+    "\"%s je dôležitý pre vašu webovú stránku. %s môže zlepšiť hodnotenie.\""
   ],
   "Internal server error: %s": [
     "Vnútorná chyba servera: %s"
   ],
   "Invalid URL provided": [
-    ""
+    "Poskytnutá URL adresa je neplatná."
   ],
   "Invalid URL provided.": [
     "Zadaná URL adresa je neplatná."
@@ -1280,7 +1280,7 @@
     "Neplatný aktivačný kód."
   ],
   "Invalid entity type on WebPageService update": [
-    ""
+    "Neplatný typ entity pri aktualizácii WebPageService"
   ],
   "Invalid post ID": [
     "Neplatné ID príspevku"
@@ -1292,28 +1292,28 @@
     "Poskytnuté neplatné ID príspevku"
   ],
   "Invalid post ID provided for factor '%s': %d": [
-    ""
+    "Neplatné ID príspevku poskytnuté pre faktor '%s': %d"
   ],
   "Invalid request body. Expected JSON object with settings.": [
     "Neplatné telo požiadavky. Očakáva sa JSON objekt s nastaveniami."
   ],
   "Invalid security token.": [
-    ""
+    "Neplatný bezpečnostný token."
   ],
   "Invalid setting key: %s": [
     "Neplatný kľúč nastavenia: %s"
   ],
   "Invalid suggestion type for operation %s. Expected Suggestion enum. Received: %s": [
-    ""
+    "Neplatný typ návrhu pre operáciu %s. Očakávaný enum návrhu. Prijaté: %s"
   ],
   "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?": [
     "Je tvoj projekt alebo firma viazaná na konkrétne miesto? Obsluhuješ zákazníkov lokálne alebo pôsobíš vo viacerých oblastiach?"
   ],
   "Italian": [
-    ""
+    "Taliansko"
   ],
   "Japanese": [
-    ""
+    "japonský"
   ],
   "Just tasty! Thanks for sharing!": [
     "Jednoducho chutné! Vďaka za zdieľanie!"
@@ -1334,7 +1334,7 @@
     "Nadmerné používanie kľúčových slov"
   ],
   "Keyword appears multiple times in close proximity": [
-    ""
+    "Kľúčové slovo sa objavuje viackrát v tesnej blízkosti."
   ],
   "Keyword density analysis completed": [
     "Analýza hustoty kľúčových slov je dokončená."
@@ -1349,16 +1349,16 @@
     "Analýza mapovania kľúčových slov bola dokončená"
   ],
   "Keyword metrics fetched successfully": [
-    ""
+    "Metódy kľúčových slov boli úspešne načítané."
   ],
   "Keyword repeated with only a comma in between": [
-    ""
+    "Kľúčové slovo opakované len s čiarkou medzi nimi"
   ],
   "Keyword stuffing detected in first paragraph": [
     "V prvom odseku bolo zistené zahlcovanie kľúčovými slovami."
   ],
   "Keyword used at both start and end of the same sentence": [
-    ""
+    "Kľúčové slovo použité na začiatku aj na konci tej istej vety"
   ],
   "Keywords": [
     "Kľúčové slová"
@@ -1373,7 +1373,7 @@
     "Kľúčové slová s vyššou CPC (cena za kliknutie) často naznačujú vyšší komerčný zámer. Pre stránky zamerané na konverzie uprednostni kľúčové slová s dobrými hodnotami CPC."
   ],
   "Korean": [
-    ""
+    "Kórejčina"
   ],
   "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?": [
     "Nakoniec, je ešte niečo, čo by si chcel vyzdvihnúť o svojom projekte alebo firme, niečo, čo ho robí jedinečným alebo špeciálnym?"
@@ -1385,7 +1385,7 @@
     "Poďme na to."
   ],
   "Limited keyword tracking": [
-    ""
+    "Obmedzené sledovanie kľúčových slov"
   ],
   "Link assistant": [
     "Asistent odkazov"
@@ -1394,7 +1394,7 @@
     "Stratégia odkazovania"
   ],
   "Listing checker": [
-    ""
+    "Kontrola zoznamu"
   ],
   "Local Keyword Meta Tag Optimization": [
     "Optimalizácia metaznačiek pre lokálne kľúčové slová"
@@ -1406,7 +1406,7 @@
     "Lokálne kľúčové slová v obsahu"
   ],
   "Local Marketing tasks": [
-    ""
+    "Úlohy miestneho marketingu"
   ],
   "Local Schema Markup Suggestion": [
     "Návrh lokálneho značenia schémy"
@@ -1415,22 +1415,22 @@
     "Validácia lokálnej schémy"
   ],
   "Local business schema is not necessary for this page.": [
-    ""
+    "Schéma miestneho podnikania nie je pre túto stránku potrebné."
   ],
   "Local keyword meta tag analysis completed successfully": [
-    ""
+    "Analýza meta tagu lokálneho kľúčového slova bola úspešne dokončená."
   ],
   "Local keyword presence analysis completed": [
-    ""
+    "Analýza prítomnosti miestnych kľúčových slov bola dokončená"
   ],
   "Local schema markup analysis completed successfully": [
-    ""
+    "Analýza miestneho schémy značiek bola úspešne dokončená."
   ],
   "Local schema validation completed": [
-    ""
+    "Lokálna schémová validácia dokončená"
   ],
   "Log sharing is disabled. The client has not agreed to share logs for debugging purposes. Please enable log sharing in plugin settings to allow log downloads.": [
-    ""
+    "Zdieľanie protokolov je zakázané. Klient nesúhlasil so zdieľaním protokolov na účely ladenia. Prosím, povolte zdieľanie protokolov v nastaveniach pluginu, aby ste umožnili sťahovanie protokolov."
   ],
   "Look for keywords with a good balance between search volume and competition. Ideal keywords have moderate search volume with relatively low competition.": [
     "Hľadaj kľúčové slová s dobrou rovnováhou medzi objemom vyhľadávania a konkurenciou. Ideálne kľúčové slová majú mierny objem vyhľadávania s relatívne nízkou konkurenciou."
@@ -1517,7 +1517,7 @@
     "Chýbajúci alt text"
   ],
   "Monitor up to 20 keywords": [
-    ""
+    "Sledujte až 20 kľúčových slov"
   ],
   "Move Keyword Earlier in First Paragraph": [
     "Presunúť kľúčové slovo na skoršiu pozíciu v prvom odseku"
@@ -1544,31 +1544,31 @@
     "Validácia formátu obrázkov novej generácie"
   ],
   "No BASE_ENTITY_CLASS defined in %s": [
-    ""
+    "Nie je definovaná BASE_ENTITY_CLASS v %s"
   ],
   "No BASE_ENTITY_SET_CLASS defined in %s": [
-    ""
+    "Nie je definovaná BASE_ENTITY_SET_CLASS v %s"
   ],
   "No BASE_ORM_MODEL defined in %s": [
-    ""
+    "Nie je definovaný BASE_ORM_MODEL v %s"
   ],
   "No BASE_REPO_CLASS defined in %s": [
-    ""
+    "Nie je definovaná BASE_REPO_CLASS v %s"
   ],
   "No Bucket declared!": [
-    ""
+    "Žiadny vedro nebolo vyhlásené!"
   ],
   "No MediaItem name declared!": [
-    ""
+    "Nebola deklarovaná žiadna názov MediaItem!"
   ],
   "No Region declared!": [
-    ""
+    "Žiadny región nebol vyhlásený!"
   ],
   "No canonical tag found on this page": [
     "Na tejto stránke sa nenašiel žiadny kanonický tag."
   ],
   "No conflicting plugins found.": [
-    ""
+    "Neboli nájdené žiadne konfliktné pluginy."
   ],
   "No content found for analysis": [
     "Nenašiel sa žiadny obsah na analýzu"
@@ -1595,10 +1595,10 @@
     "Nenašli sa žiadne odkazy na analýzu."
   ],
   "No local keywords found for analysis": [
-    ""
+    "Nenašli sa žiadne miestne kľúčové slová na analýzu."
   ],
   "No log files found": [
-    ""
+    "Žiadne súbory protokolu neboli nájdené"
   ],
   "No meta description found": [
     "Nenašiel sa žiadny meta popis."
@@ -1607,7 +1607,7 @@
     "Nenašiel sa žiadny meta titulok."
   ],
   "No opening paragraph found in the content": [
-    ""
+    "Nebola nájdená úvodná časť v obsahu."
   ],
   "No plans available at the moment. Please try again later.": [
     "Momentálne nie sú k dispozícii žiadne balíky. Skús to znova neskôr."
@@ -1631,7 +1631,7 @@
     "Nenašlo sa žiadne označenie schémy."
   ],
   "No valid URL found for this post": [
-    ""
+    "Nenašla sa žiadna platná URL adresa pre tento príspevok."
   ],
   "Not enough links use your brand name as the clickable text. Brand-name links help establish your authority and create a natural-looking link profile.": [
     "Nedostatok odkazov používa názov tvojej značky ako klikateľný text. Odkazy s názvom značky pomáhajú budovať tvoju autoritu a vytvárať prirodzene vyzerajúci profil odkazov."
@@ -1649,13 +1649,13 @@
     "Analýza pútavosti úvodného odseku"
   ],
   "Opening paragraph engagement analysis completed successfully": [
-    ""
+    "Analýza zapojenia úvodného odseku bola úspešne dokončená."
   ],
   "Optimisation": [
     "Optimalizácia"
   ],
   "Optimiser endpoint access denied: Onboarding not finalized": [
-    ""
+    "Prístup k optimalizácii koncového bodu bol zamietnutý: Onboarding nebol dokončený"
   ],
   "Optimization suggestion": [
     "Optimalizačný návrh"
@@ -1688,19 +1688,19 @@
     "Optimalizovať štruktúru URL"
   ],
   "Or: \"%s is important for your website. This strategy can improve rankings.\"": [
-    ""
+    "\"%s je dôležitý pre vašu webovú stránku. Táto stratégia môže zlepšiť hodnotenie.\""
   ],
   "Organization": [
-    ""
+    "Organizácia"
   ],
   "Original from your text: \"%s\"": [
-    ""
+    "\"%s\""
   ],
   "Original sentence: \"%s\"": [
-    ""
+    "\"%s\""
   ],
   "Owner Information": [
-    ""
+    "Informácie o vlastníkoch"
   ],
   "Page Content Keywords": [
     "Kľúčové slová v obsahu stránky"
@@ -1709,16 +1709,16 @@
     "Stránka nie je indexovaná vyhľadávačmi"
   ],
   "Page speed check is disabled by feature flag": [
-    ""
+    "Kontrola rýchlosti stránky je zakázaná pomocou funkčnej vlajky."
   ],
   "Page speed data fetched successfully": [
-    ""
+    "Údaje o rýchlosti načítania stránky boli úspešne načítané."
   ],
   "Pages": [
     "Stránky"
   ],
   "Partner not found or invalid": [
-    ""
+    "Partner nebol nájdený alebo je neplatný"
   ],
   "Performance And Speed": [
     "Výkon a rýchlosť"
@@ -1727,7 +1727,7 @@
     "Vykonáva analýzu mapovania kľúčových slov naprieč obsahom stránky, zisťuje kanibalizáciu a problémy s pokrytím."
   ],
   "Place": [
-    ""
+    "Miesto"
   ],
   "Place Keywords in Strategic Locations": [
     "Umiestni kľúčové slová na strategické miesta"
@@ -1736,22 +1736,22 @@
     "Zistený konflikt pluginov"
   ],
   "Plugin activation failed: %s": [
-    ""
+    "Aktivácia pluginu zlyhala: %s"
   ],
   "Poor": [
     "Slabé"
   ],
   "Portuguese": [
-    ""
+    "portugalčina"
   ],
   "Post ID is required": [
-    ""
+    "ID príspevku je povinný"
   ],
   "Post content is empty": [
-    ""
+    "Obsah príspevku je prázdny"
   ],
   "Post not found": [
-    ""
+    "Príspevok nebol nájdený"
   ],
   "Post with ID %d does not exist": [
     "Príspevok s ID %d neexistuje."
@@ -1784,16 +1784,16 @@
     "Primárne kľúčové slovo bolo úspešne overené."
   ],
   "Privacy policy": [
-    ""
+    "Zásady ochrany osobných údajov"
   ],
   "Pro": [
-    ""
+    "Pro"
   ],
   "ProfessionalService": [
-    ""
+    "Profesionálna služba"
   ],
   "Promote your business with two easy ad options. You can launch a Google Ads campaign to appear in search results or turn your best-performing social posts into Meta ads for Facebook. Either way, you'll get seen by the right people, with less effort.": [
-    ""
+    "Propagujte svoj biznis s dvoma jednoduchými možnosťami reklamy. Môžete spustiť kampaň Google Ads, aby ste sa objavili vo výsledkoch vyhľadávania, alebo premeniť svoje najlepšie výkonné príspevky na sociálnych sieťach na reklamy Meta pre Facebook. V oboch prípadoch sa dostanete k správnym ľuďom s menším úsilím."
   ],
   "Provide clear, unambiguous guidance": [
     "Poskytni jasné a jednoznačné usmernenie"
@@ -1814,19 +1814,19 @@
     "Uveď viac technických detailov, kde je to vhodné"
   ],
   "Publish Business on multiple directories": [
-    ""
+    "Zverejnite podnik na viacerých adresároch"
   ],
   "Publish business on Facebook & Google Business Profile": [
-    ""
+    "Zverejnite podnik na Facebooku a Google Business Profile"
   ],
   "Publish your Business Profile across multiple directories with one click. Monitor your overall listings presence and manage it easily with fine-tune updates.": [
-    ""
+    "Zverejnite svoj obchodný profil v rôznych adresároch jedným kliknutím. Sledujte svoju celkovú prítomnosť v zoznamoch a jednoducho ju spravujte s presnými aktualizáciami."
   ],
   "Queries external APIs to confirm whether a page is indexed by Google and Bing. Reports indexation status and provides guidance on improving visibility if the URL is missing from search results.": [
     "Dotazuje sa na externé API, aby potvrdil, či je stránka indexovaná Google a Bingom. Hlásí stav indexácie a poskytuje usmernenie na zlepšenie viditeľnosti, ak URL chýba vo výsledkoch vyhľadávania."
   ],
   "Reach more clients with ads. Right where they are.": [
-    ""
+    "Osvojte viac klientov s reklamami. Presne tam, kde sú."
   ],
   "Readability Score Validation": [
     "Validácia skóre čitateľnosti"
@@ -1838,16 +1838,16 @@
     "Analýza čitateľnosti bola úspešne dokončená"
   ],
   "Recommended": [
-    ""
+    "Odporúčané"
   ],
   "Recommended properties missing: %s": [
-    ""
+    "Odporúčané vlastnosti chýbajú: %s"
   ],
   "Redirect Manager": [
-    ""
+    "Správca presmerovaní"
   ],
   "Redirection error: %s": [
-    ""
+    "Chyba presmerovania: %s"
   ],
   "Redirects": [
     "Presmerovania"
@@ -1895,10 +1895,10 @@
     "Hodnotenie kvality odkazujúcich odkazov"
   ],
   "Referring domains analysis completed successfully": [
-    ""
+    "Analýza odkazujúcich domén bola úspešne dokončená."
   ],
   "Referring links quality assessment completed successfully": [
-    ""
+    "Hodnotenie kvality odkazov bolo úspešne dokončené."
   ],
   "Refine your primary keyword phrase to capture optimal search intent. Select a specific 2-4 word phrase that balances search volume with competition.": [
     "Uprav svoju primárnu kľúčovú frázu tak, aby si zachytil optimálny vyhľadávací zámer. Vyber si konkrétnu frázu s 2-4 slovami, ktorá vyvažuje objem vyhľadávania a konkurenciu."
@@ -1922,7 +1922,7 @@
     "Odstráň nepotrebné parametre dopytu a skráť tak URL."
   ],
   "Replace \"%s\" with: %s": [
-    ""
+    "Nahradiť \"%s\" s: %s"
   ],
   "Replace complex words with simpler alternatives to improve readability.": [
     "Nahraď zložité slová jednoduchšími alternatívami, aby si zlepšil čitateľnosť."
@@ -1934,28 +1934,28 @@
     "Nahraď podčiarkovníky pomlčkami vo svojich URL adresách, aby si zvýšil viditeľnosť vo vyhľadávaní. Vyhľadávače rozpoznávajú pomlčky ako oddeľovače slov, čo zlepšuje efektivitu prehľadávania a rozpoznávanie kľúčových slov."
   ],
   "Reply with AI or manually to reviews from Google, Facebook, and numerous other sources, in one single place. All to save time and protect your reputation.": [
-    ""
+    "Odpovedajte na recenzie z Googlu, Facebooku a mnohých ďalších zdrojov, na jednom mieste. Všetko pre úsporu času a ochranu vašej reputácie."
   ],
   "Reputation Insights": [
-    ""
+    "Prehľad reputácie"
   ],
   "Reputation widget": [
-    ""
+    "Widget reputácie"
   ],
   "Request contains invalid data": [
-    ""
+    "Žiadosť obsahuje neplatné údaje."
   ],
   "Required field '%s' is missing.": [
-    ""
+    "Povinné pole '%s' chýba."
   ],
   "Required properties missing: %s": [
-    ""
+    "Chýbajúce požadované vlastnosti: %s"
   ],
   "Resolve Technical SEO Issues": [
     "Vyrieš technické problémy SEO"
   ],
   "Response class does not exist: %s": [
-    ""
+    "Trieda odpovede neexistuje: %s"
   ],
   "Responsive Image Sizing": [
     "Responzívne nastavenie veľkosti obrázkov"
@@ -1988,22 +1988,22 @@
     "Validácia súboru robots.txt prebehla úspešne."
   ],
   "Russian": [
-    ""
+    "ruský"
   ],
   "SEO analysis is being throttled. Please try again later.": [
-    ""
+    "Analýza SEO je obmedzená. Skúste to prosím neskôr."
   ],
   "SEO performance reports": [
-    ""
+    "Správy o výkonnosti SEO"
   ],
   "SEO tasks": [
-    ""
+    "SEO úlohy"
   ],
   "Safe Browsing Check": [
     "Kontrola bezpečného prehliadania"
   ],
   "Safe browsing status fetched successfully": [
-    ""
+    "Stav bezpečného prehliadania bol úspešne načítaný."
   ],
   "Scans page content to extract and evaluate internal and external links. Checks link status via internal or external service, returning details about broken or redirecting URLs to maintain healthy backlinks.": [
     "Skenuje obsah stránky na extrakciu a vyhodnotenie interných a externých odkazov. Kontroluje stav odkazov prostredníctvom internej alebo externej služby a vracia podrobnosti o nefunkčných alebo presmerovaných URL, aby sa zachovali zdravé spätné odkazy."
@@ -2021,7 +2021,7 @@
     "Identifikácia typu schémy"
   ],
   "Schema analysis completed successfully": [
-    ""
+    "Analýza schémy bola úspešne dokončená."
   ],
   "Schema markup validation completed": [
     "Validácia označenia schémy je dokončená."
@@ -2048,13 +2048,13 @@
     "Zistený bezpečnostný problém funkciou Bezpečné prehliadanie"
   ],
   "Sentiment analysis": [
-    ""
+    "Analýza sentimentu"
   ],
   "Server error: %s": [
-    ""
+    "Chyba servera: %s"
   ],
   "Service endpoint access denied: Invalid Basic Auth credentials": [
-    ""
+    "Prístup k službe zamietnutý: Neplatné základné autentifikačné údaje"
   ],
   "Set Primary Keyword": [
     "Nastav primárne kľúčové slovo"
@@ -2069,7 +2069,7 @@
     "Nastavenie '%s' musí byť číselná hodnota"
   ],
   "Setting '%s': %s": [
-    ""
+    "Nastavenie '%s': %s"
   ],
   "Settings": [
     "Nastavenia"
@@ -2123,7 +2123,7 @@
     "Štatistiky zo sociálnych sietí"
   ],
   "Social Media tasks": [
-    ""
+    "Úlohy na sociálnych médiách"
   ],
   "Some critical pages (like homepage, contact, product pages) are blocked in your robots.txt file. This may harm visibility in search results. Allow search engines to access key pages.": [
     "Niektoré dôležité stránky (napríklad domovská stránka, kontakt, produktové stránky) sú blokované v tvojom súbore robots.txt. To môže poškodiť viditeľnosť vo výsledkoch vyhľadávania. Povoľ vyhľadávačom prístup ku kľúčovým stránkam."
@@ -2144,19 +2144,19 @@
     "Niektoré stránky majú problematické značky meta robots, ktoré môžu brániť správnemu indexovaniu alebo prehľadávaniu. Skontroluj a aktualizuj tieto značky, aby si zaistil správnu viditeľnosť vo vyhľadávačoch."
   ],
   "Spanish": [
-    ""
+    "španielčina"
   ],
   "Standard": [
-    ""
+    "Štandard"
   ],
   "Standard: Easily understood by 13-15 year old students": [
     "Štandardné: Ľahko zrozumiteľné pre 13 – 15-ročných študentov"
   ],
   "Start with a question: \"Why is %s so effective?\"": [
-    ""
+    "\"Prečo je %s taký účinný?\""
   ],
   "Stay on top of every review. Respond in no time.": [
-    ""
+    "Buďte na vrchole každej recenzie. Odpovedajte bezodkladne."
   ],
   "Strengthen Topical Authority": [
     "Posilni tematickú autoritu"
@@ -2168,10 +2168,10 @@
     "Posilni svoju výzvu k akcii tým, že ju urobíš konkrétnejšou a pútavejšou."
   ],
   "Subscription ID is required": [
-    ""
+    "ID predplatného je povinný"
   ],
   "Successfully deactivated: %s": [
-    ""
+    "Úspešne deaktivované: %s"
   ],
   "Target Long Tail Variations": [
     "Zameraj sa na long-tail variácie"
@@ -2180,7 +2180,7 @@
     "Zameraj sa na kľúčové slová s nižšou konkurenciou"
   ],
   "Taxonomy archives for": [
-    ""
+    "Archívy taxonómie pre"
   ],
   "Technical SEO issues can hinder how search engines crawl and index your website. These include broken links, incorrect meta tags, and slow load times.": [
     "Technické problémy SEO môžu brániť tomu, ako vyhľadávače prehľadávajú a indexujú tvoju webovú stránku. Patria sem nefunkčné odkazy, nesprávne meta značky a pomalé časy načítania."
@@ -2189,7 +2189,7 @@
     "Technické SEO"
   ],
   "Terms & Conditions": [
-    ""
+    "Podmienky a ustanovenia"
   ],
   "Thanks for providing that!": [
     "Vďaka za poskytnutie!"
@@ -2210,7 +2210,7 @@
     "Klikateľný text v tvojich spätných odkazoch nie je dostatočne rozmanitý. Zameraj sa na prirodzenú zmes textu so značkou, kľúčových slov a všeobecných fráz ako „klikni sem“."
   ],
   "The existing schema is valid and complete.": [
-    ""
+    "Existujúca schéma je platná a kompletná."
   ],
   "The existing structured data does not match the expected type for this content. Update it to a more suitable schema type such as Article, Product, LocalBusiness, etc.": [
     "Existujúce štruktúrované dáta sa nezhodujú s očakávaným typom pre tento obsah. Aktualizuj ich na vhodnejší typ schémy, ako napríklad Článok, Produkt, Miestna firma atď."
@@ -2234,7 +2234,7 @@
     "Primárne kľúčové slovo nie je umiestnené na začiatku meta titulku. Pre silnejšie SEO signály ho posuň bližšie k začiatku, aby si zdôraznil relevanciu."
   ],
   "The right plan helps your business appear where people search, compare, and decide, so you're not left behind.": [
-    ""
+    "Správny plán pomáha vašej firme objaviť sa tam, kde ľudia vyhľadávajú, porovnávajú a rozhodujú sa, aby ste nezostali pozadu."
   ],
   "The websites linking to you are not very trustworthy. Focus on getting links from respected, authoritative websites in your industry instead of low-quality sites.": [
     "Webové stránky, ktoré na teba odkazujú, nie sú veľmi dôveryhodné. Namiesto nekvalitných stránok sa zameraj na získavanie odkazov z rešpektovaných a smerodajných webových stránok v tvojom odvetví."
@@ -2261,25 +2261,25 @@
     "Zdá sa, že táto stránka je relevantná pre schému LocalBusiness, ale nemá ju implementovanú."
   ],
   "This page does not contain sufficient local business information to warrant schema markup.": [
-    ""
+    "Táto stránka neobsahuje dostatočné informácie o miestnych podnikoch na to, aby si zaslúžila schému značkovania."
   ],
   "This page has too many headings. For better readability and SEO, use no more than %d headings per 1000 words.": [
     "Táto stránka má príliš veľa nadpisov. Pre lepšiu čitateľnosť a SEO použi najviac %d nadpisov na 1000 slov."
   ],
   "This page would benefit from LocalBusiness schema markup.": [
-    ""
+    "Táto stránka by mala prospech z označenia schémy LocalBusiness."
   ],
   "To ensure rankingCoach works properly, please deactivate the conflicting plugin.": [
-    ""
+    "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktivujte konfliktujúci plugin."
   ],
   "To ensure rankingCoach works properly, please deactivate the conflicting plugin: %s": [
-    ""
+    "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktivujte konfliktujúci plugin: %s"
   ],
   "To ensure rankingCoach works properly, please deactivate the conflicting plugins.": [
-    ""
+    "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktivujte konfliktné pluginy."
   ],
   "To ensure rankingCoach works properly, please deactivate the conflicting plugins: %s": [
-    ""
+    "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktivujte konfliktné pluginy: %s"
   ],
   "Too many images contain your keyword in their alt text. This appears unnatural to search engines. Use your keyword in alt text for only the most relevant images (aim for 30-50% of images).": [
     "Príliš veľa obrázkov obsahuje tvoje kľúčové slovo v alt texte. To pôsobí na vyhľadávače neprirodzene. Použi svoje kľúčové slovo v alt texte len pre najrelevantnejšie obrázky (zameraj sa na 30-50 % obrázkov)."
@@ -2300,13 +2300,13 @@
     "Total Blocking Time (TBT) je príliš vysoký. To naznačuje, že tvoja stránka má dlhé úlohy, ktoré blokujú hlavné vlákno a oneskorujú interaktivitu. Optimalizuj vykonávanie JavaScriptu a rozdeľ dlhé úlohy."
   ],
   "Track online mentions": [
-    ""
+    "Sledujte online zmienky"
   ],
   "Track up to 3 competitors": [
-    ""
+    "Sledujte až 3 konkurentov"
   ],
   "Track up to 3 locations": [
-    ""
+    "Sledujte až 3 miesta"
   ],
   "Transition words connect ideas smoothly. Use them to guide readers through your content logically. Add transition words like \"however,\" \"furthermore,\" or \"consequently\" to improve flow.": [
     "Prechodové slová plynulo spájajú myšlienky. Použi ich na logické vedenie čitateľov tvojím obsahom. Pridaj prechodové slová ako „avšak“, „ďalej“ alebo „následne“ na zlepšenie plynulosti."
@@ -2315,22 +2315,22 @@
     "Počas požiadavky sa vyskytla chyba prenosu: %s"
   ],
   "Try referring to \"%s\" by its characteristics or benefits": [
-    ""
+    "Skúste sa odvolať na \"%s\" podľa jeho vlastností alebo výhod."
   ],
   "Try rewriting with a question: \"Why is %s important for this scenario?\"": [
-    ""
+    "\"Prečo je %s dôležité pre túto situáciu?\""
   ],
   "Try to make your URL more concise by removing unnecessary words.": [
     "Skús svoju URL adresu urobiť stručnejšou odstránením nepotrebných slov."
   ],
   "Try: \"The %s approach helps to %s more effectively.\"": [
-    ""
+    "\"%s prístup pomáha %s efektívnejšie.\""
   ],
   "URL content fetched successfully": [
-    ""
+    "Obsah URL bol úspešne načítaný."
   ],
   "URL content is empty": [
-    ""
+    "Obsah URL je prázdny."
   ],
   "URL is too long. Consider shortening it.": [
     "URL je príliš dlhá. Zváž jej skrátenie."
@@ -2342,7 +2342,7 @@
     "Analýza čitateľnosti URL je dokončená."
   ],
   "URL shortener": [
-    ""
+    "Skracovač URL"
   ],
   "URL structure analysis completed": [
     "Analýza štruktúry URL je dokončená."
@@ -2357,7 +2357,7 @@
     "Nepodarilo sa získať URL adresu príspevku."
   ],
   "Unable to process activation code. Please try again later.": [
-    ""
+    "Nemožno spracovať aktivačný kód. Skúste to prosím neskôr."
   ],
   "Unable to retrieve content": [
     "Nepodarilo sa načítať obsah"
@@ -2390,16 +2390,16 @@
     "Upgrade"
   ],
   "Upgrade Plan": [
-    ""
+    "Plán upgradu"
   ],
   "Upgrade to Advanced": [
-    ""
+    "Prejdite na pokročilú verziu"
   ],
   "Upgrade to Pro": [
-    ""
+    "Prejdite na Pro"
   ],
   "Upgrade to Standard": [
-    ""
+    "Prejsť na štandardný plán"
   ],
   "Url Length Check": [
     "Kontrola dĺžky URL"
@@ -2429,19 +2429,19 @@
     "Použiť iba jednu značku H1"
   ],
   "Use Pronouns After First Mention": [
-    ""
+    "Používajte zámená po prvom zmienení."
   ],
   "Use SEO-Friendly Permalink Structure": [
     "Použi štruktúru trvalých odkazov priateľskú k SEO"
   ],
   "Use Synonyms and Related Terms": [
-    ""
+    "Použite synonymá a príbuzné výrazy"
   ],
   "Use active voice for more engaging and clearer content.": [
     "Používaj činný rod pre pútavejší a jasnejší obsah."
   ],
   "Use an indirect reference: \"Understanding the principles behind %s can help...\"": [
-    ""
+    "Pochopenie princípov za %s môže pomôcť..."
   ],
   "Use analogies to explain technical concepts": [
     "Používaj analógie na vysvetlenie technických konceptov"
@@ -2471,16 +2471,16 @@
     "Používaj podporný jazyk, ktorý prejavuje porozumenie"
   ],
   "User with ID %s not found.": [
-    ""
+    "Používateľ s ID %s nebol nájdený."
   ],
   "Uses Google`s Safe Browsing API to determine whether a page is flagged for malware or phishing. Reports potential security issues and advises remediation to protect visitors and preserve search engine trust.": [
     "Používa Google Safe Browsing API na zistenie, či je stránka označená pre malvér alebo phishing. Hlásí potenciálne bezpečnostné problémy a odporúča nápravu na ochranu návštevníkov a zachovanie dôvery vyhľadávačov."
   ],
   "Using cached content for URL: %s": [
-    ""
+    "Používanie uloženého obsahu pre URL: %s"
   ],
   "Using transient cached content for URL: %s": [
-    ""
+    "Používanie dočasne uloženého obsahu pre URL: %s"
   ],
   "Validates LocalBusiness schema markup for completeness and accuracy, ensuring required properties exist. Reviews structured data from page content, reporting any missing fields or incorrect types that could hinder local search visibility.": [
     "Overuje značenie schémy LocalBusiness na úplnosť a presnosť, zabezpečuje existenciu požadovaných vlastností. Skúma štruktúrované dáta z obsahu stránky a hlási akékoľvek chýbajúce polia alebo nesprávne typy, ktoré by mohli brániť viditeľnosti v lokálnom vyhľadávaní."
@@ -2513,7 +2513,7 @@
     "Overuje použitie atribútu srcset, aby sa obrázky načítavali v primeraných veľkostiach na rôznych zariadeniach. Identifikuje stránky s príliš veľa neresponzívnymi obrázkami a odporúča implementáciu responzívnych techník na zlepšenie výkonu a mobilného SEO."
   ],
   "Vary Your Sentence Structure": [
-    ""
+    "Rôzne štruktúry viet"
   ],
   "Verifies that canonical tags are present and correctly point to the preferred URL. Ensures proper formatting to avoid duplicate content issues and guides updates when canonical references are missing or incorrect.": [
     "Overuje, či sú kanonické značky prítomné a správne smerujú na preferovanú URL. Zabezpečuje správne formátovanie, aby sa predišlo problémom s duplicitným obsahom a navrhuje aktualizácie, keď kanonické odkazy chýbajú alebo sú nesprávne."
@@ -2531,10 +2531,10 @@
     "Veľmi slabé"
   ],
   "Videos on posts": [
-    ""
+    "Videá na príspevkoch"
   ],
   "View and respond to posts comments": [
-    ""
+    "Zobraziť a odpovedať na komentáre príspevkov"
   ],
   "View reviews from multiple platforms": [
     "Zobrazenie recenzií z viacerých platforiem"
@@ -2552,19 +2552,19 @@
     "Skvelé!"
   ],
   "Write content once. Publish everywhere.": [
-    ""
+    "Napíšte obsah raz. Publikujte všade."
   ],
   "Write words that you want to search": [
     "Napíš slová, ktoré chceš hľadať"
   ],
   "Yes, Pro is ideal for small businesses aiming for growth, increased visibility, and efficient marketing management.": [
-    ""
+    "Áno, Pro je ideálny pre malé podniky, ktoré sa snažia o rast, zvýšenú viditeľnosť a efektívne riadenie marketingu."
   ],
   "Yes, it`s perfect for businesses looking to grow their reach by running Google Ads campaigns or boosting posts with Meta ads.": [
-    ""
+    "Áno, je to perfektné pre podniky, ktoré sa snažia rozšíriť svoj dosah prostredníctvom kampaní Google Ads alebo zvýšením príspevkov pomocou reklám na Meta."
   ],
   "You are here:": [
-    ""
+    "Ste tu:"
   ],
   "You are losing more links than you are gaining. This signals declining relevance to search engines. Create a consistent strategy to earn new links regularly.": [
     "Strácaš viac odkazov, ako získavaš. To signalizuje vyhľadávačom klesajúcu relevanciu. Vytvor si konzistentnú stratégiu na pravidelné získavanie nových odkazov."
@@ -2573,7 +2573,7 @@
     "Nemáš žiadne odkazy z vysoko rešpektovaných webových stránok. Už len niekoľko odkazov z dôveryhodných a populárnych stránok môže výrazne zlepšiť tvoje umiestnenie vo vyhľadávaní."
   ],
   "You do not have permission to deactivate plugins.": [
-    ""
+    "Nemáte povolenie na deaktíváciu pluginov."
   ],
   "You have defined too many secondary keywords. Focus on 3-5 highly relevant secondary keywords that complement your primary keyword rather than trying to target too many terms.": [
     "Definoval si príliš veľa sekundárnych kľúčových slov. Zameraj sa na 3-5 vysoko relevantných sekundárnych kľúčových slov, ktoré dopĺňajú tvoje primárne kľúčové slovo, namiesto toho, aby si sa snažil cieliť na príliš veľa výrazov."
@@ -2585,10 +2585,10 @@
     "Niekoľko webových stránok na teba odkazuje, ale získanie viacerých odkazov (zameraj sa na 50+) výrazne zlepší tvoje umiestnenie vo vyhľadávaní a posilní autoritu tvojej stránky."
   ],
   "You must complete onboarding before accessing this endpoint.": [
-    ""
+    "Musíte dokončiť onboarding pred prístupom k tomuto koncovému bodu."
   ],
   "You're currently using the %s plan.": [
-    ""
+    "Momentálne používate plán %s."
   ],
   "Your CTA is good, but could be improved by adding urgency or clarifying the benefit": [
     "Tvoja výzva k akcii je dobrá, ale mohla by sa vylepšiť pridaním naliehavosti alebo objasnením výhody."
@@ -2600,7 +2600,7 @@
     "V tvojej URL adrese chýba primárne kľúčové slovo, čo znižuje viditeľnosť vo vyhľadávaní. Jeho zahrnutie zvyšuje potenciál pre umiestnenie, signalizuje relevanciu obsahu a zlepšuje používateľský zážitok."
   ],
   "Your average sentence length (%s words) is above the recommended maximum (%s words).": [
-    ""
+    "Priemerná dĺžka vašich viet (%s slov) je nad odporúčaným maximom (%s slov)."
   ],
   "Your backlink profile lacks contextual links (links embedded within relevant content). These are more valuable than links in footers, sidebars, or author bios.": [
     "Tvoj profil spätných odkazov postráda kontextové odkazy (odkazy vložené do relevantného obsahu). Tieto sú cennejšie ako odkazy v pätách, bočných paneloch alebo biografiách autorov."
@@ -2624,7 +2624,7 @@
     "Tvoji konkurenti dominujú v rebríčkoch vyhľadávania vďaka lepšej hĺbke obsahu a optimalizácii kľúčových slov. Vylepši svoj materiál, aby si prekonal ich kvalitu a vybudoval si autoritu na trhu."
   ],
   "Your competitors made themselves visible.": [
-    ""
+    "Vaši konkurenti sa stali viditeľnými."
   ],
   "Your content contains excessive keyword repetition, which may trigger search engine penalties. Create more natural, reader-friendly text with balanced keyword distribution.": [
     "Tvoj obsah obsahuje nadmerné opakovanie kľúčových slov, čo môže viesť k penalizácii zo strany vyhľadávačov. Vytvor prirodzenejší a čitateľsky prívetivejší text s vyváženou distribúciou kľúčových slov."
@@ -2690,10 +2690,10 @@
     "Skóre čitateľnosti tvojho obsahu (%s) naznačuje, že pre priemerného človeka môže byť ťažko čitateľný."
   ],
   "Your current plan": [
-    ""
+    "Váš aktuálny plán"
   ],
   "Your existing LocalBusiness schema needs %s.": [
-    ""
+    "Vaša existujúca schéma LocalBusiness potrebuje %s."
   ],
   "Your first paragraph contains excessive keyword repetition. This creates poor readability and may trigger search engine penalties. Rewrite using pronouns, synonyms, and natural language flow.": [
     "Tvoj prvý odsek obsahuje nadmerné opakovanie kľúčových slov. To zhoršuje čitateľnosť a môže viesť k penalizácii zo strany vyhľadávačov. Preformuluj ho pomocou zámen, synoným a prirodzeného jazyka."
@@ -2741,7 +2741,7 @@
     "Tvoj meta popis obsahuje slabú alebo nejasnú výzvu na akciu. Urob ju konkrétnejšou a presvedčivejšou, aby si zvýšil počet kliknutí."
   ],
   "Your meta description is within the acceptable range but could be improved. Aim for a length between %d and %d characters to enhance click-through rates.": [
-    ""
+    "Vaša meta popis je v prijateľnom rozsahu, ale mohla by sa zlepšiť. Snažte sa o dĺžku medzi %d a %d znakmi, aby ste zvýšili mieru prekliknutia."
   ],
   "Your meta description repeats keywords too frequently. Write a compelling, natural description that mentions your keyword once while focusing on user engagement and click-through appeal.": [
     "Tvoj meta popis opakuje kľúčové slová príliš často. Napíš pútavý, prirodzený popis, ktorý spomenie tvoje kľúčové slovo raz a zameria sa na zaujatie používateľa a motiváciu ku kliknutiu."
@@ -2786,7 +2786,7 @@
     "V úvodnom odseku chýba primárne kľúčové slovo, čím sa znižuje okamžitá relevancia. Prirodzene ho zapracuj, aby si zlepšil tematickú zrozumiteľnosť a rozpoznávanie vo vyhľadávačoch."
   ],
   "Your page already has valid LocalBusiness schema markup. No action required.": [
-    ""
+    "Vaša stránka už má platný schema markup pre LocalBusiness. Nie sú potrebné žiadne akcie."
   ],
   "Your page contains images that are too large in file size. Large images significantly slow down page loading. Resize and compress images to appropriate dimensions and file sizes.": [
     "Tvoja stránka obsahuje obrázky, ktoré sú príliš veľké. Veľké obrázky výrazne spomaľujú načítavanie stránky. Zmeň veľkosť a komprimuj obrázky na primerané rozmery a veľkosti súborov."
@@ -2924,22 +2924,22 @@
     "Tvoja webová stránka vyžaduje súbor robots.txt, ktorý efektívne naviguje prehľadávače vyhľadávačov. Implementácia tohto základného súboru zlepší efektivitu prehľadávania a poskytne lepšiu kontrolu indexovania."
   ],
   "and": [
-    ""
+    "a"
   ],
   "fixing": [
-    ""
+    "oprava"
   ],
   "improvement": [
-    ""
+    "zlepšenie"
   ],
   "optimal": [
     "optimálny"
   ],
   "per month": [
-    ""
+    "mesačne"
   ],
   "rankingCoach SEO Overview": [
-    ""
+    "rankingCoach SEO prehľad"
   ],
   "slightly_long": [
     "trochu_dlhý"
@@ -2996,16 +2996,16 @@
     "Verzia pluginu:"
   ],
   "UserID:": [
-    ""
+    "ID používateľa:"
   ],
   "ProjectID:": [
-    ""
+    "ProjektID:"
   ],
   "Subscription:": [
-    ""
+    "Predplatné:"
   ],
   "Name:": [
-    ""
+    "Meno:"
   ],
   "Separator": [
     "Oddeľovač"
@@ -3113,13 +3113,13 @@
     "Povoliť spustenie kontroly nefunkčných odkazov v pravidelných intervaloch"
   ],
   "Enable anonymous usage data sharing": [
-    ""
+    "Povoliť zdieľanie anonymných údajov o používaní"
   ],
   "Enable this option to share anonymous usage data with the plugin developers": [
-    ""
+    "Povoľte túto možnosť na zdieľanie anonymných údajov o používaní s vývojármi pluginov."
   ],
   "Remove settings on plugin deactivation": [
-    ""
+    "Odstrániť nastavenia pri deaktivácii pluginu"
   ],
   "Disable WordPress heartbeat admin-ajax service": [
     "Vypnúť službu WordPress heartbeat admin-ajax"
@@ -3143,7 +3143,7 @@
     "Zobraziť mapu stránok"
   ],
   "Finish onboarding": [
-    ""
+    "Dokončiť onboarding"
   ],
   "rC Icon": [
     "Ikona rC"
@@ -3167,49 +3167,49 @@
     "Na našej strane sa niečo pokazilo, skús to znova!"
   ],
   "From 1 to many": [
-    ""
+    "Od 1 po mnoho"
   ],
   "Track more keywords than you can right now": [
-    ""
+    "Sledujte viac kľúčových slov, ako môžete práve teraz."
   ],
   "Meta generator": [
-    ""
+    "Meta generátor"
   ],
   "Create meta descriptions and titles automatically": [
-    ""
+    "Automaticky vytvárajte meta popisy a názvy."
   ],
   "Automatic canonicals": [
-    ""
+    "Automatické kanonické odkazy"
   ],
   "Avoid duplicate content with smart URL settings": [
-    ""
+    "Vyhnite sa duplicitnému obsahu pomocou inteligentných nastavení URL."
   ],
   "Image Alt-text generator": [
-    ""
+    "Generátor alt-textu pre obrázky"
   ],
   "Automate alt text and titles for images": [
-    ""
+    "Automatizujte alternatívny text a názvy pre obrázky"
   ],
   "AI-powered social content": [
-    ""
+    "Obsah na sociálnych sieťach poháňaný umelou inteligenciou"
   ],
   "Generate social media titles and metadata instantly": [
-    ""
+    "Generujte názvy a metadata pre sociálne médiá okamžite"
   ],
   "Page content": [
-    ""
+    "Obsah stránky"
   ],
   "Auto-integrate keywords into your page content": [
-    ""
+    "Automaticky integrujte kľúčové slová do obsahu vašej stránky."
   ],
   "PRO FEATURE": [
-    ""
+    "PROFESIONÁLNA FUNKCIA"
   ],
   "Set noindex for this page:": [
     "Nastaviť noindex pre túto stránku:"
   ],
   "Exclude this page from sitemap:": [
-    ""
+    "Vylúčiť túto stránku zo sitemapu:"
   ],
   "Canonical URL": [
     "Kanonická URL"
@@ -3251,13 +3251,13 @@
     "logo rankingCoach"
   ],
   "On-Page Optimization Overview": [
-    ""
+    "Prehľad optimalizácie na stránke"
   ],
   "Content SEO Score": [
-    ""
+    "Skóre SEO obsahu"
   ],
   "No recommendations available": [
-    ""
+    "Žiadne odporúčania nie sú k dispozícii."
   ],
   "Both Source URL and Target URL are required": [
     "Zdrojová URL aj cieľová URL sú povinné"
@@ -3419,28 +3419,28 @@
     "Generovať schému"
   ],
   "Schema loaded from cache": [
-    ""
+    "Schéma načítané z cache"
   ],
   "Schema generated successfully": [
     "Schéma úspešne vygenerovaná"
   ],
   "Create a series of posts": [
-    ""
+    "Vytvorte sériu príspevkov"
   ],
   "Social media planner": [
-    ""
+    "Plánovač sociálnych médií"
   ],
   "Publish on multiple platforms": [
-    ""
+    "Publikovať na viacerých platformách"
   ],
   "Monitor and reply to reviews": [
-    ""
+    "Sledujte a odpovedajte na recenzie"
   ],
   "Review collector widget": [
-    ""
+    "Widget na zber recenzií"
   ],
   "URL shortener for marketing links": [
-    ""
+    "Skracovač URL pre marketingové odkazy"
   ],
   "And more": [
     "A viac"
@@ -3524,10 +3524,10 @@
     "Vyhľadať kategóriu, napr.: Oprava počítačov"
   ],
   "You can add up to 10 categories.": [
-    ""
+    "Môžete pridať až 10 kategórií."
   ],
   "You don`t have any categories at the moment": [
-    ""
+    "Momentálne nemáte žiadne kategórie."
   ],
   "Finish Onboarding": [
     "Dokončiť registráciu"
@@ -3545,7 +3545,7 @@
     "Zadaj popis webovej stránky"
   ],
   "Edit business information": [
-    ""
+    "Upraviť obchodné informácie"
   ],
   "Business Name": [
     "Názov firmy"
@@ -3563,7 +3563,7 @@
     "Adresa firmy"
   ],
   "Enter business address": [
-    ""
+    "Zadajte obchodnú adresu"
   ],
   "A keyword can have max 80 characters": [
     "Kľúčové slovo môže mať maximálne 80 znakov"
@@ -3638,19 +3638,19 @@
     "Načítava sa..."
   ],
   "rankingCoach SEO": [
-    ""
+    "rankingCoach SEO"
   ],
   "https://www.rankingcoach.com/en-us/wordpress": [
-    ""
+    "Je mi ľúto, ale nemôžem otvoriť odkazy. Môžem vám pomôcť s prekladom textu, ak mi ho poskytnete."
   ],
   "Be Found Easier in Google with rankingCoach | Effectively Perform Online Marketing in WordPress with rankingCoach | Assistant on SEO, Listing & Ads for better Google rankings and online visibility, and much more": [
-    ""
+    "Buďte ľahšie nájdení na Googli s rankingCoach | Efektívne vykonávajte online marketing vo WordPresse s rankingCoach | Asistent pre SEO, zoznamy a reklamy pre lepšie pozície na Googli a online viditeľnosť, a oveľa viac"
   ],
   "rankingCoach Team": [
-    ""
+    "rankingCoach tím"
   ],
   "https://www.rankingcoach.com/en-us/about-us": [
-    ""
+    "Je mi ľúto, ale nemôžem navštíviť webové stránky. Môžem vám pomôcť s prekladom textu, ak mi ho poskytnete."
   ],
   "Your meta description is within the acceptable range but could be improved. Aim for a length between %1$d and %2$d characters to enhance click-through rates.": [
     "Tvoj meta popis je v prijateľnom rozsahu, ale dal by sa vylepšiť. Zameraj sa na dĺžku medzi %1$d a %2$d znakmi, aby si zvýšil mieru prekliku."
@@ -3659,34 +3659,34 @@
     "Tvoja priemerná dĺžka vety (%1$s slov) je nad odporúčaným maximom (%2$s slov)."
   ],
   "Instead of: \"%1$s is important for your website. %2$s can improve rankings.\"": [
-    ""
+    "\"%1$s je dôležitý pre vašu webovú stránku. %2$s môže zlepšiť hodnotenie.\""
   ],
   "Try: \"The %1$s approach helps to %2$s more effectively.\"": [
-    ""
+    "\"Prístup %1$s pomáha %2$s efektívnejšie.\""
   ],
   "Instead of repeating \"%1$s\", incorporate \"%2$s\" to add topical depth": [
-    ""
+    "Namiesto opakovania \"%1$s\" začleňte \"%2$s\" na pridanie tematickej hĺbky."
   ],
   "Instead of always using \"%1$s\", try: %2$s": [
-    ""
+    "Namiesto stáleho používania \"%1$s\" vyskúšajte: %2$s"
   ],
   "Replace \"%1$s\" with: %2$s": [
-    ""
+    "Nahradiť \"%1$s\" s: %2$s"
   ],
   "Error API": [
-    ""
+    "Chyba API"
   ],
   "%1$s > %2$s: %3$s": [
-    ""
+    "%1$s > %2$s: %3$s"
   ],
   "Activation done": [
     "Aktivácia hotová"
   ],
   "Activation code processed successfully.": [
-    ""
+    "Aktivačný kód bol spracovaný úspešne."
   ],
   "You will be automatically redirected to the main dashboard in 5 seconds...": [
-    ""
+    "Budete automaticky presmerovaní na hlavnú nástenku za 5 sekúnd..."
   ],
   "Continue onboarding": [
     "Pokračovať v registrácii"
@@ -3695,49 +3695,49 @@
     "Zadaj svoj aktivačný kód"
   ],
   "To use the plugin, you'll need to activate it. Paste your code below to get started.": [
-    ""
+    "Aby ste mohli používať plugin, musíte ho aktivovať. Vložte svoj kód nižšie, aby ste mohli začať."
   ],
   "Activation Code": [
     "Aktivačný kód"
   ],
   "ex: 0822646889": [
-    ""
+    "0822646889"
   ],
   "Activate": [
     "Aktivovať"
   ],
   "Use the code we emailed you to unlock the plugin.": [
-    ""
+    "Použite kód, ktorý sme vám poslali e-mailom, na odomknutie pluginu."
   ],
   "Can't find it? Search your inbox for \"activation code.\"": [
-    ""
+    "Nemôžete to nájsť? Prehľadajte svoju doručenú poštu pre \"aktivačný kód.\""
   ],
   "Or configure with a refresh token": [
-    ""
+    "Alebo nakonfigurujte s obnovovacím tokenom"
   ],
   "API Refresh Token": [
-    ""
+    "API obnovovací token"
   ],
   "Please enter or update the API refresh token below. This token is required for secure API connections.": [
-    ""
+    "Prosím, zadajte alebo aktualizujte nižšie uvedený obnovovací token API. Tento token je potrebný pre bezpečné pripojenia k API."
   ],
   "Save Token": [
-    ""
+    "Uložiť token"
   ],
   "Use activation code instead →": [
-    ""
+    "Použite aktivačný kód namiesto →"
   ],
   "You do not have sufficient permissions to access this page.": [
     "Nemáš dostatočné oprávnenia na prístup k tejto stránke."
   ],
   "Nonce verification failed. Please try again.": [
-    ""
+    "Overenie nonce zlyhalo. Skúste to prosím znova."
   ],
   "Refresh token saved successfully.": [
     "Obnovovací token bol úspešne uložený."
   ],
   "Failed to save the refresh token. Please try again.": [
-    ""
+    "Nepodarilo sa uložiť obnovovací token. Skúste to prosím znova."
   ],
   "No keywords found to synchronize": [
     "Nenašli sa žiadne kľúčové slová na synchronizáciu"
@@ -3746,10 +3746,10 @@
     "Všetky kľúčové slová už majú externé ID, nie je potrebná synchronizácia"
   ],
   "Empty response from keywords sync API after retries": [
-    ""
+    "Prázdna odpoveď z API synchronizácie kľúčových slov po opakovaných pokusoch"
   ],
   "Keywords table '%s' does not exist": [
-    ""
+    "Tabuľka kľúčových slov '%s' neexistuje"
   ],
   "Error fetching keywords: %s": [
     "Chyba pri načítaní kľúčových slov: %s"
@@ -3806,91 +3806,91 @@
     "Stránky webu"
   ],
   "Import translated categories": [
-    ""
+    "Importovať preložené kategórie"
   ],
   "Read Website All Pages": [
-    ""
+    "Prečítajte si všetky stránky webovej stránky"
   ],
   "Read Plugin Data": [
-    ""
+    "Prečítajte si údaje pluginu"
   ],
   "Read List of Modules": [
-    ""
+    "Prečítajte si zoznam modulov"
   ],
   "Read Account Details": [
-    ""
+    "Prečítajte si podrobnosti účtu"
   ],
   "Read Location Keywords": [
-    ""
+    "Čítaj kľúčové slová umiestnenia"
   ],
   "Read Distinct Module Data": [
-    ""
+    "Prečítajte si údaje z rôznych modulov"
   ],
   "Made The Plugin Onboarding": [
-    ""
+    "Vytvorené onboarding pre plugin"
   ],
   "Access to Assign Keywords SEO operations": [
-    ""
+    "Prístup k priradeniu kľúčových slov SEO operácií"
   ],
   "Access to Improve Content Quality And Length SEO operations": [
-    ""
+    "Prístup k zlepšeniu kvality obsahu a dĺžky SEO operácií"
   ],
   "Access to Optimize Readability On Page SEO operations": [
-    ""
+    "Prístup k optimalizácii čitateľnosti na stránke SEO operácií"
   ],
   "Access to First Paragraph Keyword Usage SEO operations": [
-    ""
+    "Prístup k používaniu kľúčových slov v SEO operáciách prvého odseku"
   ],
   "Access to Header Tags Structure SEO operations": [
-    ""
+    "Prístup k štruktúre značiek hlavičky SEO operácií"
   ],
   "Access to Add Local Keywords In Content SEO operations": [
-    ""
+    "Prístup k pridaniu miestnych kľúčových slov do SEO operácií obsahu"
   ],
   "Access to Create Meta Description Tag SEO operations": [
-    ""
+    "Prístup k vytvoreniu meta popisu pre SEO operácie"
   ],
   "Access to Meta Description Keywords SEO operations": [
-    ""
+    "Prístup k operáciám SEO kľúčových slov meta popisu"
   ],
   "Access to Create Meta Title Tag SEO operations": [
-    ""
+    "Prístup k vytvoreniu meta názvu tagu SEO operácií"
   ],
   "Access to Meta Title Keywords SEO operations": [
-    ""
+    "Prístup k operáciám SEO pre kľúčové slová meta titulov"
   ],
   "Access to Optimize Page Content Keywords SEO operations": [
-    ""
+    "Prístup k optimalizácii kľúčových slov obsahu stránky SEO operácií"
   ],
   "Access to Analyze Backlink Profile SEO operations": [
-    ""
+    "Prístup k analýze profilu spätných odkazov SEO operácií"
   ],
   "Access to Fix Broken Links On Page SEO operations": [
-    ""
+    "Prístup k opraveniu nefunkčných odkazov na stránke SEO operácie"
   ],
   "Access to Alt Text To Images SEO operations": [
-    ""
+    "Prístup k alternatívnemu textu pre obrázky SEO operácie"
   ],
   "Access to Optimize Image File Sizes SEO operations": [
-    ""
+    "Prístup k optimalizácii veľkostí súborov obrázkov pre SEO operácie"
   ],
   "Access to Optimize Page Speed SEO operations": [
-    ""
+    "Prístup k optimalizácii rýchlosti stránky SEO operácií"
   ],
   "Access to Optimize URL Structure SEO operations": [
-    ""
+    "Prístup k optimalizácii štruktúry URL pre SEO operácie"
   ],
   "Access to Schema Markup SEO operations": [
-    ""
+    "Prístup k operáciám SEO so schémou značkovania"
   ],
   "Access to Search Engine Indexation SEO operations": [
-    ""
+    "Prístup k indexácii vyhľadávačov SEO operácií"
   ],
   "Access to Use Canonical Tags SEO operations": [
-    ""
+    "Prístup k používaniu kanonických značiek SEO operácií"
   ],
   "rankingCoach Assistant": [
-    ""
+    "rankingCoach asistent"
   ],
   "Run <code>npm run build</code> in your application root!": [
     "Spusti <code>npm run build</code> v koreňovom adresári svojej aplikácie!"
@@ -3941,7 +3941,7 @@
     "%1$s %2$s príspevky od %3$s kanál"
   ],
   "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed": [
-    ""
+    "%1$s %2$s Výsledky vyhľadávania pre &#8220;%3$s&#8221; kanál"
   ],
   "%1$s %2$s %3$s Feed": [
     "%1$s %2$s %3$s kanál"
@@ -3956,10 +3956,10 @@
     "Menu %s"
   ],
   "Onboarding not finished": [
-    ""
+    "Zaradenie nie je dokončené"
   ],
   "You can't use all plugin features because you didn't finish the onboarding. Complete it now to start using RankingCoach.": [
-    ""
+    "Nemôžete využiť všetky funkcie pluginu, pretože ste nedokončili onboarding. Dokončite ho teraz, aby ste mohli začať používať RankingCoach."
   ],
   "Unexpected Error": [
     "Neočakávaná chyba"
@@ -4004,7 +4004,7 @@
     "Token môže byť prázdny alebo chýbať."
   ],
   "Click here to <a href=\"%s\" class=\"invalid-token-button\">configure a new token manually</a>.": [
-    ""
+    "Kliknite sem, aby ste <a href=\"%s\" class=\"invalid-token-button\">ručne nakonfigurovali nový token</a>."
   ],
   "Refresh Token Missing": [
     "Chýba obnovovací token"
@@ -4022,22 +4022,22 @@
     "Uisti sa, že proces generovania tokenu bol dokončený."
   ],
   "Click here to <a href=\"%1$s\" class=\"invalid-token-button\">configure a new token manually</a>.<br>Or click here to <a href=\"%2$s\" class=\"activation-code-button\">enter a new activation code</a>.": [
-    ""
+    "Kliknite sem, aby <a href=\"%1$s\" class=\"invalid-token-button\">manuálne nakonfigurovali nový token</a>.<br>Alebo kliknite sem, aby <a href=\"%2$s\" class=\"activation-code-button\">zadali nový aktivačný kód</a>."
   ],
   "Plugin Activation Failed": [
-    ""
+    "Aktivácia pluginu zlyhala"
   ],
   "An issue occurred during the plugin activation process, preventing successful initialization.": [
-    ""
+    "Počas procesu aktivácie pluginu došlo k problému, ktorý zabránil úspešnému inicializovaniu."
   ],
   "Possible connection issues with the external API.": [
-    ""
+    "Možné problémy s pripojením na externé API."
   ],
   "Server configuration conflicts or incompatible environment settings.": [
-    ""
+    "Konflikty v konfigurácii servera alebo nekompatibilné nastavenia prostredia."
   ],
   "Click here to <a href=\"%s\" class=\"invalid-token-button\">configure a new refresh token manually</a>.": [
-    ""
+    "Kliknite sem, aby ste <a href=\"%s\" class=\"invalid-token-button\">ručne nakonfigurovali nový obnovovací token</a>."
   ],
   "Calories": [
     "Kalórie"
@@ -4052,34 +4052,34 @@
     "Krajina"
   ],
   "Enter country": [
-    ""
+    "Zadajte krajinu"
   ],
   "Address first line": [
-    ""
+    "Adresa prvého riadku"
   ],
   "Enter address first line": [
-    ""
+    "Zadajte prvý riadok adresy"
   ],
   "Address line 2": [
-    ""
+    "Adresa riadok 2"
   ],
   "Enter address line 2": [
-    ""
+    "Zadajte adresu riadku 2"
   ],
   "City": [
-    ""
+    "Mesto"
   ],
   "Enter city": [
-    ""
+    "Zadajte mesto"
   ],
   "Postal code": [
-    ""
+    "PSČ"
   ],
   "Enter postal code": [
-    ""
+    "Zadajte poštové smerovacie číslo"
   ],
   "Insufficient Secondary Keywords": [
-    ""
+    "Nedostatočné sekundárne kľúčové slová"
   ],
   "Invalid URL format: ": [
     "Neplatný formát URL:"
@@ -4091,31 +4091,31 @@
     "Požiadavka zlyhala po viacerých pokusoch:"
   ],
   "Keyword insert failed. Error: %1$s. Query: %2$s": [
-    ""
+    "Vloženie kľúčového slova zlyhalo. Chyba: %1$s. Dotaz: %2$s"
   ],
   "Composer autoload file not found: ": [
-    ""
+    "Súbor autoload pre Composer nebol nájdený:"
   ],
   "Log sharing is disabled. Please enable log sharing in plugin settings to allow log downloads.": [
-    ""
+    "Zdieľanie protokolov je zakázané. Prosím, povolte zdieľanie protokolov v nastaveniach pluginu, aby ste umožnili sťahovanie protokolov."
   ],
   "Download token is required": [
-    ""
+    "Vyžaduje sa token na stiahnutie"
   ],
   "Invalid or expired download token": [
-    ""
+    "Neplatný alebo expirovaný token na stiahnutie"
   ],
   "Download token has expired": [
-    ""
+    "Token na stiahnutie vypršal"
   ],
   "Download token has already been used": [
-    ""
+    "Token na stiahnutie bol už použitý."
   ],
   "Missing X-RC-Request-ID header": [
-    ""
+    "Chýbajúci hlavička X-RC-Request-ID"
   ],
   "X-RC-Request-ID does not match the token": [
-    ""
+    "X-RC-Request-ID sa nezhoduje s tokenom"
   ],
   "Disable mobile auto-links for this page:": [
     "Vypnúť automatické odkazy na mobilných zariadeniach pre túto stránku:"
@@ -4124,16 +4124,16 @@
     "Dosiahol si svoj limit sledovania kľúčových slov. %1$sVylepši si svoj balík%2$s, aby si mohol pokračovať v sledovaní ďalších kľúčových slov a zlepšiť svoj výkon SEO."
   ],
   "Be found easier in Google. Effectively perform online marketing in WordPress. Assistant on SEO, Listing & Ads for better Google rankings and online visibility, and much more.": [
-    ""
+    "Buďte ľahšie nájditeľní na Googli. Efektívne vykonávajte online marketing vo WordPresse. Asistent pre SEO, zoznamy a reklamy pre lepšie umiestnenie na Googli a online viditeľnosť, a oveľa viac."
   ],
   "SEO Plugin Team": [
-    ""
+    "Tím SEO pluginu"
   ],
   "<strong>%s</strong> is not compatible with the following plugins:": [
     "<strong>%s</strong> nie je kompatibilný s nasledujúcimi pluginmi:"
   ],
   "<strong>%s</strong> is not compatible with the following plugin: <strong>%s</strong>": [
-    ""
+    "<strong>%s</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%s</strong>"
   ],
   "To ensure %s works properly, please deactivate the conflicting plugins.": [
     "Aby si zabezpečil správne fungovanie %s, deaktivuj konfliktné pluginy."
@@ -4148,19 +4148,19 @@
     "Prehľad %s"
   ],
   "An error occurred while performing the self-check.": [
-    ""
+    "Pri vykonávaní sebaoverenia došlo k chybe."
   ],
   "You can't use all plugin features because you didn't finish the onboarding. Complete it now to start using the plugin.": [
-    ""
+    "Nemôžete využiť všetky funkcie pluginu, pretože ste nedokončili úvodné školenie. Dokončite ho teraz, aby ste mohli začať používať plugin."
   ],
   "Cache Management": [
     "Správa cache"
   ],
   "The primary website domain does not match the WordPress site URL.": [
-    ""
+    "Hlavná doména webovej stránky sa nezhoduje s URL adresou stránky WordPress."
   ],
   "This dedicated rankingCoach account requires completed onboarding before plugin activation.": [
-    ""
+    "Tento špeciálny účet rankingCoach vyžaduje dokončené zaškolenie pred aktiváciou pluginu."
   ],
   "All plugin caches have been cleared successfully.": [
     "Všetky cache pluginu boli úspešne vymazané."
@@ -4418,7 +4418,7 @@
     "Nepodarilo sa nastaviť hodnotu vyrovnávacej pamäte."
   ],
   "Cache value mismatch. Expected: %s, Got: %s": [
-    ""
+    "Nesúlad hodnôt v cache. Očakávané: %s, Získané: %s"
   ],
   "Failed to delete cache value.": [
     "Nepodarilo sa vymazať hodnotu vyrovnávacej pamäte."
@@ -4430,37 +4430,37 @@
     "Všetky operácie s vyrovnávacou pamäťou boli úspešne dokončené."
   ],
   "Domain Mismatch Error": [
-    ""
+    "Chyba nesúhlasu domény"
   ],
   "The domain associated with your activation code does not match your WordPress site URL. This prevents the plugin from being activated correctly.": [
-    ""
+    "Doména spojená s vaším aktivačným kódom sa nezhoduje s URL vašej stránky WordPress. To bráni správnej aktivácii pluginu."
   ],
   "The activation code is associated with a different domain.": [
-    ""
+    "Aktivačný kód je spojený s inou doménou."
   ],
   "Your WordPress site URL has changed since the activation code was generated.": [
-    ""
+    "URL vašej stránky WordPress sa od vygenerovania aktivačného kódu zmenila."
   ],
   "The activation code was generated for a different website.": [
-    ""
+    "Aktivačný kód bol vygenerovaný pre inú webovú stránku."
   ],
   "Please contact support or request a new activation code for your current domain.": [
-    ""
+    "Prosím, kontaktujte podporu alebo požiadajte o nový aktivačný kód pre vašu aktuálnu doménu."
   ],
   "Onboarding Incomplete Error": [
-    ""
+    "Chyba neúplného onboardingu"
   ],
   "This is a dedicated rankingCoach account that requires completed onboarding before the plugin can be activated. The onboarding process must be finalized in the rankingCoach platform.": [
-    ""
+    "Toto je špeciálny účet rankingCoach, ktorý vyžaduje dokončenie onboardingového procesu pred aktiváciou pluginu. Onboardingový proces musí byť dokončený na platforme rankingCoach."
   ],
   "The onboarding process has not been completed in your rankingCoach account.": [
     "Proces onboardingu nebol v tvojom účte rankingCoach dokončený."
   ],
   "Plugin activation is blocked until all required setup steps are finished.": [
-    ""
+    "Aktivácia pluginu je zablokovaná, kým nie sú dokončené všetky požadované kroky nastavenia."
   ],
   "Please complete the onboarding process in your rankingCoach platform account, then try activating the plugin again.": [
-    ""
+    "Prosím, dokončite proces onboardingu vo svojom účte na platforme rankingCoach, a potom sa pokúste plugin znova aktivovať."
   ],
   "Default image source (%s)": [
     "Predvolený zdroj obrázka (%s)"
@@ -4505,22 +4505,22 @@
     "<strong>%1$s</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%2$s</strong>"
   ],
   "Here`s a summary of your website profile. Everything looks good?": [
-    ""
+    "Tu je zhrnutie tvojho profilu na webovej stránke. Všetko vyzerá dobre?"
   ],
   "This category has already been added.": [
-    ""
+    "Táto kategória už bola pridaná."
   ],
   "Enter your website description": [
-    ""
+    "Zadajte popis vašej webovej stránky"
   ],
   "Edit Business Information": [
     "Upraviť informácie o firme"
   ],
   "Enter your business name": [
-    ""
+    "Zadajte názov vašej firmy"
   ],
   "Enter your website URL": [
-    ""
+    "Zadajte URL vašej webovej stránky"
   ],
   "All fields are required. To finish onboarding, set your address on the map and add at least five keywords and one category.": [
     "Všetky polia sú povinné. Ak chceš dokončiť registráciu, nastav svoju adresu na mape a pridaj aspoň päť kľúčových slov a jednu kategóriu."
@@ -4619,7 +4619,7 @@
     "Zdroj obrázka"
   ],
   "You will be automatically redirected to the main dashboard in %d seconds...": [
-    ""
+    "Budete automaticky presmerovaní na hlavnú nástenku za %d sekúnd..."
   ],
   "broken": [
     "nefunkčný"
@@ -4649,22 +4649,22 @@
     "Minimálny požadovaný počet kľúčových slov: 5."
   ],
   "Proceed to shop": [
-    ""
+    "Pokračovať do obchodu"
   ],
   "Address is not precise enough, please confirm your location on the map.": [
     "Adresa nie je dostatočne presná, potvrď svoju polohu na mape."
   ],
   "Check for new version": [
-    ""
+    "Skontrolujte novú verziu"
   ],
   "Advanced analytics dashboard": [
-    ""
+    "Pokročilá analytická nástenka"
   ],
   "Priority customer support": [
-    ""
+    "Prioritná zákaznícka podpora"
   ],
   "Failed to check plugin updates": [
-    ""
+    "Nepodarilo sa skontrolovať aktualizácie pluginov"
   ],
   "Go to updates": [
     "Prejsť na aktualizácie"
@@ -4685,7 +4685,7 @@
     "Vyžadujú sa súbory cookie tretích strán"
   ],
   "To access the dashboard, please enable third-party cookies in your browser.": [
-    ""
+    "Aby ste získali prístup k ovládaciemu panelu, povoľte súbory cookie tretích strán vo svojom prehliadači."
   ],
   "Open Safari Preferences (Safari → Settings)": [
     "Otvor si nastavenia Safari (Safari → Nastavenia)"
@@ -4703,10 +4703,10 @@
     "Klikni na ponuku s tromi bodkami (⋮) v pravom hornom rohu"
   ],
   "Go to Settings → Privacy and security → Cookies and other site data": [
-    ""
+    "Prejdite na Nastavenia → Ochrana súkromia a zabezpečenie → Cookies a iné údaje stránok"
   ],
   "Select \"Allow all cookies\" or \"Block third-party cookies in Incognito\"": [
-    ""
+    "Vyberte \"Povoliť všetky cookies\" alebo \"Blokovať cookies tretích strán v režime inkognito\""
   ],
   "Click the menu button (☰) and select Settings": [
     "Klikni na tlačidlo ponuky (☰) a vyber možnosť Nastavenia"
@@ -4748,7 +4748,7 @@
     "Otvoriť dashboard v novej karte"
   ],
   "To access the dashboard, please enable third-party cookies in your browser. If you prefer not to enable them, you can still view the dashboard by clicking the \"Open Dashboard in New Page\" button below.": [
-    ""
+    "Aby ste získali prístup k ovládaciemu panelu, povolte v prehliadači súbory cookie tretích strán. Ak ich nechcete povoliť, stále môžete zobraziť ovládací panel kliknutím na tlačidlo \"Otvoriť ovládací panel na novej stránke\" nižšie."
   ],
   "On the right click Third-party cookies": [
     "Vpravo klikni na súbory cookie tretích strán"
@@ -4760,31 +4760,31 @@
     "Pre prístup k dashboardu povoľ vo svojom prehliadači súbory cookie tretích strán. Ak ich nechceš povoliť, môžeš si dashboard stále pozrieť kliknutím na"
   ],
   "Open Dashboard in New Page": [
-    ""
+    "Otvorenie panela na novej stránke"
   ],
   "button below": [
     "tlačidlo nižšie"
   ],
   "Optimize WordPress SEO": [
-    ""
+    "Optimalizujte SEO pre WordPress"
   ],
   "Manage local listings": [
-    ""
+    "Spravovať miestne záznamy"
   ],
   "Track keyword rankings": [
-    ""
+    "Sledujte hodnotenia kľúčových slov"
   ],
   "Start your personal online marketing agent": [
-    ""
+    "Začnite svojho osobného online marketingového agenta"
   ],
   "BeyondSEO": [
     "BeyondSEO"
   ],
   "BeyondSEO Team": [
-    ""
+    "Tím BeyondSEO"
   ],
   "https://grow.rankingcoach.com": [
-    ""
+    "Odkaz nie je možné preložiť, pretože ide o URL adresu."
   ],
   "Activation code is required.": [
     "Vyžaduje sa aktivačný kód."
@@ -4811,7 +4811,7 @@
     "Odosiela sa..."
   ],
   "Delete all project data and settings upon deactivation": [
-    ""
+    "Odstrániť všetky údaje a nastavenia projektu po deaktívovaní"
   ],
   "I no longer need the plugin": [
     "Už nepotrebujem tento plugin"
@@ -4823,7 +4823,7 @@
     "Nepodarilo sa mi spustiť plugin"
   ],
   "It's a temporary deactivation": [
-    ""
+    "Je to dočasná deaktivácia."
   ],
   "Other": [
     "Iné"
@@ -4901,10 +4901,10 @@
     "Vytvorenie výzvy zlyhalo."
   ],
   "You will be automatically redirected in %d seconds...": [
-    ""
+    "Budete automaticky presmerovaní za %d sekúnd..."
   ],
   "We couldn't complete the activation": [
-    ""
+    "Nepodarilo sa nám dokončiť aktiváciu."
   ],
   "Contact support": [
     "Kontaktovať podporu"
@@ -4913,7 +4913,7 @@
     "Skúsiť iný kód"
   ],
   "Can’t find it? Search your inbox for 'activation code.'": [
-    ""
+    "Nemôžete to nájsť? Prehľadajte svoju doručenú poštu na 'aktivačný kód.'"
   ],
   "In the left sidebar, click Privacy and security.": [
     "V ľavom bočnom paneli klikni na Súkromie a zabezpečenie."
@@ -4940,13 +4940,13 @@
     "Zaregistrovať sa a pokračovať"
   ],
   "If this is a new account, you will need to validate your email before proceeding.": [
-    ""
+    "Ak ide o nový účet, budete musieť overiť svoju e-mailovú adresu pred pokračovaním."
   ],
   "We sent you a confirmation link. Please check your email.": [
-    ""
+    "Poslali sme vám potvrdzovací odkaz. Skontrolujte prosím svoj e-mail."
   ],
   "This screen will update automatically once your email is validated.": [
-    ""
+    "Táto obrazovka sa automaticky aktualizuje, keď bude vaša e-mailová adresa overená."
   ],
   "Checking…": [
     "Kontroluje sa…"
@@ -4988,40 +4988,40 @@
     "Funkčnosť %s je dočasne nedostupná z dôvodu nesplnenia systémových požiadaviek."
   ],
   "Germany": [
-    ""
+    "Nemecko"
   ],
   "United States": [
-    ""
+    "Spojené štáty"
   ],
   "United Kingdom": [
-    ""
+    "Spojené kráľovstvo"
   ],
   "France": [
-    ""
+    "Francúzsko"
   ],
   "Spain": [
-    ""
+    "Španielsko"
   ],
   "Italy": [
-    ""
+    "Taliansko"
   ],
   "Canada": [
-    ""
+    "Kanada"
   ],
   "Australia": [
-    ""
+    "Austrália"
   ],
   "Netherlands": [
-    ""
+    "Holandsko"
   ],
   "Switzerland": [
-    ""
+    "Švajčiarsko"
   ],
   "Welcome to BeyondSEO": [
-    ""
+    "Vitajte na BeyondSEO"
   ],
   "Log in or create a new account to start using your SEO tools.": [
-    ""
+    "Prihláste sa alebo si vytvorte nový účet, aby ste mohli začať používať svoje SEO nástroje."
   ],
   "Enter your email": [
     "Zadaj svoj e-mail"
@@ -5033,7 +5033,7 @@
     ". Pomôže to udržať tvoje konto v bezpečí."
   ],
   "Change Email address": [
-    ""
+    "Zmeniť e-mailovú adresu"
   ],
   "Next": [
     "Ďalej"
@@ -5042,115 +5042,115 @@
     "Skúsiť znova"
   ],
   "Freemium got your business online. But other businesses pay to stand out first.": [
-    ""
+    "Freemium dostal vašu firmu online. Ale iné firmy platia, aby sa dostali do popredia."
   ],
   "You’re fighting for attention against companies that automate their work while you’re still handling things manually. We offer more than one plan to help you change that. Choose the one that fits you best to save time, stay ahead, and grow faster.": [
-    ""
+    "Bojujete o pozornosť proti spoločnostiam, ktoré automatizujú svoju prácu, zatiaľ čo vy stále riešite veci manuálne. Ponúkame viac ako jeden plán, ktorý vám pomôže to zmeniť. Vyberte si ten, ktorý vám najlepšie vyhovuje, aby ste ušetrili čas, zostali vpred a rástli rýchlejšie."
   ],
   "1. Is the Standard plan suitable for small businesses?": [
-    ""
+    "1. Je štandardný plán vhodný pre malé podniky?"
   ],
   "Yes. The Standard plan is designed for small businesses looking to strengthen their visibility and presence.": [
-    ""
+    "Áno. Štandardný plán je navrhnutý pre malé podniky, ktoré sa snažia posilniť svoju viditeľnosť a prítomnosť."
   ],
   "2. Can I directly upgrade to Advanced?": [
-    ""
+    "Môžem priamo prejsť na pokročilú verziu?"
   ],
   "Yes. You can upgrade to the Advanced plan at any time and gain immediate access to all additional features and benefits.": [
-    ""
+    "Áno. Môžete sa kedykoľvek prepnúť na pokročilý plán a okamžite získať prístup ku všetkým ďalším funkciám a výhodám."
   ],
   "3. Can I cancel my plan?": [
     "3. Môžem svoj balík zrušiť?"
   ],
   "Yes. You may cancel your plan whenever you choose.": [
-    ""
+    "Áno. Svoj plán môžete zrušiť kedykoľvek sa rozhodnete."
   ],
   "Trust is the most important factor in a purchase. Advanced helps you get trusted by clients.": [
-    ""
+    "Dôvera je najdôležitejší faktor pri nákupe. Advanced vám pomáha získať dôveru klientov."
   ],
   "Customers trust what others say online about your business. With AI-powered features, you can reply to reviews right away, get more customers to share their feedback, and learn what people really think with sentiment analysis. All these features and more work together to help you build trust and stand out online.": [
-    ""
+    "Zákazníci dôverujú tomu, čo o vašej firme hovoria ostatní online. S funkciami poháňanými umelou inteligenciou môžete okamžite odpovedať na recenzie, získať viac zákazníkov, aby zdieľali svoje názory, a zistiť, čo si ľudia naozaj myslia pomocou analýzy sentimentu. Všetky tieto funkcie a ďalšie spolupracujú na tom, aby vám pomohli vybudovať dôveru a vyniknúť online."
   ],
   "1. Who is Advanced best suited for?": [
-    ""
+    "1. Pre koho je Advanced najvhodnejší?"
   ],
   "Businesses in competitive markets, those managing multiple review sources, or anyone who needs broader listings coverage and deeper reputation insights.": [
-    ""
+    "Firmy na konkurenčných trhoch, tie, ktoré spravujú viacero zdrojov recenzií, alebo ktokoľvek, kto potrebuje širšie pokrytie zoznamov a hlbšie poznatky o reputácii."
   ],
   "2. How can I buy the Social add-on?": [
-    ""
+    "2. Ako si môžem zakúpiť sociálny doplnok?"
   ],
   "To buy the Social add-on, you first need to have the Advanced plan. Once you’ve upgraded to Advanced, you’ll be able to purchase the add-on separately.": [
-    ""
+    "Aby ste si mohli zakúpiť sociálny doplnok, najprv musíte mať pokročilý plán. Akonáhle prejdete na pokročilý plán, budete si môcť doplnok zakúpiť samostatne."
   ],
   "60% of businesses that grew last year relied on social media. Use the social add-on to join this year`s growing businesses.": [
-    ""
+    "60 % firiem, ktoré v minulom roku rástli, sa spoliehalo na sociálne médiá. Použite sociálny doplnok, aby ste sa pripojili k rastúcim firmám tohto roka."
   ],
   "Show up where your clients are, share content that captures attention, and keep the conversation going. Plan, post, and boost to build trust, grow engagement, and turn followers into loyal customers": [
-    ""
+    "Objavte sa tam, kde sú vaši klienti, zdieľajte obsah, ktorý upúta pozornosť, a udržujte konverzáciu. Plánujte, zverejňujte a propagujte, aby ste vybudovali dôveru, zvýšili angažovanosť a premenili sledovateľov na verných zákazníkov."
   ],
   "1. Is the Social add-on right for my business?": [
-    ""
+    "1. Je sociálny doplnok vhodný pre moje podnikanie?"
   ],
   "It’s ideal for businesses that want to actively engage their audience, grow visibility on social media, and streamline posting with AI and planning features.": [
-    ""
+    "Je to ideálne pre podniky, ktoré chcú aktívne zapájať svoje publikum, zvyšovať viditeľnosť na sociálnych médiách a zjednodušiť zverejňovanie pomocou funkcií AI a plánovania."
   ],
   "2. Can I track performance and engagement?": [
-    ""
+    "2. Môžem sledovať výkonnosť a zapojenie?"
   ],
   "Yes. You can monitor post interactions, view and reply to comments, track link performance, and access social media insights.": [
-    ""
+    "Áno. Môžete sledovať interakcie s príspevkami, prezerať a odpovedať na komentáre, sledovať výkon odkazov a získať prehľady o sociálnych médiách."
   ],
   "3. Can I create and publish posts on all major platforms?": [
-    ""
+    "3. Môžem vytvárať a publikovať príspevky na všetkých hlavných platformách?"
   ],
   "Yes. You can create and publish posts on Google Business Profile, Facebook, Instagram, LinkedIn, and X.": [
-    ""
+    "Áno. Môžete vytvárať a zverejňovať príspevky na Google Business Profile, Facebooku, Instagrame, LinkedIn a X."
   ],
   "Everything in Freemium, plus:": [
-    ""
+    "Všetko v Freemium, plus:"
   ],
   "AI text optimisation": [
     "Optimalizácia textu pomocou AI"
   ],
   "Create Google ads campaign": [
-    ""
+    "Vytvorte kampaň Google Ads"
   ],
   "Monitor 3 locations": [
-    ""
+    "Monitorujte 3 miesta"
   ],
   "Publish Business Profile in up to 46 directories": [
-    ""
+    "Zverejnite obchodný profil až v 46 adresároch"
   ],
   "Automatic AI reply to reviews": [
-    ""
+    "Automatická odpoveď AI na recenzie"
   ],
   "Reviews booster (send review request via e-mail or use print materials)": [
-    ""
+    "Recenzný booster (pošlite žiadosť o recenziu e-mailom alebo použite tlačové materiály)"
   ],
   "AI-powered reputation sentiment analysis": [
-    ""
+    "Analýza sentimentu reputácie poháňaná umelou inteligenciou"
   ],
   "Track 25 keywords": [
-    ""
+    "Sledujte 25 kľúčových slov"
   ],
   "Monitor 5 competitors": [
-    ""
+    "Sledujte 5 konkurentov"
   ],
   "Manually reply to reviews": [
-    ""
+    "Ručne odpovedať na recenzie"
   ],
   "Collect reviews widget": [
-    ""
+    "Widget na zbieranie recenzií"
   ],
   "Reputation insights": [
     "Štatistiky o reputácii"
   ],
   "Create & publish posts on Facebook, Instagram, LinkedIn, X and Google Business Profile": [
-    ""
+    "Vytvorte a publikujte príspevky na Facebooku, Instagrame, LinkedIn, X a Google Business Profile."
   ],
   "AI-powered Social Media Planner": [
-    ""
+    "Plánovač sociálnych médií poháňaný AI"
   ],
   "AI image generator": [
     "Generátor obrázkov AI"
@@ -5159,85 +5159,85 @@
     "Vytváraj a zverejňuj udalosti na Google Business Profile"
   ],
   "Competitor-based post suggestion": [
-    ""
+    "Návrh príspevku založený na konkurencii"
   ],
   "View & respond to posts comments": [
-    ""
+    "Zobraziť a odpovedať na komentáre príspevkov"
   ],
   "Link performance": [
     "Výkonnosť odkazov"
   ],
   "Social media insights": [
-    ""
+    "Zistenia zo sociálnych médií"
   ],
   "Boosts posts with Meta ads": [
     "Propaguj príspevky pomocou reklám Meta"
   ],
   "Grow your business online with easy video tutorials.": [
-    ""
+    "Rastite svoje podnikanie online s jednoduchými video tutoriálmi."
   ],
   "Follow simple step-by-step videos for SEO, Local Marketing, and Social Media tasks. Get results faster without expert help. Save time and skip the complexity of doing it all yourself.": [
-    ""
+    "Sledujte jednoduché videá krok za krokom pre SEO, miestny marketing a úlohy na sociálnych médiách. Získajte výsledky rýchlejšie bez pomoci odborníkov. Ušetrite čas a vyhnite sa zložitosti robienia všetkého sami."
   ],
   "Create your Google Ads campaign in minutes. Choose from automatically generated ad texts, set your daily budget, and launch with ease. Once your campaign is live, monitor its performance with insights. You can adjust or pause it anytime to stay in control.": [
-    ""
+    "Vytvorte svoju kampaň Google Ads za pár minút. Vyberte si z automaticky generovaných textov reklám, nastavte si denný rozpočet a spustite ju jednoducho. Keď je vaša kampaň aktívna, sledujte jej výkon pomocou prehľadov. Môžete ju kedykoľvek upraviť alebo pozastaviť, aby ste mali kontrolu."
   ],
   "Get found faster with AI-powered text optimisation.": [
-    ""
+    "Získajte rýchlejšie nájdenie s optimalizáciou textu poháňanou AI."
   ],
   "AI reviews your content, fixes SEO issues, and fine-tunes it for your keywords. This helps your business rank higher and reach the right audience with less effort.": [
-    ""
+    "AI hodnotí váš obsah, opravuje problémy so SEO a dolaďuje ho pre vaše kľúčové slová. To pomáha vašej firme dosiahnuť vyššie umiestnenie a osloviť správne publikum s menším úsilím."
   ],
   "Publish your Business Profile in up to 46 directories with one click. Monitor your overall listings presence and manage it easily with fine-tune updates.": [
-    ""
+    "Zverejnite svoj obchodný profil až v 46 adresároch jedným kliknutím. Sledujte svoju celkovú prítomnosť v zoznamoch a jednoducho ju spravujte s presnými aktualizáciami."
   ],
   "Create social media content with ease.": [
-    ""
+    "Vytvárajte obsah na sociálne siete s ľahkosťou."
   ],
   "Transform one content idea into many ready-to-use posts.": [
-    ""
+    "Transformujte jednu obsahovú myšlienku na mnoho pripravených príspevkov."
   ],
   "Planning a promotion, and one post won’t cut it? Simply tell the AI what the series is about, the number of posts, frequency, and schedule. The AI will generate your entire series in seconds. Review, tweak if needed, and your posts will be published automatically as scheduled.": [
-    ""
+    "Plánujete propagáciu a jeden príspevok nestačí? Jednoducho povedzte AI, o čom je séria, počet príspevkov, frekvenciu a harmonogram. AI vygeneruje celú vašu sériu za sekundy. Skontrolujte, upravte, ak je to potrebné, a vaše príspevky budú automaticky publikované podľa plánu."
   ],
   "Make it easy for customers to leave reviews.": [
-    ""
+    "Uľahčite zákazníkom zanechávanie recenzií."
   ],
   "Encourage more customers to leave feedback by sending review requests via email or offering printed QR materials for easy scanning at your location.": [
-    ""
+    "Podporujte viac zákazníkov, aby zanechali spätnú väzbu, zasielaním žiadostí o recenzie prostredníctvom e-mailu alebo ponúkaním tlačených QR materiálov na jednoduché skenovanie na vašej lokalite."
   ],
   "See what customers really think of your business.": [
-    ""
+    "Zistite, čo si zákazníci naozaj myslia o vašej firme."
   ],
   "Get a full overview of your business reputation based on customer reviews. See an overall sentiment score and a detailed breakdown by topic, showing what customers value most and where there’s room for improvement.": [
-    ""
+    "Získajte úplný prehľad o reputácii vašej firmy na základe recenzií zákazníkov. Zobrazte celkové hodnotenie sentimentu a podrobný rozpis podľa tém, ktorý ukazuje, čo zákazníci najviac oceňujú a kde je priestor na zlepšenie."
   ],
   "Creating buzz means having visuals without a design team.": [
-    ""
+    "Vytváranie rozruchu znamená mať vizuály bez dizajnérskeho tímu."
   ],
   "Skip complicated design tools. Just describe the image you want or select relevant keywords, and our AI will generate ready-to-use visuals in seconds.": [
-    ""
+    "Preskočte zložité dizajnérske nástroje. Jednoducho popíšte obrázok, ktorý chcete, alebo vyberte relevantné kľúčové slová a náš AI vytvorí hotové vizuály za sekundy."
   ],
   "Expand your reach. Boost your posts with Meta ads.": [
-    ""
+    "Rozšírte svoj dosah. Zvýšte svoje príspevky pomocou reklám Meta."
   ],
   "Choose a post to boost, set your budget, and launch instantly. Once your boost is live, track its performance with detailed insights. You’re always in control, pause or adjust your boost and budget anytime.": [
-    ""
+    "Vyberte príspevok na zvýšenie dosahu, nastavte svoj rozpočet a okamžite spustite. Keď je váš boost aktívny, sledujte jeho výkon s podrobnými prehľadmi. Vždy máte kontrolu, kedykoľvek pozastavte alebo upravte svoj boost a rozpočet."
   ],
   "takes it further": [
-    ""
+    "posúva to ďalej"
   ],
   "completes the picture": [
-    ""
+    "doplňuje obraz"
   ],
   "You're currently using the %s plan": [
     "Momentálne používaš balík %s"
   ],
   "Add-on": [
-    ""
+    "Doplnok"
   ],
   "To buy the add-on, you must upgrade to Advanced first": [
-    ""
+    "Aby ste si mohli zakúpiť doplnok, musíte najprv prejsť na verziu Advanced."
   ],
   "Keyword insert failed. Error: %1$s": [
     "Vloženie kľúčového slova zlyhalo. Chyba: %1$s"
@@ -5279,97 +5279,97 @@
     "Pridaj funkcie pre sociálne siete"
   ],
   "Premium Plan": [
-    ""
+    "Prémiový plán"
   ],
   "Everything you need to dominate search rankings": [
-    ""
+    "Všetko, čo potrebujete na dominovanie vo vyhľadávacích rebríčkoch"
   ],
   "AI-Powered SEO Optimization": [
-    ""
+    "Optimalizácia SEO poháňaná AI"
   ],
   "Social Media Management": [
-    ""
+    "Správa sociálnych médií"
   ],
   "Reputation Management": [
-    ""
+    "Správa reputácie"
   ],
   "Analytics & Reports": [
-    ""
+    "Analytika a správy"
   ],
   "Listings in 46+ Directories": [
-    ""
+    "Zoznamy v 46+ adresároch"
   ],
   "Review Response Automation": [
-    ""
+    "Automatizácia odpovedí na recenzie"
   ],
   "Keyword Tracking": [
-    ""
+    "Sledovanie kľúčových slov"
   ],
   "Competitor Monitoring": [
-    ""
+    "Monitorovanie konkurencie"
   ],
   "Upgrade Now": [
-    ""
+    "Aktualizovať teraz"
   ],
   "What makes this plan different?": [
-    ""
+    "Čo robí tento plán odlišným?"
   ],
   "Our Premium Plan combines AI-powered tools with comprehensive marketing features to help you grow your business online efficiently.": [
-    ""
+    "Náš prémiový plán kombinuje nástroje poháňané umelou inteligenciou s komplexnými marketingovými funkciami, aby vám pomohol efektívne rozvíjať vaše podnikanie online."
   ],
   "Can I cancel anytime?": [
-    ""
+    "Môžem zrušiť kedykoľvek?"
   ],
   "Yes. You can cancel your subscription at any time with no penalties or long-term commitments.": [
-    ""
+    "Áno. Svoju predplatnú službu môžete zrušiť kedykoľvek bez sankcií alebo dlhodobých záväzkov."
   ],
   "Is support included?": [
-    ""
+    "Je podpora zahrnutá?"
   ],
   "Yes. Premium support is included with your subscription to help you get the most out of your tools.": [
-    ""
+    "Áno. Prémiová podpora je zahrnutá vo vašej predplatnej, aby vám pomohla čo najlepšie využiť vaše nástroje."
   ],
   "Grow Your Business with Premium Tools": [
-    ""
+    "Rastite svoje podnikanie s prémiovými nástrojmi"
   ],
   "Take your online presence to the next level with our comprehensive marketing suite": [
-    ""
+    "Posuňte svoju online prítomnosť na vyššiu úroveň s naším komplexným marketingovým balíkom."
   ],
   "Current Plan: %s": [
-    ""
+    "Aktuálny plán: %s"
   ],
   "Included Features": [
-    ""
+    "Zahrnuté funkcie"
   ],
   "30-day money-back guarantee": [
-    ""
+    "30-dňová záruka vrátenia peňazí"
   ],
   "Frequently Asked Questions": [
-    ""
+    "Často kladené otázky"
   ],
   "You're fighting for attention against companies that automate their work while you're still handling things manually. We offer more than one plan to help you change that. Choose the one that fits you best to save time, stay ahead, and grow faster.": [
-    ""
+    "Bojujete o pozornosť proti spoločnostiam, ktoré automatizujú svoju prácu, zatiaľ čo vy stále riešite veci manuálne. Ponúkame viac ako jeden plán, ktorý vám pomôže to zmeniť. Vyberte si ten, ktorý vám najlepšie vyhovuje, aby ste ušetrili čas, zostali vpredu a rástli rýchlejšie."
   ],
   "To buy the Social add-on, you first need to have the Advanced plan. Once you've upgraded to Advanced, you'll be able to purchase the add-on separately.": [
-    ""
+    "Aby ste si mohli zakúpiť sociálny doplnok, najprv musíte mať pokročilý plán. Akonáhle prejdete na pokročilý plán, budete si môcť zakúpiť doplnok samostatne."
   ],
   "It's ideal for businesses that want to actively engage their audience, grow visibility on social media, and streamline posting with AI and planning features.": [
-    ""
+    "Je to ideálne pre podniky, ktoré chcú aktívne zapájať svoje publikum, zvyšovať viditeľnosť na sociálnych médiách a zjednodušiť príspevky pomocou funkcií AI a plánovania."
   ],
   "Planning a promotion, and one post won't cut it? Simply tell the AI what the series is about, the number of posts, frequency, and schedule. The AI will generate your entire series in seconds. Review, tweak if needed, and your posts will be published automatically as scheduled.": [
-    ""
+    "Plánujete propagáciu a jeden príspevok nestačí? Jednoducho povedzte AI, o čom je séria, počet príspevkov, frekvenciu a harmonogram. AI vygeneruje celú vašu sériu za sekundy. Skontrolujte, upravte, ak je to potrebné, a vaše príspevky budú automaticky publikované podľa plánu."
   ],
   "Get a full overview of your business reputation based on customer reviews. See an overall sentiment score and a detailed breakdown by topic, showing what customers value most and where there's room for improvement.": [
-    ""
+    "Získajte úplný prehľad o reputácii vašej firmy na základe recenzií zákazníkov. Zobrazte celkové skóre sentimentu a podrobný rozpis podľa tém, ktorý ukazuje, čo zákazníci najviac oceňujú a kde je priestor na zlepšenie."
   ],
   "Choose a post to boost, set your budget, and launch instantly. Once your boost is live, track its performance with detailed insights. You're always in control, pause or adjust your boost and budget anytime.": [
-    ""
+    "Vyberte príspevok na zvýšenie dosahu, nastavte svoj rozpočet a okamžite spustite. Keď je váš boost aktívny, sledujte jeho výkon s podrobnými prehľadmi. Vždy máte kontrolu, môžete kedykoľvek pozastaviť alebo upraviť svoj boost a rozpočet."
   ],
   "Check my account": [
     "Skontrolovať môj účet"
   ],
   "ActivationCode:": [
-    ""
+    "Aktivačný kód:"
   ],
   "Open rC dashboard in new tab": [
     "Otvoriť rC dashboard na novej karte"
@@ -5387,13 +5387,13 @@
     "Všeobecnými obchodnými podmienkami"
   ],
   ".": [
-    ""
+    "."
   ],
   "SEO helps people find you.  <mark> Premium helps them choose you.</mark>": [
-    ""
+    "SEO pomáha ľuďom nájsť vás. <mark> Premium im pomáha vybrať si vás.</mark>"
   ],
   "Good SEO brings visitors to your site. To earn their trust, you must appear active and credible, not just on your site, but everywhere they look. Premium makes that happen.": [
-    ""
+    "Dobré SEO prináša návštevníkov na vašu stránku. Aby ste si získali ich dôveru, musíte pôsobiť aktívne a dôveryhodne, nielen na vašej stránke, ale aj všade, kde sa pozrú. Premium to zabezpečuje."
   ],
   "Monthly": [
     "Mesačne"
@@ -5402,7 +5402,7 @@
     "Ročne"
   ],
   "Get Premium": [
-    ""
+    "Získať prémiu"
   ],
   "* Annual payment": [
     "* Ročná platba"
@@ -5411,16 +5411,16 @@
     "* Mesačná platba"
   ],
   "Being active on social, showing up in listings, and earning trust from reviews takes daily work. Here are some of the key tasks your competitors are automating to keep their edge.": [
-    ""
+    "Byť aktívny na sociálnych sieťach, objavovať sa v zoznamoch a získavať dôveru z recenzií si vyžaduje každodennú prácu. Tu sú niektoré z kľúčových úloh, ktoré vaši konkurenti automatizujú, aby si udržali svoj náskok."
   ],
   "They use AI to reply to reviews instantly": [
-    ""
+    "Používajú umelú inteligenciu na okamžité odpovedanie na recenzie."
   ],
   "They schedule weeks of social content in minutes": [
-    ""
+    "Plánujú týždne sociálneho obsahu za minúty."
   ],
   "They get listed on every top directory with one click": [
-    ""
+    "Sú zaradení do každého top adresára jedným kliknutím."
   ],
   "Loading categories...": [
     "Načítavajú sa kategórie..."
@@ -5435,7 +5435,7 @@
     "kategórie"
   ],
   "%1$s": [
-    ""
+    "%1$s"
   ],
   "Connecting to server...": [
     "Pripája sa k serveru..."
@@ -5444,13 +5444,13 @@
     "Otvára sa hlavný panel rankingCoach na novej karte..."
   ],
   "Your refresh token has expired. Please %s to regenerate it.": [
-    ""
+    "Váš obnovovací token vypršal. Prosím %s na jeho regeneráciu."
   ],
   "re-activate the plugin": [
-    ""
+    "znovu aktivovať plugin"
   ],
   "re-register the plugin": [
-    ""
+    "znovu zaregistrovať plugin"
   ],
   "Claim your existing account": [
     "Uplatni si nárok na svoje existujúce konto"
@@ -5495,10 +5495,10 @@
     "Prihlás sa alebo si vytvor účet"
   ],
   "Have an activation code instead? ": [
-    ""
+    "Máte namiesto toho aktivačný kód?"
   ],
   "Enter it here": [
-    ""
+    "Zadajte to sem"
   ],
   "Welcome, how would you like to get started?": [
     "Vitaj, ako by si chcel začať?"
@@ -5834,7 +5834,7 @@
     "Týždenné reporty o raste s umelou inteligenciou"
   ],
   "Instant access to everything": [
-    ""
+    "Okamžitý prístup ku všetkému"
   ],
   "Start for $99 — Get Full Access": [
     "Začni za 99 $ – získaj plný prístup"
@@ -6047,7 +6047,7 @@
     "rankingCoach zadarmo kombinuje všetko, čo potrebuješ pre úspešný online marketing. Jednoducho, efektívne, cenovo dostupné."
   ],
   "Agency or Enterprise? See our special offers": [
-    ""
+    "Agentúra alebo podnik? Pozrite si naše špeciálne ponuky"
   ],
   "What our customers say": [
     "Čo hovoria naši zákazníci"
@@ -6188,7 +6188,7 @@
     "Deteguje preplnenie kľúčovými slovami v prvom odseku a počíta jazykovo nezávislé metriky distribúcie pre opakovanie a blízkosť. Je to kľúčové pre zachovanie čitateľnosti a vyhnutie sa penalizáciám od vyhľadávačov."
   ],
   "Q: %s": [
-    ""
+    "Q: %s"
   ],
   "Connect": [
     "Pripojiť"
@@ -6209,19 +6209,19 @@
     "Analyzovať teraz"
   ],
   "BeyondSEO: WordPress Cron is disabled": [
-    ""
+    "BeyondSEO: WordPress Cron je zakázaný"
   ],
   "DISABLE_WP_CRON is set to true in your wp-config.php. This prevents the plugin's scheduled tasks from running automatically. To fix this, remove or change define('DISABLE_WP_CRON', true); in your wp-config.php, or set up a real server-side cron job. %s": [
-    ""
+    "DISABLE_WP_CRON je nastavené na true vo vašom wp-config.php. To zabraňuje automatickému spúšťaniu naplánovaných úloh pluginu. Ak to chcete opraviť, odstráňte alebo zmeňte define('DISABLE_WP_CRON', true); vo vašom wp-config.php, alebo nastavte skutočnú cron úlohu na strane servera. %s"
   ],
   "Learn more": [
-    ""
+    "Zistite viac"
   ],
   "Empty response from keywords sync API": [
     "Prázdna odpoveď z API na synchronizáciu kľúčových slov"
   ],
   "Invalid or missing SDK token. Generate a token via POST /sdk_token endpoint.": [
-    ""
+    "Neplatný alebo chýbajúci SDK token. Vygenerujte token pomocou POST /sdk_token konca."
   ],
   "Authentication required. Use WordPress Application Password with Basic Auth.": [
     "Vyžaduje sa overenie. Použi heslo aplikácie WordPress so základným overením."
@@ -6749,7 +6749,7 @@
     "Zadaj aktivačný kód"
   ],
   "We could not find a rankingCoach account for this email address.": [
-    ""
+    "Nemohli sme nájsť účet rankingCoach pre túto e-mailovú adresu."
   ],
   "This account has no active WordPress subscription.": [
     "Tento účet nemá aktívne predplatné WordPress."
@@ -6764,7 +6764,7 @@
     "Registrácia e-mailom nie je pre túto inštaláciu dostupná. Použi svoj aktivačný kód."
   ],
   "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.": [
-    ""
+    "WordPress Cron je na tejto stránke zakázaný (DISABLE_WP_CRON je nastavené na true). RankingCoach sa spolieha na WP-Cron na vykonávanie naplánovaných úloh, ako je synchronizácia kľových slov a kontrola nefunkčných odkazov. Prosím, zabezpečte, aby bol nakonfigurovaný systémový cron úloha na pravidelné spúšťanie wp-cron.php, inak sa tieto naplánované úlohy nebudú vykonávať."
   ],
   "Details: %s": [
     "Podrobnosti: %s"
@@ -6788,15 +6788,690 @@
     "Aktivačný kód pre toto predplatné bol už odoslaný maximálny počet krát. Kontaktuj zákaznícku podporu."
   ],
   "Can't find your activation code?": [
-    ""
+    "Nemôžete nájsť svoj aktivačný kód?"
   ],
   "Recover it here": [
-    ""
+    "Obnovte to tu"
   ],
   "Check your email for your activation code. Didn’t receive it? Recover it": [
-    ""
+    "Skontrolujte svoj e-mail pre váš aktivačný kód. Nedostali ste ho? Obnovte ho."
   ],
   "here": [
-    ""
+    "tu"
+  ],
+  "The SEO analysis starts after the first save of this post.": [
+    "Analýza SEO sa začína po prvom uložení tohto príspevku."
+  ],
+  "Yes, I love it": [
+    "Áno, milujem to."
+  ],
+  "Not really": [
+    "Nie naozaj"
+  ],
+  "Maybe later": [
+    "Možno neskôr"
+  ],
+  "Review BeyondSEO on WordPress.org": [
+    "Recenzia BeyondSEO na WordPress.org"
+  ],
+  "Enjoying BeyondSEO?": [
+    "Užívate si BeyondSEO?"
+  ],
+  "We'd love to hear about your experience.": [
+    "Radi by sme počuli o vašich skúsenostiach."
+  ],
+  "Dismiss review request": [
+    "Zamietnuť žiadosť o recenziu"
+  ],
+  "Your site score is above %s!": [
+    "Vaše skóre stránky je nad %s!"
+  ],
+  "Your content score is above %s!": [
+    "Tvoje skóre obsahu je nad %s!"
+  ],
+  "Enjoying BeyondSEO? We'd love to hear about your experience.": [
+    "Tešíte sa z BeyondSEO? Radi by sme počuli o vašich skúsenostiach."
+  ],
+  "Your changes could not be saved. Please try again.": [
+    "Vaše zmeny sa nedali uložiť. Skúste to prosím znova."
+  ],
+  "Edit SEO title and description": [
+    "Upravte SEO názov a popis"
+  ],
+  "Open in editor": [
+    "Otvoriť v editore"
+  ],
+  "Add a meta description": [
+    "Pridajte meta popis"
+  ],
+  "No meta description": [
+    "Žiadny meta popis"
+  ],
+  "Updating score…": [
+    "Aktualizácia skóre…"
+  ],
+  "Saved": [
+    "Uložené"
+  ],
+  "The project connection could not be verified. Refresh Account before trying again.": [
+    "Pripojenie projektu sa nedalo overiť. Obnovte účet predtým, ako to skúsite znova."
+  ],
+  "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support.": [
+    "Nemožno potvrdiť vytvorenie projektu. Vaša účet a miestne údaje boli zachované. Obnovte účet a skúste to znova alebo kontaktujte podporu."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support.": [
+    "Služba nemohla potvrdiť odstránenie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+  ],
+  "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "Odpoveď služby sa nedala overiť. Obnovte účet predtým, ako to skúsite znova. Ak je pripojenie neúplné, kontaktujte podporu pred opätovným pripojením."
+  ],
+  "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection.": [
+    "Odstránenie projektu bolo prijaté, ale miestne pripojenie sa nedalo úplne odstrániť. Kontaktujte podporu pred opätovným pokusom alebo pripojením. Obnovte účet, aby ste skontrolovali aktuálne pripojenie."
+  ],
+  "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again.": [
+    "Pripojený projekt sa zmenil alebo už nie je pripojený. Obnovte účet a skontrolujte projekt predtým, ako to skúsite znova."
+  ],
+  "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support.": [
+    "Operácia projektu už prebieha. Počkajte, kým sa dokončí, a obnovte účet. Ak to pretrváva, kontaktujte podporu."
+  ],
+  "Unable to safely start the project operation. Please try again or contact support.": [
+    "Nemožno bezpečne spustiť prevádzku projektu. Skúste to znova alebo kontaktujte podporu."
+  ],
+  "Connect your account before creating a project. Refresh Account to check your connection.": [
+    "Prepojte svoj účet pred vytvorením projektu. Obnovte účet, aby ste skontrolovali svoje pripojenie."
+  ],
+  "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained.": [
+    "Služba vrátila projekt, ale jeho miestne pripojenie sa nedalo úplne uložiť. Obnovte účet a skúste to znova alebo kontaktujte podporu. Váš účet a miestne údaje boli zachované."
+  ],
+  "Enable communication with rankingCoach in Settings before creating a project.": [
+    "Pred vytvorením projektu povoľte komunikáciu s rankingCoach v nastaveniach."
+  ],
+  "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed.": [
+    "Pred odstránením projektu povolte komunikáciu s rankingCoach v nastaveniach. Vaše miestne pripojenie nebolo odstránené."
+  ],
+  "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying.": [
+    "Služba nemohla autentifikovať vytvorenie projektu. Vaše údaje o účte boli uchované. Kontaktujte podporu, aby ste obnovili prístup pred opätovným pokusom."
+  ],
+  "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying.": [
+    "Služba nemohla overiť odstránenie projektu. Vaše miestne pripojenie nebolo odstránené. Kontaktujte podporu, aby ste obnovili prístup pred opätovným pokusom."
+  ],
+  "Unable to load the local project connection. Please try again.": [
+    "Nemožno načítať pripojenie k miestnemu projektu. Skúste to prosím znova."
+  ],
+  "Account access could not be verified. Reload this page and sign in as an administrator before trying again.": [
+    "Prístup k účtu sa nedal overiť. Znova načítajte túto stránku a prihláste sa ako administrátor predtým, ako to skúsite znova."
+  ],
+  "Unable to load the local project connection. Check your connection and try again.": [
+    "Nemožno načítať pripojenie k miestnemu projektu. Skontrolujte svoje pripojenie a skúste to znova."
+  ],
+  "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained.": [
+    "Výsledok vytvorenia sa nedal overiť. Obnovte účet predtým, ako to skúsite znova. Váš účet a miestne údaje boli zachované."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "Výsledok odstránenia sa nedal overiť. Obnovte účet predtým, ako to skúsite znova. Ak je pripojenie neúplné, kontaktujte podporu pred opätovným pripojením."
+  ],
+  "The service response could not be verified. Refresh Account before trying again.": [
+    "Odpoveď služby sa nedala overiť. Obnovte účet predtým, ako to skúsite znova."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again.": [
+    "Výsledok odstránenia sa nedal overiť. Obnovte účet predtým, ako to skúsite znova."
+  ],
+  "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved.": [
+    "Váš projekt je pripojený. Môžete otvoriť onboarding, keď budete pripravení. Vaše existujúce údaje a stav onboardingu boli zachované."
+  ],
+  "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "Odstránenie projektu bolo prijaté a odložené. Miestne pripojenie projektu bolo odstránené. Váš účet, nastavenia a údaje o SEO sú zachované a plugin zostáva aktívny."
+  ],
+  "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "Diaľkový projekt bol odstránený a pripojenie k miestnemu projektu bolo zrušené. Váš účet, nastavenia a údaje o SEO sú zachované a plugin zostáva aktívny."
+  ],
+  "Account": [
+    "Účet"
+  ],
+  "Manage the project connected to this website.": [
+    "Spravujte projekt spojený s touto webovou stránkou."
+  ],
+  "Loading project connection…": [
+    "Načítanie pripojenia k projektu…"
+  ],
+  "Refresh Account": [
+    "Obnoviť účet"
+  ],
+  "Account details": [
+    "Údaje o účte"
+  ],
+  "Activation code": [
+    "Aktivačný kód"
+  ],
+  "Not available": [
+    "Nedostupné"
+  ],
+  "Project details": [
+    "Podrobnosti projektu"
+  ],
+  "Project ID": [
+    "ID projektu"
+  ],
+  "Not connected": [
+    "Nie je pripojené"
+  ],
+  "Location ID": [
+    "ID miesta"
+  ],
+  "Website": [
+    "Webová stránka"
+  ],
+  "Open onboarding": [
+    "Otvorenie onboardingu"
+  ],
+  "Delete project": [
+    "Vymazať projekt"
+  ],
+  "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription.": [
+    "Odstráňte vzdialený projekt a zrušte pripojenie tejto webovej stránky. Vaše miestne nastavenia a údaje o SEO budú zachované. Týmto sa nezruší váš účet ani predplatné."
+  ],
+  "Deleting project…": [
+    "Mazanie projektu…"
+  ],
+  "Create project": [
+    "Vytvoriť projekt"
+  ],
+  "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept.": [
+    "Váš účet je pripojený, ale táto webová stránka nemá žiadny projekt. Vytvorte projekt pomocou svojho existujúceho účtu. Vaše miestne nastavenia, údaje o SEO a pokrok pri onboardingu budú zachované."
+  ],
+  "Creating project…": [
+    "Vytváranie projektu…"
+  ],
+  "Create Project": [
+    "Vytvoriť projekt"
+  ],
+  "Creating project… Please wait for confirmation.": [
+    "Vytváranie projektu… Prosím, počkajte na potvrdenie."
+  ],
+  "No project connected": [
+    "Žiadny projekt nie je pripojený."
+  ],
+  "Connect an account to link this website to a project. Your existing settings and SEO data are still available.": [
+    "Pripojte účet, aby ste prepojili túto webovú stránku s projektom. Vaše existujúce nastavenia a údaje o SEO sú stále k dispozícii."
+  ],
+  "Delete this project?": [
+    "Zmazať tento projekt?"
+  ],
+  "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone.": [
+    "Týmto sa odstráni vzdialený projekt a odstráni sa miestne pripojenie pre túto webovú stránku. Odstránenie vzdialeného projektu nie je možné zvrátiť."
+  ],
+  "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled.": [
+    "Vaše miestne nastavenia a údaje o SEO budú zachované. Plugin zostane aktívny. Váš účet a predplatné nebudú zrušené."
+  ],
+  "Deleting project… Please wait for confirmation.": [
+    "Mazanie projektu… Prosím, počkajte na potvrdenie."
+  ],
+  "Unable to load Account. Please try again.": [
+    "Nemožno načítať účet. Skúste to prosím znova."
+  ],
+  "Retry loading Account": [
+    "Skúste znova načítať účet"
+  ],
+  "Need help? Get in touch with our support team and copy your site information below.": [
+    "Potrebujete pomoc? Kontaktujte náš tím podpory a skopírujte informácie o vašej stránke nižšie."
+  ],
+  "Reach out to our team for help with BeyondSEO.": [
+    "Obráťte sa na náš tím pre pomoc s BeyondSEO."
+  ],
+  "Contact Support": [
+    "Kontaktujte podporu"
+  ],
+  "Site info": [
+    "Informácie o stránke"
+  ],
+  "Copy your site's technical details to share with our support team.": [
+    "Skopírujte technické podrobnosti vašej stránky, aby ste ich mohli zdieľať s naším podporným tímom."
+  ],
+  "Loading site info": [
+    "Načítanie informácií o stránke"
+  ],
+  "Failed to load site info. Please try again.": [
+    "Nepodarilo sa načítať informácie o stránke. Skúste to znova."
+  ],
+  "Retry": [
+    "Skúsiť znova"
+  ],
+  "Copy site info to clipboard": [
+    "Kopírovať informácie o stránke do schránky"
+  ],
+  "Copied to clipboard": [
+    "Skopírované do schránky"
+  ],
+  "Edit SEO title": [
+    "Upraviť SEO titulok"
+  ],
+  "Edit meta description": [
+    "Upravte meta popis."
+  ],
+  "Set keywords": [
+    "Nastavte kľúčové slová"
+  ],
+  "Essentials": [
+    "Základy"
+  ],
+  "Import": [
+    "Importovať"
+  ],
+  "Site check": [
+    "Kontrola stránky"
+  ],
+  "Email tips": [
+    "Tipy na e-maily"
+  ],
+  "rankingCoach account": [
+    "účet rankingCoach"
+  ],
+  "Check titles, keywords and headings": [
+    "Skontrolujte názvy, kľúčové slová a nadpisy"
+  ],
+  "Review page-specific SEO issues": [
+    "Skontrolujte problémy so SEO na stránke."
+  ],
+  "Fix issues directly on your pages": [
+    "Opraviť problémy priamo na svojich stránkach"
+  ],
+  "Go to Dashboard": [
+    "Prejdite na panel nástrojov"
+  ],
+  "Keep growing your visibility": [
+    "Pokračujte v zvyšovaní svojej viditeľnosti"
+  ],
+  "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO vám pomôže nájsť a opraviť problémy so stránkami. Váš účet rankingCoach pridáva priebežné informácie o viditeľnosti vašej online prítomnosti."
+  ],
+  "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO vám pomôže nájsť a opraviť problémy so stránkami. Účet rankingCoach pridáva priebežné informácie o viditeľnosti vašej online prítomnosti."
+  ],
+  "Your rankingCoach account is connected": [
+    "Váš účet rankingCoach je pripojený."
+  ],
+  "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here.": [
+    "Rebríčky, konkurenti a správy sú už k dispozícii na paneli BeyondSEO. Tu nie je potrebné nič iné nastaviť."
+  ],
+  "With BeyondSEO": [
+    "S BeyondSEO"
+  ],
+  "With your rankingCoach account": [
+    "S vaším účtom rankingCoach"
+  ],
+  "Create your free account": [
+    "Vytvorte si svoj bezplatný účet"
+  ],
+  "I already have an account": [
+    "Už mám účet."
+  ],
+  "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings.": [
+    "Registrácia a prihlásenie prebiehajú na stránkach BeyondSEO connect. Môžete to urobiť aj neskôr v nastaveniach."
+  ],
+  "Enter a valid email address or skip this step.": [
+    "Zadajte platnú e-mailovú adresu alebo preskočte tento krok."
+  ],
+  "Select the consent checkbox or skip this step.": [
+    "Vyberte začiarkavacie políčko súhlasu alebo preskočte tento krok."
+  ],
+  "Your email address could not be saved. Please try again.": [
+    "Vaša e-mailová adresa sa nedala uložiť. Skúste to prosím znova."
+  ],
+  "Back to site check": [
+    "Návrat na kontrolu stránky"
+  ],
+  "Skip": [
+    "Preskočte"
+  ],
+  "Save and continue": [
+    "Uložiť a pokračovať"
+  ],
+  "Get general SEO tips by email": [
+    "Získajte všeobecné tipy na SEO e-mailom"
+  ],
+  "Get SEO recommendations by email": [
+    "Získajte odporúčania pre SEO e-mailom"
+  ],
+  "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step.": [
+    "Kontrola stránky sa neskončila, takže zatiaľ nemôžeme poslať zistenia špecifické pre stránku. Môžete stále získať všeobecné tipy na SEO, alebo tento krok preskočiť."
+  ],
+  "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account.": [
+    "Získajte nápady na ďalšie kroky po prehliadke vašej stránky. Tento krok je voliteľný a nevytvára účet rankingCoach."
+  ],
+  "This address is saved for SEO recommendations. Save again to update it.": [
+    "Táto adresa je uložená pre odporúčania SEO. Uložte ju znova, aby ste ju aktualizovali."
+  ],
+  "Email address": [
+    "Emailová adresa"
+  ],
+  "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time.": [
+    "Pošlite mi odporúčania na SEO a občasné aktualizácie produktov BeyondSEO / rankingCoach. Môžem sa kedykoľvek odhlásiť."
+  ],
+  "Optional and separate from account creation.": [
+    "Voliteľné a oddelené od vytvorenia účtu."
+  ],
+  "The homepage SEO details could not be loaded. You can continue and edit them later.": [
+    "Detaily SEO domovskej stránky sa nedali načítať. Môžete pokračovať a upraviť ich neskôr."
+  ],
+  "Tagline": [
+    "Slogan"
+  ],
+  "No tagline set": [
+    "Žiadny slogan nie je nastavený."
+  ],
+  "Your homepage shows your latest posts, so search engines see the site title and tagline.": [
+    "Vaša domovská stránka zobrazuje vaše najnovšie príspevky, takže vyhľadávače vidia názov stránky a slogan."
+  ],
+  "Change them in General settings": [
+    "Zmeňte ich v obecných nastaveniach"
+  ],
+  "Homepage SEO title": [
+    "SEO titulok domovskej stránky"
+  ],
+  "Meta description": [
+    "Meta popis"
+  ],
+  "Describe your website in one or two sentences": [
+    "Popíšte svoju webovú stránku jednou alebo dvoma vetami."
+  ],
+  "Exit setup": [
+    "Ukončiť nastavenie"
+  ],
+  "Continue": [
+    "Pokračovať"
+  ],
+  "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website.": [
+    "Zlepšite, ako sa vaša stránka zobrazuje vo výsledkoch vyhľadávania, a nájdite problémy na svojich stránkach. Predvyplnili sme to, čo už vieme o vašej webovej stránke."
+  ],
+  "Search preview": [
+    "Náhľad vyhľadávania"
+  ],
+  "XML sitemap": [
+    "XML mapa stránok"
+  ],
+  "Helps search engines discover all your pages.": [
+    "Pomáha vyhľadávačom objaviť všetky vaše stránky."
+  ],
+  "Search engine visibility": [
+    "Viditeľnosť vo vyhľadávačoch"
+  ],
+  "Search engines are allowed to index this site.": [
+    "Vyhľadávače môžu indexovať túto stránku."
+  ],
+  "WordPress currently asks search engines not to index this site.": [
+    "WordPress momentálne žiada vyhľadávače, aby túto stránku neindexovali."
+  ],
+  "Reading settings": [
+    "Nastavenia čítania"
+  ],
+  "Discouraged": [
+    "Skleslý"
+  ],
+  "A rankingCoach account can add visibility and performance information later. First, let’s review your site.": [
+    "Účet rankingCoach môže neskôr pridať informácie o viditeľnosti a výkonnosti. Najprv si prejdime vašu stránku."
+  ],
+  "SEO import failed. Some data may have been imported; please retry.": [
+    "Import SEO zlyhal. Niektoré údaje mohli byť importované; prosím, skúste to znova."
+  ],
+  "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted.": [
+    "Importovaných %1$d nastavení a %2$d stránkových záznamov. %3$d záznamov už bolo nastavených v BeyondSEO alebo ich nebolo možné previesť."
+  ],
+  "Continue without import": [
+    "Pokračujte bez importu"
+  ],
+  "Keep your existing SEO work": [
+    "Udržujte svoju existujúcu SEO prácu."
+  ],
+  "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched.": [
+    "Na tejto stránke bol nájdený ďalší SEO plugin. BeyondSEO môže preniesť svoje SEO názvy, popisy, kľúčové slová a podporované nastavenia stránky. Hodnoty, ktoré ste už uložili v BeyondSEO, zostávajú zachované a údaje druhého pluginu zostávajú nedotknuté."
+  ],
+  "Import finished": [
+    "Import dokončený"
+  ],
+  "Plugin to import from": [
+    "Plugin na importovanie z"
+  ],
+  "Active on this site": [
+    "Aktívny na tejto stránke"
+  ],
+  "Installed but not active": [
+    "Nainštalované, ale neaktívne"
+  ],
+  "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards.": [
+    "Názvy a popisy, ktoré používajú nepodporované premenné šablón, sú preskočené. Môžete si neskôr prezrieť každú stránku."
+  ],
+  "The page details could not be loaded.": [
+    "Detaily stránky sa nedali načítať."
+  ],
+  "Enter a title or add a variable.": [
+    "Zadajte názov alebo pridajte premennú."
+  ],
+  "Enter a meta description.": [
+    "Zadajte meta popis."
+  ],
+  "SEO title": [
+    "SEO titul"
+  ],
+  "The page keywords could not be loaded.": [
+    "Kľúčové slová stránky sa nepodarilo načítať."
+  ],
+  "The keyword could not be saved. Please try again.": [
+    "Kľúčové slovo sa nedalo uložiť. Skúste to prosím znova."
+  ],
+  "The keyword could not be removed. Please try again.": [
+    "Kľúčové slovo sa nepodarilo odstrániť. Skúste to prosím znova."
+  ],
+  "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab.": [
+    "Zadajte kľúčové slová, pre ktoré by sa táto stránka mala umiestniť. Prvé slovo sa stáva hlavným kľúčovým slovom, ostatné sú doplnkové kľúčové slová; sú to rovnaké kľúčové slová, ktoré vidíte na záložke Všeobecné stránky."
+  ],
+  "No primary keyword yet. The first keyword you add becomes it.": [
+    "Zatiaľ žiadne primárne kľúčové slovo. Prvé kľúčové slovo, ktoré pridáte, sa ním stane."
+  ],
+  "No additional keywords yet.": [
+    "Žiadne ďalšie kľúčové slová zatiaľ."
+  ],
+  "Done": [
+    "Hotovo"
+  ],
+  "The site check could not finish on the server. Large sites can take longer than the server allows.": [
+    "Kontrola stránky sa na serveri nemohla dokončiť. Veľké stránky môžu trvať dlhšie, ako server povoľuje."
+  ],
+  "We could not complete the site check.": [
+    "Nemohli sme dokončiť kontrolu stránky."
+  ],
+  "Scan cancelled. A check that already started on the server will still finish in the background.": [
+    "Skener bol zrušený. Kontrola, ktorá sa už začala na serveri, sa stále dokončí na pozadí."
+  ],
+  "The page could not be rechecked. Please try again in a moment.": [
+    "Stránku sa nepodarilo znovu skontrolovať. Skúste to prosím znova o chvíľu."
+  ],
+  "Updated": [
+    "Aktualizované"
+  ],
+  "Recheck": [
+    "Prekontrolovať"
+  ],
+  "All checked pages pass": [
+    "Všetky skontrolované stránky prešli"
+  ],
+  "Issues found on your pages": [
+    "Zistené problémy na vašich stránkach"
+  ],
+  "Your pages pass every check": [
+    "Vaše stránky prechádzajú každou kontrolou."
+  ],
+  "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else.": [
+    "Každá kontrola uvádza stránky, na ktoré sa vzťahuje. Opraviť názvy, popisy a kľúčové slová môžete priamo tu, alebo otvorte stránku v editore pre všetko ostatné."
+  ],
+  "The completed checks found nothing to fix. You can run the scan again after updating your site.": [
+    "Dokončené kontroly nenašli nič na opravu. Môžete skenovanie spustiť znova po aktualizácii vašej stránky."
+  ],
+  "Some pages need another look": [
+    "Niektoré stránky potrebujú ďalší pohľad."
+  ],
+  "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again.": [
+    "Každá stránka získala 0 bodov, čo zvyčajne znamená, že stránka nemohla počas kontroly načítať svoje vlastné stránky. Uistite sa, že je stránka dostupná zo svojho servera, a potom skenovanie zopakujte."
+  ],
+  "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later.": [
+    "%1$d z %2$d strán nebolo možné skontrolovať. Môžete pokračovať s dokončenými kontrolami a skúsiť to znova neskôr."
+  ],
+  "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview.": [
+    "Zobrazenie najnovších stránok a príspevkov. Každá druhá stránka je uvedená v prehľade príspevkov a stránok."
+  ],
+  "Checking your site": [
+    "Kontrola vašej stránky"
+  ],
+  "Every published page and post is analysed on your server. This can take a few minutes on larger sites.": [
+    "Každá publikovaná stránka a príspevok sú analyzované na vašom serveri. Môže to trvať niekoľko minút na väčších stránkach."
+  ],
+  "Collecting the results for your pages…": [
+    "Zbieranie výsledkov pre vaše stránky…"
+  ],
+  "Analysing your published pages…": [
+    "Analyzovanie vašich publikovaných stránok…"
+  ],
+  "The site check could not finish": [
+    "Kontrola stránky sa nemohla dokončiť."
+  ],
+  "Retry now, or continue and run the check later from the dashboard.": [
+    "Skúste to znova teraz, alebo pokračujte a vykonajte kontrolu neskôr z ovládacieho panela."
+  ],
+  "Identify issues on your pages": [
+    "Identifikujte problémy na svojich stránkach"
+  ],
+  "BeyondSEO checks every published page and post for the following, then shows which pages need work.": [
+    "BeyondSEO kontroluje každú publikovanú stránku a príspevok na nasledujúce, a potom zobrazuje, ktoré stránky potrebujú úpravy."
+  ],
+  "Retry scan": [
+    "Opakovať skenovanie"
+  ],
+  "Run scan again": [
+    "Spustite skenovanie znova"
+  ],
+  "Scanning…": [
+    "Skenovanie…"
+  ],
+  "Start scan": [
+    "Spustiť skenovanie"
+  ],
+  "Setup steps": [
+    "Kroky nastavenia"
+  ],
+  "Step %1$d of %2$d · %3$s": [
+    "Krok %1$d z %2$d · %3$s"
+  ],
+  "Setup wizard": [
+    "Sprievodca nastavením"
+  ],
+  "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue.": [
+    "Váš účet je pripojený, ale na používanie panela BeyondSEO je potrebný projekt. Vytvorte projekt v Nastaveniach > Účet, aby ste mohli pokračovať."
+  ],
+  "Go to Account": [
+    "Prejdite na účet"
+  ],
+  "The project location ID is invalid.": [
+    "ID miesta projektu je neplatný."
+  ],
+  "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "Služba nepotvrdila vymazanie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+  ],
+  "SEO titles": [
+    "SEO názvy"
+  ],
+  "SEO descriptions": [
+    "SEO popisy"
+  ],
+  "Canonical URLs": [
+    "Kanonické URL adresy"
+  ],
+  "Noindex directives": [
+    "Noindex pokyny"
+  ],
+  "Social titles": [
+    "Spoločenské tituly"
+  ],
+  "Social descriptions": [
+    "Sociálne opisy"
+  ],
+  "Facebook profile": [
+    "Facebook profil"
+  ],
+  "Twitter profile": [
+    "Twitter profil"
+  ],
+  "Instagram profile": [
+    "Instagram profil"
+  ],
+  "LinkedIn profile": [
+    "Profil na LinkedIn"
+  ],
+  "YouTube profile": [
+    "YouTube profil"
+  ],
+  "Organization or person name": [
+    "Názov organizácie alebo osoby"
+  ],
+  "Sitemap enabled": [
+    "Sitemap povolený"
+  ],
+  "Google verification code": [
+    "Overovací kód Google"
+  ],
+  "Bing verification code": [
+    "Bing overovací kód"
+  ],
+  "The account or project connection has changed. Refresh Account before trying again.": [
+    "Pripojenie k účtu alebo projektu sa zmenilo. Obnovte účet predtým, ako to skúsite znova."
+  ],
+  "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project.": [
+    "Odstránenie projektu bolo prijaté, ale miestne identifikátory projektu nebolo možné úplne odstrániť. Váš účet a miestne údaje boli zachované. Obnovte účet a kontaktujte podporu pred vytvorením ďalšieho projektu."
+  ],
+  "Connect your account before creating a project.": [
+    "Prepojte svoj účet pred vytvorením projektu."
+  ],
+  "The service did not return a valid project for your account. Refresh Account and try again or contact support.": [
+    "Služba nevrátila platný projekt pre váš účet. Obnovte účet a skúste to znova alebo kontaktujte podporu."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "Služba nemohla potvrdiť odstránenie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+  ],
+  "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "Nemožno potvrdiť vymazanie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+  ],
+  "Unable to inspect SEO import options. Please retry.": [
+    "Nie je možné skontrolovať možnosti importu SEO. Skúste to znova."
+  ],
+  "SEO import options must be an array of strings.": [
+    "Možnosti importu SEO musia byť pole reťazcov."
+  ],
+  "Invalid SEO import source.": [
+    "Neplatný zdroj importu SEO."
+  ],
+  "SEO import options must contain only supported option identifiers for the selected source.": [
+    "Možnosti importu SEO musia obsahovať iba podporované identifikátory možností pre vybraný zdroj."
+  ],
+  "SEO plugin is not installed.": [
+    "SEO plugin nie je nainštalovaný."
+  ],
+  "You do not have permission to access support information.": [
+    "Nemáte povolenie na prístup k informáciám o podpore."
+  ],
+  "Invalid Review event.": [
+    "Neplatná udalosť recenzie."
+  ],
+  "Unable to save Review state.": [
+    "Nemožno uložiť stav recenzie."
+  ],
+  "feed link\u0004-": [
+    "feed odkaz"
+  ],
+  "Pages affected: %d": [
+    "Stránky ovplyvnené: %d"
+  ],
+  "Checks needing attention: %1$d of %2$d": [
+    "Kontroly vyžadujúce pozornosť: %1$d z %2$d"
+  ],
+  "Pages checked: %d": [
+    "Skontrolované stránky: %d"
   ]
 }

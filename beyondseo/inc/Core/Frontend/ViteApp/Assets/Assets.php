@@ -13,6 +13,8 @@ use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Enums\Suggestion;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\TokensManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use ReflectionException;
@@ -71,6 +73,7 @@ class Assets {
             'brandName' => RANKINGCOACH_BRAND_NAME,
             'brandSlug' => RANKINGCOACH_BRAND_SLUG,
             'countryShortCode' => $countryShortCode,
+            'review' => $this->getReviewData(),
             'pluginInformation' => $this->getPluginInformationData()
         ];
 
@@ -107,7 +110,10 @@ class Assets {
         }
         
         // avoid it to load the assets in other pages
-        if ( ! in_array( $pages, ALLOWED_RANKINGCOACH_PAGES ) ) {
+        $dashboardReview = $pages === 'index.php'
+            && get_current_screen()?->id === 'dashboard'
+            && in_array('dashboardReview', ReactApp::$loadComponents, true);
+        if ( ! in_array( $pages, ALLOWED_RANKINGCOACH_PAGES ) && !$dashboardReview ) {
             return;
         }
         
@@ -180,13 +186,15 @@ class Assets {
             'isOnboardingCompleted' => $this->boolToJs(WordpressHelpers::isOnboardingCompleted()),
             'brandName' => RANKINGCOACH_BRAND_NAME,
             'brandSlug' => RANKINGCOACH_BRAND_SLUG,
-            'iframeMapUrl' => esc_url_raw($this->generateMapUrl()),
+            'iframeMapUrl' => $dashboardReview ? '' : esc_url_raw($this->generateMapUrl()),
             'countryShortCode' => $countryShortCode,
+            'review' => $this->getReviewData(),
             'channel' => $channel,
             'partnerIntegration' => $this->boolToJs($isPartnerIntegration),
             'registrationShowEmail' => $showEmail,
             'registrationShowActivation' => $showActivation,
             'pluginInformation' => $this->getPluginInformationData(),
+            'setupWizardChecks' => $this->getSetupWizardChecksData(),
         ];
 
         // Outbound links (ExternalLinks, partner-aware) and links into this install (getInternalLinksData): resolved in one place.
@@ -238,6 +246,48 @@ class Assets {
             'feedUrl'      => esc_url_raw( get_feed_link() ),
             'sitemapUrl'   => esc_url_raw( home_url( '/sitemap.xml' ) ),
         ];
+    }
+
+    /**
+     * The setup wizard checks (BaseConstants::SETUP_WIZARD_CHECKS) with their suggestion catalogue texts.
+     *
+     * @return array<int, array{issueType: string, title: string, description: string, priority: int}>
+     */
+    private function getSetupWizardChecksData(): array {
+        $checks = [];
+        foreach (BaseConstants::SETUP_WIZARD_CHECKS as $issueType) {
+            try {
+                $suggestion = Suggestion::getDescription($issueType);
+            } catch (Throwable $e) {
+                continue;
+            }
+            $checks[] = [
+                'issueType'   => $issueType,
+                'title'       => (string) ($suggestion['title'] ?? $issueType),
+                'description' => (string) ($suggestion['description'] ?? ''),
+                'priority'    => (int) ($suggestion['priority'] ?? 4),
+            ];
+        }
+
+        return $checks;
+    }
+
+    private function getReviewData(): ?array {
+        try {
+            $reviewState = new ReviewState();
+            return [
+                'displayCount' => $reviewState->getDisplayCount(),
+                'eligible' => $reviewState->isEligible(),
+                'cooldownUntil' => $reviewState->getCooldownUntil(),
+                'permanentlyStopped' => $reviewState->isPermanentlyStopped(),
+                'scoreThresholds' => [
+                    'dashboard' => ReviewState::DASHBOARD_SCORE_THRESHOLD,
+                    'editor' => ReviewState::EDITOR_SCORE_THRESHOLD,
+                ],
+            ];
+        } catch ( Throwable $e ) {
+            return null;
+        }
     }
 
     private function boolToJs(bool $value): string {

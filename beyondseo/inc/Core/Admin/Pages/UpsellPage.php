@@ -256,6 +256,10 @@ class UpsellPage extends AdminPage
      */
     public function page_content(): void
     {
+        if (!$this->accessControlHandled) {
+            $this->redirectActivatedAccountToOnboarding();
+        }
+
         // For new users who haven't completed onboarding yet, we allow access to the
         // Connect page (UpsellPage) without token validation.
         if (!CoreHelper::isOnboarded()) {
@@ -324,6 +328,8 @@ class UpsellPage extends AdminPage
     {
         // Mark that access control has been handled, so page_content() skips FlowGuard
         $this->accessControlHandled = true;
+
+        $this->redirectActivatedAccountToOnboarding();
 
         // Upgrade deep links (step=upsell&planSelected=...) must be processed here,
         // before headers are sent, so the browser can be redirected to the purchase URL.

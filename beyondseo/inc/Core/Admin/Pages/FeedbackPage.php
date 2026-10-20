@@ -148,7 +148,7 @@ class FeedbackPage extends AdminPage
      * Handles the AJAX request for submitting deactivation feedback.
      *
      * This method validates the nonce and user permissions, processes the submitted feedback,
-     * and sends it to the API. It also handles optional project data deletion based on user input.
+     * and sends it to the API.
      *
      * @return void
      * @throws ReflectionException
@@ -164,8 +164,8 @@ class FeedbackPage extends AdminPage
 
         $reasonCode = isset($_POST['reasonCode']) ? sanitize_text_field(wp_unslash($_POST['reasonCode'])) : '';
         $feedbackText = isset($_POST['feedbackText']) ? sanitize_textarea_field(wp_unslash($_POST['feedbackText'])) : '';
-        $deleteProjectValue = isset($_POST['deleteProject']) ? sanitize_text_field(wp_unslash($_POST['deleteProject'])) : '';
-        $deleteProject = $deleteProjectValue === 'true' || $deleteProjectValue === '1';
+        $deleteDataValue = isset($_POST['deleteData']) ? sanitize_text_field(wp_unslash($_POST['deleteData'])) : '';
+        $deleteData = $deleteDataValue === 'true' || $deleteDataValue === '1';
         $skipFeedbackValue = isset($_POST['skipFeedback']) ? sanitize_text_field(wp_unslash($_POST['skipFeedback'])) : '';
         $skipFeedback = $skipFeedbackValue === 'true' || $skipFeedbackValue === '1';
 
@@ -176,7 +176,6 @@ class FeedbackPage extends AdminPage
                 $feedbackApiManager->submitFeedback(
                     $reasonCode,
                     $feedbackText,
-                    $deleteProject,
                 );
             } catch (Exception $e) {
                 // Log the error but don't fail the deactivation
@@ -187,9 +186,10 @@ class FeedbackPage extends AdminPage
             }
         }
 
-        if ($deleteProject) {
+        if ($deleteData) {
             update_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION, 1, false);
-            $this->log('User requested data deletion on deactivation', 'INFO');
+        } else {
+            delete_option(BaseConstants::OPTION_DELETE_ON_DEACTIVATION);
         }
 
         (new Installer())->deactivationOnce();

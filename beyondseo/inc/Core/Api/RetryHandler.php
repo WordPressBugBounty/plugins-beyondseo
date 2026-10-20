@@ -20,7 +20,7 @@ class RetryHandler {
 	 * @param int $maxRetries
 	 * @param int $backoffFactor
 	 */
-	public function __construct( int $maxRetries = 3, int $backoffFactor = 2 ) {
+	public function __construct( int $maxRetries = 3, int $backoffFactor = 5 ) {
 		$this->maxRetries    = $maxRetries;
 		$this->backoffFactor = $backoffFactor;
 	}
@@ -40,15 +40,15 @@ class RetryHandler {
 			try {
 				return $requestFunction();
 			} catch ( HttpApiException $e ) {
-				if ( $e->getCode() !== 0 ) {
+				if ( ! in_array( $e->getCode(), [ 0, 504 ], true ) ) {
 					throw $e;
 				}
 				$retries --;
 				if ( $retries === 0 ) {
                     // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
-					throw new HttpApiException( esc_html__('Request failed after multiple retries: ', 'beyondseo') . $e->getMessage() );
+					throw new HttpApiException( esc_html__('Request failed after multiple retries: ', 'beyondseo') . $e->getMessage(), $e->getCode() );
 				}
-				sleep( $this->backoffFactor ** ( $this->maxRetries - $retries ) );
+				sleep( $this->backoffFactor * 2 ** ( $this->maxRetries - $retries - 1 ) );
 			}
 		}
 

@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,19 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.8 =
+* Added a first-run Setup Wizard with email opt-in and validation checks to guide initial configuration
+* Added import of SEO settings from AIOSEO, Rank Math, and Yoast SEO, with source option detection and validation
+* Added project management for connected accounts via new REST endpoints, with safer concurrent updates and clearer error handling
+* Added onboarding resume so activated accounts can pick up setup where they left off
+* Added a dashboard review prompt
+* Added a REST endpoint to retrieve SEO issues and suggestions for a post
+* Improved article description retrieval and content extraction
+* Improved schema output by normalizing legacy graph names
+* Improved API reliability with more retries and longer backoff between attempts
+* Fixed locally added keywords not being remembered by storing them in a plugin option
+* Fixed sitemap output missing the XML declaration and improved XML validation handling
 
 = 1.3.7 =
 * Added quick editing for SEO titles and meta descriptions directly from the posts and pages list.

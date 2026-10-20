@@ -66,4 +66,7 @@ if ( !defined('ABSPATH') ) {
             </button>
         </div>
     <?php endif; ?>
+    <?php if ($reviewGreen) : ?>
+        <div id="dashboard-review-rankingcoach-react" data-review-score="<?php echo esc_attr($websiteScore); ?>"></div>
+    <?php endif; ?>
 </div>

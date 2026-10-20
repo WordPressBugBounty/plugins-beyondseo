@@ -132,7 +132,7 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
             return $this->generateErrorResponse(null, 'Missing or invalid selectedSchema.');
         }
 
-        $selectedSchemaType = sanitize_text_field($payload['selectedSchema']);
+        $selectedSchemaType = SchemaManager::normalizeGraphName(sanitize_text_field($payload['selectedSchema']));
         update_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, $selectedSchemaType);
 
         $settings = $this->retrieveSchemaMarkupSettings($postId);
@@ -169,7 +169,7 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
             'defaultBusinessType' => $this->settings['default_business_type'] ?? null,
             'enableSchemaMarkup' => $this->settings['enable_schema_markup'] ?? true,
             'defaultSchemaType' => $defaultSchemaType,
-            'currentPostSchemaType' => $postId ? get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true) : null,
+            'currentPostSchemaType' => $postId ? SchemaManager::normalizeGraphName((string) get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true)) : null,
             'currentPostSchemaData' => $postId ? get_post_meta($postId, BaseConstants::OPTION_SCHEMA_CACHE, true) : null,
             'schemaTypes' => [
                 'WebPage',
@@ -184,7 +184,7 @@ class SchemaMarkup extends BaseModule implements MetaHeadBuilderInterface {
                 'MusicGroup',
                 'Product',
                 'ProductReview',
-                'Website',
+                'WebSite',
                 'AboutPage',
                 'ContactPage',
                 'FAQPage',

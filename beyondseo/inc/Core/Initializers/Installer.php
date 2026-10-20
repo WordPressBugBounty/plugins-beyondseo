@@ -26,6 +26,7 @@ use RankingCoach\Inc\Core\Jobs\LogCleanupJob;
 use RankingCoach\Inc\Core\Jobs\SyncKeywordsJob;
 use RankingCoach\Inc\Core\NotificationManager;
 use RankingCoach\Inc\Core\PluginConfiguration;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\RobotsTxt\RobotsTxtManager;
 use RankingCoach\Inc\Core\Rss\FeedManager;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -81,6 +82,14 @@ class Installer implements InitializerInterface
         // Initialize internal hooks and filters
         $this->initializeHooks();
 
+        (new ReviewState())->registerAnalysisHooks();
+
+        add_action('plugins_loaded', static function () {
+            try {
+                (new ReviewState())->observeActivePlugin();
+            } catch (Throwable $e) {
+            }
+        }, 9);
         add_action('plugins_loaded',  [$this, 'maybeActivateOnce'], 10);
         add_action('init', [HooksManager::getInstance(), 'runDbMigration'], 1);
 
@@ -249,6 +258,12 @@ class Installer implements InitializerInterface
      */
     private function activateSingleSite(): void {
 
+        $reviewNewInstallation = false;
+        try {
+            $reviewNewInstallation = (new ReviewState())->isNewInstallation();
+        } catch (Throwable $e) {
+        }
+
         // Create database tables and fetch account details
         try {
             $dbm = DatabaseManager::getInstance();
@@ -281,6 +296,26 @@ class Installer implements InitializerInterface
 
         // Schedule all recurring WP-Cron jobs owned by the plugin
         $this->scheduleCronJobs();
+
+        try {
+            (new ReviewState())->recordPluginObservation($reviewNewInstallation);
+        } catch (Throwable $e) {
+        }
+
+        $this->scheduleSetupWizardRedirect();
+    }
+
+    /**
+     * Opens the setup wizard on the next admin request (AdminManager consumes the transient).
+     * Covers both the activation hook and the lazy first-run path of pre-activated installs.
+     *
+     * @return void
+     */
+    private function scheduleSetupWizardRedirect(): void {
+        if (wp_doing_cron() || wp_doing_ajax() || is_network_admin() || (defined('WP_CLI') && WP_CLI)) {
+            return;
+        }
+        set_transient(BaseConstants::TRANSIENT_SETUP_WIZARD_REDIRECT, 1, MINUTE_IN_SECONDS);
     }
 
     /**

@@ -13,6 +13,10 @@ use RankingCoach\Inc\Core\Admin\Pages\GeneralSettingsPage;
 use RankingCoach\Inc\Core\Admin\Pages\IframePage;
 use RankingCoach\Inc\Core\Admin\Pages\OnboardingPage;
 use RankingCoach\Inc\Core\Admin\Pages\RegistrationPage;
+use RankingCoach\Inc\Core\Admin\Pages\SetupWizardPage;
+use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\CircuitBreaker\FunctionalityBlocker;
+use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Core\Admin\Pages\FeedbackPage;
 use RankingCoach\Inc\Core\Admin\Pages\UpsellPage;
 use RankingCoach\Inc\Core\DashboardWidgetManager;
@@ -88,6 +92,13 @@ class AdminManager
     private ?FeedbackPage $feedback_page;
 
     /**
+     * The setup wizard page of the plugin.
+     *
+     * @var SetupWizardPage|null
+     */
+    private ?SetupWizardPage $setup_wizard_page;
+
+    /**
      * The name of the main admin page.
      *
      * @var string
@@ -98,7 +109,9 @@ class AdminManager
     public const PAGE_REGISTRATION      = 'rankingcoach-registration';
     public const PAGE_ONBOARDING        = 'rankingcoach-onboarding';
     public const PAGE_GENERAL_SETTINGS  = 'rankingcoach-generalSettings';
+    public const PAGE_SUPPORT           = 'rankingcoach-support';
     public const PAGE_UPSELL            = 'rankingcoach-connect';
+    public const PAGE_SETUP_WIZARD      = 'rankingcoach-setupWizard';
 
     /**
      * AdminManager constructor.
@@ -158,6 +171,7 @@ class AdminManager
         $this->general_settings_page = GeneralSettingsPage::getInstance()->setManager($this);
         $this->upsell_page = UpsellPage::getInstance()->setManager($this);
         $this->feedback_page = FeedbackPage::getInstance()->setManager($this);
+        $this->setup_wizard_page = SetupWizardPage::getInstance()->setManager($this);
     }
 
     /**
@@ -169,7 +183,6 @@ class AdminManager
         add_action('add_meta_boxes', [$this, 'add_meta_boxes']);
         // Add a div mounted in DOM, support for a floating component. In footer admin
         add_action('admin_footer', [$this, 'footer_block']);
-        add_action('admin_footer', [$this, 'admin_footer_scripts']);
         // Create admin pages
         add_action('admin_menu', [$this, 'create_admin_pages']);
         // Add admin-specific hooks here
@@ -180,6 +193,42 @@ class AdminManager
         add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 2);
         // Show a "not connected" notice on the Plugins page until onboarding is completed
         (new NotConnectedNotice())->init();
+        // One-shot redirect to the setup wizard after activation (after the circuit breaker check at priority 5)
+        add_action('admin_init', [$this, 'maybe_redirect_to_setup_wizard'], 10);
+    }
+
+    /**
+     * Redirects once to the setup wizard after an interactive activation.
+     *
+     * @return void
+     */
+    public function maybe_redirect_to_setup_wizard(): void
+    {
+        if (!get_transient(BaseConstants::TRANSIENT_SETUP_WIZARD_REDIRECT)) {
+            return;
+        }
+        // Not an interactive admin page request (ajax, network admin, other role, output already
+        // started on the lazy activation path): keep the transient for the next request.
+        if (wp_doing_ajax() || is_network_admin() || headers_sent() || !current_user_can('manage_options')) {
+            return;
+        }
+        delete_transient(BaseConstants::TRANSIENT_SETUP_WIZARD_REDIRECT);
+
+        if (
+            WordpressHelpers::sanitize_input('GET', 'activate-multi')
+            || FunctionalityBlocker::instance()->getCircuitBreaker()->should_block_functionality()
+            || CoreHelper::isOnboarded()
+        ) {
+            return;
+        }
+
+        $wizard = (array) SettingsManager::instance()->get_option('setup_wizard', []);
+        if (!empty($wizard['completed']) || !empty($wizard['dismissed'])) {
+            return;
+        }
+
+        wp_safe_redirect(self::getPageUrl(self::PAGE_SETUP_WIZARD));
+        exit;
     }
 
     /**
@@ -408,32 +457,6 @@ class AdminManager
     }
 
     /**
-     * Outputs custom admin footer scripts.
-     *
-     * The "Support" entry of the plugin menu (see create_admin_pages()) is a plain external URL and
-     * WordPress menus cannot set target="_blank", so it is opened in a new tab from here. The anchor
-     * is matched on host + path of the resolved, partner-aware support URL (rankingCoach or a partner
-     * desk such as IONOS) and scoped to the plugin menu so no other link on the page is affected.
-     *
-     * @return void
-     */
-    public function admin_footer_scripts(): void
-    {
-        $supportUrlParts  = wp_parse_url(ExternalLinks::getSupportUrl(true));
-        $supportUrlNeedle = ($supportUrlParts['host'] ?? '') . ($supportUrlParts['path'] ?? '');
-        if ($supportUrlNeedle === '') {
-            return;
-        }
-        ?>
-        <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $('#toplevel_page_rankingcoach-main a[href*=<?php echo wp_json_encode($supportUrlNeedle, JSON_UNESCAPED_SLASHES); ?>]').attr('target', '_blank');
-            });
-        </script>
-        <?php
-    }
-
-    /**
      * Outputs a custom page block container for React.
      *
      * @return void
@@ -556,6 +579,24 @@ class AdminManager
         });
 
         // ===================================================================================
+        // SETUP WIZARD PAGE (Hidden from menu)
+        // ===================================================================================
+        $setupWizardHook = add_submenu_page(
+            '-',
+            __('Setup wizard', 'beyondseo'),
+            __('Setup wizard', 'beyondseo'),
+            'manage_options',
+            self::PAGE_SETUP_WIZARD,
+            function () {
+                $this->setup_wizard_page->page_content();
+            }
+        );
+
+        add_action("load-{$setupWizardHook}", function () {
+            $this->setup_wizard_page->handleAccessControl();
+        });
+
+        // ===================================================================================
         // UPGRADE PAGE
         // ===================================================================================
         $upgradeHook = null;
@@ -591,19 +632,20 @@ class AdminManager
             });
         }
 
-        // ===================================================================================
-        // SUPPORT LINK
-        // ===================================================================================
-        // Partner-aware (IONOS desk for IONOS installs, rankingCoach otherwise) and already escaped
-        // for output. The entry is opened in a new tab by admin_footer_scripts().
-        $supportUrl = ExternalLinks::getSupportUrl();
-        add_submenu_page(
+        $supportHook = add_submenu_page(
             'rankingcoach-main',
             __('Support', 'beyondseo'),
             __('Support', 'beyondseo'),
             'manage_options',
-            $supportUrl
+            self::PAGE_SUPPORT,
+            function () {
+                echo '<div id="support-rankingcoach-page" class="wrap beyondseo"></div>';
+            }
         );
+
+        add_action("load-{$supportHook}", function () {
+            ReactApp::get(['support']);
+        });
     }
 
     /**
@@ -636,6 +678,9 @@ class AdminManager
         if (isset($this->feedback_page) && property_exists($this->feedback_page, 'name') && $this->feedback_page->page_name() === $pageName) {
             $this->feedback_page->redirect($queries);
         }
+        if (isset($this->setup_wizard_page) && property_exists($this->setup_wizard_page, 'name') && $this->setup_wizard_page->page_name() === $pageName) {
+            $this->setup_wizard_page->redirect($queries);
+        }
     }
 
     /**
@@ -654,11 +699,16 @@ class AdminManager
             esc_html__('Documentation', 'beyondseo')
         );
 
-        // Partner-aware: IONOS installs get the IONOS support desk, everything else rankingCoach support.
         $new_links['support'] = sprintf(
             '<a href="%1$s" target="_blank">%2$s</a>',
             ExternalLinks::getSupportUrl(),
             esc_html__('Support', 'beyondseo')
+        );
+
+        $new_links['setup_wizard'] = sprintf(
+            '<a href="%1$s">%2$s</a>',
+            esc_url(self::getPageUrl(self::PAGE_SETUP_WIZARD)),
+            esc_html__('Setup wizard', 'beyondseo')
         );
 
         if (!CoreHelper::isOnboarded()) {

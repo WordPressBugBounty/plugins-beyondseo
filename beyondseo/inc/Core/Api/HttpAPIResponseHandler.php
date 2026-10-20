@@ -71,7 +71,7 @@ class HttpAPIResponseHandler {
 
 			$shouldThrow = apply_filters('rankingcoach_http_api_response_throw_exception', false, $errorDetails, $response);
 
-			if ($statusCode === 401 || $shouldThrow) {
+			if ($statusCode === 401 || $statusCode === 504 || $shouldThrow) {
 				throw $exception;
 			}
 

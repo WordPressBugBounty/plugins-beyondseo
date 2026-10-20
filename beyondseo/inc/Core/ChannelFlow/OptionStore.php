@@ -62,8 +62,13 @@ final class OptionStore {
     /**
      * Save the given flow state to the database.
      */
-    public function saveFlowState(FlowState $state): void {
+    public function saveFlowState(FlowState $state): bool {
         update_option(self::KEY_FLOW_STATE, $state->toArray(), false);
+        wp_cache_delete(self::KEY_FLOW_STATE, 'options');
+        wp_cache_delete('alloptions', 'options');
+        wp_cache_delete('notoptions', 'options');
+
+        return get_option(self::KEY_FLOW_STATE, null) === $state->toArray();
     }
 
     /**

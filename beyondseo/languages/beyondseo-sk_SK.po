@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: BeyondSEO\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:16+0000\n"
+"PO-Revision-Date: 2026-10-20 09:34+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: sk_SK\n"
@@ -15,11 +15,11 @@ msgstr ""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 msgid "%1$s: %2$s"
-msgstr ""
+msgstr "%1$s: %2$s"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "1. Is the Pro plan suitable for small businesses?"
-msgstr ""
+msgstr "1. Je Pro plán vhodný pre malé podniky?"
 
 #: inc/Core/Helpers/Traits/RcReadabilityAnalysisTrait.php:740
 msgid "10th-12th grade (Fairly difficult)"
@@ -27,11 +27,11 @@ msgstr "10.–12. trieda (Pomerne ťažké)"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "2. Can I directly upgrade from Standard to Pro?"
-msgstr ""
+msgstr "Môžem priamo prejsť z verzie Standard na verziu Pro?"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "3. What types of businesses benefit most from Pro?"
-msgstr ""
+msgstr "3. Aké typy podnikov najviac profitujú z Pro?"
 
 #: inc/Core/Helpers/Traits/RcReadabilityAnalysisTrait.php:732
 msgid "5th grade (Very easy to read)"
@@ -51,15 +51,15 @@ msgstr "8.–9. trieda (Bežná angličtina)"
 
 #: inc/Core/ConflictManager.php:164
 msgid "<strong>rankingCoach SEO</strong> is not compatible with the following plugin: <strong>%s</strong>"
-msgstr ""
+msgstr "<strong>rankingCoach SEO</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%s</strong>"
 
 #: inc/Core/ConflictManager.php:163
 msgid "<strong>rankingCoach SEO</strong> is not compatible with the following plugins:"
-msgstr ""
+msgstr "<strong>rankingCoach SEO</strong> nie je kompatibilný s nasledujúcimi pluginmi:"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "AI Text optimisation"
-msgstr ""
+msgstr "Optimalizácia textu pomocou AI"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "AI URL optimiser"
@@ -67,15 +67,15 @@ msgstr "Optimalizátor URL pomocou AI"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "AI content for posts and events"
-msgstr ""
+msgstr "AI obsah pre príspevky a podujatia"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "AI powered SEO tasks"
-msgstr ""
+msgstr "Úlohy SEO poháňané AI"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "AI streamlined onboarding"
-msgstr ""
+msgstr "AI zjednodušené zavádzanie"
 
 #: inc/Core/Api/HttpApiClient.php:242
 msgid "API endpoint cannot be empty."
@@ -83,11 +83,11 @@ msgstr "Koncový bod API nemôže byť prázdny."
 
 #: inc/Core/Api/HttpApiClient.php:483
 msgid "API error: %s - %s"
-msgstr ""
+msgstr "Chyba API: %s - %s"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Absolutely! You can upgrade directly to Pro from Standard to immediately access all features and benefits."
-msgstr ""
+msgstr "Samozrejme! Môžete priamo prejsť na Pro z verzie Standard a okamžite získať prístup ku všetkým funkciám a výhodám."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ReadabilityValidationOperation.php:932
 msgid "Acceptable"
@@ -212,7 +212,7 @@ msgstr "Pridať ďalšie kľúčové slová"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Add additional review sources"
-msgstr ""
+msgstr "Pridajte ďalšie zdroje recenzií"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1005
 msgid "Add an H1 Heading"
@@ -236,7 +236,7 @@ msgstr "Pridaj prechodové slová ako „avšak“, „ďalej“ alebo „násle
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:176
 msgid "Adding structured data will help search engines better understand your business information."
-msgstr ""
+msgstr "Pridanie štruktúrovaných údajov pomôže vyhľadávačom lepšie pochopiť informácie o vašej firme."
 
 #: dummy_reference.php
 msgid "Additional keywords"
@@ -268,7 +268,7 @@ msgstr "Prispôsob tón svojho obsahu tak, aby lepšie zodpovedal očakávaniam 
 
 #: tools/Dev/Config/AutomationConfig.php:40
 msgid "Admin Access Token"
-msgstr ""
+msgstr "Admin prístupový token"
 
 #: dummy_reference.php
 msgid "Advanced"
@@ -276,7 +276,7 @@ msgstr "Rozšírené"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:412
 msgid "After mentioning your keyword once, refer to it using pronouns or descriptive phrases"
-msgstr ""
+msgstr "Po spomenutí vášho kľúčového slova raz, odkazujte naň pomocou zámen alebo popisných fráz."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:677
 msgid "Align Content with User Intent"
@@ -360,7 +360,7 @@ msgstr "Analyzuje čitateľnosť obsahu pomocou Flesch-Kincaidových skóre, zlo
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AltTextToImages/PrimaryKeywordInAltTextOperation.php:26
 msgid "Analyzes image alt texts for the presence of the primary keyword, ensuring it is used naturally and not excessively. Provides suggestions for optimization based on keyword usage in alt attributes."
-msgstr ""
+msgstr "Analyzuje alt texty obrázkov na prítomnosť primárneho kľúčového slova, zabezpečuje, aby bolo použité prirodzene a nie nadmerne. Poskytuje návrhy na optimalizáciu na základe používania kľúčových slov v alt atribútoch."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AssignKeywords/KeywordCompetitionVolumeCheckOperation.php:32
 msgid "Analyzes keyword competition, search volume, and CPC balance using external SEO API services. Provides insights on keyword difficulty and potential for content optimization."
@@ -424,19 +424,19 @@ msgstr "Analyzuje titulky, nadpisy a text tela na prítomnosť kľúčových slo
 
 #: inc/Core/Rest/RestManager.php:297
 msgid "App password authentication failed: Invalid base64 encoding"
-msgstr ""
+msgstr "Autentifikácia pomocou hesla aplikácie zlyhala: Neplatné kódovanie base64"
 
 #: inc/Core/Rest/RestManager.php:303
 msgid "App password authentication failed: Invalid credential format"
-msgstr ""
+msgstr "Overenie hesla aplikácie zlyhalo: Neplatný formát poverení"
 
 #: inc/Core/Rest/RestManager.php:322
 msgid "App password authentication failed: Invalid username"
-msgstr ""
+msgstr "Overenie hesla aplikácie zlyhalo: Neplatné používateľské meno"
 
 #: inc/Core/Rest/RestManager.php:289
 msgid "App password authentication failed: Missing or invalid Authorization header"
-msgstr ""
+msgstr "Autentifikácia pomocou hesla aplikácie zlyhala: Chýbajúci alebo neplatný hlavička autorizácie"
 
 #: app/src/Domain/Integrations/WordPress/Plugin/Entities/WPSettings.php:187
 msgid "Archives for"
@@ -444,7 +444,7 @@ msgstr "Archívy pre"
 
 #: app/src/Domain/Base/Repo/RC/Traits/RCTrait.php:52
 msgid "Argus Entity can be imported only from the same Class, e.g. Entities\\Domain > Argus\\Domain"
-msgstr ""
+msgstr "Entita Argus môže byť importovaná iba z tej istej triedy, napr. Entities\\Domain > Argus\\Domain"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/KeywordDistributionOperation.php:24
 msgid "Assesses how keywords are spread throughout page headings, paragraphs, and meta data. Identifies imbalances like concentration in specific sections and recommends a more even distribution for improved relevance."
@@ -512,15 +512,15 @@ msgstr "Vyváž svoj profil spätných odkazov"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Basic SEO insights"
-msgstr ""
+msgstr "Základné SEO poznatky"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Basic performance monitoring"
-msgstr ""
+msgstr "Základné monitorovanie výkonu"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:405
 msgid "Better: \"%s is important for your website. It can improve rankings.\""
-msgstr ""
+msgstr "Lepšie: \"%s je dôležité pre vašu webovú stránku. Môže zlepšiť hodnotenie.\""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:845
 msgid "Block Admin Sections in Robots.txt"
@@ -528,7 +528,7 @@ msgstr "Blokuj administrátorské sekcie v súbore robots.txt"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Boost an existing post with Meta ads"
-msgstr ""
+msgstr "Zvýšte dosah existujúceho príspevku pomocou reklám na Meta."
 
 #: inc/Core/UpsellNotificationManager.php:109
 #: inc/Core/UpsellNotificationManager.php:225
@@ -537,7 +537,7 @@ msgstr "Zvýšiť moju viditeľnosť"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:444
 msgid "Break Up Longer Keyword Phrases"
-msgstr ""
+msgstr "Rozdeľte dlhšie kľúčové frázy"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:160
 msgid "Break down complex concepts into smaller, digestible points"
@@ -573,7 +573,7 @@ msgstr "Vytvorenie firemného profilu"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "By clicking \"Upgrade\", you agree to our"
-msgstr ""
+msgstr "Kliknutím na \"Upgrade\" súhlasíte s našimi"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/KeywordDensityValidationOperation.php:26
 msgid "Calculates keyword density across the page to detect excessive or insufficient usage. Evaluates primary and secondary terms, suggesting adjustments to keep frequencies within recommended ranges for natural, SEO-friendly content."
@@ -585,7 +585,7 @@ msgstr "Nie je možné vypočítať rovnováhu bez primárnych aj sekundárnych 
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:663
 msgid "Cannot fetch content from an empty or invalid URL: %s"
-msgstr ""
+msgstr "Nie je možné načítať obsah z prázdnej alebo neplatnej URL: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/UseCanonicalTags/CanonicalTagValidationOperation.php:18
 msgid "Canonical Tag Validation"
@@ -605,7 +605,7 @@ msgstr "Kategórie"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:436
 msgid "Change how you incorporate keywords into sentences to make them flow naturally"
-msgstr ""
+msgstr "Zmeňte spôsob, akým zapracovávate kľúčové slová do viet, aby plynulo zapadali."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Factors/ContentOptimisation/ContentReadabilityFactor.php:18
 msgid "Checks how easy the content is to read, how it is structured, and whether it suits the intended audience to improve engagement and clarity."
@@ -645,23 +645,23 @@ msgstr "Kontroluje meta značky robots, HTTP hlavičky a robots.txt na overenie,
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:235
 msgid "Chinese (Simplified)"
-msgstr ""
+msgstr "Čínština (zjednodušená)"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:236
 msgid "Chinese (Traditional)"
-msgstr ""
+msgstr "čínština (tradičná)"
 
 #: inc/Core/ConflictManager.php:177
 msgid "Click here to Deactivate."
-msgstr ""
+msgstr "Kliknite sem na deaktiváciu."
 
 #: inc/Core/ConflictManager.php:145
 msgid "Click to deactivate."
-msgstr ""
+msgstr "Kliknite na deaktiváciu."
 
 #: inc/Core/Api/HttpApiClient.php:404
 msgid "Client error: %s"
-msgstr ""
+msgstr "Chyba klienta: %s"
 
 #: inc/Core/Helpers/Traits/RcReadabilityAnalysisTrait.php:742
 msgid "College (Difficult)"
@@ -753,11 +753,11 @@ msgstr "Návrhy na aktualizáciu obsahu"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ContentDepthValidationOperation.php:95
 msgid "Content depth analysis completed successfully"
-msgstr ""
+msgstr "Analýza hĺbky obsahu bola úspešne dokončená"
 
 #: inc/Core/Api/Content/ContentApiManager.php:109
 msgid "Content extraction completed successfully"
-msgstr ""
+msgstr "Extrakcia obsahu bola úspešne dokončená."
 
 #: inc/Core/Helpers/Traits/RcKeywordsAnalysisTrait.php:1919
 msgid "Content focuses too heavily on primary keyword at the expense of topic diversity."
@@ -790,7 +790,7 @@ msgstr "Analýza dĺžky obsahu bola úspešne dokončená"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/ContentUpdateSuggestionsOperation.php:97
 msgid "Content update suggestions fetched successfully"
-msgstr ""
+msgstr "Návrhy na aktualizáciu obsahu boli úspešne načítané"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:866
 msgid "Correct the Canonical Tag"
@@ -802,7 +802,7 @@ msgstr "Nepodarilo sa načítať URL."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordMetaTagOptimizationOperation.php:47
 msgid "Could not retrieve post URL"
-msgstr ""
+msgstr "Nepodarilo sa získať URL príspevku."
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Steps/WPFlowStep.php:128
 msgid "Could you describe in more detail what you plan to do with your website? For example, will you offer products or services, share blog articles, or something else?"
@@ -810,15 +810,15 @@ msgstr "Mohol by si podrobnejšie opísať, čo plánuješ robiť so svojou webo
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Questions/WPFlowQuestion.php:67
 msgid "Could you provide more details?"
-msgstr ""
+msgstr "Môžete poskytnúť viac podrobností?"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Create & publish posts and events on Google Business Profile"
-msgstr ""
+msgstr "Vytvorte a publikujte príspevky a udalosti na profile firmy Google."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Create & publish posts on Facebook and Instagram"
-msgstr ""
+msgstr "Vytvorte a publikujte príspevky na Facebooku a Instagrame"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1047
 msgid "Create Curiosity in Opening Paragraph"
@@ -826,7 +826,7 @@ msgstr "Vzbudiť zvedavosť v úvodnom odseku"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Create Google Ads campaign"
-msgstr ""
+msgstr "Vytvorte kampaň Google Ads"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:362
 msgid "Create a Keyword Map"
@@ -838,7 +838,7 @@ msgstr "Vytvoriť súbor Robots.txt"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Create posts and events, fine-tune them with AI assistance. Schedule or publish them across multiple social media channels, adapted for each platform."
-msgstr ""
+msgstr "Vytvárajte príspevky a udalosti, dolaďte ich s pomocou AI. Naplánujte alebo publikujte ich na viacerých sociálnych médiách, prispôsobených pre každú platformu."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:96
 msgid "Critical"
@@ -866,19 +866,19 @@ msgstr "Aktuálne skóre"
 
 #: app/src/Domain/Integrations/WordPress/Plugin/Entities/WPSettings.php:190
 msgid "Custom post type archives for"
-msgstr ""
+msgstr "Archívy vlastných typov príspevkov pre"
 
 #: app/src/Domain/Base/Repo/DB/Doctrine/DoctrineManager.php
 msgid "Database connection parameters are not set in wp-config.php"
-msgstr ""
+msgstr "Parametre pripojenia k databáze nie sú nastavené v súbore wp-config.php"
 
 #: app/src/Domain/Common/Entities/Persons/Person.php:69
 msgid "Dear Mr. %1$s %2$s"
-msgstr ""
+msgstr "Vážený pán %1$s %2$s"
 
 #: app/src/Domain/Common/Entities/Persons/Person.php:71
 msgid "Dear Mrs. %1$s %2$s"
-msgstr ""
+msgstr "Vážená pani %1$s %2$s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:251
 msgid "Define technical terms when first introduced"
@@ -898,7 +898,7 @@ msgstr "Deteguje duplicitné stránky v rámci webu a kontroluje kanonické zna�
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:28
 msgid "Detects keyword stuffing in the first paragraph of content and suggests natural alternatives. This is crucial for maintaining readability and avoiding penalties from search engines."
-msgstr ""
+msgstr "Detekuje preplnenie kľúčovými slovami v prvom odseku obsahu a navrhuje prirodzené alternatívy. To je kľúčové pre udržanie čitateľnosti a vyhnutie sa sankciám od vyhľadávačov."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:173
 msgid "Develop ideas more thoroughly with supporting evidence"
@@ -918,7 +918,7 @@ msgstr "Máš už názov pre svoju webovú stránku, projekt alebo firmu?"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Don't risk remaining invisible."
-msgstr ""
+msgstr "Neriskujte, že zostanete neviditeľní."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/UseCanonicalTags/DuplicateContentDetectionOperation.php:18
 msgid "Duplicate Content Detection"
@@ -930,7 +930,7 @@ msgstr "Analýza duplicitného obsahu je dokončená."
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:232
 msgid "Dutch"
-msgstr ""
+msgstr "holandský"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ReadabilityValidationOperation.php:882
 msgid "Easy: Conversational English for consumers"
@@ -950,7 +950,7 @@ msgstr "Odstrániť zdroje blokujúce vykresľovanie"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Email Report management"
-msgstr ""
+msgstr "Správa e-mailových správ"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:224
 msgid "Emphasize benefits and value propositions"
@@ -962,11 +962,11 @@ msgstr "Prázdny obsah stránky"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:226
 msgid "English"
-msgstr ""
+msgstr "Angličtina"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:227
 msgid "English (UK)"
-msgstr ""
+msgstr "Angličtina (Spojené kráľovstvo)"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1208
 msgid "Enhance Image Alt Text Descriptiveness"
@@ -1010,7 +1010,7 @@ msgstr "Chyba pri dekódovaní odpovede JSON: %s"
 
 #: inc/Core/NotificationManager.php:189
 msgid "Error dismissing notification"
-msgstr ""
+msgstr "Chyba pri zamietaní oznámenia"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/KeywordDensityValidationOperation.php:75
 msgid "Error fetching content: %s"
@@ -1018,11 +1018,11 @@ msgstr "Chyba pri načítavaní obsahu: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:589
 msgid "Error fetching posts: %s"
-msgstr ""
+msgstr "Chyba pri načítaní príspevkov: %s"
 
 #: inc/Core/Initializers/Installer.php:185
 msgid "Error while collecting data from all available collectors. Exception: %s"
-msgstr ""
+msgstr "Chyba pri zbieraní údajov zo všetkých dostupných zberačov. Výnimka: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1054
 msgid "Establish Reader Connection in Opening"
@@ -1090,11 +1090,11 @@ msgstr "Vyhodnocuje, či sa primárne kľúčové slovo objavuje v URL stránky 
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Everything in Advanced, plus:"
-msgstr ""
+msgstr "Všetko v pokročilom, plus:"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Everything in Standard, plus:"
-msgstr ""
+msgstr "Všetko v štandardnej verzii, plus:"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:26
 msgid "Examines content for local business indicators and existing structured data. Recommends appropriate schema markup when location signals are missing, helping search engines understand and display local information more effectively."
@@ -1150,7 +1150,7 @@ msgstr "Rozšír svoj obsah, aby si poskytol väčšiu hodnotu svojmu cieľovém
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:85
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/ContentUpdateSuggestionsOperation.php:85
 msgid "External API call is disabled by feature flag"
-msgstr ""
+msgstr "Externé volanie API je zakázané funkčnou vlajkou."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "FAQs"
@@ -1158,7 +1158,7 @@ msgstr "Často kladené otázky"
 
 #: tools/Dev/Services/ApiService.php:83
 msgid "Failed to activate test account"
-msgstr ""
+msgstr "Nepodarilo sa aktivovať testovací účet"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AltTextToImages/PrimaryKeywordInAltTextOperation.php:67
 msgid "Failed to analyze images in content"
@@ -1174,36 +1174,36 @@ msgstr "Nepodarilo sa vypočítať a uložiť priemerné SEO skóre: %s"
 
 #: tools/Dev/Handlers/AutoConfigureUserHandler.php:45
 msgid "Failed to check account details."
-msgstr ""
+msgstr "Nepodarilo sa skontrolovať podrobnosti účtu."
 
 #: tools/Dev/Services/ApiService.php:65
 msgid "Failed to create test account"
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť testovací účet"
 
 #: inc/Core/Api/Content/ContentApiManager.php:103
 msgid "Failed to extract content from post"
-msgstr ""
+msgstr "Nepodarilo sa extrahovať obsah z príspevku."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/ContentUpdateSuggestionsOperation.php:71
 msgid "Failed to extract content from the page"
-msgstr ""
+msgstr "Nepodarilo sa extrahovať obsah z stránky"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordMetaTagOptimizationOperation.php:63
 msgid "Failed to fetch HTML content from URL"
-msgstr ""
+msgstr "Nepodarilo sa načítať HTML obsah z URL."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:711
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:719
 msgid "Failed to fetch URL %s. Error: %s"
-msgstr ""
+msgstr "Nepodarilo sa načítať URL %s. Chyba: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AnalyzeBacklinkProfile/ReferringLinksQualityAssessmentOperation.php:112
 msgid "Failed to fetch backlinks data from API"
-msgstr ""
+msgstr "Nepodarilo sa získať údaje o spätných odkazoch z API"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordPresenceOperation.php:47
 msgid "Failed to fetch content"
-msgstr ""
+msgstr "Nepodarilo sa načítať obsah"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AssignKeywords/KeywordMappingContentOperation.php:49
 msgid "Failed to fetch content for analysis"
@@ -1211,60 +1211,60 @@ msgstr "Nepodarilo sa načítať obsah na analýzu"
 
 #: inc/Core/Api/Content/ContentApiManager.php:131
 msgid "Failed to fetch content from URL"
-msgstr ""
+msgstr "Nepodarilo sa načítať obsah z URL."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/ContentUpdateSuggestionsOperation.php:93
 msgid "Failed to fetch content update suggestions from API"
-msgstr ""
+msgstr "Nepodarilo sa načítať návrhy na aktualizáciu obsahu z API."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/GoogleAndBingIndexationCheckOperation.php:94
 msgid "Failed to fetch indexation status from API"
-msgstr ""
+msgstr "Nepodarilo sa získať stav indexácie z API"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AssignKeywords/KeywordCompetitionVolumeCheckOperation.php:121
 msgid "Failed to fetch keyword metrics from API"
-msgstr ""
+msgstr "Nepodarilo sa získať metriky kľúčových slov z API"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizePageSpeed/OptimizePageSpeedOperation.php:89
 msgid "Failed to fetch page speed data from API"
-msgstr ""
+msgstr "Nepodarilo sa získať údaje o rýchlosti stránky z API"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AnalyzeBacklinkProfile/ReferringDomainsAnalysisOperation.php:112
 msgid "Failed to fetch referring domains data from API"
-msgstr ""
+msgstr "Nepodarilo sa získať údaje o odkazujúcich doménach z API"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:96
 msgid "Failed to fetch safe browsing status from API"
-msgstr ""
+msgstr "Nepodarilo sa získať stav bezpečného prehliadania z API"
 
 #: app/src/Domain/Integrations/WordPress/Common/Entities/Accounts/Legacy/WPLegacyAccount.php:113
 #: app/src/Domain/Integrations/WordPress/Common/Entities/Accounts/Legacy/Settings/WPLegacyAccountSetting.php:50
 msgid "Failed to generate unique key: %s"
-msgstr ""
+msgstr "Nepodarilo sa vygenerovať jedinečný kľúč: %s"
 
 #: tools/Dev/Services/ApiService.php:127
 msgid "Failed to get access token"
-msgstr ""
+msgstr "Nepodarilo sa získať prístupový token."
 
 #: tools/Dev/Services/ApiService.php:98
 msgid "Failed to get legacy test account"
-msgstr ""
+msgstr "Nepodarilo sa získať starý testovací účet"
 
 #: tools/Dev/Services/ApiService.php:113
 msgid "Failed to get refresh token"
-msgstr ""
+msgstr "Nepodarilo sa získať obnovovací token."
 
 #: inc/Core/Initializers/Installer.php:167
 msgid "Failed to initialize AutoUpdater: %s"
-msgstr ""
+msgstr "Nepodarilo sa inicializovať AutoUpdater: %s"
 
 #: inc/Core/HooksManager.php:662
 msgid "Failed to initialize keyword synchronization job: %s"
-msgstr ""
+msgstr "Nepodarilo sa inicializovať úlohu synchronizácie kľúčových slov: %s"
 
 #: inc/Core/HooksManager.php:647
 msgid "Failed to initialize log cleanup job: %s"
-msgstr ""
+msgstr "Nepodarilo sa inicializovať úlohu čistenia protokolov: %s"
 
 #: inc/Core/Rest/RestManager.php:1206
 msgid "Failed to reset setting: %s"
@@ -1296,11 +1296,11 @@ msgstr "Nepodarilo sa načítať nastavenia"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Services/WPWebPageService.php:334
 msgid "Failed to save meta tags through MetaTags service"
-msgstr ""
+msgstr "Nepodarilo sa uložiť meta tagy prostredníctvom služby MetaTags."
 
 #: inc/Core/Rest/RestManager.php:1034
 msgid "Failed to update setting '%s': %s"
-msgstr ""
+msgstr "Nepodarilo sa aktualizovať nastavenie '%s': %s"
 
 #: inc/Core/Rest/RestManager.php:1158
 msgid "Failed to update setting: %s"
@@ -1321,7 +1321,7 @@ msgstr "Pomerne jednoduché: Ľahko zrozumiteľné pre 13 – 15-ročných štud
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Factor.php:185
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Factor.php:226
 msgid "Feature flag availability is set to FALSE for operation '%s' under factor '%s', so this operation will be skipped."
-msgstr ""
+msgstr "Dostupnosť funkčnej vlajky je nastavená na FALSE pre operáciu '%s' pod faktorom '%s', takže táto operácia bude preskočená."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/RobotsTxtValidationOperation.php:20
 msgid "Fetches and analyzes the robots.txt file to confirm correct directives. Ensures important resources are accessible and harmful blocks are removed, providing tips to balance crawler control and SEO."
@@ -1405,11 +1405,11 @@ msgstr "Sústreď sa skôr na fakty a dôkazy ako na názory"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:530
 msgid "For \"%s\", use descriptive phrases that convey the same meaning"
-msgstr ""
+msgstr "Pre \"%s\" použite popisné frázy, ktoré vyjadrujú rovnaký význam."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:445
 msgid "For multi-word keywords, try separating the components across the sentence"
-msgstr ""
+msgstr "Pre viacslovné kľúčové slová sa pokúste oddeliť jednotlivé komponenty v celej vete."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Free"
@@ -1417,7 +1417,7 @@ msgstr "Zadarmo"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:228
 msgid "French"
-msgstr ""
+msgstr "Francúzsky"
 
 #: dummy_reference.php
 msgid "General"
@@ -1433,19 +1433,19 @@ msgstr "Zistený všeobecný alternatívny text"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:230
 msgid "German"
-msgstr ""
+msgstr "Nemecky"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Get powerful extra features like these — and more."
-msgstr ""
+msgstr "Získajte silné extra funkcie ako tieto — a ešte viac."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Get reviews widget"
-msgstr ""
+msgstr "Získať widget recenzií"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Go further with"
-msgstr ""
+msgstr "Pokračujte ďalej s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ReadabilityValidationOperation.php:930
 msgid "Good"
@@ -1489,11 +1489,11 @@ msgstr "Značky nadpisov nie sú použité v správnom hierarchickom poradí (na
 
 #: app/src/Domain/Common/Entities/Persons/Person.php:64
 msgid "Hi %s"
-msgstr ""
+msgstr "Ahoj %s"
 
 #: app/src/Domain/Common/Entities/Persons/Person.php:74
 msgid "Hi there"
-msgstr ""
+msgstr "Ahoj"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:95
 msgid "High"
@@ -1599,7 +1599,7 @@ msgstr "Zlepšiť vizuálnu stabilitu"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:397
 msgid "Improved version: \"%s\""
-msgstr ""
+msgstr "Vylepšená verzia: \"%s\""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:586
 msgid "Include Missing Related Keywords"
@@ -1651,15 +1651,15 @@ msgstr "Zahrň vizuálne pomôcky na vysvetlenie zložitých myšlienok"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:157
 msgid "Incomplete properties: %s"
-msgstr ""
+msgstr "Neúplné vlastnosti: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:465
 msgid "Incorporate Secondary Keywords"
-msgstr ""
+msgstr "Zahrňte sekundárne kľúčové slová"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:430
 msgid "Incorporate into a broader statement: \"Many businesses find that implementing %s leads to...\""
-msgstr ""
+msgstr "Mnohé podniky zistia, že implementácia %s vedie k..."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:206
 msgid "Incorporate more industry-specific terminology"
@@ -1683,11 +1683,11 @@ msgstr "Zvýš tematickú relevanciu spätných odkazov"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Increase your digital touch points. Get found easily."
-msgstr ""
+msgstr "Zvýšte svoje digitálne kontaktné body. Buďte ľahko nájditeľní."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/GoogleAndBingIndexationCheckOperation.php:105
 msgid "Indexation status fetched successfully"
-msgstr ""
+msgstr "Stav indexácie bol úspešne načítaný"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/SuggestionType.php:19
 msgid "Informational suggestion"
@@ -1695,27 +1695,27 @@ msgstr "Informačný návrh"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:506
 msgid "Instead of always using \"%s\", try: %s"
-msgstr ""
+msgstr "Namiesto stáleho používania \"%s\" vyskúšajte: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:447
 msgid "Instead of repeatedly using \"%s\""
-msgstr ""
+msgstr "Namiesto opakovaného používania \"%s\""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:458
 msgid "Instead of repeating \"%s\", incorporate \"%s\" to add topical depth"
-msgstr ""
+msgstr "Namiesto opakovania \"%s\" začleňte \"%s\" na pridanie tematickej hĺbky."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:381
 msgid "Instead of repeating the exact same keyword, use synonyms or related terms"
-msgstr ""
+msgstr "Namiesto opakovania presne toho istého kľúčového slova, používajte synonymá alebo príbuzné výrazy."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:466
 msgid "Instead of repeating your primary keyword, strategically use related secondary keywords"
-msgstr ""
+msgstr "Namiesto opakovania vašej primárnej kľúčovej frázy strategicky používajte súvisiace sekundárne kľúčové frázy."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:404
 msgid "Instead of: \"%s is important for your website. %s can improve rankings.\""
-msgstr ""
+msgstr "\"%s je dôležitý pre vašu webovú stránku. %s môže zlepšiť hodnotenie.\""
 
 #: inc/Core/Rest/RestManager.php:849
 msgid "Internal server error: %s"
@@ -1723,7 +1723,7 @@ msgstr "Vnútorná chyba servera: %s"
 
 #: inc/Core/Api/Content/ContentApiManager.php:125
 msgid "Invalid URL provided"
-msgstr ""
+msgstr "Poskytnutá neplatná URL adresa"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:664
 msgid "Invalid URL provided."
@@ -1735,7 +1735,7 @@ msgstr "Neplatný aktivačný kód."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Services/WPWebPageService.php:246
 msgid "Invalid entity type on WebPageService update"
-msgstr ""
+msgstr "Neplatný typ entity pri aktualizácii WebPageService"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Operation.php:156
 #: inc/Core/Rest/RestManager.php:622
@@ -1755,7 +1755,7 @@ msgstr "Poskytnuté neplatné ID príspevku"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Factor.php:213
 msgid "Invalid post ID provided for factor '%s': %d"
-msgstr ""
+msgstr "Neplatné ID príspevku poskytnuté pre faktor '%s': %d"
 
 #: inc/Core/Rest/RestManager.php:1011
 msgid "Invalid request body. Expected JSON object with settings."
@@ -1763,7 +1763,7 @@ msgstr "Neplatné telo požiadavky. Očakáva sa JSON objekt s nastaveniami."
 
 #: inc/Core/ConflictManager.php:265
 msgid "Invalid security token."
-msgstr ""
+msgstr "Neplatný bezpečnostný token."
 
 #: inc/Core/Rest/RestManager.php:1074 inc/Core/Rest/RestManager.php:1224
 msgid "Invalid setting key: %s"
@@ -1771,7 +1771,7 @@ msgstr "Neplatný kľúč nastavenia: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Operation.php:223
 msgid "Invalid suggestion type for operation %s. Expected Suggestion enum. Received: %s"
-msgstr ""
+msgstr "Neplatný typ návrhu pre operáciu %s. Očakávaný enum návrhu. Prijaté: %s"
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Steps/WPFlowStep.php:128
 msgid "Is your project or business tied to a specific location? Do you serve customers locally, or operate in multiple areas?"
@@ -1779,11 +1779,11 @@ msgstr "Je tvoj projekt alebo firma viazaná na konkrétne miesto? Obsluhuješ z
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:231
 msgid "Italian"
-msgstr ""
+msgstr "Taliansko"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:237
 msgid "Japanese"
-msgstr ""
+msgstr "Japonský"
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Steps/WPFlowStep.php:128
 msgid "Just tasty! Thanks for sharing!"
@@ -1811,7 +1811,7 @@ msgstr "Nadmerné používanie kľúčových slov"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:289
 msgid "Keyword appears multiple times in close proximity"
-msgstr ""
+msgstr "Kľúčové slovo sa objavuje viackrát v tesnej blízkosti."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/KeywordDensityValidationOperation.php:122
 msgid "Keyword density analysis completed"
@@ -1831,11 +1831,11 @@ msgstr "Analýza mapovania kľúčových slov bola dokončená"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AssignKeywords/KeywordCompetitionVolumeCheckOperation.php:115
 msgid "Keyword metrics fetched successfully"
-msgstr ""
+msgstr "Metódy kľúčových slov boli úspešne načítané"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:309
 msgid "Keyword repeated with only a comma in between"
-msgstr ""
+msgstr "Kľúčové slovo opakované iba s čiarkou medzi nimi"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:102
 msgid "Keyword stuffing detected in first paragraph"
@@ -1843,7 +1843,7 @@ msgstr "V prvom odseku bolo zistené zahlcovanie kľúčovými slovami."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:299
 msgid "Keyword used at both start and end of the same sentence"
-msgstr ""
+msgstr "Kľúčové slovo použité na začiatku aj na konci tej istej vety"
 
 #: dummy_reference.php
 msgid "Keywords"
@@ -1864,7 +1864,7 @@ msgstr "Kľúčové slová s vyššou CPC (cena za kliknutie) často naznačujú
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:238
 msgid "Korean"
-msgstr ""
+msgstr "Kórejčina"
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Steps/WPFlowStep.php:128
 msgid "Lastly, is there anything else you'd like to highlight about your project or business, something that makes it unique or special?"
@@ -1880,7 +1880,7 @@ msgstr "Poďme na to."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Limited keyword tracking"
-msgstr ""
+msgstr "Obmedzené sledovanie kľúčových slov"
 
 #: dummy_reference.php
 msgid "Link assistant"
@@ -1892,7 +1892,7 @@ msgstr "Stratégia odkazovania"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Listing checker"
-msgstr ""
+msgstr "Kontrola zoznamu"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordMetaTagOptimizationOperation.php:22
 msgid "Local Keyword Meta Tag Optimization"
@@ -1908,7 +1908,7 @@ msgstr "Lokálne kľúčové slová v obsahu"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Local Marketing tasks"
-msgstr ""
+msgstr "Úlohy miestneho marketingu"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:24
 msgid "Local Schema Markup Suggestion"
@@ -1920,27 +1920,27 @@ msgstr "Validácia lokálnej schémy"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:138
 msgid "Local business schema is not necessary for this page."
-msgstr ""
+msgstr "Schéma miestneho podnikania nie je pre túto stránku potrebné."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordMetaTagOptimizationOperation.php:71
 msgid "Local keyword meta tag analysis completed successfully"
-msgstr ""
+msgstr "Analýza meta tagu lokálnych kľúčových slov bola úspešne dokončená."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordPresenceOperation.php:75
 msgid "Local keyword presence analysis completed"
-msgstr ""
+msgstr "Analýza prítomnosti miestnych kľúčových slov bola dokončená"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:67
 msgid "Local schema markup analysis completed successfully"
-msgstr ""
+msgstr "Analýza miestneho schémy značkovania bola úspešne dokončená."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaValidationOperation.php:63
 msgid "Local schema validation completed"
-msgstr ""
+msgstr "Lokálna schémová validácia bola dokončená"
 
 #: inc/Core/Rest/RestManager.php:679
 msgid "Log sharing is disabled. The client has not agreed to share logs for debugging purposes. Please enable log sharing in plugin settings to allow log downloads."
-msgstr ""
+msgstr "Zdieľanie protokolov je zakázané. Klient nesúhlasil so zdieľaním protokolov na účely ladenia. Prosím, povolte zdieľanie protokolov v nastaveniach pluginu, aby ste umožnili sťahovanie protokolov."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:331
 msgid "Look for keywords with a good balance between search volume and competition. Ideal keywords have moderate search volume with relatively low competition."
@@ -2056,7 +2056,7 @@ msgstr "Chýbajúci alt text"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Monitor up to 20 keywords"
-msgstr ""
+msgstr "Sledujte až 20 kľúčových slov"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1180
 msgid "Move Keyword Earlier in First Paragraph"
@@ -2092,31 +2092,31 @@ msgstr "Validácia formátu obrázkov novej generácie"
 
 #: app/src/Domain/Common/Repo/InternalDB/InternalDBEntity.php:75
 msgid "No BASE_ENTITY_CLASS defined in %s"
-msgstr ""
+msgstr "Nie je definovaná BASE_ENTITY_CLASS v %s"
 
 #: app/src/Domain/Common/Repo/InternalDB/InternalDBEntitySet.php:122
 msgid "No BASE_ENTITY_SET_CLASS defined in %s"
-msgstr ""
+msgstr "Nie je definovaná BASE_ENTITY_SET_CLASS v %s"
 
 #: app/src/Domain/Common/Repo/InternalDB/InternalDBEntity.php:78
 msgid "No BASE_ORM_MODEL defined in %s"
-msgstr ""
+msgstr "Nie je definovaný BASE_ORM_MODEL v %s"
 
 #: app/src/Domain/Common/Repo/InternalDB/InternalDBEntitySet.php:119
 msgid "No BASE_REPO_CLASS defined in %s"
-msgstr ""
+msgstr "Nie je definovaná BASE_REPO_CLASS v %s"
 
 #: app/src/Domain/Base/Repo/RC/Traits/RCMediaItemContentTrait.php:121
 msgid "No Bucket declared!"
-msgstr ""
+msgstr "Žiadny vedro nebolo vyhlásené!"
 
 #: app/src/Domain/Base/Repo/RC/Traits/RCMediaItemContentTrait.php:23
 msgid "No MediaItem name declared!"
-msgstr ""
+msgstr "Nebola deklarovaná žiadna názov MediaItem!"
 
 #: app/src/Domain/Base/Repo/RC/Traits/RCMediaItemContentTrait.php:125
 msgid "No Region declared!"
-msgstr ""
+msgstr "Žiadny región nebol vyhlásený!"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/UseCanonicalTags/DuplicateContentDetectionOperation.php:82
 msgid "No canonical tag found on this page"
@@ -2124,7 +2124,7 @@ msgstr "Na tejto stránke sa nenašiel žiadny kanonický tag."
 
 #: inc/Core/ConflictManager.php:292
 msgid "No conflicting plugins found."
-msgstr ""
+msgstr "Neboli nájdené žiadne konfliktné pluginy."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/MultimediaInclusionCheckOperation.php:49
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/PageContentKeywords/KeywordDensityValidationOperation.php:68
@@ -2163,11 +2163,11 @@ msgstr "Nenašli sa žiadne odkazy na analýzu."
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordPresenceOperation.php:40
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalKeywordMetaTagOptimizationOperation.php:55
 msgid "No local keywords found for analysis"
-msgstr ""
+msgstr "Nenašli sa žiadne miestne kľúčové slová na analýzu."
 
 #: inc/Core/Rest/RestManager.php:695
 msgid "No log files found"
-msgstr ""
+msgstr "Žiadne súbory protokolu neboli nájdené"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:67
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionCtaValidationOperation.php:64
@@ -2181,7 +2181,7 @@ msgstr "Nenašiel sa žiadny meta titulok."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/OpeningParagraphEngagementAnalysisOperation.php:137
 msgid "No opening paragraph found in the content"
-msgstr ""
+msgstr "Nebola nájdená úvodná časť v obsahu."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "No plans available at the moment. Please try again later."
@@ -2218,7 +2218,7 @@ msgstr "Nenašlo sa žiadne označenie schémy."
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/GoogleAndBingIndexationCheckOperation.php:68
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:68
 msgid "No valid URL found for this post"
-msgstr ""
+msgstr "Nenašla sa žiadna platná URL adresa pre tento príspevok."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:296
 msgid "Not enough links use your brand name as the clickable text. Brand-name links help establish your authority and create a natural-looking link profile."
@@ -2242,7 +2242,7 @@ msgstr "Analýza pútavosti úvodného odseku"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/OpeningParagraphEngagementAnalysisOperation.php:160
 msgid "Opening paragraph engagement analysis completed successfully"
-msgstr ""
+msgstr "Analýza zapojenia úvodného odseku bola úspešne dokončená."
 
 #: dummy_reference.php
 msgid "Optimisation"
@@ -2250,7 +2250,7 @@ msgstr "Optimalizácia"
 
 #: inc/Core/Rest/RestManager.php:174
 msgid "Optimiser endpoint access denied: Onboarding not finalized"
-msgstr ""
+msgstr "Prístup k optimalizačnému koncovému bodu bol zamietnutý: Onboarding nebol dokončený"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/SuggestionType.php:21
 msgid "Optimization suggestion"
@@ -2296,23 +2296,23 @@ msgstr "Optimalizovať štruktúru URL"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:406
 msgid "Or: \"%s is important for your website. This strategy can improve rankings.\""
-msgstr ""
+msgstr "Alebo: \"%s je dôležité pre vašu webovú stránku. Táto stratégia môže zlepšiť hodnotenie.\""
 
 #: inc/Core/Helpers/Traits/RcSchemaAnalysisTrait.php:1174
 msgid "Organization"
-msgstr ""
+msgstr "Organizácia"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:396
 msgid "Original from your text: \"%s\""
-msgstr ""
+msgstr "\"%s\""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:424
 msgid "Original sentence: \"%s\""
-msgstr ""
+msgstr "\"%s\""
 
 #: tools/Dev/Config/AutomationConfig.php:51
 msgid "Owner Information"
-msgstr ""
+msgstr "Informácie o vlastníkoch"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Factors/ContentOptimisation/PageContentKeywordsFactor.php:18
 msgid "Page Content Keywords"
@@ -2324,11 +2324,11 @@ msgstr "Stránka nie je indexovaná vyhľadávačmi"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizePageSpeed/OptimizePageSpeedOperation.php:75
 msgid "Page speed check is disabled by feature flag"
-msgstr ""
+msgstr "Kontrola rýchlosti stránky je zakázaná pomocou funkčnej vlajky."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizePageSpeed/OptimizePageSpeedOperation.php:96
 msgid "Page speed data fetched successfully"
-msgstr ""
+msgstr "Údaje o rýchlosti načítania stránky boli úspešne načítané."
 
 #: inc/Core/UpsellNotificationManager.php:214
 msgid "Pages"
@@ -2336,7 +2336,7 @@ msgstr "Stránky"
 
 #: tools/Dev/Services/ApiService.php:49
 msgid "Partner not found or invalid"
-msgstr ""
+msgstr "Partner nebol nájdený alebo je neplatný"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Contexts/PerformanceAndSpeedContext.php:19
 msgid "Performance And Speed"
@@ -2348,7 +2348,7 @@ msgstr "Vykonáva analýzu mapovania kľúčových slov naprieč obsahom stránk
 
 #: inc/Core/Helpers/Traits/RcSchemaAnalysisTrait.php:1162
 msgid "Place"
-msgstr ""
+msgstr "Miesto"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:411
 msgid "Place Keywords in Strategic Locations"
@@ -2360,7 +2360,7 @@ msgstr "Zistený konflikt pluginov"
 
 #: inc/Core/Initializers/Installer.php:297
 msgid "Plugin activation failed: %s"
-msgstr ""
+msgstr "Aktivácia pluginu zlyhala: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ReadabilityValidationOperation.php:934
 msgid "Poor"
@@ -2368,20 +2368,20 @@ msgstr "Slabé"
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:234
 msgid "Portuguese"
-msgstr ""
+msgstr "portugalčina"
 
 #: app/src/Presentation/Api/Client/Integrations/WordPress/Controller/WPMetaTagsController.php:73
 #: app/src/Presentation/Api/Client/Integrations/WordPress/Controller/WPMetaTagsController.php:104
 msgid "Post ID is required"
-msgstr ""
+msgstr "ID príspevku je povinný"
 
 #: inc/Core/Api/Content/ContentApiManager.php:97
 msgid "Post content is empty"
-msgstr ""
+msgstr "Obsah príspevku je prázdny"
 
 #: inc/Core/Api/Content/ContentApiManager.php:91
 msgid "Post not found"
-msgstr ""
+msgstr "Príspevok nebol nájdený"
 
 #: inc/Modules/ModuleLibrary/Technical/MetaTags/MetaTags.php:170
 msgid "Post with ID %d does not exist"
@@ -2425,19 +2425,19 @@ msgstr "Primárne kľúčové slovo bolo úspešne overené."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Privacy policy"
-msgstr ""
+msgstr "Zásady ochrany osobných údajov"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Pro"
-msgstr ""
+msgstr "Pro"
 
 #: inc/Core/Helpers/Traits/RcSchemaAnalysisTrait.php:1171
 msgid "ProfessionalService"
-msgstr ""
+msgstr "Profesionálna služba"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Promote your business with two easy ad options. You can launch a Google Ads campaign to appear in search results or turn your best-performing social posts into Meta ads for Facebook. Either way, you'll get seen by the right people, with less effort."
-msgstr ""
+msgstr "Propagujte svoje podnikanie s dvoma jednoduchými možnosťami reklamy. Môžete spustiť kampaň Google Ads, aby ste sa objavili vo výsledkoch vyhľadávania, alebo premeniť svoje najlepšie výkonné príspevky na sociálnych sieťach na reklamy Meta pre Facebook. V oboch prípadoch sa dostanete k správnym ľuďom s menším úsilím."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:220
 msgid "Provide clear, unambiguous guidance"
@@ -2465,15 +2465,15 @@ msgstr "Uveď viac technických detailov, kde je to vhodné"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Publish Business on multiple directories"
-msgstr ""
+msgstr "Zverejnite podnik na viacerých adresároch"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Publish business on Facebook & Google Business Profile"
-msgstr ""
+msgstr "Zverejnite podnik na Facebooku a Google Business Profile"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Publish your Business Profile across multiple directories with one click. Monitor your overall listings presence and manage it easily with fine-tune updates."
-msgstr ""
+msgstr "Zverejnite svoj obchodný profil naprieč viacerými adresármi jedným kliknutím. Sledujte svoju celkovú prítomnosť v zoznamoch a jednoducho ju spravujte s presnými aktualizáciami."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/GoogleAndBingIndexationCheckOperation.php:43
 msgid "Queries external APIs to confirm whether a page is indexed by Google and Bing. Reports indexation status and provides guidance on improving visibility if the URL is missing from search results."
@@ -2481,7 +2481,7 @@ msgstr "Dotazuje sa na externé API, aby potvrdil, či je stránka indexovaná G
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Reach more clients with ads. Right where they are."
-msgstr ""
+msgstr "Osvojte viac klientov s reklamami. Presne tam, kde sú."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/ReadabilityScoreValidationOperation.php:28
 msgid "Readability Score Validation"
@@ -2498,19 +2498,19 @@ msgstr "Analýza čitateľnosti bola úspešne dokončená"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Recommended"
-msgstr ""
+msgstr "Odporúčané"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:153
 msgid "Recommended properties missing: %s"
-msgstr ""
+msgstr "Odporúčané vlastnosti chýbajú: %s"
 
 #: inc/Modules/ModuleLibrary/Links/RedirectManager/RedirectManager.php:34
 msgid "Redirect Manager"
-msgstr ""
+msgstr "Správca presmerovaní"
 
 #: inc/Core/Api/HttpApiClient.php:454
 msgid "Redirection error: %s"
-msgstr ""
+msgstr "Chyba presmerovania: %s"
 
 #: dummy_reference.php
 msgid "Redirects"
@@ -2574,11 +2574,11 @@ msgstr "Hodnotenie kvality odkazujúcich odkazov"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AnalyzeBacklinkProfile/ReferringDomainsAnalysisOperation.php:123
 msgid "Referring domains analysis completed successfully"
-msgstr ""
+msgstr "Analýza odkazujúcich domén bola úspešne dokončená."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/AnalyzeBacklinkProfile/ReferringLinksQualityAssessmentOperation.php:123
 msgid "Referring links quality assessment completed successfully"
-msgstr ""
+msgstr "Hodnotenie kvality odkazov bolo úspešne dokončené."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:464
 msgid "Refine your primary keyword phrase to capture optimal search intent. Select a specific 2-4 word phrase that balances search volume with competition."
@@ -2610,7 +2610,7 @@ msgstr "Odstráň nepotrebné parametre dopytu a skráť tak URL."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:524
 msgid "Replace \"%s\" with: %s"
-msgstr ""
+msgstr "Nahradiť \"%s\" s: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/ReadabilityScoreValidationOperation.php:222
 msgid "Replace complex words with simpler alternatives to improve readability."
@@ -2626,27 +2626,27 @@ msgstr "Nahraď podčiarkovníky pomlčkami vo svojich URL adresách, aby si zv�
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Reply with AI or manually to reviews from Google, Facebook, and numerous other sources, in one single place. All to save time and protect your reputation."
-msgstr ""
+msgstr "Odpovedajte na recenzie z Googlu, Facebooku a mnohých ďalších zdrojov, na jednom mieste. Všetko pre úsporu času a ochranu vašej reputácie."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Reputation Insights"
-msgstr ""
+msgstr "Prehľad reputácie"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Reputation widget"
-msgstr ""
+msgstr "Widget reputácie"
 
 #: app/src/Domain/Common/Repo/InternalDB/InternalDBEntity.php:204
 msgid "Request contains invalid data"
-msgstr ""
+msgstr "Žiadosť obsahuje neplatné údaje"
 
 #: tools/Dev/Handlers/AutoConfigureUserHandler.php:105
 msgid "Required field '%s' is missing."
-msgstr ""
+msgstr "Povinné pole '%s' chýba."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:149
 msgid "Required properties missing: %s"
-msgstr ""
+msgstr "Chýbajúce požadované vlastnosti: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:838
 msgid "Resolve Technical SEO Issues"
@@ -2654,7 +2654,7 @@ msgstr "Vyrieš technické problémy SEO"
 
 #: app/src/Infrastructure/Traits/ResponseErrorTrait.php
 msgid "Response class does not exist: %s"
-msgstr ""
+msgstr "Trieda odpovede neexistuje: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ImageOptimization/ResponsiveImageSizingOperation.php:24
 msgid "Responsive Image Sizing"
@@ -2698,19 +2698,19 @@ msgstr "Validácia súboru robots.txt prebehla úspešne."
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:233
 msgid "Russian"
-msgstr ""
+msgstr "Ruský"
 
 #: app/src/Presentation/Api/Client/Integrations/WordPress/Controller/WPSeoOptimiserController.php:81
 msgid "SEO analysis is being throttled. Please try again later."
-msgstr ""
+msgstr "Analýza SEO je obmedzená. Skúste to prosím neskôr."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "SEO performance reports"
-msgstr ""
+msgstr "Správy o výkonnosti SEO"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "SEO tasks"
-msgstr ""
+msgstr "SEO úlohy"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:27
 msgid "Safe Browsing Check"
@@ -2718,7 +2718,7 @@ msgstr "Kontrola bezpečného prehliadania"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:107
 msgid "Safe browsing status fetched successfully"
-msgstr ""
+msgstr "Stav bezpečného prehliadania bol úspešne načítaný."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FixBrokenLinksOnPage/BrokenLinksIdentificationOperation.php:25
 msgid "Scans page content to extract and evaluate internal and external links. Checks link status via internal or external service, returning details about broken or redirecting URLs to maintain healthy backlinks."
@@ -2742,7 +2742,7 @@ msgstr "Identifikácia typu schémy"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SchemaMarkup/SchemaTypeIdentificationOperation.php:95
 msgid "Schema analysis completed successfully"
-msgstr ""
+msgstr "Analýza schémy bola úspešne dokončená"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SchemaMarkup/SchemaMarkupValidationOperation.php:87
 msgid "Schema markup validation completed"
@@ -2778,15 +2778,15 @@ msgstr "Zistený bezpečnostný problém funkciou Bezpečné prehliadanie"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Sentiment analysis"
-msgstr ""
+msgstr "Analýza sentimentu"
 
 #: inc/Core/Api/HttpApiClient.php:429
 msgid "Server error: %s"
-msgstr ""
+msgstr "Chyba servera: %s"
 
 #: inc/Core/Rest/RestManager.php:152
 msgid "Service endpoint access denied: Invalid Basic Auth credentials"
-msgstr ""
+msgstr "Prístup k službe bol zamietnutý: Neplatné základné autentifikačné údaje"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:397
 msgid "Set Primary Keyword"
@@ -2806,7 +2806,7 @@ msgstr "Nastavenie '%s' musí byť číselná hodnota"
 
 #: inc/Core/Rest/RestManager.php:1230
 msgid "Setting '%s': %s"
-msgstr ""
+msgstr "Nastavenie '%s': %s"
 
 #: inc/Core/Admin/AdminManager.php:334
 msgid "Settings"
@@ -2878,7 +2878,7 @@ msgstr "Štatistiky zo sociálnych sietí"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Social Media tasks"
-msgstr ""
+msgstr "Úlohy na sociálnych médiách"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:947
 msgid "Some critical pages (like homepage, contact, product pages) are blocked in your robots.txt file. This may harm visibility in search results. Allow search engines to access key pages."
@@ -2906,11 +2906,11 @@ msgstr "Niektoré stránky majú problematické značky meta robots, ktoré mô�
 
 #: app/src/Domain/Common/Entities/Accounts/Account.php:229
 msgid "Spanish"
-msgstr ""
+msgstr "Španielčina"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Standard"
-msgstr ""
+msgstr "Štandard"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentQualityAndLength/ReadabilityValidationOperation.php:886
 msgid "Standard: Easily understood by 13-15 year old students"
@@ -2918,11 +2918,11 @@ msgstr "Štandardné: Ľahko zrozumiteľné pre 13 – 15-ročných študentov"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:428
 msgid "Start with a question: \"Why is %s so effective?\""
-msgstr ""
+msgstr "Prečo je %s taký účinný?"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Stay on top of every review. Respond in no time."
-msgstr ""
+msgstr "Buďte na vrchole každej recenzie. Odpovedajte okamžite."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:390
 msgid "Strengthen Topical Authority"
@@ -2938,11 +2938,11 @@ msgstr "Posilni svoju výzvu k akcii tým, že ju urobíš konkrétnejšou a pú
 
 #: tools/Dev/Services/ApiService.php:74
 msgid "Subscription ID is required"
-msgstr ""
+msgstr "ID predplatného je povinný"
 
 #: inc/Core/ConflictManager.php:288
 msgid "Successfully deactivated: %s"
-msgstr ""
+msgstr "Úspešne deaktivované: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:355
 msgid "Target Long Tail Variations"
@@ -2954,7 +2954,7 @@ msgstr "Zameraj sa na kľúčové slová s nižšou konkurenciou"
 
 #: app/src/Domain/Integrations/WordPress/Plugin/Entities/WPSettings.php:192
 msgid "Taxonomy archives for"
-msgstr ""
+msgstr "Archívy taxonómie pre"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:835
 msgid "Technical SEO issues can hinder how search engines crawl and index your website. These include broken links, incorrect meta tags, and slow load times."
@@ -2966,7 +2966,7 @@ msgstr "Technické SEO"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Terms & Conditions"
-msgstr ""
+msgstr "Podmienky a ustanovenia"
 
 #: app/src/Domain/Integrations/WordPress/Setup/Entities/Flows/Steps/WPFlowStep.php:128
 msgid "Thanks for providing that!"
@@ -2994,7 +2994,7 @@ msgstr "Klikateľný text v tvojich spätných odkazoch nie je dostatočne rozma
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:132
 msgid "The existing schema is valid and complete."
-msgstr ""
+msgstr "Existujúca schéma je platná a kompletná."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:919
 msgid "The existing structured data does not match the expected type for this content. Update it to a more suitable schema type such as Article, Product, LocalBusiness, etc."
@@ -3026,7 +3026,7 @@ msgstr "Primárne kľúčové slovo nie je umiestnené na začiatku meta titulku
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "The right plan helps your business appear where people search, compare, and decide, so you're not left behind."
-msgstr ""
+msgstr "Správny plán pomáha vašej firme objaviť sa tam, kde ľudia vyhľadávajú, porovnávajú a rozhodujú sa, aby ste nezostali pozadu."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:226
 msgid "The websites linking to you are not very trustworthy. Focus on getting links from respected, authoritative websites in your industry instead of low-quality sites."
@@ -3062,7 +3062,7 @@ msgstr "Zdá sa, že táto stránka je relevantná pre schému LocalBusiness, al
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:139
 msgid "This page does not contain sufficient local business information to warrant schema markup."
-msgstr ""
+msgstr "Táto stránka neobsahuje dostatočné informácie o miestnych podnikoch na to, aby si zaslúžila schému značkovania."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:191
 msgid "This page has too many headings. For better readability and SEO, use no more than %d headings per 1000 words."
@@ -3070,23 +3070,23 @@ msgstr "Táto stránka má príliš veľa nadpisov. Pre lepšiu čitateľnosť a
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:174
 msgid "This page would benefit from LocalBusiness schema markup."
-msgstr ""
+msgstr "Táto stránka by mala prospech z označenia schémy LocalBusiness."
 
 #: inc/Core/ConflictManager.php:168
 msgid "To ensure rankingCoach works properly, please deactivate the conflicting plugin."
-msgstr ""
+msgstr "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktívujte konfliktujúci plugin."
 
 #: inc/Core/ConflictManager.php:142
 msgid "To ensure rankingCoach works properly, please deactivate the conflicting plugin: %s"
-msgstr ""
+msgstr "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktívujte konfliktujúci plugin: %s"
 
 #: inc/Core/ConflictManager.php:167
 msgid "To ensure rankingCoach works properly, please deactivate the conflicting plugins."
-msgstr ""
+msgstr "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktivujte konfliktné pluginy."
 
 #: inc/Core/ConflictManager.php:141
 msgid "To ensure rankingCoach works properly, please deactivate the conflicting plugins: %s"
-msgstr ""
+msgstr "Aby ste zabezpečili správnu funkciu rankingCoach, prosím, deaktívujte konfliktné pluginy: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:436
 msgid "Too many images contain your keyword in their alt text. This appears unnatural to search engines. Use your keyword in alt text for only the most relevant images (aim for 30-50% of images)."
@@ -3114,15 +3114,15 @@ msgstr "Total Blocking Time (TBT) je príliš vysoký. To naznačuje, že tvoja 
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Track online mentions"
-msgstr ""
+msgstr "Sledujte online zmienky"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Track up to 3 competitors"
-msgstr ""
+msgstr "Sledujte až 3 konkurentov"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Track up to 3 locations"
-msgstr ""
+msgstr "Sledujte až 3 miesta"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:205
 msgid "Transition words connect ideas smoothly. Use them to guide readers through your content logically. Add transition words like \"however,\" \"furthermore,\" or \"consequently\" to improve flow."
@@ -3134,11 +3134,11 @@ msgstr "Počas požiadavky sa vyskytla chyba prenosu: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:531
 msgid "Try referring to \"%s\" by its characteristics or benefits"
-msgstr ""
+msgstr "Skúste sa odvolať na \"%s\" podľa jeho vlastností alebo výhod."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:425
 msgid "Try rewriting with a question: \"Why is %s important for this scenario?\""
-msgstr ""
+msgstr "\"Prečo je %s dôležité pre túto situáciu?\""
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizeUrlStructure/UrlLengthCheckOperation.php:129
 msgid "Try to make your URL more concise by removing unnecessary words."
@@ -3146,15 +3146,15 @@ msgstr "Skús svoju URL adresu urobiť stručnejšou odstránením nepotrebných
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:448
 msgid "Try: \"The %s approach helps to %s more effectively.\""
-msgstr ""
+msgstr "\"%s prístup pomáha %s efektívnejšie.\""
 
 #: inc/Core/Api/Content/ContentApiManager.php:143
 msgid "URL content fetched successfully"
-msgstr ""
+msgstr "Obsah URL bol úspešne načítaný."
 
 #: inc/Core/Api/Content/ContentApiManager.php:137
 msgid "URL content is empty"
-msgstr ""
+msgstr "Obsah URL je prázdny."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizeUrlStructure/UrlLengthCheckOperation.php:55
 msgid "URL is too long. Consider shortening it."
@@ -3170,7 +3170,7 @@ msgstr "Analýza čitateľnosti URL je dokončená."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "URL shortener"
-msgstr ""
+msgstr "Skracovač URL"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizeUrlStructure/PrimaryKeywordInUrlOperation.php:91
 msgid "URL structure analysis completed"
@@ -3192,7 +3192,7 @@ msgstr "Nepodarilo sa získať URL adresu príspevku."
 
 #: inc/Core/Admin/Pages/ActivationPage.php:325
 msgid "Unable to process activation code. Please try again later."
-msgstr ""
+msgstr "Nemožno spracovať aktivačný kód. Skúste to prosím neskôr."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/HeaderTagsStructure/KeywordsInHeaderCheckOperation.php:32
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/ContentFormattingValidationOperation.php:37
@@ -3239,19 +3239,19 @@ msgstr "Upgrade"
 
 #: inc/Core/Admin/AdminManager.php:346
 msgid "Upgrade Plan"
-msgstr ""
+msgstr "Plán upgradu"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Upgrade to Advanced"
-msgstr ""
+msgstr "Prejdite na pokročilú verziu"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Upgrade to Pro"
-msgstr ""
+msgstr "Prejdite na Pro"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Upgrade to Standard"
-msgstr ""
+msgstr "Prejsť na štandardný plán"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/OptimizeUrlStructure/UrlLengthCheckOperation.php:19
 msgid "Url Length Check"
@@ -3291,7 +3291,7 @@ msgstr "Použiť iba jednu značku H1"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:411
 msgid "Use Pronouns After First Mention"
-msgstr ""
+msgstr "Používajte zámená po prvom spomenutí"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:796
 msgid "Use SEO-Friendly Permalink Structure"
@@ -3299,7 +3299,7 @@ msgstr "Použi štruktúru trvalých odkazov priateľskú k SEO"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:380
 msgid "Use Synonyms and Related Terms"
-msgstr ""
+msgstr "Použite synonymá a príbuzné výrazy"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/ReadabilityScoreValidationOperation.php:252
 msgid "Use active voice for more engaging and clearer content."
@@ -3307,7 +3307,7 @@ msgstr "Používaj činný rod pre pútavejší a jasnejší obsah."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:429
 msgid "Use an indirect reference: \"Understanding the principles behind %s can help...\""
-msgstr ""
+msgstr "Pochopenie princípov za %s môže pomôcť..."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/AudienceTargetedAdjustmentsOperation.php:254
 msgid "Use analogies to explain technical concepts"
@@ -3347,7 +3347,7 @@ msgstr "Používaj podporný jazyk, ktorý prejavuje porozumenie"
 
 #: app/src/Domain/Integrations/WordPress/Common/Repo/InternalDB/Accounts/Legacy/InternalDBWPLegacyAccount.php:79
 msgid "User with ID %s not found."
-msgstr ""
+msgstr "Užívateľ s ID %s nebol nájdený."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/SearchEngineIndexation/SafeBrowsingCheckOperation.php:29
 msgid "Uses Google`s Safe Browsing API to determine whether a page is flagged for malware or phishing. Reports potential security issues and advises remediation to protect visitors and preserve search engine trust."
@@ -3355,11 +3355,11 @@ msgstr "Používa Google Safe Browsing API na zistenie, či je stránka označen
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:672
 msgid "Using cached content for URL: %s"
-msgstr ""
+msgstr "Použitie uloženého obsahu pre URL: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Adapters/WordPressProvider.php:684
 msgid "Using transient cached content for URL: %s"
-msgstr ""
+msgstr "Používanie dočasne uloženého obsahu pre URL: %s"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaValidationOperation.php:25
 msgid "Validates LocalBusiness schema markup for completeness and accuracy, ensuring required properties exist. Reviews structured data from page content, reporting any missing fields or incorrect types that could hinder local search visibility."
@@ -3403,7 +3403,7 @@ msgstr "Overuje použitie atribútu srcset, aby sa obrázky načítavali v prime
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/FirstParagraphKeywordUsage/FirstParagraphKeywordStuffingOperation.php:435
 msgid "Vary Your Sentence Structure"
-msgstr ""
+msgstr "Rôzne štruktúry viet"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/UseCanonicalTags/CanonicalTagValidationOperation.php:20
 msgid "Verifies that canonical tags are present and correctly point to the preferred URL. Ensures proper formatting to avoid duplicate content issues and guides updates when canonical references are missing or incorrect."
@@ -3427,11 +3427,11 @@ msgstr "Veľmi slabé"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Videos on posts"
-msgstr ""
+msgstr "Videá na príspevkoch"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "View and respond to posts comments"
-msgstr ""
+msgstr "Zobraziť a odpovedať na komentáre príspevkov"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "View reviews from multiple platforms"
@@ -3455,7 +3455,7 @@ msgstr "Skvelé!"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Write content once. Publish everywhere."
-msgstr ""
+msgstr "Napíšte obsah raz. Publikujte všade."
 
 #: dummy_reference.php
 msgid "Write words that you want to search"
@@ -3463,15 +3463,15 @@ msgstr "Napíš slová, ktoré chceš hľadať"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Yes, Pro is ideal for small businesses aiming for growth, increased visibility, and efficient marketing management."
-msgstr ""
+msgstr "Áno, Pro je ideálny pre malé podniky, ktoré sa snažia o rast, zvýšenú viditeľnosť a efektívne riadenie marketingu."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Yes, it`s perfect for businesses looking to grow their reach by running Google Ads campaigns or boosting posts with Meta ads."
-msgstr ""
+msgstr "Áno, je to perfektné pre podniky, ktoré sa snažia rozšíriť svoj dosah prostredníctvom kampaní Google Ads alebo zvýšením príspevkov pomocou reklám Meta."
 
 #: app/src/Domain/Integrations/WordPress/Plugin/Entities/WPSettings.php:173
 msgid "You are here:"
-msgstr ""
+msgstr "Ste tu:"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:261
 msgid "You are losing more links than you are gaining. This signals declining relevance to search engines. Create a consistent strategy to earn new links regularly."
@@ -3483,7 +3483,7 @@ msgstr "Nemáš žiadne odkazy z vysoko rešpektovaných webových stránok. Už
 
 #: inc/Core/ConflictManager.php:271
 msgid "You do not have permission to deactivate plugins."
-msgstr ""
+msgstr "Nemáte povolenie na deaktiváciu pluginov."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:457
 msgid "You have defined too many secondary keywords. Focus on 3-5 highly relevant secondary keywords that complement your primary keyword rather than trying to target too many terms."
@@ -3499,11 +3499,11 @@ msgstr "Niekoľko webových stránok na teba odkazuje, ale získanie viacerých 
 
 #: inc/Core/Rest/RestManager.php:177
 msgid "You must complete onboarding before accessing this endpoint."
-msgstr ""
+msgstr "Musíte dokončiť onboarding pred prístupom k tomuto koncovému bodu."
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "You're currently using the %s plan."
-msgstr ""
+msgstr "Momentálne používate plán %s."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionCtaValidationOperation.php:197
 msgid "Your CTA is good, but could be improved by adding urgency or clarifying the benefit"
@@ -3519,7 +3519,7 @@ msgstr "V tvojej URL adrese chýba primárne kľúčové slovo, čo znižuje vid
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/ContentReadability/ReadabilityScoreValidationOperation.php:211
 msgid "Your average sentence length (%s words) is above the recommended maximum (%s words)."
-msgstr ""
+msgstr "Priemerná dĺžka vašich viet (%s slov) je nad odporúčaným maximom (%s slov)."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:317
 msgid "Your backlink profile lacks contextual links (links embedded within relevant content). These are more valuable than links in footers, sidebars, or author bios."
@@ -3552,7 +3552,7 @@ msgstr "Tvoji konkurenti dominujú v rebríčkoch vyhľadávania vďaka lepšej 
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Your competitors made themselves visible."
-msgstr ""
+msgstr "Vaši konkurenti sa stali viditeľnými."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:520
 msgid "Your content contains excessive keyword repetition, which may trigger search engine penalties. Create more natural, reader-friendly text with balanced keyword distribution."
@@ -3640,11 +3640,11 @@ msgstr "Skóre čitateľnosti tvojho obsahu (%s) naznačuje, že pre priemernéh
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "Your current plan"
-msgstr ""
+msgstr "Váš aktuálny plán"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:162
 msgid "Your existing LocalBusiness schema needs %s."
-msgstr ""
+msgstr "Vaša existujúca schéma LocalBusiness potrebuje %s."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:443
 msgid "Your first paragraph contains excessive keyword repetition. This creates poor readability and may trigger search engine penalties. Rewrite using pronouns, synonyms, and natural language flow."
@@ -3708,7 +3708,7 @@ msgstr "Tvoj meta popis obsahuje slabú alebo nejasnú výzvu na akciu. Urob ju 
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:184
 msgid "Your meta description is within the acceptable range but could be improved. Aim for a length between %d and %d characters to enhance click-through rates."
-msgstr ""
+msgstr "Vaša meta popis je v prijateľnom rozsahu, ale mohla by byť vylepšená. Snažte sa o dĺžku medzi %d a %d znakmi, aby ste zvýšili mieru prekliknutia."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:450
 msgid "Your meta description repeats keywords too frequently. Write a compelling, natural description that mentions your keyword once while focusing on user engagement and click-through appeal."
@@ -3768,7 +3768,7 @@ msgstr "V úvodnom odseku chýba primárne kľúčové slovo, čím sa znižuje 
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:130
 msgid "Your page already has valid LocalBusiness schema markup. No action required."
-msgstr ""
+msgstr "Vaša stránka už má platné schéma LocalBusiness. Nie je potrebná žiadna akcia."
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/Enums/Suggestion.php:1114
 msgid "Your page contains images that are too large in file size. Large images significantly slow down page loading. Resize and compress images to appropriate dimensions and file sizes."
@@ -3952,15 +3952,15 @@ msgstr "Tvoja webová stránka vyžaduje súbor robots.txt, ktorý efektívne na
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "and"
-msgstr ""
+msgstr "a"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:162
 msgid "fixing"
-msgstr ""
+msgstr "oprava"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/LocalKeywordsInContent/LocalSchemaMarkupSuggestionOperation.php:162
 msgid "improvement"
-msgstr ""
+msgstr "zlepšenie"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:203
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:187
@@ -3969,11 +3969,11 @@ msgstr "optimálny"
 
 #: inc/Core/Admin/Pages/UpsellPage.php
 msgid "per month"
-msgstr ""
+msgstr "mesačne"
 
 #: inc/Core/DashboardWidgetManager.php:36
 msgid "rankingCoach SEO Overview"
-msgstr ""
+msgstr "rankingCoach SEO prehľad"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaDescriptionFormatOptimization/MetaDescriptionLengthCheckOperation.php:205
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Operations/MetaTitleFormatOptimization/MetaTitleLengthCheckOperation.php:189
@@ -4038,16 +4038,16 @@ msgid "Plugin version:"
 msgstr "Verzia pluginu:"
 
 msgid "UserID:"
-msgstr ""
+msgstr "ID používateľa:"
 
 msgid "ProjectID:"
-msgstr ""
+msgstr "ProjektID:"
 
 msgid "Subscription:"
-msgstr ""
+msgstr "Predplatné:"
 
 msgid "Name:"
-msgstr ""
+msgstr "Meno:"
 
 msgid "Separator"
 msgstr "Oddeľovač"
@@ -4155,13 +4155,13 @@ msgid "Allow to run broken link checker an interval basis"
 msgstr "Povoliť spustenie kontroly nefunkčných odkazov v pravidelných intervaloch"
 
 msgid "Enable anonymous usage data sharing"
-msgstr ""
+msgstr "Povoliť zdieľanie anonymných údajov o používaní"
 
 msgid "Enable this option to share anonymous usage data with the plugin developers"
-msgstr ""
+msgstr "Povoľte túto možnosť na zdieľanie anonymných údajov o používaní s vývojármi pluginu."
 
 msgid "Remove settings on plugin deactivation"
-msgstr ""
+msgstr "Odstrániť nastavenia pri deaktívovaní pluginu"
 
 msgid "Disable WordPress heartbeat admin-ajax service"
 msgstr "Vypnúť službu WordPress heartbeat admin-ajax"
@@ -4185,7 +4185,7 @@ msgid "View Sitemap"
 msgstr "Zobraziť mapu stránok"
 
 msgid "Finish onboarding"
-msgstr ""
+msgstr "Dokončiť onboarding"
 
 msgid "rC Icon"
 msgstr "Ikona rC"
@@ -4209,49 +4209,49 @@ msgid "Something went wrong from our side, please try again!"
 msgstr "Na našej strane sa niečo pokazilo, skús to znova!"
 
 msgid "From 1 to many"
-msgstr ""
+msgstr "Od 1 po mnoho"
 
 msgid "Track more keywords than you can right now"
-msgstr ""
+msgstr "Sledujte viac kľúčových slov, ako môžete práve teraz."
 
 msgid "Meta generator"
-msgstr ""
+msgstr "Meta generátor"
 
 msgid "Create meta descriptions and titles automatically"
-msgstr ""
+msgstr "Automaticky vytvárajte meta popisy a názvy."
 
 msgid "Automatic canonicals"
-msgstr ""
+msgstr "Automatické kanonické odkazy"
 
 msgid "Avoid duplicate content with smart URL settings"
-msgstr ""
+msgstr "Vyhnite sa duplicitnému obsahu pomocou inteligentných nastavení URL."
 
 msgid "Image Alt-text generator"
-msgstr ""
+msgstr "Generátor alt-textu pre obrázky"
 
 msgid "Automate alt text and titles for images"
-msgstr ""
+msgstr "Automatizujte alternatívny text a názvy pre obrázky"
 
 msgid "AI-powered social content"
-msgstr ""
+msgstr "Obsah na sociálnych sieťach poháňaný AI"
 
 msgid "Generate social media titles and metadata instantly"
-msgstr ""
+msgstr "Generujte názvy a metadata pre sociálne médiá okamžite"
 
 msgid "Page content"
-msgstr ""
+msgstr "Obsah stránky"
 
 msgid "Auto-integrate keywords into your page content"
-msgstr ""
+msgstr "Automaticky integrujte kľúčové slová do obsahu vašej stránky."
 
 msgid "PRO FEATURE"
-msgstr ""
+msgstr "PROFESIONÁLNA FUNKCIA"
 
 msgid "Set noindex for this page:"
 msgstr "Nastaviť noindex pre túto stránku:"
 
 msgid "Exclude this page from sitemap:"
-msgstr ""
+msgstr "Vylúčiť túto stránku zo sitemapu:"
 
 msgid "Canonical URL"
 msgstr "Kanonická URL"
@@ -4293,13 +4293,13 @@ msgid "rankingCoach logo"
 msgstr "logo rankingCoach"
 
 msgid "On-Page Optimization Overview"
-msgstr ""
+msgstr "Prehľad optimalizácie na stránke"
 
 msgid "Content SEO Score"
-msgstr ""
+msgstr "Skóre SEO obsahu"
 
 msgid "No recommendations available"
-msgstr ""
+msgstr "Žiadne odporúčania nie sú k dispozícii."
 
 msgid "Both Source URL and Target URL are required"
 msgstr "Zdrojová URL aj cieľová URL sú povinné"
@@ -4461,28 +4461,28 @@ msgid "Generate Schema"
 msgstr "Generovať schému"
 
 msgid "Schema loaded from cache"
-msgstr ""
+msgstr "Schéma načítané z cache"
 
 msgid "Schema generated successfully"
 msgstr "Schéma úspešne vygenerovaná"
 
 msgid "Create a series of posts"
-msgstr ""
+msgstr "Vytvorte sériu príspevkov"
 
 msgid "Social media planner"
-msgstr ""
+msgstr "Plánovač sociálnych médií"
 
 msgid "Publish on multiple platforms"
-msgstr ""
+msgstr "Publikovať na viacerých platformách"
 
 msgid "Monitor and reply to reviews"
-msgstr ""
+msgstr "Sledujte a odpovedajte na recenzie"
 
 msgid "Review collector widget"
-msgstr ""
+msgstr "Widget na zber recenzií"
 
 msgid "URL shortener for marketing links"
-msgstr ""
+msgstr "Skracovač URL pre marketingové odkazy"
 
 msgid "And more"
 msgstr "A viac"
@@ -4566,10 +4566,10 @@ msgid "Search category eg.: Computer repair shop"
 msgstr "Vyhľadať kategóriu, napr.: Oprava počítačov"
 
 msgid "You can add up to 10 categories."
-msgstr ""
+msgstr "Môžete pridať až 10 kategórií."
 
 msgid "You don`t have any categories at the moment"
-msgstr ""
+msgstr "Momentálne nemáte žiadne kategórie."
 
 msgid "Finish Onboarding"
 msgstr "Dokončiť registráciu"
@@ -4587,7 +4587,7 @@ msgid "Enter website description"
 msgstr "Zadaj popis webovej stránky"
 
 msgid "Edit business information"
-msgstr ""
+msgstr "Upraviť obchodné informácie"
 
 msgid "Business Name"
 msgstr "Názov firmy"
@@ -4605,7 +4605,7 @@ msgid "Business Address"
 msgstr "Adresa firmy"
 
 msgid "Enter business address"
-msgstr ""
+msgstr "Zadajte obchodnú adresu"
 
 msgid "A keyword can have max 80 characters"
 msgstr "Kľúčové slovo môže mať maximálne 80 znakov"
@@ -4680,19 +4680,19 @@ msgid "Loading..."
 msgstr "Načítava sa..."
 
 msgid "rankingCoach SEO"
-msgstr ""
+msgstr "rankingCoach SEO"
 
 msgid "https://www.rankingcoach.com/en-us/wordpress"
-msgstr ""
+msgstr "Je mi ľúto, ale nemôžem otvoriť alebo preložiť obsah z externých odkazov. Môžem vám však pomôcť s prekladom textu, ktorý poskytnete."
 
 msgid "Be Found Easier in Google with rankingCoach | Effectively Perform Online Marketing in WordPress with rankingCoach | Assistant on SEO, Listing & Ads for better Google rankings and online visibility, and much more"
-msgstr ""
+msgstr "Buďte ľahšie nájditeľní na Googli s rankingCoach | Efektívne vykonávajte online marketing vo WordPresse s rankingCoach | Asistent pri SEO, zoznamoch a reklamách pre lepšie pozície na Googli a online viditeľnosť, a oveľa viac"
 
 msgid "rankingCoach Team"
-msgstr ""
+msgstr "rankingCoach Tím"
 
 msgid "https://www.rankingcoach.com/en-us/about-us"
-msgstr ""
+msgstr "Je mi ľúto, ale nemôžem navštíviť webové stránky. Môžem vám však pomôcť s prekladom textu, ak mi ho poskytnete."
 
 msgid "Your meta description is within the acceptable range but could be improved. Aim for a length between %1$d and %2$d characters to enhance click-through rates."
 msgstr "Tvoj meta popis je v prijateľnom rozsahu, ale dal by sa vylepšiť. Zameraj sa na dĺžku medzi %1$d a %2$d znakmi, aby si zvýšil mieru prekliku."
@@ -4701,34 +4701,34 @@ msgid "Your average sentence length (%1$s words) is above the recommended maximu
 msgstr "Tvoja priemerná dĺžka vety (%1$s slov) je nad odporúčaným maximom (%2$s slov)."
 
 msgid "Instead of: \"%1$s is important for your website. %2$s can improve rankings.\""
-msgstr ""
+msgstr "\"%1$s je dôležitý pre vašu webovú stránku. %2$s môže zlepšiť hodnotenie.\""
 
 msgid "Try: \"The %1$s approach helps to %2$s more effectively.\""
-msgstr ""
+msgstr "\"Prístup %1$s pomáha %2$s efektívnejšie.\""
 
 msgid "Instead of repeating \"%1$s\", incorporate \"%2$s\" to add topical depth"
-msgstr ""
+msgstr "Namiesto opakovania \"%1$s\" začleňte \"%2$s\" na pridanie tematickej hĺbky."
 
 msgid "Instead of always using \"%1$s\", try: %2$s"
-msgstr ""
+msgstr "Namiesto stáleho používania \"%1$s\" vyskúšajte: %2$s"
 
 msgid "Replace \"%1$s\" with: %2$s"
-msgstr ""
+msgstr "Nahradiť \"%1$s\" s: %2$s"
 
 msgid "Error API"
-msgstr ""
+msgstr "Chyba API"
 
 msgid "%1$s > %2$s: %3$s"
-msgstr ""
+msgstr "%1$s > %2$s: %3$s"
 
 msgid "Activation done"
 msgstr "Aktivácia hotová"
 
 msgid "Activation code processed successfully."
-msgstr ""
+msgstr "Aktivačný kód bol spracovaný úspešne."
 
 msgid "You will be automatically redirected to the main dashboard in 5 seconds..."
-msgstr ""
+msgstr "Budete automaticky presmerovaní na hlavnú nástenku za 5 sekúnd..."
 
 msgid "Continue onboarding"
 msgstr "Pokračovať v registrácii"
@@ -4737,49 +4737,49 @@ msgid "Enter your activation code"
 msgstr "Zadaj svoj aktivačný kód"
 
 msgid "To use the plugin, you'll need to activate it. Paste your code below to get started."
-msgstr ""
+msgstr "Aby ste mohli používať plugin, musíte ho aktivovať. Vložte svoj kód nižšie, aby ste mohli začať."
 
 msgid "Activation Code"
 msgstr "Aktivačný kód"
 
 msgid "ex: 0822646889"
-msgstr ""
+msgstr "0822646889"
 
 msgid "Activate"
 msgstr "Aktivovať"
 
 msgid "Use the code we emailed you to unlock the plugin."
-msgstr ""
+msgstr "Použite kód, ktorý sme vám poslali e-mailom, na odomknutie pluginu."
 
 msgid "Can't find it? Search your inbox for \"activation code.\""
-msgstr ""
+msgstr "Nemôžete to nájsť? Prehľadajte svoju doručenú poštu pre \"aktivačný kód.\""
 
 msgid "Or configure with a refresh token"
-msgstr ""
+msgstr "Alebo nakonfigurujte s obnovovacím tokenom"
 
 msgid "API Refresh Token"
-msgstr ""
+msgstr "Obnovenie tokenu API"
 
 msgid "Please enter or update the API refresh token below. This token is required for secure API connections."
-msgstr ""
+msgstr "Prosím, zadajte alebo aktualizujte nižšie uvedený obnovovací token API. Tento token je potrebný pre bezpečné pripojenia k API."
 
 msgid "Save Token"
-msgstr ""
+msgstr "Uložiť token"
 
 msgid "Use activation code instead →"
-msgstr ""
+msgstr "Použite aktivačný kód namiesto →"
 
 msgid "You do not have sufficient permissions to access this page."
 msgstr "Nemáš dostatočné oprávnenia na prístup k tejto stránke."
 
 msgid "Nonce verification failed. Please try again."
-msgstr ""
+msgstr "Overenie nonce zlyhalo. Skúste to prosím znova."
 
 msgid "Refresh token saved successfully."
 msgstr "Obnovovací token bol úspešne uložený."
 
 msgid "Failed to save the refresh token. Please try again."
-msgstr ""
+msgstr "Nepodarilo sa uložiť obnovovací token. Skúste to prosím znova."
 
 msgid "No keywords found to synchronize"
 msgstr "Nenašli sa žiadne kľúčové slová na synchronizáciu"
@@ -4788,10 +4788,10 @@ msgid "All keywords already have external IDs, no need to synchronize"
 msgstr "Všetky kľúčové slová už majú externé ID, nie je potrebná synchronizácia"
 
 msgid "Empty response from keywords sync API after retries"
-msgstr ""
+msgstr "Prázdna odpoveď z API synchronizácie kľúčových slov po opakovaných pokusoch"
 
 msgid "Keywords table '%s' does not exist"
-msgstr ""
+msgstr "Tabuľka kľúčových slov '%s' neexistuje"
 
 msgid "Error fetching keywords: %s"
 msgstr "Chyba pri načítaní kľúčových slov: %s"
@@ -4848,91 +4848,91 @@ msgid "Site pages"
 msgstr "Stránky webu"
 
 msgid "Import translated categories"
-msgstr ""
+msgstr "Importovať preložené kategórie"
 
 msgid "Read Website All Pages"
-msgstr ""
+msgstr "Prečítajte si všetky stránky webovej stránky"
 
 msgid "Read Plugin Data"
-msgstr ""
+msgstr "Prečítajte údaje pluginu"
 
 msgid "Read List of Modules"
-msgstr ""
+msgstr "Prečítajte si zoznam modulov"
 
 msgid "Read Account Details"
-msgstr ""
+msgstr "Prečítajte si podrobnosti účtu"
 
 msgid "Read Location Keywords"
-msgstr ""
+msgstr "Prečítajte si kľúčové slová umiestnenia"
 
 msgid "Read Distinct Module Data"
-msgstr ""
+msgstr "Prečítajte si údaje z rôznych modulov"
 
 msgid "Made The Plugin Onboarding"
-msgstr ""
+msgstr "Vytvorené onboarding pre plugin"
 
 msgid "Access to Assign Keywords SEO operations"
-msgstr ""
+msgstr "Prístup k priradeniu kľúčových slov SEO operácií"
 
 msgid "Access to Improve Content Quality And Length SEO operations"
-msgstr ""
+msgstr "Prístup k zlepšeniu kvality obsahu a dĺžky SEO operácií"
 
 msgid "Access to Optimize Readability On Page SEO operations"
-msgstr ""
+msgstr "Prístup k optimalizácii čitateľnosti operácií SEO na stránke"
 
 msgid "Access to First Paragraph Keyword Usage SEO operations"
-msgstr ""
+msgstr "Prístup k používaniu kľúčových slov v SEO operáciách prvého odseku"
 
 msgid "Access to Header Tags Structure SEO operations"
-msgstr ""
+msgstr "Prístup k štruktúre značiek hlavičky SEO operácií"
 
 msgid "Access to Add Local Keywords In Content SEO operations"
-msgstr ""
+msgstr "Prístup k pridaniu miestnych kľúčových slov do SEO operácií obsahu"
 
 msgid "Access to Create Meta Description Tag SEO operations"
-msgstr ""
+msgstr "Prístup k vytvoreniu meta popisu pre SEO operácie"
 
 msgid "Access to Meta Description Keywords SEO operations"
-msgstr ""
+msgstr "Prístup k operáciám SEO pre meta popisy a kľúčové slová"
 
 msgid "Access to Create Meta Title Tag SEO operations"
-msgstr ""
+msgstr "Prístup k vytvoreniu meta názvu tagu SEO operácií"
 
 msgid "Access to Meta Title Keywords SEO operations"
-msgstr ""
+msgstr "Prístup k operáciám SEO pre kľúčové slová meta titulov"
 
 msgid "Access to Optimize Page Content Keywords SEO operations"
-msgstr ""
+msgstr "Prístup k optimalizácii obsahu stránok kľúčové slová SEO operácie"
 
 msgid "Access to Analyze Backlink Profile SEO operations"
-msgstr ""
+msgstr "Prístup k analýze profilu spätných odkazov SEO operácií"
 
 msgid "Access to Fix Broken Links On Page SEO operations"
-msgstr ""
+msgstr "Prístup k opraveniu nefunkčných odkazov na stránke SEO operácie"
 
 msgid "Access to Alt Text To Images SEO operations"
-msgstr ""
+msgstr "Prístup k alt textu pre obrázky SEO operácie"
 
 msgid "Access to Optimize Image File Sizes SEO operations"
-msgstr ""
+msgstr "Prístup k optimalizácii veľkostí súborov obrázkov SEO operácií"
 
 msgid "Access to Optimize Page Speed SEO operations"
-msgstr ""
+msgstr "Prístup k optimalizácii rýchlosti stránky SEO operácií"
 
 msgid "Access to Optimize URL Structure SEO operations"
-msgstr ""
+msgstr "Prístup k optimalizácii štruktúry URL pre SEO operácie"
 
 msgid "Access to Schema Markup SEO operations"
-msgstr ""
+msgstr "Prístup k operáciám SEO so schémou značkovania"
 
 msgid "Access to Search Engine Indexation SEO operations"
-msgstr ""
+msgstr "Prístup k indexácii vyhľadávačov a SEO operáciám"
 
 msgid "Access to Use Canonical Tags SEO operations"
-msgstr ""
+msgstr "Prístup k používaniu kanonických značiek SEO operácií"
 
 msgid "rankingCoach Assistant"
-msgstr ""
+msgstr "rankingCoach Asistent"
 
 msgid "Run <code>npm run build</code> in your application root!"
 msgstr "Spusti <code>npm run build</code> v koreňovom adresári svojej aplikácie!"
@@ -4983,7 +4983,7 @@ msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr "%1$s %2$s príspevky od %3$s kanál"
 
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
-msgstr ""
+msgstr "%1$s %2$s Výsledky vyhľadávania pre &#8220;%3$s&#8221; kanál"
 
 msgid "%1$s %2$s %3$s Feed"
 msgstr "%1$s %2$s %3$s kanál"
@@ -4998,10 +4998,10 @@ msgid "Menu %s"
 msgstr "Menu %s"
 
 msgid "Onboarding not finished"
-msgstr ""
+msgstr "Zavádzanie nie je dokončené"
 
 msgid "You can't use all plugin features because you didn't finish the onboarding. Complete it now to start using RankingCoach."
-msgstr ""
+msgstr "Nemôžete používať všetky funkcie pluginu, pretože ste nedokončili úvodné školenie. Dokončite ho teraz, aby ste mohli začať používať RankingCoach."
 
 msgid "Unexpected Error"
 msgstr "Neočakávaná chyba"
@@ -5046,7 +5046,7 @@ msgid "The token might be empty or missing."
 msgstr "Token môže byť prázdny alebo chýbať."
 
 msgid "Click here to <a href=\"%s\" class=\"invalid-token-button\">configure a new token manually</a>."
-msgstr ""
+msgstr "Kliknite sem, aby ste <a href=\"%s\" class=\"invalid-token-button\">ručne nakonfigurovali nový token</a>."
 
 msgid "Refresh Token Missing"
 msgstr "Chýba obnovovací token"
@@ -5064,22 +5064,22 @@ msgid "Ensure the token generation process has been completed."
 msgstr "Uisti sa, že proces generovania tokenu bol dokončený."
 
 msgid "Click here to <a href=\"%1$s\" class=\"invalid-token-button\">configure a new token manually</a>.<br>Or click here to <a href=\"%2$s\" class=\"activation-code-button\">enter a new activation code</a>."
-msgstr ""
+msgstr "Kliknite sem, aby <a href=\"%1$s\" class=\"invalid-token-button\">ručne nakonfigurovali nový token</a>.<br>Alebo kliknite sem, aby <a href=\"%2$s\" class=\"activation-code-button\">zadali nový aktivačný kód</a>."
 
 msgid "Plugin Activation Failed"
-msgstr ""
+msgstr "Aktivácia pluginu zlyhala"
 
 msgid "An issue occurred during the plugin activation process, preventing successful initialization."
-msgstr ""
+msgstr "Počas procesu aktivácie pluginu došlo k problému, ktorý zabránil úspešnému inicializovaniu."
 
 msgid "Possible connection issues with the external API."
-msgstr ""
+msgstr "Možné problémy s pripojením na externé API."
 
 msgid "Server configuration conflicts or incompatible environment settings."
-msgstr ""
+msgstr "Konflikty v konfigurácii servera alebo nekompatibilné nastavenia prostredia."
 
 msgid "Click here to <a href=\"%s\" class=\"invalid-token-button\">configure a new refresh token manually</a>."
-msgstr ""
+msgstr "Kliknite sem, aby ste <a href=\"%s\" class=\"invalid-token-button\">manuálne nakonfigurovali nový obnovovací token</a>."
 
 msgid "Calories"
 msgstr "Kalórie"
@@ -5094,34 +5094,34 @@ msgid "Country"
 msgstr "Krajina"
 
 msgid "Enter country"
-msgstr ""
+msgstr "Zadajte krajinu"
 
 msgid "Address first line"
-msgstr ""
+msgstr "Adresa prvého riadku"
 
 msgid "Enter address first line"
-msgstr ""
+msgstr "Zadajte prvý riadok adresy"
 
 msgid "Address line 2"
-msgstr ""
+msgstr "Adresa riadok 2"
 
 msgid "Enter address line 2"
-msgstr ""
+msgstr "Zadajte adresu riadku 2"
 
 msgid "City"
-msgstr ""
+msgstr "Mesto"
 
 msgid "Enter city"
-msgstr ""
+msgstr "Zadajte mesto"
 
 msgid "Postal code"
-msgstr ""
+msgstr "PSČ"
 
 msgid "Enter postal code"
-msgstr ""
+msgstr "Zadajte PSČ"
 
 msgid "Insufficient Secondary Keywords"
-msgstr ""
+msgstr "Nedostatočné sekundárne kľúčové slová"
 
 msgid "Invalid URL format: "
 msgstr "Neplatný formát URL:"
@@ -5133,31 +5133,31 @@ msgid "Request failed after multiple retries: "
 msgstr "Požiadavka zlyhala po viacerých pokusoch:"
 
 msgid "Keyword insert failed. Error: %1$s. Query: %2$s"
-msgstr ""
+msgstr "Vloženie kľúčového slova zlyhalo. Chyba: %1$s. Dotaz: %2$s"
 
 msgid "Composer autoload file not found: "
-msgstr ""
+msgstr "Súbor autoload pre Composer nebol nájdený:"
 
 msgid "Log sharing is disabled. Please enable log sharing in plugin settings to allow log downloads."
-msgstr ""
+msgstr "Zdieľanie protokolov je zakázané. Prosím, povolte zdieľanie protokolov v nastaveniach pluginu, aby ste umožnili sťahovanie protokolov."
 
 msgid "Download token is required"
-msgstr ""
+msgstr "Vyžaduje sa token na stiahnutie"
 
 msgid "Invalid or expired download token"
-msgstr ""
+msgstr "Neplatný alebo expirovaný token na stiahnutie"
 
 msgid "Download token has expired"
-msgstr ""
+msgstr "Token na stiahnutie vypršal."
 
 msgid "Download token has already been used"
-msgstr ""
+msgstr "Token na stiahnutie bol už použitý."
 
 msgid "Missing X-RC-Request-ID header"
-msgstr ""
+msgstr "Chýbajúci hlavička X-RC-Request-ID"
 
 msgid "X-RC-Request-ID does not match the token"
-msgstr ""
+msgstr "X-RC-Request-ID sa nezhoduje s tokenom"
 
 msgid "Disable mobile auto-links for this page:"
 msgstr "Vypnúť automatické odkazy na mobilných zariadeniach pre túto stránku:"
@@ -5166,16 +5166,16 @@ msgid "You have reached your keyword tracking limit. %1$sUpgrade your plan%2$s t
 msgstr "Dosiahol si svoj limit sledovania kľúčových slov. %1$sVylepši si svoj balík%2$s, aby si mohol pokračovať v sledovaní ďalších kľúčových slov a zlepšiť svoj výkon SEO."
 
 msgid "Be found easier in Google. Effectively perform online marketing in WordPress. Assistant on SEO, Listing & Ads for better Google rankings and online visibility, and much more."
-msgstr ""
+msgstr "Buďte ľahšie nájditeľní na Googli. Efektívne vykonávajte online marketing vo WordPresse. Asistent pri SEO, zoznamoch a reklamách pre lepšie umiestnenie na Googli a online viditeľnosť, a oveľa viac."
 
 msgid "SEO Plugin Team"
-msgstr ""
+msgstr "Tím SEO pluginu"
 
 msgid "<strong>%s</strong> is not compatible with the following plugins:"
 msgstr "<strong>%s</strong> nie je kompatibilný s nasledujúcimi pluginmi:"
 
 msgid "<strong>%s</strong> is not compatible with the following plugin: <strong>%s</strong>"
-msgstr ""
+msgstr "<strong>%s</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%s</strong>"
 
 msgid "To ensure %s works properly, please deactivate the conflicting plugins."
 msgstr "Aby si zabezpečil správne fungovanie %s, deaktivuj konfliktné pluginy."
@@ -5190,19 +5190,19 @@ msgid "%s Overview"
 msgstr "Prehľad %s"
 
 msgid "An error occurred while performing the self-check."
-msgstr ""
+msgstr "Pri vykonávaní sebaoverenia došlo k chybe."
 
 msgid "You can't use all plugin features because you didn't finish the onboarding. Complete it now to start using the plugin."
-msgstr ""
+msgstr "Nemôžete využiť všetky funkcie pluginu, pretože ste nedokončili úvodné školenie. Dokončite ho teraz, aby ste mohli začať používať plugin."
 
 msgid "Cache Management"
 msgstr "Správa cache"
 
 msgid "The primary website domain does not match the WordPress site URL."
-msgstr ""
+msgstr "Primárna doména webovej stránky sa nezhoduje s URL adresou WordPress stránky."
 
 msgid "This dedicated rankingCoach account requires completed onboarding before plugin activation."
-msgstr ""
+msgstr "Tento špeciálny účet rankingCoach vyžaduje dokončenie onboardingového procesu pred aktiváciou pluginu."
 
 msgid "All plugin caches have been cleared successfully."
 msgstr "Všetky cache pluginu boli úspešne vymazané."
@@ -5460,7 +5460,7 @@ msgid "Failed to set cache value."
 msgstr "Nepodarilo sa nastaviť hodnotu vyrovnávacej pamäte."
 
 msgid "Cache value mismatch. Expected: %s, Got: %s"
-msgstr ""
+msgstr "Nesúlad hodnôt v cache. Očakávané: %s, Získané: %s"
 
 msgid "Failed to delete cache value."
 msgstr "Nepodarilo sa vymazať hodnotu vyrovnávacej pamäte."
@@ -5472,37 +5472,37 @@ msgid "All cache operations completed successfully."
 msgstr "Všetky operácie s vyrovnávacou pamäťou boli úspešne dokončené."
 
 msgid "Domain Mismatch Error"
-msgstr ""
+msgstr "Chyba nesúhlasu domény"
 
 msgid "The domain associated with your activation code does not match your WordPress site URL. This prevents the plugin from being activated correctly."
-msgstr ""
+msgstr "Doména spojená s vaším aktivačným kódom sa nezhoduje s URL adresou vašej stránky WordPress. To bráni správnemu aktivovaniu pluginu."
 
 msgid "The activation code is associated with a different domain."
-msgstr ""
+msgstr "Aktivačný kód je spojený s inou doménou."
 
 msgid "Your WordPress site URL has changed since the activation code was generated."
-msgstr ""
+msgstr "URL vašej stránky WordPress sa od vygenerovania aktivačného kódu zmenila."
 
 msgid "The activation code was generated for a different website."
-msgstr ""
+msgstr "Aktivačný kód bol vygenerovaný pre inú webovú stránku."
 
 msgid "Please contact support or request a new activation code for your current domain."
-msgstr ""
+msgstr "Prosím, kontaktujte podporu alebo si vyžiadajte nový aktivačný kód pre vašu aktuálnu doménu."
 
 msgid "Onboarding Incomplete Error"
-msgstr ""
+msgstr "Chyba neúplného onboardingu"
 
 msgid "This is a dedicated rankingCoach account that requires completed onboarding before the plugin can be activated. The onboarding process must be finalized in the rankingCoach platform."
-msgstr ""
+msgstr "Toto je špeciálny účet rankingCoach, ktorý vyžaduje dokončenie onboardingového procesu pred aktiváciou pluginu. Onboardingový proces musí byť dokončený na platforme rankingCoach."
 
 msgid "The onboarding process has not been completed in your rankingCoach account."
 msgstr "Proces onboardingu nebol v tvojom účte rankingCoach dokončený."
 
 msgid "Plugin activation is blocked until all required setup steps are finished."
-msgstr ""
+msgstr "Aktivácia pluginu je zablokovaná, kým nie sú dokončené všetky požadované kroky nastavenia."
 
 msgid "Please complete the onboarding process in your rankingCoach platform account, then try activating the plugin again."
-msgstr ""
+msgstr "Prosím, dokončite proces onboardingu vo svojom účte na platforme rankingCoach a potom sa pokúste plugin znovu aktivovať."
 
 msgid "Default image source (%s)"
 msgstr "Predvolený zdroj obrázka (%s)"
@@ -5547,22 +5547,22 @@ msgid "<strong>%1$s</strong> is not compatible with the following plugin: <stron
 msgstr "<strong>%1$s</strong> nie je kompatibilný s nasledujúcim pluginom: <strong>%2$s</strong>"
 
 msgid "Here`s a summary of your website profile. Everything looks good?"
-msgstr ""
+msgstr "Tu je zhrnutie tvojho profilu na webovej stránke. Všetko vyzerá dobre?"
 
 msgid "This category has already been added."
-msgstr ""
+msgstr "Táto kategória už bola pridaná."
 
 msgid "Enter your website description"
-msgstr ""
+msgstr "Zadajte popis vašej webovej stránky"
 
 msgid "Edit Business Information"
 msgstr "Upraviť informácie o firme"
 
 msgid "Enter your business name"
-msgstr ""
+msgstr "Zadajte názov vašej firmy"
 
 msgid "Enter your website URL"
-msgstr ""
+msgstr "Zadajte URL vašej webovej stránky"
 
 msgid "All fields are required. To finish onboarding, set your address on the map and add at least five keywords and one category."
 msgstr "Všetky polia sú povinné. Ak chceš dokončiť registráciu, nastav svoju adresu na mape a pridaj aspoň päť kľúčových slov a jednu kategóriu."
@@ -5661,7 +5661,7 @@ msgid "Image Source"
 msgstr "Zdroj obrázka"
 
 msgid "You will be automatically redirected to the main dashboard in %d seconds..."
-msgstr ""
+msgstr "Budete automaticky presmerovaní na hlavnú nástenku za %d sekúnd..."
 
 msgid "broken"
 msgstr "nefunkčný"
@@ -5691,22 +5691,22 @@ msgid "Minimum required keywords: 5."
 msgstr "Minimálny požadovaný počet kľúčových slov: 5."
 
 msgid "Proceed to shop"
-msgstr ""
+msgstr "Pokračovať do obchodu"
 
 msgid "Address is not precise enough, please confirm your location on the map."
 msgstr "Adresa nie je dostatočne presná, potvrď svoju polohu na mape."
 
 msgid "Check for new version"
-msgstr ""
+msgstr "Skontrolovať novú verziu"
 
 msgid "Advanced analytics dashboard"
-msgstr ""
+msgstr "Pokročilá analytická nástenka"
 
 msgid "Priority customer support"
-msgstr ""
+msgstr "Prioritná zákaznícka podpora"
 
 msgid "Failed to check plugin updates"
-msgstr ""
+msgstr "Nepodarilo sa skontrolovať aktualizácie pluginov"
 
 msgid "Go to updates"
 msgstr "Prejsť na aktualizácie"
@@ -5727,7 +5727,7 @@ msgid "Third-Party Cookies Required"
 msgstr "Vyžadujú sa súbory cookie tretích strán"
 
 msgid "To access the dashboard, please enable third-party cookies in your browser."
-msgstr ""
+msgstr "Aby ste získali prístup k ovládaciemu panelu, povoľte súbory cookie tretích strán vo svojom prehliadači."
 
 msgid "Open Safari Preferences (Safari → Settings)"
 msgstr "Otvor si nastavenia Safari (Safari → Nastavenia)"
@@ -5745,10 +5745,10 @@ msgid "Click the three dots menu (⋮) in the top right corner"
 msgstr "Klikni na ponuku s tromi bodkami (⋮) v pravom hornom rohu"
 
 msgid "Go to Settings → Privacy and security → Cookies and other site data"
-msgstr ""
+msgstr "Prejdite na Nastavenia → Ochrana súkromia a zabezpečenie → Cookies a iné údaje stránok"
 
 msgid "Select \"Allow all cookies\" or \"Block third-party cookies in Incognito\""
-msgstr ""
+msgstr "Vyberte \"Povoliť všetky cookies\" alebo \"Blokovať cookies tretích strán v režime inkognito\""
 
 msgid "Click the menu button (☰) and select Settings"
 msgstr "Klikni na tlačidlo ponuky (☰) a vyber možnosť Nastavenia"
@@ -5790,7 +5790,7 @@ msgid "Open Dashboard in New Tab"
 msgstr "Otvoriť dashboard v novej karte"
 
 msgid "To access the dashboard, please enable third-party cookies in your browser. If you prefer not to enable them, you can still view the dashboard by clicking the \"Open Dashboard in New Page\" button below."
-msgstr ""
+msgstr "Aby ste získali prístup k ovládaciemu panelu, povoľte súbory cookie tretích strán vo svojom prehliadači. Ak ich nechcete povoliť, stále môžete zobraziť ovládací panel kliknutím na tlačidlo \"Otvoriť ovládací panel na novej stránke\" nižšie."
 
 msgid "On the right click Third-party cookies"
 msgstr "Vpravo klikni na súbory cookie tretích strán"
@@ -5802,31 +5802,31 @@ msgid "To access the dashboard, please enable third-party cookies in your browse
 msgstr "Pre prístup k dashboardu povoľ vo svojom prehliadači súbory cookie tretích strán. Ak ich nechceš povoliť, môžeš si dashboard stále pozrieť kliknutím na"
 
 msgid "Open Dashboard in New Page"
-msgstr ""
+msgstr "Otvorenie panela na novej stránke"
 
 msgid "button below"
 msgstr "tlačidlo nižšie"
 
 msgid "Optimize WordPress SEO"
-msgstr ""
+msgstr "Optimalizujte SEO pre WordPress"
 
 msgid "Manage local listings"
-msgstr ""
+msgstr "Spravovať miestne záznamy"
 
 msgid "Track keyword rankings"
-msgstr ""
+msgstr "Sledujte hodnotenia kľúčových slov"
 
 msgid "Start your personal online marketing agent"
-msgstr ""
+msgstr "Začnite svojho osobného online marketingového agenta"
 
 msgid "BeyondSEO"
 msgstr "BeyondSEO"
 
 msgid "BeyondSEO Team"
-msgstr ""
+msgstr "Tím BeyondSEO"
 
 msgid "https://grow.rankingcoach.com"
-msgstr ""
+msgstr "Odkaz nie je možné preložiť, pretože ide o URL."
 
 msgid "Activation code is required."
 msgstr "Vyžaduje sa aktivačný kód."
@@ -5853,7 +5853,7 @@ msgid "Submitting..."
 msgstr "Odosiela sa..."
 
 msgid "Delete all project data and settings upon deactivation"
-msgstr ""
+msgstr "Pri deaktivácii vymažte všetky údaje a nastavenia projektu."
 
 msgid "I no longer need the plugin"
 msgstr "Už nepotrebujem tento plugin"
@@ -5865,7 +5865,7 @@ msgid "I couldn't get the plugin to work"
 msgstr "Nepodarilo sa mi spustiť plugin"
 
 msgid "It's a temporary deactivation"
-msgstr ""
+msgstr "Je to dočasná deaktivácia."
 
 msgid "Other"
 msgstr "Iné"
@@ -5943,10 +5943,10 @@ msgid "Challenge creation failed."
 msgstr "Vytvorenie výzvy zlyhalo."
 
 msgid "You will be automatically redirected in %d seconds..."
-msgstr ""
+msgstr "Budete automaticky presmerovaní za %d sekúnd..."
 
 msgid "We couldn't complete the activation"
-msgstr ""
+msgstr "Nepodarilo sa nám dokončiť aktiváciu."
 
 msgid "Contact support"
 msgstr "Kontaktovať podporu"
@@ -5955,7 +5955,7 @@ msgid "Try another code"
 msgstr "Skúsiť iný kód"
 
 msgid "Can’t find it? Search your inbox for 'activation code.'"
-msgstr ""
+msgstr "Nemôžete to nájsť? Prehľadajte svoju doručenú poštu pre 'aktivačný kód.'"
 
 msgid "In the left sidebar, click Privacy and security."
 msgstr "V ľavom bočnom paneli klikni na Súkromie a zabezpečenie."
@@ -5982,13 +5982,13 @@ msgid "Register & Continue"
 msgstr "Zaregistrovať sa a pokračovať"
 
 msgid "If this is a new account, you will need to validate your email before proceeding."
-msgstr ""
+msgstr "Ak ide o nový účet, budete musieť overiť svoju e-mailovú adresu pred pokračovaním."
 
 msgid "We sent you a confirmation link. Please check your email."
-msgstr ""
+msgstr "Poslali sme vám potvrdzovací odkaz. Skontrolujte prosím svoj e-mail."
 
 msgid "This screen will update automatically once your email is validated."
-msgstr ""
+msgstr "Táto obrazovka sa automaticky aktualizuje, keď bude vaša e-mailová adresa overená."
 
 msgid "Checking…"
 msgstr "Kontroluje sa…"
@@ -6030,40 +6030,40 @@ msgid "%s functionality is temporarily unavailable due to system requirements no
 msgstr "Funkčnosť %s je dočasne nedostupná z dôvodu nesplnenia systémových požiadaviek."
 
 msgid "Germany"
-msgstr ""
+msgstr "Nemecko"
 
 msgid "United States"
-msgstr ""
+msgstr "Spojené štáty"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "Spojené kráľovstvo"
 
 msgid "France"
-msgstr ""
+msgstr "Francúzsko"
 
 msgid "Spain"
-msgstr ""
+msgstr "Španielsko"
 
 msgid "Italy"
-msgstr ""
+msgstr "Taliansko"
 
 msgid "Canada"
-msgstr ""
+msgstr "Kanada"
 
 msgid "Australia"
-msgstr ""
+msgstr "Austrália"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Holandsko"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Švajčiarsko"
 
 msgid "Welcome to BeyondSEO"
-msgstr ""
+msgstr "Vitajte na BeyondSEO"
 
 msgid "Log in or create a new account to start using your SEO tools."
-msgstr ""
+msgstr "Prihláste sa alebo si vytvorte nový účet, aby ste mohli začať používať svoje SEO nástroje."
 
 msgid "Enter your email"
 msgstr "Zadaj svoj e-mail"
@@ -6075,7 +6075,7 @@ msgid ". This helps keep your account secure."
 msgstr ". Pomôže to udržať tvoje konto v bezpečí."
 
 msgid "Change Email address"
-msgstr ""
+msgstr "Zmeniť e-mailovú adresu"
 
 msgid "Next"
 msgstr "Ďalej"
@@ -6084,116 +6084,116 @@ msgid "Try again"
 msgstr "Skúsiť znova"
 
 msgid "Freemium got your business online. But other businesses pay to stand out first."
-msgstr ""
+msgstr "Freemium dostal vašu firmu online. Ale iné firmy platia, aby sa dostali do popredia."
 
 msgid "You’re fighting for attention against companies that automate their work while you’re still handling things manually. We offer more than one plan to help you change that. Choose the one that fits you best to save time, stay ahead, and grow faster."
-msgstr ""
+msgstr "Bojujete o pozornosť proti spoločnostiam, ktoré automatizujú svoju prácu, zatiaľ čo vy stále riešite veci manuálne. Ponúkame viac ako jeden plán, ktorý vám pomôže to zmeniť. Vyberte si ten, ktorý vám najlepšie vyhovuje, aby ste ušetrili čas, zostali vpredu a rástli rýchlejšie."
 
 msgid "1. Is the Standard plan suitable for small businesses?"
-msgstr ""
+msgstr "1. Je štandardný plán vhodný pre malé podniky?"
 
 msgid "Yes. The Standard plan is designed for small businesses looking to strengthen their visibility and presence."
-msgstr ""
+msgstr "Áno. Štandardný plán je navrhnutý pre malé podniky, ktoré sa snažia posilniť svoju viditeľnosť a prítomnosť."
 
 # GPT: “Advanced” could be a plan name (kept in English) or the adjective “advanced/erweitert”; I kept it as a likely tier name in a plugin UI.
 msgid "2. Can I directly upgrade to Advanced?"
-msgstr ""
+msgstr "Môžem priamo prejsť na verziu Advanced?"
 
 msgid "Yes. You can upgrade to the Advanced plan at any time and gain immediate access to all additional features and benefits."
-msgstr ""
+msgstr "Áno. Môžete sa kedykoľvek prepnúť na pokročilý plán a okamžite získať prístup ku všetkým ďalším funkciám a výhodám."
 
 msgid "3. Can I cancel my plan?"
 msgstr "3. Môžem svoj balík zrušiť?"
 
 msgid "Yes. You may cancel your plan whenever you choose."
-msgstr ""
+msgstr "Áno. Môžete zrušiť svoj plán kedykoľvek sa rozhodnete."
 
 msgid "Trust is the most important factor in a purchase. Advanced helps you get trusted by clients."
-msgstr ""
+msgstr "Dôvera je najdôležitejší faktor pri nákupe. Advanced vám pomáha získať dôveru klientov."
 
 msgid "Customers trust what others say online about your business. With AI-powered features, you can reply to reviews right away, get more customers to share their feedback, and learn what people really think with sentiment analysis. All these features and more work together to help you build trust and stand out online."
-msgstr ""
+msgstr "Zákazníci dôverujú tomu, čo o vašej firme hovoria ostatní online. S funkciami poháňanými umelou inteligenciou môžete okamžite odpovedať na recenzie, získať viac zákazníkov, aby zdieľali svoje názory, a zistiť, čo si ľudia naozaj myslia pomocou analýzy sentimentu. Všetky tieto funkcie a ďalšie spolupracujú na tom, aby vám pomohli vybudovať dôveru a vyniknúť online."
 
 msgid "1. Who is Advanced best suited for?"
-msgstr ""
+msgstr "1. Pre koho je Advanced najvhodnejší?"
 
 msgid "Businesses in competitive markets, those managing multiple review sources, or anyone who needs broader listings coverage and deeper reputation insights."
-msgstr ""
+msgstr "Firmy na konkurenčných trhoch, tie, ktoré spravujú viacero zdrojov recenzií, alebo ktokoľvek, kto potrebuje širšie pokrytie zoznamov a hlbšie poznatky o reputácii."
 
 msgid "2. How can I buy the Social add-on?"
-msgstr ""
+msgstr "2. Ako si môžem zakúpiť sociálny doplnok?"
 
 msgid "To buy the Social add-on, you first need to have the Advanced plan. Once you’ve upgraded to Advanced, you’ll be able to purchase the add-on separately."
-msgstr ""
+msgstr "Aby ste si mohli zakúpiť sociálny doplnok, najprv musíte mať pokročilý plán. Akonáhle prejdete na pokročilý plán, budete si môcť zakúpiť doplnok samostatne."
 
 msgid "60% of businesses that grew last year relied on social media. Use the social add-on to join this year`s growing businesses."
-msgstr ""
+msgstr "60 % firiem, ktoré v minulom roku rástli, sa spoliehalo na sociálne médiá. Použite sociálny doplnok, aby ste sa pripojili k rastúcim firmám tohto roka."
 
 msgid "Show up where your clients are, share content that captures attention, and keep the conversation going. Plan, post, and boost to build trust, grow engagement, and turn followers into loyal customers"
-msgstr ""
+msgstr "Objavte sa tam, kde sú vaši klienti, zdieľajte obsah, ktorý upúta pozornosť, a udržujte konverzáciu. Plánujte, zverejňujte a podporujte, aby ste vybudovali dôveru, zvýšili angažovanosť a premenili sledovateľov na verných zákazníkov."
 
 msgid "1. Is the Social add-on right for my business?"
-msgstr ""
+msgstr "1. Je sociálny doplnok vhodný pre moje podnikanie?"
 
 msgid "It’s ideal for businesses that want to actively engage their audience, grow visibility on social media, and streamline posting with AI and planning features."
-msgstr ""
+msgstr "Je to ideálne pre podniky, ktoré chcú aktívne zapájať svoje publikum, zvyšovať viditeľnosť na sociálnych médiách a zjednodušiť zverejňovanie pomocou funkcií AI a plánovania."
 
 msgid "2. Can I track performance and engagement?"
-msgstr ""
+msgstr "2. Môžem sledovať výkon a zapojenie?"
 
 msgid "Yes. You can monitor post interactions, view and reply to comments, track link performance, and access social media insights."
-msgstr ""
+msgstr "Áno. Môžete sledovať interakcie s príspevkami, prezerať a odpovedať na komentáre, sledovať výkon odkazov a získať prehľady o sociálnych médiách."
 
 msgid "3. Can I create and publish posts on all major platforms?"
-msgstr ""
+msgstr "3. Môžem vytvárať a publikovať príspevky na všetkých hlavných platformách?"
 
 msgid "Yes. You can create and publish posts on Google Business Profile, Facebook, Instagram, LinkedIn, and X."
-msgstr ""
+msgstr "Áno. Môžete vytvárať a publikovať príspevky na Google Business Profile, Facebooku, Instagrame, LinkedIn a X."
 
 msgid "Everything in Freemium, plus:"
-msgstr ""
+msgstr "Všetko v Freemium, plus:"
 
 msgid "AI text optimisation"
 msgstr "Optimalizácia textu pomocou AI"
 
 msgid "Create Google ads campaign"
-msgstr ""
+msgstr "Vytvorte kampaň Google Ads"
 
 msgid "Monitor 3 locations"
-msgstr ""
+msgstr "Monitorovať 3 lokality"
 
 msgid "Publish Business Profile in up to 46 directories"
-msgstr ""
+msgstr "Zverejnite firemný profil až v 46 adresároch"
 
 msgid "Automatic AI reply to reviews"
-msgstr ""
+msgstr "Automatická odpoveď AI na recenzie"
 
 msgid "Reviews booster (send review request via e-mail or use print materials)"
-msgstr ""
+msgstr "Zvýšenie recenzií (odoslať žiadosť o recenziu e-mailom alebo použiť tlačené materiály)"
 
 msgid "AI-powered reputation sentiment analysis"
-msgstr ""
+msgstr "Analýza sentimentu reputácie poháňaná umelou inteligenciou"
 
 msgid "Track 25 keywords"
-msgstr ""
+msgstr "Sledujte 25 kľúčových slov"
 
 msgid "Monitor 5 competitors"
-msgstr ""
+msgstr "Sledujte 5 konkurentov"
 
 msgid "Manually reply to reviews"
-msgstr ""
+msgstr "Ručne odpovedať na recenzie"
 
 msgid "Collect reviews widget"
-msgstr ""
+msgstr "Widget na zbieranie recenzií"
 
 msgid "Reputation insights"
 msgstr "Štatistiky o reputácii"
 
 msgid "Create & publish posts on Facebook, Instagram, LinkedIn, X and Google Business Profile"
-msgstr ""
+msgstr "Vytvorte a publikujte príspevky na Facebooku, Instagrame, LinkedIn, X a Google Business Profile."
 
 msgid "AI-powered Social Media Planner"
-msgstr ""
+msgstr "Plánovač sociálnych médií poháňaný umelou inteligenciou"
 
 msgid "AI image generator"
 msgstr "Generátor obrázkov AI"
@@ -6202,85 +6202,85 @@ msgid "Create & publish events on Google Business Profile"
 msgstr "Vytváraj a zverejňuj udalosti na Google Business Profile"
 
 msgid "Competitor-based post suggestion"
-msgstr ""
+msgstr "Návrh príspevku založený na konkurencii"
 
 msgid "View & respond to posts comments"
-msgstr ""
+msgstr "Zobraziť a odpovedať na komentáre príspevkov"
 
 msgid "Link performance"
 msgstr "Výkonnosť odkazov"
 
 msgid "Social media insights"
-msgstr ""
+msgstr "Zistenia zo sociálnych médií"
 
 msgid "Boosts posts with Meta ads"
 msgstr "Propaguj príspevky pomocou reklám Meta"
 
 msgid "Grow your business online with easy video tutorials."
-msgstr ""
+msgstr "Rastite svoje podnikanie online s jednoduchými video tutoriálmi."
 
 msgid "Follow simple step-by-step videos for SEO, Local Marketing, and Social Media tasks. Get results faster without expert help. Save time and skip the complexity of doing it all yourself."
-msgstr ""
+msgstr "Sledujte jednoduché videá krok za krokom pre SEO, miestny marketing a úlohy na sociálnych médiách. Získajte výsledky rýchlejšie bez pomoci odborníkov. Ušetrite čas a vyhnite sa zložitosti robienia všetkého sami."
 
 msgid "Create your Google Ads campaign in minutes. Choose from automatically generated ad texts, set your daily budget, and launch with ease. Once your campaign is live, monitor its performance with insights. You can adjust or pause it anytime to stay in control."
-msgstr ""
+msgstr "Vytvorte svoju kampaň Google Ads za pár minút. Vyberte si z automaticky generovaných textov reklám, nastavte si denný rozpočet a spustite ju jednoducho. Keď je vaša kampaň aktívna, sledujte jej výkon pomocou prehľadov. Môžete ju kedykoľvek upraviť alebo pozastaviť, aby ste mali kontrolu."
 
 msgid "Get found faster with AI-powered text optimisation."
-msgstr ""
+msgstr "Získajte rýchlejšie nájdenie s optimalizáciou textu poháňanou AI."
 
 msgid "AI reviews your content, fixes SEO issues, and fine-tunes it for your keywords. This helps your business rank higher and reach the right audience with less effort."
-msgstr ""
+msgstr "AI hodnotí váš obsah, opravuje problémy so SEO a dolaďuje ho pre vaše kľúčové slová. To pomáha vašej firme dosiahnuť vyššie umiestnenie a osloviť správne publikum s menším úsilím."
 
 msgid "Publish your Business Profile in up to 46 directories with one click. Monitor your overall listings presence and manage it easily with fine-tune updates."
-msgstr ""
+msgstr "Zverejnite svoj obchodný profil až v 46 adresároch jedným kliknutím. Sledujte svoju celkovú prítomnosť v zoznamoch a spravujte ju jednoducho s presnými aktualizáciami."
 
 msgid "Create social media content with ease."
-msgstr ""
+msgstr "Vytvárajte obsah na sociálne médiá s ľahkosťou."
 
 msgid "Transform one content idea into many ready-to-use posts."
-msgstr ""
+msgstr "Transformujte jednu obsahovú myšlienku na množstvo pripravených príspevkov."
 
 msgid "Planning a promotion, and one post won’t cut it? Simply tell the AI what the series is about, the number of posts, frequency, and schedule. The AI will generate your entire series in seconds. Review, tweak if needed, and your posts will be published automatically as scheduled."
-msgstr ""
+msgstr "Plánujete propagáciu a jeden príspevok nestačí? Jednoducho povedzte AI, o čom je séria, počet príspevkov, frekvenciu a harmonogram. AI vygeneruje celú vašu sériu za sekundy. Skontrolujte, upravte, ak je to potrebné, a vaše príspevky budú automaticky publikované podľa plánu."
 
 msgid "Make it easy for customers to leave reviews."
-msgstr ""
+msgstr "Uľahčite zákazníkom zanechávanie recenzií."
 
 msgid "Encourage more customers to leave feedback by sending review requests via email or offering printed QR materials for easy scanning at your location."
-msgstr ""
+msgstr "Podporujte viac zákazníkov, aby zanechali spätnú väzbu, zasielaním žiadostí o recenzie prostredníctvom e-mailu alebo ponúkaním tlačených QR materiálov na jednoduché skenovanie na vašej prevádzke."
 
 msgid "See what customers really think of your business."
-msgstr ""
+msgstr "Zistite, čo si zákazníci naozaj myslia o vašej firme."
 
 msgid "Get a full overview of your business reputation based on customer reviews. See an overall sentiment score and a detailed breakdown by topic, showing what customers value most and where there’s room for improvement."
-msgstr ""
+msgstr "Získajte úplný prehľad o reputácii vašej firmy na základe recenzií zákazníkov. Zobrazte celkové skóre sentimentu a podrobný rozpis podľa tém, ktorý ukazuje, čo zákazníci najviac oceňujú a kde je priestor na zlepšenie."
 
 msgid "Creating buzz means having visuals without a design team."
-msgstr ""
+msgstr "Vytváranie rozruchu znamená mať vizuály bez dizajnérskeho tímu."
 
 msgid "Skip complicated design tools. Just describe the image you want or select relevant keywords, and our AI will generate ready-to-use visuals in seconds."
-msgstr ""
+msgstr "Preskočte zložité dizajnérske nástroje. Jednoducho opíšte obrázok, ktorý chcete, alebo vyberte relevantné kľúčové slová a náš AI vytvorí vizuály pripravené na použitie za sekundy."
 
 msgid "Expand your reach. Boost your posts with Meta ads."
-msgstr ""
+msgstr "Rozšírte svoj dosah. Zvýšte svoje príspevky pomocou reklám Meta."
 
 msgid "Choose a post to boost, set your budget, and launch instantly. Once your boost is live, track its performance with detailed insights. You’re always in control, pause or adjust your boost and budget anytime."
-msgstr ""
+msgstr "Vyberte príspevok na zvýšenie dosahu, nastavte svoj rozpočet a okamžite spustite. Keď je váš boost aktívny, sledujte jeho výkon s podrobnými prehľadmi. Vždy máte kontrolu, kedykoľvek pozastavte alebo upravte svoj boost a rozpočet."
 
 msgid "takes it further"
-msgstr ""
+msgstr "posúva to ďalej"
 
 msgid "completes the picture"
-msgstr ""
+msgstr "doplňuje obraz"
 
 msgid "You're currently using the %s plan"
 msgstr "Momentálne používaš balík %s"
 
 msgid "Add-on"
-msgstr ""
+msgstr "Doplnok"
 
 msgid "To buy the add-on, you must upgrade to Advanced first"
-msgstr ""
+msgstr "Aby ste si mohli zakúpiť doplnok, musíte najprv prejsť na verziu Advanced."
 
 msgid "Keyword insert failed. Error: %1$s"
 msgstr "Vloženie kľúčového slova zlyhalo. Chyba: %1$s"
@@ -6322,97 +6322,97 @@ msgid "Add Social Features"
 msgstr "Pridaj funkcie pre sociálne siete"
 
 msgid "Premium Plan"
-msgstr ""
+msgstr "Prémiový plán"
 
 msgid "Everything you need to dominate search rankings"
-msgstr ""
+msgstr "Všetko, čo potrebujete na dominovanie vo vyhľadávacích rebríčkoch"
 
 msgid "AI-Powered SEO Optimization"
-msgstr ""
+msgstr "Optimalizácia SEO poháňaná AI"
 
 msgid "Social Media Management"
-msgstr ""
+msgstr "Správa sociálnych médií"
 
 msgid "Reputation Management"
-msgstr ""
+msgstr "Správa reputácie"
 
 msgid "Analytics & Reports"
-msgstr ""
+msgstr "Analytika a správy"
 
 msgid "Listings in 46+ Directories"
-msgstr ""
+msgstr "Zoznamy v 46+ adresároch"
 
 msgid "Review Response Automation"
-msgstr ""
+msgstr "Automatizácia odpovedí na recenzie"
 
 msgid "Keyword Tracking"
-msgstr ""
+msgstr "Sledovanie kľúčových slov"
 
 msgid "Competitor Monitoring"
-msgstr ""
+msgstr "Monitorovanie konkurencie"
 
 msgid "Upgrade Now"
-msgstr ""
+msgstr "Aktualizovať teraz"
 
 msgid "What makes this plan different?"
-msgstr ""
+msgstr "Čo robí tento plán odlišným?"
 
 msgid "Our Premium Plan combines AI-powered tools with comprehensive marketing features to help you grow your business online efficiently."
-msgstr ""
+msgstr "Náš prémiový plán kombinuje nástroje poháňané umelou inteligenciou s komplexnými marketingovými funkciami, aby vám pomohol efektívne rozvíjať vaše podnikanie online."
 
 msgid "Can I cancel anytime?"
-msgstr ""
+msgstr "Môžem zrušiť kedykoľvek?"
 
 msgid "Yes. You can cancel your subscription at any time with no penalties or long-term commitments."
-msgstr ""
+msgstr "Áno. Svoju predplatnú službu môžete zrušiť kedykoľvek bez sankcií alebo dlhodobých záväzkov."
 
 msgid "Is support included?"
-msgstr ""
+msgstr "Je podpora zahrnutá?"
 
 msgid "Yes. Premium support is included with your subscription to help you get the most out of your tools."
-msgstr ""
+msgstr "Áno. Prémiová podpora je zahrnutá vo vašej predplatnej, aby vám pomohla čo najlepšie využiť vaše nástroje."
 
 msgid "Grow Your Business with Premium Tools"
-msgstr ""
+msgstr "Rastite svoje podnikanie s prémiovými nástrojmi"
 
 msgid "Take your online presence to the next level with our comprehensive marketing suite"
-msgstr ""
+msgstr "Posuňte svoju online prítomnosť na ďalšiu úroveň s naším komplexným marketingovým balíkom."
 
 msgid "Current Plan: %s"
-msgstr ""
+msgstr "Aktuálny plán: %s"
 
 msgid "Included Features"
-msgstr ""
+msgstr "Zahrnuté funkcie"
 
 msgid "30-day money-back guarantee"
-msgstr ""
+msgstr "30-dňová záruka vrátenia peňazí"
 
 msgid "Frequently Asked Questions"
-msgstr ""
+msgstr "Často kladené otázky"
 
 msgid "You're fighting for attention against companies that automate their work while you're still handling things manually. We offer more than one plan to help you change that. Choose the one that fits you best to save time, stay ahead, and grow faster."
-msgstr ""
+msgstr "Bojujete o pozornosť proti spoločnostiam, ktoré automatizujú svoju prácu, zatiaľ čo vy stále riešite veci manuálne. Ponúkame viac ako jeden plán, ktorý vám pomôže to zmeniť. Vyberte si ten, ktorý vám najlepšie vyhovuje, aby ste ušetrili čas, zostali vpred a rástli rýchlejšie."
 
 msgid "To buy the Social add-on, you first need to have the Advanced plan. Once you've upgraded to Advanced, you'll be able to purchase the add-on separately."
-msgstr ""
+msgstr "Aby ste si mohli zakúpiť sociálny doplnok, najprv musíte mať pokročilý plán. Akonáhle prejdete na pokročilý plán, budete si môcť zakúpiť doplnok samostatne."
 
 msgid "It's ideal for businesses that want to actively engage their audience, grow visibility on social media, and streamline posting with AI and planning features."
-msgstr ""
+msgstr "Je to ideálne pre podniky, ktoré chcú aktívne zapájať svoje publikum, zvyšovať viditeľnosť na sociálnych médiách a zjednodušiť zverejňovanie pomocou funkcií AI a plánovania."
 
 msgid "Planning a promotion, and one post won't cut it? Simply tell the AI what the series is about, the number of posts, frequency, and schedule. The AI will generate your entire series in seconds. Review, tweak if needed, and your posts will be published automatically as scheduled."
-msgstr ""
+msgstr "Plánujete propagáciu a jeden príspevok nestačí? Jednoducho povedzte AI, o čom je séria, počet príspevkov, frekvenciu a harmonogram. AI vygeneruje celú vašu sériu za sekundy. Skontrolujte, upravte, ak je to potrebné, a vaše príspevky budú automaticky publikované podľa plánu."
 
 msgid "Get a full overview of your business reputation based on customer reviews. See an overall sentiment score and a detailed breakdown by topic, showing what customers value most and where there's room for improvement."
-msgstr ""
+msgstr "Získajte úplný prehľad o reputácii vašej firmy na základe recenzií zákazníkov. Uvidíte celkové hodnotenie sentimentu a podrobný rozpis podľa tém, ktorý ukazuje, čo zákazníci najviac oceňujú a kde je priestor na zlepšenie."
 
 msgid "Choose a post to boost, set your budget, and launch instantly. Once your boost is live, track its performance with detailed insights. You're always in control, pause or adjust your boost and budget anytime."
-msgstr ""
+msgstr "Vyberte príspevok na zvýšenie dosahu, nastavte svoj rozpočet a okamžite spustite. Keď je váš boost aktívny, sledujte jeho výkon s podrobnými prehľadmi. Vždy máte kontrolu, môžete kedykoľvek pozastaviť alebo upraviť svoj boost a rozpočet."
 
 msgid "Check my account"
 msgstr "Skontrolovať môj účet"
 
 msgid "ActivationCode:"
-msgstr ""
+msgstr "Aktivačný kód:"
 
 msgid "Open rC dashboard in new tab"
 msgstr "Otvoriť rC dashboard na novej karte"
@@ -6430,13 +6430,13 @@ msgid "Terms and Conditions"
 msgstr "Všeobecnými obchodnými podmienkami"
 
 msgid "."
-msgstr ""
+msgstr "."
 
 msgid "SEO helps people find you.  <mark> Premium helps them choose you.</mark>"
-msgstr ""
+msgstr "SEO pomáha ľuďom nájsť vás. <mark> Premium im pomáha vybrať si vás.</mark>"
 
 msgid "Good SEO brings visitors to your site. To earn their trust, you must appear active and credible, not just on your site, but everywhere they look. Premium makes that happen."
-msgstr ""
+msgstr "Dobré SEO prináša návštevníkov na vašu stránku. Aby ste si získali ich dôveru, musíte pôsobiť aktívne a dôveryhodne, nielen na vašej stránke, ale aj všade, kde sa pozrú. Premium to zabezpečuje."
 
 msgid "Monthly"
 msgstr "Mesačne"
@@ -6445,7 +6445,7 @@ msgid "Annual"
 msgstr "Ročne"
 
 msgid "Get Premium"
-msgstr ""
+msgstr "Získať prémiový účet"
 
 msgid "* Annual payment"
 msgstr "* Ročná platba"
@@ -6454,16 +6454,16 @@ msgid "* Monthly payment"
 msgstr "* Mesačná platba"
 
 msgid "Being active on social, showing up in listings, and earning trust from reviews takes daily work. Here are some of the key tasks your competitors are automating to keep their edge."
-msgstr ""
+msgstr "Byť aktívny na sociálnych sieťach, objavovať sa v zoznamoch a získavať dôveru z recenzií si vyžaduje každodennú prácu. Tu sú niektoré z kľúčových úloh, ktoré vaši konkurenti automatizujú, aby si udržali svoj náskok."
 
 msgid "They use AI to reply to reviews instantly"
-msgstr ""
+msgstr "Používajú umelú inteligenciu na okamžité odpovedanie na recenzie."
 
 msgid "They schedule weeks of social content in minutes"
-msgstr ""
+msgstr "Plánujú týždne sociálneho obsahu za minúty."
 
 msgid "They get listed on every top directory with one click"
-msgstr ""
+msgstr "Sú zaradení do každého top adresára jedným kliknutím."
 
 msgid "Loading categories..."
 msgstr "Načítavajú sa kategórie..."
@@ -6478,7 +6478,7 @@ msgid "categories"
 msgstr "kategórie"
 
 msgid "%1$s"
-msgstr ""
+msgstr "%1$s"
 
 msgid "Connecting to server..."
 msgstr "Pripája sa k serveru..."
@@ -6487,13 +6487,13 @@ msgid "Opening RankingCoach dashboard in a new tab..."
 msgstr "Otvára sa hlavný panel rankingCoach na novej karte..."
 
 msgid "Your refresh token has expired. Please %s to regenerate it."
-msgstr ""
+msgstr "Váš obnovovací token vypršal. Prosím %s na jeho regeneráciu."
 
 msgid "re-activate the plugin"
-msgstr ""
+msgstr "znovu aktivovať plugin"
 
 msgid "re-register the plugin"
-msgstr ""
+msgstr "znovu zaregistrovať plugin"
 
 msgid "Claim your existing account"
 msgstr "Uplatni si nárok na svoje existujúce konto"
@@ -6538,10 +6538,10 @@ msgid "Sign in or create an account"
 msgstr "Prihlás sa alebo si vytvor účet"
 
 msgid "Have an activation code instead? "
-msgstr ""
+msgstr "Máte namiesto toho aktivačný kód?"
 
 msgid "Enter it here"
-msgstr ""
+msgstr "Zadajte to sem"
 
 msgid "Welcome, how would you like to get started?"
 msgstr "Vitaj, ako by si chcel začať?"
@@ -6878,7 +6878,7 @@ msgid "Weekly AI growth reports"
 msgstr "Týždenné reporty o raste s umelou inteligenciou"
 
 msgid "Instant access to everything"
-msgstr ""
+msgstr "Okamžitý prístup ku všetkému"
 
 msgid "Start for $99 — Get Full Access"
 msgstr "Začni za 99 $ – získaj plný prístup"
@@ -7091,7 +7091,7 @@ msgid "rankingCoach free combines everything you need for successful online mark
 msgstr "rankingCoach zadarmo kombinuje všetko, čo potrebuješ pre úspešný online marketing. Jednoducho, efektívne, cenovo dostupné."
 
 msgid "Agency or Enterprise? See our special offers"
-msgstr ""
+msgstr "Agentúra alebo podnik? Pozrite si naše špeciálne ponuky"
 
 msgid "What our customers say"
 msgstr "Čo hovoria naši zákazníci"
@@ -7232,7 +7232,7 @@ msgid "Detects keyword stuffing in the first paragraph and computes language-agn
 msgstr "Deteguje preplnenie kľúčovými slovami v prvom odseku a počíta jazykovo nezávislé metriky distribúcie pre opakovanie a blízkosť. Je to kľúčové pre zachovanie čitateľnosti a vyhnutie sa penalizáciám od vyhľadávačov."
 
 msgid "Q: %s"
-msgstr ""
+msgstr "Q: %s"
 
 msgid "Connect"
 msgstr "Pripojiť"
@@ -7253,19 +7253,19 @@ msgid "Analyze Now"
 msgstr "Analyzovať teraz"
 
 msgid "BeyondSEO: WordPress Cron is disabled"
-msgstr ""
+msgstr "BeyondSEO: WordPress Cron je zakázaný"
 
 msgid "DISABLE_WP_CRON is set to true in your wp-config.php. This prevents the plugin's scheduled tasks from running automatically. To fix this, remove or change define('DISABLE_WP_CRON', true); in your wp-config.php, or set up a real server-side cron job. %s"
-msgstr ""
+msgstr "DISABLE_WP_CRON je nastavené na true vo vašom wp-config.php. To zabraňuje automatickému spúšťaniu naplánovaných úloh pluginu. Ak to chcete opraviť, odstráňte alebo zmeňte define('DISABLE_WP_CRON', true); vo vašom wp-config.php, alebo nastavte skutočnú cron úlohu na serveri. %s"
 
 msgid "Learn more"
-msgstr ""
+msgstr "Zistite viac"
 
 msgid "Empty response from keywords sync API"
 msgstr "Prázdna odpoveď z API na synchronizáciu kľúčových slov"
 
 msgid "Invalid or missing SDK token. Generate a token via POST /sdk_token endpoint."
-msgstr ""
+msgstr "Neplatný alebo chýbajúci SDK token. Vygenerujte token prostredníctvom POST /sdk_token koncového bodu."
 
 msgid "Authentication required. Use WordPress Application Password with Basic Auth."
 msgstr "Vyžaduje sa overenie. Použi heslo aplikácie WordPress so základným overením."
@@ -7793,7 +7793,7 @@ msgid "Enter activation code"
 msgstr "Zadaj aktivačný kód"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Pre tento e-mailový účet sme nenašli účet rankingCoach."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Tento účet nemá aktívne predplatné WordPress."
@@ -7808,7 +7808,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "Registrácia e-mailom nie je pre túto inštaláciu dostupná. Použi svoj aktivačný kód."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "Na tejto stránke je deaktivovaný WordPress Cron (DISABLE_WP_CRON je nastavený na true). RankingCoach sa spolieha na WP-Cron na vykonávanie naplánovaných úloh, ako je synchronizácia kľových slov a kontrola nefunkčných odkazov. Uistite sa, že je nakonfigurovaná systémová cron úloha na pravidelné spúšťanie wp-cron.php, inak sa tieto naplánované úlohy nebudú vykonávať."
 
 msgid "Details: %s"
 msgstr "Podrobnosti: %s"
@@ -7832,10 +7832,10 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Aktivačný kód pre toto predplatné bol už odoslaný maximálny počet krát. Kontaktuj zákaznícku podporu."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Nemôžete nájsť svoj aktivačný kód?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Obnovte to tu"
 
 #: inc/Core/Rss/FeedLinkGenerator.php:42
 msgctxt "feed link"
@@ -7843,40 +7843,688 @@ msgid "-"
 msgstr ""
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Skontrolujte svoj e-mail pre váš aktivačný kód. Nedostali ste ho? Obnovte ho."
 
 msgid "here"
-msgstr ""
-
+msgstr "tu"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Potrebujete pomoc? Kontaktujte náš tím podpory a skopírujte informácie o vašej stránke nižšie."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Kontaktujte podporu"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Informácie o stránke"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Nepodarilo sa načítať informácie o stránke. Skúste to znova."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Skúsiť znova"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Kopírovať informácie o stránke do schránky"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Skopírované do schránky"
 
 msgid "You do not have permission to access support information."
-msgstr ""
+msgstr "Nemáte povolenie na prístup k informáciám o podpore."
 
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "Analýza SEO sa začína po prvom uložení tohto príspevku."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Vaše zmeny sa nedali uložiť. Skúste to prosím znova."
+
+msgid "Edit SEO title and description"
+msgstr "Upravte SEO titul a popis"
+
+msgid "Open in editor"
+msgstr "Otvoriť v editore"
+
+msgid "Add a meta description"
+msgstr "Pridajte meta popis"
+
+msgid "No meta description"
+msgstr "Žiadny meta popis"
+
+msgid "Updating score…"
+msgstr "Aktualizácia skóre…"
+
+msgid "Saved"
+msgstr "Uložené"
+
+msgid "Yes, I love it"
+msgstr "Áno, milujem to."
+
+msgid "Not really"
+msgstr "Nie naozaj"
+
+msgid "Maybe later"
+msgstr "Možno neskôr"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Hodnotenie BeyondSEO na WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Užívate si BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Radi by sme počuli o vašich skúsenostiach."
+
+msgid "Dismiss review request"
+msgstr "Zamietnuť žiadosť o recenziu"
+
+msgid "Your site score is above %s!"
+msgstr "Vaše skóre stránky je nad %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Tvoje skóre obsahu je nad %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Tešíte sa na BeyondSEO? Radi by sme počuli o vašich skúsenostiach."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Pripojenie projektu sa nedalo overiť. Obnovte účet predtým, ako to skúsite znova."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Nemožno potvrdiť vytvorenie projektu. Vaša účet a miestne údaje boli zachované. Obnovte účet a skúste to znova alebo kontaktujte podporu."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Služba nemohla potvrdiť vymazanie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Odpoveď služby sa nedala overiť. Obnovte účet predtým, ako to skúsite znova. Ak je pripojenie neúplné, kontaktujte podporu pred opätovným pripojením."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Odstránenie projektu bolo prijaté, ale miestne pripojenie sa nedalo úplne odstrániť. Kontaktujte podporu pred opätovným pokusom alebo pripojením. Obnovte účet, aby ste skontrolovali aktuálne pripojenie."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Pripojený projekt sa zmenil alebo už nie je pripojený. Obnovte účet a skontrolujte projekt predtým, ako to skúsite znova."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Operácia projektu už prebieha. Počkajte, kým sa dokončí, a obnovte účet. Ak to pretrváva, kontaktujte podporu."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Nemožno bezpečne spustiť prevádzku projektu. Skúste to znova alebo kontaktujte podporu."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Prepojte svoj účet pred vytvorením projektu. Obnovte účet, aby ste skontrolovali svoje pripojenie."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Služba vrátila projekt, ale jeho miestne pripojenie sa nedalo úplne uložiť. Obnovte účet a skúste to znova alebo kontaktujte podporu. Váš účet a miestne údaje boli zachované."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Pred vytvorením projektu povolte komunikáciu s rankingCoach v nastaveniach."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Pred odstránením projektu povolte komunikáciu s rankingCoach v nastaveniach. Vaše miestne pripojenie nebolo odstránené."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Služba nemohla overiť vytvorenie projektu. Vaše údaje o účte boli uchované. Kontaktujte podporu, aby ste obnovili prístup pred opätovným pokusom."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Služba nemohla overiť odstránenie projektu. Vaše miestne pripojenie nebolo odstránené. Kontaktujte podporu, aby ste obnovili prístup pred opätovným pokusom."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Nemožno načítať pripojenie k miestnemu projektu. Skúste to prosím znova."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Prístup k účtu sa nedal overiť. Znova načítajte túto stránku a prihláste sa ako administrátor predtým, ako to skúsite znova."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Nemožno načítať miestne pripojenie k projektu. Skontrolujte svoje pripojenie a skúste to znova."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Výsledok vytvorenia sa nedal overiť. Obnovte účet predtým, ako to skúsite znova. Váš účet a miestne údaje boli zachované."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Výsledok odstránenia sa nedal overiť. Pred opätovným pokusom obnovte účet. Ak je pripojenie neúplné, kontaktujte podporu pred opätovným pripojením."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Odpoveď služby sa nedala overiť. Obnovte účet predtým, ako to skúsite znova."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Výsledok odstránenia sa nedal overiť. Obnovte účet predtým, ako to skúsite znova."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Váš projekt je pripojený. Môžete otvoriť onboarding, keď budete pripravení. Vaše existujúce údaje a stav onboardingu boli zachované."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Odstránenie projektu bolo prijaté a odložené. Lokálne pripojenie projektu bolo odstránené. Váš účet, nastavenia a údaje o SEO sú zachované a plugin zostáva aktívny."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Diaľkový projekt bol odstránený a pripojenie k miestnemu projektu bolo zrušené. Váš účet, nastavenia a údaje o SEO sú zachované a plugin zostáva aktívny."
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "Manage the project connected to this website."
+msgstr "Spravujte projekt spojený s touto webovou stránkou."
+
+msgid "Loading project connection…"
+msgstr "Načítanie pripojenia k projektu…"
+
+msgid "Refresh Account"
+msgstr "Obnoviť účet"
+
+msgid "Account details"
+msgstr "Údaje o účte"
+
+msgid "Activation code"
+msgstr "Aktivačný kód"
+
+msgid "Not available"
+msgstr "Nedostupné"
+
+msgid "Project details"
+msgstr "Podrobnosti projektu"
+
+msgid "Project ID"
+msgstr "ID projektu"
+
+msgid "Not connected"
+msgstr "Nie je pripojené"
+
+msgid "Location ID"
+msgstr "ID miesta"
+
+msgid "Website"
+msgstr "Webová stránka"
+
+msgid "Open onboarding"
+msgstr "Otvorenie onboardingu"
+
+msgid "Delete project"
+msgstr "Zmazať projekt"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Odstráňte vzdialený projekt a zrušte pripojenie tejto webovej stránky. Vaše miestne nastavenia a údaje o SEO budú zachované. Týmto sa nezruší váš účet ani predplatné."
+
+msgid "Deleting project…"
+msgstr "Mazanie projektu…"
+
+msgid "Create project"
+msgstr "Vytvoriť projekt"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Váš účet je pripojený, ale táto webová stránka nemá žiadny projekt. Vytvorte projekt pomocou svojho existujúceho účtu. Vaše miestne nastavenia, údaje o SEO a pokrok pri onboardingu budú zachované."
+
+msgid "Creating project…"
+msgstr "Vytváranie projektu…"
+
+msgid "Create Project"
+msgstr "Vytvoriť projekt"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Vytváranie projektu… Prosím, počkajte na potvrdenie."
+
+msgid "No project connected"
+msgstr "Žiadny projekt nie je pripojený"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Pripojte účet, aby ste prepojili túto webovú stránku s projektom. Vaše existujúce nastavenia a údaje o SEO sú stále k dispozícii."
+
+msgid "Delete this project?"
+msgstr "Zmazať tento projekt?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Týmto sa odstráni vzdialený projekt a odstráni sa miestne pripojenie pre túto webovú stránku. Odstránenie vzdialeného projektu nie je možné zvrátiť."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Vaše miestne nastavenia a údaje o SEO budú zachované. Plugin zostane aktívny. Váš účet a predplatné nebudú zrušené."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Mazanie projektu… Prosím, počkajte na potvrdenie."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Nemožno načítať účet. Skúste to prosím znova."
+
+msgid "Retry loading Account"
+msgstr "Skúste znovu načítať účet"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Obráťte sa na náš tím pre pomoc s BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Skopírujte technické podrobnosti vašej stránky, aby ste ich mohli zdieľať s naším podporným tímom."
+
+msgid "Loading site info"
+msgstr "Načítanie informácií o stránke"
+
+msgid "Edit SEO title"
+msgstr "Upraviť SEO názov"
+
+msgid "Edit meta description"
+msgstr "Upravte meta popis."
+
+msgid "Set keywords"
+msgstr "Nastavte kľúčové slová"
+
+msgid "Essentials"
+msgstr "Základy"
+
+msgid "Import"
+msgstr "Importovať"
+
+msgid "Site check"
+msgstr "Kontrola stránky"
+
+msgid "Email tips"
+msgstr "Tipy na e-maily"
+
+msgid "rankingCoach account"
+msgstr "účet rankingCoach"
+
+msgid "Check titles, keywords and headings"
+msgstr "Skontrolujte názvy, kľúčové slová a nadpisy"
+
+msgid "Review page-specific SEO issues"
+msgstr "Skontrolujte problémy s SEO na stránke."
+
+msgid "Fix issues directly on your pages"
+msgstr "Opraviť problémy priamo na svojich stránkach"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Prejdite do nastavení BeyondSEO"
+
+msgid "Keep growing your visibility"
+msgstr "Pokračujte v zvyšovaní svojej viditeľnosti"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO vám pomôže nájsť a opraviť problémy so stránkami. Účet rankingCoach pridáva priebežné informácie o viditeľnosti vašej online prítomnosti."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Váš účet rankingCoach je pripojený."
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Rebríčky, konkurenti a správy sú k dispozícii na paneli BeyondSEO."
+
+msgid "With BeyondSEO"
+msgstr "S BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Vytvorte si svoj bezplatný účet"
+
+msgid "I already have an account"
+msgstr "Už mám účet."
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Registrácia a prihlásenie sa uskutočňujú na stránkach BeyondSEO connect. Môžete to urobiť aj neskôr v nastaveniach."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Zadajte platnú e-mailovú adresu alebo preskočte tento krok."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Vyberte začiarkavacie políčko súhlasu alebo preskočte tento krok."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Vaša e-mailová adresa sa nedala uložiť. Skúste to prosím znova."
+
+msgid "Back to site check"
+msgstr "Späť na kontrolu stránky"
+
+msgid "Skip"
+msgstr "Preskočte"
+
+msgid "Save and continue"
+msgstr "Uložiť a pokračovať"
+
+msgid "Get general SEO tips by email"
+msgstr "Získajte všeobecné tipy na SEO e-mailom"
+
+msgid "Get SEO recommendations by email"
+msgstr "Získajte odporúčania SEO e-mailom"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Kontrola stránky sa neskončila, takže zatiaľ nemôžeme poskytnúť zistenia špecifické pre stránku. Môžete stále získať všeobecné tipy na SEO, alebo tento krok preskočiť."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Získajte nápady na ďalšie kroky po prehliadke vašej stránky. Tento krok je voliteľný a nevytvára účet rankingCoach."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Táto adresa je uložená pre SEO odporúčania. Uložte ju znova, aby ste ju aktualizovali."
+
+msgid "Email address"
+msgstr "Emailová adresa"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Pošlite mi odporúčania na SEO a občasné aktualizácie produktov BeyondSEO / rankingCoach. Môžem sa kedykoľvek odhlásiť."
+
+msgid "Optional and separate from account creation."
+msgstr "Voliteľné a oddelené od vytvorenia účtu."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "Detaily SEO domovskej stránky sa nedali načítať. Môžete pokračovať a upraviť ich neskôr."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Žiadny slogan nie je nastavený"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Vaša domovská stránka zobrazuje vaše najnovšie príspevky, takže vyhľadávače vidia názov stránky a slogan."
+
+msgid "Change them in General settings"
+msgstr "Zmeňte ich v obecných nastaveniach."
+
+msgid "Homepage SEO title"
+msgstr "SEO titulok domovskej stránky"
+
+msgid "Meta description"
+msgstr "Meta popis"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Popíšte svoju webovú stránku jednou alebo dvoma vetami."
+
+msgid "Exit setup"
+msgstr "Ukončiť nastavenie"
+
+msgid "Continue"
+msgstr "Pokračovať"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Zlepšite, ako sa vaša stránka zobrazuje vo výsledkoch vyhľadávania, a nájdite problémy na svojich stránkach. Predvyplnili sme to, čo už vieme o vašej webovej stránke."
+
+msgid "Search preview"
+msgstr "Náhľad vyhľadávania"
+
+msgid "XML sitemap"
+msgstr "XML mapa stránok"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Pomáha vyhľadávačom objaviť všetky vaše stránky."
+
+msgid "Search engine visibility"
+msgstr "Viditeľnosť vo vyhľadávačoch"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Vyhľadávače môžu indexovať túto stránku."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress aktuálne žiada vyhľadávače, aby túto stránku neindexovali."
+
+msgid "Reading settings"
+msgstr "Nastavenia čítania"
+
+msgid "Discouraged"
+msgstr "Sklesnutý"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Účet rankingCoach môže neskôr pridať informácie o viditeľnosti a výkonnosti. Najprv si prejdime vašu stránku."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "Import SEO zlyhal. Niektoré údaje mohli byť importované; prosím, skúste to znova."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Importovaných %1$d nastavení a %2$d stránkových záznamov. %3$d záznamov už bolo nastavených v BeyondSEO alebo ich nebolo možné previesť."
+
+msgid "Continue without import"
+msgstr "Pokračujte bez importu"
+
+msgid "Keep your existing SEO work"
+msgstr "Udržujte svoju existujúcu SEO prácu."
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Na tejto stránke bol nájdený ďalší SEO plugin. BeyondSEO môže preniesť vaše SEO názvy, popisy, kľúčové slová a podporované nastavenia stránky. Hodnoty, ktoré ste už uložili v BeyondSEO, zostávajú zachované a údaje druhého pluginu zostávajú nedotknuté."
+
+msgid "Import finished"
+msgstr "Import bol dokončený"
+
+msgid "Plugin to import from"
+msgstr "Plugin na importovanie z"
+
+msgid "Active on this site"
+msgstr "Aktívny na tejto stránke"
+
+msgid "Installed but not active"
+msgstr "Nainštalované, ale nie aktívne"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Názvy a popisy, ktoré používajú nepodporované premenné šablóny, sú preskočené. Môžete si neskôr prezrieť každú stránku."
+
+msgid "The page details could not be loaded."
+msgstr "Detaily stránky sa nepodarilo načítať."
+
+msgid "Enter a title or add a variable."
+msgstr "Zadajte názov alebo pridajte premennú."
+
+msgid "Enter a meta description."
+msgstr "Zadajte meta popis."
+
+msgid "SEO title"
+msgstr "SEO titul"
+
+msgid "The page keywords could not be loaded."
+msgstr "Kľúčové slová stránky sa nepodarilo načítať."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Kľúčové slovo sa nedalo uložiť. Skúste to prosím znova."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Kľúčové slovo sa nepodarilo odstrániť. Skúste to prosím znova."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Zadajte kľúčové slová, pre ktoré by sa táto stránka mala umiestniť. Prvé slovo sa stáva primárnym kľúčovým slovom, ostatné sú doplnkové kľúčové slová; sú to rovnaké kľúčové slová, ktoré vidíte na záložke Všeobecné stránky."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Zatiaľ žiadne primárne kľúčové slovo. Prvé kľúčové slovo, ktoré pridáte, sa ním stane."
+
+msgid "No additional keywords yet."
+msgstr "Žiadne ďalšie kľúčové slová zatiaľ."
+
+msgid "Done"
+msgstr "Hotovo"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Kontrola stránky sa na serveri nemohla dokončiť. Veľké stránky môžu trvať dlhšie, ako server povoľuje."
+
+msgid "We could not complete the site check."
+msgstr "Nedokázali sme dokončiť kontrolu stránky."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Skener bol zrušený. Kontrola, ktorá sa už začala na serveri, sa stále dokončí na pozadí."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Stránku sa nepodarilo znovu skontrolovať. Skúste to prosím znova o chvíľu."
+
+msgid "Updated"
+msgstr "Aktualizované"
+
+msgid "Recheck"
+msgstr "Prekontrolovať"
+
+msgid "All checked pages pass"
+msgstr "Všetky skontrolované stránky prešli"
+
+msgid "Issues found on your pages"
+msgstr "Zistené problémy na vašich stránkach"
+
+msgid "Your pages pass every check"
+msgstr "Vaše stránky prechádzajú každou kontrolou."
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Každá kontrola uvádza stránky, na ktoré sa vzťahuje. Opraviť názvy, popisy a kľúčové slová môžete priamo tu, alebo otvorte stránku v editore pre všetko ostatné."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "Dokončené kontroly nenašli nič na opravu. Môžete spustiť skenovanie znova po aktualizácii vašej stránky."
+
+msgid "Some pages need another look"
+msgstr "Niektoré stránky potrebujú ďalší pohľad."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Každá stránka získala 0 bodov, čo zvyčajne znamená, že stránka nemohla počas kontroly načítať svoje vlastné stránky. Uistite sa, že je stránka dostupná zo svojho servera, a potom skenovanie zopakujte."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Zobrazenie najnovších stránok a príspevkov. Každá druhá stránka je uvedená v prehľade príspevkov a stránok."
+
+msgid "Checking your site"
+msgstr "Kontrola vašej stránky"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Každá publikovaná stránka a príspevok sú analyzované na vašom serveri. Môže to trvať niekoľko minút na väčších stránkach."
+
+msgid "Collecting the results for your pages…"
+msgstr "Zbieranie výsledkov pre vaše stránky…"
+
+msgid "Analysing your published pages…"
+msgstr "Analyzovanie vašich publikovaných stránok…"
+
+msgid "The site check could not finish"
+msgstr "Kontrola stránky sa nemohla dokončiť."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Skúste to znova teraz, alebo pokračujte a vykonajte kontrolu neskôr z ovládacieho panela."
+
+msgid "Identify issues on your pages"
+msgstr "Identifikujte problémy na svojich stránkach"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO kontroluje každú publikovanú stránku a príspevok na nasledujúce, a potom zobrazuje, ktoré stránky potrebujú úpravy."
+
+msgid "Retry scan"
+msgstr "Opakovať skenovanie"
+
+msgid "Run scan again"
+msgstr "Spustiť skenovanie znova"
+
+msgid "Scanning…"
+msgstr "Skenovanie…"
+
+msgid "Start scan"
+msgstr "Spustiť skenovanie"
+
+msgid "Setup steps"
+msgstr "Kroky nastavenia"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Krok %1$d z %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Sprievodca nastavením"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Váš účet je pripojený, ale na používanie panela BeyondSEO je potrebný projekt. Vytvorte projekt v Nastaveniach > Účet, aby ste mohli pokračovať."
+
+msgid "Go to Account"
+msgstr "Prejdite na účet"
+
+msgid "The project location ID is invalid."
+msgstr "ID umiestnenia projektu je neplatný."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Služba nepotvrdila vymazanie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+
+msgid "SEO titles"
+msgstr "SEO názvy"
+
+msgid "SEO descriptions"
+msgstr "SEO popisy"
+
+msgid "Canonical URLs"
+msgstr "Kanonické URL adresy"
+
+msgid "Noindex directives"
+msgstr "Noindex pokyny"
+
+msgid "Social titles"
+msgstr "Spoločenské tituly"
+
+msgid "Social descriptions"
+msgstr "Sociálne opisy"
+
+msgid "Facebook profile"
+msgstr "Facebook profil"
+
+msgid "Twitter profile"
+msgstr "Twitter profil"
+
+msgid "Instagram profile"
+msgstr "Instagram profil"
+
+msgid "LinkedIn profile"
+msgstr "Profil na LinkedIn"
+
+msgid "YouTube profile"
+msgstr "YouTube profil"
+
+msgid "Organization or person name"
+msgstr "Názov organizácie alebo osoby"
+
+msgid "Sitemap enabled"
+msgstr "Sitemap povolený"
+
+msgid "Google verification code"
+msgstr "Overovací kód Google"
+
+msgid "Bing verification code"
+msgstr "Bing overovací kód"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Pripojenie k účtu alebo projektu sa zmenilo. Pred opätovným pokusom obnovte účet."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Odstránenie projektu bolo akceptované, ale miestne identifikátory projektu nebolo možné úplne odstrániť. Váš účet a miestne údaje boli zachované. Obnovte účet a kontaktujte podporu pred vytvorením ďalšieho projektu."
+
+msgid "Connect your account before creating a project."
+msgstr "Prepojte svoj účet pred vytvorením projektu."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Služba nevrátila platný projekt pre váš účet. Obnovte účet a skúste to znova alebo kontaktujte podporu."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Služba nemohla potvrdiť odstránenie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Nemožno potvrdiť vymazanie projektu. Vaše miestne pripojenie nebolo odstránené. Skúste to znova alebo kontaktujte podporu."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Nemožno skontrolovať možnosti importu SEO. Skúste to prosím znova."
+
+msgid "SEO import options must be an array of strings."
+msgstr "Možnosti importu SEO musia byť pole reťazcov."
+
+msgid "Invalid SEO import source."
+msgstr "Neplatný zdroj importu SEO."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "Možnosti importu SEO musia obsahovať iba podporované identifikátory možností pre vybraný zdroj."
+
+msgid "SEO plugin is not installed."
+msgstr "SEO plugin nie je nainštalovaný."
+
+msgid "Invalid Review event."
+msgstr "Neplatná udalosť recenzie."
+
+msgid "Unable to save Review state."
+msgstr "Nemožno uložiť stav recenzie."
+
+msgid "Go to Dashboard"
+msgstr "Prejdite na panel nástrojov"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO vám pomôže nájsť a opraviť problémy so stránkami. Váš účet rankingCoach pridáva priebežné informácie o viditeľnosti vašej online prítomnosti."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Rebríčky, konkurenti a správy sú už k dispozícii na paneli BeyondSEO. Tu nie je potrebné nič iné nastaviť."
+
+msgid "With your rankingCoach account"
+msgstr "S vaším účtom rankingCoach"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Stránky ovplyvnené: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Kontroly vyžadujúce pozornosť: %1$d z %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Skontrolované stránky: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d z %2$d strán nebolo možné skontrolovať. Môžete pokračovať s dokončenými kontrolami a skúsiť to znova neskôr."

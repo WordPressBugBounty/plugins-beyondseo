@@ -18,6 +18,7 @@ use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Core\Api\HttpApiClient;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\TokensManager;
+use RankingCoach\Inc\Core\Settings\SettingsManager;
 use ReflectionException;
 use Throwable;
 use WP_Error;
@@ -51,6 +52,153 @@ class UserApiManager extends HttpApiClient
      * @var string[]
      */
     private const SEO_KEYWORD_TYPES = ['seo'];
+
+    private bool $projectMutationRequest = false;
+    private ?\Closure $projectMutationConnectionCheck = null;
+
+    public function deleteRemoteProject(int $locationId, \Closure $connectionIsCurrent): string|WP_Error
+    {
+        if ($locationId <= 0) {
+            return new WP_Error('account_project_invalid_id', __('The project location ID is invalid.', 'beyondseo'), ['status' => 400]);
+        }
+
+        $previousOptInBypass = $this->bypassOptIn;
+        $this->bypassOptIn = false;
+        $this->projectMutationRequest = true;
+        $this->projectMutationConnectionCheck = $connectionIsCurrent;
+
+        try {
+            $accessToken = $this->prepareProjectMutationAuthentication($connectionIsCurrent);
+            $this->setUrl('projects/' . $locationId, 'baseUrl', false);
+            $this->prepareSecurityHeaders($accessToken);
+            $response = $this->delete();
+            $content = $response['content'] ?? null;
+            $outcome = is_object($content) && is_object($content->deletionResult ?? null)
+                ? ($content->deletionResult->outcome ?? null)
+                : null;
+
+            if (!in_array($outcome, ['deleted', 'deferred', 'alreadyDeleted'], true)) {
+                return new WP_Error(
+                    'account_project_invalid_response',
+                    __('The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support.', 'beyondseo'),
+                    ['status' => 502]
+                );
+            }
+
+            return $outcome;
+        } finally {
+            $this->projectMutationRequest = false;
+            $this->projectMutationConnectionCheck = null;
+            $this->bypassOptIn = $previousOptInBypass;
+        }
+    }
+
+    public function createRemoteProject(\Closure $connectionIsCurrent): mixed
+    {
+        $previousOptInBypass = $this->bypassOptIn;
+        $this->bypassOptIn = false;
+        $this->projectMutationRequest = true;
+        $this->projectMutationConnectionCheck = $connectionIsCurrent;
+
+        try {
+            $accessToken = $this->prepareProjectMutationAuthentication($connectionIsCurrent);
+            $this->setUrl('checkAccount');
+            $payload = CoreHelper::generateCommonSecurityPayload([
+                'activationCode' => get_option(BaseConstants::OPTION_ACTIVATION_CODE, null),
+                'verificationOnly' => false,
+                'contextReferrer' => 'account-project-creation',
+            ]);
+            $this->prepareSecurityHeaders($accessToken, $payload);
+            $response = $this->post($payload);
+
+            return $response['content'] ?? null;
+        } finally {
+            $this->projectMutationRequest = false;
+            $this->projectMutationConnectionCheck = null;
+            $this->bypassOptIn = $previousOptInBypass;
+        }
+    }
+
+    private function prepareProjectMutationAuthentication(\Closure $connectionIsCurrent): string
+    {
+        if (!SettingsManager::instance()->get_option('beyondseo_comm_opt_in', false)) {
+            throw new CommunicationOptInDisabledException(__('Communication opt-in is disabled.', 'beyondseo'));
+        }
+
+        $tokensManager = TokensManager::instance();
+        $accessToken = $tokensManager->getStoredAccessToken();
+        $accountId = get_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID);
+        if (!TokensManager::validateToken($accessToken)) {
+            $refreshToken = $tokensManager->getStoredRefreshToken();
+            if (!TokensManager::validateToken($refreshToken)
+                || (string) TokensManager::getJwtParts($refreshToken)[0] !== (string) $accountId) {
+                throw new HttpApiException('Project operation requires valid credentials.', 401);
+            }
+
+            $this->setUrl('refresh', 'refreshUrl', false);
+            $payload = CoreHelper::generateCommonSecurityPayload(['refreshToken' => $refreshToken]);
+            $this->prepareSecurityHeaders($refreshToken, $payload);
+            $response = $this->post($payload);
+            $content = $response['content'] ?? null;
+            if (!is_object($content)
+                || !is_string($content->accessToken ?? null)
+                || !is_string($content->refreshToken ?? null)
+                || !TokensManager::validateToken($content->accessToken)
+                || !TokensManager::validateToken($content->refreshToken)
+                || (string) TokensManager::getJwtParts($content->accessToken)[0] !== (string) $accountId
+                || (string) TokensManager::getJwtParts($content->refreshToken)[0] !== (string) $accountId) {
+                throw new HttpApiException('Project operation token refresh failed.', 401);
+            }
+
+            if (!$connectionIsCurrent()) {
+                throw new HttpApiException('The account or project changed.', 409);
+            }
+
+            update_option(TokensManager::ACCESS_TOKEN, $content->accessToken);
+            update_option(TokensManager::REFRESH_TOKEN, $content->refreshToken);
+            $accessToken = $content->accessToken;
+        }
+
+        if ((string) TokensManager::getJwtParts($accessToken)[0] !== (string) $accountId) {
+            throw new HttpApiException('Project operation requires matching account credentials.', 401);
+        }
+
+        $this->setBearerToken($accessToken);
+        return $accessToken;
+    }
+
+    protected function handleUnauthorized(HttpApiException $e): bool
+    {
+        if ($this->projectMutationRequest) {
+            return false;
+        }
+
+        return parent::handleUnauthorized($e);
+    }
+
+    public function sendClientRequest(array $options = [], array $securityHeaders = []): array
+    {
+        if ($this->projectMutationConnectionCheck !== null && !($this->projectMutationConnectionCheck)()) {
+            throw new HttpApiException('The connected project changed.', 409);
+        }
+
+        $response = parent::sendClientRequest($options, $securityHeaders);
+        if ($this->projectMutationRequest) {
+            $status = wp_remote_retrieve_response_code($response);
+            if ($status < 200 || $status >= 300) {
+                throw new HttpApiException('Project operation request failed.', in_array($status, [401, 403], true) ? $status : 502);
+            }
+
+            $contentType = wp_remote_retrieve_header($response, 'content-type');
+            $content = json_decode(wp_remote_retrieve_body($response));
+            if (!is_string($contentType) || !str_contains($contentType, 'application/json')
+                || json_last_error() !== JSON_ERROR_NONE || !is_object($content)) {
+                throw new HttpApiException('Project operation received an invalid response.', 502);
+            }
+        }
+
+        return $response;
+    }
 
 	/**
 	 * Get the singleton instance.

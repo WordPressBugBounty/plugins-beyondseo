@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:17+0000\n"
+"PO-Revision-Date: 2026-10-20 09:35+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: fi_FI\n"
@@ -8337,7 +8337,7 @@ msgid "Enter activation code"
 msgstr "Syötä aktivointikoodi"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Emme löytäneet rankingCoach-tiliä tälle sähköpostiosoitteelle."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Tällä tilillä ei ole aktiivista WordPress-tilausta."
@@ -8352,7 +8352,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "Sähköpostirekisteröinti ei ole käytettävissä tässä asennuksessa. Käytäthän aktivointikoodiasi."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "WordPress Cron on this site is disabled (DISABLE_WP_CRON on asetettu todeksi). RankingCoach riippuu WP-Cronista suorittaakseen aikataulutettuja tehtäviä, kuten avainsanojen synkronointia ja rikkinäisten linkkien tarkistamista. Varmista, että järjestelmässä on määritetty cron-tehtävä, joka suorittaa wp-cron.php:tä säännöllisesti, muuten nämä aikataulutetut tehtävät eivät toimi."
 
 msgid "Details: %s"
 msgstr "Tiedot: %s"
@@ -8376,46 +8376,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Tämän tilauksen aktivointikoodi on jo lähetetty uudelleen enimmäismäärän. Ota yhteyttä asiakastukeen."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Etkö löydä aktivointikoodiasi?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Palauta se täältä"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Tarkista sähköpostisi aktivointikoodisi saamiseksi. Etkö saanut sitä? Palauta se."
 
 msgid "here"
-msgstr ""
-
+msgstr "tässä"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Tarvitsetko apua? Ota yhteyttä tukitiimiimme ja kopioi sivustosi tiedot alle."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Ota yhteyttä tukeen"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Sivuston tiedot"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Sivuston tietojen lataaminen epäonnistui. Yritä uudelleen."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Yritä uudelleen"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Kopioi sivuston tiedot leikepöydälle"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Kopioitu leikepöydälle"
 
 msgid "You do not have permission to access support information."
+msgstr "Sinulla ei ole lupaa käyttää tukitietoja."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "SEO-analyysi alkaa tämän postauksen ensimmäisen tallennuksen jälkeen."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Muutoksiasi ei voitu tallentaa. Yritä uudelleen."
+
+msgid "Edit SEO title and description"
+msgstr "Muokkaa SEO-otsikkoa ja -kuvausta"
+
+msgid "Open in editor"
+msgstr "Avaa editorissa"
+
+msgid "Add a meta description"
+msgstr "Lisää meta-kuvaus"
+
+msgid "No meta description"
+msgstr "Ei meta-kuvausta"
+
+msgid "Updating score…"
+msgstr "Päivitetään pistettä…"
+
+msgid "Saved"
+msgstr "Tallennettu"
+
+msgid "Yes, I love it"
+msgstr "Kyllä, rakastan sitä."
+
+msgid "Not really"
+msgstr "Ei oikeastaan."
+
+msgid "Maybe later"
+msgstr "Ehkä myöhemmin"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Arvostele BeyondSEO WordPress.org-sivustolla"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Nautitko BeyondSEO:sta?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Haluaisimme kuulla kokemuksestasi."
+
+msgid "Dismiss review request"
+msgstr "Hylkää arvostelupyyntö"
+
+msgid "Your site score is above %s!"
+msgstr "Sivustosi pisteet ovat yli %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Sisältösi pistemäärä on yli %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Nautitko BeyondSEO:sta? Haluaisimme kuulla kokemuksistasi."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Projektin yhteyttä ei voitu vahvistaa. Päivitä tili ennen uudelleen yrittämistä."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Projektin luomista ei voitu vahvistaa. Tiliäsi ja paikallisia tietojasi on säilytetty. Päivitä tili ja yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Palvelu ei voinut vahvistaa projektin poistamista. Paikallista yhteyttäsi ei ole poistettu. Yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Palvelun vastausta ei voitu vahvistaa. Päivitä tili ennen kuin yrität uudelleen. Jos yhteys on puutteellinen, ota yhteyttä tukeen ennen uudelleen yhdistämistä."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Projektin poistaminen hyväksyttiin, mutta paikallista yhteyttä ei voitu poistaa kokonaan. Ota yhteyttä tukeen ennen uudelleenyritystä tai uudelleenliittämistä. Päivitä tili tarkistaaksesi nykyinen yhteys."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Yhteyteen liittyvä projekti on muuttunut tai se ei ole enää yhteydessä. Päivitä tili ja tarkista projekti ennen kuin yrität uudelleen."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Projektin toiminta on jo käynnissä. Odota sen valmistumista ja päivitä tili. Jos tämä jatkuu, ota yhteyttä tukeen."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Ei voida turvallisesti aloittaa projektin toimintaa. Ole hyvä ja yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Yhdistä tili ennen projektin luomista. Päivitä tili tarkistaaksesi yhteytesi."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Palvelu palautti projektin, mutta sen paikallista yhteyttä ei voitu tallentaa kokonaan. Päivitä tili ja yritä uudelleen tai ota yhteyttä tukeen. Tiliisi ja paikallisiin tietoihisi on tallennettu."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Ota yhteys rankingCoachiin käyttöasetuksissa ennen projektin luomista."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Ota yhteys rankingCoach käyttöön asetuksissa ennen projektin poistamista. Paikallista yhteyttäsi ei ole poistettu."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Palvelu ei voinut vahvistaa projektin luomista. Tiliisi liittyvät tiedot on säilytetty. Ota yhteyttä tukeen palauttaaksesi pääsyn ennen uudelleenyritystä."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Palvelu ei voinut vahvistaa projektin poistamista. Paikallista yhteyttäsi ei ole poistettu. Ota yhteyttä tukeen palauttaaksesi pääsyn ennen uudelleenyritystä."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Paikallisen projektin yhteyttä ei voitu ladata. Yritä uudelleen."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Tilin käyttöoikeutta ei voitu vahvistaa. Lataa tämä sivu uudelleen ja kirjaudu sisään järjestelmänvalvojana ennen kuin yrität uudelleen."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Paikallisen projektin yhteyttä ei voitu ladata. Tarkista yhteytesi ja yritä uudelleen."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Luontitulosta ei voitu vahvistaa. Päivitä tili ennen kuin yrität uudelleen. Tiliisi ja paikallisiin tietoihisi on tallennettu."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Poiston tulosta ei voitu vahvistaa. Päivitä tili ennen kuin yrität uudelleen. Jos yhteys on puutteellinen, ota yhteyttä tukeen ennen uudelleen yhdistämistä."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Palvelun vastausta ei voitu vahvistaa. Päivitä tili ennen kuin yrität uudelleen."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Poiston tulosta ei voitu vahvistaa. Päivitä tili ennen kuin yrität uudelleen."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Projektisi on yhdistetty. Voit avata perehdytyksen, kun olet valmis. Olemassa oleva perehdytysdatan ja -tilan tiedot on säilytetty."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Projektin poistaminen hyväksyttiin ja siirrettiin myöhempään ajankohtaan. Paikallinen projektiyhteys on poistettu. Tilisi, asetuksesi ja SEO-tietosi on säilytetty, ja liitännäinen pysyy aktiivisena."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Etäprojekti on poistettu, ja paikallisen projektin yhteys on poistettu. Tilisi, asetuksesi ja SEO-tietosi on säilytetty, ja liitännäinen pysyy aktiivisena."
+
+msgid "Account"
+msgstr "Tili"
+
+msgid "Manage the project connected to this website."
+msgstr "Hallitse tätä verkkosivustoa koskevaa projektia."
+
+msgid "Loading project connection…"
+msgstr "Ladataan projektin yhteyttä…"
+
+msgid "Refresh Account"
+msgstr "Päivitä tili"
+
+msgid "Account details"
+msgstr "Tilin tiedot"
+
+msgid "Activation code"
+msgstr "Aktivointikoodi"
+
+msgid "Not available"
+msgstr "Ei saatavilla"
+
+msgid "Project details"
+msgstr "Projektin tiedot"
+
+msgid "Project ID"
+msgstr "Projektin ID"
+
+msgid "Not connected"
+msgstr "Ei yhdistetty"
+
+msgid "Location ID"
+msgstr "Sijaintitunnus"
+
+msgid "Website"
+msgstr "Verkkosivusto"
+
+msgid "Open onboarding"
+msgstr "Avaa perehdytys"
+
+msgid "Delete project"
+msgstr "Poista projekti"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Poista etäprojekti ja poista tämän verkkosivuston yhteys. Paikalliset asetuksesi ja SEO-tiedot säilytetään. Tämä ei peru tilisi tai tilaustasi."
+
+msgid "Deleting project…"
+msgstr "Poistetaan projektia…"
+
+msgid "Create project"
+msgstr "Luo projekti"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Tilisi on yhdistetty, mutta tällä verkkosivustolla ei ole projektia. Luo projekti käyttäen olemassa olevaa tiliäsi. Paikalliset asetuksesi, SEO-tiedot ja käyttöönoton edistyminen säilytetään."
+
+msgid "Creating project…"
+msgstr "Luodaan projektia…"
+
+msgid "Create Project"
+msgstr "Luo projekti"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Luodaan projektia… Ole hyvä ja odota vahvistusta."
+
+msgid "No project connected"
+msgstr "Ei projektia liitettynä"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Yhdistä tili liittääksesi tämä verkkosivusto projektiin. Olemassa olevat asetuksesi ja SEO-tiedot ovat edelleen käytettävissä."
+
+msgid "Delete this project?"
+msgstr "Poistetaanko tämä projekti?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Tämä poistaa etäprojektin ja poistaa paikallisen yhteyden tälle verkkosivustolle. Etäprojektin poistamista ei voi peruuttaa."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Paikalliset asetuksesi ja SEO-tietosi säilytetään. Laajennus pysyy aktiivisena. Tiliäsi ja tilaustasi ei peruuteta."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Poistetaan projektia… Ole hyvä ja odota vahvistusta."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Tilin lataaminen epäonnistui. Yritä uudelleen."
+
+msgid "Retry loading Account"
+msgstr "Yritä ladata tili uudelleen"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Ota yhteyttä tiimiimme saadaksesi apua BeyondSEO:ssa."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Kopioi sivustosi tekniset tiedot ja jaa ne tukitiimimme kanssa."
+
+msgid "Loading site info"
+msgstr "Ladataan sivuston tietoja"
+
+msgid "Edit SEO title"
+msgstr "Muokkaa SEO-otsikkoa"
+
+msgid "Edit meta description"
+msgstr "Muokkaa meta-kuvausta"
+
+msgid "Set keywords"
+msgstr "Aseta avainsanat"
+
+msgid "Essentials"
+msgstr "Perusteet"
+
+msgid "Import"
+msgstr "Tuoda"
+
+msgid "Site check"
+msgstr "Sivuston tarkistus"
+
+msgid "Email tips"
+msgstr "Sähköpostivinkit"
+
+msgid "rankingCoach account"
+msgstr "rankingCoach-tili"
+
+msgid "Check titles, keywords and headings"
+msgstr "Tarkista otsikot, avainsanat ja alaotsikot"
+
+msgid "Review page-specific SEO issues"
+msgstr "Tarkista sivukohtaiset SEO-ongelmat"
+
+msgid "Fix issues directly on your pages"
+msgstr "Korjaa ongelmat suoraan sivuillasi."
+
+msgid "Go to BeyondSEO settings"
+msgstr "Siirry BeyondSEO-asetuksiin"
+
+msgid "Keep growing your visibility"
+msgstr "Jatka näkyvyytesi kasvattamista"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO auttaa sinua löytämään ja korjaamaan sivuongelmia. rankingCoach-tili lisää jatkuvaa näkyvyysinfoa verkkoläsnäolostasi."
+
+msgid "Your rankingCoach account is connected"
+msgstr "rankingCoach-tilisi on yhdistetty"
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Rankingit, kilpailijat ja raportit ovat saatavilla BeyondSEO-hallintapaneelista."
+
+msgid "With BeyondSEO"
+msgstr "BeyondSEO:n kanssa"
+
+msgid "Create your free account"
+msgstr "Luo ilmainen tili"
+
+msgid "I already have an account"
+msgstr "Minulla on jo tili."
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Rekisteröinti ja kirjautuminen tapahtuvat BeyondSEO-yhteyssivuilla. Voit myös tehdä tämän myöhemmin Asetuksista."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Syötä voimassa oleva sähköpostiosoite tai ohita tämä vaihe."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Valitse suostumusruutu tai ohita tämä vaihe."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Sähköpostiosoitettasi ei voitu tallentaa. Yritä uudelleen."
+
+msgid "Back to site check"
+msgstr "Takaisin sivustolle tarkistus"
+
+msgid "Skip"
+msgstr "Ohita"
+
+msgid "Save and continue"
+msgstr "Tallenna ja jatka"
+
+msgid "Get general SEO tips by email"
+msgstr "Saat yleisiä SEO-vinkkejä sähköpostitse"
+
+msgid "Get SEO recommendations by email"
+msgstr "Saat SEO-suosituksia sähköpostitse"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Sivuston tarkistus ei valmistunut, joten emme voi vielä lähettää sivukohtaisia havaintoja. Voit silti saada yleisiä SEO-vinkkejä tai ohittaa tämän vaiheen."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Saat seurantaideoita sivustosi tarkastelun jälkeen. Tämä vaihe on valinnainen eikä luo rankingCoach-tiliä."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Tämä osoite on tallennettu SEO-suosituksia varten. Tallenna uudelleen päivittääksesi sen."
+
+msgid "Email address"
+msgstr "Sähköpostiosoite"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Lähetä minulle SEO-suosituksia ja satunnaisia BeyondSEO / rankingCoach-tuotepäivityksiä. Voin peruuttaa tilauksen milloin tahansa."
+
+msgid "Optional and separate from account creation."
+msgstr "Valinnainen ja erillinen tilin luomisesta."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "Etusivun SEO-tiedot eivät voineet latautua. Voit jatkaa ja muokata niitä myöhemmin."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Ei iskulauseita asetettu"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Etusivusi näyttää uusimmat julkaisut, joten hakukoneet näkevät sivuston nimen ja iskulauseen."
+
+msgid "Change them in General settings"
+msgstr "Muuta niitä Yleiset asetukset -kohdassa."
+
+msgid "Homepage SEO title"
+msgstr "Etusivun SEO-otsikko"
+
+msgid "Meta description"
+msgstr "Meta-kuvaus"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Kuvaile verkkosivustoasi yhdessä tai kahdessa lauseessa."
+
+msgid "Exit setup"
+msgstr "Poistu asetuksista"
+
+msgid "Continue"
+msgstr "Jatka"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Paranna sivustosi näkyvyyttä hakutuloksissa ja löydä ongelmat sivuillasi. Olemme esitäyttäneet tiedot, jotka jo tiedämme verkkosivustostasi."
+
+msgid "Search preview"
+msgstr "Hakuennakko"
+
+msgid "XML sitemap"
+msgstr "XML-sivustokartta"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Auttaa hakukoneita löytämään kaikki sivusi."
+
+msgid "Search engine visibility"
+msgstr "Hakukone näkyvyys"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Hakukoneet saavat indeksoida tätä sivustoa."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress pyytää tällä hetkellä hakukoneita olemaan indeksoimatta tätä sivustoa."
+
+msgid "Reading settings"
+msgstr "Lukuasetukset"
+
+msgid "Discouraged"
+msgstr "Masentunut"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "rankingCoach-tili voi lisätä näkyvyys- ja suorituskykytietoja myöhemmin. Ensiksi tarkastellaan sivustoasi."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "SEO-tuonti epäonnistui. Osa tiedoista saattoi olla tuotu; yritä uudelleen."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Tuotiin %1$d asetusta ja %2$d sivuentryä. %3$d entryä oli jo asetettu BeyondSEO:hon tai niitä ei voitu muuntaa."
+
+msgid "Continue without import"
+msgstr "Jatka ilman tuontia"
+
+msgid "Keep your existing SEO work"
+msgstr "Pidä nykyinen SEO-työsi."
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Toisella SEO-laajennuksella havaittiin olevan tämä sivusto. BeyondSEO voi tuoda mukanaan SEO-otsikot, kuvaukset, avainsanat ja tuetut sivuston asetukset. Arvot, jotka olet jo tallentanut BeyondSEO:hon, säilytetään, ja toisen laajennuksen tiedot pysyvät koskemattomina."
+
+msgid "Import finished"
+msgstr "Tuonti valmis"
+
+msgid "Plugin to import from"
+msgstr "Liitännäinen tuontia varten"
+
+msgid "Active on this site"
+msgstr "Aktiivinen tällä sivustolla"
+
+msgid "Installed but not active"
+msgstr "Asennettu mutta ei aktiivinen"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Otsikot ja kuvaukset, jotka käyttävät tuettuja mallimuuttujia, ohitetaan. Voit tarkistaa jokaisen sivun sen jälkeen."
+
+msgid "The page details could not be loaded."
+msgstr "Sivun tietoja ei voitu ladata."
+
+msgid "Enter a title or add a variable."
+msgstr "Syötä otsikko tai lisää muuttuja."
+
+msgid "Enter a meta description."
+msgstr "Syötä meta-kuvaus."
+
+msgid "SEO title"
+msgstr "SEO-otsikko"
+
+msgid "The page keywords could not be loaded."
+msgstr "Sivun avainsanoja ei voitu ladata."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Avainsanaa ei voitu tallentaa. Yritä uudelleen."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Avainsanaa ei voitu poistaa. Yritä uudelleen."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Syötä avainsanat, joilla tämän sivun tulisi sijoittua. Ensimmäisestä tulee ensisijainen avainsana, muut ovat lisäavainsanoja; ne ovat samoja avainsanoja, jotka näet sivun Yleiset-välilehdellä."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Ei vielä ensisijaista avainsanaa. Ensimmäinen lisäämäsi avainsana tulee siitä."
+
+msgid "No additional keywords yet."
+msgstr "Ei vielä lisäavainsanoja."
+
+msgid "Done"
+msgstr "Valmis"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Sivuston tarkistus ei voinut valmistua palvelimella. Suuret sivustot voivat kestää kauemmin kuin palvelin sallii."
+
+msgid "We could not complete the site check."
+msgstr "Emme voineet suorittaa sivustotarkistusta."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Skannaus peruutettu. Palvelimella jo alkanut tarkistus valmistuu silti taustalla."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Sivua ei voitu tarkistaa uudelleen. Yritä hetken kuluttua uudelleen."
+
+msgid "Updated"
+msgstr "Päivitetty"
+
+msgid "Recheck"
+msgstr "Tarkista uudelleen"
+
+msgid "All checked pages pass"
+msgstr "Kaikki tarkistetut sivut hyväksytään"
+
+msgid "Issues found on your pages"
+msgstr "Sivuiltasi löytyneet ongelmat"
+
+msgid "Your pages pass every check"
+msgstr "Sivusi läpäisevät kaikki tarkastukset"
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Jokaisessa tarkastuksessa luetellaan sivut, joihin se koskee. Korjaa otsikot, kuvaukset ja avainsanat suoraan täällä, tai avaa sivu editorissa kaikkea muuta varten."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "Valmiit tarkistukset eivät löytäneet mitään korjattavaa. Voit suorittaa skannauksen uudelleen sivustosi päivittämisen jälkeen."
+
+msgid "Some pages need another look"
+msgstr "Jotkut sivut tarvitsevat toisen katsauksen."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Jokaisella sivulla oli pistemäärä 0, mikä yleensä tarkoittaa, että sivusto ei voinut ladata omia sivujaan tarkistuksen aikana. Varmista, että sivusto on saavutettavissa sen palvelimelta, ja suorita skannaus uudelleen."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Näytetään uusimmat sivut ja julkaisut. Jokainen toinen sivu on lueteltu julkaisu- ja sivuyleiskatsauksessa."
+
+msgid "Checking your site"
+msgstr "Tarkistetaan sivustosi"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Jokainen julkaistu sivu ja kirjoitus analysoidaan palvelimellasi. Tämä voi kestää muutaman minuutin suuremmilla sivustoilla."
+
+msgid "Collecting the results for your pages…"
+msgstr "Kerätään tuloksia sivuillesi…"
+
+msgid "Analysing your published pages…"
+msgstr "Analysoidaan julkaistuja sivujasi…"
+
+msgid "The site check could not finish"
+msgstr "Sivuston tarkistus ei voinut valmistua."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Yritä nyt uudelleen tai jatka ja suorita tarkistus myöhemmin hallintapaneelista."
+
+msgid "Identify issues on your pages"
+msgstr "Tunnista ongelmat sivuillasi"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO tarkistaa jokaisen julkaistun sivun ja postauksen seuraavien osalta ja näyttää, mitkä sivut tarvitsevat työtä."
+
+msgid "Retry scan"
+msgstr "Yritä skannausta uudelleen"
+
+msgid "Run scan again"
+msgstr "Suorita skannaus uudelleen"
+
+msgid "Scanning…"
+msgstr "Skannaus…"
+
+msgid "Start scan"
+msgstr "Aloita skannaus"
+
+msgid "Setup steps"
+msgstr "Asennusvaiheet"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Vaihe %1$d / %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Asennusohjelma"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Tilisi on yhdistetty, mutta BeyondSEO-hallintapaneelin käyttämiseksi tarvitaan projekti. Luo projekti kohdassa Asetukset > Tili jatkaaksesi."
+
+msgid "Go to Account"
+msgstr "Mene tiliin"
+
+msgid "The project location ID is invalid."
+msgstr "Projektin sijaintitunnus on virheellinen."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Palvelu ei vahvistanut projektin poistamista. Paikallista yhteyttäsi ei ole poistettu. Yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "SEO titles"
+msgstr "SEO-otsikot"
+
+msgid "SEO descriptions"
+msgstr "SEO-kuvaukset"
+
+msgid "Canonical URLs"
+msgstr "Kanoniset URL-osoitteet"
+
+msgid "Noindex directives"
+msgstr "Noindex-ohjeet"
+
+msgid "Social titles"
+msgstr "Sosiaaliset tittelit"
+
+msgid "Social descriptions"
+msgstr "Sosiaalikuvastot"
+
+msgid "Facebook profile"
+msgstr "Facebook-profiili"
+
+msgid "Twitter profile"
+msgstr "Twitter-profiili"
+
+msgid "Instagram profile"
+msgstr "Instagram-profiili"
+
+msgid "LinkedIn profile"
+msgstr "LinkedIn-profiili"
+
+msgid "YouTube profile"
+msgstr "YouTube-profiili"
+
+msgid "Organization or person name"
+msgstr "Organisaation tai henkilön nimi"
+
+msgid "Sitemap enabled"
+msgstr "Sivustokartta käytössä"
+
+msgid "Google verification code"
+msgstr "Googlein vahvistuskoodi"
+
+msgid "Bing verification code"
+msgstr "Bingin vahvistuskoodi"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Tili- tai projektikytkentä on muuttunut. Päivitä tili ennen kuin yrität uudelleen."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Projektin poistaminen hyväksyttiin, mutta paikallisia projektitunnisteita ei voitu poistaa kokonaan. Tiliäsi ja paikallisia tietojasi on säilytetty. Päivitä tili ja ota yhteyttä tukeen ennen kuin luot uuden projektin."
+
+msgid "Connect your account before creating a project."
+msgstr "Yhdistä tili ennen projektin luomista."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Palvelu ei palauttanut voimassa olevaa projektia tilillesi. Päivitä tili ja yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Palvelu ei voinut vahvistaa projektin poistamista. Paikallista yhteyttäsi ei ole poistettu. Yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Projektin poistamista ei voida vahvistaa. Paikallista yhteyttäsi ei ole poistettu. Yritä uudelleen tai ota yhteyttä tukeen."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Ei voida tarkastella SEO-tuontivaihtoehtoja. Ole hyvä ja yritä uudelleen."
+
+msgid "SEO import options must be an array of strings."
+msgstr "SEO-tuontivaihtoehtojen on oltava merkkijonojen taulukko."
+
+msgid "Invalid SEO import source."
+msgstr "Virheellinen SEO-tuontilähde."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "SEO-tuontivaihtoehtojen on sisällettävä vain tuetut vaihtoehtoidentifikaattorit valitulle lähteelle."
+
+msgid "SEO plugin is not installed."
+msgstr "SEO-laajennusta ei ole asennettu."
+
+msgid "Invalid Review event."
+msgstr "Virheellinen arvostelu tapahtuma."
+
+msgid "Unable to save Review state."
+msgstr "Arvion tilan tallentaminen epäonnistui."
+
+msgid "Go to Dashboard"
+msgstr "Siirry ohjauspaneeliin"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO auttaa sinua löytämään ja korjaamaan sivuongelmia. RankingCoach-tilisi lisää jatkuvaa näkyvyystietoa verkkoläsnäolostasi."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Rankingit, kilpailijat ja raportit ovat jo saatavilla BeyondSEO-hallintapaneelista. Tässä ei ole muuta asetettavaa."
+
+msgid "With your rankingCoach account"
+msgstr "rankingCoach-tilisi kanssa"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Vaikuttavat sivut: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Tarkistuksia, jotka tarvitsevat huomiota: %1$d / %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Tarkastetut sivut: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d %2$d sivua ei voitu tarkistaa. Voit jatkaa suoritetuilla tarkistuksilla ja yrittää uudelleen myöhemmin."

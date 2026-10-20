@@ -33,11 +33,14 @@ class ReactApp {
         'activation' => true,
         'registration' => true,
         'generalSettings' => true,
+        'support' => true,
         'elementor' => true,
         'postlist' => true,
         'scoreOrbHeaderButton' => true,
         'gutenbergSidebar' => true,
-        'upsell' => true
+        'upsell' => true,
+        'setupWizard' => true,
+        'dashboardReview' => true
     ];
 
 	public static array $loadComponents = [];

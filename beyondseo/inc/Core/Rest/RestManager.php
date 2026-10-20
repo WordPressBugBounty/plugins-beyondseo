@@ -17,8 +17,10 @@ if (!defined('ABSPATH')) {
 
 use RankingCoach\Inc\Core\Rest\Dtos\ModulesResponseDto;
 use Exception;
+use RankingCoach\Inc\Core\Rest\Controllers\AccountProjectController;
 use RankingCoach\Inc\Core\Rest\Controllers\AdvancedSettingsController;
 use RankingCoach\Inc\Core\Rest\Controllers\IntegrationController;
+use RankingCoach\Inc\Core\Rest\Controllers\ImportController;
 use RankingCoach\Inc\Core\Rest\Controllers\MetaTagsController;
 use RankingCoach\Inc\Core\Rest\Controllers\OnboardingController;
 use RankingCoach\Inc\Core\Rest\Controllers\OptimiserController;
@@ -35,6 +37,7 @@ use RankingCoach\Inc\Core\Breadcrumbs\Dtos\BreadcrumbsResponseDto;
 use RankingCoach\Inc\Core\CurrentUserManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\PluginSettings;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\RestHelpers;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
@@ -649,6 +652,40 @@ class RestManager extends WP_REST_Controller {
      * @return void
      */
     public function registerLegacyRoutes(): void {
+        $accountProjectController = new AccountProjectController();
+        register_rest_route(
+            $this->namespace,
+            '/account/project',
+            [
+                [
+                    'methods'             => WP_REST_Server::READABLE,
+                    'callback'            => [$accountProjectController, 'get'],
+                    'permission_callback' => [$this, 'checkAdminPermission'],
+                ],
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$accountProjectController, 'create'],
+                    'permission_callback' => [$this, 'checkAdminPermission'],
+                ],
+            ]
+        );
+        register_rest_route(
+            $this->namespace,
+            '/account/project/(?P<locationId>[^/]+)',
+            [
+                'methods'             => WP_REST_Server::DELETABLE,
+                'callback'            => [$accountProjectController, 'delete'],
+                'permission_callback' => [$this, 'checkAdminPermission'],
+                'args'                => [
+                    'locationId' => [
+                        'type'              => 'integer',
+                        'required'          => true,
+                        'validate_callback' => [AccountProjectController::class, 'isValidLocationId'],
+                    ],
+                ],
+            ]
+        );
+
         // Feature modules endpoint
         register_rest_route(
             $this->namespace,
@@ -841,6 +878,98 @@ class RestManager extends WP_REST_Controller {
         $this->registerV1IntegrationRoutes();
         $this->registerV1SyncRoutes();
         $this->registerV1SupportRoutes();
+        $this->registerV1ReviewRoutes();
+        (new ImportController())->registerRoutes($this->namespace);
+    }
+
+    private function registerV1ReviewRoutes(): void
+    {
+        register_rest_route(
+            $this->namespace,
+            '/review',
+            [
+                'methods'             => WP_REST_Server::CREATABLE,
+                'callback'            => [$this, 'persistReview'],
+                'permission_callback' => [$this, 'checkReviewPermission'],
+                'args'                => [
+                    'reviewEvent' => [
+                        'type'              => 'string',
+                        'required'          => true,
+                        'enum'              => ['display', 'later', 'close', 'review', 'support'],
+                        'validate_callback' => fn($value) => is_string($value)
+                            && in_array($value, ['display', 'later', 'close', 'review', 'support'], true),
+                    ],
+                ],
+            ]
+        );
+    }
+
+    public function checkReviewPermission(WP_REST_Request $request): bool|WP_Error
+    {
+        $nonce = $request->get_header('X-WP-Nonce');
+        if (empty($nonce)) {
+            $nonce = $request->get_param('_ajax_nonce') ?? $request->get_param('_wpnonce');
+        }
+
+        if (!is_user_logged_in() || !is_string($nonce) || $nonce === ''
+            || !wp_verify_nonce($nonce, 'wp_rest')) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('Invalid or missing security nonce.', 'beyondseo'),
+                ['status' => rest_authorization_required_code()]
+            );
+        }
+
+        return true;
+    }
+
+    public function persistReview(WP_REST_Request $request): WP_REST_Response|WP_Error
+    {
+        $reviewEvent = $request->get_param('reviewEvent');
+        if (!is_string($reviewEvent)
+            || !in_array($reviewEvent, ['display', 'later', 'close', 'review', 'support'], true)) {
+            return new WP_Error(
+                'review_invalid_event',
+                __('Invalid Review event.', 'beyondseo'),
+                ['status' => 400]
+            );
+        }
+
+        try {
+            $reviewState = new ReviewState();
+            if ($reviewEvent === 'display') {
+                $reviewCountPersisted = $reviewState->incrementDisplayCount();
+                $reviewCooldownPersisted = $reviewState->extendCooldown(time() + 14 * DAY_IN_SECONDS);
+                $reviewPersisted = $reviewCountPersisted && $reviewCooldownPersisted;
+            } elseif ($reviewEvent === 'later' || $reviewEvent === 'close') {
+                $reviewPersisted = $reviewState->extendCooldown(time() + 14 * DAY_IN_SECONDS);
+            } else {
+                $reviewPersisted = $reviewState->stopPermanently();
+            }
+
+            if (!$reviewPersisted) {
+                return new WP_Error(
+                    'review_persistence_failed',
+                    __('Unable to save Review state.', 'beyondseo'),
+                    ['status' => 500]
+                );
+            }
+
+            return new WP_REST_Response([
+                'review' => [
+                    'displayCount'       => $reviewState->getDisplayCount(),
+                    'eligible'           => $reviewState->isEligible(),
+                    'cooldownUntil'      => $reviewState->getCooldownUntil(),
+                    'permanentlyStopped' => $reviewState->isPermanentlyStopped(),
+                ],
+            ], 200);
+        } catch (Throwable $e) {
+            return new WP_Error(
+                'review_persistence_failed',
+                __('Unable to save Review state.', 'beyondseo'),
+                ['status' => 500]
+            );
+        }
     }
 
     private function registerV1MetaTagsRoutes(): void
@@ -1133,6 +1262,51 @@ class RestManager extends WP_REST_Controller {
     private function registerV1OptimiserRoutes(): void
     {
         $controller = new OptimiserController();
+
+        register_rest_route(
+            $this->namespace,
+            '/optimiser/get_seo_issues',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [$controller, 'getSeoIssuesRest'],
+                'permission_callback' => [$this, 'checkOptimiserPermission'],
+                'args'                => [
+                    'suggestions' => [
+                        'description'       => 'JSON array of suggestion keys',
+                        'type'              => 'string',
+                        'required'          => false,
+                        'validate_callback' => static function ($value): bool {
+                            if (!is_string($value)) {
+                                return false;
+                            }
+
+                            $suggestions = json_decode($value);
+                            if (json_last_error() !== JSON_ERROR_NONE || !is_array($suggestions)) {
+                                return false;
+                            }
+
+                            foreach ($suggestions as $suggestion) {
+                                if (!is_string($suggestion) || $suggestion === '') {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        },
+                        'sanitize_callback' => static fn($value) => $value,
+                    ],
+                    'post_id' => [
+                        'description'       => 'Optional post ID',
+                        'type'              => 'integer',
+                        'required'          => false,
+                        'validate_callback' => static fn($value) => (is_int($value) || is_string($value))
+                            && ctype_digit((string) $value)
+                            && filter_var($value, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) !== false,
+                        'sanitize_callback' => static fn($value) => (int) $value,
+                    ],
+                ],
+            ]
+        );
 
         $postIdArg = [
             'postId' => [
@@ -1840,7 +2014,8 @@ class RestManager extends WP_REST_Controller {
             return $this->generateSuccessResponse([
                 'updated_settings' => $updatedSettings,
                 'count' => count($updatedSettings),
-                'timestamp' => wp_date('Y-m-d H:i:s')
+                'timestamp' => wp_date('Y-m-d H:i:s'),
+                'review' => $this->recordReviewSettingsSave($request, $updatedSettings),
             ], 'Settings updated successfully');
 
         } catch (Exception $e) {
@@ -1851,6 +2026,36 @@ class RestManager extends WP_REST_Controller {
                 sprintf(__('Failed to update settings: %s', 'beyondseo'), $e->getMessage()),
                 500
             );
+        }
+    }
+
+    private function recordReviewSettingsSave(WP_REST_Request $request, array $settings): ?array
+    {
+        try {
+            if ($request->get_param('reviewPlacement') !== 'save' || $settings === []) {
+                return null;
+            }
+            $persistedSettings = get_option(BaseConstants::OPTION_PLUGIN_SETTINGS, []);
+            if (!is_array($persistedSettings)) {
+                return null;
+            }
+            foreach ($settings as $key => $value) {
+                if (!array_key_exists($key, $persistedSettings) || $persistedSettings[$key] !== $value) {
+                    return null;
+                }
+            }
+            $reviewState = new ReviewState();
+            if (!$reviewState->recordMeaningfulUse()) {
+                return null;
+            }
+            return [
+                'displayCount'       => $reviewState->getDisplayCount(),
+                'eligible'           => $reviewState->isEligible(),
+                'cooldownUntil'      => $reviewState->getCooldownUntil(),
+                'permanentlyStopped' => $reviewState->isPermanentlyStopped(),
+            ];
+        } catch (Throwable $e) {
+            return null;
         }
     }
 
@@ -2161,6 +2366,8 @@ class RestManager extends WP_REST_Controller {
             // SEO Analysis
             'seo_analysis' => ['type' => 'boolean'],
             'seo_score_threshold' => ['type' => 'integer', 'min' => 1, 'max' => 100],
+            'setup_wizard' => ['type' => 'array'],
+            'setup_wizard_email' => ['type' => 'array'],
             'enable_readability_check' => ['type' => 'boolean'],
 
             // Keyword Optimization

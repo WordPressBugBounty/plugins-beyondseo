@@ -9,6 +9,7 @@ if ( !defined('ABSPATH') ) {
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Storage\SettingsStorage;
 use stdClass;
 
 /**
@@ -26,6 +27,16 @@ class PluginSettings {
         'activation_code_recovery_count' => 0,
         'enable_wp_cron_service' => false,
         'remove_settings_on_deactivation' => false,
+        'setup_wizard' => [
+            'completed' => false,
+            'dismissed' => false,
+        ],
+        // Temporary store for the wizard's email opt-in until the rankingCoach subscription flow exists.
+        'setup_wizard_email' => [
+            'email' => '',
+            'opt_in' => false,
+            'consented_at' => 0,
+        ],
         'enable_broken_link_checker_job' => true,
         'disable_wp_heartbeat_service' => false,
         'enable_viewport' => false,
@@ -279,11 +290,9 @@ class PluginSettings {
 			$settings[$key] = $this->settings->{$key} ?? $default_value;
 		}
 
-		// Compare with existing settings
-		$current_saved_settings = get_option($this->option_key, []);
-		if ($settings !== $current_saved_settings) {
-			update_option($this->option_key, $settings);
-		}
+        $storage = new SettingsStorage();
+        $snapshot = $storage->read();
+        $storage->save($snapshot, array_replace($snapshot['value'], $settings));
 	}
 
 	/**
@@ -338,10 +347,15 @@ class PluginSettings {
 	 * @param mixed $value The new value for the setting.
 	 */
 	public function set(string $key, mixed $value): void {
-		if (($this->settings?->{$key} ?? false) !== $value) {
-			$this->settings->{$key} = $value;
-			$this->save();
-		}
+        if (!array_key_exists($key, self::DEFAULT_SETTINGS)) {
+            return;
+        }
+        $storage = new SettingsStorage();
+        $snapshot = $storage->read();
+        $current = $snapshot['rows'] === [] ? self::DEFAULT_SETTINGS : $snapshot['value'];
+        $next = $storage->merge($current, [$key => $value]);
+        $storage->save($snapshot, $next);
+        $this->settings = (object) array_replace(self::DEFAULT_SETTINGS, $storage->read()['value']);
 	}
 
 	/**

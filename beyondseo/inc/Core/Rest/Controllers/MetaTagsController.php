@@ -7,11 +7,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Storage\MetaTagsStorage;
 use RankingCoach\Inc\Modules\ModuleManager;
 use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 use Throwable;
@@ -28,62 +30,27 @@ class MetaTagsController
     private const TAG_TYPE_KEYWORDS    = 'keywords';
     private const TAG_TYPE_SOCIAL_TITLE = 'social_title';
     private const TAG_TYPE_SOCIAL_DESCRIPTION = 'social_description';
+    private const REMEMBERED_KEYWORDS_LIMIT = 500;
 
-    private function upsertTagRow(int $postId, string $type, array $data): void
+    private function upsertTagRow(int $postId, string $type, array $data, ?array $expectedRows = null): void
     {
-        $existing = DatabaseManager::getInstance()
-            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
-            ->select(['id'])
-            ->where('post_id', $postId)
-            ->where('type', $type)
-            ->first();
-
-        $rowData = array_merge([
-            'post_id'  => $postId,
-            'type'     => $type,
-            'template' => '',
-        ], $data);
-
-        if ($existing) {
-            DatabaseManager::getInstance()->update(
-                DatabaseTablesManager::DATABASE_MOD_METATAGS,
-                $rowData,
-                ['post_id' => $postId, 'type' => $type]
-            );
-        } else {
-            DatabaseManager::getInstance()->insert(
-                DatabaseTablesManager::DATABASE_MOD_METATAGS,
-                $rowData
-            );
-        }
+        (new MetaTagsStorage())->save($postId, $type, $data['template'] ?? '', $expectedRows);
     }
 
     /**
      * @throws \JsonException
      */
-    private function getKeywordsContent(int $postId): array
+    private function getKeywordsContent(array $rows): array
     {
-        $row = DatabaseManager::getInstance()
-            ->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
-            ->select(['template'])
-            ->where('post_id', $postId)
-            ->where('type', self::TAG_TYPE_KEYWORDS)
-            ->first();
-
-        if (!$row) {
+        if ($rows === []) {
             return ['primaryKeyword' => '', 'additionalKeywords' => []];
         }
 
-        try {
-            $data = json_decode($row->template ?? '{}', true, 512, JSON_THROW_ON_ERROR) ?: [];
-        } catch (Throwable $e) {
-            $data = [];
+        if (count($rows) !== 1 || !isset($rows[0]['template']) || !is_string($rows[0]['template'])) {
+            throw new \InvalidArgumentException('invalid_keyword_rows');
         }
 
-        return [
-            'primaryKeyword'     => $data['primaryKeyword'] ?? '',
-            'additionalKeywords' => $data['additionalKeywords'] ?? [],
-        ];
+        return MetaTagsStorage::decodeKeywordsTemplate($rows[0]['template']);
     }
 
     public function get(WP_REST_Request $request): WP_REST_Response
@@ -161,6 +128,7 @@ class MetaTagsController
                         'additionalKeywords' => $additionalKeywords,
                     ]),
                 ]);
+                $this->rememberKeywords(array_merge([$primaryKeyword], $additionalKeywords));
             }
 
             /** @var MetaTags $metaTagsModule */
@@ -188,7 +156,8 @@ class MetaTagsController
             $body    = $request->get_json_params() ?: [];
             $keyword = sanitize_text_field($body['keyword'] ?? ($body['newKeyword'] ?? ''));
 
-            $kwData     = $this->getKeywordsContent($postId);
+            $expectedRows = (new MetaTagsStorage())->read($postId, self::TAG_TYPE_KEYWORDS);
+            $kwData     = $this->getKeywordsContent($expectedRows);
             $oldPrimary = (string) $kwData['primaryKeyword'];
 
             if ($keyword !== '' && $keyword !== $oldPrimary) {
@@ -218,7 +187,7 @@ class MetaTagsController
 
                 $this->upsertTagRow($postId, self::TAG_TYPE_KEYWORDS, [
                     'template' => wp_json_encode($kwData),
-                ]);
+                ], $expectedRows);
             }
 
             /** @var MetaTags $metaTagsModule */
@@ -237,9 +206,10 @@ class MetaTagsController
             $body    = $request->get_json_params() ?: [];
             $keyword = sanitize_text_field($body['keyword'] ?? '');
 
-            $kwData = $this->getKeywordsContent($postId);
+            $expectedRows = (new MetaTagsStorage())->read($postId, self::TAG_TYPE_KEYWORDS);
+            $kwData = $this->getKeywordsContent($expectedRows);
 
-            if (empty($kwData['primaryKeyword'])) {
+            if ($kwData['primaryKeyword'] === '') {
                 $kwData['primaryKeyword'] = $keyword;
             } elseif (
                 $keyword !== $kwData['primaryKeyword'] &&
@@ -250,7 +220,8 @@ class MetaTagsController
 
             $this->upsertTagRow($postId, self::TAG_TYPE_KEYWORDS, [
                 'template' => wp_json_encode($kwData),
-            ]);
+            ], $expectedRows);
+            $this->rememberKeywords([$keyword]);
 
             /** @var MetaTags $metaTagsModule */
             $metaTagsModule = ModuleManager::instance()->get_module(MetaTags::MODULE_NAME);
@@ -268,7 +239,8 @@ class MetaTagsController
             $body    = $request->get_json_params() ?: [];
             $keyword = sanitize_text_field($body['keyword'] ?? '');
 
-            $kwData = $this->getKeywordsContent($postId);
+            $expectedRows = (new MetaTagsStorage())->read($postId, self::TAG_TYPE_KEYWORDS);
+            $kwData = $this->getKeywordsContent($expectedRows);
 
             if ($kwData['primaryKeyword'] === $keyword) {
                 $kwData['primaryKeyword'] = '';
@@ -280,7 +252,7 @@ class MetaTagsController
 
             $this->upsertTagRow($postId, self::TAG_TYPE_KEYWORDS, [
                 'template' => wp_json_encode($kwData),
-            ]);
+            ], $expectedRows);
 
             /** @var MetaTags $metaTagsModule */
             $metaTagsModule = ModuleManager::instance()->get_module(MetaTags::MODULE_NAME);
@@ -289,6 +261,49 @@ class MetaTagsController
             $this->log('Error in MetaTagsController::detachKeyword: ' . $e->getMessage(), 'ERROR');
             return $this->generateErrorResponse($e, null, 500);
         }
+    }
+
+    /**
+     * Remember locally added keywords (plugin option, newest first, capped) so both keyword pickers can
+     * suggest them again after they are detached. Kept apart from the account keyword table, which the
+     * rankingCoach sync owns.
+     */
+    private function rememberKeywords(array $keywords): void
+    {
+        $remembered = self::rememberedKeywords();
+        $known = array_fill_keys(array_map([self::class, 'keywordKey'], $remembered), true);
+        $added = false;
+
+        foreach ($keywords as $keyword) {
+            $keyword = trim((string) $keyword);
+            if ($keyword === '' || mb_strlen($keyword) > 255 || isset($known[self::keywordKey($keyword)])) {
+                continue;
+            }
+            array_unshift($remembered, $keyword);
+            $known[self::keywordKey($keyword)] = true;
+            $added = true;
+        }
+
+        if ($added) {
+            update_option(
+                BaseConstants::OPTION_REMEMBERED_KEYWORDS,
+                array_slice($remembered, 0, self::REMEMBERED_KEYWORDS_LIMIT),
+                false
+            );
+        }
+    }
+
+    private static function rememberedKeywords(): array
+    {
+        $stored = get_option(BaseConstants::OPTION_REMEMBERED_KEYWORDS, []);
+
+        return is_array($stored) ? array_values(array_filter($stored, 'is_string')) : [];
+    }
+
+    /** Case-insensitive identity of a keyword. */
+    private static function keywordKey(string $keyword): string
+    {
+        return function_exists('mb_strtolower') ? mb_strtolower($keyword) : strtolower($keyword);
     }
 
     public function listKeywords(WP_REST_Request $request): WP_REST_Response
@@ -302,6 +317,18 @@ class MetaTagsController
             $keywords = is_array($keywords)
                 ? array_map(fn($k) => is_object($k) ? (array) $k : $k, $keywords)
                 : [];
+
+            // Locally remembered keywords follow the account keywords, without duplicating them.
+            $known = [];
+            foreach ($keywords as $keyword) {
+                $known[self::keywordKey((string) ($keyword['name'] ?? ''))] = true;
+            }
+            foreach (self::rememberedKeywords() as $keyword) {
+                if (!isset($known[self::keywordKey($keyword)])) {
+                    $known[self::keywordKey($keyword)] = true;
+                    $keywords[] = ['id' => null, 'externalId' => null, 'name' => $keyword, 'alias' => null, 'hash' => null];
+                }
+            }
 
             return new WP_REST_Response(['keywords' => $keywords], 200);
         } catch (Throwable $e) {

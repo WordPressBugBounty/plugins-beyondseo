@@ -156,10 +156,14 @@ defined('ALLOWED_RANKINGCOACH_PAGES')               || define('ALLOWED_RANKINGCO
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-onboarding',
     'admin_page_rankingcoach-generalSettings',
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-generalSettings',
+    'admin_page_rankingcoach-support',
+    RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-support',
     'admin_page_rankingcoach-cache',
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-cache',
     'admin_page_rankingcoach-connect',
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-connect',
+    'admin_page_rankingcoach-setupWizard',
+    RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-setupWizard',
 ]);
 defined('ALLOWED_RANKINGCOACH_CUSTOM_TYPES')               || define('ALLOWED_RANKINGCOACH_CUSTOM_TYPES', [
     'post',

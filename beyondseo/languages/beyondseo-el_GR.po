@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:17+0000\n"
+"PO-Revision-Date: 2026-10-20 09:34+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: el_GR\n"
@@ -8330,7 +8330,7 @@ msgid "Enter activation code"
 msgstr "Εισήγαγε τον κωδικό ενεργοποίησης"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Δεν μπορέσαμε να βρούμε έναν λογαριασμό rankingCoach για αυτή τη διεύθυνση email."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Αυτός ο λογαριασμός δεν έχει ενεργή συνδρομή WordPress."
@@ -8345,7 +8345,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "Η εγγραφή μέσω email δεν είναι διαθέσιμη για αυτήν την εγκατάσταση. Χρησιμοποίησε τον κωδικό ενεργοποίησής σου."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "Ο Cron του WordPress είναι απενεργοποιημένος σε αυτόν τον ιστότοπο (το DISABLE_WP_CRON είναι ρυθμισμένο σε true). Το RankingCoach εξαρτάται από το WP-Cron για να εκτελεί προγραμματισμένα καθήκοντα όπως η συγχρονισμός λέξεων-κλειδιών και ο έλεγχος σπασμένων συνδέσμων. Παρακαλώ βεβαιωθείτε ότι έχει ρυθμιστεί μια εργασία cron συστήματος για να εκτελεί περιοδικά το wp-cron.php, αλλιώς αυτά τα προγραμματισμένα καθήκοντα δεν θα εκτελούνται."
 
 msgid "Details: %s"
 msgstr "Λεπτομέρειες: %s"
@@ -8369,46 +8369,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Ο κωδικός ενεργοποίησης για αυτή τη συνδρομή έχει ήδη αποσταλεί ξανά τον μέγιστο αριθμό φορών. Παρακαλούμε, επικοινώνησε με την υποστήριξη πελατών."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Δεν μπορείτε να βρείτε τον κωδικό ενεργοποίησής σας;"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Ανακτήστε το εδώ"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Ελέγξτε το email σας για τον κωδικό ενεργοποίησης. Δεν τον λάβατε; Ανακτήστε τον."
 
 msgid "here"
-msgstr ""
-
+msgstr "εδώ"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Χρειάζεστε βοήθεια; Επικοινωνήστε με την ομάδα υποστήριξής μας και αντιγράψτε τις πληροφορίες της ιστοσελίδας σας παρακάτω."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Επικοινωνία με την Υποστήριξη"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Πληροφορίες ιστότοπου"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Αποτυχία φόρτωσης πληροφοριών ιστότοπου. Παρακαλώ δοκιμάστε ξανά."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Δοκιμάστε ξανά"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Αντιγραφή πληροφοριών ιστότοπου στο πρόχειρο"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Αντιγράφηκε στο πρόχειρο"
 
 msgid "You do not have permission to access support information."
+msgstr "Δεν έχετε άδεια να αποκτήσετε πρόσβαση στις πληροφορίες υποστήριξης."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "Η ανάλυση SEO ξεκινά μετά την πρώτη αποθήκευση αυτής της ανάρτησης."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Οι αλλαγές σας δεν μπόρεσαν να αποθηκευτούν. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Edit SEO title and description"
+msgstr "Επεξεργασία τίτλου SEO και περιγραφής"
+
+msgid "Open in editor"
+msgstr "Άνοιγμα στον επεξεργαστή"
+
+msgid "Add a meta description"
+msgstr "Προσθέστε μια μετα-περιγραφή"
+
+msgid "No meta description"
+msgstr "Καμία μετα-περιγραφή"
+
+msgid "Updating score…"
+msgstr "Ενημέρωση σκορ…"
+
+msgid "Saved"
+msgstr "Αποθηκεύτηκε"
+
+msgid "Yes, I love it"
+msgstr "Ναι, το αγαπώ."
+
+msgid "Not really"
+msgstr "Όχι πραγματικά"
+
+msgid "Maybe later"
+msgstr "Ίσως αργότερα"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Αξιολογήστε το BeyondSEO στο WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Απολαμβάνετε το BeyondSEO;"
+
+msgid "We'd love to hear about your experience."
+msgstr "Θα θέλαμε να ακούσουμε για την εμπειρία σας."
+
+msgid "Dismiss review request"
+msgstr "Απόρριψη αιτήματος αναθεώρησης"
+
+msgid "Your site score is above %s!"
+msgstr "Η βαθμολογία της ιστοσελίδας σας είναι πάνω από %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Η βαθμολογία περιεχομένου σας είναι πάνω από %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Απολαμβάνετε το BeyondSEO; Θα θέλαμε να ακούσουμε για την εμπειρία σας."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Η σύνδεση του έργου δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Αδύνατη η επιβεβαίωση δημιουργίας έργου. Ο λογαριασμός σας και τα τοπικά δεδομένα έχουν διατηρηθεί. Ανανεώστε τον λογαριασμό και δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Η υπηρεσία δεν μπόρεσε να επιβεβαιώσει τη διαγραφή του έργου. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί. Δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Η απάντηση της υπηρεσίας δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά. Εάν η σύνδεση είναι ελλιπής, επικοινωνήστε με την υποστήριξη πριν επανασυνδεθείτε."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Η διαγραφή του έργου έγινε αποδεκτή, αλλά η τοπική σύνδεση δεν μπόρεσε να αφαιρεθεί πλήρως. Επικοινωνήστε με την υποστήριξη πριν δοκιμάσετε ξανά ή επανασυνδεθείτε. Ανανεώστε τον λογαριασμό για να ελέγξετε τη τρέχουσα σύνδεση."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Το συνδεδεμένο έργο έχει αλλάξει ή δεν είναι πλέον συνδεδεμένο. Ανανεώστε τον λογαριασμό και ελέγξτε το έργο πριν προσπαθήσετε ξανά."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Μια λειτουργία έργου είναι ήδη σε εξέλιξη. Περιμένετε να ολοκληρωθεί και ανανεώστε τον Λογαριασμό. Αν αυτό συνεχιστεί, επικοινωνήστε με την υποστήριξη."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Αδύνατη η ασφαλής εκκίνηση της λειτουργίας του έργου. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Συνδέστε τον λογαριασμό σας πριν δημιουργήσετε ένα έργο. Ανανεώστε τον λογαριασμό για να ελέγξετε τη σύνδεσή σας."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Η υπηρεσία επέστρεψε ένα έργο, αλλά η τοπική σύνδεση δεν μπόρεσε να αποθηκευτεί πλήρως. Ανανεώστε τον λογαριασμό σας και δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη. Ο λογαριασμός σας και τα τοπικά δεδομένα έχουν διατηρηθεί."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Ενεργοποιήστε την επικοινωνία με το rankingCoach στις Ρυθμίσεις πριν δημιουργήσετε ένα έργο."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Ενεργοποιήστε την επικοινωνία με το rankingCoach στις Ρυθμίσεις πριν διαγράψετε το έργο. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Η υπηρεσία δεν μπόρεσε να πιστοποιήσει τη δημιουργία έργου. Τα δεδομένα του λογαριασμού σας έχουν διατηρηθεί. Επικοινωνήστε με την υποστήριξη για να αποκαταστήσετε την πρόσβαση πριν δοκιμάσετε ξανά."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Η υπηρεσία δεν μπόρεσε να πιστοποιήσει τη διαγραφή του έργου. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί. Επικοινωνήστε με την υποστήριξη για να αποκαταστήσετε την πρόσβαση πριν δοκιμάσετε ξανά."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Αδύνατη η φόρτωση της τοπικής σύνδεσης έργου. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Η πρόσβαση στον λογαριασμό δεν μπόρεσε να επαληθευτεί. Ανανεώστε αυτή τη σελίδα και συνδεθείτε ως διαχειριστής πριν προσπαθήσετε ξανά."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Αδύνατη η φόρτωση της τοπικής σύνδεσης έργου. Ελέγξτε τη σύνδεσή σας και δοκιμάστε ξανά."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Το αποτέλεσμα δημιουργίας δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά. Ο λογαριασμός σας και τα τοπικά δεδομένα έχουν διατηρηθεί."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Το αποτέλεσμα διαγραφής δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά. Εάν η σύνδεση είναι ελλιπής, επικοινωνήστε με την υποστήριξη πριν επανασυνδεθείτε."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Η απάντηση της υπηρεσίας δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Το αποτέλεσμα διαγραφής δεν μπόρεσε να επαληθευτεί. Ανανεώστε τον Λογαριασμό πριν προσπαθήσετε ξανά."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Το έργο σας είναι συνδεδεμένο. Μπορείτε να ανοίξετε την εκπαίδευση όταν είστε έτοιμοι. Τα υπάρχοντα δεδομένα και η κατάσταση της εκπαίδευσής σας έχουν διατηρηθεί."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Η διαγραφή του έργου έγινε αποδεκτή και αναβλήθηκε. Η τοπική σύνδεση του έργου έχει αφαιρεθεί. Ο λογαριασμός σας, οι ρυθμίσεις και τα δεδομένα SEO διατηρούνται, και το πρόσθετο παραμένει ενεργό."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Το απομακρυσμένο έργο έχει διαγραφεί και η σύνδεση με το τοπικό έργο έχει αφαιρεθεί. Ο λογαριασμός σας, οι ρυθμίσεις και τα δεδομένα SEO διατηρούνται, και το πρόσθετο παραμένει ενεργό."
+
+msgid "Account"
+msgstr "Λογαριασμός"
+
+msgid "Manage the project connected to this website."
+msgstr "Διαχειριστείτε το έργο που συνδέεται με αυτήν την ιστοσελίδα."
+
+msgid "Loading project connection…"
+msgstr "Φόρτωση σύνδεσης έργου…"
+
+msgid "Refresh Account"
+msgstr "Ανανέωση Λογαριασμού"
+
+msgid "Account details"
+msgstr "Λεπτομέρειες λογαριασμού"
+
+msgid "Activation code"
+msgstr "Κωδικός ενεργοποίησης"
+
+msgid "Not available"
+msgstr "Μη διαθέσιμο"
+
+msgid "Project details"
+msgstr "Λεπτομέρειες έργου"
+
+msgid "Project ID"
+msgstr "Ταυτότητα Έργου"
+
+msgid "Not connected"
+msgstr "Μη συνδεδεμένος"
+
+msgid "Location ID"
+msgstr "Ταυτότητα Τοποθεσίας"
+
+msgid "Website"
+msgstr "Ιστοσελίδα"
+
+msgid "Open onboarding"
+msgstr "Άνοιγμα εκπαίδευσης νέων υπαλλήλων"
+
+msgid "Delete project"
+msgstr "Διαγραφή έργου"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Διαγράψτε το απομακρυσμένο έργο και αφαιρέστε τη σύνδεση αυτού του ιστότοπου. Οι τοπικές ρυθμίσεις και τα δεδομένα SEO θα διατηρηθούν. Αυτό δεν ακυρώνει τον λογαριασμό ή τη συνδρομή σας."
+
+msgid "Deleting project…"
+msgstr "Διαγραφή έργου…"
+
+msgid "Create project"
+msgstr "Δημιουργία έργου"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Ο λογαριασμός σας είναι συνδεδεμένος, αλλά αυτή η ιστοσελίδα δεν έχει κανένα έργο. Δημιουργήστε ένα έργο χρησιμοποιώντας τον υπάρχοντα λογαριασμό σας. Οι τοπικές ρυθμίσεις σας, τα δεδομένα SEO και η πρόοδος της εκπαίδευσής σας θα διατηρηθούν."
+
+msgid "Creating project…"
+msgstr "Δημιουργία έργου…"
+
+msgid "Create Project"
+msgstr "Δημιουργία Έργου"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Δημιουργία έργου… Παρακαλώ περιμένετε για επιβεβαίωση."
+
+msgid "No project connected"
+msgstr "Κανένα έργο συνδεδεμένο"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Συνδέστε έναν λογαριασμό για να συνδέσετε αυτόν τον ιστότοπο με ένα έργο. Οι υπάρχουσες ρυθμίσεις και τα δεδομένα SEO είναι ακόμα διαθέσιμα."
+
+msgid "Delete this project?"
+msgstr "Διαγραφή αυτού του έργου;"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Αυτό διαγράφει το απομακρυσμένο έργο και αφαιρεί τη τοπική σύνδεση για αυτήν την ιστοσελίδα. Η διαγραφή του απομακρυσμένου έργου δεν μπορεί να αναιρεθεί."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Οι τοπικές ρυθμίσεις σας και τα δεδομένα SEO θα διατηρηθούν. Το πρόσθετο θα παραμείνει ενεργό. Ο λογαριασμός σας και η συνδρομή σας δεν θα ακυρωθούν."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Διαγραφή έργου… Παρακαλώ περιμένετε για επιβεβαίωση."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Αδύνατη η φόρτωση του Λογαριασμού. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Retry loading Account"
+msgstr "Δοκιμάστε ξανά να φορτώσετε τον Λογαριασμό"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Επικοινωνήστε με την ομάδα μας για βοήθεια σχετικά με το BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Αντιγράψτε τις τεχνικές λεπτομέρειες της ιστοσελίδας σας για να τις μοιραστείτε με την ομάδα υποστήριξής μας."
+
+msgid "Loading site info"
+msgstr "Φόρτωση πληροφοριών ιστότοπου"
+
+msgid "Edit SEO title"
+msgstr "Επεξεργασία τίτλου SEO"
+
+msgid "Edit meta description"
+msgstr "Επεξεργασία μετα-περιγραφής"
+
+msgid "Set keywords"
+msgstr "Ορίστε λέξεις-κλειδιά"
+
+msgid "Essentials"
+msgstr "Βασικά στοιχεία"
+
+msgid "Import"
+msgstr "Εισαγωγή"
+
+msgid "Site check"
+msgstr "Έλεγχος ιστότοπου"
+
+msgid "Email tips"
+msgstr "Συμβουλές για email"
+
+msgid "rankingCoach account"
+msgstr "λογαριασμός rankingCoach"
+
+msgid "Check titles, keywords and headings"
+msgstr "Ελέγξτε τους τίτλους, τις λέξεις-κλειδιά και τις επικεφαλίδες."
+
+msgid "Review page-specific SEO issues"
+msgstr "Ελέγξτε τα ζητήματα SEO που αφορούν τη σελίδα."
+
+msgid "Fix issues directly on your pages"
+msgstr "Διορθώστε προβλήματα απευθείας στις σελίδες σας"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Μεταβείτε στις ρυθμίσεις του BeyondSEO"
+
+msgid "Keep growing your visibility"
+msgstr "Συνεχίστε να αυξάνετε την ορατότητά σας"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "Η BeyondSEO σας βοηθά να εντοπίσετε και να διορθώσετε προβλήματα σελίδας. Ένας λογαριασμός rankingCoach προσθέτει συνεχή πληροφορίες ορατότητας σχετικά με την online παρουσία σας."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Ο λογαριασμός σας στο rankingCoach είναι συνδεδεμένος."
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Οι κατατάξεις, οι ανταγωνιστές και οι αναφορές είναι διαθέσιμες από τον πίνακα ελέγχου του BeyondSEO."
+
+msgid "With BeyondSEO"
+msgstr "Με το BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Δημιουργήστε τον δωρεάν λογαριασμό σας"
+
+msgid "I already have an account"
+msgstr "Έχω ήδη έναν λογαριασμό"
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Η εγγραφή και η σύνδεση γίνονται στις σελίδες σύνδεσης του BeyondSEO. Μπορείτε επίσης να το κάνετε αυτό αργότερα από τις Ρυθμίσεις."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Εισάγετε μια έγκυρη διεύθυνση email ή παραλείψτε αυτό το βήμα."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Επιλέξτε το πλαίσιο συγκατάθεσης ή παραλείψτε αυτό το βήμα."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Η διεύθυνση email σας δεν μπόρεσε να αποθηκευτεί. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Back to site check"
+msgstr "Επιστροφή στον έλεγχο του ιστότοπου"
+
+msgid "Skip"
+msgstr "Παράλειψη"
+
+msgid "Save and continue"
+msgstr "Αποθήκευση και συνέχιση"
+
+msgid "Get general SEO tips by email"
+msgstr "Λάβετε γενικές συμβουλές SEO μέσω email"
+
+msgid "Get SEO recommendations by email"
+msgstr "Λάβετε συστάσεις SEO μέσω email"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Η έλεγχος της ιστοσελίδας δεν ολοκληρώθηκε, οπότε δεν μπορούμε να στείλουμε συγκεκριμένα ευρήματα για τη σελίδα ακόμα. Μπορείτε να λάβετε γενικές συμβουλές SEO ή να παραλείψετε αυτό το βήμα."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Λάβετε ιδέες παρακολούθησης μετά την ανασκόπηση της ιστοσελίδας σας. Αυτό το βήμα είναι προαιρετικό και δεν δημιουργεί λογαριασμό rankingCoach."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Αυτή η διεύθυνση έχει αποθηκευτεί για προτάσεις SEO. Αποθηκεύστε ξανά για να την ενημερώσετε."
+
+msgid "Email address"
+msgstr "Διεύθυνση email"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Στείλτε μου προτάσεις SEO και περιστασιακές ενημερώσεις προϊόντων BeyondSEO / rankingCoach. Μπορώ να διαγραφώ οποιαδήποτε στιγμή."
+
+msgid "Optional and separate from account creation."
+msgstr "Προαιρετικό και ξεχωριστό από τη δημιουργία λογαριασμού."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "Δεν ήταν δυνατή η φόρτωση των λεπτομερειών SEO της αρχικής σελίδας. Μπορείτε να συνεχίσετε και να τις επεξεργαστείτε αργότερα."
+
+msgid "Tagline"
+msgstr "Σλόγκαν"
+
+msgid "No tagline set"
+msgstr "Δεν έχει οριστεί tagline."
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Η αρχική σας σελίδα εμφανίζει τις τελευταίες σας αναρτήσεις, έτσι οι μηχανές αναζήτησης βλέπουν τον τίτλο της ιστοσελίδας και το σλόγκαν."
+
+msgid "Change them in General settings"
+msgstr "Αλλάξτε τα στις Γενικές ρυθμίσεις"
+
+msgid "Homepage SEO title"
+msgstr "Τίτλος SEO Αρχικής Σελίδας"
+
+msgid "Meta description"
+msgstr "Μετα-περιγραφή"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Περιγράψτε την ιστοσελίδα σας σε μία ή δύο προτάσεις."
+
+msgid "Exit setup"
+msgstr "Έξοδος από τη ρύθμιση"
+
+msgid "Continue"
+msgstr "Συνέχισε"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Βελτιώστε την εμφάνιση της ιστοσελίδας σας στα αποτελέσματα αναζήτησης και εντοπίστε προβλήματα στις σελίδες σας. Έχουμε προεπιλέξει όσα γνωρίζουμε ήδη για την ιστοσελίδα σας."
+
+msgid "Search preview"
+msgstr "Προεπισκόπηση αναζήτησης"
+
+msgid "XML sitemap"
+msgstr "XML χάρτης ιστοσελίδας"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Βοηθά τις μηχανές αναζήτησης να ανακαλύψουν όλες τις σελίδες σας."
+
+msgid "Search engine visibility"
+msgstr "Ορατότητα στις μηχανές αναζήτησης"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Οι μηχανές αναζήτησης επιτρέπεται να ευρετηριάσουν αυτόν τον ιστότοπο."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "Το WordPress ζητά αυτή τη στιγμή από τις μηχανές αναζήτησης να μην ευρετηριάσουν αυτόν τον ιστότοπο."
+
+msgid "Reading settings"
+msgstr "Ρυθμίσεις ανάγνωσης"
+
+msgid "Discouraged"
+msgstr "Απογοητευμένος"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Ένας λογαριασμός rankingCoach μπορεί να προσθέσει πληροφορίες ορατότητας και απόδοσης αργότερα. Πρώτα, ας εξετάσουμε την ιστοσελίδα σας."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "Η εισαγωγή SEO απέτυχε. Ορισμένα δεδομένα ενδέχεται να έχουν εισαχθεί. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Εισήχθησαν %1$d ρυθμίσεις και %2$d καταχωρίσεις σελίδων. %3$d καταχωρίσεις είχαν ήδη ρυθμιστεί στο BeyondSEO ή δεν μπορούσαν να μετατραπούν."
+
+msgid "Continue without import"
+msgstr "Συνέχισε χωρίς εισαγωγή"
+
+msgid "Keep your existing SEO work"
+msgstr "Διατηρήστε τη υπάρχουσα εργασία SEO σας"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Βρέθηκε άλλο ένα πρόσθετο SEO σε αυτόν τον ιστότοπο. Το BeyondSEO μπορεί να μεταφέρει τους τίτλους SEO, τις περιγραφές, τις λέξεις-κλειδιά και τις υποστηριζόμενες ρυθμίσεις ιστότοπου. Οι τιμές που έχετε ήδη αποθηκεύσει στο BeyondSEO διατηρούνται, και τα δεδομένα του άλλου πρόσθετου παραμένουν ανέγγιχτα."
+
+msgid "Import finished"
+msgstr "Η εισαγωγή ολοκληρώθηκε"
+
+msgid "Plugin to import from"
+msgstr "Πρόσθετο για εισαγωγή από"
+
+msgid "Active on this site"
+msgstr "Ενεργός σε αυτόν τον ιστότοπο"
+
+msgid "Installed but not active"
+msgstr "Εγκατεστημένο αλλά όχι ενεργό"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Τίτλοι και περιγραφές που χρησιμοποιούν μη υποστηριζόμενες μεταβλητές προτύπου παραλείπονται. Μπορείτε να ελέγξετε κάθε σελίδα αργότερα."
+
+msgid "The page details could not be loaded."
+msgstr "Δεν ήταν δυνατή η φόρτωση των λεπτομερειών της σελίδας."
+
+msgid "Enter a title or add a variable."
+msgstr "Εισάγετε έναν τίτλο ή προσθέστε μια μεταβλητή."
+
+msgid "Enter a meta description."
+msgstr "Εισάγετε μια μετα-περιγραφή."
+
+msgid "SEO title"
+msgstr "SEO τίτλος"
+
+msgid "The page keywords could not be loaded."
+msgstr "Δεν ήταν δυνατή η φόρτωση των λέξεων-κλειδιών της σελίδας."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Η λέξη-κλειδί δεν μπόρεσε να αποθηκευτεί. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Η λέξη-κλειδί δεν μπόρεσε να αφαιρεθεί. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Εισάγετε τις λέξεις-κλειδιά για τις οποίες θα πρέπει να κατατάσσεται αυτή η σελίδα. Η πρώτη γίνεται η κύρια λέξη-κλειδί, οι άλλες επιπλέον λέξεις-κλειδιά; είναι οι ίδιες λέξεις-κλειδιά που βλέπετε στην καρτέλα Γενικά της σελίδας."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Δεν υπάρχει ακόμη κύρια λέξη-κλειδί. Η πρώτη λέξη-κλειδί που θα προσθέσετε γίνεται αυτή."
+
+msgid "No additional keywords yet."
+msgstr "Δεν υπάρχουν επιπλέον λέξεις-κλειδιά ακόμη."
+
+msgid "Done"
+msgstr "Ολοκληρώθηκε"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Η έλεγχος της ιστοσελίδας δεν μπόρεσε να ολοκληρωθεί στον διακομιστή. Οι μεγάλες ιστοσελίδες μπορεί να χρειαστούν περισσότερο χρόνο από ό,τι επιτρέπει ο διακομιστής."
+
+msgid "We could not complete the site check."
+msgstr "Δεν μπορέσαμε να ολοκληρώσουμε τον έλεγχο της τοποθεσίας."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Η σάρωση ακυρώθηκε. Ένας έλεγχος που έχει ήδη ξεκινήσει στον διακομιστή θα ολοκληρωθεί στο παρασκήνιο."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Η σελίδα δεν μπόρεσε να επανελεγχθεί. Παρακαλώ δοκιμάστε ξανά σε λίγο."
+
+msgid "Updated"
+msgstr "Ενημερωμένο"
+
+msgid "Recheck"
+msgstr "Επαναξιολόγηση"
+
+msgid "All checked pages pass"
+msgstr "Όλες οι ελεγμένες σελίδες περνούν"
+
+msgid "Issues found on your pages"
+msgstr "Θέματα που βρέθηκαν στις σελίδες σας"
+
+msgid "Your pages pass every check"
+msgstr "Οι σελίδες σας περνούν κάθε έλεγχο"
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Κάθε έλεγχος παραθέτει τις σελίδες στις οποίες εφαρμόζεται. Διορθώστε τους τίτλους, τις περιγραφές και τις λέξεις-κλειδιά εδώ, ή ανοίξτε τη σελίδα στον επεξεργαστή για όλα τα υπόλοιπα."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "Οι ολοκληρωμένοι έλεγχοι δεν βρήκαν τίποτα προς διόρθωση. Μπορείτε να εκτελέσετε ξανά τη σάρωση μετά την ενημέρωση της ιστοσελίδας σας."
+
+msgid "Some pages need another look"
+msgstr "Ορισμένες σελίδες χρειάζονται μια δεύτερη ματιά."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Κάθε σελίδα βαθμολογήθηκε με 0, που συνήθως σημαίνει ότι ο ιστότοπος δεν μπόρεσε να φορτώσει τις δικές του σελίδες κατά τη διάρκεια του ελέγχου. Βεβαιωθείτε ότι ο ιστότοπος είναι προσβάσιμος από τον διακομιστή του, στη συνέχεια εκτελέστε ξανά την σάρωση."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Εμφάνιση των πιο πρόσφατων σελίδων και αναρτήσεων. Κάθε άλλη σελίδα αναφέρεται στην επισκόπηση αναρτήσεων και σελίδων."
+
+msgid "Checking your site"
+msgstr "Έλεγχος της ιστοσελίδας σας"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Κάθε δημοσιευμένη σελίδα και ανάρτηση αναλύεται στον διακομιστή σας. Αυτό μπορεί να διαρκέσει μερικά λεπτά σε μεγαλύτερους ιστότοπους."
+
+msgid "Collecting the results for your pages…"
+msgstr "Συλλογή των αποτελεσμάτων για τις σελίδες σας…"
+
+msgid "Analysing your published pages…"
+msgstr "Αναλύοντας τις δημοσιευμένες σελίδες σας…"
+
+msgid "The site check could not finish"
+msgstr "Η έλεγχος της ιστοσελίδας δεν μπόρεσε να ολοκληρωθεί."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Δοκιμάστε ξανά τώρα, ή συνεχίστε και εκτελέστε τον έλεγχο αργότερα από τον πίνακα ελέγχου."
+
+msgid "Identify issues on your pages"
+msgstr "Εντοπίστε προβλήματα στις σελίδες σας"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "Το BeyondSEO ελέγχει κάθε δημοσιευμένη σελίδα και ανάρτηση για τα εξής, και στη συνέχεια δείχνει ποιες σελίδες χρειάζονται εργασία."
+
+msgid "Retry scan"
+msgstr "Επαναλάβετε τη σάρωση"
+
+msgid "Run scan again"
+msgstr "Εκτέλεση σάρωσης ξανά"
+
+msgid "Scanning…"
+msgstr "Σάρωση…"
+
+msgid "Start scan"
+msgstr "Ξεκινήστε σάρωση"
+
+msgid "Setup steps"
+msgstr "Βήματα ρύθμισης"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Βήμα %1$d από %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Ο οδηγός ρύθμισης"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Ο λογαριασμός σας είναι συνδεδεμένος, αλλά απαιτείται ένα έργο για να χρησιμοποιήσετε τον πίνακα ελέγχου BeyondSEO. Δημιουργήστε ένα έργο στις Ρυθμίσεις > Λογαριασμός για να συνεχίσετε."
+
+msgid "Go to Account"
+msgstr "Μετάβαση στον Λογαριασμό"
+
+msgid "The project location ID is invalid."
+msgstr "Η ταυτότητα τοποθεσίας του έργου είναι μη έγκυρη."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Η υπηρεσία δεν επιβεβαίωσε τη διαγραφή του έργου. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "SEO titles"
+msgstr "Τίτλοι SEO"
+
+msgid "SEO descriptions"
+msgstr "Περιγραφές SEO"
+
+msgid "Canonical URLs"
+msgstr "Κανονικά URLs"
+
+msgid "Noindex directives"
+msgstr "Οδηγίες noindex"
+
+msgid "Social titles"
+msgstr "Κοινωνικοί τίτλοι"
+
+msgid "Social descriptions"
+msgstr "Κοινωνικές περιγραφές"
+
+msgid "Facebook profile"
+msgstr "Προφίλ Facebook"
+
+msgid "Twitter profile"
+msgstr "Προφίλ Twitter"
+
+msgid "Instagram profile"
+msgstr "Προφίλ Instagram"
+
+msgid "LinkedIn profile"
+msgstr "Προφίλ LinkedIn"
+
+msgid "YouTube profile"
+msgstr "Προφίλ YouTube"
+
+msgid "Organization or person name"
+msgstr "Όνομα οργανισμού ή ατόμου"
+
+msgid "Sitemap enabled"
+msgstr "Ενεργοποιημένος χάρτης ιστότοπου"
+
+msgid "Google verification code"
+msgstr "Κωδικός επαλήθευσης Google"
+
+msgid "Bing verification code"
+msgstr "Κωδικός επαλήθευσης Bing"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Η σύνδεση λογαριασμού ή έργου έχει αλλάξει. Ανανεώστε τον λογαριασμό πριν προσπαθήσετε ξανά."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Η διαγραφή του έργου έγινε αποδεκτή, αλλά οι τοπικοί αναγνωριστές έργου δεν μπόρεσαν να αφαιρεθούν πλήρως. Ο λογαριασμός σας και τα τοπικά δεδομένα έχουν διατηρηθεί. Ανανεώστε τον λογαριασμό σας και επικοινωνήστε με την υποστήριξη πριν δημιουργήσετε ένα άλλο έργο."
+
+msgid "Connect your account before creating a project."
+msgstr "Συνδέστε τον λογαριασμό σας πριν δημιουργήσετε ένα έργο."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Η υπηρεσία δεν επέστρεψε ένα έγκυρο έργο για τον λογαριασμό σας. Ανανεώστε τον λογαριασμό και δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Η υπηρεσία δεν μπόρεσε να επιβεβαιώσει τη διαγραφή του έργου. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Αδύνατη η επιβεβαίωση διαγραφής του έργου. Η τοπική σας σύνδεση δεν έχει αφαιρεθεί. Παρακαλώ δοκιμάστε ξανά ή επικοινωνήστε με την υποστήριξη."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Αδύνατη η επιθεώρηση των επιλογών εισαγωγής SEO. Παρακαλώ δοκιμάστε ξανά."
+
+msgid "SEO import options must be an array of strings."
+msgstr "Οι επιλογές εισαγωγής SEO πρέπει να είναι ένας πίνακας από συμβολοσειρές."
+
+msgid "Invalid SEO import source."
+msgstr "Μη έγκυρη πηγή εισαγωγής SEO."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "Οι επιλογές εισαγωγής SEO πρέπει να περιέχουν μόνο υποστηριζόμενους αναγνωριστές επιλογών για την επιλεγμένη πηγή."
+
+msgid "SEO plugin is not installed."
+msgstr "Το πρόσθετο SEO δεν είναι εγκατεστημένο."
+
+msgid "Invalid Review event."
+msgstr "Μη έγκυρη εκδήλωση αξιολόγησης."
+
+msgid "Unable to save Review state."
+msgstr "Αδύνατη η αποθήκευση της κατάστασης αξιολόγησης."
+
+msgid "Go to Dashboard"
+msgstr "Μετάβαση στον Πίνακα Ελέγχου"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "Η BeyondSEO σας βοηθά να εντοπίσετε και να διορθώσετε προβλήματα στη σελίδα. Ο λογαριασμός σας στο rankingCoach προσθέτει συνεχή πληροφορίες ορατότητας σχετικά με την online παρουσία σας."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Οι κατατάξεις, οι ανταγωνιστές και οι αναφορές είναι ήδη διαθέσιμες από τον πίνακα ελέγχου του BeyondSEO. Δεν χρειάζεται να ρυθμίσετε τίποτα άλλο εδώ."
+
+msgid "With your rankingCoach account"
+msgstr "Με τον λογαριασμό σας στο rankingCoach"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Σελίδες που επηρεάζονται: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Έλεγχοι που χρειάζονται προσοχή: %1$d από %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Σελίδες ελέγχθηκαν: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d από %2$d σελίδες δεν μπόρεσαν να ελεγχθούν. Μπορείτε να συνεχίσετε με τους ολοκληρωμένους ελέγχους και να δοκιμάσετε ξανά αργότερα."

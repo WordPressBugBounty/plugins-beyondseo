@@ -68,8 +68,9 @@ class SeoOptimiserService
      * @return SeoOptimiser
      * @throws Throwable
      */
-    public function analyzeFullOptimiser(int $postId, array $params = [], bool $skipFullAnalysis = false): SeoOptimiser
+    public function analyzeFullOptimiser(int $postId, array $params = [], bool $skipFullAnalysis = false, bool $interactive = false, ?bool &$analysisCompleted = null): SeoOptimiser
     {
+        $analysisCompleted = false;
         $startTime = microtime(true);
         // Initialize the optimizer
         $seoOptimiser = new SeoOptimiser($postId);
@@ -82,6 +83,17 @@ class SeoOptimiserService
                     $this->logAnalyserError('load_optimiser_data_failed', $postId, $params, $e, $startTime);
                     throw $e;
                 }
+            }
+
+            try {
+                $previous = $this->getOptimiserByPostId($postId);
+                do_action('rankingcoach_seo_analysis_started', [
+                    'scope' => 'post',
+                    'postId' => $postId,
+                    'previousScore' => $previous?->score,
+                    'interactive' => $interactive,
+                ]);
+            } catch (Throwable $e) {
             }
 
             // ========== reset stuff ========== //
@@ -151,11 +163,34 @@ class SeoOptimiserService
                 throw $e;
             }
 
+            $rawScore = $seoOptimiser->score;
+            $metaSaved = false;
             // Save the score on the post meta (with intelligent caching)
             try {
                 $seoOptimiser->saveToPostMeta($seoOptimiser);
+                $breakdown = json_decode((string) get_post_meta($postId, BaseConstants::OPTION_ANALYSIS_SCORE_BREAKDOWN, true), true);
+                $metaSaved = is_array($breakdown)
+                    && isset($breakdown['score']) && is_numeric($breakdown['score'])
+                    && (float) $breakdown['score'] === $rawScore
+                    && (float) get_post_meta($postId, BaseConstants::OPTION_ANALYSIS_SEO_SCORE, true) === round($rawScore * 100)
+                    && (int) get_post_meta($postId, BaseConstants::OPTION_ANALYSIS_DATE_TIMESTAMP, true) >= (int) $startTime;
             } catch (Throwable $e) {
                 $this->logAnalyserError('post_meta_save_failed', $postId, $params, $e, $startTime);
+            }
+            $analysisCompleted = $metaSaved && ($seoOptimiser->id ?? 0) > 0
+                && $seoOptimiser->contexts->count() > 0
+                && $postId > 0 && get_post_status($postId) && get_post_status($postId) !== 'auto-draft'
+                && is_finite($rawScore) && $rawScore >= 0 && $rawScore <= 1;
+            if ($analysisCompleted) {
+                try {
+                    do_action('rankingcoach_seo_analysis_completed', [
+                        'scope' => 'post',
+                        'postId' => $postId,
+                        'score' => $rawScore,
+                        'interactive' => $interactive,
+                    ]);
+                } catch (Throwable $e) {
+                }
             }
         } catch (Throwable $e) {
             // Final catch-all for any unhandled exceptions
@@ -603,14 +638,46 @@ class SeoOptimiserService
      * @return void
      * @throws Throwable
      */
-    public function calculateAndSaveAverageScore(int $limit = 10000): void
+    public function calculateAndSaveAverageScore(int $limit = 10000, ?int $scanCount = null): void
     {
+        try {
+            do_action('rankingcoach_seo_analysis_started', ['scope' => 'site']);
+        } catch (Throwable $e) {
+        }
         try {
             $analysisResult = \RankingCoach\Inc\Core\PostEventsManager::calculateAverageScoreFromPostMeta($limit);
             update_option(BaseConstants::OPTION_ANALYSIS_WEBSITE_SCORE_AVERAGE, $analysisResult['average_score']);
             update_option(BaseConstants::OPTION_ANALYSIS_WEBSITE_PAGES_COUNT, $analysisResult['count']);
             update_option(BaseConstants::OPTION_ANALYSIS_SCORE_MIN, $analysisResult['min_score'] ?? null);
             update_option(BaseConstants::OPTION_ANALYSIS_SCORE_MAX, $analysisResult['max_score'] ?? null);
+            try {
+                $valid = true;
+                foreach ([
+                    BaseConstants::OPTION_ANALYSIS_WEBSITE_SCORE_AVERAGE => 'average_score',
+                    BaseConstants::OPTION_ANALYSIS_WEBSITE_PAGES_COUNT => 'count',
+                    BaseConstants::OPTION_ANALYSIS_SCORE_MIN => 'min_score',
+                    BaseConstants::OPTION_ANALYSIS_SCORE_MAX => 'max_score',
+                ] as $option => $key) {
+                    $stored = get_option($option, false);
+                    $valid = $valid && isset($analysisResult[$key]) && is_numeric($analysisResult[$key])
+                        && is_finite((float) $analysisResult[$key]) && is_numeric($stored)
+                        && (float) $stored === (float) $analysisResult[$key];
+                }
+                $valid = $valid && $analysisResult['count'] > 0
+                    && (float) $analysisResult['count'] === (float) (int) $analysisResult['count']
+                    && $analysisResult['min_score'] >= 0 && $analysisResult['max_score'] <= 100
+                    && $analysisResult['min_score'] <= $analysisResult['average_score']
+                    && $analysisResult['average_score'] <= $analysisResult['max_score'];
+                if ($valid && ($scanCount === null || $scanCount > 0
+                    && $scanCount === (int) $analysisResult['count'])) {
+                    do_action('rankingcoach_seo_analysis_completed', [
+                        'scope' => 'site',
+                        'metrics' => $analysisResult,
+                        'interactive' => $scanCount !== null,
+                    ]);
+                }
+            } catch (Throwable $e) {
+            }
         } catch (Throwable $e) {
             /* translators: %s: Error message returned while calculating the average SEO score. */
             throw new Exception(sprintf(esc_html__('Failed to calculate and save average SEO score: %s', 'beyondseo'), esc_html($e->getMessage())), $e->getCode(), $e);

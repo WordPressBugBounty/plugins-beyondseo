@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:17+0000\n"
+"PO-Revision-Date: 2026-10-20 09:35+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: ja_JP\n"
@@ -8335,7 +8335,7 @@ msgid "Enter activation code"
 msgstr "有効化コードを入力"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "このメールアドレスに対するrankingCoachアカウントは見つかりませんでした。"
 
 msgid "This account has no active WordPress subscription."
 msgstr "このアカウントには有効なWordPressサブスクリプションがありません。"
@@ -8350,7 +8350,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "このインストールではメール登録は利用できません。アクティベーションコードを使用してください。"
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "このサイトではWordPress Cronが無効になっています（DISABLE_WP_CRONがtrueに設定されています）。RankingCoachは、キーワードの同期やリンク切れのチェックなどのスケジュールされたタスクを実行するためにWP-Cronに依存しています。wp-cron.phpを定期的に実行するようにシステムのcronジョブが設定されていることを確認してください。そうしないと、これらのスケジュールされたタスクは実行されません。"
 
 msgid "Details: %s"
 msgstr "詳細: %s"
@@ -8374,46 +8374,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "このサブスクリプションの有効化コードはすでに最大回数再送信されています。カスタマーサポートにお問い合わせください。"
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "アクティベーションコードが見つかりませんか？"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "ここで回復してください"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "メールでアクティベーションコードを確認してください。受け取っていませんか？再取得してください。"
 
 msgid "here"
-msgstr ""
-
+msgstr "ここ"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "サポートが必要ですか？サポートチームに連絡し、以下にサイト情報をコピーしてください。"
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "サポートに連絡する"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "サイト情報"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "サイト情報の読み込みに失敗しました。もう一度お試しください。"
 
 msgid "Retry"
-msgstr ""
-
+msgstr "再試行してください"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "サイト情報をクリップボードにコピー"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "クリップボードにコピーされました"
 
 msgid "You do not have permission to access support information."
+msgstr "サポート情報にアクセスする権限がありません。"
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "この投稿の最初の保存後にSEO分析が始まります。"
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "変更を保存できませんでした。もう一度お試しください。"
+
+msgid "Edit SEO title and description"
+msgstr "SEOタイトルと説明を編集する"
+
+msgid "Open in editor"
+msgstr "エディタで開く"
+
+msgid "Add a meta description"
+msgstr "メタディスクリプションを追加してください。"
+
+msgid "No meta description"
+msgstr "メタディスクリプションなし"
+
+msgid "Updating score…"
+msgstr "スコアを更新中…"
+
+msgid "Saved"
+msgstr "保存されました"
+
+msgid "Yes, I love it"
+msgstr "はい、私はそれが大好きです。"
+
+msgid "Not really"
+msgstr "あまりそうではないです。"
+
+msgid "Maybe later"
+msgstr "後でかもしれません。"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "WordPress.orgでBeyondSEOをレビューする"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "BeyondSEOを楽しんでいますか？"
+
+msgid "We'd love to hear about your experience."
+msgstr "あなたの体験についてお聞かせいただければ嬉しいです。"
+
+msgid "Dismiss review request"
+msgstr "レビューリクエストを却下する"
+
+msgid "Your site score is above %s!"
+msgstr "あなたのサイトのスコアは%s以上です！"
+
+msgid "Your content score is above %s!"
+msgstr "あなたのコンテンツスコアは%sを上回っています！"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "BeyondSEOを楽しんでいますか？あなたの体験についてお聞かせください。"
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "プロジェクトの接続を確認できませんでした。再試行する前にアカウントを更新してください。"
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "プロジェクトの作成を確認できませんでした。あなたのアカウントとローカルデータは保持されています。アカウントを更新して再試行するか、サポートに連絡してください。"
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "サービスはプロジェクトの削除を確認できませんでした。ローカル接続は削除されていません。再試行するか、サポートに連絡してください。"
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "サービスの応答を確認できませんでした。再試行する前にアカウントを更新してください。接続が不完全な場合は、再接続する前にサポートに連絡してください。"
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "プロジェクトの削除は受け入れられましたが、ローカル接続は完全に削除できませんでした。再試行または再接続する前にサポートに連絡してください。現在の接続を確認するにはアカウントを更新してください。"
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "接続されたプロジェクトが変更されたか、もはや接続されていません。アカウントを更新し、再試行する前にプロジェクトを確認してください。"
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "プロジェクトの操作がすでに進行中です。完了するまで待ってからアカウントを更新してください。これが続く場合は、サポートに連絡してください。"
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "プロジェクトの操作を安全に開始できませんでした。もう一度お試しいただくか、サポートにお問い合わせください。"
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "プロジェクトを作成する前にアカウントを接続してください。接続を確認するにはアカウントを更新してください。"
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "サービスはプロジェクトを返しましたが、ローカル接続を完全に保存できませんでした。アカウントを更新して再試行するか、サポートに連絡してください。あなたのアカウントとローカルデータは保持されています。"
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "プロジェクトを作成する前に、設定でrankingCoachとの通信を有効にしてください。"
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "プロジェクトを削除する前に、設定でrankingCoachとの通信を有効にしてください。ローカル接続は削除されていません。"
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "サービスはプロジェクトの作成を認証できませんでした。あなたのアカウントデータは保持されています。再試行する前に、アクセスを復元するためにサポートに連絡してください。"
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "サービスはプロジェクトの削除を認証できませんでした。ローカル接続は削除されていません。再試行する前に、アクセスを復元するためにサポートに連絡してください。"
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "ローカルプロジェクト接続を読み込めませんでした。もう一度お試しください。"
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "アカウントへのアクセスを確認できませんでした。このページを再読み込みし、再度管理者としてサインインしてからお試しください。"
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "ローカルプロジェクト接続を読み込めませんでした。接続を確認して再試行してください。"
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "作成結果を確認できませんでした。再試行する前にアカウントを更新してください。あなたのアカウントとローカルデータは保持されています。"
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "削除結果を確認できませんでした。再試行する前にアカウントを更新してください。接続が不完全な場合は、再接続する前にサポートに連絡してください。"
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "サービスの応答を確認できませんでした。再試行する前にアカウントを更新してください。"
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "削除結果を確認できませんでした。再試行する前にアカウントを更新してください。"
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "プロジェクトは接続されています。準備ができたらオンボーディングを開くことができます。既存のオンボーディングデータとステータスは保持されています。"
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "プロジェクトの削除は受け入れられ、保留されました。ローカルプロジェクトの接続は削除されました。あなたのアカウント、設定、SEOデータは保持されており、プラグインはアクティブなままです。"
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "リモートプロジェクトは削除され、ローカルプロジェクトの接続が解除されました。あなたのアカウント、設定、SEOデータは保持されており、プラグインはアクティブなままです。"
+
+msgid "Account"
+msgstr "アカウント"
+
+msgid "Manage the project connected to this website."
+msgstr "このウェブサイトに関連するプロジェクトを管理してください。"
+
+msgid "Loading project connection…"
+msgstr "プロジェクト接続を読み込んでいます…"
+
+msgid "Refresh Account"
+msgstr "アカウントを更新する"
+
+msgid "Account details"
+msgstr "アカウントの詳細"
+
+msgid "Activation code"
+msgstr "アクティベーションコード"
+
+msgid "Not available"
+msgstr "利用できません"
+
+msgid "Project details"
+msgstr "プロジェクトの詳細"
+
+msgid "Project ID"
+msgstr "プロジェクトID"
+
+msgid "Not connected"
+msgstr "接続されていません"
+
+msgid "Location ID"
+msgstr "ロケーションID"
+
+msgid "Website"
+msgstr "ウェブサイト"
+
+msgid "Open onboarding"
+msgstr "オンボーディングを開始する"
+
+msgid "Delete project"
+msgstr "プロジェクトを削除する"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "リモートプロジェクトを削除し、このウェブサイトの接続を解除します。ローカル設定とSEOデータは保持されます。これにより、アカウントやサブスクリプションはキャンセルされません。"
+
+msgid "Deleting project…"
+msgstr "プロジェクトを削除しています…"
+
+msgid "Create project"
+msgstr "プロジェクトを作成する"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "あなたのアカウントは接続されていますが、このウェブサイトにはプロジェクトがありません。既存のアカウントを使用してプロジェクトを作成してください。ローカル設定、SEOデータ、およびオンボーディングの進捗は保持されます。"
+
+msgid "Creating project…"
+msgstr "プロジェクトを作成中…"
+
+msgid "Create Project"
+msgstr "プロジェクトを作成する"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "プロジェクトを作成中です… 確認をお待ちください。"
+
+msgid "No project connected"
+msgstr "プロジェクトが接続されていません"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "このウェブサイトをプロジェクトにリンクするためにアカウントを接続してください。既存の設定やSEOデータは引き続き利用可能です。"
+
+msgid "Delete this project?"
+msgstr "このプロジェクトを削除しますか？"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "これにより、リモートプロジェクトが削除され、このウェブサイトのローカル接続が解除されます。リモートプロジェクトの削除は元に戻せません。"
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "ローカル設定とSEOデータは保持されます。プラグインはアクティブのままです。あなたのアカウントとサブスクリプションはキャンセルされません。"
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "プロジェクトを削除しています… 確認をお待ちください。"
+
+msgid "Unable to load Account. Please try again."
+msgstr "アカウントを読み込めませんでした。もう一度お試しください。"
+
+msgid "Retry loading Account"
+msgstr "アカウントの再読み込みを試みる"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "BeyondSEOに関するサポートが必要な場合は、私たちのチームにご連絡ください。"
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "サイトの技術的詳細をコピーして、サポートチームと共有してください。"
+
+msgid "Loading site info"
+msgstr "サイト情報を読み込んでいます"
+
+msgid "Edit SEO title"
+msgstr "SEOタイトルを編集する"
+
+msgid "Edit meta description"
+msgstr "メタディスクリプションを編集する"
+
+msgid "Set keywords"
+msgstr "キーワードを設定する"
+
+msgid "Essentials"
+msgstr "必需品"
+
+msgid "Import"
+msgstr "インポート"
+
+msgid "Site check"
+msgstr "サイトチェック"
+
+msgid "Email tips"
+msgstr "メールのヒント"
+
+msgid "rankingCoach account"
+msgstr "rankingCoachアカウント"
+
+msgid "Check titles, keywords and headings"
+msgstr "タイトル、キーワード、見出しを確認してください。"
+
+msgid "Review page-specific SEO issues"
+msgstr "ページ固有のSEO問題を確認する"
+
+msgid "Fix issues directly on your pages"
+msgstr "ページ上で直接問題を修正する"
+
+msgid "Go to BeyondSEO settings"
+msgstr "BeyondSEOの設定に移動する"
+
+msgid "Keep growing your visibility"
+msgstr "可視性を高め続けてください"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEOは、ページの問題を見つけて修正するのを手助けします。rankingCoachアカウントは、オンラインプレゼンスに関する継続的な可視性情報を追加します。"
+
+msgid "Your rankingCoach account is connected"
+msgstr "あなたのrankingCoachアカウントが接続されました。"
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "ランキング、競合他社、レポートはBeyondSEOダッシュボードから利用できます。"
+
+msgid "With BeyondSEO"
+msgstr "BeyondSEOと共に"
+
+msgid "Create your free account"
+msgstr "無料アカウントを作成してください"
+
+msgid "I already have an account"
+msgstr "すでにアカウントを持っています。"
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "登録とログインはBeyondSEOの接続ページで行います。設定から後でこれを行うこともできます。"
+
+msgid "Enter a valid email address or skip this step."
+msgstr "有効なメールアドレスを入力するか、このステップをスキップしてください。"
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "同意チェックボックスを選択するか、このステップをスキップしてください。"
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "メールアドレスを保存できませんでした。もう一度お試しください。"
+
+msgid "Back to site check"
+msgstr "サイトチェックに戻る"
+
+msgid "Skip"
+msgstr "スキップ"
+
+msgid "Save and continue"
+msgstr "保存して続ける"
+
+msgid "Get general SEO tips by email"
+msgstr "メールで一般的なSEOのヒントを受け取る"
+
+msgid "Get SEO recommendations by email"
+msgstr "メールでSEOの推奨事項を受け取る"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "サイトチェックが完了しなかったため、ページ固有の結果を送信することはできません。一般的なSEOのヒントを受け取るか、このステップをスキップすることはできます。"
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "サイトを確認した後にフォローアップのアイデアを受け取ります。このステップは任意であり、rankingCoachアカウントは作成されません。"
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "このアドレスはSEO推奨のために保存されています。更新するには再度保存してください。"
+
+msgid "Email address"
+msgstr "メールアドレス"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "SEOの推奨事項や時折のBeyondSEO / rankingCoach製品の更新情報をメールで送ってください。いつでも購読を解除できます。"
+
+msgid "Optional and separate from account creation."
+msgstr "アカウント作成とは別に任意です。"
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "ホームページのSEO詳細を読み込むことができませんでした。後で続行して編集することができます。"
+
+msgid "Tagline"
+msgstr "キャッチフレーズ"
+
+msgid "No tagline set"
+msgstr "タグラインは設定されていません"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "あなたのホームページには最新の投稿が表示されるため、検索エンジンはサイトのタイトルとタグラインを見ることができます。"
+
+msgid "Change them in General settings"
+msgstr "一般設定で変更してください。"
+
+msgid "Homepage SEO title"
+msgstr "ホームページSEOタイトル"
+
+msgid "Meta description"
+msgstr "メタディスクリプション"
+
+msgid "Describe your website in one or two sentences"
+msgstr "あなたのウェブサイトを1、2文で説明してください。"
+
+msgid "Exit setup"
+msgstr "セットアップを終了する"
+
+msgid "Continue"
+msgstr "続けてください"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "検索結果でのサイトの表示を改善し、ページの問題を見つけましょう。あなたのウェブサイトについて既に知っている情報を事前に入力しました。"
+
+msgid "Search preview"
+msgstr "検索プレビュー"
+
+msgid "XML sitemap"
+msgstr "XMLサイトマップ"
+
+msgid "Helps search engines discover all your pages."
+msgstr "すべてのページを検索エンジンが見つけられるようにします。"
+
+msgid "Search engine visibility"
+msgstr "検索エンジンの可視性"
+
+msgid "Search engines are allowed to index this site."
+msgstr "検索エンジンはこのサイトをインデックスすることが許可されています。"
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPressは現在、検索エンジンにこのサイトをインデックスしないように求めています。"
+
+msgid "Reading settings"
+msgstr "読み取り設定"
+
+msgid "Discouraged"
+msgstr "落胆した"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "rankingCoachアカウントは、後で可視性とパフォーマンス情報を追加できます。まずは、あなたのサイトを確認しましょう。"
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "SEOのインポートに失敗しました。一部のデータがインポートされた可能性があります。再試行してください。"
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "%1$d の設定と %2$d のページエントリをインポートしました。%3$d のエントリはすでに BeyondSEO に設定されているか、変換できませんでした。"
+
+msgid "Continue without import"
+msgstr "インポートなしで続けてください。"
+
+msgid "Keep your existing SEO work"
+msgstr "既存のSEO作業を維持してください。"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "このサイトで別のSEOプラグインが見つかりました。BeyondSEOは、SEOタイトル、説明、キーワード、およびサポートされているサイト設定を引き継ぐことができます。BeyondSEOにすでに保存されている値は保持され、他のプラグインのデータはそのまま残ります。"
+
+msgid "Import finished"
+msgstr "インポートが完了しました"
+
+msgid "Plugin to import from"
+msgstr "インポート用プラグイン"
+
+msgid "Active on this site"
+msgstr "このサイトでアクティブ"
+
+msgid "Installed but not active"
+msgstr "インストール済みですが、アクティブではありません。"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "サポートされていないテンプレート変数を使用しているタイトルと説明はスキップされます。その後、すべてのページを確認できます。"
+
+msgid "The page details could not be loaded."
+msgstr "ページの詳細を読み込むことができませんでした。"
+
+msgid "Enter a title or add a variable."
+msgstr "タイトルを入力するか、変数を追加してください。"
+
+msgid "Enter a meta description."
+msgstr "メタディスクリプションを入力してください。"
+
+msgid "SEO title"
+msgstr "SEOタイトル"
+
+msgid "The page keywords could not be loaded."
+msgstr "ページのキーワードを読み込むことができませんでした。"
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "キーワードを保存できませんでした。もう一度お試しください。"
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "キーワードを削除できませんでした。もう一度お試しください。"
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "このページがランク付けされるべきキーワードを入力してください。最初のキーワードが主要キーワードになり、他は追加キーワードになります。それらはページの一般タブに表示されるのと同じキーワードです。"
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "まだ主要なキーワードはありません。追加する最初のキーワードがそれになります。"
+
+msgid "No additional keywords yet."
+msgstr "まだ追加のキーワードはありません。"
+
+msgid "Done"
+msgstr "完了しました"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "サイトチェックはサーバーで完了できませんでした。大規模なサイトは、サーバーが許可するよりも時間がかかる場合があります。"
+
+msgid "We could not complete the site check."
+msgstr "サイトチェックを完了できませんでした。"
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "スキャンがキャンセルされました。サーバーで既に開始されたチェックは、バックグラウンドでまだ完了します。"
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "ページを再確認できませんでした。しばらくしてからもう一度お試しください。"
+
+msgid "Updated"
+msgstr "更新されました"
+
+msgid "Recheck"
+msgstr "再確認してください"
+
+msgid "All checked pages pass"
+msgstr "すべてのチェックされたページが合格しました"
+
+msgid "Issues found on your pages"
+msgstr "あなたのページで見つかった問題"
+
+msgid "Your pages pass every check"
+msgstr "あなたのページはすべてのチェックに合格しています。"
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "各チェックには、それが適用されるページがリストされています。ここでタイトル、説明、キーワードを修正するか、すべてのその他の編集のためにページをエディターで開いてください。"
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "完了したチェックでは修正するものは見つかりませんでした。サイトを更新した後にスキャンを再実行できます。"
+
+msgid "Some pages need another look"
+msgstr "いくつかのページを再確認する必要があります。"
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "すべてのページが0点でした。これは通常、チェック中にサイトが自分のページを読み込めなかったことを意味します。サイトがサーバーからアクセス可能であることを確認し、再度スキャンを実行してください。"
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "最新のページと投稿を表示しています。他のページは投稿とページの概要にリストされています。"
+
+msgid "Checking your site"
+msgstr "サイトを確認中です。"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "すべての公開されたページと投稿は、あなたのサーバーで分析されます。これには大きなサイトでは数分かかることがあります。"
+
+msgid "Collecting the results for your pages…"
+msgstr "ページの結果を収集しています…"
+
+msgid "Analysing your published pages…"
+msgstr "公開されたページを分析しています…"
+
+msgid "The site check could not finish"
+msgstr "サイトチェックを完了できませんでした。"
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "今すぐ再試行するか、続行してダッシュボードから後でチェックを実行します。"
+
+msgid "Identify issues on your pages"
+msgstr "ページの問題を特定する"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEOは、公開されたすべてのページと投稿を以下の点でチェックし、作業が必要なページを表示します。"
+
+msgid "Retry scan"
+msgstr "再スキャン"
+
+msgid "Run scan again"
+msgstr "再度スキャンを実行します。"
+
+msgid "Scanning…"
+msgstr "スキャン中…"
+
+msgid "Start scan"
+msgstr "スキャンを開始します"
+
+msgid "Setup steps"
+msgstr "セットアップ手順"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "ステップ %1$d / %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "セットアップウィザード"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "アカウントは接続されていますが、BeyondSEOダッシュボードを使用するにはプロジェクトが必要です。続行するには、設定 > アカウントでプロジェクトを作成してください。"
+
+msgid "Go to Account"
+msgstr "アカウントに移動する"
+
+msgid "The project location ID is invalid."
+msgstr "プロジェクトの場所IDが無効です。"
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "サービスはプロジェクトの削除を確認しませんでした。ローカル接続は削除されていません。もう一度お試しいただくか、サポートにお問い合わせください。"
+
+msgid "SEO titles"
+msgstr "SEOタイトル"
+
+msgid "SEO descriptions"
+msgstr "SEOの説明"
+
+msgid "Canonical URLs"
+msgstr "正規化URL"
+
+msgid "Noindex directives"
+msgstr "ノインデックスディレクティブ"
+
+msgid "Social titles"
+msgstr "社会的称号"
+
+msgid "Social descriptions"
+msgstr "社会的な説明"
+
+msgid "Facebook profile"
+msgstr "Facebookプロフィール"
+
+msgid "Twitter profile"
+msgstr "Twitterプロフィール"
+
+msgid "Instagram profile"
+msgstr "インスタグラムプロフィール"
+
+msgid "LinkedIn profile"
+msgstr "LinkedInプロフィール"
+
+msgid "YouTube profile"
+msgstr "YouTubeプロフィール"
+
+msgid "Organization or person name"
+msgstr "組織または個人名"
+
+msgid "Sitemap enabled"
+msgstr "サイトマップが有効になりました"
+
+msgid "Google verification code"
+msgstr "Googleの確認コード"
+
+msgid "Bing verification code"
+msgstr "Bingの確認コード"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "アカウントまたはプロジェクトの接続が変更されました。再試行する前にアカウントを更新してください。"
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "プロジェクトの削除は受け入れられましたが、ローカルプロジェクト識別子は完全には削除できませんでした。あなたのアカウントとローカルデータは保持されています。別のプロジェクトを作成する前に、アカウントを更新し、サポートに連絡してください。"
+
+msgid "Connect your account before creating a project."
+msgstr "プロジェクトを作成する前にアカウントを接続してください。"
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "サービスがあなたのアカウントに対して有効なプロジェクトを返しませんでした。アカウントを更新して再試行するか、サポートに連絡してください。"
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "サービスはプロジェクトの削除を確認できませんでした。ローカル接続は削除されていません。もう一度お試しいただくか、サポートにお問い合わせください。"
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "プロジェクトの削除を確認できませんでした。ローカル接続は削除されていません。もう一度お試しいただくか、サポートにお問い合わせください。"
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "SEOインポートオプションを検査できません。再試行してください。"
+
+msgid "SEO import options must be an array of strings."
+msgstr "SEOインポートオプションは文字列の配列でなければなりません。"
+
+msgid "Invalid SEO import source."
+msgstr "無効なSEOインポートソースです。"
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "SEOインポートオプションには、選択したソースに対してサポートされているオプション識別子のみを含める必要があります。"
+
+msgid "SEO plugin is not installed."
+msgstr "SEOプラグインがインストールされていません。"
+
+msgid "Invalid Review event."
+msgstr "無効なレビューイベント。"
+
+msgid "Unable to save Review state."
+msgstr "レビューの状態を保存できません。"
+
+msgid "Go to Dashboard"
+msgstr "ダッシュボードに移動する"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEOは、ページの問題を見つけて修正するのを手助けします。あなたのrankingCoachアカウントは、オンラインプレゼンスに関する継続的な可視性情報を追加します。"
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "ランキング、競合他社、レポートはすでにBeyondSEOダッシュボードから利用可能です。ここで設定するものは他にありません。"
+
+msgid "With your rankingCoach account"
+msgstr "あなたのrankingCoachアカウントで"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "影響を受けたページ: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "注意が必要なチェック: %1$d / %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "チェックしたページ数: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d ページ中 %2$d ページを確認できませんでした。完了したチェックを続行し、後で再試行できます。"

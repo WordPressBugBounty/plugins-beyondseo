@@ -131,6 +131,17 @@ class IframePage extends AdminPage
             $this->applyFlowGuard();
         }
 
+        if ($this->hasAuthenticatedAccountWithoutProject()) {
+            $accountUrl = add_query_arg('section', 'account', admin_url('admin.php?page=rankingcoach-generalSettings'));
+            printf(
+                '<div class="notice notice-info inline"><p>%s <a href="%s">%s</a></p></div>',
+                esc_html__('Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue.', 'beyondseo'),
+                esc_url($accountUrl),
+                esc_html__('Go to Account', 'beyondseo')
+            );
+            return;
+        }
+
         /** @var TokensManager $tokensManager */
         $tokensManager = TokensManager::getInstance();
         $locationId   = (int) get_option(BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID, 0);
@@ -400,6 +411,26 @@ class IframePage extends AdminPage
         include __DIR__ . '/views/iframe-page.php';
     }
 
+    private function hasAuthenticatedAccountWithoutProject(): bool
+    {
+        $isPositiveIdentifier = static function (mixed $value): bool {
+            if (!is_int($value) && (!is_string($value) || !preg_match('/^[1-9][0-9]*$/D', $value))) {
+                return false;
+            }
+
+            return filter_var($value, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) !== false;
+        };
+        $accountId = get_option(BaseConstants::OPTION_RANKINGCOACH_ACCOUNT_ID);
+        $refreshToken = get_option(BaseConstants::OPTION_REFRESH_TOKEN, '');
+        $projectId = get_option(BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID);
+        $locationId = get_option(BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID);
+
+        return $isPositiveIdentifier($accountId)
+            && is_string($refreshToken)
+            && $refreshToken !== ''
+            && (!$isPositiveIdentifier($projectId) || !$isPositiveIdentifier($locationId));
+    }
+
     /**
      * Evaluate flow and determine if a redirect is needed.
      * Centralized logic used by both handleAccessControl() and applyFlowGuard().
@@ -408,7 +439,7 @@ class IframePage extends AdminPage
      */
     private function evaluateFlowRedirect(): array
     {
-        if (!$this->flowGuardEnabled) {
+        if (!$this->flowGuardEnabled || $this->hasAuthenticatedAccountWithoutProject()) {
             return ['needsRedirect' => false, 'destination' => null];
         }
 
@@ -425,7 +456,8 @@ class IframePage extends AdminPage
             // NOT AdminPage::PAGE_* (short names like 'registration') because AdminManager::getPageUrl()
             // expects the full page slug.
             $destination = match ($step) {
-                'register', 'onboarding' => AdminManager::PAGE_UPSELL,
+                'register' => AdminManager::PAGE_UPSELL,
+                'onboarding' => AdminManager::PAGE_ONBOARDING,
                 'email_validation', 'finalizing' => AdminManager::PAGE_REGISTRATION,
                 // 'email_validation', 'register', 'finalizing' => AdminManager::PAGE_REGISTRATION,
                 // 'activate'                                    => AdminManager::PAGE_ACTIVATION,

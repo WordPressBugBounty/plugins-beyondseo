@@ -18,6 +18,7 @@ use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\TokensManager;
@@ -111,6 +112,8 @@ class ActivationPage extends AdminPage
         // If access control was already handled by the load-{$page_hook} hook,
         // skip the FlowGuard logic here (it runs before headers are sent in that pattern).
         if (!$this->accessControlHandled) {
+            $this->maybeResumeOnboarding();
+
             $store = new OptionStore();
             $resolver = new ChannelResolver($store);
             $channel = $resolver->resolve();
@@ -257,6 +260,11 @@ class ActivationPage extends AdminPage
             $flowState->activated    = true;
             return $flowState;
         });
+
+        try {
+            (new ReviewState())->recordCustomerStarted();
+        } catch (Throwable $e) {
+        }
 
         return new WP_REST_Response(['success' => true], 200);
     }
@@ -484,8 +492,14 @@ class ActivationPage extends AdminPage
             $flowState->registered = true;
             $flowState->emailVerified = true;
             $flowState->activated = true;
+            $flowState->meta['connectionMethod'] = 'activation';
             return $flowState;
         });
+
+        try {
+            (new ReviewState())->recordCustomerStarted();
+        } catch (Throwable $e) {
+        }
 
         $this->redirectToActivationSuccess();
     }
@@ -577,6 +591,17 @@ class ActivationPage extends AdminPage
     }
 
 
+    private function maybeResumeOnboarding(): void
+    {
+        if (isset($_GET['bypass_flow'])
+            || $this->getQueryParamInt('rc_activation_saved') > 0
+            || $this->getQueryParamString('message') !== '') {
+            return;
+        }
+
+        $this->redirectActivatedAccountToOnboarding();
+    }
+
     /**
      * Handle access control before headers are sent.
      *
@@ -590,6 +615,8 @@ class ActivationPage extends AdminPage
     {
         // Mark that access control has been handled, so page_content() skips FlowGuard
         $this->accessControlHandled = true;
+
+        $this->maybeResumeOnboarding();
 
         // Check channel enforcer first
         if (!isset($_GET['bypass_flow'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only flow control flag

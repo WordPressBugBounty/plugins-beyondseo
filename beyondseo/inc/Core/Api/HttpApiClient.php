@@ -61,8 +61,8 @@ class HttpApiClient {
 
 	/** @var HttpAPIResponseHandler $responseHandler The response handler. */
 	private HttpAPIResponseHandler $responseHandler;
-	private int $maxRetries = 2;
-	private int $backoffFactor = 2;
+	private int $maxRetries = 3;
+	private int $backoffFactor = 5;
 
 	/**
 	 * ExternalApi constructor.
@@ -100,8 +100,9 @@ class HttpApiClient {
 	 * @param int $backoffFactor The backoff factor.
 	 */
 	public function setRetryStrategy( int $maxRetries, int $backoffFactor ): void {
-		$this->maxRetries    = $maxRetries;
-		$this->backoffFactor = $backoffFactor;
+		$this->maxRetries     = $maxRetries;
+		$this->backoffFactor  = $backoffFactor;
+		$this->retriesHandler = new RetryHandler( $maxRetries, $backoffFactor );
 	}
 
 	/**
@@ -135,9 +136,9 @@ class HttpApiClient {
 	 * @return array The HTTP response parsed.
 	 * @throws HttpApiException
 	 */
-	public function post( array $data = [] ): array {
+	public function post( array $data = [], ?int $timeout = null ): array {
 		$this->methodType = self::CALL_METHOD_POST;
-		return $this->executeWithRecovery([ 'json' => $data ]);
+		return $this->executeWithRecovery([ 'json' => $data, 'timeout' => $timeout ]);
 	}
 
 	/**
@@ -487,7 +488,7 @@ class HttpApiClient {
 		$wpArgs = [
 			'method'      => $this->methodType,
 			'headers'     => $this->defaultHeaders,
-			'timeout'     => 240,
+			'timeout'     => $options['timeout'] ?? 60,
 			'sslverify'   => true,
 			'redirection' => 5,
 		];

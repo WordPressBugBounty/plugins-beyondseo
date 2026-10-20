@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:15+0000\n"
+"PO-Revision-Date: 2026-10-20 09:32+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -7926,7 +7926,7 @@ msgid "Enter activation code"
 msgstr "Voer activeringscode in"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "We konden geen rankingCoach-account vinden voor dit e-mailadres."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Dit account heeft geen actief WordPress-contract."
@@ -7941,7 +7941,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "E-mailregistratie is niet beschikbaar voor deze installatie. Gebruik uw activeringscode."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "WordPress Cron is uitgeschakeld op deze site (DISABLE_WP_CRON is ingesteld op true). RankingCoach is afhankelijk van WP-Cron om geplande taken uit te voeren, zoals het synchroniseren van zoekwoorden en het controleren van gebroken links. Zorg ervoor dat er een systeemcronjob is geconfigureerd om wp-cron.php periodiek uit te voeren, anders worden deze geplande taken niet uitgevoerd."
 
 msgid "Details: %s"
 msgstr "Details: %s"
@@ -7965,46 +7965,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "De activeringscode voor dit contract is al het maximale aantal keren opnieuw verzonden. Neem contact op met de klantenservice."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Kun je je activatiecode niet vinden?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Herstel het hier"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Controleer je e-mail voor je activatiecode. Niet ontvangen? Herstel het"
 
 msgid "here"
-msgstr ""
-
+msgstr "hier"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Heeft u hulp nodig? Neem contact op met ons ondersteuningsteam en kopieer uw site-informatie hieronder."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Neem contact op met de ondersteuning"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Site-informatie"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Kon de site-informatie niet laden. Probeer het opnieuw."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Probeer opnieuw"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Kopieer site-informatie naar klembord"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Gekopieerd naar klembord"
 
 msgid "You do not have permission to access support information."
+msgstr "U heeft geen toestemming om toegang te krijgen tot ondersteuningsinformatie."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "De SEO-analyse begint na de eerste opslaan van dit bericht."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Uw wijzigingen konden niet worden opgeslagen. Probeer het alstublieft opnieuw."
+
+msgid "Edit SEO title and description"
+msgstr "Bewerk SEO-titel en -beschrijving"
+
+msgid "Open in editor"
+msgstr "Open in editor"
+
+msgid "Add a meta description"
+msgstr "Voeg een meta-beschrijving toe"
+
+msgid "No meta description"
+msgstr "Geen meta beschrijving"
+
+msgid "Updating score…"
+msgstr "Score bijwerken…"
+
+msgid "Saved"
+msgstr "Opgeslagen"
+
+msgid "Yes, I love it"
+msgstr "Ja, ik hou ervan."
+
+msgid "Not really"
+msgstr "Niet echt"
+
+msgid "Maybe later"
+msgstr "Misschien later"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Beoordeel BeyondSEO op WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Geniet je van BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "We horen graag over uw ervaring."
+
+msgid "Dismiss review request"
+msgstr "Verzoek om beoordeling afwijzen"
+
+msgid "Your site score is above %s!"
+msgstr "Je sitescore is boven %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Je inhoudsscore is boven %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Geniet je van BeyondSEO? We horen graag over jouw ervaring."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "De projectverbinding kon niet worden geverifieerd. Vernieuw het account voordat u het opnieuw probeert."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Kan het aanmaken van het project niet bevestigen. Uw account en lokale gegevens zijn behouden. Vernieuw het account en probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "De service kon de projectverwijdering niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "De serviceantwoord kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Als de verbinding onvolledig is, neem dan contact op met de ondersteuning voordat je opnieuw verbinding maakt."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Projectverwijdering werd geaccepteerd, maar de lokale verbinding kon niet volledig worden verwijderd. Neem contact op met de ondersteuning voordat u het opnieuw probeert of opnieuw verbindt. Vernieuw het account om de huidige verbinding te controleren."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Het verbonden project is gewijzigd of is niet langer verbonden. Vernieuw het account en bekijk het project voordat u het opnieuw probeert."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Er is al een projectoperatie aan de gang. Wacht tot deze is voltooid en ververs het account. Als dit aanhoudt, neem dan contact op met de ondersteuning."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Kan het project niet veilig starten. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Verbind uw account voordat u een project aanmaakt. Vernieuw Account om uw verbinding te controleren."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "De service heeft een project teruggegeven, maar de lokale verbinding kon niet volledig worden opgeslagen. Vernieuw het account en probeer het opnieuw of neem contact op met de ondersteuning. Uw account en lokale gegevens zijn behouden."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Schakel communicatie met rankingCoach in de instellingen in voordat je een project aanmaakt."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Schakel communicatie met rankingCoach in de instellingen in voordat je het project verwijdert. Je lokale verbinding is niet verwijderd."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "De service kon de projectcreatie niet verifiëren. Uw accountgegevens zijn bewaard. Neem contact op met de ondersteuning om toegang te herstellen voordat u het opnieuw probeert."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "De service kon de verwijdering van het project niet verifiëren. Je lokale verbinding is niet verwijderd. Neem contact op met de ondersteuning om toegang te herstellen voordat je het opnieuw probeert."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Kan de lokale projectverbinding niet laden. Probeer het opnieuw."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Toegang tot het account kon niet worden geverifieerd. Herlaad deze pagina en log in als administrator voordat u het opnieuw probeert."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Kan de lokale projectverbinding niet laden. Controleer uw verbinding en probeer het opnieuw."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Het creatieresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Je account en lokale gegevens zijn behouden."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Het verwijderingsresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Als de verbinding onvolledig is, neem dan contact op met de ondersteuning voordat je opnieuw verbinding maakt."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "De serviceantwoord kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Het verwijderingsresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Je project is verbonden. Je kunt de onboarding openen wanneer je er klaar voor bent. Je bestaande onboardinggegevens en status zijn bewaard gebleven."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Projectverwijdering is geaccepteerd en uitgesteld. De lokale projectverbinding is verwijderd. Je account, instellingen en SEO-gegevens zijn bewaard, en de plugin blijft actief."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Het externe project is verwijderd en de lokale projectverbinding is verwijderd. Je account, instellingen en SEO-gegevens zijn behouden, en de plugin blijft actief."
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Manage the project connected to this website."
+msgstr "Beheer het project dat verbonden is met deze website."
+
+msgid "Loading project connection…"
+msgstr "Projectverbinding laden…"
+
+msgid "Refresh Account"
+msgstr "Account vernieuwen"
+
+msgid "Account details"
+msgstr "Accountgegevens"
+
+msgid "Activation code"
+msgstr "Activatiecode"
+
+msgid "Not available"
+msgstr "Niet beschikbaar"
+
+msgid "Project details"
+msgstr "Projectdetails"
+
+msgid "Project ID"
+msgstr "Project-ID"
+
+msgid "Not connected"
+msgstr "Niet verbonden"
+
+msgid "Location ID"
+msgstr "Locatie-ID"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Open onboarding"
+msgstr "Open onboarding"
+
+msgid "Delete project"
+msgstr "Verwijder project"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Verwijder het externe project en verwijder de verbinding met deze website. Je lokale instellingen en SEO-gegevens blijven behouden. Dit annuleert je account of abonnement niet."
+
+msgid "Deleting project…"
+msgstr "Project verwijderen…"
+
+msgid "Create project"
+msgstr "Project aanmaken"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Je account is verbonden, maar deze website heeft geen project. Maak een project aan met je bestaande account. Je lokale instellingen, SEO-gegevens en onboardingvoortgang worden behouden."
+
+msgid "Creating project…"
+msgstr "Project aanmaken…"
+
+msgid "Create Project"
+msgstr "Project Aanmaken"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Project aanmaken… Gelieve te wachten op bevestiging."
+
+msgid "No project connected"
+msgstr "Geen project verbonden"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Verbind een account om deze website aan een project te koppelen. Je bestaande instellingen en SEO-gegevens zijn nog steeds beschikbaar."
+
+msgid "Delete this project?"
+msgstr "Dit project verwijderen?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Dit verwijdert het externe project en verwijdert de lokale verbinding voor deze website. Het verwijderen van het externe project kan niet ongedaan worden gemaakt."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Je lokale instellingen en SEO-gegevens worden bewaard. De plugin blijft actief. Je account en abonnement worden niet geannuleerd."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Project verwijderen… Gelieve te wachten op bevestiging."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Kan account niet laden. Probeer het opnieuw."
+
+msgid "Retry loading Account"
+msgstr "Probeer het account opnieuw te laden"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Neem contact op met ons team voor hulp met BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Kopieer de technische details van uw site om te delen met ons ondersteuningsteam."
+
+msgid "Loading site info"
+msgstr "Site-informatie laden"
+
+msgid "Edit SEO title"
+msgstr "Bewerk SEO-titel"
+
+msgid "Edit meta description"
+msgstr "Bewerk meta-beschrijving"
+
+msgid "Set keywords"
+msgstr "Stel zoekwoorden in"
+
+msgid "Essentials"
+msgstr "Essentials"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Site check"
+msgstr "Sitecontrole"
+
+msgid "Email tips"
+msgstr "E-mailtips"
+
+msgid "rankingCoach account"
+msgstr "rankingCoach-account"
+
+msgid "Check titles, keywords and headings"
+msgstr "Controleer titels, zoekwoorden en koppen"
+
+msgid "Review page-specific SEO issues"
+msgstr "Beoordeel pagina-specifieke SEO-problemen"
+
+msgid "Fix issues directly on your pages"
+msgstr "Los problemen direct op je pagina's op."
+
+msgid "Go to BeyondSEO settings"
+msgstr "Ga naar de BeyondSEO-instellingen"
+
+msgid "Keep growing your visibility"
+msgstr "Blijf je zichtbaarheid vergroten"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO helpt je bij het vinden en oplossen van paginaproblemen. Een rankingCoach-account voegt voortdurende zichtbaarheidsinformatie toe over je online aanwezigheid."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Je rankingCoach-account is verbonden."
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Ranglijsten, concurrenten en rapporten zijn beschikbaar vanuit het BeyondSEO-dashboard."
+
+msgid "With BeyondSEO"
+msgstr "Met BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Maak je gratis account aan"
+
+msgid "I already have an account"
+msgstr "Ik heb al een account."
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Registratie en inloggen gebeuren op de BeyondSEO connect-pagina's. Je kunt dit ook later doen vanuit Instellingen."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Voer een geldig e-mailadres in of sla deze stap over."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Selecteer het toestemmingsvakje of sla deze stap over."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Uw e-mailadres kon niet worden opgeslagen. Probeer het alstublieft opnieuw."
+
+msgid "Back to site check"
+msgstr "Terug naar sitecontrole"
+
+msgid "Skip"
+msgstr "Overslaan"
+
+msgid "Save and continue"
+msgstr "Opslaan en doorgaan"
+
+msgid "Get general SEO tips by email"
+msgstr "Ontvang algemene SEO-tips per e-mail"
+
+msgid "Get SEO recommendations by email"
+msgstr "Ontvang SEO-aanbevelingen per e-mail"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "De sitecontrole is niet voltooid, dus we kunnen nog geen pagina-specifieke bevindingen verzenden. Je kunt nog steeds algemene SEO-tips ontvangen of deze stap overslaan."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Ontvang vervolgideeën na het bekijken van uw site. Deze stap is optioneel en creëert geen rankingCoach-account."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Dit adres is opgeslagen voor SEO-aanbevelingen. Sla het opnieuw op om het bij te werken."
+
+msgid "Email address"
+msgstr "E-mailadres"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Stuur me SEO-aanbevelingen en af en toe updates over BeyondSEO / rankingCoach-producten. Ik kan me op elk moment afmelden."
+
+msgid "Optional and separate from account creation."
+msgstr "Optioneel en apart van accountcreatie."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "De SEO-gegevens van de homepage konden niet worden geladen. U kunt doorgaan en ze later bewerken."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Geen slogan ingesteld"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Je homepage toont je nieuwste berichten, zodat zoekmachines de sitetitel en tagline zien."
+
+msgid "Change them in General settings"
+msgstr "Wijzig ze in de algemene instellingen"
+
+msgid "Homepage SEO title"
+msgstr "Homepage SEO-titel"
+
+msgid "Meta description"
+msgstr "Meta beschrijving"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Beschrijf uw website in één of twee zinnen."
+
+msgid "Exit setup"
+msgstr "Verlaat installatie"
+
+msgid "Continue"
+msgstr "Doorgaan"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Verbeter hoe uw site verschijnt in zoekresultaten en vind problemen op uw pagina's. We hebben ingevuld wat we al weten over uw website."
+
+msgid "Search preview"
+msgstr "Zoekvoorbeeld"
+
+msgid "XML sitemap"
+msgstr "XML-sitemap"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Helpt zoekmachines al je pagina's te ontdekken."
+
+msgid "Search engine visibility"
+msgstr "Zoekmachinezichtbaarheid"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Zoekmachines mogen deze site indexeren."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress vraagt momenteel zoekmachines om deze site niet te indexeren."
+
+msgid "Reading settings"
+msgstr "Leesinstellingen"
+
+msgid "Discouraged"
+msgstr "ontmoedigd"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Een rankingCoach-account kan later zichtbaarheid en prestatie-informatie toevoegen. Laten we eerst uw site bekijken."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "SEO-import is mislukt. Sommige gegevens zijn mogelijk geïmporteerd; probeer het opnieuw."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "%1$d instellingen en %2$d pagina-invoeren geïmporteerd. %3$d invoeren waren al ingesteld in BeyondSEO of konden niet worden geconverteerd."
+
+msgid "Continue without import"
+msgstr "Ga door zonder import"
+
+msgid "Keep your existing SEO work"
+msgstr "Houd je bestaande SEO-werk."
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Er is een andere SEO-plugin op deze site gevonden. BeyondSEO kan zijn SEO-titels, beschrijvingen, zoekwoorden en ondersteunde site-instellingen overbrengen. Waarden die je al in BeyondSEO hebt opgeslagen, blijven behouden, en de gegevens van de andere plugin blijven onaangeroerd."
+
+msgid "Import finished"
+msgstr "Import voltooid"
+
+msgid "Plugin to import from"
+msgstr "Plugin om te importeren van"
+
+msgid "Active on this site"
+msgstr "Actief op deze site"
+
+msgid "Installed but not active"
+msgstr "Geïnstalleerd maar niet actief"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Titels en beschrijvingen die niet-ondersteunde sjabloonvariabelen gebruiken, worden overgeslagen. Je kunt elke pagina daarna bekijken."
+
+msgid "The page details could not be loaded."
+msgstr "De paginagegevens konden niet worden geladen."
+
+msgid "Enter a title or add a variable."
+msgstr "Voer een titel in of voeg een variabele toe."
+
+msgid "Enter a meta description."
+msgstr "Voer een meta-beschrijving in."
+
+msgid "SEO title"
+msgstr "SEO-titel"
+
+msgid "The page keywords could not be loaded."
+msgstr "De pagina-sleutelwoorden konden niet worden geladen."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Het trefwoord kon niet worden opgeslagen. Probeer het opnieuw."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Het trefwoord kon niet worden verwijderd. Probeer het opnieuw."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Voer de zoekwoorden in waarvoor deze pagina moet ranken. De eerste wordt het primaire zoekwoord, de andere aanvullende zoekwoorden; dit zijn dezelfde zoekwoorden die je in het algemene tabblad van de pagina ziet."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Nog geen primaire zoekwoord. Het eerste zoekwoord dat je toevoegt, wordt het."
+
+msgid "No additional keywords yet."
+msgstr "Nog geen extra zoekwoorden."
+
+msgid "Done"
+msgstr "Klaar"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "De sitecontrole kon niet worden voltooid op de server. Grote sites kunnen langer duren dan de server toestaat."
+
+msgid "We could not complete the site check."
+msgstr "We konden de sitecontrole niet voltooien."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Scan geannuleerd. Een controle die al op de server is gestart, zal nog steeds op de achtergrond worden voltooid."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "De pagina kon niet opnieuw worden gecontroleerd. Probeer het over een moment nog eens."
+
+msgid "Updated"
+msgstr "Bijgewerkt"
+
+msgid "Recheck"
+msgstr "Hercontroleer"
+
+msgid "All checked pages pass"
+msgstr "Alle gecontroleerde pagina's zijn goedgekeurd"
+
+msgid "Issues found on your pages"
+msgstr "Problemen gevonden op uw pagina's"
+
+msgid "Your pages pass every check"
+msgstr "Je pagina's doorstaan elke controle."
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Elke controle lijst de pagina's waarop het van toepassing is. Corrigeer titels, beschrijvingen en zoekwoorden hier, of open de pagina in de editor voor de rest."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "De voltooide controles hebben niets gevonden om te repareren. U kunt de scan opnieuw uitvoeren na het bijwerken van uw site."
+
+msgid "Some pages need another look"
+msgstr "Sommige pagina's hebben een nieuwe blik nodig."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Elke pagina scoorde 0, wat meestal betekent dat de site zijn eigen pagina's niet kon laden tijdens de controle. Zorg ervoor dat de site bereikbaar is vanaf zijn server en voer de scan opnieuw uit."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "De meest recente pagina's en berichten worden weergegeven. Elke andere pagina is opgenomen in het overzicht van berichten en pagina's."
+
+msgid "Checking your site"
+msgstr "Uw site controleren"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Elke gepubliceerde pagina en post wordt op uw server geanalyseerd. Dit kan enkele minuten duren op grotere sites."
+
+msgid "Collecting the results for your pages…"
+msgstr "De resultaten voor uw pagina's verzamelen…"
+
+msgid "Analysing your published pages…"
+msgstr "Uw gepubliceerde pagina's analyseren…"
+
+msgid "The site check could not finish"
+msgstr "De sitecontrole kon niet worden voltooid."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Probeer het nu opnieuw, of ga door en voer de controle later vanuit het dashboard uit."
+
+msgid "Identify issues on your pages"
+msgstr "Identificeer problemen op uw pagina's"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO controleert elke gepubliceerde pagina en post op het volgende en toont welke pagina's verbetering nodig hebben."
+
+msgid "Retry scan"
+msgstr "Scan opnieuw proberen"
+
+msgid "Run scan again"
+msgstr "Voer de scan opnieuw uit"
+
+msgid "Scanning…"
+msgstr "Scannen…"
+
+msgid "Start scan"
+msgstr "Scan starten"
+
+msgid "Setup steps"
+msgstr "Installatiestappen"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Stap %1$d van %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Installatiewizard"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Je account is verbonden, maar er is een project nodig om het BeyondSEO-dashboard te gebruiken. Maak een project aan in Instellingen > Account om door te gaan."
+
+msgid "Go to Account"
+msgstr "Ga naar Account"
+
+msgid "The project location ID is invalid."
+msgstr "De projectlocatie-ID is ongeldig."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "De service heeft de projectverwijdering niet bevestigd. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "SEO titles"
+msgstr "SEO-titels"
+
+msgid "SEO descriptions"
+msgstr "SEO-beschrijvingen"
+
+msgid "Canonical URLs"
+msgstr "Canonieke URL's"
+
+msgid "Noindex directives"
+msgstr "Noindex-richtlijnen"
+
+msgid "Social titles"
+msgstr "Sociale titels"
+
+msgid "Social descriptions"
+msgstr "Sociale beschrijvingen"
+
+msgid "Facebook profile"
+msgstr "Facebook-profiel"
+
+msgid "Twitter profile"
+msgstr "Twitter-profiel"
+
+msgid "Instagram profile"
+msgstr "Instagram-profiel"
+
+msgid "LinkedIn profile"
+msgstr "LinkedIn-profiel"
+
+msgid "YouTube profile"
+msgstr "YouTube-profiel"
+
+msgid "Organization or person name"
+msgstr "Organisatie of persoonsnaam"
+
+msgid "Sitemap enabled"
+msgstr "Sitemap ingeschakeld"
+
+msgid "Google verification code"
+msgstr "Google verificatiecode"
+
+msgid "Bing verification code"
+msgstr "Bing verificatiecode"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "De account- of projectverbinding is gewijzigd. Vernieuw de account voordat je het opnieuw probeert."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Projectverwijdering is geaccepteerd, maar de lokale projectidentificatoren konden niet volledig worden verwijderd. Je account en lokale gegevens zijn behouden. Vernieuw je account en neem contact op met de ondersteuning voordat je een ander project aanmaakt."
+
+msgid "Connect your account before creating a project."
+msgstr "Verbind je account voordat je een project aanmaakt."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "De service heeft geen geldig project voor uw account teruggegeven. Vernieuw uw account en probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "De service kon de projectverwijdering niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Kan het verwijderen van het project niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Niet in staat om SEO-importopties te inspecteren. Probeer het opnieuw."
+
+msgid "SEO import options must be an array of strings."
+msgstr "SEO-importopties moeten een array van strings zijn."
+
+msgid "Invalid SEO import source."
+msgstr "Ongeldige SEO-importbron."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "SEO-importopties mogen alleen ondersteunde optie-identifiers voor de geselecteerde bron bevatten."
+
+msgid "SEO plugin is not installed."
+msgstr "SEO-plugin is niet geïnstalleerd."
+
+msgid "Invalid Review event."
+msgstr "Ongeldig beoordelings evenement."
+
+msgid "Unable to save Review state."
+msgstr "Niet in staat om de beoordelingsstatus op te slaan."
+
+msgid "Go to Dashboard"
+msgstr "Ga naar Dashboard"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO helpt je bij het vinden en oplossen van pagina-issues. Je rankingCoach-account voegt voortdurende zichtbaarheidsinformatie toe over je online aanwezigheid."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Ranglijsten, concurrenten en rapporten zijn al beschikbaar vanuit het BeyondSEO-dashboard. Er is hier verder niets in te stellen."
+
+msgid "With your rankingCoach account"
+msgstr "Met uw rankingCoach-account"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Pagina's beïnvloed: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Controlepunten die aandacht nodig hebben: %1$d van %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Geverifieerde pagina's: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d van %2$d pagina's konden niet worden gecontroleerd. U kunt doorgaan met de voltooide controles en het later opnieuw proberen."

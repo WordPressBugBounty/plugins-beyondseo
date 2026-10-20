@@ -6689,7 +6689,7 @@
     "Introducir código de activación"
   ],
   "We could not find a rankingCoach account for this email address.": [
-    ""
+    "No pudimos encontrar una cuenta de rankingCoach para esta dirección de correo electrónico."
   ],
   "This account has no active WordPress subscription.": [
     "Esta cuenta no tiene ninguna suscripción activa de WordPress."
@@ -6704,7 +6704,7 @@
     "El registro por correo electrónico no está disponible para esta instalación. Por favor, utilice su código de activación."
   ],
   "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.": [
-    ""
+    "El Cron de WordPress está deshabilitado en este sitio (DISABLE_WP_CRON está configurado en verdadero). RankingCoach depende de WP-Cron para ejecutar tareas programadas como la sincronización de palabras clave y la verificación de enlaces rotos. Asegúrese de que se haya configurado un trabajo cron del sistema para ejecutar wp-cron.php periódicamente; de lo contrario, estas tareas programadas no se ejecutarán."
   ],
   "Details: %s": [
     "Detalles: %s"
@@ -6728,15 +6728,690 @@
     "El código de activación para esta suscripción ya se ha reenviado el número máximo de veces. Por favor, contacte con el servicio de atención al cliente."
   ],
   "Can't find your activation code?": [
-    ""
+    "¿No puedes encontrar tu código de activación?"
   ],
   "Recover it here": [
-    ""
+    "Recupéralo aquí"
   ],
   "Check your email for your activation code. Didn’t receive it? Recover it": [
-    ""
+    "Revisa tu correo electrónico para tu código de activación. ¿No lo recibiste? Recupéralo."
   ],
   "here": [
-    ""
+    "aquí"
+  ],
+  "The SEO analysis starts after the first save of this post.": [
+    "El análisis SEO comienza después del primer guardado de esta publicación."
+  ],
+  "Yes, I love it": [
+    "Sí, me encanta."
+  ],
+  "Not really": [
+    "No realmente"
+  ],
+  "Maybe later": [
+    "Quizás más tarde"
+  ],
+  "Review BeyondSEO on WordPress.org": [
+    "Revisar BeyondSEO en WordPress.org"
+  ],
+  "Enjoying BeyondSEO?": [
+    "¿Disfrutando de BeyondSEO?"
+  ],
+  "We'd love to hear about your experience.": [
+    "Nos encantaría escuchar sobre tu experiencia."
+  ],
+  "Dismiss review request": [
+    "Descartar solicitud de revisión"
+  ],
+  "Your site score is above %s!": [
+    "¡La puntuación de tu sitio está por encima del %s!"
+  ],
+  "Your content score is above %s!": [
+    "¡Tu puntuación de contenido está por encima del %s!"
+  ],
+  "Enjoying BeyondSEO? We'd love to hear about your experience.": [
+    "¿Estás disfrutando de BeyondSEO? Nos encantaría saber sobre tu experiencia."
+  ],
+  "Your changes could not be saved. Please try again.": [
+    "No se pudieron guardar tus cambios. Por favor, inténtalo de nuevo."
+  ],
+  "Edit SEO title and description": [
+    "Editar título y descripción SEO"
+  ],
+  "Open in editor": [
+    "Abrir en el editor"
+  ],
+  "Add a meta description": [
+    "Añadir una meta descripción"
+  ],
+  "No meta description": [
+    "Sin meta descripción"
+  ],
+  "Updating score…": [
+    "Actualizando puntuación…"
+  ],
+  "Saved": [
+    "Guardado"
+  ],
+  "The project connection could not be verified. Refresh Account before trying again.": [
+    "No se pudo verificar la conexión del proyecto. Actualiza la cuenta antes de intentar nuevamente."
+  ],
+  "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support.": [
+    "No se pudo confirmar la creación del proyecto. Su cuenta y los datos locales han sido retenidos. Actualice la cuenta e intente nuevamente o contacte con el soporte."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support.": [
+    "El servicio no pudo confirmar la eliminación del proyecto. Tu conexión local no ha sido eliminada. Intenta de nuevo o contacta con soporte."
+  ],
+  "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "No se pudo verificar la respuesta del servicio. Actualiza la cuenta antes de intentar de nuevo. Si la conexión está incompleta, contacta con el soporte antes de reconectar."
+  ],
+  "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection.": [
+    "La eliminación del proyecto fue aceptada, pero la conexión local no se pudo eliminar por completo. Contacta con el soporte antes de volver a intentar o reconectar. Actualiza la cuenta para verificar la conexión actual."
+  ],
+  "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again.": [
+    "El proyecto conectado ha cambiado o ya no está conectado. Actualiza la cuenta y revisa el proyecto antes de intentar de nuevo."
+  ],
+  "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support.": [
+    "Una operación de proyecto ya está en progreso. Espere a que termine y actualice la cuenta. Si esto persiste, contacte con soporte."
+  ],
+  "Unable to safely start the project operation. Please try again or contact support.": [
+    "No se puede iniciar la operación del proyecto de forma segura. Por favor, inténtelo de nuevo o contacte con el soporte."
+  ],
+  "Connect your account before creating a project. Refresh Account to check your connection.": [
+    "Conecta tu cuenta antes de crear un proyecto. Actualiza la cuenta para verificar tu conexión."
+  ],
+  "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained.": [
+    "El servicio devolvió un proyecto, pero su conexión local no se pudo guardar completamente. Actualiza la cuenta e inténtalo de nuevo o contacta con el soporte. Tu cuenta y los datos locales se han mantenido."
+  ],
+  "Enable communication with rankingCoach in Settings before creating a project.": [
+    "Habilita la comunicación con rankingCoach en Configuración antes de crear un proyecto."
+  ],
+  "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed.": [
+    "Habilita la comunicación con rankingCoach en Configuración antes de eliminar el proyecto. Tu conexión local no ha sido eliminada."
+  ],
+  "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying.": [
+    "El servicio no pudo autenticar la creación del proyecto. Los datos de su cuenta han sido retenidos. Contacte con el soporte para restaurar el acceso antes de volver a intentar."
+  ],
+  "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying.": [
+    "El servicio no pudo autenticar la eliminación del proyecto. Su conexión local no ha sido eliminada. Contacte con el soporte para restaurar el acceso antes de volver a intentar."
+  ],
+  "Unable to load the local project connection. Please try again.": [
+    "No se pudo cargar la conexión del proyecto local. Por favor, inténtalo de nuevo."
+  ],
+  "Account access could not be verified. Reload this page and sign in as an administrator before trying again.": [
+    "No se pudo verificar el acceso a la cuenta. Vuelva a cargar esta página e inicie sesión como administrador antes de intentar nuevamente."
+  ],
+  "Unable to load the local project connection. Check your connection and try again.": [
+    "No se puede cargar la conexión del proyecto local. Verifica tu conexión e inténtalo de nuevo."
+  ],
+  "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained.": [
+    "No se pudo verificar el resultado de la creación. Actualiza la cuenta antes de intentar de nuevo. Tu cuenta y los datos locales han sido retenidos."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "No se pudo verificar el resultado de la eliminación. Actualiza la cuenta antes de intentar de nuevo. Si la conexión está incompleta, contacta con el soporte antes de reconectar."
+  ],
+  "The service response could not be verified. Refresh Account before trying again.": [
+    "No se pudo verificar la respuesta del servicio. Actualiza la cuenta antes de intentar de nuevo."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again.": [
+    "No se pudo verificar el resultado de la eliminación. Actualiza la cuenta antes de intentar de nuevo."
+  ],
+  "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved.": [
+    "Tu proyecto está conectado. Puedes abrir la incorporación cuando estés listo. Tus datos de incorporación existentes y el estado se han conservado."
+  ],
+  "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "La eliminación del proyecto fue aceptada y aplazada. La conexión del proyecto local ha sido eliminada. Tu cuenta, configuraciones y datos de SEO están preservados, y el complemento permanece activo."
+  ],
+  "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "El proyecto remoto ha sido eliminado y la conexión del proyecto local ha sido removida. Tu cuenta, configuraciones y datos de SEO se han preservado, y el complemento sigue activo."
+  ],
+  "Account": [
+    "Cuenta"
+  ],
+  "Manage the project connected to this website.": [
+    "Gestiona el proyecto relacionado con este sitio web."
+  ],
+  "Loading project connection…": [
+    "Cargando conexión del proyecto…"
+  ],
+  "Refresh Account": [
+    "Actualizar cuenta"
+  ],
+  "Account details": [
+    "Detalles de la cuenta"
+  ],
+  "Activation code": [
+    "Código de activación"
+  ],
+  "Not available": [
+    "No disponible"
+  ],
+  "Project details": [
+    "Detalles del proyecto"
+  ],
+  "Project ID": [
+    "ID del proyecto"
+  ],
+  "Not connected": [
+    "No conectado"
+  ],
+  "Location ID": [
+    "ID de ubicación"
+  ],
+  "Website": [
+    "Sitio web"
+  ],
+  "Open onboarding": [
+    "Abrir incorporación"
+  ],
+  "Delete project": [
+    "Eliminar proyecto"
+  ],
+  "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription.": [
+    "Elimina el proyecto remoto y quita la conexión de este sitio web. Se mantendrán tus configuraciones locales y datos de SEO. Esto no cancela tu cuenta ni tu suscripción."
+  ],
+  "Deleting project…": [
+    "Eliminando proyecto…"
+  ],
+  "Create project": [
+    "Crear proyecto"
+  ],
+  "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept.": [
+    "Tu cuenta está conectada, pero este sitio web no tiene ningún proyecto. Crea un proyecto utilizando tu cuenta existente. Se mantendrán tus configuraciones locales, datos de SEO y progreso de incorporación."
+  ],
+  "Creating project…": [
+    "Creando proyecto…"
+  ],
+  "Create Project": [
+    "Crear Proyecto"
+  ],
+  "Creating project… Please wait for confirmation.": [
+    "Creando proyecto… Por favor, espere la confirmación."
+  ],
+  "No project connected": [
+    "No hay proyecto conectado"
+  ],
+  "Connect an account to link this website to a project. Your existing settings and SEO data are still available.": [
+    "Conecta una cuenta para vincular este sitio web a un proyecto. Tus configuraciones existentes y datos de SEO siguen disponibles."
+  ],
+  "Delete this project?": [
+    "¿Eliminar este proyecto?"
+  ],
+  "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone.": [
+    "Esto elimina el proyecto remoto y quita la conexión local para este sitio web. La eliminación del proyecto remoto no se puede deshacer."
+  ],
+  "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled.": [
+    "Se conservarán tus configuraciones locales y datos de SEO. El complemento permanecerá activo. Tu cuenta y suscripción no serán canceladas."
+  ],
+  "Deleting project… Please wait for confirmation.": [
+    "Eliminando proyecto… Por favor, espere la confirmación."
+  ],
+  "Unable to load Account. Please try again.": [
+    "No se pudo cargar la cuenta. Por favor, inténtalo de nuevo."
+  ],
+  "Retry loading Account": [
+    "Reintentar cargar la cuenta"
+  ],
+  "Need help? Get in touch with our support team and copy your site information below.": [
+    "¿Necesitas ayuda? Ponte en contacto con nuestro equipo de soporte y copia la información de tu sitio a continuación."
+  ],
+  "Reach out to our team for help with BeyondSEO.": [
+    "Ponte en contacto con nuestro equipo para obtener ayuda con BeyondSEO."
+  ],
+  "Contact Support": [
+    "Contactar soporte"
+  ],
+  "Site info": [
+    "Información del sitio"
+  ],
+  "Copy your site's technical details to share with our support team.": [
+    "Copia los detalles técnicos de tu sitio para compartirlos con nuestro equipo de soporte."
+  ],
+  "Loading site info": [
+    "Cargando información del sitio"
+  ],
+  "Failed to load site info. Please try again.": [
+    "Error al cargar la información del sitio. Por favor, inténtalo de nuevo."
+  ],
+  "Retry": [
+    "Reintentar"
+  ],
+  "Copy site info to clipboard": [
+    "Copiar información del sitio al portapapeles"
+  ],
+  "Copied to clipboard": [
+    "Copiado al portapapeles"
+  ],
+  "Edit SEO title": [
+    "Editar título SEO"
+  ],
+  "Edit meta description": [
+    "Editar la meta descripción"
+  ],
+  "Set keywords": [
+    "Establecer palabras clave"
+  ],
+  "Essentials": [
+    "Esenciales"
+  ],
+  "Import": [
+    "Importar"
+  ],
+  "Site check": [
+    "Verificación del sitio"
+  ],
+  "Email tips": [
+    "Consejos para correos electrónicos"
+  ],
+  "rankingCoach account": [
+    "cuenta de rankingCoach"
+  ],
+  "Check titles, keywords and headings": [
+    "Verifica títulos, palabras clave y encabezados"
+  ],
+  "Review page-specific SEO issues": [
+    "Revisar problemas de SEO específicos de la página"
+  ],
+  "Fix issues directly on your pages": [
+    "Corrige problemas directamente en tus páginas."
+  ],
+  "Go to Dashboard": [
+    "Ir al Panel de Control"
+  ],
+  "Keep growing your visibility": [
+    "Sigue aumentando tu visibilidad"
+  ],
+  "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO te ayuda a encontrar y solucionar problemas en la página. Tu cuenta de rankingCoach añade información de visibilidad continua sobre tu presencia en línea."
+  ],
+  "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO te ayuda a encontrar y solucionar problemas en la página. Una cuenta de rankingCoach añade información continua sobre la visibilidad de tu presencia en línea."
+  ],
+  "Your rankingCoach account is connected": [
+    "Tu cuenta de rankingCoach está conectada."
+  ],
+  "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here.": [
+    "Los rankings, competidores e informes ya están disponibles en el panel de BeyondSEO. No hay nada más que configurar aquí."
+  ],
+  "With BeyondSEO": [
+    "Con BeyondSEO"
+  ],
+  "With your rankingCoach account": [
+    "Con tu cuenta de rankingCoach"
+  ],
+  "Create your free account": [
+    "Crea tu cuenta gratuita"
+  ],
+  "I already have an account": [
+    "Ya tengo una cuenta."
+  ],
+  "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings.": [
+    "El registro y el inicio de sesión se realizan en las páginas de conexión de BeyondSEO. También puedes hacerlo más tarde desde Configuración."
+  ],
+  "Enter a valid email address or skip this step.": [
+    "Ingresa una dirección de correo electrónico válida o salta este paso."
+  ],
+  "Select the consent checkbox or skip this step.": [
+    "Seleccione la casilla de consentimiento o salte este paso."
+  ],
+  "Your email address could not be saved. Please try again.": [
+    "No se pudo guardar su dirección de correo electrónico. Por favor, inténtelo de nuevo."
+  ],
+  "Back to site check": [
+    "Volver a verificar el sitio"
+  ],
+  "Skip": [
+    "Saltar"
+  ],
+  "Save and continue": [
+    "Guardar y continuar"
+  ],
+  "Get general SEO tips by email": [
+    "Recibe consejos generales de SEO por correo electrónico."
+  ],
+  "Get SEO recommendations by email": [
+    "Recibe recomendaciones de SEO por correo electrónico"
+  ],
+  "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step.": [
+    "La verificación del sitio no se completó, por lo que no podemos enviar hallazgos específicos de la página aún. Aún puedes recibir consejos generales de SEO o saltarte este paso."
+  ],
+  "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account.": [
+    "Recibe ideas de seguimiento después de revisar tu sitio. Este paso es opcional y no crea una cuenta de rankingCoach."
+  ],
+  "This address is saved for SEO recommendations. Save again to update it.": [
+    "Esta dirección está guardada para recomendaciones de SEO. Guárdala de nuevo para actualizarla."
+  ],
+  "Email address": [
+    "Dirección de correo electrónico"
+  ],
+  "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time.": [
+    "Envíame recomendaciones de SEO y actualizaciones ocasionales sobre productos de BeyondSEO / rankingCoach. Puedo darme de baja en cualquier momento."
+  ],
+  "Optional and separate from account creation.": [
+    "Opcional y separado de la creación de la cuenta."
+  ],
+  "The homepage SEO details could not be loaded. You can continue and edit them later.": [
+    "No se pudieron cargar los detalles de SEO de la página de inicio. Puedes continuar y editarlos más tarde."
+  ],
+  "Tagline": [
+    "Eslogan"
+  ],
+  "No tagline set": [
+    "No se ha establecido un eslogan."
+  ],
+  "Your homepage shows your latest posts, so search engines see the site title and tagline.": [
+    "Tu página de inicio muestra tus publicaciones más recientes, por lo que los motores de búsqueda ven el título del sitio y el eslogan."
+  ],
+  "Change them in General settings": [
+    "Cámbialos en la configuración general."
+  ],
+  "Homepage SEO title": [
+    "Título SEO de la página de inicio"
+  ],
+  "Meta description": [
+    "Descripción meta"
+  ],
+  "Describe your website in one or two sentences": [
+    "Describe tu sitio web en una o dos oraciones."
+  ],
+  "Exit setup": [
+    "Salir de la configuración"
+  ],
+  "Continue": [
+    "Continuar"
+  ],
+  "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website.": [
+    "Mejora cómo aparece tu sitio en los resultados de búsqueda y encuentra problemas en tus páginas. Hemos completado previamente lo que ya sabemos sobre tu sitio web."
+  ],
+  "Search preview": [
+    "Vista previa de búsqueda"
+  ],
+  "XML sitemap": [
+    "sitemap XML"
+  ],
+  "Helps search engines discover all your pages.": [
+    "Ayuda a los motores de búsqueda a descubrir todas tus páginas."
+  ],
+  "Search engine visibility": [
+    "Visibilidad en motores de búsqueda"
+  ],
+  "Search engines are allowed to index this site.": [
+    "Los motores de búsqueda tienen permiso para indexar este sitio."
+  ],
+  "WordPress currently asks search engines not to index this site.": [
+    "WordPress actualmente pide a los motores de búsqueda que no indexen este sitio."
+  ],
+  "Reading settings": [
+    "Configuración de lectura"
+  ],
+  "Discouraged": [
+    "Desanimado"
+  ],
+  "A rankingCoach account can add visibility and performance information later. First, let’s review your site.": [
+    "Una cuenta de rankingCoach puede agregar información de visibilidad y rendimiento más tarde. Primero, revisemos su sitio."
+  ],
+  "SEO import failed. Some data may have been imported; please retry.": [
+    "La importación de SEO falló. Algunos datos pueden haber sido importados; por favor, inténtalo de nuevo."
+  ],
+  "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted.": [
+    "Se importaron %1$d configuraciones y %2$d entradas de página. %3$d entradas ya estaban configuradas en BeyondSEO o no se pudieron convertir."
+  ],
+  "Continue without import": [
+    "Continuar sin importar"
+  ],
+  "Keep your existing SEO work": [
+    "Mantén tu trabajo de SEO existente."
+  ],
+  "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched.": [
+    "Se encontró otro plugin de SEO en este sitio. BeyondSEO puede transferir sus títulos de SEO, descripciones, palabras clave y configuraciones de sitio compatibles. Los valores que ya guardó en BeyondSEO se mantienen, y los datos del otro plugin permanecen intactos."
+  ],
+  "Import finished": [
+    "Importación finalizada"
+  ],
+  "Plugin to import from": [
+    "Plugin para importar desde"
+  ],
+  "Active on this site": [
+    "Activo en este sitio"
+  ],
+  "Installed but not active": [
+    "Instalado pero no activo"
+  ],
+  "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards.": [
+    "Los títulos y descripciones que utilizan variables de plantilla no soportadas se omiten. Puedes revisar cada página después."
+  ],
+  "The page details could not be loaded.": [
+    "No se pudieron cargar los detalles de la página."
+  ],
+  "Enter a title or add a variable.": [
+    "Ingresa un título o añade una variable."
+  ],
+  "Enter a meta description.": [
+    "Ingresa una meta descripción."
+  ],
+  "SEO title": [
+    "título SEO"
+  ],
+  "The page keywords could not be loaded.": [
+    "No se pudieron cargar las palabras clave de la página."
+  ],
+  "The keyword could not be saved. Please try again.": [
+    "No se pudo guardar la palabra clave. Por favor, inténtalo de nuevo."
+  ],
+  "The keyword could not be removed. Please try again.": [
+    "No se pudo eliminar la palabra clave. Por favor, inténtalo de nuevo."
+  ],
+  "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab.": [
+    "Ingrese las palabras clave por las que esta página debería posicionarse. La primera se convierte en la palabra clave principal, las demás son palabras clave adicionales; son las mismas palabras clave que ve en la pestaña General de la página."
+  ],
+  "No primary keyword yet. The first keyword you add becomes it.": [
+    "No hay una palabra clave principal aún. La primera palabra clave que agregues se convierte en ella."
+  ],
+  "No additional keywords yet.": [
+    "No hay palabras clave adicionales aún."
+  ],
+  "Done": [
+    "Hecho"
+  ],
+  "The site check could not finish on the server. Large sites can take longer than the server allows.": [
+    "La verificación del sitio no pudo completarse en el servidor. Los sitios grandes pueden tardar más de lo que el servidor permite."
+  ],
+  "We could not complete the site check.": [
+    "No pudimos completar la verificación del sitio."
+  ],
+  "Scan cancelled. A check that already started on the server will still finish in the background.": [
+    "Escaneo cancelado. Una verificación que ya comenzó en el servidor seguirá finalizándose en segundo plano."
+  ],
+  "The page could not be rechecked. Please try again in a moment.": [
+    "La página no pudo ser verificada nuevamente. Por favor, inténtalo de nuevo en un momento."
+  ],
+  "Updated": [
+    "Actualizado"
+  ],
+  "Recheck": [
+    "Revisar"
+  ],
+  "All checked pages pass": [
+    "Todas las páginas verificadas pasan"
+  ],
+  "Issues found on your pages": [
+    "Problemas encontrados en tus páginas"
+  ],
+  "Your pages pass every check": [
+    "Tus páginas pasan todas las verificaciones."
+  ],
+  "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else.": [
+    "Cada verificación lista las páginas a las que se aplica. Corrige títulos, descripciones y palabras clave aquí mismo, o abre la página en el editor para todo lo demás."
+  ],
+  "The completed checks found nothing to fix. You can run the scan again after updating your site.": [
+    "Las comprobaciones completadas no encontraron nada que reparar. Puedes ejecutar el escaneo nuevamente después de actualizar tu sitio."
+  ],
+  "Some pages need another look": [
+    "Algunas páginas necesitan otra revisión."
+  ],
+  "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again.": [
+    "Cada página obtuvo 0, lo que generalmente significa que el sitio no pudo cargar sus propias páginas durante la verificación. Asegúrate de que el sitio sea accesible desde su servidor y luego vuelve a ejecutar el escaneo."
+  ],
+  "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later.": [
+    "%1$d de %2$d páginas no se pudieron verificar. Puedes continuar con las verificaciones completadas y intentar de nuevo más tarde."
+  ],
+  "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview.": [
+    "Mostrando las páginas y publicaciones más recientes. Cada otra página está listada en la vista general de publicaciones y páginas."
+  ],
+  "Checking your site": [
+    "Revisando tu sitio"
+  ],
+  "Every published page and post is analysed on your server. This can take a few minutes on larger sites.": [
+    "Cada página y publicación publicada se analiza en su servidor. Esto puede tardar unos minutos en sitios más grandes."
+  ],
+  "Collecting the results for your pages…": [
+    "Recopilando los resultados de tus páginas…"
+  ],
+  "Analysing your published pages…": [
+    "Analizando tus páginas publicadas…"
+  ],
+  "The site check could not finish": [
+    "La verificación del sitio no pudo finalizar."
+  ],
+  "Retry now, or continue and run the check later from the dashboard.": [
+    "Intenta de nuevo ahora, o continúa y ejecuta la verificación más tarde desde el panel de control."
+  ],
+  "Identify issues on your pages": [
+    "Identifica problemas en tus páginas"
+  ],
+  "BeyondSEO checks every published page and post for the following, then shows which pages need work.": [
+    "BeyondSEO verifica cada página y publicación publicada en busca de lo siguiente y luego muestra qué páginas necesitan trabajo."
+  ],
+  "Retry scan": [
+    "Reintentar escaneo"
+  ],
+  "Run scan again": [
+    "Ejecutar el escaneo nuevamente"
+  ],
+  "Scanning…": [
+    "Escaneando…"
+  ],
+  "Start scan": [
+    "Iniciar escaneo"
+  ],
+  "Setup steps": [
+    "Pasos de configuración"
+  ],
+  "Step %1$d of %2$d · %3$s": [
+    "Paso %1$d de %2$d · %3$s"
+  ],
+  "Setup wizard": [
+    "Asistente de configuración"
+  ],
+  "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue.": [
+    "Tu cuenta está conectada, pero se requiere un proyecto para usar el panel de BeyondSEO. Crea un proyecto en Configuración > Cuenta para continuar."
+  ],
+  "Go to Account": [
+    "Ir a la cuenta"
+  ],
+  "The project location ID is invalid.": [
+    "El ID de ubicación del proyecto no es válido."
+  ],
+  "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "El servicio no confirmó la eliminación del proyecto. Su conexión local no ha sido eliminada. Por favor, inténtelo de nuevo o contacte con el soporte."
+  ],
+  "SEO titles": [
+    "Títulos SEO"
+  ],
+  "SEO descriptions": [
+    "descripciones SEO"
+  ],
+  "Canonical URLs": [
+    "URLs canónicos"
+  ],
+  "Noindex directives": [
+    "Directivas noindex"
+  ],
+  "Social titles": [
+    "Títulos sociales"
+  ],
+  "Social descriptions": [
+    "Descripciones sociales"
+  ],
+  "Facebook profile": [
+    "Perfil de Facebook"
+  ],
+  "Twitter profile": [
+    "Perfil de Twitter"
+  ],
+  "Instagram profile": [
+    "Perfil de Instagram"
+  ],
+  "LinkedIn profile": [
+    "Perfil de LinkedIn"
+  ],
+  "YouTube profile": [
+    "Perfil de YouTube"
+  ],
+  "Organization or person name": [
+    "Nombre de la organización o persona"
+  ],
+  "Sitemap enabled": [
+    "Mapa del sitio habilitado"
+  ],
+  "Google verification code": [
+    "Código de verificación de Google"
+  ],
+  "Bing verification code": [
+    "Código de verificación de Bing"
+  ],
+  "The account or project connection has changed. Refresh Account before trying again.": [
+    "La conexión de la cuenta o del proyecto ha cambiado. Actualiza la cuenta antes de intentar de nuevo."
+  ],
+  "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project.": [
+    "La eliminación del proyecto fue aceptada, pero los identificadores de proyecto locales no pudieron ser eliminados por completo. Su cuenta y los datos locales han sido retenidos. Actualice la cuenta y contacte con el soporte antes de crear otro proyecto."
+  ],
+  "Connect your account before creating a project.": [
+    "Conecta tu cuenta antes de crear un proyecto."
+  ],
+  "The service did not return a valid project for your account. Refresh Account and try again or contact support.": [
+    "El servicio no devolvió un proyecto válido para su cuenta. Actualice la cuenta e intente nuevamente o contacte con el soporte."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "El servicio no pudo confirmar la eliminación del proyecto. Su conexión local no ha sido eliminada. Por favor, inténtelo de nuevo o contacte con el soporte."
+  ],
+  "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "No se pudo confirmar la eliminación del proyecto. Su conexión local no ha sido eliminada. Por favor, inténtelo de nuevo o contacte con el soporte."
+  ],
+  "Unable to inspect SEO import options. Please retry.": [
+    "No se pueden inspeccionar las opciones de importación de SEO. Por favor, inténtalo de nuevo."
+  ],
+  "SEO import options must be an array of strings.": [
+    "Las opciones de importación de SEO deben ser un array de cadenas."
+  ],
+  "Invalid SEO import source.": [
+    "Fuente de importación SEO no válida."
+  ],
+  "SEO import options must contain only supported option identifiers for the selected source.": [
+    "Las opciones de importación de SEO deben contener solo identificadores de opción compatibles para la fuente seleccionada."
+  ],
+  "SEO plugin is not installed.": [
+    "El plugin de SEO no está instalado."
+  ],
+  "You do not have permission to access support information.": [
+    "No tienes permiso para acceder a la información de soporte."
+  ],
+  "Invalid Review event.": [
+    "Evento de revisión no válido."
+  ],
+  "Unable to save Review state.": [
+    "No se puede guardar el estado de la revisión."
+  ],
+  "feed link\u0004-": [
+    "enlace de alimentación"
+  ],
+  "Pages affected: %d": [
+    "Páginas afectadas: %d"
+  ],
+  "Checks needing attention: %1$d of %2$d": [
+    "Verificaciones que necesitan atención: %1$d de %2$d"
+  ],
+  "Pages checked: %d": [
+    "Páginas revisadas: %d"
   ]
 }

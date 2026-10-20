@@ -6656,7 +6656,7 @@
     "Voer activeringscode in"
   ],
   "We could not find a rankingCoach account for this email address.": [
-    ""
+    "We konden geen rankingCoach-account vinden voor dit e-mailadres."
   ],
   "This account has no active WordPress subscription.": [
     "Dit account heeft geen actief WordPress-contract."
@@ -6671,7 +6671,7 @@
     "E-mailregistratie is niet beschikbaar voor deze installatie. Gebruik uw activeringscode."
   ],
   "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.": [
-    ""
+    "WordPress Cron is uitgeschakeld op deze site (DISABLE_WP_CRON is ingesteld op true). RankingCoach is afhankelijk van WP-Cron om geplande taken uit te voeren, zoals het synchroniseren van zoekwoorden en het controleren van gebroken links. Zorg ervoor dat er een systeemcronjob is geconfigureerd om wp-cron.php periodiek uit te voeren, anders worden deze geplande taken niet uitgevoerd."
   ],
   "Details: %s": [
     "Details: %s"
@@ -6695,15 +6695,690 @@
     "De activeringscode voor dit contract is al het maximale aantal keren opnieuw verzonden. Neem contact op met de klantenservice."
   ],
   "Can't find your activation code?": [
-    ""
+    "Kun je je activatiecode niet vinden?"
   ],
   "Recover it here": [
-    ""
+    "Herstel het hier"
   ],
   "Check your email for your activation code. Didn’t receive it? Recover it": [
-    ""
+    "Controleer je e-mail voor je activatiecode. Niet ontvangen? Herstel het"
   ],
   "here": [
-    ""
+    "hier"
+  ],
+  "The SEO analysis starts after the first save of this post.": [
+    "De SEO-analyse begint na de eerste opslaan van dit bericht."
+  ],
+  "Yes, I love it": [
+    "Ja, ik hou ervan."
+  ],
+  "Not really": [
+    "Niet echt"
+  ],
+  "Maybe later": [
+    "Misschien later"
+  ],
+  "Review BeyondSEO on WordPress.org": [
+    "Beoordeel BeyondSEO op WordPress.org"
+  ],
+  "Enjoying BeyondSEO?": [
+    "Geniet je van BeyondSEO?"
+  ],
+  "We'd love to hear about your experience.": [
+    "We horen graag over uw ervaring."
+  ],
+  "Dismiss review request": [
+    "Verzoek om beoordeling afwijzen"
+  ],
+  "Your site score is above %s!": [
+    "Je sitescore is boven %s!"
+  ],
+  "Your content score is above %s!": [
+    "Je inhoudsscore is boven %s!"
+  ],
+  "Enjoying BeyondSEO? We'd love to hear about your experience.": [
+    "Geniet je van BeyondSEO? We horen graag over jouw ervaring."
+  ],
+  "Your changes could not be saved. Please try again.": [
+    "Uw wijzigingen konden niet worden opgeslagen. Probeer het alstublieft opnieuw."
+  ],
+  "Edit SEO title and description": [
+    "Bewerk SEO-titel en -beschrijving"
+  ],
+  "Open in editor": [
+    "Open in editor"
+  ],
+  "Add a meta description": [
+    "Voeg een meta-beschrijving toe"
+  ],
+  "No meta description": [
+    "Geen meta beschrijving"
+  ],
+  "Updating score…": [
+    "Score bijwerken…"
+  ],
+  "Saved": [
+    "Opgeslagen"
+  ],
+  "The project connection could not be verified. Refresh Account before trying again.": [
+    "De projectverbinding kon niet worden geverifieerd. Vernieuw het account voordat u het opnieuw probeert."
+  ],
+  "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support.": [
+    "Kan het aanmaken van het project niet bevestigen. Uw account en lokale gegevens zijn behouden. Vernieuw het account en probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support.": [
+    "De service kon de projectverwijdering niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "De serviceantwoord kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Als de verbinding onvolledig is, neem dan contact op met de ondersteuning voordat je opnieuw verbinding maakt."
+  ],
+  "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection.": [
+    "Projectverwijdering is geaccepteerd, maar de lokale verbinding kon niet volledig worden verwijderd. Neem contact op met de ondersteuning voordat u het opnieuw probeert of opnieuw verbinding maakt. Vernieuw het account om de huidige verbinding te controleren."
+  ],
+  "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again.": [
+    "Het verbonden project is gewijzigd of is niet langer verbonden. Vernieuw het account en bekijk het project voordat je het opnieuw probeert."
+  ],
+  "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support.": [
+    "Er is al een projectoperatie aan de gang. Wacht tot deze is voltooid en ververs het account. Als dit aanhoudt, neem dan contact op met de ondersteuning."
+  ],
+  "Unable to safely start the project operation. Please try again or contact support.": [
+    "Kan het project niet veilig starten. Probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "Connect your account before creating a project. Refresh Account to check your connection.": [
+    "Verbind je account voordat je een project aanmaakt. Vernieuw Account om je verbinding te controleren."
+  ],
+  "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained.": [
+    "De service heeft een project teruggegeven, maar de lokale verbinding kon niet volledig worden opgeslagen. Vernieuw het account en probeer het opnieuw of neem contact op met de ondersteuning. Uw account en lokale gegevens zijn behouden."
+  ],
+  "Enable communication with rankingCoach in Settings before creating a project.": [
+    "Schakel communicatie met rankingCoach in de instellingen in voordat je een project aanmaakt."
+  ],
+  "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed.": [
+    "Schakel communicatie met rankingCoach in de instellingen in voordat je het project verwijdert. Je lokale verbinding is niet verwijderd."
+  ],
+  "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying.": [
+    "De service kon de projectcreatie niet verifiëren. Uw accountgegevens zijn bewaard. Neem contact op met de ondersteuning om toegang te herstellen voordat u het opnieuw probeert."
+  ],
+  "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying.": [
+    "De service kon de verwijdering van het project niet verifiëren. Je lokale verbinding is niet verwijderd. Neem contact op met de ondersteuning om toegang te herstellen voordat je het opnieuw probeert."
+  ],
+  "Unable to load the local project connection. Please try again.": [
+    "Kan de lokale projectverbinding niet laden. Probeer het opnieuw."
+  ],
+  "Account access could not be verified. Reload this page and sign in as an administrator before trying again.": [
+    "Toegang tot het account kon niet worden geverifieerd. Herlaad deze pagina en log in als administrator voordat u het opnieuw probeert."
+  ],
+  "Unable to load the local project connection. Check your connection and try again.": [
+    "Kan de lokale projectverbinding niet laden. Controleer uw verbinding en probeer het opnieuw."
+  ],
+  "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained.": [
+    "Het creatieresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Je account en lokale gegevens zijn behouden."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "Het verwijderingsresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert. Als de verbinding onvolledig is, neem dan contact op met de ondersteuning voordat je opnieuw verbinding maakt."
+  ],
+  "The service response could not be verified. Refresh Account before trying again.": [
+    "De serviceantwoord kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again.": [
+    "Het verwijderingsresultaat kon niet worden geverifieerd. Vernieuw het account voordat je het opnieuw probeert."
+  ],
+  "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved.": [
+    "Je project is verbonden. Je kunt de onboarding openen wanneer je er klaar voor bent. Je bestaande onboardinggegevens en status zijn bewaard gebleven."
+  ],
+  "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "Projectverwijdering is geaccepteerd en uitgesteld. De lokale projectverbinding is verwijderd. Je account, instellingen en SEO-gegevens zijn bewaard, en de plugin blijft actief."
+  ],
+  "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "Het externe project is verwijderd en de lokale projectverbinding is verwijderd. Je account, instellingen en SEO-gegevens zijn behouden, en de plugin blijft actief."
+  ],
+  "Account": [
+    "Account"
+  ],
+  "Manage the project connected to this website.": [
+    "Beheer het project dat aan deze website is verbonden."
+  ],
+  "Loading project connection…": [
+    "Projectverbinding laden…"
+  ],
+  "Refresh Account": [
+    "Account verversen"
+  ],
+  "Account details": [
+    "Accountgegevens"
+  ],
+  "Activation code": [
+    "Activatiecode"
+  ],
+  "Not available": [
+    "Niet beschikbaar"
+  ],
+  "Project details": [
+    "Projectdetails"
+  ],
+  "Project ID": [
+    "Project ID"
+  ],
+  "Not connected": [
+    "Niet verbonden"
+  ],
+  "Location ID": [
+    "Locatie-ID"
+  ],
+  "Website": [
+    "Website"
+  ],
+  "Open onboarding": [
+    "Open onboarding"
+  ],
+  "Delete project": [
+    "Verwijder project"
+  ],
+  "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription.": [
+    "Verwijder het externe project en verwijder de verbinding met deze website. Je lokale instellingen en SEO-gegevens worden bewaard. Dit annuleert je account of abonnement niet."
+  ],
+  "Deleting project…": [
+    "Project verwijderen…"
+  ],
+  "Create project": [
+    "Project aanmaken"
+  ],
+  "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept.": [
+    "Je account is verbonden, maar deze website heeft geen project. Maak een project aan met je bestaande account. Je lokale instellingen, SEO-gegevens en voortgang van de onboarding worden behouden."
+  ],
+  "Creating project…": [
+    "Project aanmaken…"
+  ],
+  "Create Project": [
+    "Project Aanmaken"
+  ],
+  "Creating project… Please wait for confirmation.": [
+    "Project aanmaken… Gelieve te wachten op bevestiging."
+  ],
+  "No project connected": [
+    "Geen project verbonden"
+  ],
+  "Connect an account to link this website to a project. Your existing settings and SEO data are still available.": [
+    "Verbind een account om deze website aan een project te koppelen. Je bestaande instellingen en SEO-gegevens zijn nog steeds beschikbaar."
+  ],
+  "Delete this project?": [
+    "Dit project verwijderen?"
+  ],
+  "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone.": [
+    "Dit verwijdert het externe project en verwijdert de lokale verbinding voor deze website. Het verwijderen van het externe project kan niet ongedaan worden gemaakt."
+  ],
+  "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled.": [
+    "Je lokale instellingen en SEO-gegevens worden bewaard. De plugin blijft actief. Je account en abonnement worden niet geannuleerd."
+  ],
+  "Deleting project… Please wait for confirmation.": [
+    "Project verwijderen… Gelieve te wachten op bevestiging."
+  ],
+  "Unable to load Account. Please try again.": [
+    "Kan account niet laden. Probeer het opnieuw."
+  ],
+  "Retry loading Account": [
+    "Probeer het account opnieuw te laden"
+  ],
+  "Need help? Get in touch with our support team and copy your site information below.": [
+    "Heeft u hulp nodig? Neem contact op met ons ondersteuningsteam en kopieer uw site-informatie hieronder."
+  ],
+  "Reach out to our team for help with BeyondSEO.": [
+    "Neem contact op met ons team voor hulp met BeyondSEO."
+  ],
+  "Contact Support": [
+    "Neem contact op met ondersteuning"
+  ],
+  "Site info": [
+    "Site-informatie"
+  ],
+  "Copy your site's technical details to share with our support team.": [
+    "Kopieer de technische details van uw site om te delen met ons ondersteuningsteam."
+  ],
+  "Loading site info": [
+    "Site-informatie laden"
+  ],
+  "Failed to load site info. Please try again.": [
+    "Kon de site-informatie niet laden. Probeer het opnieuw."
+  ],
+  "Retry": [
+    "Probeer opnieuw"
+  ],
+  "Copy site info to clipboard": [
+    "Kopieer site-informatie naar klembord"
+  ],
+  "Copied to clipboard": [
+    "Gekopieerd naar klembord"
+  ],
+  "Edit SEO title": [
+    "Bewerk SEO-titel"
+  ],
+  "Edit meta description": [
+    "Bewerk meta-beschrijving"
+  ],
+  "Set keywords": [
+    "Stel zoekwoorden in"
+  ],
+  "Essentials": [
+    "Essentials"
+  ],
+  "Import": [
+    "Importeren"
+  ],
+  "Site check": [
+    "Sitecontrole"
+  ],
+  "Email tips": [
+    "E-mailtips"
+  ],
+  "rankingCoach account": [
+    "rankingCoach-account"
+  ],
+  "Check titles, keywords and headings": [
+    "Controleer titels, zoekwoorden en koppen"
+  ],
+  "Review page-specific SEO issues": [
+    "Beoordeel pagina-specifieke SEO-problemen"
+  ],
+  "Fix issues directly on your pages": [
+    "Los problemen direct op je pagina's op."
+  ],
+  "Go to Dashboard": [
+    "Ga naar Dashboard"
+  ],
+  "Keep growing your visibility": [
+    "Blijf je zichtbaarheid vergroten"
+  ],
+  "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO helpt je bij het vinden en oplossen van pagina-issues. Je rankingCoach-account voegt voortdurende zichtbaarheidsinformatie toe over je online aanwezigheid."
+  ],
+  "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO helpt je bij het vinden en oplossen van pagina-issues. Een rankingCoach-account voegt voortdurende zichtbaarheidsinformatie toe over je online aanwezigheid."
+  ],
+  "Your rankingCoach account is connected": [
+    "Je rankingCoach-account is verbonden."
+  ],
+  "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here.": [
+    "Ranglijsten, concurrenten en rapporten zijn al beschikbaar vanuit het BeyondSEO-dashboard. Er is hier verder niets in te stellen."
+  ],
+  "With BeyondSEO": [
+    "Met BeyondSEO"
+  ],
+  "With your rankingCoach account": [
+    "Met uw rankingCoach-account"
+  ],
+  "Create your free account": [
+    "Maak je gratis account aan"
+  ],
+  "I already have an account": [
+    "Ik heb al een account"
+  ],
+  "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings.": [
+    "Registratie en inloggen gebeuren op de BeyondSEO connect-pagina's. Je kunt dit ook later doen vanuit Instellingen."
+  ],
+  "Enter a valid email address or skip this step.": [
+    "Voer een geldig e-mailadres in of sla deze stap over."
+  ],
+  "Select the consent checkbox or skip this step.": [
+    "Selecteer het toestemmingsvakje of sla deze stap over."
+  ],
+  "Your email address could not be saved. Please try again.": [
+    "Uw e-mailadres kon niet worden opgeslagen. Probeer het alstublieft opnieuw."
+  ],
+  "Back to site check": [
+    "Terug naar sitecontrole"
+  ],
+  "Skip": [
+    "Overslaan"
+  ],
+  "Save and continue": [
+    "Opslaan en doorgaan"
+  ],
+  "Get general SEO tips by email": [
+    "Ontvang algemene SEO-tips per e-mail"
+  ],
+  "Get SEO recommendations by email": [
+    "Ontvang SEO-aanbevelingen per e-mail"
+  ],
+  "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step.": [
+    "De sitecontrole is niet voltooid, dus we kunnen nog geen pagina-specifieke bevindingen verzenden. U kunt nog steeds algemene SEO-tips ontvangen, of deze stap overslaan."
+  ],
+  "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account.": [
+    "Ontvang vervolgideeën na het bekijken van uw site. Deze stap is optioneel en creëert geen rankingCoach-account."
+  ],
+  "This address is saved for SEO recommendations. Save again to update it.": [
+    "Dit adres is opgeslagen voor SEO-aanbevelingen. Sla het opnieuw op om het bij te werken."
+  ],
+  "Email address": [
+    "E-mailadres"
+  ],
+  "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time.": [
+    "Stuur me SEO-aanbevelingen en af en toe updates over BeyondSEO / rankingCoach-producten. Ik kan me op elk moment afmelden."
+  ],
+  "Optional and separate from account creation.": [
+    "Optioneel en apart van het aanmaken van een account."
+  ],
+  "The homepage SEO details could not be loaded. You can continue and edit them later.": [
+    "De SEO-gegevens van de startpagina konden niet worden geladen. U kunt doorgaan en ze later bewerken."
+  ],
+  "Tagline": [
+    "Slogan"
+  ],
+  "No tagline set": [
+    "Geen slogan ingesteld"
+  ],
+  "Your homepage shows your latest posts, so search engines see the site title and tagline.": [
+    "Je homepage toont je nieuwste berichten, zodat zoekmachines de sitetitel en tagline zien."
+  ],
+  "Change them in General settings": [
+    "Wijzig ze in de algemene instellingen"
+  ],
+  "Homepage SEO title": [
+    "Homepage SEO-titel"
+  ],
+  "Meta description": [
+    "Meta beschrijving"
+  ],
+  "Describe your website in one or two sentences": [
+    "Beschrijf uw website in één of twee zinnen."
+  ],
+  "Exit setup": [
+    "Verlaat installatie"
+  ],
+  "Continue": [
+    "Doorgaan"
+  ],
+  "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website.": [
+    "Verbeter hoe uw site verschijnt in zoekresultaten en vind problemen op uw pagina's. We hebben al ingevuld wat we weten over uw website."
+  ],
+  "Search preview": [
+    "Zoekvoorbeeld"
+  ],
+  "XML sitemap": [
+    "XML-sitemap"
+  ],
+  "Helps search engines discover all your pages.": [
+    "Helpt zoekmachines al je pagina's te ontdekken."
+  ],
+  "Search engine visibility": [
+    "Zoekmachinezichtbaarheid"
+  ],
+  "Search engines are allowed to index this site.": [
+    "Zoekmachines mogen deze site indexeren."
+  ],
+  "WordPress currently asks search engines not to index this site.": [
+    "WordPress vraagt momenteel zoekmachines om deze site niet te indexeren."
+  ],
+  "Reading settings": [
+    "Leesinstellingen"
+  ],
+  "Discouraged": [
+    "ontmoedigd"
+  ],
+  "A rankingCoach account can add visibility and performance information later. First, let’s review your site.": [
+    "Een rankingCoach-account kan later zichtbaarheid en prestatie-informatie toevoegen. Laten we eerst uw site bekijken."
+  ],
+  "SEO import failed. Some data may have been imported; please retry.": [
+    "SEO-import is mislukt. Sommige gegevens zijn mogelijk geïmporteerd; probeer het opnieuw."
+  ],
+  "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted.": [
+    "%1$d instellingen en %2$d pagina-invoeren geïmporteerd. %3$d invoeren waren al ingesteld in BeyondSEO of konden niet worden geconverteerd."
+  ],
+  "Continue without import": [
+    "Ga door zonder import"
+  ],
+  "Keep your existing SEO work": [
+    "Houd je bestaande SEO-werk."
+  ],
+  "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched.": [
+    "Er is een andere SEO-plugin op deze site gevonden. BeyondSEO kan zijn SEO-titels, beschrijvingen, zoekwoorden en ondersteunde site-instellingen overbrengen. Waarden die je al in BeyondSEO hebt opgeslagen, blijven behouden, en de gegevens van de andere plugin blijven onaangeroerd."
+  ],
+  "Import finished": [
+    "Import voltooid"
+  ],
+  "Plugin to import from": [
+    "Plugin om te importeren van"
+  ],
+  "Active on this site": [
+    "Actief op deze site"
+  ],
+  "Installed but not active": [
+    "Geïnstalleerd maar niet actief"
+  ],
+  "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards.": [
+    "Titels en beschrijvingen die niet-ondersteunde sjabloonvariabelen gebruiken, worden overgeslagen. Je kunt elke pagina daarna bekijken."
+  ],
+  "The page details could not be loaded.": [
+    "De paginagegevens konden niet worden geladen."
+  ],
+  "Enter a title or add a variable.": [
+    "Voer een titel in of voeg een variabele toe."
+  ],
+  "Enter a meta description.": [
+    "Voer een meta-beschrijving in."
+  ],
+  "SEO title": [
+    "SEO-titel"
+  ],
+  "The page keywords could not be loaded.": [
+    "De pagina-sleutelwoorden konden niet worden geladen."
+  ],
+  "The keyword could not be saved. Please try again.": [
+    "Het trefwoord kon niet worden opgeslagen. Probeer het opnieuw."
+  ],
+  "The keyword could not be removed. Please try again.": [
+    "Het trefwoord kon niet worden verwijderd. Probeer het opnieuw."
+  ],
+  "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab.": [
+    "Voer de zoekwoorden in waarvoor deze pagina moet ranken. De eerste wordt het primaire zoekwoord, de andere aanvullende zoekwoorden; dit zijn dezelfde zoekwoorden die je in het tabblad Algemeen van de pagina ziet."
+  ],
+  "No primary keyword yet. The first keyword you add becomes it.": [
+    "Nog geen primaire zoekwoord. Het eerste zoekwoord dat je toevoegt, wordt het."
+  ],
+  "No additional keywords yet.": [
+    "Nog geen extra zoekwoorden."
+  ],
+  "Done": [
+    "Klaar"
+  ],
+  "The site check could not finish on the server. Large sites can take longer than the server allows.": [
+    "De sitecontrole kon niet worden voltooid op de server. Grote sites kunnen langer duren dan de server toestaat."
+  ],
+  "We could not complete the site check.": [
+    "We konden de sitecontrole niet voltooien."
+  ],
+  "Scan cancelled. A check that already started on the server will still finish in the background.": [
+    "Scan geannuleerd. Een controle die al op de server is gestart, zal nog steeds op de achtergrond worden voltooid."
+  ],
+  "The page could not be rechecked. Please try again in a moment.": [
+    "De pagina kon niet opnieuw worden gecontroleerd. Probeer het over een moment nog eens."
+  ],
+  "Updated": [
+    "Bijgewerkt"
+  ],
+  "Recheck": [
+    "Hercontroleer"
+  ],
+  "All checked pages pass": [
+    "Alle gecontroleerde pagina's zijn goedgekeurd"
+  ],
+  "Issues found on your pages": [
+    "Problemen gevonden op uw pagina's"
+  ],
+  "Your pages pass every check": [
+    "Je pagina's doorstaan elke controle"
+  ],
+  "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else.": [
+    "Elke controle lijst de pagina's waarop het van toepassing is. Pas titels, beschrijvingen en zoekwoorden hier aan, of open de pagina in de editor voor de rest."
+  ],
+  "The completed checks found nothing to fix. You can run the scan again after updating your site.": [
+    "De voltooide controles hebben niets gevonden om te repareren. Je kunt de scan opnieuw uitvoeren na het bijwerken van je site."
+  ],
+  "Some pages need another look": [
+    "Sommige pagina's hebben een nieuwe blik nodig."
+  ],
+  "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again.": [
+    "Elke pagina scoorde 0, wat meestal betekent dat de site zijn eigen pagina's niet kon laden tijdens de controle. Zorg ervoor dat de site bereikbaar is vanaf zijn server en voer de scan opnieuw uit."
+  ],
+  "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later.": [
+    "%1$d van %2$d pagina's konden niet worden gecontroleerd. U kunt doorgaan met de voltooide controles en het later opnieuw proberen."
+  ],
+  "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview.": [
+    "De meest recente pagina's en berichten worden weergegeven. Elke andere pagina is opgenomen in het overzicht van berichten en pagina's."
+  ],
+  "Checking your site": [
+    "Uw site controleren"
+  ],
+  "Every published page and post is analysed on your server. This can take a few minutes on larger sites.": [
+    "Elke gepubliceerde pagina en post wordt op uw server geanalyseerd. Dit kan enkele minuten duren op grotere sites."
+  ],
+  "Collecting the results for your pages…": [
+    "De resultaten voor uw pagina's verzamelen…"
+  ],
+  "Analysing your published pages…": [
+    "Uw gepubliceerde pagina's analyseren…"
+  ],
+  "The site check could not finish": [
+    "De sitecontrole kon niet worden voltooid."
+  ],
+  "Retry now, or continue and run the check later from the dashboard.": [
+    "Probeer het nu opnieuw, of ga door en voer de controle later vanuit het dashboard uit."
+  ],
+  "Identify issues on your pages": [
+    "Identificeer problemen op uw pagina's"
+  ],
+  "BeyondSEO checks every published page and post for the following, then shows which pages need work.": [
+    "BeyondSEO controleert elke gepubliceerde pagina en post op het volgende en toont welke pagina's verbetering nodig hebben."
+  ],
+  "Retry scan": [
+    "Scan opnieuw proberen"
+  ],
+  "Run scan again": [
+    "Voer de scan opnieuw uit"
+  ],
+  "Scanning…": [
+    "Scannen…"
+  ],
+  "Start scan": [
+    "Scan starten"
+  ],
+  "Setup steps": [
+    "Installatiestappen"
+  ],
+  "Step %1$d of %2$d · %3$s": [
+    "Stap %1$d van %2$d · %3$s"
+  ],
+  "Setup wizard": [
+    "Installatiewizard"
+  ],
+  "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue.": [
+    "Je account is verbonden, maar een project is vereist om het BeyondSEO-dashboard te gebruiken. Maak een project aan in Instellingen > Account om door te gaan."
+  ],
+  "Go to Account": [
+    "Ga naar Account"
+  ],
+  "The project location ID is invalid.": [
+    "De projectlocatie-ID is ongeldig."
+  ],
+  "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "De service heeft de projectverwijdering niet bevestigd. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "SEO titles": [
+    "SEO-titels"
+  ],
+  "SEO descriptions": [
+    "SEO-beschrijvingen"
+  ],
+  "Canonical URLs": [
+    "Canonieke URL's"
+  ],
+  "Noindex directives": [
+    "Noindex-richtlijnen"
+  ],
+  "Social titles": [
+    "Sociale titels"
+  ],
+  "Social descriptions": [
+    "Sociale beschrijvingen"
+  ],
+  "Facebook profile": [
+    "Facebook-profiel"
+  ],
+  "Twitter profile": [
+    "Twitter-profiel"
+  ],
+  "Instagram profile": [
+    "Instagram-profiel"
+  ],
+  "LinkedIn profile": [
+    "LinkedIn-profiel"
+  ],
+  "YouTube profile": [
+    "YouTube-profiel"
+  ],
+  "Organization or person name": [
+    "Organisatie of persoonsnaam"
+  ],
+  "Sitemap enabled": [
+    "Sitemap ingeschakeld"
+  ],
+  "Google verification code": [
+    "Google verificatiecode"
+  ],
+  "Bing verification code": [
+    "Bing verificatiecode"
+  ],
+  "The account or project connection has changed. Refresh Account before trying again.": [
+    "De account- of projectverbinding is gewijzigd. Vernieuw het account voordat je het opnieuw probeert."
+  ],
+  "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project.": [
+    "Projectverwijdering is geaccepteerd, maar de lokale projectidentificatoren konden niet volledig worden verwijderd. Je account en lokale gegevens zijn behouden. Vernieuw je account en neem contact op met de ondersteuning voordat je een nieuw project aanmaakt."
+  ],
+  "Connect your account before creating a project.": [
+    "Verbind je account voordat je een project aanmaakt."
+  ],
+  "The service did not return a valid project for your account. Refresh Account and try again or contact support.": [
+    "De service heeft geen geldig project voor uw account teruggegeven. Vernieuw uw account en probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "De service kon de projectverwijdering niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "Kan het verwijderen van het project niet bevestigen. Je lokale verbinding is niet verwijderd. Probeer het opnieuw of neem contact op met de ondersteuning."
+  ],
+  "Unable to inspect SEO import options. Please retry.": [
+    "Kan de SEO-importopties niet inspecteren. Probeer het opnieuw."
+  ],
+  "SEO import options must be an array of strings.": [
+    "SEO-importopties moeten een array van strings zijn."
+  ],
+  "Invalid SEO import source.": [
+    "Ongeldige SEO-importbron."
+  ],
+  "SEO import options must contain only supported option identifiers for the selected source.": [
+    "SEO-importopties mogen alleen ondersteunde optie-identificatoren voor de geselecteerde bron bevatten."
+  ],
+  "SEO plugin is not installed.": [
+    "SEO-plugin is niet geïnstalleerd."
+  ],
+  "You do not have permission to access support information.": [
+    "U heeft geen toestemming om toegang te krijgen tot ondersteuningsinformatie."
+  ],
+  "Invalid Review event.": [
+    "Ongeldig beoordelings evenement."
+  ],
+  "Unable to save Review state.": [
+    "Kan de beoordelingsstatus niet opslaan."
+  ],
+  "feed link\u0004-": [
+    "feedlink"
+  ],
+  "Pages affected: %d": [
+    "Pagina's beïnvloed: %d"
+  ],
+  "Checks needing attention: %1$d of %2$d": [
+    "Controles die aandacht vereisen: %1$d van %2$d"
+  ],
+  "Pages checked: %d": [
+    "Geverifieerde pagina's: %d"
   ]
 }

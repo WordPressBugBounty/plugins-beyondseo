@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:15+0000\n"
+"PO-Revision-Date: 2026-10-20 09:33+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -8333,7 +8333,7 @@ msgid "Enter activation code"
 msgstr "Masukkan kode aktivasi"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Kami tidak dapat menemukan akun rankingCoach untuk alamat email ini."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Akun ini tidak memiliki langganan WordPress yang aktif."
@@ -8348,7 +8348,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "Pendaftaran email tidak tersedia untuk instalasi ini. Silakan gunakan kode aktivasimu."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "WordPress Cron dinonaktifkan di situs ini (DISABLE_WP_CRON diatur ke true). RankingCoach bergantung pada WP-Cron untuk menjalankan tugas terjadwal seperti sinkronisasi kata kunci dan pemeriksaan tautan yang rusak. Harap pastikan pekerjaan cron sistem dikonfigurasi untuk menjalankan wp-cron.php secara berkala, jika tidak, tugas terjadwal ini tidak akan dijalankan."
 
 msgid "Details: %s"
 msgstr "Detail: %s"
@@ -8372,46 +8372,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Kode aktivasi untuk langganan ini telah dikirim ulang dalam jumlah maksimum. Silakan hubungi dukungan pelanggan."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Tidak dapat menemukan kode aktivasi Anda?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Pulihkan di sini"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Periksa email Anda untuk kode aktivasi Anda. Tidak menerimanya? Pulihkan kode tersebut."
 
 msgid "here"
-msgstr ""
-
+msgstr "di sini"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Butuh bantuan? Hubungi tim dukungan kami dan salin informasi situs Anda di bawah ini."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Hubungi Dukungan"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Info situs"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Gagal memuat informasi situs. Silakan coba lagi."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Coba lagi"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Salin info situs ke clipboard"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Disalin ke papan klip"
 
 msgid "You do not have permission to access support information."
+msgstr "Anda tidak memiliki izin untuk mengakses informasi dukungan."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "Analisis SEO dimulai setelah penyimpanan pertama pos ini."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Perubahan Anda tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Edit SEO title and description"
+msgstr "Edit judul dan deskripsi SEO"
+
+msgid "Open in editor"
+msgstr "Buka di editor"
+
+msgid "Add a meta description"
+msgstr "Tambahkan deskripsi meta"
+
+msgid "No meta description"
+msgstr "Tidak ada deskripsi meta"
+
+msgid "Updating score…"
+msgstr "Memperbarui skor…"
+
+msgid "Saved"
+msgstr "Disimpan"
+
+msgid "Yes, I love it"
+msgstr "Ya, saya menyukainya"
+
+msgid "Not really"
+msgstr "Tidak benar-benar"
+
+msgid "Maybe later"
+msgstr "Mungkin nanti"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Tinjau BeyondSEO di WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Menikmati BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Kami ingin mendengar tentang pengalaman Anda."
+
+msgid "Dismiss review request"
+msgstr "Tolak permintaan ulasan"
+
+msgid "Your site score is above %s!"
+msgstr "Skor situs Anda di atas %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Skor konten Anda di atas %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Menikmati BeyondSEO? Kami ingin mendengar tentang pengalaman Anda."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Koneksi proyek tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Tidak dapat mengonfirmasi pembuatan proyek. Akun dan data lokal Anda telah disimpan. Segarkan Akun dan coba lagi atau hubungi dukungan."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Layanan tidak dapat mengonfirmasi penghapusan proyek. Koneksi lokal Anda belum dihapus. Coba lagi atau hubungi dukungan."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Respons layanan tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi. Jika koneksi tidak lengkap, hubungi dukungan sebelum menyambung kembali."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Penghapusan proyek telah diterima, tetapi koneksi lokal tidak dapat sepenuhnya dihapus. Hubungi dukungan sebelum mencoba lagi atau menyambung kembali. Segarkan Akun untuk memeriksa koneksi saat ini."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Proyek yang terhubung telah berubah atau tidak lagi terhubung. Segarkan Akun dan tinjau proyek sebelum mencoba lagi."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Operasi proyek sudah berlangsung. Tunggu hingga selesai dan segarkan Akun. Jika ini terus berlanjut, hubungi dukungan."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Tidak dapat memulai operasi proyek dengan aman. Silakan coba lagi atau hubungi dukungan."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Sambungkan akun Anda sebelum membuat proyek. Segarkan Akun untuk memeriksa koneksi Anda."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Layanan mengembalikan sebuah proyek, tetapi koneksi lokalnya tidak dapat disimpan sepenuhnya. Segarkan Akun dan coba lagi atau hubungi dukungan. Akun dan data lokal Anda telah disimpan."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Aktifkan komunikasi dengan rankingCoach di Pengaturan sebelum membuat proyek."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Aktifkan komunikasi dengan rankingCoach di Pengaturan sebelum menghapus proyek. Koneksi lokal Anda belum dihapus."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Layanan tidak dapat mengautentikasi pembuatan proyek. Data akun Anda telah disimpan. Hubungi dukungan untuk memulihkan akses sebelum mencoba lagi."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Layanan tidak dapat mengautentikasi penghapusan proyek. Koneksi lokal Anda belum dihapus. Hubungi dukungan untuk memulihkan akses sebelum mencoba lagi."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Tidak dapat memuat koneksi proyek lokal. Silakan coba lagi."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Akses akun tidak dapat diverifikasi. Muat ulang halaman ini dan masuk sebagai administrator sebelum mencoba lagi."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Tidak dapat memuat koneksi proyek lokal. Periksa koneksi Anda dan coba lagi."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Hasil pembuatan tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi. Akun dan data lokal Anda telah disimpan."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Hasil penghapusan tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi. Jika koneksi tidak lengkap, hubungi dukungan sebelum menyambung kembali."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Respons layanan tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Hasil penghapusan tidak dapat diverifikasi. Segarkan Akun sebelum mencoba lagi."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Proyek Anda terhubung. Anda dapat membuka onboarding ketika Anda siap. Data dan status onboarding Anda yang ada telah disimpan."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Penghapusan proyek telah diterima dan ditunda. Koneksi proyek lokal telah dihapus. Akun Anda, pengaturan, dan data SEO Anda tetap terjaga, dan plugin tetap aktif."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Proyek jarak jauh telah dihapus dan koneksi proyek lokal telah dihapus. Akun Anda, pengaturan, dan data SEO Anda tetap terjaga, dan plugin tetap aktif."
+
+msgid "Account"
+msgstr "Akun"
+
+msgid "Manage the project connected to this website."
+msgstr "Kelola proyek yang terhubung dengan situs web ini."
+
+msgid "Loading project connection…"
+msgstr "Memuat koneksi proyek…"
+
+msgid "Refresh Account"
+msgstr "Segarkan Akun"
+
+msgid "Account details"
+msgstr "Detail akun"
+
+msgid "Activation code"
+msgstr "Kode aktivasi"
+
+msgid "Not available"
+msgstr "Tidak tersedia"
+
+msgid "Project details"
+msgstr "Detail proyek"
+
+msgid "Project ID"
+msgstr "ID Proyek"
+
+msgid "Not connected"
+msgstr "Tidak terhubung"
+
+msgid "Location ID"
+msgstr "ID Lokasi"
+
+msgid "Website"
+msgstr "Situs web"
+
+msgid "Open onboarding"
+msgstr "Buka onboarding"
+
+msgid "Delete project"
+msgstr "Hapus proyek"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Hapus proyek jarak jauh dan hilangkan koneksi situs web ini. Pengaturan lokal dan data SEO Anda akan disimpan. Ini tidak membatalkan akun atau langganan Anda."
+
+msgid "Deleting project…"
+msgstr "Menghapus proyek…"
+
+msgid "Create project"
+msgstr "Buat proyek"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Akun Anda terhubung, tetapi situs web ini tidak memiliki proyek. Buat proyek menggunakan akun Anda yang ada. Pengaturan lokal Anda, data SEO, dan kemajuan onboarding akan disimpan."
+
+msgid "Creating project…"
+msgstr "Membuat proyek…"
+
+msgid "Create Project"
+msgstr "Buat Proyek"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Membuat proyek… Harap tunggu konfirmasi."
+
+msgid "No project connected"
+msgstr "Tidak ada proyek yang terhubung"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Sambungkan akun untuk menghubungkan situs web ini ke proyek. Pengaturan dan data SEO Anda yang ada masih tersedia."
+
+msgid "Delete this project?"
+msgstr "Hapus proyek ini?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Ini menghapus proyek jarak jauh dan menghapus koneksi lokal untuk situs web ini. Penghapusan proyek jarak jauh tidak dapat dibatalkan."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Pengaturan lokal dan data SEO Anda akan dipertahankan. Plugin akan tetap aktif. Akun dan langganan Anda tidak akan dibatalkan."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Menghapus proyek… Harap tunggu konfirmasi."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Tidak dapat memuat Akun. Silakan coba lagi."
+
+msgid "Retry loading Account"
+msgstr "Coba muat ulang Akun"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Hubungi tim kami untuk mendapatkan bantuan dengan BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Salin detail teknis situs Anda untuk dibagikan dengan tim dukungan kami."
+
+msgid "Loading site info"
+msgstr "Memuat informasi situs"
+
+msgid "Edit SEO title"
+msgstr "Edit judul SEO"
+
+msgid "Edit meta description"
+msgstr "Edit deskripsi meta"
+
+msgid "Set keywords"
+msgstr "Atur kata kunci"
+
+msgid "Essentials"
+msgstr "Kebutuhan Dasar"
+
+msgid "Import"
+msgstr "Impor"
+
+msgid "Site check"
+msgstr "Pemeriksaan situs"
+
+msgid "Email tips"
+msgstr "Tips email"
+
+msgid "rankingCoach account"
+msgstr "akun rankingCoach"
+
+msgid "Check titles, keywords and headings"
+msgstr "Periksa judul, kata kunci, dan judul bagian"
+
+msgid "Review page-specific SEO issues"
+msgstr "Tinjau masalah SEO spesifik halaman"
+
+msgid "Fix issues directly on your pages"
+msgstr "Perbaiki masalah langsung di halaman Anda"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Pergi ke pengaturan BeyondSEO"
+
+msgid "Keep growing your visibility"
+msgstr "Terus tingkatkan visibilitas Anda"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO membantu Anda menemukan dan memperbaiki masalah halaman. Akun rankingCoach menambahkan informasi visibilitas yang berkelanjutan tentang keberadaan online Anda."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Akun rankingCoach Anda terhubung"
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Peringkat, pesaing, dan laporan tersedia dari dasbor BeyondSEO."
+
+msgid "With BeyondSEO"
+msgstr "Dengan BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Buat akun gratis Anda"
+
+msgid "I already have an account"
+msgstr "Saya sudah memiliki akun"
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Pendaftaran dan login dilakukan di halaman koneksi BeyondSEO. Anda juga dapat melakukannya nanti dari Pengaturan."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Masukkan alamat email yang valid atau lewati langkah ini."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Pilih kotak centang persetujuan atau lewati langkah ini."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Alamat email Anda tidak dapat disimpan. Silakan coba lagi."
+
+msgid "Back to site check"
+msgstr "Kembali ke pemeriksaan situs"
+
+msgid "Skip"
+msgstr "Lewati"
+
+msgid "Save and continue"
+msgstr "Simpan dan lanjutkan"
+
+msgid "Get general SEO tips by email"
+msgstr "Dapatkan tips SEO umum melalui email"
+
+msgid "Get SEO recommendations by email"
+msgstr "Dapatkan rekomendasi SEO melalui email"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Pemeriksaan situs belum selesai, jadi kami tidak dapat mengirimkan temuan spesifik halaman saat ini. Anda masih dapat menerima tips SEO umum, atau melewati langkah ini."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Terima ide tindak lanjut setelah meninjau situs Anda. Langkah ini bersifat opsional dan tidak membuat akun rankingCoach."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Alamat ini disimpan untuk rekomendasi SEO. Simpan lagi untuk memperbaruinya."
+
+msgid "Email address"
+msgstr "Alamat email"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Kirimkan rekomendasi SEO dan pembaruan produk BeyondSEO / rankingCoach sesekali ke email saya. Saya dapat berhenti berlangganan kapan saja."
+
+msgid "Optional and separate from account creation."
+msgstr "Opsional dan terpisah dari pembuatan akun."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "Detail SEO halaman utama tidak dapat dimuat. Anda dapat melanjutkan dan mengeditnya nanti."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Tidak ada tagline yang ditetapkan"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Beranda Anda menampilkan pos terbaru Anda, sehingga mesin pencari melihat judul situs dan tagline."
+
+msgid "Change them in General settings"
+msgstr "Ubah mereka di pengaturan Umum"
+
+msgid "Homepage SEO title"
+msgstr "Judul SEO Beranda"
+
+msgid "Meta description"
+msgstr "Deskripsi meta"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Deskripsikan situs web Anda dalam satu atau dua kalimat."
+
+msgid "Exit setup"
+msgstr "Keluar dari pengaturan"
+
+msgid "Continue"
+msgstr "Lanjutkan"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Tingkatkan bagaimana situs Anda muncul di hasil pencarian dan temukan masalah di halaman Anda. Kami telah mengisi sebelumnya apa yang sudah kami ketahui tentang situs web Anda."
+
+msgid "Search preview"
+msgstr "Prab preview"
+
+msgid "XML sitemap"
+msgstr "peta situs XML"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Membantu mesin pencari menemukan semua halaman Anda."
+
+msgid "Search engine visibility"
+msgstr "Visibilitas mesin pencari"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Mesin pencari diizinkan untuk mengindeks situs ini."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress saat ini meminta mesin pencari untuk tidak mengindeks situs ini."
+
+msgid "Reading settings"
+msgstr "Pengaturan membaca"
+
+msgid "Discouraged"
+msgstr "Putus asa"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Akun rankingCoach dapat menambahkan informasi visibilitas dan kinerja nanti. Pertama, mari kita tinjau situs Anda."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "Impor SEO gagal. Beberapa data mungkin telah diimpor; silakan coba lagi."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Mengimpor %1$d pengaturan dan %2$d entri halaman. %3$d entri sudah diatur di BeyondSEO atau tidak dapat dikonversi."
+
+msgid "Continue without import"
+msgstr "Lanjutkan tanpa impor"
+
+msgid "Keep your existing SEO work"
+msgstr "Pertahankan pekerjaan SEO Anda yang sudah ada"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "Plugin SEO lain ditemukan di situs ini. BeyondSEO dapat membawa judul SEO, deskripsi, kata kunci, dan pengaturan situs yang didukung. Nilai yang sudah Anda simpan di BeyondSEO tetap terjaga, dan data plugin lainnya tetap tidak terpengaruh."
+
+msgid "Import finished"
+msgstr "Impor selesai"
+
+msgid "Plugin to import from"
+msgstr "Plugin untuk mengimpor dari"
+
+msgid "Active on this site"
+msgstr "Aktif di situs ini"
+
+msgid "Installed but not active"
+msgstr "Terpasang tetapi tidak aktif"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Judul dan deskripsi yang menggunakan variabel template yang tidak didukung akan dilewati. Anda dapat meninjau setiap halaman setelahnya."
+
+msgid "The page details could not be loaded."
+msgstr "Detail halaman tidak dapat dimuat."
+
+msgid "Enter a title or add a variable."
+msgstr "Masukkan judul atau tambahkan variabel."
+
+msgid "Enter a meta description."
+msgstr "Masukkan deskripsi meta."
+
+msgid "SEO title"
+msgstr "judul SEO"
+
+msgid "The page keywords could not be loaded."
+msgstr "Kata kunci halaman tidak dapat dimuat."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Kata kunci tidak dapat disimpan. Silakan coba lagi."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Kata kunci tidak dapat dihapus. Silakan coba lagi."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Masukkan kata kunci yang harus diranking untuk halaman ini. Yang pertama menjadi kata kunci utama, yang lainnya adalah kata kunci tambahan; mereka adalah kata kunci yang sama yang Anda lihat di tab Umum halaman."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Belum ada kata kunci utama. Kata kunci pertama yang Anda tambahkan menjadi kata kunci utama."
+
+msgid "No additional keywords yet."
+msgstr "Belum ada kata kunci tambahan."
+
+msgid "Done"
+msgstr "Selesai"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Pemeriksaan situs tidak dapat diselesaikan di server. Situs besar dapat memakan waktu lebih lama daripada yang diizinkan oleh server."
+
+msgid "We could not complete the site check."
+msgstr "Kami tidak dapat menyelesaikan pemeriksaan situs."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Pemindaian dibatalkan. Pemeriksaan yang sudah dimulai di server akan tetap selesai di latar belakang."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Halaman tidak dapat diperiksa ulang. Silakan coba lagi dalam beberapa saat."
+
+msgid "Updated"
+msgstr "Diperbarui"
+
+msgid "Recheck"
+msgstr "Periksa kembali"
+
+msgid "All checked pages pass"
+msgstr "Semua halaman yang diperiksa lulus"
+
+msgid "Issues found on your pages"
+msgstr "Masalah ditemukan di halaman Anda"
+
+msgid "Your pages pass every check"
+msgstr "Halaman Anda lulus setiap pemeriksaan"
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Setiap pemeriksaan mencantumkan halaman yang berlaku. Perbaiki judul, deskripsi, dan kata kunci di sini, atau buka halaman di editor untuk semua yang lainnya."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "Pemeriksaan yang selesai tidak menemukan apa pun yang perlu diperbaiki. Anda dapat menjalankan pemindaian lagi setelah memperbarui situs Anda."
+
+msgid "Some pages need another look"
+msgstr "Beberapa halaman perlu dilihat lagi"
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Setiap halaman mendapatkan skor 0, yang biasanya berarti situs tidak dapat memuat halamannya sendiri selama pemeriksaan. Pastikan situs dapat diakses dari servernya, lalu jalankan pemindaian lagi."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Menampilkan halaman dan pos terbaru. Setiap halaman lainnya terdaftar dalam ikhtisar pos dan halaman."
+
+msgid "Checking your site"
+msgstr "Memeriksa situs Anda"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Setiap halaman dan pos yang diterbitkan dianalisis di server Anda. Ini dapat memakan waktu beberapa menit di situs yang lebih besar."
+
+msgid "Collecting the results for your pages…"
+msgstr "Mengumpulkan hasil untuk halaman Anda…"
+
+msgid "Analysing your published pages…"
+msgstr "Menganalisis halaman yang Anda terbitkan…"
+
+msgid "The site check could not finish"
+msgstr "Pemeriksaan situs tidak dapat diselesaikan"
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Coba lagi sekarang, atau lanjutkan dan jalankan pemeriksaan nanti dari dasbor."
+
+msgid "Identify issues on your pages"
+msgstr "Identifikasi masalah di halaman Anda"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO memeriksa setiap halaman dan pos yang diterbitkan untuk hal-hal berikut, kemudian menunjukkan halaman mana yang perlu diperbaiki."
+
+msgid "Retry scan"
+msgstr "Coba pemindaian lagi"
+
+msgid "Run scan again"
+msgstr "Jalankan pemindaian lagi"
+
+msgid "Scanning…"
+msgstr "Memindai…"
+
+msgid "Start scan"
+msgstr "Mulai pemindaian"
+
+msgid "Setup steps"
+msgstr "Langkah-langkah pengaturan"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Langkah %1$d dari %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Panduan pengaturan"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Akun Anda terhubung, tetapi proyek diperlukan untuk menggunakan dasbor BeyondSEO. Buat proyek di Pengaturan > Akun untuk melanjutkan."
+
+msgid "Go to Account"
+msgstr "Pergi ke Akun"
+
+msgid "The project location ID is invalid."
+msgstr "ID lokasi proyek tidak valid."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Layanan tidak mengonfirmasi penghapusan proyek. Koneksi lokal Anda belum dihapus. Silakan coba lagi atau hubungi dukungan."
+
+msgid "SEO titles"
+msgstr "Judul SEO"
+
+msgid "SEO descriptions"
+msgstr "deskripsi SEO"
+
+msgid "Canonical URLs"
+msgstr "URL Kanonik"
+
+msgid "Noindex directives"
+msgstr "Direktif noindex"
+
+msgid "Social titles"
+msgstr "Gelar sosial"
+
+msgid "Social descriptions"
+msgstr "Deskripsi sosial"
+
+msgid "Facebook profile"
+msgstr "Profil Facebook"
+
+msgid "Twitter profile"
+msgstr "Profil Twitter"
+
+msgid "Instagram profile"
+msgstr "profil Instagram"
+
+msgid "LinkedIn profile"
+msgstr "Profil LinkedIn"
+
+msgid "YouTube profile"
+msgstr "Profil YouTube"
+
+msgid "Organization or person name"
+msgstr "Nama organisasi atau orang"
+
+msgid "Sitemap enabled"
+msgstr "Peta situs diaktifkan"
+
+msgid "Google verification code"
+msgstr "Kode verifikasi Google"
+
+msgid "Bing verification code"
+msgstr "Kode verifikasi Bing"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Koneksi akun atau proyek telah berubah. Segarkan Akun sebelum mencoba lagi."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Penghapusan proyek telah diterima, tetapi pengenal proyek lokal tidak dapat sepenuhnya dihapus. Akun dan data lokal Anda telah disimpan. Segarkan Akun dan hubungi dukungan sebelum membuat proyek lain."
+
+msgid "Connect your account before creating a project."
+msgstr "Hubungkan akun Anda sebelum membuat proyek."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Layanan tidak mengembalikan proyek yang valid untuk akun Anda. Segarkan Akun dan coba lagi atau hubungi dukungan."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Layanan tidak dapat mengonfirmasi penghapusan proyek. Koneksi lokal Anda belum dihapus. Silakan coba lagi atau hubungi dukungan."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Tidak dapat mengonfirmasi penghapusan proyek. Koneksi lokal Anda belum dihapus. Silakan coba lagi atau hubungi dukungan."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Tidak dapat memeriksa opsi impor SEO. Silakan coba lagi."
+
+msgid "SEO import options must be an array of strings."
+msgstr "Opsi impor SEO harus berupa array string."
+
+msgid "Invalid SEO import source."
+msgstr "Sumber impor SEO tidak valid."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "Opsi impor SEO harus hanya berisi pengidentifikasi opsi yang didukung untuk sumber yang dipilih."
+
+msgid "SEO plugin is not installed."
+msgstr "Plugin SEO tidak terpasang."
+
+msgid "Invalid Review event."
+msgstr "Acara ulasan tidak valid."
+
+msgid "Unable to save Review state."
+msgstr "Tidak dapat menyimpan status Ulasan."
+
+msgid "Go to Dashboard"
+msgstr "Pergi ke Dasbor"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO membantu Anda menemukan dan memperbaiki masalah halaman. Akun rankingCoach Anda menambahkan informasi visibilitas yang berkelanjutan tentang keberadaan online Anda."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Peringkat, pesaing, dan laporan sudah tersedia dari dasbor BeyondSEO. Tidak ada yang perlu diatur di sini."
+
+msgid "With your rankingCoach account"
+msgstr "Dengan akun rankingCoach Anda"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Halaman yang terpengaruh: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Pemeriksaan yang memerlukan perhatian: %1$d dari %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Halaman yang diperiksa: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d dari %2$d halaman tidak dapat diperiksa. Anda dapat melanjutkan dengan pemeriksaan yang telah selesai dan mencoba lagi nanti."

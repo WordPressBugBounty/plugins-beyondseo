@@ -14,6 +14,7 @@ use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\JavaScriptHelper;
+use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\TokensManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Traits\SingletonTrait;
@@ -73,6 +74,13 @@ class OnboardingPage extends AdminPage {
 		return $this->name;
 	}
 
+    private function canRevisitCompletedOnboarding(): bool
+    {
+        return current_user_can('manage_options')
+            && WordpressHelpers::isActivationCompleted()
+            && WordpressHelpers::sanitize_input('GET', 'revisitOnboarding') === '1';
+    }
+
     /**
      * Handles the generation or processing of page content within the application.
      *
@@ -96,6 +104,9 @@ class OnboardingPage extends AdminPage {
                 /** @var TokensManager $tokensManager */
                 $tokensManager = TokensManager::getInstance();
                 $accessToken = $tokensManager->getAccessToken(static::class);
+                if (TokensManager::validateToken($accessToken) !== true) {
+                    throw new \RuntimeException('Invalid access token.');
+                }
             } catch (Throwable $e) {
                 // Use ChannelResolver for consistent channel detection
                 $store = new OptionStore();
@@ -143,6 +154,9 @@ class OnboardingPage extends AdminPage {
             /** @var TokensManager $tokensManager */
             $tokensManager = TokensManager::getInstance();
             $accessToken = $tokensManager->getAccessToken(static::class);
+            if (TokensManager::validateToken($accessToken) !== true) {
+                throw new \RuntimeException('Invalid access token.');
+            }
         } catch (Throwable $e) {
             // Use ChannelResolver for consistent channel detection
             $store = new OptionStore();
@@ -169,7 +183,7 @@ class OnboardingPage extends AdminPage {
             $result = $this->evaluateFlow();
             $step   = $result['next_step'] ?? '';
 
-            if ($step === 'onboarding') {
+            if ($step === 'onboarding' || $this->canResumeOnboarding() || ($step === 'done' && $this->canRevisitCompletedOnboarding())) {
                 return; // proceed to rendering
             }
 
@@ -210,7 +224,7 @@ class OnboardingPage extends AdminPage {
             $result = $this->evaluateFlow();
             $step   = $result['next_step'] ?? '';
 
-            if ($step === 'onboarding') {
+            if ($step === 'onboarding' || $this->canResumeOnboarding() || ($step === 'done' && $this->canRevisitCompletedOnboarding())) {
                 return; // allowed, continue rendering page
             }
 

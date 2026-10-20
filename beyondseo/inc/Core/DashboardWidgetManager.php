@@ -8,6 +8,7 @@ if ( !defined('ABSPATH') ) {
 }
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Traits\SingletonTrait;
@@ -34,6 +35,13 @@ class DashboardWidgetManager
      */
     public function add_dashboard_widget(): void
     {
+        try {
+            if (get_current_screen()?->id === 'dashboard') {
+                ReactApp::get(['dashboardReview']);
+            }
+        } catch (\Throwable $e) {
+        }
+
         wp_add_dashboard_widget(
             BaseConstants::OPTION_UPSELL_WIDGET_ID,
              // translators: %s is the brand name of the plugin

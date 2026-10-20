@@ -72,6 +72,34 @@ class TokensManager
             delete_option( self::REFRESH_TOKEN );
     }
 
+    public function disconnectProject(): bool
+    {
+        $options = [
+            BaseConstants::OPTION_RANKINGCOACH_PROJECT_ID,
+            BaseConstants::OPTION_RANKINGCOACH_LOCATION_ID,
+        ];
+        $success = true;
+
+        foreach ($options as $option) {
+            try {
+                delete_option($option);
+            } catch (\Throwable $e) {
+                $success = false;
+            }
+        }
+
+        wp_cache_delete('alloptions', 'options');
+        wp_cache_delete('notoptions', 'options');
+        foreach ($options as $option) {
+            wp_cache_delete($option, 'options');
+            if (get_option($option, null) !== null) {
+                $success = false;
+            }
+        }
+
+        return $success;
+    }
+
 	/**
 	 * Validate the accessToken hash.
 	 * @param string|null $token

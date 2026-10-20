@@ -19,6 +19,7 @@ use RankingCoach\Inc\Core\Helpers\SocialMediaHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
+use RankingCoach\Inc\Core\Storage\MetaTagsStorage;
 use RankingCoach\Inc\Interfaces\MetaHeadBuilderInterface;
 use RankingCoach\Inc\Modules\ModuleBase\BaseModule;
 use RankingCoach\Inc\Modules\ModuleManager;
@@ -196,13 +197,13 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         }
 
         try {
-            $data = json_decode($row->template, true, 512, JSON_THROW_ON_ERROR) ?: [];
-        } catch (Exception $e) {
+            $data = MetaTagsStorage::decodeKeywordsTemplate($row->template);
+        } catch (\Throwable $e) {
             return $value;
         }
 
-        $primaryKeyword = $data['primaryKeyword'] ?? '';
-        $additionalKeywords = $data['additionalKeywords'] ?? [];
+        $primaryKeyword = $data['primaryKeyword'];
+        $additionalKeywords = $data['additionalKeywords'];
 
         switch ($meta_key) {
             case BaseConstants::META_KEY_PRIMARY_KEYWORD:
@@ -213,7 +214,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
                 break;
             case BaseConstants::META_KEY_SEO_KEYWORDS:
             default:
-                $allKeywords = array_filter(array_merge([$primaryKeyword], $additionalKeywords));
+                $allKeywords = array_filter(
+                    array_merge([$primaryKeyword], $additionalKeywords),
+                    static fn(string $keyword): bool => $keyword !== ''
+                );
                 $resolved = implode(',', $allKeywords);
                 break;
         }
@@ -403,17 +407,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function upsertTag(int $postId, string $type, string $template): void
     {
-        DatabaseManager::getInstance()->insertOrUpdate(
-            DatabaseTablesManager::DATABASE_MOD_METATAGS,
-            [
-                'post_id'  => $postId,
-                'type'     => $type,
-                'template' => $template,
-            ],
-            [
-                'template' => $template,
-            ]
-        );
+        (new MetaTagsStorage())->save($postId, $type, $template);
     }
 
     /**
@@ -424,13 +418,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function deleteTag(int $postId, string $type): void
     {
-        DatabaseManager::getInstance()->delete(
-            DatabaseTablesManager::DATABASE_MOD_METATAGS,
-            [
-                'post_id' => $postId,
-                'type'    => $type,
-            ]
-        );
+        (new MetaTagsStorage())->delete($postId, $type);
     }
 
     /**
@@ -441,12 +429,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     public function deleteAllTags(int $postId): void
     {
-        DatabaseManager::getInstance()->delete(
-            DatabaseTablesManager::DATABASE_MOD_METATAGS,
-            [
-                'post_id' => $postId,
-            ]
-        );
+        (new MetaTagsStorage())->deleteAll($postId);
     }
 
     /**
@@ -742,7 +725,6 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         // Get SEO description with fallback logic using the centralized helper
         $customSeoDescription = get_post_meta($this->contentId, self::META_SEO_DESCRIPTION, true);
         $description = esc_attr(WordpressHelpers::getMetaDescription($this->contentId, $customSeoDescription ?: null, 160));
-        $keywords = esc_attr($this->getMetaKeywords($this->contentId));
         $socialTitle = esc_attr($this->getSocialTitle($this->contentId));
         $socialDescription = esc_attr($this->getSocialDescription($this->contentId));
 
@@ -755,9 +737,6 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         // Generate basic meta tags
         $metaTags = '<meta name="description" data-postid="' . $this->contentId . '" content="' . $description . '" />' . "\r\n\t";
 
-        if (!empty($keywords)) {
-            $metaTags .= '<meta name="keywords" data-postid="' . $this->contentId . '" content="' . $keywords . '" />' . "\r\n\t";
-        }
         $metaTags .= '<meta name="author" content="' . $authorName . '" />' . "\r\n\t";
 
         // Robots meta tag with support for various directives
@@ -1261,48 +1240,7 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function parseLegacyTemplateToArray(string $template): array
     {
-        $trimmed = trim($template);
-        if (str_starts_with($trimmed, '[') && str_ends_with($trimmed, ']')) {
-            try {
-                $decoded = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
-                if (is_array($decoded)) {
-                    return $decoded;
-                }
-            } catch (\Throwable $e) {
-            }
-        }
-
-        if ($template === '') {
-            return [];
-        }
-
-        $pattern = '/({% (variable|separator):([a-zA-Z0-9_-]+) %})/';
-        $parts = preg_split($pattern, $template, -1, PREG_SPLIT_DELIM_CAPTURE);
-
-        $result = [];
-        $i = 0;
-        while ($i < count($parts)) {
-            $text = $parts[$i];
-            if ($text !== '') {
-                $result[] = [
-                    'type'    => 'text',
-                    'content' => $text,
-                ];
-            }
-            if (isset($parts[$i + 1])) {
-                $type = $parts[$i + 2];
-                $key = $parts[$i + 3];
-                $result[] = [
-                    'type' => $type,
-                    'key'  => $key,
-                ];
-                $i += 4;
-            } else {
-                $i++;
-            }
-        }
-
-        return $result;
+        return WordpressHelpers::parseLegacyTemplateToArray($template);
     }
 
     /**
@@ -1330,12 +1268,12 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
 
         if ($type === 'keywords') {
             try {
-                $keywordsData = json_decode($template, true, 512, JSON_THROW_ON_ERROR) ?: [];
+                $keywordsData = MetaTagsStorage::decodeKeywordsTemplate($template);
             } catch (\Throwable $e) {
-                $keywordsData = [];
+                $keywordsData = ['primaryKeyword' => '', 'additionalKeywords' => []];
             }
-            $mapped['primaryKeyword']     = $keywordsData['primaryKeyword'] ?? '';
-            $mapped['additionalKeywords'] = $keywordsData['additionalKeywords'] ?? [];
+            $mapped['primaryKeyword']     = $keywordsData['primaryKeyword'];
+            $mapped['additionalKeywords'] = $keywordsData['additionalKeywords'];
         }
 
         return $mapped;

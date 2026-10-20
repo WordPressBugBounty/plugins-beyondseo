@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:14+0000\n"
+"PO-Revision-Date: 2026-10-20 09:31+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -10,6 +10,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.9\n"
+"Report-Msgid-Bugs-To: \n"
+"Plural-Forms: \n"
 
 #: app/src/Domain/Integrations/WordPress/Seo/Entities/Optimiser/Base/FactorSuggestion.php:158
 #, fuzzy
@@ -8333,7 +8335,7 @@ msgid "Enter activation code"
 msgstr "Introdu codul de activare"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Nu am putut găsi un cont rankingCoach pentru această adresă de email."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Acest cont nu are un abonament WordPress activ."
@@ -8348,7 +8350,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "Înregistrarea prin e-mail nu este disponibilă pentru această instalare. Te rog să folosești codul tău de activare."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "Cron-ul WordPress este dezactivat pe acest site (DISABLE_WP_CRON este setat pe adevărat). RankingCoach se bazează pe WP-Cron pentru a rula sarcini programate, cum ar fi sincronizarea cuvintelor cheie și verificarea linkurilor defecte. Vă rugăm să vă asigurați că un job cron de sistem este configurat pentru a rula wp-cron.php periodic, altfel aceste sarcini programate nu vor rula."
 
 msgid "Details: %s"
 msgstr "Detalii: %s"
@@ -8372,46 +8374,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Codul de activare pentru acest abonament a fost deja retrimis de numărul maxim de ori. Te rugăm să contactezi asistența pentru clienți."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Nu poți găsi codul tău de activare?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Recuperează-l aici"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Verifică-ți emailul pentru codul tău de activare. Nu l-ai primit? Recuperează-l."
 
 msgid "here"
-msgstr ""
-
+msgstr "aici"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Ai nevoie de ajutor? Contactează echipa noastră de suport și copiază informațiile site-ului tău mai jos."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Contactați suportul"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Informații despre site"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Nu s-a reușit încărcarea informațiilor despre site. Vă rugăm să încercați din nou."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Reîncercați"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Copiați informațiile site-ului în clipboard"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Copiat în clipboard"
 
 msgid "You do not have permission to access support information."
+msgstr "Nu aveți permisiunea de a accesa informațiile de suport."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "Analiza SEO începe după prima salvare a acestui post."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Modificările tale nu au putut fi salvate. Te rugăm să încerci din nou."
+
+msgid "Edit SEO title and description"
+msgstr "Editează titlul și descrierea SEO"
+
+msgid "Open in editor"
+msgstr "Deschide în editor"
+
+msgid "Add a meta description"
+msgstr "Adăugați o descriere meta"
+
+msgid "No meta description"
+msgstr "Fără descriere meta"
+
+msgid "Updating score…"
+msgstr "Actualizarea scorului…"
+
+msgid "Saved"
+msgstr "Salvat"
+
+msgid "Yes, I love it"
+msgstr "Da, îmi place."
+
+msgid "Not really"
+msgstr "Nu chiar"
+
+msgid "Maybe later"
+msgstr "Poate mai târziu"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Recenzia BeyondSEO pe WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Te bucuri de BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Ne-ar plăcea să auzim despre experiența ta."
+
+msgid "Dismiss review request"
+msgstr "Respingeți cererea de recenzie"
+
+msgid "Your site score is above %s!"
+msgstr "Scorul site-ului tău este peste %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Scorul tău de conținut este peste %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Îți place BeyondSEO? Ne-ar plăcea să auzim despre experiența ta."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "Conexiunea la proiect nu a putut fi verificată. Reîmprospătează contul înainte de a încerca din nou."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Nu se poate confirma crearea proiectului. Contul și datele locale au fost păstrate. Reîmprospătează contul și încearcă din nou sau contactează suportul."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Serviciul nu a putut confirma ștergerea proiectului. Conexiunea ta locală nu a fost eliminată. Încearcă din nou sau contactează suportul."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Răspunsul serviciului nu a putut fi verificat. Reîmprospătează contul înainte de a încerca din nou. Dacă conexiunea este incompletă, contactează suportul înainte de a te reconecta."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "Ștergerea proiectului a fost acceptată, dar conexiunea locală nu a putut fi eliminată complet. Contactați suportul înainte de a încerca din nou sau de a reconecta. Actualizați contul pentru a verifica conexiunea curentă."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Proiectul conectat s-a schimbat sau nu mai este conectat. Reîmprospătează contul și revizuiește proiectul înainte de a încerca din nou."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "O operațiune de proiect este deja în curs de desfășurare. Așteptați să se finalizeze și reîmprospătați contul. Dacă aceasta persistă, contactați suportul."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Imposibil de a începe în siguranță operațiunea proiectului. Vă rugăm să încercați din nou sau să contactați suportul."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Conectează-ți contul înainte de a crea un proiect. Reîmprospătează contul pentru a verifica conexiunea ta."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Serviciul a returnat un proiect, dar conexiunea locală nu a putut fi salvată complet. Reîmprospătează contul și încearcă din nou sau contactează suportul. Contul tău și datele locale au fost păstrate."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Activați comunicarea cu rankingCoach în Setări înainte de a crea un proiect."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Activați comunicarea cu rankingCoach în Setări înainte de a șterge proiectul. Conexiunea dumneavoastră locală nu a fost eliminată."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Serviciul nu a putut autentifica crearea proiectului. Datele contului tău au fost păstrate. Contactează suportul pentru a restabili accesul înainte de a încerca din nou."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Serviciul nu a putut autentifica ștergerea proiectului. Conexiunea ta locală nu a fost eliminată. Contactează suportul pentru a restabili accesul înainte de a încerca din nou."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Imposibil de a încărca conexiunea proiectului local. Vă rugăm să încercați din nou."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "Accesul la cont nu a putut fi verificat. Reîncărcați această pagină și conectați-vă ca administrator înainte de a încerca din nou."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Imposibil de a încărca conexiunea proiectului local. Verifică-ți conexiunea și încearcă din nou."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Rezultatul creării nu a putut fi verificat. Reîmprospătează contul înainte de a încerca din nou. Contul tău și datele locale au fost păstrate."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Rezultatul ștergerii nu a putut fi verificat. Reîmprospătează contul înainte de a încerca din nou. Dacă conexiunea este incompletă, contactează suportul înainte de a te reconecta."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "Răspunsul serviciului nu a putut fi verificat. Reîmprospătează contul înainte de a încerca din nou."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Rezultatul ștergerii nu a putut fi verificat. Reîmprospătează contul înainte de a încerca din nou."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Proiectul tău este conectat. Poți deschide onboarding-ul când ești pregătit. Datele și starea ta existentă de onboarding au fost păstrate."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Ștergerea proiectului a fost acceptată și amânată. Conexiunea locală a proiectului a fost eliminată. Contul tău, setările și datele SEO sunt păstrate, iar pluginul rămâne activ."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Proiectul de la distanță a fost șters, iar conexiunea cu proiectul local a fost eliminată. Contul tău, setările și datele SEO sunt păstrate, iar pluginul rămâne activ."
+
+msgid "Account"
+msgstr "Cont"
+
+msgid "Manage the project connected to this website."
+msgstr "Gestionează proiectul conectat la acest site web."
+
+msgid "Loading project connection…"
+msgstr "Încărcarea conexiunii proiectului…"
+
+msgid "Refresh Account"
+msgstr "Reîmprospătează contul"
+
+msgid "Account details"
+msgstr "Detalii cont"
+
+msgid "Activation code"
+msgstr "Cod de activare"
+
+msgid "Not available"
+msgstr "Nu este disponibil"
+
+msgid "Project details"
+msgstr "Detalii despre proiect"
+
+msgid "Project ID"
+msgstr "ID-ul proiectului"
+
+msgid "Not connected"
+msgstr "Neconectat"
+
+msgid "Location ID"
+msgstr "ID locație"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Open onboarding"
+msgstr "Deschide onboardingul"
+
+msgid "Delete project"
+msgstr "Șterge proiectul"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Ștergeți proiectul de la distanță și eliminați conexiunea acestui site web. Setările locale și datele SEO vor fi păstrate. Aceasta nu anulează contul sau abonamentul dumneavoastră."
+
+msgid "Deleting project…"
+msgstr "Ștergerea proiectului…"
+
+msgid "Create project"
+msgstr "Creează proiect"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Contul tău este conectat, dar acest site nu are niciun proiect. Creează un proiect folosind contul tău existent. Setările tale locale, datele SEO și progresul de integrare vor fi păstrate."
+
+msgid "Creating project…"
+msgstr "Crearea proiectului…"
+
+msgid "Create Project"
+msgstr "Creează Proiect"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Crearea proiectului… Vă rugăm să așteptați confirmarea."
+
+msgid "No project connected"
+msgstr "Niciun proiect conectat"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Conectează un cont pentru a lega acest site de un proiect. Setările și datele SEO existente sunt încă disponibile."
+
+msgid "Delete this project?"
+msgstr "Șterge acest proiect?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Aceasta șterge proiectul de la distanță și elimină conexiunea locală pentru acest site web. Ștergerea proiectului de la distanță nu poate fi anulată."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Setările locale și datele SEO vor fi păstrate. Pluginul va rămâne activ. Contul și abonamentul dumneavoastră nu vor fi anulate."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Ștergerea proiectului… Vă rugăm să așteptați confirmarea."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Imposibil de a încărca contul. Vă rugăm să încercați din nou."
+
+msgid "Retry loading Account"
+msgstr "Reîncărcați contul"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Contactați echipa noastră pentru ajutor cu BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Copiați detaliile tehnice ale site-ului dvs. pentru a le împărtăși cu echipa noastră de suport."
+
+msgid "Loading site info"
+msgstr "Încărcarea informațiilor site-ului"
+
+msgid "Edit SEO title"
+msgstr "Editează titlul SEO"
+
+msgid "Edit meta description"
+msgstr "Editează descrierea meta"
+
+msgid "Set keywords"
+msgstr "Setați cuvintele cheie"
+
+msgid "Essentials"
+msgstr "Esentiale"
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "Site check"
+msgstr "Verificare site"
+
+msgid "Email tips"
+msgstr "Sfaturi pentru emailuri"
+
+msgid "rankingCoach account"
+msgstr "contul rankingCoach"
+
+msgid "Check titles, keywords and headings"
+msgstr "Verificați titlurile, cuvintele cheie și subtitlurile"
+
+msgid "Review page-specific SEO issues"
+msgstr "Revizuirea problemelor SEO specifice paginii"
+
+msgid "Fix issues directly on your pages"
+msgstr "Rezolvă problemele direct pe paginile tale"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Accesați setările BeyondSEO"
+
+msgid "Keep growing your visibility"
+msgstr "Continuă să îți crești vizibilitatea"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO te ajută să găsești și să repari problemele de pe pagină. Un cont rankingCoach adaugă informații continue despre vizibilitatea prezenței tale online."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Contul tău rankingCoach este conectat."
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Clasamentele, concurenții și rapoartele sunt disponibile din tabloul de bord BeyondSEO."
+
+msgid "With BeyondSEO"
+msgstr "Cu BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Creează-ți contul gratuit"
+
+msgid "I already have an account"
+msgstr "Am deja un cont"
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "Înregistrarea și autentificarea au loc pe paginile de conectare BeyondSEO. De asemenea, poți face acest lucru mai târziu din Setări."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Introduceți o adresă de email validă sau săriți acest pas."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Selectați caseta de consimțământ sau săriți acest pas."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Adresa ta de email nu a putut fi salvată. Te rugăm să încerci din nou."
+
+msgid "Back to site check"
+msgstr "Întoarcere la verificarea site-ului"
+
+msgid "Skip"
+msgstr "Sari"
+
+msgid "Save and continue"
+msgstr "Salvează și continuă"
+
+msgid "Get general SEO tips by email"
+msgstr "Obțineți sfaturi generale despre SEO prin email"
+
+msgid "Get SEO recommendations by email"
+msgstr "Obține recomandări SEO prin email"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Verificarea site-ului nu s-a finalizat, așa că nu putem trimite încă constatările specifice paginii. Poți primi în continuare sfaturi generale de SEO sau poți sări peste acest pas."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Recepeți idei de urmărire după ce ați revizuit site-ul dvs. Acest pas este opțional și nu creează un cont rankingCoach."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Această adresă este salvată pentru recomandările SEO. Salvați din nou pentru a o actualiza."
+
+msgid "Email address"
+msgstr "Adresă de email"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Trimite-mi recomandări SEO și actualizări ocazionale despre produsele BeyondSEO / rankingCoach. Pot să mă dezabonez în orice moment."
+
+msgid "Optional and separate from account creation."
+msgstr "Opțional și separat de crearea contului."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "Detaliile SEO ale paginii de start nu au putut fi încărcate. Poți continua și le poți edita mai târziu."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Niciun slogan setat"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "Pagina ta de start afișează cele mai recente postări, astfel încât motoarele de căutare să vadă titlul site-ului și sloganul."
+
+msgid "Change them in General settings"
+msgstr "Schimbați-le în setările generale"
+
+msgid "Homepage SEO title"
+msgstr "Titlu SEO pentru pagina principală"
+
+msgid "Meta description"
+msgstr "Descriere meta"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Descrie-ți site-ul în una sau două propoziții."
+
+msgid "Exit setup"
+msgstr "Ieșire din configurare"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Îmbunătățiți modul în care site-ul dvs. apare în rezultatele căutării și găsiți probleme pe paginile dvs. Am completat deja informațiile pe care le știm despre site-ul dvs. web."
+
+msgid "Search preview"
+msgstr "Previzualizare căutare"
+
+msgid "XML sitemap"
+msgstr "sitemap XML"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Ajută motoarele de căutare să descopere toate paginile tale."
+
+msgid "Search engine visibility"
+msgstr "Vizibilitate în motoarele de căutare"
+
+msgid "Search engines are allowed to index this site."
+msgstr "Motoarele de căutare sunt autorizate să indexeze acest site."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress cere în prezent motoarelor de căutare să nu indexeze acest site."
+
+msgid "Reading settings"
+msgstr "Setări de citire"
+
+msgid "Discouraged"
+msgstr "Descurajat"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Un cont rankingCoach poate adăuga informații despre vizibilitate și performanță mai târziu. Mai întâi, să revizuim site-ul tău."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "Importul SEO a eșuat. Unele date ar fi putut fi importate; vă rugăm să încercați din nou."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Au fost importate %1$d setări și %2$d intrări de pagină. %3$d intrări erau deja setate în BeyondSEO sau nu au putut fi convertite."
+
+msgid "Continue without import"
+msgstr "Continua fără import"
+
+msgid "Keep your existing SEO work"
+msgstr "Păstrează-ți munca SEO existentă"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "A fost găsit un alt plugin SEO pe acest site. BeyondSEO poate aduce titlurile SEO, descrierile, cuvintele cheie și setările de site acceptate. Valorile pe care le-ai salvat deja în BeyondSEO sunt păstrate, iar datele celuilalt plugin rămân neafectate."
+
+msgid "Import finished"
+msgstr "Importul s-a încheiat"
+
+msgid "Plugin to import from"
+msgstr "Plugin pentru import din"
+
+msgid "Active on this site"
+msgstr "Activ pe acest site"
+
+msgid "Installed but not active"
+msgstr "Instalat, dar nu activ."
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "Titlurile și descrierile care folosesc variabile de șablon nesuportate sunt omise. Puteți revizui fiecare pagină ulterior."
+
+msgid "The page details could not be loaded."
+msgstr "Detaliile paginii nu au putut fi încărcate."
+
+msgid "Enter a title or add a variable."
+msgstr "Introduceți un titlu sau adăugați o variabilă."
+
+msgid "Enter a meta description."
+msgstr "Introduceți o descriere meta."
+
+msgid "SEO title"
+msgstr "Titlu SEO"
+
+msgid "The page keywords could not be loaded."
+msgstr "Cuvintele cheie ale paginii nu au putut fi încărcate."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "Cuvântul cheie nu a putut fi salvat. Vă rugăm să încercați din nou."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "Cuvântul cheie nu a putut fi eliminat. Vă rugăm să încercați din nou."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Introduceți cuvintele cheie pentru care această pagină ar trebui să se claseze. Primul devine cuvântul cheie principal, iar celelalte cuvinte cheie suplimentare; acestea sunt aceleași cuvinte cheie pe care le vedeți în tab-ul General al paginii."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Nu există încă un cuvânt cheie principal. Primul cuvânt cheie pe care îl adaugi devine acesta."
+
+msgid "No additional keywords yet."
+msgstr "Nu există cuvinte cheie suplimentare deocamdată."
+
+msgid "Done"
+msgstr "Finalizat"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Verificarea site-ului nu a putut fi finalizată pe server. Site-urile mari pot dura mai mult decât permite serverul."
+
+msgid "We could not complete the site check."
+msgstr "Nu am putut finaliza verificarea site-ului."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Scan anulat. O verificare care a început deja pe server va continua să se finalizeze în fundal."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "Pagina nu a putut fi verificată din nou. Vă rugăm să încercați din nou în câteva momente."
+
+msgid "Updated"
+msgstr "Actualizat"
+
+msgid "Recheck"
+msgstr "Verifică din nou"
+
+msgid "All checked pages pass"
+msgstr "Toate paginile verificate au trecut"
+
+msgid "Issues found on your pages"
+msgstr "Probleme găsite pe paginile tale"
+
+msgid "Your pages pass every check"
+msgstr "Pagile tale trec fiecare verificare."
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Fiecare verificare listează paginile la care se aplică. Corectează titlurile, descrierile și cuvintele cheie chiar aici, sau deschide pagina în editor pentru tot restul."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "Verificările finalizate nu au găsit nimic de reparat. Poți rula din nou scanarea după ce îți actualizezi site-ul."
+
+msgid "Some pages need another look"
+msgstr "Unele pagini au nevoie de o altă examinare."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Fiecare pagină a obținut 0, ceea ce înseamnă de obicei că site-ul nu a putut încărca propriile pagini în timpul verificării. Asigurați-vă că site-ul este accesibil de pe serverul său, apoi rulați din nou scanarea."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Afișarea celor mai recente pagini și postări. Fiecare a doua pagină este listată în prezentarea postărilor și paginilor."
+
+msgid "Checking your site"
+msgstr "Verificarea site-ului tău"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Fiecare pagină și postare publicată este analizată pe serverul tău. Acest lucru poate dura câteva minute pe site-uri mai mari."
+
+msgid "Collecting the results for your pages…"
+msgstr "Colectarea rezultatelor pentru paginile tale…"
+
+msgid "Analysing your published pages…"
+msgstr "Analizând paginile tale publicate…"
+
+msgid "The site check could not finish"
+msgstr "Verificarea site-ului nu a putut fi finalizată."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Reîncercați acum sau continuați și rulați verificarea mai târziu din tabloul de bord."
+
+msgid "Identify issues on your pages"
+msgstr "Identifică problemele de pe paginile tale"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO verifică fiecare pagină și postare publicată pentru următoarele, apoi arată care pagini necesită îmbunătățiri."
+
+msgid "Retry scan"
+msgstr "Reîncercați scanarea"
+
+msgid "Run scan again"
+msgstr "Rulează din nou scanarea"
+
+msgid "Scanning…"
+msgstr "Scanare…"
+
+msgid "Start scan"
+msgstr "Începe scanarea"
+
+msgid "Setup steps"
+msgstr "Pași de configurare"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Pasul %1$d din %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Asistent de configurare"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Contul tău este conectat, dar este necesar un proiect pentru a utiliza tabloul de bord BeyondSEO. Creează un proiect în Setări > Cont pentru a continua."
+
+msgid "Go to Account"
+msgstr "Mergi la Cont"
+
+msgid "The project location ID is invalid."
+msgstr "ID-ul locației proiectului este invalid."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Serviciul nu a confirmat ștergerea proiectului. Conexiunea dumneavoastră locală nu a fost eliminată. Vă rugăm să încercați din nou sau să contactați suportul."
+
+msgid "SEO titles"
+msgstr "Titluri SEO"
+
+msgid "SEO descriptions"
+msgstr "descrieri SEO"
+
+msgid "Canonical URLs"
+msgstr "URL-uri canonice"
+
+msgid "Noindex directives"
+msgstr "Directives noindex"
+
+msgid "Social titles"
+msgstr "Titluri sociale"
+
+msgid "Social descriptions"
+msgstr "Descrieri sociale"
+
+msgid "Facebook profile"
+msgstr "profil Facebook"
+
+msgid "Twitter profile"
+msgstr "Profil Twitter"
+
+msgid "Instagram profile"
+msgstr "profil Instagram"
+
+msgid "LinkedIn profile"
+msgstr "profil LinkedIn"
+
+msgid "YouTube profile"
+msgstr "profil YouTube"
+
+msgid "Organization or person name"
+msgstr "Numele organizației sau persoanei"
+
+msgid "Sitemap enabled"
+msgstr "Sitemap activat"
+
+msgid "Google verification code"
+msgstr "Cod de verificare Google"
+
+msgid "Bing verification code"
+msgstr "Cod de verificare Bing"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "Conexiunea contului sau a proiectului s-a schimbat. Reîmprospătează contul înainte de a încerca din nou."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "Ștergerea proiectului a fost acceptată, dar identificatorii locali ai proiectului nu au putut fi eliminați complet. Contul și datele locale au fost păstrate. Actualizați contul și contactați suportul înainte de a crea un alt proiect."
+
+msgid "Connect your account before creating a project."
+msgstr "Conectează-ți contul înainte de a crea un proiect."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Serviciul nu a returnat un proiect valid pentru contul dumneavoastră. Actualizați contul și încercați din nou sau contactați suportul."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Serviciul nu a putut confirma ștergerea proiectului. Conexiunea dumneavoastră locală nu a fost eliminată. Vă rugăm să încercați din nou sau să contactați suportul."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Nu se poate confirma ștergerea proiectului. Conexiunea dvs. locală nu a fost eliminată. Vă rugăm să încercați din nou sau să contactați suportul."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Imposibil de a inspecta opțiunile de import SEO. Vă rugăm să încercați din nou."
+
+msgid "SEO import options must be an array of strings."
+msgstr "Opțiunile de import SEO trebuie să fie un array de șiruri."
+
+msgid "Invalid SEO import source."
+msgstr "Sursă de import SEO invalidă."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "Opțiunile de import SEO trebuie să conțină doar identificatori de opțiuni acceptați pentru sursa selectată."
+
+msgid "SEO plugin is not installed."
+msgstr "Pluginul SEO nu este instalat."
+
+msgid "Invalid Review event."
+msgstr "Eveniment de recenzie invalid."
+
+msgid "Unable to save Review state."
+msgstr "Imposibil de a salva starea recenziei."
+
+msgid "Go to Dashboard"
+msgstr "Mergi la tabloul de bord"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO te ajută să găsești și să repari problemele de pe pagină. Contul tău rankingCoach adaugă informații continue despre vizibilitatea prezenței tale online."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Clasamentele, concurenții și rapoartele sunt deja disponibile în tabloul de bord BeyondSEO. Nu mai este nimic de configurat aici."
+
+msgid "With your rankingCoach account"
+msgstr "Cu contul tău rankingCoach"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Pagini afectate: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Verificări care necesită atenție: %1$d din %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Pagini verificate: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d din %2$d pagini nu au putut fi verificate. Puteți continua cu verificările finalizate și încercați din nou mai târziu."

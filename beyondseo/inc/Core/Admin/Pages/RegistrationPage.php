@@ -20,6 +20,7 @@ use RankingCoach\Inc\Core\Api\Register\RegisterApiManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use Throwable;
 use WP_Error;
@@ -99,6 +100,8 @@ class RegistrationPage extends AdminPage
         // If access control was already handled by the load-{$page_hook} hook,
         // skip the FlowGuard logic here (it runs before headers are sent in that pattern).
         if (!$this->accessControlHandled) {
+            $this->redirectActivatedAccountToOnboarding();
+
             $store = new OptionStore();
             $resolver = new ChannelResolver($store);
             $channel = $resolver->resolve();
@@ -181,6 +184,8 @@ class RegistrationPage extends AdminPage
     {
         // Mark that access control has been handled, so page_content() skips FlowGuard
         $this->accessControlHandled = true;
+
+        $this->redirectActivatedAccountToOnboarding();
 
         // Partner-provisioned installs have no email registration flow at all:
         // send them straight to the activation-code page (runs before headers are sent).
@@ -762,6 +767,11 @@ class RegistrationPage extends AdminPage
             return $flowState;
         });
 
+        try {
+            (new ReviewState())->recordCustomerStarted();
+        } catch (Throwable $e) {
+        }
+
         $nextStepUrl = AdminManager::getPageUrl(AdminManager::PAGE_ONBOARDING);
 
         return [
@@ -895,8 +905,19 @@ class RegistrationPage extends AdminPage
             $flowState->registered = true;
             $flowState->emailVerified = true;
             $flowState->activated = true;
+            $flowState->meta['connectionMethod'] = 'email';
             return $flowState;
         });
+
+        try {
+            $reviewSuccess = !isset($registration['error'])
+                && (!array_key_exists('success', $registration)
+                    || in_array($registration['success'], [true, 1, '1', 'true'], true));
+            if ($reviewSuccess && $accountData !== false) {
+                (new ReviewState())->recordCustomerStarted();
+            }
+        } catch (Throwable $e) {
+        }
 
         $nextStepUrl = AdminManager::getPageUrl(AdminManager::PAGE_ONBOARDING);
 

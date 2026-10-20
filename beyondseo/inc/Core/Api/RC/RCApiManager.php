@@ -42,7 +42,7 @@ class RCApiManager extends HttpApiClient
         $this->setUrl('onboarding');
         $payload = CoreHelper::generateCommonSecurityPayload($requirementsData);
         $this->prepareSecurityHeaders($this->getBearerToken(), $payload);
-        return $this->post($payload);
+        return $this->post($payload, 240);
     }
 
     public function getLocationSuggestions(array $addressParams): array

@@ -72,7 +72,7 @@ class Article extends Graphs\Graph {
             '@id'              => $this->buildArticleId( $graphData, $schema ),
             'name'             => $this->getArticleName( $graphData, $schema ),
             'headline'         => $this->getArticleHeadline( $graphData ),
-            'description'      => $this->getArticleDescription( $graphData ),
+            'description'      => $this->getArticleDescription( $graphData, $schema ),
             'articleBody'      => $this->getArticleBody( $graphData, $post ),
             'author'           => $this->buildAuthorData( $graphData, $post ),
             'publisher'        => $this->buildPublisherReference( $options ),
@@ -192,13 +192,14 @@ class Article extends Graphs\Graph {
      * Gets the article description.
      *
      * @param object|null $graphData Custom graph data.
+     * @param object      $schema    Schema manager with the computed page context.
      *
      * @return string
      */
-    private function getArticleDescription( $graphData ): string {
+    private function getArticleDescription( $graphData, $schema ): string {
         return ( $graphData && isset( $graphData->properties->description ) && ! empty( $graphData->properties->description ) )
             ? $graphData->properties->description 
-            : get_the_excerpt();
+            : ( $schema->context['description'] ?? '' );
     }
 
     /**
@@ -215,13 +216,10 @@ class Article extends Graphs\Graph {
             return wp_strip_all_tags( $graphData->properties->articleBody );
         }
         
-        // Priority 2: Post content (processed)
+        // Priority 2: Post content
         $content = $post->post_content;
         if ( ! empty( $content ) ) {
-            // Apply WordPress content filters but strip HTML for schema
-            // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
-            $content = apply_filters( 'the_content', $content );
-            return wp_strip_all_tags( $content );
+            return WordpressHelpers::extract_text_from_content( (string) $content );
         }
         
         return '';

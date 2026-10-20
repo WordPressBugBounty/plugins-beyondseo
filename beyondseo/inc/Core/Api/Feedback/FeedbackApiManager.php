@@ -69,7 +69,6 @@ class FeedbackApiManager extends HttpApiClient
      *
      * @param string $reasonCode The reason code for deactivation
      * @param string $feedbackText The feedback text from the user
-     * @param bool $deleteProject Whether to delete project data on deactivation
      * @param bool $cancelAccount Whether to cancel the account
      *
      * @return bool True if feedback was submitted successfully, false otherwise
@@ -78,7 +77,6 @@ class FeedbackApiManager extends HttpApiClient
 	public function submitFeedback(
 		string $reasonCode,
 		string $feedbackText = '',
-		bool $deleteProject = false,
 		bool $cancelAccount = false
 	): bool {
 		try {
@@ -89,7 +87,6 @@ class FeedbackApiManager extends HttpApiClient
 			$payload = $this->generateCommonSecurityPayload([
 				'reasonCode' => $reasonCode,
 				'feedbackText' => $feedbackText,
-				'deleteProject' => $deleteProject,
 				'cancelAccount' => $cancelAccount,
 			]);
 
@@ -106,7 +103,6 @@ class FeedbackApiManager extends HttpApiClient
 				'context_type' => 'deactivation',
 				'metadata' => [
 					'reason_code' => $reasonCode,
-					'delete_project' => $deleteProject,
 					'cancel_account' => $cancelAccount,
 					'response' => $response,
 				],

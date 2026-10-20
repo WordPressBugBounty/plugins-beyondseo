@@ -38,6 +38,22 @@ class SchemaManager {
 	public array $context = [];
 
 	/**
+	 * Graphs output on every page;
+	 *
+	 * @var array
+	 */
+	protected array $defaultGraphs = [];
+
+	/**
+	 * Graph names that were offered/stored before the option list matched the class names.
+	 *
+	 * @var array<string,string>
+	 */
+	private const LEGACY_GRAPH_NAMES = [
+		'Website' => 'WebSite',
+	];
+
+	/**
 	 * The subdirectories that contain graph classes.
 	 *
 	 * @var array
@@ -226,8 +242,19 @@ class SchemaManager {
      * Class constructor.
      */
 	public function __construct() {
-		$this->graphs = array_merge( $this->graphs, $this->getDefaultGraphs() );
+		$this->defaultGraphs = $this->getDefaultGraphs();
+		$this->graphs        = $this->defaultGraphs;
     }
+
+	/**
+	 * Maps legacy graph names (e.g. "Website" saved in post meta) to the real class name.
+	 *
+	 * @param string $graphName The stored graph name.
+	 * @return string            The graph name matching an existing graph class.
+	 */
+	public static function normalizeGraphName( string $graphName ): string {
+		return self::LEGACY_GRAPH_NAMES[ $graphName ] ?? $graphName;
+	}
 
     /**
      * Returns the schema graph data.
@@ -471,6 +498,8 @@ class SchemaManager {
      * @throws Exception
 	 */
 	protected function get(): string {
+		$this->graphs  = $this->defaultGraphs;
+		$this->context = [];
 
 		$this->determineGraphsAndContext();
 		return $this->generateSchema();
@@ -810,7 +839,7 @@ class SchemaManager {
             }
 
             if ($postId) {
-                $postSchemaType = get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true);
+                $postSchemaType = self::normalizeGraphName((string) get_post_meta($postId, BaseConstants::OPTION_SCHEMA_TYPE, true));
                 if (!empty($postSchemaType) && $this->validateGraphName($postSchemaType)) {
                     $schemaTypes[] = $postSchemaType;
                 }

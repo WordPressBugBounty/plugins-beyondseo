@@ -6614,7 +6614,7 @@
     "Masukkan kode aktivasi"
   ],
   "We could not find a rankingCoach account for this email address.": [
-    ""
+    "We could not find a rankingCoach account for this email address."
   ],
   "This account has no active WordPress subscription.": [
     "Akun ini tidak memiliki langganan WordPress yang aktif."
@@ -6629,7 +6629,7 @@
     "Pendaftaran email tidak tersedia untuk instalasi ini. Silakan gunakan kode aktivasimu."
   ],
   "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run.": [
-    ""
+    "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
   ],
   "Details: %s": [
     "Detail: %s"
@@ -6653,15 +6653,690 @@
     "Kode aktivasi untuk langganan ini telah dikirim ulang dalam jumlah maksimum. Silakan hubungi dukungan pelanggan."
   ],
   "Can't find your activation code?": [
-    ""
+    "Can't find your activation code?"
   ],
   "Recover it here": [
-    ""
+    "Recover it here"
   ],
   "Check your email for your activation code. Didn’t receive it? Recover it": [
-    ""
+    "Check your email for your activation code. Didn’t receive it? Recover it."
   ],
   "here": [
-    ""
+    "here"
+  ],
+  "The SEO analysis starts after the first save of this post.": [
+    "The SEO analysis starts after the first save of this post."
+  ],
+  "Yes, I love it": [
+    "Yes, I love it."
+  ],
+  "Not really": [
+    "Not really"
+  ],
+  "Maybe later": [
+    "Maybe later"
+  ],
+  "Review BeyondSEO on WordPress.org": [
+    "Review BeyondSEO on WordPress.org"
+  ],
+  "Enjoying BeyondSEO?": [
+    "Enjoying BeyondSEO?"
+  ],
+  "We'd love to hear about your experience.": [
+    "We'd love to hear about your experience."
+  ],
+  "Dismiss review request": [
+    "Dismiss review request"
+  ],
+  "Your site score is above %s!": [
+    "Your site score is above %s!"
+  ],
+  "Your content score is above %s!": [
+    "Your content score is above %s!"
+  ],
+  "Enjoying BeyondSEO? We'd love to hear about your experience.": [
+    "Enjoying BeyondSEO? We'd love to hear about your experience."
+  ],
+  "Your changes could not be saved. Please try again.": [
+    "Your changes could not be saved. Please try again."
+  ],
+  "Edit SEO title and description": [
+    "Edit SEO title and description"
+  ],
+  "Open in editor": [
+    "Open in editor"
+  ],
+  "Add a meta description": [
+    "Add a meta description."
+  ],
+  "No meta description": [
+    "No meta description"
+  ],
+  "Updating score…": [
+    "Updating score…"
+  ],
+  "Saved": [
+    "Saved"
+  ],
+  "The project connection could not be verified. Refresh Account before trying again.": [
+    "The project connection could not be verified. Refresh Account before trying again."
+  ],
+  "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support.": [
+    "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support.": [
+    "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+  ],
+  "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+  ],
+  "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection.": [
+    "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+  ],
+  "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again.": [
+    "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+  ],
+  "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support.": [
+    "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+  ],
+  "Unable to safely start the project operation. Please try again or contact support.": [
+    "Unable to safely start the project operation. Please try again or contact support."
+  ],
+  "Connect your account before creating a project. Refresh Account to check your connection.": [
+    "Connect your account before creating a project. Refresh Account to check your connection."
+  ],
+  "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained.": [
+    "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+  ],
+  "Enable communication with rankingCoach in Settings before creating a project.": [
+    "Enable communication with rankingCoach in Settings before creating a project."
+  ],
+  "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed.": [
+    "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+  ],
+  "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying.": [
+    "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+  ],
+  "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying.": [
+    "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+  ],
+  "Unable to load the local project connection. Please try again.": [
+    "Unable to load the local project connection. Please try again."
+  ],
+  "Account access could not be verified. Reload this page and sign in as an administrator before trying again.": [
+    "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+  ],
+  "Unable to load the local project connection. Check your connection and try again.": [
+    "Unable to load the local project connection. Check your connection and try again."
+  ],
+  "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained.": [
+    "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting.": [
+    "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+  ],
+  "The service response could not be verified. Refresh Account before trying again.": [
+    "The service response could not be verified. Refresh Account before trying again."
+  ],
+  "The deletion result could not be verified. Refresh Account before trying again.": [
+    "The deletion result could not be verified. Refresh Account before trying again."
+  ],
+  "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved.": [
+    "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+  ],
+  "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+  ],
+  "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active.": [
+    "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+  ],
+  "Account": [
+    "Account"
+  ],
+  "Manage the project connected to this website.": [
+    "Manage the project connected to this website."
+  ],
+  "Loading project connection…": [
+    "Loading project connection…"
+  ],
+  "Refresh Account": [
+    "Refresh Account"
+  ],
+  "Account details": [
+    "Account details"
+  ],
+  "Activation code": [
+    "Activation code"
+  ],
+  "Not available": [
+    "Not available"
+  ],
+  "Project details": [
+    "Project details"
+  ],
+  "Project ID": [
+    "Project ID"
+  ],
+  "Not connected": [
+    "Not connected"
+  ],
+  "Location ID": [
+    "Location ID"
+  ],
+  "Website": [
+    "Website"
+  ],
+  "Open onboarding": [
+    "Open onboarding"
+  ],
+  "Delete project": [
+    "Delete project"
+  ],
+  "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription.": [
+    "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+  ],
+  "Deleting project…": [
+    "Deleting project…"
+  ],
+  "Create project": [
+    "Create project"
+  ],
+  "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept.": [
+    "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+  ],
+  "Creating project…": [
+    "Creating project…"
+  ],
+  "Create Project": [
+    "Create Project"
+  ],
+  "Creating project… Please wait for confirmation.": [
+    "Creating project… Please wait for confirmation."
+  ],
+  "No project connected": [
+    "No project connected"
+  ],
+  "Connect an account to link this website to a project. Your existing settings and SEO data are still available.": [
+    "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+  ],
+  "Delete this project?": [
+    "Delete this project?"
+  ],
+  "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone.": [
+    "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+  ],
+  "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled.": [
+    "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+  ],
+  "Deleting project… Please wait for confirmation.": [
+    "Deleting project… Please wait for confirmation."
+  ],
+  "Unable to load Account. Please try again.": [
+    "Unable to load Account. Please try again."
+  ],
+  "Retry loading Account": [
+    "Retry loading Account"
+  ],
+  "Need help? Get in touch with our support team and copy your site information below.": [
+    "Need help? Get in touch with our support team and copy your site information below."
+  ],
+  "Reach out to our team for help with BeyondSEO.": [
+    "Reach out to our team for help with BeyondSEO."
+  ],
+  "Contact Support": [
+    "Contact Support"
+  ],
+  "Site info": [
+    "Site info"
+  ],
+  "Copy your site's technical details to share with our support team.": [
+    "Copy your site's technical details to share with our support team."
+  ],
+  "Loading site info": [
+    "Loading site info"
+  ],
+  "Failed to load site info. Please try again.": [
+    "Failed to load site info. Please try again."
+  ],
+  "Retry": [
+    "Retry"
+  ],
+  "Copy site info to clipboard": [
+    "Copy site info to clipboard"
+  ],
+  "Copied to clipboard": [
+    "Copied to clipboard"
+  ],
+  "Edit SEO title": [
+    "Edit SEO title"
+  ],
+  "Edit meta description": [
+    "Edit meta description"
+  ],
+  "Set keywords": [
+    "Set keywords"
+  ],
+  "Essentials": [
+    "Essentials"
+  ],
+  "Import": [
+    "Import"
+  ],
+  "Site check": [
+    "Site check"
+  ],
+  "Email tips": [
+    "Email tips"
+  ],
+  "rankingCoach account": [
+    "rankingCoach account"
+  ],
+  "Check titles, keywords and headings": [
+    "Check titles, keywords, and headings"
+  ],
+  "Review page-specific SEO issues": [
+    "Review page-specific SEO issues"
+  ],
+  "Fix issues directly on your pages": [
+    "Fix issues directly on your pages"
+  ],
+  "Go to Dashboard": [
+    "Go to Dashboard"
+  ],
+  "Keep growing your visibility": [
+    "Keep growing your visibility"
+  ],
+  "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+  ],
+  "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence.": [
+    "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+  ],
+  "Your rankingCoach account is connected": [
+    "Your rankingCoach account is connected."
+  ],
+  "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here.": [
+    "Rankings, competitors, and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+  ],
+  "With BeyondSEO": [
+    "With BeyondSEO"
+  ],
+  "With your rankingCoach account": [
+    "With your rankingCoach account"
+  ],
+  "Create your free account": [
+    "Create your free account"
+  ],
+  "I already have an account": [
+    "I already have an account."
+  ],
+  "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings.": [
+    "Registration and login occur on the BeyondSEO connect pages. You can also do this later from Settings."
+  ],
+  "Enter a valid email address or skip this step.": [
+    "Enter a valid email address or skip this step."
+  ],
+  "Select the consent checkbox or skip this step.": [
+    "Select the consent checkbox or skip this step."
+  ],
+  "Your email address could not be saved. Please try again.": [
+    "Your email address could not be saved. Please try again."
+  ],
+  "Back to site check": [
+    "Back to site check"
+  ],
+  "Skip": [
+    "Skip"
+  ],
+  "Save and continue": [
+    "Save and continue"
+  ],
+  "Get general SEO tips by email": [
+    "Get general SEO tips by email"
+  ],
+  "Get SEO recommendations by email": [
+    "Get SEO recommendations by email"
+  ],
+  "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step.": [
+    "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+  ],
+  "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account.": [
+    "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+  ],
+  "This address is saved for SEO recommendations. Save again to update it.": [
+    "This address is saved for SEO recommendations. Save again to update it."
+  ],
+  "Email address": [
+    "Email address"
+  ],
+  "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time.": [
+    "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+  ],
+  "Optional and separate from account creation.": [
+    "Optional and separate from account creation."
+  ],
+  "The homepage SEO details could not be loaded. You can continue and edit them later.": [
+    "The homepage SEO details could not be loaded. You can continue and edit them later."
+  ],
+  "Tagline": [
+    "Tagline"
+  ],
+  "No tagline set": [
+    "No tagline set"
+  ],
+  "Your homepage shows your latest posts, so search engines see the site title and tagline.": [
+    "Your homepage displays your latest posts, allowing search engines to view the site title and tagline."
+  ],
+  "Change them in General settings": [
+    "Change them in General settings"
+  ],
+  "Homepage SEO title": [
+    "Homepage SEO title"
+  ],
+  "Meta description": [
+    "Meta description"
+  ],
+  "Describe your website in one or two sentences": [
+    "My website offers a comprehensive range of resources and information designed to help users enhance their skills and knowledge in various fields. It features articles, tutorials, and tools that cater to both beginners and advanced learners."
+  ],
+  "Exit setup": [
+    "Exit setup"
+  ],
+  "Continue": [
+    "Continue"
+  ],
+  "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website.": [
+    "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+  ],
+  "Search preview": [
+    "Search preview"
+  ],
+  "XML sitemap": [
+    "XML sitemap"
+  ],
+  "Helps search engines discover all your pages.": [
+    "Helps search engines discover all your pages."
+  ],
+  "Search engine visibility": [
+    "Search engine visibility"
+  ],
+  "Search engines are allowed to index this site.": [
+    "Search engines are allowed to index this site."
+  ],
+  "WordPress currently asks search engines not to index this site.": [
+    "WordPress currently asks search engines not to index this site."
+  ],
+  "Reading settings": [
+    "Reading settings"
+  ],
+  "Discouraged": [
+    "Discouraged"
+  ],
+  "A rankingCoach account can add visibility and performance information later. First, let’s review your site.": [
+    "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+  ],
+  "SEO import failed. Some data may have been imported; please retry.": [
+    "SEO import failed. Some data may have been imported; please retry."
+  ],
+  "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted.": [
+    "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+  ],
+  "Continue without import": [
+    "Continue without import"
+  ],
+  "Keep your existing SEO work": [
+    "Keep your existing SEO work"
+  ],
+  "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched.": [
+    "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords, and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+  ],
+  "Import finished": [
+    "Import finished"
+  ],
+  "Plugin to import from": [
+    "Plugin to import from"
+  ],
+  "Active on this site": [
+    "Active on this site"
+  ],
+  "Installed but not active": [
+    "Installed but not active"
+  ],
+  "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards.": [
+    "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+  ],
+  "The page details could not be loaded.": [
+    "The page details could not be loaded."
+  ],
+  "Enter a title or add a variable.": [
+    "Enter a title or add a variable."
+  ],
+  "Enter a meta description.": [
+    "Please provide a meta description."
+  ],
+  "SEO title": [
+    "SEO title"
+  ],
+  "The page keywords could not be loaded.": [
+    "The page keywords could not be loaded."
+  ],
+  "The keyword could not be saved. Please try again.": [
+    "The keyword could not be saved. Please try again."
+  ],
+  "The keyword could not be removed. Please try again.": [
+    "The keyword could not be removed. Please try again."
+  ],
+  "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab.": [
+    "Enter the keywords this page should rank for. The first one becomes the primary keyword, and the others are additional keywords; they are the same keywords you see in the page's General tab."
+  ],
+  "No primary keyword yet. The first keyword you add becomes it.": [
+    "No primary keyword yet. The first keyword you add becomes it."
+  ],
+  "No additional keywords yet.": [
+    "No additional keywords yet."
+  ],
+  "Done": [
+    "Done"
+  ],
+  "The site check could not finish on the server. Large sites can take longer than the server allows.": [
+    "The site check could not finish on the server. Large sites can take longer than the server allows."
+  ],
+  "We could not complete the site check.": [
+    "We could not complete the site check."
+  ],
+  "Scan cancelled. A check that already started on the server will still finish in the background.": [
+    "Scan cancelled. A check that already started on the server will still finish in the background."
+  ],
+  "The page could not be rechecked. Please try again in a moment.": [
+    "The page could not be rechecked. Please try again in a moment."
+  ],
+  "Updated": [
+    "Updated"
+  ],
+  "Recheck": [
+    "Recheck"
+  ],
+  "All checked pages pass": [
+    "All checked pages pass"
+  ],
+  "Issues found on your pages": [
+    "Issues found on your pages"
+  ],
+  "Your pages pass every check": [
+    "Your pages pass every check."
+  ],
+  "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else.": [
+    "Each check lists the pages it applies to. Fix titles, descriptions, and keywords right here, or open the page in the editor for everything else."
+  ],
+  "The completed checks found nothing to fix. You can run the scan again after updating your site.": [
+    "The completed checks found nothing to fix. You can run the scan again after updating your site."
+  ],
+  "Some pages need another look": [
+    "Some pages need another look."
+  ],
+  "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again.": [
+    "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+  ],
+  "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later.": [
+    "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+  ],
+  "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview.": [
+    "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+  ],
+  "Checking your site": [
+    "Checking your site"
+  ],
+  "Every published page and post is analysed on your server. This can take a few minutes on larger sites.": [
+    "Every published page and post is analyzed on your server. This can take a few minutes on larger sites."
+  ],
+  "Collecting the results for your pages…": [
+    "Collecting the results for your pages…"
+  ],
+  "Analysing your published pages…": [
+    "Analyzing your published pages…"
+  ],
+  "The site check could not finish": [
+    "The site check could not finish."
+  ],
+  "Retry now, or continue and run the check later from the dashboard.": [
+    "Retry now, or continue and run the check later from the dashboard."
+  ],
+  "Identify issues on your pages": [
+    "Identify issues on your pages"
+  ],
+  "BeyondSEO checks every published page and post for the following, then shows which pages need work.": [
+    "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+  ],
+  "Retry scan": [
+    "Retry scan"
+  ],
+  "Run scan again": [
+    "Run scan again"
+  ],
+  "Scanning…": [
+    "Scanning…"
+  ],
+  "Start scan": [
+    "Start scan"
+  ],
+  "Setup steps": [
+    "Setup steps"
+  ],
+  "Step %1$d of %2$d · %3$s": [
+    "Step %1$d of %2$d · %3$s"
+  ],
+  "Setup wizard": [
+    "Setup wizard"
+  ],
+  "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue.": [
+    "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+  ],
+  "Go to Account": [
+    "Go to Account"
+  ],
+  "The project location ID is invalid.": [
+    "The project location ID is invalid."
+  ],
+  "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+  ],
+  "SEO titles": [
+    "SEO titles"
+  ],
+  "SEO descriptions": [
+    "SEO descriptions"
+  ],
+  "Canonical URLs": [
+    "Canonical URLs"
+  ],
+  "Noindex directives": [
+    "Noindex directives"
+  ],
+  "Social titles": [
+    "Social titles"
+  ],
+  "Social descriptions": [
+    "Social descriptions"
+  ],
+  "Facebook profile": [
+    "Facebook profile"
+  ],
+  "Twitter profile": [
+    "Twitter profile"
+  ],
+  "Instagram profile": [
+    "Instagram profile"
+  ],
+  "LinkedIn profile": [
+    "LinkedIn profile"
+  ],
+  "YouTube profile": [
+    "YouTube profile"
+  ],
+  "Organization or person name": [
+    "Organization or person name"
+  ],
+  "Sitemap enabled": [
+    "Sitemap enabled"
+  ],
+  "Google verification code": [
+    "Google verification code"
+  ],
+  "Bing verification code": [
+    "Bing verification code"
+  ],
+  "The account or project connection has changed. Refresh Account before trying again.": [
+    "The account or project connection has changed. Refresh Account before trying again."
+  ],
+  "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project.": [
+    "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+  ],
+  "Connect your account before creating a project.": [
+    "Connect your account before creating a project."
+  ],
+  "The service did not return a valid project for your account. Refresh Account and try again or contact support.": [
+    "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+  ],
+  "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+  ],
+  "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support.": [
+    "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+  ],
+  "Unable to inspect SEO import options. Please retry.": [
+    "Unable to inspect SEO import options. Please retry."
+  ],
+  "SEO import options must be an array of strings.": [
+    "SEO import options must be an array of strings."
+  ],
+  "Invalid SEO import source.": [
+    "Invalid SEO import source."
+  ],
+  "SEO import options must contain only supported option identifiers for the selected source.": [
+    "SEO import options must contain only supported option identifiers for the selected source."
+  ],
+  "SEO plugin is not installed.": [
+    "SEO plugin is not installed."
+  ],
+  "You do not have permission to access support information.": [
+    "You do not have permission to access support information."
+  ],
+  "Invalid Review event.": [
+    "Invalid Review event."
+  ],
+  "Unable to save Review state.": [
+    "Unable to save Review state."
+  ],
+  "feed link\u0004-": [
+    "feed link"
+  ],
+  "Pages affected: %d": [
+    "Pages affected: %d"
+  ],
+  "Checks needing attention: %1$d of %2$d": [
+    "Checks needing attention: %1$d of %2$d"
+  ],
+  "Pages checked: %d": [
+    "Pages checked: %d"
   ]
 }

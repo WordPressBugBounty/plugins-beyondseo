@@ -909,6 +909,52 @@ class WordpressHelpers {
         return $separators[$key] ?? '-';
     }
 
+    public static function parseLegacyTemplateToArray(string $template): array
+    {
+        $trimmed = trim($template);
+        if (str_starts_with($trimmed, '[') && str_ends_with($trimmed, ']')) {
+            try {
+                $decoded = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
+                if (is_array($decoded)) {
+                    return $decoded;
+                }
+            } catch (Throwable $e) {
+            }
+        }
+
+        if ($template === '') {
+            return [];
+        }
+
+        $pattern = '/({% (variable|separator):([a-zA-Z0-9_-]+) %})/';
+        $parts = preg_split($pattern, $template, -1, PREG_SPLIT_DELIM_CAPTURE);
+
+        $result = [];
+        $i = 0;
+        while ($i < count($parts)) {
+            $text = $parts[$i];
+            if ($text !== '') {
+                $result[] = [
+                    'type'    => 'text',
+                    'content' => $text,
+                ];
+            }
+            if (isset($parts[$i + 1])) {
+                $type = $parts[$i + 2];
+                $key = $parts[$i + 3];
+                $result[] = [
+                    'type' => $type,
+                    'key'  => $key,
+                ];
+                $i += 4;
+            } else {
+                $i++;
+            }
+        }
+
+        return $result;
+    }
+
     /**
      * Sanitize structured template input (JSON array or legacy string).
      *
@@ -1712,15 +1758,81 @@ class WordpressHelpers {
 			return $content[ $post->ID ];
 		}
 
-		$postContent = self::retrieve_post_content( $post );
+		// Raw content only: rendering blocks/shortcodes outside The Loop breaks page builders (Divi static CSS cache).
+		$postContent = (string) $post->post_content;
 
 		// Strip images, captions and WP oembed wrappers (e.g. YouTube URLs) from the post content.
-		$postContent          = preg_replace( '/(<figure.*?\/figure>|<img.*?\/>|<div.*?class="wp-block-embed__wrapper".*?>.*?<\/div>)/s', '', (string) $postContent );
+		$postContent          = preg_replace( '/(<figure.*?\/figure>|<img.*?\/>|<div.*?class="wp-block-embed__wrapper".*?>.*?<\/div>)/s', '', $postContent );
 		$postContent          = str_replace( ']]>', ']]&gt;', (string) $postContent );
-		$postContent          = trim( wp_strip_all_tags( strip_shortcodes( (string) $postContent ) ) );
-		$content[ $post->ID ] = wp_trim_words( (string) $postContent, 55, '' );
+		$postContent          = self::extract_text_from_content( (string) $postContent );
+		$content[ $post->ID ] = wp_trim_words( $postContent, 55, '' );
 
 		return $content[ $post->ID ];
+	}
+
+	/**
+	 * Plain text of post content without rendering it (safe outside The Loop).
+	 *
+	 * @param string $content Raw post content.
+	 *
+	 * @return string
+	 */
+	public static function extract_text_from_content( string $content ): string {
+		if ( has_blocks( $content ) ) {
+			$content = self::extract_text_from_blocks( parse_blocks( $content ) );
+		}
+
+		// Remove shortcode tags, registered or not, but keep the text they wrap.
+		$content = (string) preg_replace( '/\[\/?[\w-]+(?:\s[^\]]*)?\]/', ' ', $content );
+
+		return trim( wp_strip_all_tags( $content, true ) );
+	}
+
+	/**
+	 * @param array $blocks Output of parse_blocks().
+	 *
+	 * @return string
+	 */
+	private static function extract_text_from_blocks( array $blocks ): string {
+		$text = '';
+		foreach ( $blocks as $block ) {
+			if ( ! empty( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
+				$text .= self::extract_text_from_block_attrs( $block['attrs'] );
+			}
+			if ( ! empty( $block['innerHTML'] ) ) {
+				$text .= ' ' . $block['innerHTML'];
+			}
+			if ( ! empty( $block['innerBlocks'] ) ) {
+				$text .= ' ' . self::extract_text_from_blocks( $block['innerBlocks'] );
+			}
+		}
+
+		return $text;
+	}
+
+	/**
+	 * @param array $attrs Block attributes.
+	 *
+	 * @return string
+	 */
+	private static function extract_text_from_block_attrs( array $attrs ): string {
+		$text = '';
+		foreach ( $attrs as $key => $value ) {
+			if ( ! is_array( $value ) ) {
+				continue;
+			}
+			if ( 'innerContent' === $key ) {
+				$desktop = $value['desktop']['value'] ?? null;
+				// Skip empty values and bare URLs (audio/video sources, links).
+				if ( is_string( $desktop ) && '' !== trim( $desktop ) && ! preg_match( '~^\s*[a-z][a-z0-9+.-]*://\S+\s*$~i', $desktop ) ) {
+					$text .= ' ' . $desktop;
+				}
+				continue;
+			}
+			$text .= self::extract_text_from_block_attrs( $value );
+		}
+
+		return $text;
 	}
 
 	/**

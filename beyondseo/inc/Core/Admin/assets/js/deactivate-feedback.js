@@ -70,7 +70,7 @@
         "<label>" +
         '<input type="checkbox" name="delete_data" />' +
         "<span>" +
-        __("deleteData", "Delete all project data and settings upon deactivation") +
+        __("deleteData", "Delete all local project data and settings. This action cannot be undone.") +
         "</span>" +
         "</label>" +
         "</div>" +
@@ -118,23 +118,22 @@
       $form.find(".rankingcoach-deactivate-modal__error").empty();
     });
 
-    $form.on("submit", function (event) {
-      event.preventDefault();
-      var $checked = $form.find('input[type="radio"]:checked');
-      if (!$checked.length) {
-        $form.find(".rankingcoach-deactivate-modal__error").html(__("errorNoOption", "Please select a reason"));
+    var pending = false;
+
+    function submitDeactivation(reasonCode, feedbackText, skipFeedback) {
+      if (pending) {
         return;
       }
 
-      var $selected = $checked.closest(".rankingcoach-deactivate-modal__option");
-      var detailsField = $selected.find(".rankingcoach-deactivate-modal__option-details");
+      pending = true;
       var payload = {
         action: "rankingcoach_submit_deactivate_feedback",
         nonce: nonce,
         plugin: pluginFile,
-        reasonCode: $checked.val(),
-        feedbackText: detailsField.length ? detailsField.val() : "",
-        deleteProject: $form.find('input[name="delete_data"]').is(":checked"),
+        reasonCode: reasonCode,
+        feedbackText: feedbackText,
+        deleteData: $form.find('input[name="delete_data"]').is(":checked"),
+        skipFeedback: skipFeedback,
       };
 
       $submit.prop("disabled", true).text(__("sending", "Sending…"));
@@ -145,29 +144,34 @@
           window.location.href = href;
         }, 500);
       });
+    }
+
+    $form.on("submit", function (event) {
+      event.preventDefault();
+      var $checked = $form.find('input[type="radio"]:checked');
+      if (!$checked.length) {
+        $form.find(".rankingcoach-deactivate-modal__error").html(__("errorNoOption", "Please select a reason"));
+        return;
+      }
+
+      var $selected = $checked.closest(".rankingcoach-deactivate-modal__option");
+      var detailsField = $selected.find(".rankingcoach-deactivate-modal__option-details");
+      submitDeactivation($checked.val(), detailsField.length ? detailsField.val() : "", false);
     });
 
     $skip.on("click", function (event) {
       event.preventDefault();
-      var deleteProjectChecked = $form.find('input[name="delete_data"]').is(":checked");
-
-      if (!deleteProjectChecked) {
-        window.location.href = href;
+      if (pending) {
         return;
       }
 
-      var payload = {
-        action: "rankingcoach_submit_deactivate_feedback",
-        nonce: nonce,
-        plugin: pluginFile,
-        reasonCode: "skip",
-        feedbackText: "",
-        deleteProject: deleteProjectChecked,
-        skipFeedback: true,
-      };
-      $.post(ajaxUrl, payload).always(function () {
+      if (!$form.find('input[name="delete_data"]').is(":checked")) {
         window.location.href = href;
-      });
+
+        return;
+      }
+
+      submitDeactivation("skip", "", true);
     });
 
     $(document).on("keyup.rcDeactivateSurvey", function (event) {

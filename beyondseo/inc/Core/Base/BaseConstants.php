@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Enums\Suggestion;
 use ReflectionClass;
 
 /**
@@ -79,6 +80,7 @@ class BaseConstants
     public const OPTION_NOT_CONNECTED_NOTICE_DISMISSED = 'rankingcoach_not_connected_notice_dismissed';
     public const OPTION_RANKINGCOACH_MAX_ALLOWED_KEYWORDS = 'rankingcoach_max_allowed_keywords';
     public const OPTION_USE_PLUGIN_PAGE_KEYWORDS_DATA = 'rankingcoach_use_plugin_page_keywords_data';
+    public const OPTION_REMEMBERED_KEYWORDS = 'rankingcoach_remembered_keywords';
     
     // ANALYSIS CONSTANTS
     public const OPTION_ANALYSIS_WEBSITE_SCORE_AVERAGE = 'rankingcoach_analysis_website_score';
@@ -147,6 +149,28 @@ class BaseConstants
 
     // WIDGET & DASHBOARD
     public const OPTION_UPSELL_WIDGET_ID = 'rankingcoach_upsell_widget';
+
+    // Setup wizard
+    public const TRANSIENT_SETUP_WIZARD_REDIRECT = 'rankingcoach_setup_wizard_redirect';
+    /** Suggestion types the setup wizard checks */
+    public const SETUP_WIZARD_CHECKS = [
+        Suggestion::PAGE_NOT_INDEXED,
+        Suggestion::META_DESCRIPTION_MISSING,
+        Suggestion::META_TITLE_MISSING,
+        Suggestion::MISSING_PRIMARY_KEYWORD,
+        Suggestion::KEYWORD_MISSING_IN_META_TITLE,
+        Suggestion::MISSING_H1_TAG,
+        Suggestion::PRIMARY_KEYWORD_MISSING_IN_HEADINGS,
+    ];
+    public const OPTION_REVIEW_DISPLAY_COUNT = 'rankingcoach_review_display_count';
+    public const OPTION_REVIEW_COOLDOWN_UNTIL = 'rankingcoach_review_cooldown_until';
+    public const OPTION_REVIEW_PERMANENT_STOP = 'rankingcoach_review_permanent_stop';
+    public const OPTION_REVIEW_PLUGIN_OBSERVED_AT = 'rankingcoach_review_plugin_observed_at';
+    public const OPTION_REVIEW_CUSTOMER_STATE = 'rankingcoach_review_customer_state';
+    public const OPTION_REVIEW_ONBOARDING_COMPLETED_AT = 'rankingcoach_review_onboarding_completed_at';
+    public const OPTION_REVIEW_MEANINGFUL_USE_AT = 'rankingcoach_review_meaningful_use_at';
+    public const OPTION_REVIEW_POST_MILESTONES = 'rankingcoach_review_post_milestones';
+    public const OPTION_REVIEW_SITE_GREEN = 'rankingcoach_review_site_green';
 
     // SINGLE POST META KEYS
     public const META_KEY_CUSTOM_SOCIAL_IMAGE = 'rankingcoach_custom_social_image';

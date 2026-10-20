@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2026-09-24 10:16+0000\n"
+"PO-Revision-Date: 2026-10-20 09:33+0000\n"
 "Last-Translator: rankingCoach <wp-team@rankingcoach.com>\n"
 "Language-Team: \n"
 "Language: it\n"
@@ -7924,7 +7924,7 @@ msgid "Enter activation code"
 msgstr "Inserisci il codice di attivazione"
 
 msgid "We could not find a rankingCoach account for this email address."
-msgstr ""
+msgstr "Non siamo riusciti a trovare un account rankingCoach per questo indirizzo email."
 
 msgid "This account has no active WordPress subscription."
 msgstr "Questo account non ha un abbonamento WordPress attivo."
@@ -7939,7 +7939,7 @@ msgid "Email registration is not available for this installation. Please use you
 msgstr "La registrazione via email non è disponibile per questa installazione. Usa il tuo codice di attivazione."
 
 msgid "WordPress Cron is disabled on this site (DISABLE_WP_CRON is set to true). RankingCoach relies on WP-Cron to run scheduled tasks such as keyword synchronization and broken link checking. Please ensure a system cron job is configured to run wp-cron.php periodically, otherwise these scheduled tasks will not run."
-msgstr ""
+msgstr "WordPress Cron è disabilitato su questo sito (DISABLE_WP_CRON è impostato su true). RankingCoach si basa su WP-Cron per eseguire attività programmate come la sincronizzazione delle parole chiave e il controllo dei link interrotti. Si prega di assicurarsi che un cron job di sistema sia configurato per eseguire wp-cron.php periodicamente, altrimenti queste attività programmate non verranno eseguite."
 
 msgid "Details: %s"
 msgstr "Dettagli: %s"
@@ -7963,46 +7963,699 @@ msgid "The activation code for this subscription has already been re-sent the ma
 msgstr "Il codice di attivazione per questo abbonamento è già stato inviato il numero massimo di volte. Contatta l'assistenza clienti."
 
 msgid "Can't find your activation code?"
-msgstr ""
+msgstr "Non riesci a trovare il tuo codice di attivazione?"
 
 msgid "Recover it here"
-msgstr ""
+msgstr "Recuperalo qui"
 
 msgid "Check your email for your activation code. Didn’t receive it? Recover it"
-msgstr ""
+msgstr "Controlla la tua email per il codice di attivazione. Non l'hai ricevuto? Recuperalo"
 
 msgid "here"
-msgstr ""
-
+msgstr "qui"
 
 msgid "Need help? Get in touch with our support team and copy your site information below."
-msgstr ""
-
+msgstr "Hai bisogno di aiuto? Contatta il nostro team di supporto e copia le informazioni del tuo sito qui sotto."
 
 msgid "Contact Support"
-msgstr ""
-
+msgstr "Contatta il supporto"
 
 msgid "Site info"
-msgstr ""
-
+msgstr "Informazioni sul sito"
 
 msgid "Failed to load site info. Please try again."
-msgstr ""
-
+msgstr "Impossibile caricare le informazioni del sito. Per favore riprova."
 
 msgid "Retry"
-msgstr ""
-
+msgstr "Riprova"
 
 msgid "Copy site info to clipboard"
-msgstr ""
-
+msgstr "Copia le informazioni del sito negli appunti"
 
 msgid "Copied to clipboard"
-msgstr ""
-
+msgstr "Copiato negli appunti"
 
 msgid "You do not have permission to access support information."
+msgstr "Non hai il permesso di accedere alle informazioni di supporto."
+
+msgid "The SEO analysis starts after the first save of this post."
+msgstr "L'analisi SEO inizia dopo il primo salvataggio di questo post."
+
+msgid "Your changes could not be saved. Please try again."
+msgstr "Le tue modifiche non possono essere salvate. Per favore riprova."
+
+msgid "Edit SEO title and description"
+msgstr "Modifica il titolo SEO e la descrizione"
+
+msgid "Open in editor"
+msgstr "Apri nell'editor"
+
+msgid "Add a meta description"
+msgstr "Aggiungi una meta descrizione"
+
+msgid "No meta description"
+msgstr "Nessuna meta descrizione"
+
+msgid "Updating score…"
+msgstr "Aggiornamento del punteggio…"
+
+msgid "Saved"
+msgstr "Salvato"
+
+msgid "Yes, I love it"
+msgstr "Sì, mi piace."
+
+msgid "Not really"
+msgstr "Non proprio"
+
+msgid "Maybe later"
+msgstr "Forse più tardi"
+
+msgid "Review BeyondSEO on WordPress.org"
+msgstr "Recensisci BeyondSEO su WordPress.org"
+
+msgid "Enjoying BeyondSEO?"
+msgstr "Ti piace BeyondSEO?"
+
+msgid "We'd love to hear about your experience."
+msgstr "Ci piacerebbe sapere della tua esperienza."
+
+msgid "Dismiss review request"
+msgstr "Ignora la richiesta di recensione"
+
+msgid "Your site score is above %s!"
+msgstr "Il punteggio del tuo sito è superiore a %s!"
+
+msgid "Your content score is above %s!"
+msgstr "Il tuo punteggio di contenuto è superiore a %s!"
+
+msgid "Enjoying BeyondSEO? We'd love to hear about your experience."
+msgstr "Ti piace BeyondSEO? Ci piacerebbe sapere della tua esperienza."
+
+msgid "The project connection could not be verified. Refresh Account before trying again."
+msgstr "La connessione al progetto non può essere verificata. Aggiorna l'account prima di riprovare."
+
+msgid "Unable to confirm project creation. Your account and local data have been retained. Refresh Account and try again or contact support."
+msgstr "Impossibile confermare la creazione del progetto. Il tuo account e i dati locali sono stati mantenuti. Aggiorna l'account e riprova oppure contatta il supporto."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Try again or contact support."
+msgstr "Il servizio non è riuscito a confermare l'eliminazione del progetto. La tua connessione locale non è stata rimossa. Riprova o contatta il supporto."
+
+msgid "The service response could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "La risposta del servizio non può essere verificata. Aggiorna l'account prima di riprovare. Se la connessione è incompleta, contatta il supporto prima di riconnetterti."
+
+msgid "Project deletion was accepted, but the local connection could not be fully removed. Contact support before retrying or reconnecting. Refresh Account to check the current connection."
+msgstr "La cancellazione del progetto è stata accettata, ma la connessione locale non è stata completamente rimossa. Contatta il supporto prima di riprovare o riconnetterti. Aggiorna l'account per controllare la connessione attuale."
+
+msgid "The connected project has changed or is no longer connected. Refresh Account and review the project before trying again."
+msgstr "Il progetto connesso è cambiato o non è più connesso. Aggiorna l'account e rivedi il progetto prima di riprovare."
+
+msgid "A project operation is already in progress. Wait for it to finish and refresh Account. If this persists, contact support."
+msgstr "Un'operazione di progetto è già in corso. Attendere il termine e aggiornare l'Account. Se il problema persiste, contattare il supporto."
+
+msgid "Unable to safely start the project operation. Please try again or contact support."
+msgstr "Impossibile avviare in modo sicuro l'operazione del progetto. Si prega di riprovare o contattare il supporto."
+
+msgid "Connect your account before creating a project. Refresh Account to check your connection."
+msgstr "Collega il tuo account prima di creare un progetto. Aggiorna l'account per controllare la tua connessione."
+
+msgid "The service returned a project, but its local connection could not be fully saved. Refresh Account and try again or contact support. Your account and local data have been retained."
+msgstr "Il servizio ha restituito un progetto, ma la sua connessione locale non è stata completamente salvata. Aggiorna l'account e riprova oppure contatta il supporto. Il tuo account e i dati locali sono stati conservati."
+
+msgid "Enable communication with rankingCoach in Settings before creating a project."
+msgstr "Abilita la comunicazione con rankingCoach nelle Impostazioni prima di creare un progetto."
+
+msgid "Enable communication with rankingCoach in Settings before deleting the project. Your local connection has not been removed."
+msgstr "Abilita la comunicazione con rankingCoach nelle Impostazioni prima di eliminare il progetto. La tua connessione locale non è stata rimossa."
+
+msgid "The service could not authenticate project creation. Your account data has been retained. Contact support to restore access before retrying."
+msgstr "Il servizio non è riuscito ad autenticare la creazione del progetto. I dati del tuo account sono stati conservati. Contatta il supporto per ripristinare l'accesso prima di riprovare."
+
+msgid "The service could not authenticate project deletion. Your local connection has not been removed. Contact support to restore access before retrying."
+msgstr "Il servizio non è riuscito ad autenticare l'eliminazione del progetto. La tua connessione locale non è stata rimossa. Contatta il supporto per ripristinare l'accesso prima di riprovare."
+
+msgid "Unable to load the local project connection. Please try again."
+msgstr "Impossibile caricare la connessione del progetto locale. Per favore riprova."
+
+msgid "Account access could not be verified. Reload this page and sign in as an administrator before trying again."
+msgstr "L'accesso all'account non può essere verificato. Ricarica questa pagina e accedi come amministratore prima di riprovare."
+
+msgid "Unable to load the local project connection. Check your connection and try again."
+msgstr "Impossibile caricare la connessione del progetto locale. Controlla la tua connessione e riprova."
+
+msgid "The creation result could not be verified. Refresh Account before trying again. Your account and local data have been retained."
+msgstr "Il risultato della creazione non può essere verificato. Aggiorna l'account prima di riprovare. Il tuo account e i dati locali sono stati mantenuti."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again. If the connection is incomplete, contact support before reconnecting."
+msgstr "Il risultato della cancellazione non può essere verificato. Aggiorna l'account prima di riprovare. Se la connessione è incompleta, contatta il supporto prima di riconnetterti."
+
+msgid "The service response could not be verified. Refresh Account before trying again."
+msgstr "La risposta del servizio non può essere verificata. Aggiorna l'account prima di riprovare."
+
+msgid "The deletion result could not be verified. Refresh Account before trying again."
+msgstr "Il risultato della cancellazione non può essere verificato. Aggiorna l'account prima di riprovare."
+
+msgid "Your project is connected. You can open onboarding when you are ready. Your existing onboarding data and status have been preserved."
+msgstr "Il tuo progetto è connesso. Puoi aprire l'onboarding quando sei pronto. I tuoi dati e lo stato di onboarding esistenti sono stati preservati."
+
+msgid "Project deletion was accepted and deferred. The local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "La cancellazione del progetto è stata accettata e rinviata. La connessione al progetto locale è stata rimossa. Il tuo account, le impostazioni e i dati SEO sono conservati, e il plugin rimane attivo."
+
+msgid "The remote project is deleted and the local project connection has been removed. Your account, settings, and SEO data are preserved, and the plugin remains active."
+msgstr "Il progetto remoto è stato eliminato e la connessione al progetto locale è stata rimossa. Il tuo account, le impostazioni e i dati SEO sono conservati e il plugin rimane attivo."
+
+msgid "Account"
+msgstr "Accountabilità"
+
+msgid "Manage the project connected to this website."
+msgstr "Gestisci il progetto collegato a questo sito web."
+
+msgid "Loading project connection…"
+msgstr "Caricamento della connessione al progetto…"
+
+msgid "Refresh Account"
+msgstr "Aggiorna account"
+
+msgid "Account details"
+msgstr "Dettagli dell'account"
+
+msgid "Activation code"
+msgstr "Codice di attivazione"
+
+msgid "Not available"
+msgstr "Non disponibile"
+
+msgid "Project details"
+msgstr "Dettagli del progetto"
+
+msgid "Project ID"
+msgstr "ID progetto"
+
+msgid "Not connected"
+msgstr "Non connesso"
+
+msgid "Location ID"
+msgstr "ID posizione"
+
+msgid "Website"
+msgstr "Sito web"
+
+msgid "Open onboarding"
+msgstr "Apri l'onboarding"
+
+msgid "Delete project"
+msgstr "Elimina progetto"
+
+msgid "Delete the remote project and remove this website’s connection. Your local settings and SEO data will be kept. This does not cancel your account or subscription."
+msgstr "Elimina il progetto remoto e rimuovi la connessione di questo sito web. Le tue impostazioni locali e i dati SEO verranno mantenuti. Questo non annulla il tuo account o abbonamento."
+
+msgid "Deleting project…"
+msgstr "Eliminazione del progetto…"
+
+msgid "Create project"
+msgstr "Crea progetto"
+
+msgid "Your account is connected, but this website has no project. Create a project using your existing account. Your local settings, SEO data, and onboarding progress will be kept."
+msgstr "Il tuo account è connesso, ma questo sito web non ha alcun progetto. Crea un progetto utilizzando il tuo account esistente. Le tue impostazioni locali, i dati SEO e i progressi di onboarding saranno mantenuti."
+
+msgid "Creating project…"
+msgstr "Creazione del progetto…"
+
+msgid "Create Project"
+msgstr "Crea Progetto"
+
+msgid "Creating project… Please wait for confirmation."
+msgstr "Creazione del progetto… Attendere la conferma."
+
+msgid "No project connected"
+msgstr "Nessun progetto connesso"
+
+msgid "Connect an account to link this website to a project. Your existing settings and SEO data are still available."
+msgstr "Collega un account per collegare questo sito web a un progetto. Le tue impostazioni esistenti e i dati SEO sono ancora disponibili."
+
+msgid "Delete this project?"
+msgstr "Eliminare questo progetto?"
+
+msgid "This deletes the remote project and removes the local connection for this website. Remote project deletion cannot be undone."
+msgstr "Questo elimina il progetto remoto e rimuove la connessione locale per questo sito web. L'eliminazione del progetto remoto non può essere annullata."
+
+msgid "Your local settings and SEO data will be preserved. The plugin will remain active. Your account and subscription will not be cancelled."
+msgstr "Le tue impostazioni locali e i dati SEO saranno preservati. Il plugin rimarrà attivo. Il tuo account e l'abbonamento non verranno cancellati."
+
+msgid "Deleting project… Please wait for confirmation."
+msgstr "Eliminazione del progetto… Attendere la conferma."
+
+msgid "Unable to load Account. Please try again."
+msgstr "Impossibile caricare l'account. Per favore riprova."
+
+msgid "Retry loading Account"
+msgstr "Riprova a caricare l'account"
+
+msgid "Reach out to our team for help with BeyondSEO."
+msgstr "Contatta il nostro team per ricevere aiuto con BeyondSEO."
+
+msgid "Copy your site's technical details to share with our support team."
+msgstr "Copia i dettagli tecnici del tuo sito da condividere con il nostro team di supporto."
+
+msgid "Loading site info"
+msgstr "Caricamento informazioni sul sito"
+
+msgid "Edit SEO title"
+msgstr "Modifica il titolo SEO"
+
+msgid "Edit meta description"
+msgstr "Modifica la meta descrizione"
+
+msgid "Set keywords"
+msgstr "Imposta parole chiave"
+
+msgid "Essentials"
+msgstr "Essenziali"
+
+msgid "Import"
+msgstr "Importa"
+
+msgid "Site check"
+msgstr "Controllo del sito"
+
+msgid "Email tips"
+msgstr "Suggerimenti per le email"
+
+msgid "rankingCoach account"
+msgstr "account rankingCoach"
+
+msgid "Check titles, keywords and headings"
+msgstr "Controlla titoli, parole chiave e intestazioni"
+
+msgid "Review page-specific SEO issues"
+msgstr "Esamina i problemi SEO specifici della pagina"
+
+msgid "Fix issues directly on your pages"
+msgstr "Correggi i problemi direttamente sulle tue pagine"
+
+msgid "Go to BeyondSEO settings"
+msgstr "Vai alle impostazioni di BeyondSEO"
+
+msgid "Keep growing your visibility"
+msgstr "Continua a far crescere la tua visibilità"
+
+msgid "BeyondSEO helps you find and fix page issues. A rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO ti aiuta a trovare e risolvere i problemi delle pagine. Un account rankingCoach aggiunge informazioni sulla visibilità continua della tua presenza online."
+
+msgid "Your rankingCoach account is connected"
+msgstr "Il tuo account rankingCoach è connesso"
+
+msgid "Rankings, competitors and reports are available from the BeyondSEO dashboard."
+msgstr "Le classifiche, i concorrenti e i rapporti sono disponibili dal pannello di controllo di BeyondSEO."
+
+msgid "With BeyondSEO"
+msgstr "Con BeyondSEO"
+
+msgid "Create your free account"
+msgstr "Crea il tuo account gratuito"
+
+msgid "I already have an account"
+msgstr "Ho già un account."
+
+msgid "Registration and login happen on the BeyondSEO connect pages. You can also do this later from Settings."
+msgstr "La registrazione e il login avvengono sulle pagine di connessione di BeyondSEO. Puoi anche farlo in seguito dalle Impostazioni."
+
+msgid "Enter a valid email address or skip this step."
+msgstr "Inserisci un indirizzo email valido o salta questo passaggio."
+
+msgid "Select the consent checkbox or skip this step."
+msgstr "Seleziona la casella di consenso o salta questo passaggio."
+
+msgid "Your email address could not be saved. Please try again."
+msgstr "Il tuo indirizzo email non può essere salvato. Per favore riprova."
+
+msgid "Back to site check"
+msgstr "Controllo di ritorno al sito"
+
+msgid "Skip"
+msgstr "Salta"
+
+msgid "Save and continue"
+msgstr "Salva e continua"
+
+msgid "Get general SEO tips by email"
+msgstr "Ricevi consigli generali di SEO via email"
+
+msgid "Get SEO recommendations by email"
+msgstr "Ricevi raccomandazioni SEO via email"
+
+msgid "The site check did not finish, so we cannot send page-specific findings yet. You can still receive general SEO tips, or skip this step."
+msgstr "Il controllo del sito non è terminato, quindi non possiamo ancora inviare risultati specifici per la pagina. Puoi comunque ricevere suggerimenti SEO generali o saltare questo passaggio."
+
+msgid "Receive follow-up ideas after reviewing your site. This step is optional and does not create a rankingCoach account."
+msgstr "Ricevi idee di follow-up dopo aver esaminato il tuo sito. Questo passaggio è facoltativo e non crea un account rankingCoach."
+
+msgid "This address is saved for SEO recommendations. Save again to update it."
+msgstr "Questo indirizzo è salvato per le raccomandazioni SEO. Salva di nuovo per aggiornarlo."
+
+msgid "Email address"
+msgstr "Indirizzo email"
+
+msgid "Email me SEO recommendations and occasional BeyondSEO / rankingCoach product updates. I can unsubscribe at any time."
+msgstr "Inviami raccomandazioni SEO e occasionali aggiornamenti sui prodotti BeyondSEO / rankingCoach. Posso disiscrivermi in qualsiasi momento."
+
+msgid "Optional and separate from account creation."
+msgstr "Facoltativo e separato dalla creazione dell'account."
+
+msgid "The homepage SEO details could not be loaded. You can continue and edit them later."
+msgstr "I dettagli SEO della homepage non possono essere caricati. Puoi continuare e modificarli in seguito."
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "No tagline set"
+msgstr "Nessun slogan impostato"
+
+msgid "Your homepage shows your latest posts, so search engines see the site title and tagline."
+msgstr "La tua homepage mostra i tuoi ultimi post, quindi i motori di ricerca vedono il titolo del sito e il sottotitolo."
+
+msgid "Change them in General settings"
+msgstr "Cambia le impostazioni generali."
+
+msgid "Homepage SEO title"
+msgstr "Titolo SEO della homepage"
+
+msgid "Meta description"
+msgstr "Meta descrizione"
+
+msgid "Describe your website in one or two sentences"
+msgstr "Descrivi il tuo sito web in una o due frasi."
+
+msgid "Exit setup"
+msgstr "Esci dalla configurazione"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "Improve how your site appears in search results and find issues on your pages. We prefilled what we already know about your website."
+msgstr "Migliora l'aspetto del tuo sito nei risultati di ricerca e trova problemi sulle tue pagine. Abbiamo precompilato ciò che già sappiamo sul tuo sito web."
+
+msgid "Search preview"
+msgstr "Anteprima di ricerca"
+
+msgid "XML sitemap"
+msgstr "sitemap XML"
+
+msgid "Helps search engines discover all your pages."
+msgstr "Aiuta i motori di ricerca a scoprire tutte le tue pagine."
+
+msgid "Search engine visibility"
+msgstr "Visibilità nei motori di ricerca"
+
+msgid "Search engines are allowed to index this site."
+msgstr "I motori di ricerca sono autorizzati a indicizzare questo sito."
+
+msgid "WordPress currently asks search engines not to index this site."
+msgstr "WordPress attualmente chiede ai motori di ricerca di non indicizzare questo sito."
+
+msgid "Reading settings"
+msgstr "Impostazioni di lettura"
+
+msgid "Discouraged"
+msgstr "Sconfortato"
+
+msgid "A rankingCoach account can add visibility and performance information later. First, let’s review your site."
+msgstr "Un account rankingCoach può aggiungere informazioni sulla visibilità e sulle prestazioni in seguito. Prima, rivediamo il tuo sito."
+
+msgid "SEO import failed. Some data may have been imported; please retry."
+msgstr "Importazione SEO non riuscita. Alcuni dati potrebbero essere stati importati; si prega di riprovare."
+
+msgid "Imported %1$d settings and %2$d page entries. %3$d entries were already set in BeyondSEO or could not be converted."
+msgstr "Importati %1$d impostazioni e %2$d voci di pagina. %3$d voci erano già impostate in BeyondSEO o non potevano essere convertite."
+
+msgid "Continue without import"
+msgstr "Continua senza importare"
+
+msgid "Keep your existing SEO work"
+msgstr "Mantieni il tuo lavoro SEO esistente"
+
+msgid "Another SEO plugin was found on this site. BeyondSEO can bring over its SEO titles, descriptions, keywords and supported site settings. Values you already saved in BeyondSEO are kept, and the other plugin’s data stays untouched."
+msgstr "È stato trovato un altro plugin SEO su questo sito. BeyondSEO può trasferire i suoi titoli SEO, descrizioni, parole chiave e impostazioni del sito supportate. I valori che hai già salvato in BeyondSEO vengono mantenuti e i dati dell'altro plugin rimangono intatti."
+
+msgid "Import finished"
+msgstr "Importazione completata"
+
+msgid "Plugin to import from"
+msgstr "Plugin per importare da"
+
+msgid "Active on this site"
+msgstr "Attivo su questo sito"
+
+msgid "Installed but not active"
+msgstr "Installato ma non attivo"
+
+msgid "Titles and descriptions that use unsupported template variables are skipped. You can review every page afterwards."
+msgstr "I titoli e le descrizioni che utilizzano variabili di template non supportate vengono saltati. Puoi rivedere ogni pagina successivamente."
+
+msgid "The page details could not be loaded."
+msgstr "I dettagli della pagina non possono essere caricati."
+
+msgid "Enter a title or add a variable."
+msgstr "Inserisci un titolo o aggiungi una variabile."
+
+msgid "Enter a meta description."
+msgstr "Inserisci una meta descrizione."
+
+msgid "SEO title"
+msgstr "Titolo SEO"
+
+msgid "The page keywords could not be loaded."
+msgstr "Le parole chiave della pagina non possono essere caricate."
+
+msgid "The keyword could not be saved. Please try again."
+msgstr "La parola chiave non è stata salvata. Per favore riprova."
+
+msgid "The keyword could not be removed. Please try again."
+msgstr "La parola chiave non può essere rimossa. Per favore riprova."
+
+msgid "Enter the keywords this page should rank for. The first one becomes the primary keyword, the others additional keywords; they are the same keywords you see in the page's General tab."
+msgstr "Inserisci le parole chiave per cui questa pagina dovrebbe posizionarsi. La prima diventa la parola chiave principale, le altre parole chiave aggiuntive; sono le stesse parole chiave che vedi nella scheda Generale della pagina."
+
+msgid "No primary keyword yet. The first keyword you add becomes it."
+msgstr "Nessuna parola chiave principale ancora. La prima parola chiave che aggiungi diventa essa."
+
+msgid "No additional keywords yet."
+msgstr "Nessuna parola chiave aggiuntiva ancora."
+
+msgid "Done"
+msgstr "Fatto"
+
+msgid "The site check could not finish on the server. Large sites can take longer than the server allows."
+msgstr "Il controllo del sito non è riuscito a completarsi sul server. I siti di grandi dimensioni possono richiedere più tempo di quanto il server consenta."
+
+msgid "We could not complete the site check."
+msgstr "Non siamo riusciti a completare il controllo del sito."
+
+msgid "Scan cancelled. A check that already started on the server will still finish in the background."
+msgstr "Scansione annullata. Un controllo già avviato sul server terminerà comunque in background."
+
+msgid "The page could not be rechecked. Please try again in a moment."
+msgstr "La pagina non può essere ricontrollata. Per favore riprova tra un momento."
+
+msgid "Updated"
+msgstr "Aggiornato"
+
+msgid "Recheck"
+msgstr "Controlla di nuovo"
+
+msgid "All checked pages pass"
+msgstr "Tutte le pagine controllate sono approvate"
+
+msgid "Issues found on your pages"
+msgstr "Problemi riscontrati sulle tue pagine"
+
+msgid "Your pages pass every check"
+msgstr "Le tue pagine superano ogni controllo."
+
+msgid "Each check lists the pages it applies to. Fix titles, descriptions and keywords right here, or open the page in the editor for everything else."
+msgstr "Ogni controllo elenca le pagine a cui si applica. Correggi titoli, descrizioni e parole chiave proprio qui, oppure apri la pagina nell'editor per tutto il resto."
+
+msgid "The completed checks found nothing to fix. You can run the scan again after updating your site."
+msgstr "I controlli completati non hanno trovato nulla da sistemare. Puoi eseguire nuovamente la scansione dopo aver aggiornato il tuo sito."
+
+msgid "Some pages need another look"
+msgstr "Alcune pagine necessitano di un'altra revisione."
+
+msgid "Every page scored 0, which usually means the site could not load its own pages during the check. Make sure the site is reachable from its server, then run the scan again."
+msgstr "Ogni pagina ha ottenuto 0, il che di solito significa che il sito non è riuscito a caricare le proprie pagine durante il controllo. Assicurati che il sito sia raggiungibile dal suo server, quindi esegui nuovamente la scansione."
+
+msgid "Showing the most recent pages and posts. Every other page is listed in the posts and pages overview."
+msgstr "Mostrando le pagine e i post più recenti. Ogni altra pagina è elencata nella panoramica di post e pagine."
+
+msgid "Checking your site"
+msgstr "Controllando il tuo sito"
+
+msgid "Every published page and post is analysed on your server. This can take a few minutes on larger sites."
+msgstr "Ogni pagina e post pubblicati vengono analizzati sul tuo server. Questo può richiedere alcuni minuti sui siti più grandi."
+
+msgid "Collecting the results for your pages…"
+msgstr "Raccolta dei risultati per le tue pagine…"
+
+msgid "Analysing your published pages…"
+msgstr "Analizzando le tue pagine pubblicate…"
+
+msgid "The site check could not finish"
+msgstr "Il controllo del sito non è riuscito a completarsi."
+
+msgid "Retry now, or continue and run the check later from the dashboard."
+msgstr "Riprova ora, oppure continua e esegui il controllo più tardi dal cruscotto."
+
+msgid "Identify issues on your pages"
+msgstr "Identifica i problemi sulle tue pagine"
+
+msgid "BeyondSEO checks every published page and post for the following, then shows which pages need work."
+msgstr "BeyondSEO controlla ogni pagina e post pubblicati per i seguenti aspetti, quindi mostra quali pagine necessitano di lavoro."
+
+msgid "Retry scan"
+msgstr "Riprova la scansione"
+
+msgid "Run scan again"
+msgstr "Esegui di nuovo la scansione"
+
+msgid "Scanning…"
+msgstr "Scansione…"
+
+msgid "Start scan"
+msgstr "Avvia scansione"
+
+msgid "Setup steps"
+msgstr "Passaggi di configurazione"
+
+msgid "Step %1$d of %2$d · %3$s"
+msgstr "Passo %1$d di %2$d · %3$s"
+
+msgid "Setup wizard"
+msgstr "Procedura guidata di configurazione"
+
+msgid "Your account is connected, but a project is required to use the BeyondSEO dashboard. Create a project in Settings > Account to continue."
+msgstr "Il tuo account è connesso, ma è necessario un progetto per utilizzare il dashboard di BeyondSEO. Crea un progetto in Impostazioni > Account per continuare."
+
+msgid "Go to Account"
+msgstr "Vai all'Account"
+
+msgid "The project location ID is invalid."
+msgstr "L'ID della posizione del progetto non è valido."
+
+msgid "The service did not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Il servizio non ha confermato l'eliminazione del progetto. La tua connessione locale non è stata rimossa. Per favore riprova o contatta il supporto."
+
+msgid "SEO titles"
+msgstr "Titoli SEO"
+
+msgid "SEO descriptions"
+msgstr "Descrizioni SEO"
+
+msgid "Canonical URLs"
+msgstr "URL canonici"
+
+msgid "Noindex directives"
+msgstr "Direttive noindex"
+
+msgid "Social titles"
+msgstr "Titoli sociali"
+
+msgid "Social descriptions"
+msgstr "Descrizioni sociali"
+
+msgid "Facebook profile"
+msgstr "Profilo Facebook"
+
+msgid "Twitter profile"
+msgstr "Profilo Twitter"
+
+msgid "Instagram profile"
+msgstr "Profilo Instagram"
+
+msgid "LinkedIn profile"
+msgstr "Profilo LinkedIn"
+
+msgid "YouTube profile"
+msgstr "Profilo YouTube"
+
+msgid "Organization or person name"
+msgstr "Nome dell'organizzazione o della persona"
+
+msgid "Sitemap enabled"
+msgstr "Sitemap abilitato"
+
+msgid "Google verification code"
+msgstr "Codice di verifica di Google"
+
+msgid "Bing verification code"
+msgstr "Codice di verifica di Bing"
+
+msgid "The account or project connection has changed. Refresh Account before trying again."
+msgstr "La connessione all'account o al progetto è cambiata. Aggiorna l'account prima di riprovare."
+
+msgid "Project deletion was accepted, but the local project identifiers could not be fully removed. Your account and local data have been retained. Refresh Account and contact support before creating another project."
+msgstr "La cancellazione del progetto è stata accettata, ma gli identificatori del progetto locale non sono stati completamente rimossi. Il tuo account e i dati locali sono stati mantenuti. Aggiorna l'account e contatta il supporto prima di creare un altro progetto."
+
+msgid "Connect your account before creating a project."
+msgstr "Collega il tuo account prima di creare un progetto."
+
+msgid "The service did not return a valid project for your account. Refresh Account and try again or contact support."
+msgstr "Il servizio non ha restituito un progetto valido per il tuo account. Aggiorna l'account e riprova oppure contatta il supporto."
+
+msgid "The service could not confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Il servizio non è riuscito a confermare l'eliminazione del progetto. La tua connessione locale non è stata rimossa. Per favore riprova o contatta il supporto."
+
+msgid "Unable to confirm project deletion. Your local connection has not been removed. Please try again or contact support."
+msgstr "Impossibile confermare l'eliminazione del progetto. La tua connessione locale non è stata rimossa. Per favore riprova o contatta il supporto."
+
+msgid "Unable to inspect SEO import options. Please retry."
+msgstr "Impossibile ispezionare le opzioni di importazione SEO. Si prega di riprovare."
+
+msgid "SEO import options must be an array of strings."
+msgstr "Le opzioni di importazione SEO devono essere un array di stringhe."
+
+msgid "Invalid SEO import source."
+msgstr "Fonte di importazione SEO non valida."
+
+msgid "SEO import options must contain only supported option identifiers for the selected source."
+msgstr "Le opzioni di importazione SEO devono contenere solo identificatori di opzione supportati per la fonte selezionata."
+
+msgid "SEO plugin is not installed."
+msgstr "Il plugin SEO non è installato."
+
+msgid "Invalid Review event."
+msgstr "Evento di recensione non valido."
+
+msgid "Unable to save Review state."
+msgstr "Impossibile salvare lo stato della recensione."
+
+msgid "Go to Dashboard"
+msgstr "Vai al Cruscotto"
+
+msgid "BeyondSEO helps you find and fix page issues. Your rankingCoach account adds ongoing visibility information about your online presence."
+msgstr "BeyondSEO ti aiuta a trovare e risolvere i problemi delle pagine. Il tuo account rankingCoach aggiunge informazioni sulla visibilità continua della tua presenza online."
+
+msgid "Rankings, competitors and reports are already available from the BeyondSEO dashboard. Nothing else to set up here."
+msgstr "Le classifiche, i concorrenti e i rapporti sono già disponibili dal dashboard di BeyondSEO. Nient'altro da configurare qui."
+
+msgid "With your rankingCoach account"
+msgstr "Con il tuo account rankingCoach"
+
+#: inc/Core/Rss/FeedLinkGenerator.php:42
+msgctxt "feed link"
+msgid "-"
 msgstr ""
 
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:368
+msgid "Pages affected: %d"
+msgstr "Pagine interessate: %d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:445
+msgid "Checks needing attention: %1$d of %2$d"
+msgstr "Controlli che necessitano attenzione: %1$d di %2$d"
+
+#: react/src/components/SetupWizard/steps/ScanStep.tsx:453
+msgid "Pages checked: %d"
+msgstr "Pagine controllate: %d"
+
+msgid "%1$d of %2$d pages could not be checked. You can continue with the completed checks and try again later."
+msgstr "%1$d di %2$d pagine non possono essere controllate. Puoi continuare con i controlli completati e riprovare più tardi."

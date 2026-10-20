@@ -20,6 +20,7 @@ use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Helpers\RequirementHelper;
+use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\Seo\Services\SeoOptimiserService;
 use Throwable;
 use WP_REST_Request;
@@ -208,6 +209,11 @@ class OnboardingController
             OptionStore::disableFlowGuard();
 
             try {
+                (new ReviewState())->recordOnboardingCompletion();
+            } catch (Throwable $e) {
+            }
+
+            try {
                 $posts = get_posts(['post_type' => ['post', 'page'], 'numberposts' => -1, 'fields' => 'ids']);
                 foreach ($posts as $postId) {
                     SeoOptimiserService::getInstance()->analyzeFullOptimiser((int) $postId, [], false);
@@ -235,13 +241,23 @@ class OnboardingController
         try {
             $posts = get_posts(['post_type' => ['post', 'page'], 'numberposts' => -1, 'fields' => 'ids']);
 
+            $scanCompleted = count($posts) > 0;
             foreach ($posts as $postId) {
-                SeoOptimiserService::getInstance()->analyzeFullOptimiser((int) $postId, [], false);
+                SeoOptimiserService::getInstance()->analyzeFullOptimiser((int) $postId, [], false, false, $analysisCompleted);
+                $scanCompleted = $analysisCompleted && $scanCompleted;
             }
 
-            SeoOptimiserService::getInstance()->calculateAndSaveAverageScore();
+            SeoOptimiserService::getInstance()->calculateAndSaveAverageScore(
+                10000,
+                $scanCompleted ? count($posts) : 0
+            );
 
-            return new WP_REST_Response(['scanned' => count($posts)], 200);
+            $review = ['completed' => false, 'milestone' => false];
+            try {
+                $review = apply_filters('rankingcoach_review_analysis_result', $review, 'site', 0);
+            } catch (Throwable $e) {
+            }
+            return new WP_REST_Response(['scanned' => count($posts), 'review' => $review], 200);
         } catch (Throwable $e) {
             $this->log('Error in OnboardingController::scan: ' . $e->getMessage(), 'ERROR');
             return $this->generateErrorResponse($e, null, 500);
