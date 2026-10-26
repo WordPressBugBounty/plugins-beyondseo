@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.7\n"
+"Project-Id-Version: BeyondSEO 1.3.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-20T09:31:34+00:00\n"
+"POT-Creation-Date: 2026-10-26T11:30:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
@@ -1273,9 +1273,9 @@ msgid "Connect an account to link this website to a project. Your existing setti
 msgstr ""
 
 #: react/src/components/Settings/AccountPage/AccountPage.tsx:698
-#: inc/Core/Admin/AdminManager.php:606
-#: inc/Core/Admin/AdminManager.php:607
-#: inc/Core/Admin/AdminManager.php:718
+#: inc/Core/Admin/AdminManager.php:608
+#: inc/Core/Admin/AdminManager.php:609
+#: inc/Core/Admin/AdminManager.php:720
 #: inc/Core/ToolbarManager.php:187
 msgid "Connect"
 msgstr ""
@@ -1574,8 +1574,8 @@ msgid "Unable to load Account. Please try again."
 msgstr ""
 
 #: react/src/components/Settings/Settings.tsx:308
-#: inc/Core/Admin/AdminManager.php:514
-#: inc/Core/Admin/AdminManager.php:515
+#: inc/Core/Admin/AdminManager.php:516
+#: inc/Core/Admin/AdminManager.php:517
 #: inc/Core/ToolbarManager.php:167
 msgid "Settings"
 msgstr ""
@@ -1621,9 +1621,9 @@ msgid "View Sitemap"
 msgstr ""
 
 #: react/src/components/Settings/SupportPage/SupportPage.tsx:76
-#: inc/Core/Admin/AdminManager.php:637
-#: inc/Core/Admin/AdminManager.php:638
-#: inc/Core/Admin/AdminManager.php:705
+#: inc/Core/Admin/AdminManager.php:639
+#: inc/Core/Admin/AdminManager.php:640
+#: inc/Core/Admin/AdminManager.php:707
 #: inc/Core/ToolbarManager.php:175
 msgid "Support"
 msgstr ""
@@ -3605,40 +3605,40 @@ msgstr ""
 msgid "https://grow.rankingcoach.com/wordpress?utm_source=wordpress-plugin&utm_medium=plugin&utm_campaign=beyondseo&utm_content=by-rankingcoach"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:311
+#: inc/Core/Admin/AdminManager.php:313
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:337
 msgid "Show more"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:312
+#: inc/Core/Admin/AdminManager.php:314
 msgid "Show less"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:532
-#: inc/Core/Admin/AdminManager.php:533
+#: inc/Core/Admin/AdminManager.php:534
+#: inc/Core/Admin/AdminManager.php:535
 msgid "Activation"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:550
-#: inc/Core/Admin/AdminManager.php:551
+#: inc/Core/Admin/AdminManager.php:552
+#: inc/Core/Admin/AdminManager.php:553
 #: inc/Core/Admin/Pages/views/registration-page.php:94
 msgid "Registration"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:568
-#: inc/Core/Admin/AdminManager.php:569
+#: inc/Core/Admin/AdminManager.php:570
+#: inc/Core/Admin/AdminManager.php:571
 msgid "Onboarding"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:586
-#: inc/Core/Admin/AdminManager.php:587
-#: inc/Core/Admin/AdminManager.php:711
+#: inc/Core/Admin/AdminManager.php:588
+#: inc/Core/Admin/AdminManager.php:589
+#: inc/Core/Admin/AdminManager.php:713
 msgid "Setup wizard"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:618
-#: inc/Core/Admin/AdminManager.php:619
-#: inc/Core/Admin/AdminManager.php:726
+#: inc/Core/Admin/AdminManager.php:620
+#: inc/Core/Admin/AdminManager.php:621
+#: inc/Core/Admin/AdminManager.php:728
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:80
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:113
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:144
@@ -3647,12 +3647,12 @@ msgstr ""
 msgid "Upgrade"
 msgstr ""
 
-#: inc/Core/Admin/AdminManager.php:699
+#: inc/Core/Admin/AdminManager.php:701
 msgid "Documentation"
 msgstr ""
 
 #. translators: %s: plugin brand name
-#: inc/Core/Admin/AdminManager.php:748
+#: inc/Core/Admin/AdminManager.php:750
 #, php-format
 msgid "Rate %s on WordPress.org"
 msgstr ""
@@ -3664,6 +3664,7 @@ msgid "Your site is not connected to %1$s. %2$sConnect now%3$s to start optimizi
 msgstr ""
 
 #: inc/Core/Admin/NotConnectedNotice.php:146
+#: inc/Core/Admin/SetupWizardNotice.php:118
 #: inc/Core/NotificationManager.php:269
 #: inc/Core/SeoOptimiserAjax.php:72
 #: inc/Core/SeoOptimiserAjax.php:113
@@ -3671,6 +3672,7 @@ msgid "You do not have sufficient permissions to perform this action."
 msgstr ""
 
 #: inc/Core/Admin/NotConnectedNotice.php:155
+#: inc/Core/Admin/SetupWizardNotice.php:126
 #: inc/Core/NotificationManager.php:280
 #: inc/Core/SeoOptimiserAjax.php:78
 #: inc/Core/SeoOptimiserAjax.php:119
@@ -3678,6 +3680,7 @@ msgid "Security check failed. Please try again."
 msgstr ""
 
 #: inc/Core/Admin/NotConnectedNotice.php:163
+#: inc/Core/Admin/SetupWizardNotice.php:139
 #: inc/Core/NotificationManager.php:294
 msgid "Notification dismissed successfully."
 msgstr ""
@@ -4398,6 +4401,16 @@ msgstr ""
 
 #: inc/Core/Admin/Pages/views/upsell-ionos-page.php:311
 msgid "You currently have this plan"
+msgstr ""
+
+#. translators: %s: plugin brand name wrapped in bold tags
+#: inc/Core/Admin/SetupWizardNotice.php:69
+#, php-format
+msgid "Finish setting up %s: the setup wizard checks your pages and configures the SEO basics in a few minutes."
+msgstr ""
+
+#: inc/Core/Admin/SetupWizardNotice.php:76
+msgid "Open setup wizard"
 msgstr ""
 
 #: inc/Core/Api/Content/ContentApiManager.php:84

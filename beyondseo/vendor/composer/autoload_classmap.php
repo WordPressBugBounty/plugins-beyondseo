@@ -17,6 +17,7 @@ return array(
     'RankingCoach\\Inc\\Core\\Admin\\Pages\\RegistrationPage' => $baseDir . '/inc/Core/Admin/Pages/RegistrationPage.php',
     'RankingCoach\\Inc\\Core\\Admin\\Pages\\SetupWizardPage' => $baseDir . '/inc/Core/Admin/Pages/SetupWizardPage.php',
     'RankingCoach\\Inc\\Core\\Admin\\Pages\\UpsellPage' => $baseDir . '/inc/Core/Admin/Pages/UpsellPage.php',
+    'RankingCoach\\Inc\\Core\\Admin\\SetupWizardNotice' => $baseDir . '/inc/Core/Admin/SetupWizardNotice.php',
     'RankingCoach\\Inc\\Core\\Api\\Content\\ContentApiManager' => $baseDir . '/inc/Core/Api/Content/ContentApiManager.php',
     'RankingCoach\\Inc\\Core\\Api\\Feedback\\FeedbackApiManager' => $baseDir . '/inc/Core/Api/Feedback/FeedbackApiManager.php',
     'RankingCoach\\Inc\\Core\\Api\\HttpAPIResponseHandler' => $baseDir . '/inc/Core/Api/HttpAPIResponseHandler.php',

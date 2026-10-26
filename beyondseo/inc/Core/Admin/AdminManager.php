@@ -193,6 +193,8 @@ class AdminManager
         add_filter('plugin_row_meta', [$this, 'plugin_row_meta'], 10, 2);
         // Show a "not connected" notice on the Plugins page until onboarding is completed
         (new NotConnectedNotice())->init();
+        // Dismissible "open the setup wizard" notice
+        (new SetupWizardNotice())->init();
         // One-shot redirect to the setup wizard after activation (after the circuit breaker check at priority 5)
         add_action('admin_init', [$this, 'maybe_redirect_to_setup_wizard'], 10);
     }
@@ -579,10 +581,10 @@ class AdminManager
         });
 
         // ===================================================================================
-        // SETUP WIZARD PAGE (Hidden from menu)
+        // SETUP WIZARD PAGE
         // ===================================================================================
         $setupWizardHook = add_submenu_page(
-            '-',
+            'rankingcoach-main',
             __('Setup wizard', 'beyondseo'),
             __('Setup wizard', 'beyondseo'),
             'manage_options',

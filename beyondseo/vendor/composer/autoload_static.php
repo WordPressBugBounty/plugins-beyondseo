@@ -32,6 +32,7 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Core\\Admin\\Pages\\RegistrationPage' => __DIR__ . '/../..' . '/inc/Core/Admin/Pages/RegistrationPage.php',
         'RankingCoach\\Inc\\Core\\Admin\\Pages\\SetupWizardPage' => __DIR__ . '/../..' . '/inc/Core/Admin/Pages/SetupWizardPage.php',
         'RankingCoach\\Inc\\Core\\Admin\\Pages\\UpsellPage' => __DIR__ . '/../..' . '/inc/Core/Admin/Pages/UpsellPage.php',
+        'RankingCoach\\Inc\\Core\\Admin\\SetupWizardNotice' => __DIR__ . '/../..' . '/inc/Core/Admin/SetupWizardNotice.php',
         'RankingCoach\\Inc\\Core\\Api\\Content\\ContentApiManager' => __DIR__ . '/../..' . '/inc/Core/Api/Content/ContentApiManager.php',
         'RankingCoach\\Inc\\Core\\Api\\Feedback\\FeedbackApiManager' => __DIR__ . '/../..' . '/inc/Core/Api/Feedback/FeedbackApiManager.php',
         'RankingCoach\\Inc\\Core\\Api\\HttpAPIResponseHandler' => __DIR__ . '/../..' . '/inc/Core/Api/HttpAPIResponseHandler.php',

@@ -312,6 +312,9 @@ class Installer implements InitializerInterface
      * @return void
      */
     private function scheduleSetupWizardRedirect(): void {
+        // Temporarily disable the setup wizard redirect
+        return;
+
         if (wp_doing_cron() || wp_doing_ajax() || is_network_admin() || (defined('WP_CLI') && WP_CLI)) {
             return;
         }
