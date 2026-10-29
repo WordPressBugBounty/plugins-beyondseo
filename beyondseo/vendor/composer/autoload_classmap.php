@@ -89,6 +89,7 @@ return array(
     'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260827000000_RepairSetupTable' => $baseDir . '/inc/Core/DB/Migrations/M20260827000000_RepairSetupTable.php',
     'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260828000000_FixIndexColumnLengthsAndKeySizes' => $baseDir . '/inc/Core/DB/Migrations/M20260828000000_FixIndexColumnLengthsAndKeySizes.php',
     'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260928000000_RemoveLegacyCapabilities' => $baseDir . '/inc/Core/DB/Migrations/M20260928000000_RemoveLegacyCapabilities.php',
+    'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20261028000000_RepairLegacyKeywordRows' => $baseDir . '/inc/Core/DB/Migrations/M20261028000000_RepairLegacyKeywordRows.php',
     'RankingCoach\\Inc\\Core\\DB\\WhereGroup' => $baseDir . '/inc/Core/DB/WhereGroup.php',
     'RankingCoach\\Inc\\Core\\DashboardWidgetManager' => $baseDir . '/inc/Core/DashboardWidgetManager.php',
     'RankingCoach\\Inc\\Core\\Environment\\DomainManager' => $baseDir . '/inc/Core/Environment/DomainManager.php',

@@ -98,7 +98,7 @@ class FAQPage extends Graph {
 			'mainEntity'  => $subGraphs,
 			'inLanguage'  => get_bloginfo( 'language' ),
 			'isPartOf'    => empty( $graphData ) ? [ '@id' => trailingslashit( home_url() ) . '#website' ] : '',
-			'breadcrumb'  => [ '@id' => esc_url( $schema->context['url'] ) . '#breadcrumblist' ]
+			'breadcrumb'  => empty( $schema->context['breadcrumb'] ) ? '' : [ '@id' => esc_url( $schema->context['url'] ) . '#breadcrumblist' ]
 		];
 	}
 }

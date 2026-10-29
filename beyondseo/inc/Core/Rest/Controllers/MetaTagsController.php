@@ -50,6 +50,12 @@ class MetaTagsController
             throw new \InvalidArgumentException('invalid_keyword_rows');
         }
 
+        // 1.2.x rows kept the keywords in the since-dropped `content` column and left `template`
+        // empty: treat them as "no keywords" so the next save overwrites the row.
+        if (trim($rows[0]['template']) === '') {
+            return ['primaryKeyword' => '', 'additionalKeywords' => []];
+        }
+
         return MetaTagsStorage::decodeKeywordsTemplate($rows[0]['template']);
     }
 

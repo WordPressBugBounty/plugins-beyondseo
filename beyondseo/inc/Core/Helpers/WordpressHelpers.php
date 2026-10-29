@@ -1724,7 +1724,8 @@ class WordpressHelpers {
      * Retrieve the description for a given term.
      */
 	public static function retrieve_term_description(int|WP_Term|null $term = null): string {
-		return CoreHelper::prepare_string(term_description( $term ));
+		// term_description() runs wpautop; prepare_string() encodes before stripping, so strip the tags first.
+		return CoreHelper::prepare_string( wp_strip_all_tags( term_description( $term ) ) );
 	}
 
 	/**
@@ -1796,6 +1797,9 @@ class WordpressHelpers {
 	private static function extract_text_from_blocks( array $blocks ): string {
 		$text = '';
 		foreach ( $blocks as $block ) {
+			if ( 'core/query-no-results' === ( $block['blockName'] ?? '' ) ) {
+				continue;
+			}
 			if ( ! empty( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
 				$text .= self::extract_text_from_block_attrs( $block['attrs'] );
 			}

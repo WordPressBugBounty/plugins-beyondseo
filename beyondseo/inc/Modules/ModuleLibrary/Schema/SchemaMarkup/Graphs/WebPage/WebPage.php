@@ -57,8 +57,11 @@ class WebPage extends Graphs\Graph {
 			'description' => $schema->context['description'],
 			'inLanguage'  => WordpressHelpers::current_language_code_BCP47(),
 			'isPartOf'    => [ '@id' => $homeUrl . '#website' ],
-			'breadcrumb'  => [ '@id' => $schema->context['url'] . '#breadcrumblist' ]
 		];
+		
+		if ( ! empty( $schema->context['breadcrumb'] ) ) {
+			$data['breadcrumb'] = [ '@id' => $schema->context['url'] . '#breadcrumblist' ];
+		}
 
 		if ( is_singular() && 'page' !== get_post_type() ) {
 			$post = WordpressHelpers::retrieve_post();

@@ -716,28 +716,25 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     public function generateMetaTags(): string
     {
-        if (!$this->contentId) {
-            $this->contentId = get_queried_object_id();
-        }
+        // Only singular content and the posts page map to a post; archives and search do not.
+        $this->contentId = (is_singular() || is_home()) ? get_queried_object_id() : 0;
 
         $locale = get_locale();
 
-        // Get SEO description with fallback logic using the centralized helper
-        $customSeoDescription = get_post_meta($this->contentId, self::META_SEO_DESCRIPTION, true);
-        $description = esc_attr(WordpressHelpers::getMetaDescription($this->contentId, $customSeoDescription ?: null, 160));
+        $customSeoDescription = $this->contentId ? get_post_meta($this->contentId, self::META_SEO_DESCRIPTION, true) : '';
+        $description = $this->contentId
+            ? WordpressHelpers::getMetaDescription($this->contentId, $customSeoDescription ?: null, 160)
+            : WordpressHelpers::retrieve_description();
         $socialTitle = esc_attr($this->getSocialTitle($this->contentId));
-        $socialDescription = esc_attr($this->getSocialDescription($this->contentId));
+        $socialDescription = esc_attr($this->getSocialDescription($this->contentId) ?: $description);
+        $url = $this->currentUrl();
 
-        // Get post author ID
-        $authorId = get_post_field('post_author', $this->contentId);
+        $metaTags = '<meta name="description" data-postid="' . $this->contentId . '" content="' . esc_attr($description) . '" />' . "\r\n\t";
 
-        // Get author display name
-        $authorName = esc_attr(get_the_author_meta('display_name', $authorId));
-
-        // Generate basic meta tags
-        $metaTags = '<meta name="description" data-postid="' . $this->contentId . '" content="' . $description . '" />' . "\r\n\t";
-
-        $metaTags .= '<meta name="author" content="' . $authorName . '" />' . "\r\n\t";
+        $authorName = $this->contentId ? get_the_author_meta('display_name', (int) get_post_field('post_author', $this->contentId)) : '';
+        if ($authorName) {
+            $metaTags .= '<meta name="author" content="' . esc_attr($authorName) . '" />' . "\r\n\t";
+        }
 
         // Robots meta tag with support for various directives
         $metaTags .= $this->generateMetaRobotsTag();
@@ -745,19 +742,15 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         // Viewport
         $metaTags .= $this->generateViewportMetaTag(1);
 
-        // Canonical URL
-        $canonicalUrl = get_post_meta($this->contentId, self::META_CANONICAL_URL, true);
-        if ($canonicalUrl) {
-            $metaTags .= '<link rel="canonical" href="' . esc_url($canonicalUrl) . '" />' . "\r\n\t";
-        } else {
-            $metaTags .= '<link rel="canonical" href="' . esc_url(get_permalink($this->contentId)) . '" />' . "\r\n\t";
+        if ($url) {
+            $metaTags .= '<link rel="canonical" href="' . esc_url($url) . '" />' . "\r\n\t";
         }
 
         // Pagination meta tags (rel="prev" and rel="next")
         $metaTags .= $this->generatePaginationMetaTags();
 
         // Generate social media meta tags
-        $metaTags .= $this->generateSocialMetaTags($socialTitle, $socialDescription);
+        $metaTags .= $this->generateSocialMetaTags($socialTitle, $socialDescription, $url);
 
         // Locale and language tags
         $metaTags .= "\r\n\t" . '<meta property="og:locale" content="' . esc_attr($locale) . '" />';
@@ -831,6 +824,11 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     private function generateMetaRobotsTag(): string
     {
+        // Core keeps its own robots tag outside singular content (noindex on search).
+        if (!is_singular()) {
+            return '';
+        }
+
         $noIndex = get_post_meta($this->contentId, self::META_NOINDEX_FOR_PAGE, true);
         
         // If noindex is set, output noindex, nofollow and skip other directives
@@ -873,36 +871,28 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      * Generates social media meta tags (Open Graph and Twitter Cards).
      * @param string $socialTitle
      * @param string $socialDescription
+     * @param string $url
      * @return string
      */
-    private function generateSocialMetaTags(string $socialTitle, string $socialDescription): string
+    private function generateSocialMetaTags(string $socialTitle, string $socialDescription, string $url): string
     {
         $socialTags = '';
-        
-        // Get post data
-        $post = get_post($this->contentId);
-        $postTitle = $socialTitle ?: get_the_title($this->contentId);
-        
-        // Get description with fallback logic for social meta tags
-        // First try the provided social description, then fall back to the helper with full fallback logic
-        $postDescription = !empty($socialDescription)
-            ? $socialDescription
-            : WordpressHelpers::getMetaDescription($this->contentId, null, 160);
-        $postUrl = get_permalink($this->contentId);
+        $post = $this->contentId ? get_post($this->contentId) : null;
+        $postTitle = $socialTitle ?: ($post ? get_the_title($post) : WordpressHelpers::retrieve_title());
+        $postDescription = $socialDescription;
         $siteName = get_bloginfo('name');
         $postType = is_single() ? 'article' : 'website';
-        
-        // Get social image
-        $socialImageUrl = SocialMediaHelper::getSelectedSocialImageUrl($this->contentId);
-        if (!$socialImageUrl) {
-            $socialImageUrl = get_the_post_thumbnail_url($this->contentId, 'large');
-        }
+        $socialImageUrl = $post
+            ? (SocialMediaHelper::getSelectedSocialImageUrl($post->ID) ?: get_the_post_thumbnail_url($post, 'large'))
+            : null;
         
         // Open Graph tags
         $socialTags .= '<meta property="og:title" content="' . esc_attr($postTitle) . '" />' . "\r\n\t";
         $socialTags .= '<meta property="og:description" content="' . esc_attr($postDescription) . '" />' . "\r\n\t";
         $socialTags .= '<meta property="og:type" content="' . esc_attr($postType) . '" />' . "\r\n\t";
-        $socialTags .= '<meta property="og:url" content="' . esc_url($postUrl) . '" />' . "\r\n\t";
+        if ($url) {
+            $socialTags .= '<meta property="og:url" content="' . esc_url($url) . '" />' . "\r\n\t";
+        }
         $socialTags .= '<meta property="og:site_name" content="' . esc_attr($siteName) . '" />' . "\r\n\t";
         
         if ($socialImageUrl) {
@@ -964,6 +954,20 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
         }
         
         return rtrim($socialTags, "\r\n\t");
+    }
+
+    /**
+     * Canonical URL for the current request; none on search and 404.
+     */
+    private function currentUrl(): string
+    {
+        if (is_search() || is_404()) {
+            return '';
+        }
+
+        $custom = $this->contentId ? get_post_meta($this->contentId, self::META_CANONICAL_URL, true) : '';
+
+        return $custom ?: WordpressHelpers::retrieve_url();
     }
 
     /**

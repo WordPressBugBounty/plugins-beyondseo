@@ -24,14 +24,24 @@ class BreadcrumbsManager
      */
     private object $settings;
 
+    /**
+     * Whether breadcrumbs are enabled in the plugin settings.
+     */
+    private bool $enabled;
+
     public function __construct()
     {
-        // Stop if the breadcrumbs are disabled.
-        if (!SettingsManager::instance()->enable_breadcrumbs) {
-            return;
-        }
+        $settingsManager = SettingsManager::instance();
+        $this->enabled = (bool) $settingsManager->enable_breadcrumbs;
+        $this->settings = (object) ($settingsManager->breadcrumb_settings ?? []);
+    }
 
-        $this->settings = (object)SettingsManager::instance()->breadcrumb_settings ?? [];
+    /**
+     * Whether breadcrumbs are enabled in the plugin settings.
+     */
+    public function isEnabled(): bool
+    {
+        return $this->enabled;
     }
 
     /**
@@ -537,6 +547,11 @@ class BreadcrumbsManager
      */
     public function setPositions(array $breadcrumbs = []): array
     {
+        // Disabled breadcrumbs produce no trail, so no BreadcrumbList schema is emitted.
+        if (!$this->enabled) {
+            return [];
+        }
+
         // If the array isn't two-dimensional, then we need to wrap it in another array before continuing.
         if (
             count($breadcrumbs) &&
@@ -561,7 +576,7 @@ class BreadcrumbsManager
         }
 
         // Ensure that the breadcrumbs support filtering.
-        if ($this->settings->allow_filters) {
+        if (!empty($this->settings->allow_filters)) {
             $breadcrumbs = apply_filters('rankingcoach_breadcrumbs', $breadcrumbs);
         }
 

@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.9
+Stable tag: 1.3.10
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,12 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.10 =
+* Improved breadcrumbs functionality and their schema markup integration
+* Added a migration that repairs keyword data created by older plugin versions
+* Improved meta tag generation and canonical URL handling
+* Improved retrieval of category and tag descriptions and text extraction from block editor content
 
 = 1.3.9 =
 * Added a dismissible notice that lets you open the setup wizard when you are ready.

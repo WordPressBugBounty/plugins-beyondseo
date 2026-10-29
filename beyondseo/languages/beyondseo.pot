@@ -2,14 +2,14 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: BeyondSEO 1.3.8\n"
+"Project-Id-Version: BeyondSEO 1.3.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beyondseo\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-26T11:30:13+00:00\n"
+"POT-Creation-Date: 2026-10-28T13:21:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: beyondseo\n"
@@ -1319,7 +1319,7 @@ msgstr ""
 
 #. Translators: This refers to the homepage of the site.
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:256
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:551
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:566
 msgid "Home"
 msgstr ""
 
@@ -1336,7 +1336,7 @@ msgid "Suffix for archive breadcrumbs"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:285
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:516
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:526
 msgid "Archives for"
 msgstr ""
 
@@ -1345,7 +1345,7 @@ msgid "Suffix for search page breadcrumbs"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:298
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:467
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:477
 msgid "Search results for"
 msgstr ""
 
@@ -1354,7 +1354,7 @@ msgid "Breadcrumbs for 404 Page"
 msgstr ""
 
 #: react/src/components/Settings/BreadcrumbsPage/BreadcrumbsPage.tsx:311
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:488
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:498
 msgid "Error 404: Page not found"
 msgstr ""
 
@@ -4618,24 +4618,24 @@ msgid "Autoloader file not found or not readable."
 msgstr ""
 
 #. translators: %s is the category name
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:295
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:305
 #, php-format
 msgid "Posts in %s category"
 msgstr ""
 
 #. translators: %s is the author's display name
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:322
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:332
 #, php-format
 msgid "Posts by %s"
 msgstr ""
 
 #. translators: %s is the date name (e.g., January 2023)
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:351
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:361
 #, php-format
 msgid "Archive for %s"
 msgstr ""
 
-#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:513
+#: inc/Core/Breadcrumbs/BreadcrumbsManager.php:523
 #: inc/Core/Breadcrumbs/BreadcrumbsMultipleResponseHandler.php:160
 msgid "Archives"
 msgstr ""
@@ -7950,7 +7950,7 @@ msgstr ""
 msgid "Calories"
 msgstr ""
 
-#: inc/Modules/ModuleLibrary/Schema/SchemaMarkup/SchemaGraphsContext.php:264
+#: inc/Modules/ModuleLibrary/Schema/SchemaMarkup/SchemaGraphsContext.php:284
 msgid "Not Found"
 msgstr ""
 

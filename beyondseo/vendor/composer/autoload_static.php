@@ -104,6 +104,7 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260827000000_RepairSetupTable' => __DIR__ . '/../..' . '/inc/Core/DB/Migrations/M20260827000000_RepairSetupTable.php',
         'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260828000000_FixIndexColumnLengthsAndKeySizes' => __DIR__ . '/../..' . '/inc/Core/DB/Migrations/M20260828000000_FixIndexColumnLengthsAndKeySizes.php',
         'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20260928000000_RemoveLegacyCapabilities' => __DIR__ . '/../..' . '/inc/Core/DB/Migrations/M20260928000000_RemoveLegacyCapabilities.php',
+        'RankingCoach\\Inc\\Core\\DB\\Migrations\\M20261028000000_RepairLegacyKeywordRows' => __DIR__ . '/../..' . '/inc/Core/DB/Migrations/M20261028000000_RepairLegacyKeywordRows.php',
         'RankingCoach\\Inc\\Core\\DB\\WhereGroup' => __DIR__ . '/../..' . '/inc/Core/DB/WhereGroup.php',
         'RankingCoach\\Inc\\Core\\DashboardWidgetManager' => __DIR__ . '/../..' . '/inc/Core/DashboardWidgetManager.php',
         'RankingCoach\\Inc\\Core\\Environment\\DomainManager' => __DIR__ . '/../..' . '/inc/Core/Environment/DomainManager.php',

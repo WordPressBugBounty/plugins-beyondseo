@@ -143,7 +143,7 @@ class M20260707000000_MigrateLegacyMetaToMetaTagsTable extends AbstractMigration
      *
      * @param int $postId
      */
-    private function migrateKeywords(int $postId): void
+    public function migrateKeywords(int $postId): void
     {
         $existing = $this->dbManager->table(DatabaseTablesManager::DATABASE_MOD_METATAGS)
             ->where('post_id', $postId)

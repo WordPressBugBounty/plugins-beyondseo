@@ -10,6 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 use Exception;
 use RankingCoach\Inc\Core\Breadcrumbs\BreadcrumbsManager;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use WP_Post;
+use WP_Post_Type;
 
 /**
  * Class SchemaGraphsContext
@@ -175,8 +177,8 @@ class SchemaGraphsContext {
      * @throws Exception
      */
 	public function postArchive(): array {
-		$postType = get_queried_object();
-		if ( ! $postType ) {
+		$queriedObject = get_queried_object();
+		if ( ! $queriedObject ) {
 			return [
 				'name'        => '',
 				'description' => '',
@@ -194,12 +196,30 @@ class SchemaGraphsContext {
 			'description' => $description,
 			'url'         => $url,
 			'breadcrumb'  => $this->breadcrumb->setPositions( [
-				'name'        => $postType->label,
+				'name'        => $this->postArchiveName( $queriedObject ),
 				'description' => $description,
 				'url'         => $url,
 				'type'        => 'CollectionPage'
 			] )
 		];
+	}
+
+	/**
+	 * Returns the crumb name for a post type archive.
+	 *
+	 * @param object $queriedObject The queried object.
+	 * @return string The crumb name.
+	 */
+	private function postArchiveName( object $queriedObject ): string {
+		if ( $queriedObject instanceof WP_Post ) {
+			return $queriedObject->post_title;
+		}
+
+		if ( $queriedObject instanceof WP_Post_Type ) {
+			return $queriedObject->label;
+		}
+
+		return post_type_archive_title( '', false ) ?: '';
 	}
 
     /**
