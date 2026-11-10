@@ -8,6 +8,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
@@ -442,7 +443,7 @@ class HooksManager
                     'id' => $notificationId,
                     'type' => Notification::WARNING,
                     'screen' => Notification::SCREEN_ANY,
-                    'capability' => 'manage_options',
+                    'capability' => Capabilities::MANAGE,
                     'classes' => 'rankingcoach-keyword-limit-notification'
                 ]);
             }

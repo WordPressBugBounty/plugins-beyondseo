@@ -164,6 +164,8 @@ defined('ALLOWED_RANKINGCOACH_PAGES')               || define('ALLOWED_RANKINGCO
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-connect',
     'admin_page_rankingcoach-setupWizard',
     RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-setupWizard',
+    'admin_page_rankingcoach-actionPlan',
+    RANKINGCOACH_BRAND_SLUG . '_page_rankingcoach-actionPlan',
 ]);
 defined('ALLOWED_RANKINGCOACH_CUSTOM_TYPES')               || define('ALLOWED_RANKINGCOACH_CUSTOM_TYPES', [
     'post',

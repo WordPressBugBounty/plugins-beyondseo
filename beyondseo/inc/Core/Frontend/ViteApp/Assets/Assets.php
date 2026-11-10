@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -16,8 +17,6 @@ use RankingCoach\Inc\Core\Plugin\RankingCoachPlugin;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\Enums\Suggestion;
 use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\TokensManager;
-use RankingCoach\Inc\Exceptions\HttpApiException;
-use ReflectionException;
 use Throwable;
 
 class Assets {
@@ -92,6 +91,7 @@ class Assets {
             $rankingCoachReactData['currentPostType'] = $post_type;
             $rankingCoachReactData['currentPostId'] = $post_id;
         }
+        $rankingCoachReactData['capabilities'] = $this->getCapabilitiesData();
 
         // Localize the script with data
         wp_localize_script( 'rankingcoach-react-vite-script', 'rankingCoachReactData', $rankingCoachReactData);
@@ -225,9 +225,23 @@ class Assets {
             $rankingCoachReactData['currentPostType'] = $post_type;
             $rankingCoachReactData['currentPostId'] = $post_id > 0 ? $post_id : null;
         }
+        $rankingCoachReactData['capabilities'] = $this->getCapabilitiesData();
 
         // Localize the script with data
 	    wp_localize_script( 'rankingcoach-react-vite-script', 'rankingCoachReactData', $rankingCoachReactData);
+    }
+
+    /**
+     * What the current user may do, so the React app hides what the REST routes would refuse
+     * (the Redirects tab of the meta box needs plugin access). Kept in a nested array: wp_localize_script()
+     * casts top-level scalars to strings, nested booleans arrive as booleans.
+     *
+     * @return array{managePlugin: bool}
+     */
+    private function getCapabilitiesData(): array {
+        return [
+            'managePlugin' => current_user_can(Capabilities::MANAGE),
+        ];
     }
 
     /**
@@ -359,31 +373,26 @@ class Assets {
     }
 
     /**
-     * Iframe MAP URL Generator
-     * @param bool $reload
+     * Address picker URL. The jwtToken redirect signs in by cookie (current webapp); the flag plus the token in the
+     * fragment, which survives the redirect, let a BUF-4244 webapp run without third-party cookies.
+     * The flag must stay first in redirect_url: the redirect turns every later "&" into "&amp;".
      * @return string
-     * @throws HttpApiException
-     * @throws ReflectionException
      */
-    private function generateMapUrl(bool $reload = false): string {
-        // Load the configuration
+    private function generateMapUrl(): string {
         $config = require RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php';
         $rawLocale = WordpressHelpers::get_wp_locale() ?? 'en_US';
         $locale = $this->formatLocaleForMapUrl($rawLocale);
 
         /** @var TokensManager $tokensManager */
         $tokensManager = TokensManager::getInstance();
-        $accessToken = $tokensManager->getStoredAccessToken();
-        if($reload) {
-            $refreshToken = $tokensManager->getStoredRefreshToken();
-            if(!empty($refreshToken)) {
-                $tokensManager->generateAndSaveAccessToken($refreshToken);
-            }
+        try {
+            $accessToken = $tokensManager->getAccessToken(static::class);
+        } catch (Throwable $e) {
             $accessToken = $tokensManager->getStoredAccessToken();
         }
 
-        $projectBase = $config[RankingCoachPlugin::isProductionMode() ? 'liveEnv' : 'devEnv'];
-        $projectId = WordpressHelpers::getProjectId();
-        return sprintf( $config['iframeMapUrl'], $projectBase, $projectId, $accessToken, $projectBase, $locale );
+        $projectBase = RankingCoachPlugin::getApiEnvironment();
+
+        return sprintf($config['iframeMapUrl'], $projectBase, WordpressHelpers::getProjectId(), $accessToken, $projectBase, $locale, $accessToken);
     }
 }

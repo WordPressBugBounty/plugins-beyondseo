@@ -40,7 +40,8 @@ class ReactApp {
         'gutenbergSidebar' => true,
         'upsell' => true,
         'setupWizard' => true,
-        'dashboardReview' => true
+        'dashboardReview' => true,
+        'actionPlan' => true
     ];
 
 	public static array $loadComponents = [];

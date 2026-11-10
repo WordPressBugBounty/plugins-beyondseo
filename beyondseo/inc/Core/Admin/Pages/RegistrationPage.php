@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Traits\ResponseErrorTrait;
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Admin\AdminPage;
@@ -294,7 +295,7 @@ class RegistrationPage extends AdminPage
                 'callback' => [$this, 'handleRegistrationChallenge'],
                 'permission_callback' => function (WP_REST_Request $request) {
                     // Capability check
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     // REST nonce check
@@ -322,7 +323,7 @@ class RegistrationPage extends AdminPage
                 'methods'  => 'GET',
                 'callback' => [$this, 'handleVerificationStatus'],
                 'permission_callback' => function (WP_REST_Request $request) {
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     if (!$this->verifyRestNonce($request)) {
@@ -356,7 +357,7 @@ class RegistrationPage extends AdminPage
                 'methods'  => 'POST',
                 'callback' => [$this, 'handleRegister'],
                 'permission_callback' => function (WP_REST_Request $request) {
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     if (!$this->verifyRestNonce($request)) {
@@ -406,7 +407,7 @@ class RegistrationPage extends AdminPage
                 'methods'  => 'POST',
                 'callback' => [$this, 'handleFinalizeRegister'],
                 'permission_callback' => function (WP_REST_Request $request) {
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     if (!$this->verifyRestNonce($request)) {
@@ -456,7 +457,7 @@ class RegistrationPage extends AdminPage
                 'methods'  => 'GET',
                 'callback' => [$this, 'handleFlowGuardState'],
                 'permission_callback' => function (WP_REST_Request $request) {
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     if (!$this->verifyRestNonce($request)) {
@@ -474,7 +475,7 @@ class RegistrationPage extends AdminPage
                 'methods'  => 'POST',
                 'callback' => [$this, 'handleFlowGuardStateReset'],
                 'permission_callback' => function (WP_REST_Request $request) {
-                    if (!current_user_can('manage_options')) {
+                    if (!current_user_can(Capabilities::MANAGE)) {
                         return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
                     }
                     if (!$this->verifyRestNonce($request)) {

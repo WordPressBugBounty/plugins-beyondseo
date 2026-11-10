@@ -8,6 +8,7 @@ if ( !defined('ABSPATH') ) {
 }
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 
 /**
@@ -265,7 +266,7 @@ class NotificationManager {
 	 */
 	public function notice_dismissible(): void {
 		// Check user permissions
-		if (!current_user_can('manage_options')) {
+		if (!current_user_can(Capabilities::MANAGE)) {
 			wp_send_json_error(array('message' => __('You do not have sufficient permissions to perform this action.', 'beyondseo')));
 			return;
 		}

@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 
@@ -57,7 +58,7 @@ class NotConnectedNotice
             return false;
         }
 
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return false;
         }
 
@@ -141,7 +142,7 @@ class NotConnectedNotice
      */
     public function handleDismiss(): void
     {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             wp_send_json_error([
                 'message' => __('You do not have sufficient permissions to perform this action.', 'beyondseo'),
             ]);

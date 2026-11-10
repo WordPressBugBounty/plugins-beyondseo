@@ -7,6 +7,7 @@ if ( !defined('ABSPATH') ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Modules\ModuleLibrary\Technical\MetaTags\MetaTags;
 use RankingCoach\Inc\Modules\ModuleManager;
@@ -81,7 +82,7 @@ class ContentsManager {
             'data-post-title'               => $snippet['postTitle'],
             'data-permalink'                => (string) (get_permalink($post_id) ?: ''),
             'data-edit-link'                => (string) (get_edit_post_link($post_id, 'raw') ?: ''),
-            'data-can-edit'                 => $this->canQuickEditSnippet($post_id) ? '1' : '0',
+            'data-can-edit'                 => Capabilities::canEditPostSeo($post_id) ? '1' : '0',
             'data-seo-title'                => $snippet['title'],
             'data-seo-title-template'       => (string) wp_json_encode($snippet['titleTemplate']),
             'data-seo-description'          => $snippet['description'],
@@ -96,21 +97,6 @@ class ContentsManager {
         $html .= '></div>';
 
         echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- attribute names are fixed, every value is escaped above.
-    }
-
-    /**
-     * Whether the current user may change the SEO title and description of a post from the list.
-     *
-     * Mirrors RestManager::checkMetatagsPermission() and adds the post-level edit capability,
-     * so the quick editor is only offered when the save request would be accepted.
-     *
-     * @param int $post_id
-     *
-     * @return bool
-     */
-    private function canQuickEditSnippet(int $post_id): bool {
-        return current_user_can('edit_post', $post_id)
-            && current_user_can('manage_options');
     }
 
     /**

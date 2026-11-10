@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\RestHelpers;
 use RankingCoach\Inc\Modules\ModuleBase\BaseSubmoduleApi;
 use RankingCoach\Inc\Modules\ModuleBase\ModuleInterface;
@@ -96,7 +97,7 @@ class RedirectManagerApi extends BaseSubmoduleApi {
     }
     
     public function checkPermissionsPost(string $moduleName): bool {
-        return current_user_can('manage_options');
+        return current_user_can(Capabilities::MANAGE);
     }
 
     /**

@@ -17,6 +17,7 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -196,7 +197,7 @@ class UpsellPage extends AdminPage
             'methods' => 'POST',
             'callback' => [$this, 'handleGetUpsellUrl'],
             'permission_callback' => function () {
-                return current_user_can('manage_options');
+                return current_user_can(Capabilities::MANAGE);
             },
             'args' => [
                 'paymentType' => [

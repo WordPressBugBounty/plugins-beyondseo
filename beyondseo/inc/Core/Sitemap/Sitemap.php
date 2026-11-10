@@ -63,7 +63,7 @@ class Sitemap {
         // Invalidate the sitemap when a post/page is published, unpublished or updated
         add_action('transition_post_status', function ($new_status, $old_status, $post) {
             if (($new_status === 'publish' || $old_status === 'publish')
-                && in_array($post->post_type, EntryBuilder::POST_TYPES, true)
+                && in_array($post->post_type, EntryBuilder::postTypes(), true)
                 && SettingsManager::instance()->sitemap->enabled
             ) {
                 self::invalidate();
@@ -72,7 +72,7 @@ class Sitemap {
 
         // Invalidate the sitemap when a post/page is permanently deleted
         add_action('deleted_post', function ($post_id, $post) {
-            if ($post && in_array($post->post_type, EntryBuilder::POST_TYPES, true)
+            if ($post && in_array($post->post_type, EntryBuilder::postTypes(), true)
                 && SettingsManager::instance()->sitemap->enabled
             ) {
                 self::invalidate();

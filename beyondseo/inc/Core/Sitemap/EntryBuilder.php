@@ -27,8 +27,12 @@ class EntryBuilder
     private const MAX_POSTS_PER_BATCH = 1000;
     private const CACHE_DURATION = 3600; // 1 hour
 
-    /** @var string[] Post types included in the sitemap. */
-    public const POST_TYPES = ['post', 'page'];
+    /** @return string[] Public post types included in the sitemap (posts, pages, products, other CPTs). */
+    public static function postTypes(): array
+    {
+        $types = array_values(array_diff(get_post_types(['public' => true]), ['attachment']));
+        return apply_filters('rankingcoach_sitemap_post_types', $types);
+    }
 
     private const TRANSIENT_POST_ENTRIES = 'rankingcoach_sitemap_post_entries';
     private const TRANSIENT_TAXONOMY_ENTRIES = 'rankingcoach_sitemap_taxonomy_entries';
@@ -79,9 +83,11 @@ class EntryBuilder
         $permalinkStructure = get_option('permalink_structure');
         
         // Get total post count first to manage memory
-        $total_posts = wp_count_posts();
-        $total_pages = wp_count_posts('page');
-        $total_count = ($total_posts->publish ?? 0) + ($total_pages->publish ?? 0);
+        $post_types = self::postTypes();
+        $total_count = 0;
+        foreach ($post_types as $post_type) {
+            $total_count += (int) (wp_count_posts($post_type)->publish ?? 0);
+        }
         
         // Use pagination for large sites
         $posts_per_batch = min(self::MAX_POSTS_PER_BATCH, $total_count);
@@ -90,7 +96,7 @@ class EntryBuilder
         do {
             try {
                 $posts = get_posts([
-                    'post_type' => self::POST_TYPES,
+                    'post_type' => $post_types,
                     'post_status' => 'publish',
                     'numberposts' => $posts_per_batch,
                     'offset' => $offset,
@@ -650,23 +656,11 @@ class EntryBuilder
     }
 
     /**
-     * Check if permalink should be validated
+     * Only 'post' follows the global permalink structure; pages and custom post types use their own rewrite rules.
      */
     private function shouldValidatePermalink(WP_Post $post): bool
     {
-        // Validate for posts and custom post types, but not for pages or hierarchical types
-        if ($post->post_type === 'page' || is_post_type_hierarchical($post->post_type)) {
-            return false;
-        }
-        
-        // Always validate posts
-        if ($post->post_type === 'post') {
-            return true;
-        }
-        
-        // Validate custom post types that have public URLs
-        $post_type_object = get_post_type_object($post->post_type);
-        return $post_type_object && $post_type_object->public && $post_type_object->publicly_queryable;
+        return $post->post_type === 'post';
     }
 
     /**

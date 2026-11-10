@@ -13,6 +13,7 @@ use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\JavaScriptHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\TokensManager;
@@ -76,7 +77,7 @@ class OnboardingPage extends AdminPage {
 
     private function canRevisitCompletedOnboarding(): bool
     {
-        return current_user_can('manage_options')
+        return current_user_can(Capabilities::MANAGE)
             && WordpressHelpers::isActivationCompleted()
             && WordpressHelpers::sanitize_input('GET', 'revisitOnboarding') === '1';
     }

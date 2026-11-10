@@ -17,6 +17,7 @@ use RankingCoach\Inc\Core\ChannelFlow\ChannelEnforcer;
 use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Review\ReviewState;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -193,14 +194,14 @@ class ActivationPage extends AdminPage
     }
 
     /**
-     * Shared permission check for the activation REST routes: manage_options + wp_rest nonce.
+     * Shared permission check for the activation REST routes: plugin capability + wp_rest nonce.
      *
      * @param WP_REST_Request $request
      * @return bool|WP_Error
      */
     private function activationRoutePermissionCallback(WP_REST_Request $request): bool|WP_Error
     {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error('forbidden', __('You do not have sufficient permissions.', 'beyondseo'), ['status' => 403]);
         }
         $nonce = (string) $request->get_header('X-WP-Nonce');
@@ -580,7 +581,7 @@ class ActivationPage extends AdminPage
      */
     public function checkUserPermissions(): void
     {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             wp_die(esc_html__('You do not have sufficient permissions.', 'beyondseo'));
         }
 

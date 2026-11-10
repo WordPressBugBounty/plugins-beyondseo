@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 
 use RankingCoach\Inc\Core\Admin\AdminManager;
 use RankingCoach\Inc\Core\Base\BaseConstants;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -38,7 +39,7 @@ class ToolbarManager
      */
     public function enqueue_toolbar_assets(): void
     {
-        if (!is_admin_bar_showing()) {
+        if (!is_admin_bar_showing() || !current_user_can(Capabilities::MANAGE)) {
             return;
         }
 
@@ -89,6 +90,11 @@ class ToolbarManager
      */
     public function add_toolbar_items($admin_bar): void
     {
+        // Every entry links to a plugin page: nothing to offer roles without plugin access.
+        if (!current_user_can(Capabilities::MANAGE)) {
+            return;
+        }
+
         // Update badge
         $updateBadge = '';
         if ($this->has_plugin_update()) {

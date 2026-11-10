@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.10
+Stable tag: 1.3.11
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -251,6 +251,13 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.11 =
+* Added post-level SEO capabilities so users with permission to edit a post can manage its SEO settings.
+* Fixed the onboarding address picker to open without relying on cookies when the web app supports it.
+* Restored the permission check on the Action Plan REST route.
+* Included all public post types, such as WooCommerce products, in the sitemap.
+* Used the shop page's own meta tags on the WooCommerce shop page.
 
 = 1.3.10 =
 * Improved breadcrumbs functionality and their schema markup integration

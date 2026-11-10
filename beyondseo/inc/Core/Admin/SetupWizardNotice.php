@@ -7,6 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Settings\SettingsManager;
@@ -33,7 +34,7 @@ class SetupWizardNotice
     {
         global $pagenow;
 
-        if (is_network_admin() || !current_user_can('manage_options')) {
+        if (is_network_admin() || !current_user_can(Capabilities::MANAGE)) {
             return false;
         }
 
@@ -113,7 +114,7 @@ class SetupWizardNotice
 
     public function handleDismiss(): void
     {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             wp_send_json_error([
                 'message' => __('You do not have sufficient permissions to perform this action.', 'beyondseo'),
             ]);

@@ -11,6 +11,8 @@
  * @var int    $pagesCount        The number of pages analyzed
  * @var float  $scorePercentage   The score as a percentage
  * @var string $scoreColor        The color for the score display
+ * @var array|null $actionPlan    Action Plan summary (ActionPlanService::getSummary()) or null when unavailable
+ * @var string $actionPlanUrl     URL of the Action Plan admin page
  */
 
 if ( !defined('ABSPATH') ) {
@@ -64,6 +66,47 @@ if ( !defined('ABSPATH') ) {
             <button id="rankingcoach-scan-button" class="button button-primary rankingcoach-scan-button">
                 <?php echo esc_html__('Analyze Now', 'beyondseo'); ?>
             </button>
+        </div>
+    <?php endif; ?>
+    <?php if ( is_array( $actionPlan ) ) : ?>
+        <!-- Action Plan section: open issues from the latest site check, worked through on the Action Plan page -->
+        <div class="rankingcoach-action-plan-section">
+            <h4 class="rankingcoach-action-plan-title"><?php echo esc_html__('Your SEO Action Plan', 'beyondseo'); ?></h4>
+            <?php if ( ! $actionPlan['checked'] ) : ?>
+                <p class="rankingcoach-action-plan-text">
+                    <?php echo esc_html__('Your pages have not been checked yet. Run the site check to see which pages need work.', 'beyondseo'); ?>
+                </p>
+            <?php elseif ( $actionPlan['issueCount'] > 0 ) : ?>
+                <p class="rankingcoach-action-plan-text">
+                    <strong>
+                        <?php
+                        echo esc_html( sprintf(
+                            /* translators: %d: number of open page issues */
+                            _n( '%d page issue to review', '%d page issues to review', $actionPlan['issueCount'], 'beyondseo' ),
+                            $actionPlan['issueCount']
+                        ) );
+                        ?>
+                    </strong>
+                    <?php if ( ! empty( $actionPlan['next'] ) ) : ?>
+                        <br>
+                        <?php
+                        echo esc_html( sprintf(
+                            /* translators: 1: suggestion title, 2: page title */
+                            __( 'Next: %1$s · %2$s', 'beyondseo' ),
+                            $actionPlan['next']['title'],
+                            $actionPlan['next']['pageTitle']
+                        ) );
+                        ?>
+                    <?php endif; ?>
+                </p>
+            <?php else : ?>
+                <p class="rankingcoach-action-plan-text">
+                    <?php echo esc_html__('No open issues on your checked pages.', 'beyondseo'); ?>
+                </p>
+            <?php endif; ?>
+            <a class="button button-primary rankingcoach-action-plan-button" href="<?php echo esc_url( $actionPlanUrl ); ?>">
+                <?php echo esc_html__('View Action Plan', 'beyondseo'); ?> &rarr;
+            </a>
         </div>
     <?php endif; ?>
     <?php if ($reviewGreen) : ?>

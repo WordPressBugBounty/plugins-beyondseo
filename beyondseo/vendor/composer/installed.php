@@ -3,7 +3,7 @@
         'name' => 'beyondseo/beyondseo',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6599bb50fd238823e161aff2e6e7539d3237b6c5',
+        'reference' => '9fcefbd7b35d52c43b57faf4086e3c9d183c1beb',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'beyondseo/beyondseo' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6599bb50fd238823e161aff2e6e7539d3237b6c5',
+            'reference' => '9fcefbd7b35d52c43b57faf4086e3c9d183c1beb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

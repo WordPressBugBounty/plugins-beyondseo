@@ -274,11 +274,7 @@ class HttpApiClient {
 
 		$this->configuration = require $configPath;
 
-		if ( RankingCoachPlugin::isProductionMode() ) {
-			$this->configuration['prefix'] = $this->configuration['liveEnv'];
-		} else {
-			$this->configuration['prefix'] = get_option( 'testing_environment', $this->configuration['devEnv'] );
-		}
+		$this->configuration['prefix'] = RankingCoachPlugin::getApiEnvironment();
 	}
 
 	/**

@@ -10,6 +10,7 @@ if ( !defined( 'ABSPATH' ) ) {
 use Exception;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Initializers\Installer;
@@ -87,6 +88,9 @@ final class RankingCoachPlugin
      */
     public function initialize(): void {
         try {
+            // Before any gate: REST, cron, WP-CLI and backend calls check the plugin capability too.
+            Capabilities::register();
+
             CronJobManager::instance()->registerSchedules();
 
             // Initialize circuit breaker system first
@@ -464,6 +468,23 @@ final class RankingCoachPlugin
         }
 
         return wp_get_environment_type() === 'production';
+    }
+
+    /**
+     * Subdomain of the rankingCoach host (<prefix>.rankingcoach.com).
+     * Production is always liveEnv; otherwise the dev-tools choice, falling back to devEnv.
+     *
+     * @return string
+     */
+    public static function getApiEnvironment(): string
+    {
+        $config = require RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php';
+        if ( self::isProductionMode() ) {
+            return $config['liveEnv'];
+        }
+
+        $env = get_option( 'testing_environment', '' );
+        return is_string( $env ) && $env !== '' ? $env : $config['devEnv'];
     }
 
     /**

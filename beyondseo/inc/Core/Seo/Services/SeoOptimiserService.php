@@ -7,10 +7,13 @@ if (!defined('ABSPATH')) { exit; }
 
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
+use RankingCoach\Inc\Core\DB\DatabaseManager;
+use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
 use RankingCoach\Inc\Core\PostEventsManager;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use RankingCoach\Inc\Core\Seo\Libs\ContentFetcher;
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Enums\Suggestion;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\Factors;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\Operations;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\OptimiserContexts;
@@ -699,5 +702,102 @@ class SeoOptimiserService
         }
 
         $this->calculateAndSaveAverageScore();
+    }
+
+    /**
+     * Suggestions triggered by the latest stored analysis of every non-trashed post, grouped by
+     * suggestion type: `[issueType => ['title', 'description', 'posts' => [post row, ...]]]`.
+     * A full analysis replaces the stored rows of a post, so each post appears with its latest
+     * results only. Operations without suggestions are skipped in SQL (most rows).
+     *
+     * @param string[] $suggestions Suggestion types to keep; empty keeps every type.
+     * @param int|null $postId Restrict to one post.
+     * @return array<string, array{title: string, description: string, posts: array<int, array>}>
+     * @throws \RuntimeException When the query fails.
+     */
+    public function getSeoIssues(array $suggestions = [], ?int $postId = null): array
+    {
+        global $wpdb;
+
+        $suggestionFilter = array_fill_keys($suggestions, true);
+
+        $query = DatabaseManager::getInstance()
+            ->table(DatabaseTablesManager::DATABASE_SEO_OPERATIONS, 'operations')
+            ->select([
+                'operations.suggestions',
+                'posts.ID AS id',
+                'posts.post_title',
+                'posts.post_excerpt',
+                'posts.post_status',
+                'posts.post_name',
+                'posts.post_type',
+            ])
+            ->leftJoin(DatabaseTablesManager::DATABASE_SEO_FACTORS . ' AS factors', 'operations.factorId = factors.id')
+            ->leftJoin(DatabaseTablesManager::DATABASE_SEO_CONTEXTS . ' AS contexts', 'factors.contextId = contexts.id')
+            ->leftJoin(DatabaseTablesManager::DATABASE_SEO_OPTIMISERS . ' AS optimisers', 'contexts.analysisId = optimisers.id')
+            ->leftJoin($wpdb->posts . ' AS posts', 'optimisers.postId = posts.ID')
+            ->whereNotNull('posts.ID')
+            ->where('posts.post_status', 'trash', '!=')
+            ->whereNotNull('operations.suggestions')
+            ->where('operations.suggestions', '[]', '!=');
+
+        if ($postId !== null) {
+            $query->where('optimisers.postId', (int) $postId);
+        }
+
+        $wpdb->last_error = '';
+        $rows = $query->get();
+        if ($wpdb->last_error !== '' || !is_array($rows)) {
+            throw new \RuntimeException('Failed to retrieve SEO issues from the database.');
+        }
+
+        $issues = [];
+        foreach ($rows as $row) {
+            $row = (array) $row;
+            if (!is_string($row['suggestions']) || $row['suggestions'] === '') {
+                continue;
+            }
+
+            $rowSuggestions = json_decode($row['suggestions']);
+            if (json_last_error() !== JSON_ERROR_NONE || !is_array($rowSuggestions)) {
+                continue;
+            }
+
+            $post = [
+                'id' => (int) $row['id'],
+                'post_title' => $row['post_title'],
+                'post_excerpt' => $row['post_excerpt'],
+                'post_status' => $row['post_status'],
+                'post_name' => $row['post_name'],
+                'post_type' => $row['post_type'],
+            ];
+
+            foreach ($rowSuggestions as $suggestion) {
+                if (!is_string($suggestion) || $suggestion === '') {
+                    continue;
+                }
+                if ($suggestionFilter !== [] && !isset($suggestionFilter[$suggestion])) {
+                    continue;
+                }
+
+                if (!isset($issues[$suggestion])) {
+                    $metadata = Suggestion::getDescription($suggestion);
+                    $issues[$suggestion] = [
+                        'description' => $metadata['description'],
+                        'title' => $metadata['title'],
+                        'posts' => [],
+                    ];
+                }
+
+                $issues[$suggestion]['posts'][$post['id']] = $post;
+            }
+        }
+
+        foreach ($issues as &$issue) {
+            $issue['posts'] = array_values($issue['posts']);
+        }
+        unset($issue);
+
+        return $issues;
     }
 }

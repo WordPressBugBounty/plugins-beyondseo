@@ -13,6 +13,7 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Review\ReviewState;
+use RankingCoach\Inc\Core\Seo\Services\ActionPlanService;
 use Throwable;
 use WP_Screen;
 
@@ -165,6 +166,15 @@ class UpsellNotificationManager
             ]) && (float) $websiteScore > ReviewState::DASHBOARD_SCORE_THRESHOLD && (float) $scoreMax > 0;
         } catch (Throwable $e) {
         }
+
+        // Action Plan summary (open wizard-check issues on published pages); the widget hides the section on failure.
+        $actionPlan = null;
+        try {
+            $actionPlan = ActionPlanService::getInstance()->getSummary();
+        } catch (Throwable $e) {
+            $this->log('Dashboard widget: action plan summary failed: ' . $e->getMessage(), 'WARNING');
+        }
+        $actionPlanUrl = AdminManager::getPageUrl(AdminManager::PAGE_ACTION_PLAN);
 
         // Calculate score percentage for progress bar
         $scorePercentage = $scoreMax > 0 ? min(100, max(0, ($websiteScore / 100) * 100)) : 0;

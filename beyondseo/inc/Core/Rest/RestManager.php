@@ -18,6 +18,7 @@ if (!defined('ABSPATH')) {
 use RankingCoach\Inc\Core\Rest\Dtos\ModulesResponseDto;
 use Exception;
 use RankingCoach\Inc\Core\Rest\Controllers\AccountProjectController;
+use RankingCoach\Inc\Core\Rest\Controllers\ActionPlanController;
 use RankingCoach\Inc\Core\Rest\Controllers\AdvancedSettingsController;
 use RankingCoach\Inc\Core\Rest\Controllers\IntegrationController;
 use RankingCoach\Inc\Core\Rest\Controllers\ImportController;
@@ -38,6 +39,7 @@ use RankingCoach\Inc\Core\CurrentUserManager;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\PluginSettings;
 use RankingCoach\Inc\Core\Review\ReviewState;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\RestHelpers;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
@@ -179,7 +181,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Check user capability
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access integration endpoints.', 'beyondseo'),
@@ -223,7 +225,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Check user capability
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access sync endpoints.', 'beyondseo'),
@@ -267,7 +269,7 @@ class RestManager extends WP_REST_Controller {
         }
 
         // Check admin capability
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access admin endpoints.', 'beyondseo'),
@@ -308,7 +310,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access config endpoints.', 'beyondseo'),
@@ -321,24 +323,26 @@ class RestManager extends WP_REST_Controller {
 
     /*
     |--------------------------------------------------------------------------
-    | Meta Tags Routes
+    | Post-level SEO Routes
     |--------------------------------------------------------------------------
     |
-    | Routes for SEO meta tags management.
-    | Requires nonce authentication and admin capabilities.
+    | Meta tags, social, advanced settings, optimiser and variables of one post.
+    | Requires nonce authentication and the right to edit that post.
     |
     */
 
-
-
     /**
-     * Check permission for metatags endpoints.
+     * Check permission for the routes that read or change the SEO data of one post.
      *
-     * @since 1.0.0
+     * The post comes from the `postId` route parameter (`id` on the legacy variables route).
+     * Access follows Capabilities::canEditPostSeo(), so editors and authors can work on the
+     * posts they may edit while the site-wide routes stay admin-only.
+     *
+     * @since 1.3.10
      * @param WP_REST_Request $request The REST request object.
      * @return bool|WP_Error True if authorized, WP_Error on failure.
      */
-    public function checkMetatagsPermission(WP_REST_Request $request): bool|WP_Error {
+    public function checkPostSeoPermission(WP_REST_Request $request): bool|WP_Error {
         if (!$this->verifyNonceAuth($request)) {
             return new WP_Error(
                 'rest_forbidden',
@@ -347,10 +351,11 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options')) {
+        $postId = (int) ($request->get_param('postId') ?? $request->get_param('id') ?? 0);
+        if (!Capabilities::canEditPostSeo($postId)) {
             return new WP_Error(
                 'rest_forbidden',
-                __('You do not have permission to access metatags endpoints.', 'beyondseo'),
+                __('You do not have permission to edit the SEO data of this post.', 'beyondseo'),
                 ['status' => rest_authorization_required_code()]
             );
         }
@@ -426,7 +431,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access onboarding.', 'beyondseo'),
@@ -465,7 +470,7 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access plugin information.', 'beyondseo'),
@@ -502,131 +507,10 @@ class RestManager extends WP_REST_Controller {
             );
         }
 
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             return new WP_Error(
                 'rest_forbidden',
                 __('You do not have permission to access support information.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        return true;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | SEO Optimiser Routes
-    |--------------------------------------------------------------------------
-    |
-    | Routes for SEO optimization features.
-    | Requires nonce authentication, admin capabilities, and completed onboarding.
-    |
-    */
-
-
-
-    /**
-     * Check permission for optimizer endpoints.
-     *
-     * Validates nonce, capabilities, and onboarding completion.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The REST request object.
-     * @return bool|WP_Error True if authorized, WP_Error on failure.
-     */
-    public function checkOptimiserPermission(WP_REST_Request $request): bool|WP_Error {
-
-        if (!$this->verifyNonceAuth($request)) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('Invalid or missing security nonce.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        if (!current_user_can('manage_options')) {
-            $this->log('Optimiser endpoint access denied: insufficient permissions', 'WARNING');
-            return new WP_Error(
-                'rest_forbidden',
-                __('You do not have permission to access the SEO Optimiser.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        return true;
-    }
-
-    /*
-|--------------------------------------------------------------------------
-| Advanced Tab Settings Routes
-|--------------------------------------------------------------------------
-|
-| Routes for advanced tab settings.
-| Requires nonce authentication and admin capabilities.
-|
-*/
-
-
-
-    /**
-     * Check permission for social media endpoints.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The REST request object.
-     * @return bool|WP_Error True if authorized, WP_Error on failure.
-     */
-    public function checkAdvancedSettingsPermission(WP_REST_Request $request): bool|WP_Error {
-        if (!$this->verifyNonceAuth($request)) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('Invalid or missing security nonce.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        if (!current_user_can('manage_options')) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('You do not have permission to access social media settings.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        return true;
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Social Media Routes
-    |--------------------------------------------------------------------------
-    |
-    | Routes for social media optimization features.
-    | Requires nonce authentication and admin capabilities.
-    |
-    */
-
-
-
-    /**
-     * Check permission for social media endpoints.
-     *
-     * @since 1.0.0
-     * @param WP_REST_Request $request The REST request object.
-     * @return bool|WP_Error True if authorized, WP_Error on failure.
-     */
-    public function checkSocialPermission(WP_REST_Request $request): bool|WP_Error {
-        if (!$this->verifyNonceAuth($request)) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('Invalid or missing security nonce.', 'beyondseo'),
-                ['status' => rest_authorization_required_code()]
-            );
-        }
-
-        if (!current_user_can('manage_options')) {
-            return new WP_Error(
-                'rest_forbidden',
-                __('You do not have permission to access social media settings.', 'beyondseo'),
                 ['status' => rest_authorization_required_code()]
             );
         }
@@ -707,7 +591,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachAccountDetails'],
                 'permission_callback' => function () {
-                    return current_user_can('manage_options');
+                    return current_user_can(Capabilities::MANAGE);
                 },
             ]
         );
@@ -720,7 +604,7 @@ class RestManager extends WP_REST_Controller {
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachLocationKeywords'],
                 'permission_callback' => function () {
-                    return current_user_can('manage_options');
+                    return current_user_can(Capabilities::MANAGE);
                 },
             ]
         );
@@ -732,9 +616,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$this, 'rankingcoachVariables'],
-                'permission_callback' => function () {
-                    return current_user_can('manage_options');
-                },
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => [
                     'id' => [
                         'description'       => 'The ID of the post',
@@ -758,14 +640,14 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$this, 'handleGeneralSettings'],
                     'permission_callback' => function () {
-                        return current_user_can('manage_options');
+                        return current_user_can(Capabilities::MANAGE);
                     },
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$this, 'handleGeneralSettings'],
                     'permission_callback' => function () {
-                        return current_user_can('manage_options');
+                        return current_user_can(Capabilities::MANAGE);
                     },
                 ],
             ]
@@ -780,7 +662,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can('manage_options');
+                        return current_user_can(Capabilities::MANAGE);
                     },
                     'args'                => [
                         'key' => [
@@ -798,7 +680,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can('manage_options');
+                        return current_user_can(Capabilities::MANAGE);
                     },
                     'args'                => [
                         'key' => [
@@ -816,7 +698,7 @@ class RestManager extends WP_REST_Controller {
                     'methods'             => WP_REST_Server::DELETABLE,
                     'callback'            => [$this, 'handleSingleSetting'],
                     'permission_callback' => function () {
-                        return current_user_can('manage_options');
+                        return current_user_can(Capabilities::MANAGE);
                     },
                     'args'                => [
                         'key' => [
@@ -874,6 +756,7 @@ class RestManager extends WP_REST_Controller {
         $this->registerV1OnboardingPartialRoutes();
         $this->registerV1OnboardingRemoteRoutes();
         $this->registerV1OptimiserRoutes();
+        $this->registerV1ActionPlanRoutes();
         $this->registerV1PluginInfoRoutes();
         $this->registerV1IntegrationRoutes();
         $this->registerV1SyncRoutes();
@@ -993,13 +876,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$controller, 'get'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$controller, 'save'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1011,7 +894,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::CREATABLE,
                 'callback'            => [$controller, 'swapKeyword'],
-                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => $postIdArg,
             ]
         );
@@ -1023,13 +906,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::EDITABLE,
                     'callback'            => [$controller, 'assignKeyword'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::DELETABLE,
                     'callback'            => [$controller, 'detachKeyword'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1041,7 +924,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$controller, 'listKeywords'],
-                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => $postIdArg,
             ]
         );
@@ -1052,7 +935,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::CREATABLE,
                 'callback'            => [$controller, 'extractContentKeywords'],
-                'permission_callback' => [$this, 'checkMetatagsPermission'],
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => $postIdArg,
             ]
         );
@@ -1064,13 +947,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$controller, 'getSeparator'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::EDITABLE,
                     'callback'            => [$controller, 'saveSeparator'],
-                    'permission_callback' => [$this, 'checkMetatagsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1098,13 +981,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$controller, 'get'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$controller, 'save'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1116,7 +999,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$controller, 'imageSources'],
-                'permission_callback' => [$this, 'checkSocialPermission'],
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => $postIdArg,
             ]
         );
@@ -1143,13 +1026,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$controller, 'get'],
-                    'permission_callback' => [$this, 'checkAdvancedSettingsPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$controller, 'save'],
-                    'permission_callback' => [$this, 'checkSocialPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1259,6 +1142,20 @@ class RestManager extends WP_REST_Controller {
         }
     }
 
+    /** The Action Plan page data: wizard-check issues of published pages from the stored analysis. */
+    private function registerV1ActionPlanRoutes(): void
+    {
+        register_rest_route(
+            $this->namespace,
+            '/action-plan',
+            [
+                'methods'             => WP_REST_Server::READABLE,
+                'callback'            => [new ActionPlanController(), 'get'],
+                'permission_callback' => [$this, 'checkAdminPermission'],
+            ]
+        );
+    }
+
     private function registerV1OptimiserRoutes(): void
     {
         $controller = new OptimiserController();
@@ -1269,7 +1166,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$controller, 'getSeoIssuesRest'],
-                'permission_callback' => [$this, 'checkOptimiserPermission'],
+                'permission_callback' => [$this, 'checkAdminPermission'],
                 'args'                => [
                     'suggestions' => [
                         'description'       => 'JSON array of suggestion keys',
@@ -1325,13 +1222,13 @@ class RestManager extends WP_REST_Controller {
                 [
                     'methods'             => WP_REST_Server::READABLE,
                     'callback'            => [$controller, 'get'],
-                    'permission_callback' => [$this, 'checkOptimiserPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
                 [
                     'methods'             => WP_REST_Server::CREATABLE,
                     'callback'            => [$controller, 'run'],
-                    'permission_callback' => [$this, 'checkOptimiserPermission'],
+                    'permission_callback' => [$this, 'checkPostSeoPermission'],
                     'args'                => $postIdArg,
                 ],
             ]
@@ -1343,7 +1240,7 @@ class RestManager extends WP_REST_Controller {
             [
                 'methods'             => WP_REST_Server::READABLE,
                 'callback'            => [$controller, 'exportData'],
-                'permission_callback' => [$this, 'checkOptimiserPermission'],
+                'permission_callback' => [$this, 'checkPostSeoPermission'],
                 'args'                => array_merge($postIdArg, [
                     'export' => [
                         'description'       => 'Export format',

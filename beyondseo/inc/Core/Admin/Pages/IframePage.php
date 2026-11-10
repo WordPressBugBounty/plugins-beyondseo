@@ -16,6 +16,7 @@ use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\ChannelFlow\OptionStore;
 use RankingCoach\Inc\Core\ChannelFlow\ChannelResolver;
 use RankingCoach\Inc\Core\ChannelFlow\Traits\FlowGuardTrait;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
 use RankingCoach\Inc\Core\Jobs\AccountSyncJob;
@@ -85,7 +86,7 @@ class IframePage extends AdminPage
      * Processes the reset and reactivate form submission.
      */
     public function processResetAndReactivate(): void {
-        if (!current_user_can('manage_options')) {
+        if (!current_user_can(Capabilities::MANAGE)) {
             wp_die(esc_html__('You do not have sufficient permissions.', 'beyondseo'));
         }
 
@@ -234,13 +235,13 @@ class IframePage extends AdminPage
         $config    = require RANKINGCOACH_PLUGIN_DIR . 'inc/Core/Api/externalIntegrations.php';
         $language  = WordpressHelpers::current_language_code_helper(WordpressHelpers::get_wp_locale()) ?? 'en';
         $locale    = WordpressHelpers::get_wp_locale();
-        $baseEnv   = RankingCoachPlugin::isProductionMode() ? 'liveEnv' : 'devEnv';
+        $baseEnv   = RankingCoachPlugin::getApiEnvironment();
         $installationId = (string)get_option(BaseConstants::OPTION_INSTALLATION_ID, '');
         $parentOrigin = urlencode(site_url());
-        $beyondSeoIframeUrl = sprintf($config['iframeUrl'], $config[$baseEnv], $language, $locationId, $installationId, $parentOrigin, $accessToken);
+        $beyondSeoIframeUrl = sprintf($config['iframeUrl'], $baseEnv, $language, $locationId, $installationId, $parentOrigin, $accessToken);
         if(get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE)) {
             $couponCode = (string)get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE);
-            //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $config[$baseEnv], $locale, $couponCode, urlencode($beyondSeoIframeUrl));
+            //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $baseEnv, $locale, $couponCode, urlencode($beyondSeoIframeUrl));
         }
 
         // Check if iframe destination requires authentication
@@ -261,10 +262,10 @@ class IframePage extends AdminPage
             if ($revalidated) {
                 // Refresh tokens and rebuild URL
                 $accessToken = $tokensManager->getAccessToken(static::class);
-                $beyondSeoIframeUrl = sprintf($config['iframeUrl'], $config[$baseEnv], $language, $locationId, $installationId, $parentOrigin, $accessToken);
+                $beyondSeoIframeUrl = sprintf($config['iframeUrl'], $baseEnv, $language, $locationId, $installationId, $parentOrigin, $accessToken);
                 if(get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE)) {
                     $couponCode = (string)get_option(BaseConstants::OPTION_RANKINGCOACH_COUPON_CODE);
-                    //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $config[$baseEnv], $locale, $couponCode, urlencode($beyondSeoIframeUrl));
+                    //$beyondSeoIframeUrl = sprintf($config['codeUrl'], $baseEnv, $locale, $couponCode, urlencode($beyondSeoIframeUrl));
                 }
             } else {
                 // Show reactivation page instead

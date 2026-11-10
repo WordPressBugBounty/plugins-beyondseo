@@ -716,8 +716,10 @@ class MetaTags extends BaseModule implements MetaHeadBuilderInterface
      */
     public function generateMetaTags(): string
     {
-        // Only singular content and the posts page map to a post; archives and search do not.
-        $this->contentId = (is_singular() || is_home()) ? get_queried_object_id() : 0;
+        // Singular content, the posts page and the shop page map to a post; other archives and search do not.
+        $this->contentId = (is_singular() || is_home())
+            ? get_queried_object_id()
+            : WordpressHelpers::retrieve_archive_page_id();
 
         $locale = get_locale();
 

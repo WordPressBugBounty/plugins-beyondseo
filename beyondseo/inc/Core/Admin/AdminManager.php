@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 use Exception;
+use RankingCoach\Inc\Core\Admin\Pages\ActionPlanPage;
 use RankingCoach\Inc\Core\Admin\Pages\ActivationPage;
 use RankingCoach\Inc\Core\Admin\Pages\GeneralSettingsPage;
 use RankingCoach\Inc\Core\Admin\Pages\IframePage;
@@ -21,6 +22,7 @@ use RankingCoach\Inc\Core\Admin\Pages\FeedbackPage;
 use RankingCoach\Inc\Core\Admin\Pages\UpsellPage;
 use RankingCoach\Inc\Core\DashboardWidgetManager;
 use RankingCoach\Inc\Core\Frontend\ViteApp\ReactApp;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\CoreHelper;
 use RankingCoach\Inc\Core\Helpers\ExternalLinks;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
@@ -28,6 +30,7 @@ use RankingCoach\Inc\Core\ToolbarManager;
 use RankingCoach\Inc\Exceptions\HttpApiException;
 use RankingCoach\Inc\Traits\SingletonTrait;
 use Throwable;
+use WP_Post;
 
 // Define the base URL for the admin management pages
 define('RANKINGCOACH_ADMIN_MANAGER_URL', RANKINGCOACH_PLUGIN_ADMIN_URL);
@@ -99,6 +102,13 @@ class AdminManager
     private ?SetupWizardPage $setup_wizard_page;
 
     /**
+     * The Action Plan page of the plugin.
+     *
+     * @var ActionPlanPage|null
+     */
+    private ?ActionPlanPage $action_plan_page;
+
+    /**
      * The name of the main admin page.
      *
      * @var string
@@ -112,6 +122,7 @@ class AdminManager
     public const PAGE_SUPPORT           = 'rankingcoach-support';
     public const PAGE_UPSELL            = 'rankingcoach-connect';
     public const PAGE_SETUP_WIZARD      = 'rankingcoach-setupWizard';
+    public const PAGE_ACTION_PLAN       = 'rankingcoach-actionPlan';
 
     /**
      * AdminManager constructor.
@@ -172,6 +183,7 @@ class AdminManager
         $this->upsell_page = UpsellPage::getInstance()->setManager($this);
         $this->feedback_page = FeedbackPage::getInstance()->setManager($this);
         $this->setup_wizard_page = SetupWizardPage::getInstance()->setManager($this);
+        $this->action_plan_page = ActionPlanPage::getInstance()->setManager($this);
     }
 
     /**
@@ -211,7 +223,7 @@ class AdminManager
         }
         // Not an interactive admin page request (ajax, network admin, other role, output already
         // started on the lazy activation path): keep the transient for the next request.
-        if (wp_doing_ajax() || is_network_admin() || headers_sent() || !current_user_can('manage_options')) {
+        if (wp_doing_ajax() || is_network_admin() || headers_sent() || !current_user_can(Capabilities::MANAGE)) {
             return;
         }
         delete_transient(BaseConstants::TRANSIENT_SETUP_WIZARD_REDIRECT);
@@ -413,15 +425,21 @@ class AdminManager
      * Create InPost Block
      * registers the meta-box within the WordPress infrastructure
      *
+     * Untyped on purpose: third-party code fires `add_meta_boxes` with its own arguments.
+     *
+     * @param mixed $post_type Post type of the edit screen.
+     * @param WP_Post|mixed $post Post being edited (a comment or link on their edit screens).
      * @return void
      */
-    public function add_meta_boxes(): void
+    public function add_meta_boxes(mixed $post_type = '', mixed $post = null): void
     {
         // Get the current screen object.
         $screen = get_current_screen();
 
-        // Check if we're in the admin area, editing a post or page, and not creating a new one.
-        if ($screen && $screen->base === 'post') {
+        // Only on the post editor, and only when the user may edit this post's SEO (the REST
+        // routes behind the box apply the same rule, see Capabilities::canEditPostSeo()).
+        $canEditSeo = !($post instanceof WP_Post) || Capabilities::canEditPostSeo((int) $post->ID);
+        if ($screen && $screen->base === 'post' && $canEditSeo) {
             add_meta_box(
                 'rankingcoach-seo-analysis',
                 RANKINGCOACH_BRAND_NAME,
@@ -493,7 +511,7 @@ class AdminManager
         $mainPageHook = add_menu_page(
             RANKINGCOACH_BRAND_NAME,
             RANKINGCOACH_BRAND_NAME,
-            'manage_options',
+            Capabilities::MANAGE,
             'rankingcoach-main',
             function () {
                 // Access control was already handled in the load-{$page_hook} action before headers were sent.
@@ -509,13 +527,31 @@ class AdminManager
         });
 
         // ===================================================================================
+        // ACTION PLAN PAGE (first submenu entry, before Settings)
+        // ===================================================================================
+        $actionPlanHook = add_submenu_page(
+            'rankingcoach-main',
+            __('Action Plan', 'beyondseo'),
+            __('Action Plan', 'beyondseo'),
+            'manage_options',
+            self::PAGE_ACTION_PLAN,
+            function () {
+                $this->action_plan_page->page_content();
+            }
+        );
+
+        add_action("load-{$actionPlanHook}", function () {
+            $this->action_plan_page->handleAccessControl();
+        });
+
+        // ===================================================================================
         // GENERAL SETTINGS PAGE
         // ===================================================================================
         $generalSettingsHook = add_submenu_page(
             'rankingcoach-main',
             __('Settings', 'beyondseo'),
             __('Settings', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             'rankingcoach-generalSettings',
             function () {
                 $this->general_settings_page->page_content();
@@ -533,7 +569,7 @@ class AdminManager
             '-',
             __('Activation', 'beyondseo'),
             __('Activation', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             'rankingcoach-activation',
             function () {
                 $this->activation_page->page_content();
@@ -551,7 +587,7 @@ class AdminManager
             '-',
             __('Registration', 'beyondseo'),
             __('Registration', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             'rankingcoach-registration',
             function () {
                 $this->registration_page->page_content();
@@ -569,7 +605,7 @@ class AdminManager
             '-',
             __('Onboarding', 'beyondseo'),
             __('Onboarding', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             'rankingcoach-onboarding',
             function () {
                 $this->onboarding_page->page_content();
@@ -587,7 +623,7 @@ class AdminManager
             'rankingcoach-main',
             __('Setup wizard', 'beyondseo'),
             __('Setup wizard', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             self::PAGE_SETUP_WIZARD,
             function () {
                 $this->setup_wizard_page->page_content();
@@ -607,7 +643,7 @@ class AdminManager
                 'rankingcoach-main',
                 __('Connect', 'beyondseo'),
                 __('Connect', 'beyondseo'),
-                'manage_options',
+                Capabilities::MANAGE,
                 'rankingcoach-connect',
                 function () {
                     $this->upsell_page->page_content();
@@ -619,7 +655,7 @@ class AdminManager
                     'rankingcoach-main',
                     __('Upgrade', 'beyondseo'),
                     __('Upgrade', 'beyondseo'),
-                    'manage_options',
+                    Capabilities::MANAGE,
                     'rankingcoach-connect',
                     function () {
                         $this->upsell_page->page_content();
@@ -638,7 +674,7 @@ class AdminManager
             'rankingcoach-main',
             __('Support', 'beyondseo'),
             __('Support', 'beyondseo'),
-            'manage_options',
+            Capabilities::MANAGE,
             self::PAGE_SUPPORT,
             function () {
                 echo '<div id="support-rankingcoach-page" class="wrap beyondseo"></div>';
@@ -682,6 +718,9 @@ class AdminManager
         }
         if (isset($this->setup_wizard_page) && property_exists($this->setup_wizard_page, 'name') && $this->setup_wizard_page->page_name() === $pageName) {
             $this->setup_wizard_page->redirect($queries);
+        }
+        if (isset($this->action_plan_page) && property_exists($this->action_plan_page, 'name') && $this->action_plan_page->page_name() === $pageName) {
+            $this->action_plan_page->redirect($queries);
         }
     }
 

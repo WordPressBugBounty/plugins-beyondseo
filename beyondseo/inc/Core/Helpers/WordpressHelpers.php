@@ -1461,6 +1461,16 @@ class WordpressHelpers {
 	}
 
 	/**
+	 * ID of the page that backs the current post type archive (WooCommerce shop page), or 0.
+	 */
+	public static function retrieve_archive_page_id(): int {
+		if (function_exists('is_shop') && function_exists('wc_get_page_id') && is_shop()) {
+			return max(0, (int) wc_get_page_id('shop'));
+		}
+		return 0;
+	}
+
+	/**
 	 * Retrieve the default title for the archive template.
 	 *
 	 * @param string $postType The custom post type.
@@ -1500,6 +1510,11 @@ class WordpressHelpers {
 		if (is_home()) {
 			$blogName = self::retrieve_home_page_title();
 			return wp_strip_all_tags(trim($blogName));
+		}
+
+		// Archives backed by a real page (WooCommerce shop) use that page's SEO data
+		if (!$post && ($archivePageId = self::retrieve_archive_page_id())) {
+			return self::retrieve_post_title(get_post($archivePageId), $default);
 		}
 
 		// Single content pages (posts, pages, custom types)
@@ -1571,6 +1586,11 @@ class WordpressHelpers {
 		if (is_home()) {
 			$blogDescription = self::retrieve_home_page_description();
 			return wp_strip_all_tags(trim($blogDescription));
+		}
+
+		// Archives backed by a real page (WooCommerce shop) use that page's SEO data
+		if (!$post && ($archivePageId = self::retrieve_archive_page_id())) {
+			return self::retrieve_post_description(get_post($archivePageId), $default);
 		}
 
 		// Single content pages (posts, pages, custom types)

@@ -36,6 +36,10 @@ class Hooks implements InitializerInterface {
 
     // Filters
     public const RANKINGCOACH_FILTER_CACHED_ACCOUNT_DETAILS = 'rankingcoach_cached_account_details';
+    /** Filters whether the current user may edit the SEO data of a post: (bool $can, int $postId). */
+    public const RANKINGCOACH_FILTER_USER_CAN_EDIT_POST_SEO = 'rankingcoach_user_can_edit_post_seo';
+    /** Filters the WordPress capability Capabilities::MANAGE resolves to (default edit_others_posts). */
+    public const RANKINGCOACH_FILTER_MANAGE_CAPABILITY = 'rankingcoach_manage_capability';
 
     /** @var HooksManager $hooksManager The object that manages hooks. */
     private HooksManager $hooksManager;

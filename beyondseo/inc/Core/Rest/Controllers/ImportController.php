@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace RankingCoach\Inc\Core\Rest\Controllers;
 
 use InvalidArgumentException;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Import\ImportRunner;
 use Throwable;
 use WP_Error;
@@ -54,7 +55,7 @@ final class ImportController
 
     public function permission(): bool
     {
-        return current_user_can('manage_options');
+        return current_user_can(Capabilities::MANAGE);
     }
 
     public function sources(): WP_REST_Response
