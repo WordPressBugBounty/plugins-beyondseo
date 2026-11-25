@@ -5,7 +5,7 @@ Tags: seo, ai-seo, wordpress-seo, business-listings, review-management
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 8.0
-Stable tag: 1.3.11
+Stable tag: 1.3.12
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Privacy Policy: https://www.rankingcoach.com/en-us/privacy-policy
@@ -204,7 +204,7 @@ Business information helps generate localized SEO insights, relevant keyword sug
 
 = Which countries are supported? =
 
-BeyondSEO is available in: United States, Canada, United Kingdom, Ireland, Germany, Austria, Switzerland, France, Belgium, Netherlands, Luxembourg, Monaco, Italy, Spain, Portugal, Andorra, Denmark, Sweden, Norway, Finland, Iceland, Poland, Czech Republic, Slovakia, Hungary, Romania, Bulgaria, Greece, Estonia, Latvia, Lithuania, Slovenia, Croatia, Serbia, Bosnia and Herzegovina, North Macedonia, Albania, Turkey, Cyprus, Malta, Australia, New Zealand, Mexico, Argentina, Brazil, Chile, Colombia, Peru, Uruguay, South Africa, United Arab Emirates, Saudi Arabia, Israel, India, Indonesia, Malaysia, Philippines, Singapore, Thailand, and Japan. More regions will be added in future updates.
+BeyondSEO is available in: United States, Canada, United Kingdom, Ireland, Germany, Austria, Switzerland, France, Belgium, Netherlands, Monaco, Italy, Spain, Portugal, Andorra, Denmark, Iceland, Poland, Czech Republic, Romania, Estonia, Latvia, Lithuania, Slovenia, Croatia, Serbia, Bosnia and Herzegovina, North Macedonia, Albania, Malta, Australia, Mexico, Argentina, Brazil, Chile, Uruguay, and South Africa. More regions will be added in future updates.
 
 == Who Should Use BeyondSEO? ==
 
@@ -251,6 +251,16 @@ Our full Privacy Policy is available at: https://www.rankingcoach.com/en-us/priv
 4. Plugin onboarding and settings experience
 
 == Changelog ==
+
+= 1.3.12 =
+* Added batch SEO score retrieval in the Optimiser, with permission checks.
+* Added validation for Google and Bing site verification codes in Settings.
+* Fixed plugin output being skipped for bot user agents, so crawlers now receive the plugin's SEO output.
+* Fixed registration for countries that cannot be registered directly by sending a fallback country.
+* Removed countries that are no longer offered for registration and updated the supported countries list.
+* Fixed the editor script being loaded outside of edit screens.
+* Fixed rendering of non-published posts in draft previews.
+* Fixed Article schema by removing the invalid mainImage property.
 
 = 1.3.11 =
 * Added post-level SEO capabilities so users with permission to edit a post can manage its SEO settings.

@@ -30,6 +30,18 @@ class RegisterApiManager extends HttpApiClient
     /** @var self|null */
     protected static ?self $instance = null;
 
+    /** Countries the webapp cannot register via email; sent as FALLBACK_COUNTRY. */
+    private const UNSUPPORTED_COUNTRIES = ['AD', 'AL', 'BA', 'DK', 'EE', 'HR', 'IS', 'LT', 'LV', 'MC', 'MK', 'MT', 'RS', 'UY'];
+
+    private const FALLBACK_COUNTRY = 'US';
+
+    /** Country code for the registration API. */
+    public static function apiCountryCode(string $country): string
+    {
+        $country = strtoupper($country);
+        return in_array($country, self::UNSUPPORTED_COUNTRIES, true) ? self::FALLBACK_COUNTRY : $country;
+    }
+
     /**
      * Singleton accessor (no bearer token required for public registration flow).
      *
@@ -140,7 +152,7 @@ class RegisterApiManager extends HttpApiClient
                 'firstName' => $firstName,
                 'lastName' => $lastName,
                 'email'              => $email,
-                'countryCode'        => strtoupper($country),
+                'countryCode'        => self::apiCountryCode($country),
                 'type'               => $type,
                 'challengeHash'      => $challenge['challengeHash'],
                 'challengeTimestamp' => $challenge['challengeTimestamp'],
@@ -214,7 +226,7 @@ class RegisterApiManager extends HttpApiClient
             $payload = CoreHelper::generateCommonSecurityPayload([
                 'pluginIdentifier'   => defined('RANKINGCOACH_BRAND_SLUG') ? RANKINGCOACH_BRAND_SLUG : 'rankingcoach',
                 'email'              => $email,
-                'countryCode'        => strtoupper($country),
+                'countryCode'        => self::apiCountryCode($country),
                 'type'               => $type,
                 'challengeHash'      => $challenge['challengeHash'],
                 'challengeTimestamp' => $challenge['challengeTimestamp'],

@@ -45,7 +45,7 @@ if (str_contains($beyondseo_locale, '_')) {
     }
 }
 
-// Try to load countries from settings; if not >= 60, fallback to static 60-item list
+// Try to load countries from settings; if none are available, fallback to the static list
 $beyondseo_countries = [];
 try {
     $beyondseo_settings  = SettingsManager::instance();
@@ -60,23 +60,22 @@ try {
     $beyondseo_countries = [];
 }
 
-if (count($beyondseo_countries) < 60) {
-    // Fallback: placeholder list of exactly 60 countries to be replaced with official RC list
+if (empty($beyondseo_countries)) {
+    // Fallback: static copy of the allowed countries list from PluginSettings
     $beyondseo_countries = [
         'US' => 'United States', 'CA' => 'Canada', 'GB' => 'United Kingdom', 'IE' => 'Ireland',
         'DE' => 'Germany', 'AT' => 'Austria', 'CH' => 'Switzerland',
-        'FR' => 'France', 'BE' => 'Belgium', 'NL' => 'Netherlands', 'LU' => 'Luxembourg', 'MC' => 'Monaco',
+        'FR' => 'France', 'BE' => 'Belgium', 'NL' => 'Netherlands', 'MC' => 'Monaco',
         'IT' => 'Italy', 'ES' => 'Spain', 'PT' => 'Portugal', 'AD' => 'Andorra',
-        'DK' => 'Denmark', 'SE' => 'Sweden', 'NO' => 'Norway', 'FI' => 'Finland', 'IS' => 'Iceland',
-        'PL' => 'Poland', 'CZ' => 'Czech Republic', 'SK' => 'Slovakia', 'HU' => 'Hungary',
-        'RO' => 'Romania', 'BG' => 'Bulgaria', 'GR' => 'Greece',
+        'DK' => 'Denmark', 'IS' => 'Iceland',
+        'PL' => 'Poland', 'CZ' => 'Czech Republic',
+        'RO' => 'Romania',
         'EE' => 'Estonia', 'LV' => 'Latvia', 'LT' => 'Lithuania',
         'SI' => 'Slovenia', 'HR' => 'Croatia', 'RS' => 'Serbia', 'BA' => 'Bosnia and Herzegovina', 'MK' => 'North Macedonia', 'AL' => 'Albania',
-        'TR' => 'Turkey', 'CY' => 'Cyprus', 'MT' => 'Malta',
-        'AU' => 'Australia', 'NZ' => 'New Zealand',
-        'MX' => 'Mexico', 'AR' => 'Argentina', 'BR' => 'Brazil', 'CL' => 'Chile', 'CO' => 'Colombia', 'PE' => 'Peru', 'UY' => 'Uruguay',
-        'ZA' => 'South Africa', 'AE' => 'United Arab Emirates', 'SA' => 'Saudi Arabia', 'IL' => 'Israel',
-        'IN' => 'India', 'ID' => 'Indonesia', 'MY' => 'Malaysia', 'PH' => 'Philippines', 'SG' => 'Singapore', 'TH' => 'Thailand', 'JP' => 'Japan',
+        'MT' => 'Malta',
+        'AU' => 'Australia',
+        'MX' => 'Mexico', 'AR' => 'Argentina', 'BR' => 'Brazil', 'CL' => 'Chile', 'UY' => 'Uruguay',
+        'ZA' => 'South Africa',
     ];
 }
 asort($beyondseo_countries);

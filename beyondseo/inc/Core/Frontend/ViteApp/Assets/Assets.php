@@ -127,11 +127,6 @@ class Assets {
             wp_enqueue_style( 'rankingcoach-vite-app-css-' . $idx, $dependency, [], ReactApp::get()?->config()->get( 'version' ) );
         }
 
-        // Enqueue the editor script only if we are in the context of adding or editing a post
-        if(WordpressHelpers::is_add_post_context() || WordpressHelpers::is_edit_post_context()) {
-            wp_enqueue_script('rankingcoach-react-editor-script', plugin_dir_url(RANKINGCOACH_PLUGIN_ADMIN_DIR) . 'Admin/assets/js/admin-editor.js', ['wp-blocks', 'wp-editor', 'wp-data'], RANKINGCOACH_VERSION, true);
-        }
-
         // Enqueue the main script and localize the data
         wp_enqueue_script( 'rankingcoach-react-vite-script', $this->resolve( 'main.tsx' ), ['wp-i18n'], ReactApp::get()?->config()->get( 'version' ), true );
 

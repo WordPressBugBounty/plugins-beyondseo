@@ -189,6 +189,7 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Core\\Rss\\FeedLinkGenerator' => __DIR__ . '/../..' . '/inc/Core/Rss/FeedLinkGenerator.php',
         'RankingCoach\\Inc\\Core\\Rss\\FeedManager' => __DIR__ . '/../..' . '/inc/Core/Rss/FeedManager.php',
         'RankingCoach\\Inc\\Core\\SeoOptimiserAjax' => __DIR__ . '/../..' . '/inc/Core/SeoOptimiserAjax.php',
+        'RankingCoach\\Inc\\Core\\Seo\\Adapters\\DraftPreviewAccess' => __DIR__ . '/../..' . '/inc/Core/Seo/Adapters/DraftPreviewAccess.php',
         'RankingCoach\\Inc\\Core\\Seo\\Adapters\\RankingcoachProvider' => __DIR__ . '/../..' . '/inc/Core/Seo/Adapters/RankingcoachProvider.php',
         'RankingCoach\\Inc\\Core\\Seo\\Adapters\\WordPressProvider' => __DIR__ . '/../..' . '/inc/Core/Seo/Adapters/WordPressProvider.php',
         'RankingCoach\\Inc\\Core\\Seo\\Entities\\ContentAnalysis\\WPKeywordsAnalysis' => __DIR__ . '/../..' . '/inc/Core/Seo/Entities/ContentAnalysis/WPKeywordsAnalysis.php',
@@ -477,7 +478,6 @@ class ComposerStaticInitbc7375e2d40317abaf89b37ad2e3f8a7
         'RankingCoach\\Inc\\Traits\\HookManager' => __DIR__ . '/../..' . '/inc/Traits/HookManager.php',
         'RankingCoach\\Inc\\Traits\\ResponseErrorTrait' => __DIR__ . '/../..' . '/inc/Traits/ResponseErrorTrait.php',
         'RankingCoach\\Inc\\Traits\\SingletonTrait' => __DIR__ . '/../..' . '/inc/Traits/SingletonTrait.php',
-        'RankingCoach\\inc\\Core\\Admin\\Pages\\ActivationPage' => __DIR__ . '/../..' . '/inc/Core/Admin/Pages/ActivationPage.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -3469,10 +3469,8 @@ class WordpressHelpers {
             return $cache['allowed_countries'];
         }
 
-        $settingsManager = SettingsManager::instance();
-        $options = $settingsManager->get_options();
-
-        $allowedCountries = $options['allowed_countries'] ?? [];
+        // Immutable setting: always read from the plugin defaults, never from the stored options
+        $allowedCountries = SettingsManager::instance()->get_option('allowed_countries', []);
 
         // Ensure it's an array of string => string
         if (!is_array($allowedCountries) || empty($allowedCountries)) {

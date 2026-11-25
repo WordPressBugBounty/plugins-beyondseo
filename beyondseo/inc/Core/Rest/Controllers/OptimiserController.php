@@ -11,8 +11,10 @@ use RankingCoach\Inc\Core\Api\Content\ContentApiManager;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\DB\DatabaseTablesManager;
+use RankingCoach\Inc\Core\Helpers\Capabilities;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
 use RankingCoach\Inc\Core\Initializers\Hooks;
+use RankingCoach\Inc\Core\Seo\Optimiser\Base\Enums\FactorStatus;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\FactorSuggestions;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\Models\Results\OptimiserResult;
 use RankingCoach\Inc\Core\Seo\Optimiser\Base\OptimiserContexts;
@@ -39,6 +41,93 @@ class OptimiserController
             $this->log('Error in OptimiserController::get: ' . $e->getMessage(), 'ERROR');
             return $this->generateErrorResponse($e, null, 500);
         }
+    }
+
+    public function getBatch(WP_REST_Request $request): WP_REST_Response
+    {
+        $results = [];
+
+        foreach ($request->get_param('postIds') as $postId) {
+            $postId = (int) $postId;
+
+            if (!Capabilities::canEditPostSeo($postId)) {
+                $results[(string) $postId] = null;
+                continue;
+            }
+
+            try {
+                $analyseResult = $this->retrieveAnalysis($postId);
+                $score = is_array($analyseResult)
+                    ? (float) ($analyseResult['score'] ?? 0)
+                    : (float) ($analyseResult->score ?? 0);
+                $score = $score > 1 ? round($score) : round($score * 100);
+
+                if ($score === 0.0 && !$this->isUnsavedNewPost($postId)) {
+                    $requestForPost = new WP_REST_Request('POST');
+                    $requestForPost->set_param('postId', $postId);
+                    $analysisResponse = $this->run($requestForPost);
+                    $analysisData = $analysisResponse->get_data();
+
+                    if ($analysisResponse->get_status() === 200 && isset($analysisData['analyseResult'])) {
+                        $analyseResult = $analysisData['analyseResult'];
+                    }
+                }
+
+                $results[(string) $postId] = $this->formatPostListResult($analyseResult);
+            } catch (Throwable $e) {
+                $this->log('Error in OptimiserController::getBatch for post ' . $postId . ': ' . $e->getMessage(), 'ERROR');
+                $results[(string) $postId] = null;
+            }
+        }
+
+        return new WP_REST_Response(['results' => $results], 200);
+    }
+
+    private function formatPostListResult(array|OptimiserResult $analyseResult): array
+    {
+        $rawScore = is_array($analyseResult)
+            ? (float) ($analyseResult['score'] ?? 0)
+            : (float) ($analyseResult->score ?? 0);
+        $score = (int) max(0, min(100, round($rawScore > 1 ? $rawScore : $rawScore * 100)));
+        $topSuggestions = is_array($analyseResult)
+            ? ($analyseResult['topSuggestions']['elements'] ?? [])
+            : ($analyseResult->topSuggestions->elements ?? []);
+        $recommendationCount = is_array($analyseResult)
+            ? (int) ($analyseResult['totalSuggestionsCount'] ?? count($topSuggestions))
+            : (int) ($analyseResult->totalSuggestionsCount ?? count($topSuggestions));
+        $contexts = is_array($analyseResult)
+            ? ($analyseResult['contexts']['elements'] ?? [])
+            : ($analyseResult->contexts->elements ?? []);
+        $checks = [];
+
+        foreach ($contexts as $context) {
+            $factors = is_array($context)
+                ? ($context['factors']['elements'] ?? [])
+                : ($context->factors->elements ?? []);
+
+            foreach ($factors as $factor) {
+                $title = is_array($factor) ? ($factor['factorName'] ?? '') : ($factor->factorName ?? '');
+                if ($title === '') {
+                    continue;
+                }
+
+                $status = is_array($factor) ? ($factor['status'] ?? '') : ($factor->status ?? '');
+                $checks[] = [
+                    'title' => (string) $title,
+                    'isGood' => $status === FactorStatus::COMPLETED,
+                ];
+
+                if (count($checks) === 4) {
+                    break 2;
+                }
+            }
+        }
+
+        return [
+            'score' => $score,
+            'recommendationCount' => max(0, $recommendationCount),
+            'checks' => $checks,
+        ];
     }
 
     /** @see SeoOptimiserService::getSeoIssues() */
@@ -101,12 +190,9 @@ class OptimiserController
 
     /**
      * Whether the post is still the empty `auto-draft` WordPress inserts on every "Add New"
-     * page view. The editor meta box mounts on it (WORDPRESS-986), but it must not be analyzed:
-     * the content renderer flips a non-published post to `publish` in the database while it
-     * renders it (RcContentRetrieveTrait::executeWithTemporaryPublishStatus()), which would
-     * briefly expose an empty "Auto Draft" post on the live site, and every abandoned auto-draft
-     * would leave orphaned optimiser rows behind. The first save turns the post into a draft,
-     * and that save triggers the first analysis.
+     * page view. The editor meta box mounts on it, but it must not be analyzed: every abandoned
+     * auto-draft would leave orphaned optimiser rows behind. The first save turns the post into
+     * a draft, and that save triggers the first analysis.
      */
     private function isUnsavedNewPost(int $postId): bool
     {

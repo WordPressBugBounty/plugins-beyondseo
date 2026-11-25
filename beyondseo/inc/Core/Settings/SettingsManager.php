@@ -34,7 +34,8 @@ class SettingsManager implements SettingsManagerInterface {
 
     /** @var array<string> List of immutable setting keys that cannot be modified after initialization. */
     protected array $immutableSettings = [
-        'separators'
+        'separators',
+        'allowed_countries',
     ];
 
     /**

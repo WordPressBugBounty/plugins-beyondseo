@@ -363,6 +363,28 @@ class RestManager extends WP_REST_Controller {
         return true;
     }
 
+    public function checkBatchPostSeoPermission(WP_REST_Request $request): bool|WP_Error
+    {
+        if (!$this->verifyNonceAuth($request)) {
+            return new WP_Error(
+                'rest_forbidden',
+                __('Invalid or missing security nonce.', 'beyondseo'),
+                ['status' => rest_authorization_required_code()]
+            );
+        }
+
+        $postIds = $request->get_param('postIds');
+        if (!is_array($postIds) || count($postIds) < 1 || count($postIds) > 20) {
+            return new WP_Error(
+                'rest_invalid_param',
+                __('Provide between 1 and 20 post IDs.', 'beyondseo'),
+                ['status' => 400]
+            );
+        }
+
+        return true;
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Content Analysis Routes
@@ -1214,6 +1236,42 @@ class RestManager extends WP_REST_Controller {
                 'sanitize_callback' => 'absint',
             ],
         ];
+
+        register_rest_route(
+            $this->namespace,
+            '/optimiser/batch',
+            [
+                [
+                    'methods'             => WP_REST_Server::CREATABLE,
+                    'callback'            => [$controller, 'getBatch'],
+                    'permission_callback' => [$this, 'checkBatchPostSeoPermission'],
+                    'args'                => [
+                        'postIds' => [
+                            'type'              => 'array',
+                            'required'          => true,
+                            'items'             => ['type' => 'integer'],
+                            'validate_callback' => static function ($value): bool {
+                                if (!is_array($value) || count($value) < 1 || count($value) > 20) {
+                                    return false;
+                                }
+
+                                foreach ($value as $postId) {
+                                    if ((!is_int($postId) && !is_string($postId))
+                                        || !ctype_digit((string) $postId)
+                                        || filter_var($postId, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]) === false
+                                    ) {
+                                        return false;
+                                    }
+                                }
+
+                                return true;
+                            },
+                            'sanitize_callback' => static fn($value) => array_values(array_unique(array_map('absint', $value))),
+                        ],
+                    ],
+                ],
+            ]
+        );
 
         register_rest_route(
             $this->namespace,
@@ -2208,6 +2266,14 @@ class RestManager extends WP_REST_Controller {
             return new WP_Error('value_too_large', "Setting '{$key}' must not exceed {$validationRules['max']}");
         }
 
+        // Verification codes: accept a bare code or a pasted <meta> tag
+        if (!empty($validationRules['verification_code']) && is_string($value)) {
+            $value = $this->sanitizeVerificationCode($key, $value);
+            if (is_wp_error($value)) {
+                return $value;
+            }
+        }
+
         // String length validation
         if (isset($validationRules['max_length']) && is_string($value) && strlen($value) > $validationRules['max_length']) {
             return new WP_Error('string_too_long', "Setting '{$key}' must not exceed {$validationRules['max_length']} characters");
@@ -2217,6 +2283,35 @@ class RestManager extends WP_REST_Controller {
         if (isset($validationRules['enum']) && !in_array($value, $validationRules['enum'], true)) {
             $allowed = implode(', ', $validationRules['enum']);
             return new WP_Error('invalid_value', "Setting '{$key}' must be one of: {$allowed}");
+        }
+
+        return $value;
+    }
+
+    /**
+     * Normalise a site verification code
+     *
+     * Accepts either the bare code or the full <meta> tag copied from Google Search Console /
+     * Bing Webmaster Tools, extracts the content attribute and validates the characters.
+     *
+     * @param string $key Setting key, used in the error message.
+     * @param string $value Raw value sent by the client.
+     * @return string|WP_Error Clean code (may be empty) or WP_Error when it contains invalid characters.
+     */
+    private function sanitizeVerificationCode(string $key, string $value): string|WP_Error {
+        $value = trim($value);
+
+        if (strpos($value, 'content=') !== false
+            && preg_match('/content=([\'"])?([^\'">\s]+)(?:\1|[\s\/>])/', $value, $matches)
+        ) {
+            $value = $matches[2];
+        }
+
+        $value = trim(sanitize_text_field($value));
+
+        if ($value !== '' && !preg_match('/^[A-Za-z0-9_-]+$/', $value)) {
+            /* translators: %s: setting key name */
+            return new WP_Error('invalid_value', sprintf(__("Setting '%s' contains invalid characters. Paste only the verification code or the full meta tag.", 'beyondseo'), $key));
         }
 
         return $value;
@@ -2274,6 +2369,10 @@ class RestManager extends WP_REST_Controller {
             // Google Analytics
             'google_analytics_integration' => ['type' => 'boolean'],
             'ga_tracking_id' => ['type' => 'string', 'max_length' => 50],
+
+            // Webmaster Tools verification
+            'google_verification_code' => ['type' => 'string', 'max_length' => 100, 'verification_code' => true],
+            'bing_verification_code' => ['type' => 'string', 'max_length' => 100, 'verification_code' => true],
 
             // Schema Markup
             'enable_schema_markup' => ['type' => 'boolean'],
@@ -2447,6 +2546,10 @@ class RestManager extends WP_REST_Controller {
                 'label' => 'Performance',
                 'settings' => []
             ],
+            'webmaster_tools' => [
+                'label' => 'Webmaster Tools',
+                'settings' => []
+            ],
             'advanced' => [
                 'label' => 'Advanced',
                 'settings' => []
@@ -2466,6 +2569,8 @@ class RestManager extends WP_REST_Controller {
             'focus_keyword_analysis' => 'keywords',
             'google_analytics_integration' => 'analytics',
             'ga_tracking_id' => 'analytics',
+            'google_verification_code' => 'webmaster_tools',
+            'bing_verification_code' => 'webmaster_tools',
             'enable_schema_markup' => 'schema',
             'default_schema_type' => 'schema',
             'site_represents' => 'schema',

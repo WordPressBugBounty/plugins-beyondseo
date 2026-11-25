@@ -765,7 +765,7 @@ class WordPressProvider implements ContentProviderInterface
 
         if (is_wp_error($response)) {
             // Log the error
-            $this->log('Failed to fetch URL ' . $url . '. Error: ' . $response->get_error_message(), 'ERROR');
+            $this->log('Failed to fetch URL ' . remove_query_arg(DraftPreviewAccess::QUERY_ARG, $url) . '. Error: ' . $response->get_error_message(), 'ERROR');
             return $response;
         }
 
@@ -774,7 +774,7 @@ class WordPressProvider implements ContentProviderInterface
             /* translators: %d is the HTTP status code */
             $errorMessage = sprintf(__('HTTP error fetching URL. Status code: %d', 'beyondseo'), $statusCode);
             // Log the error
-            $this->log('Failed to fetch URL ' . $url . '. Error: ' . $errorMessage, 'ERROR');
+            $this->log('Failed to fetch URL ' . remove_query_arg(DraftPreviewAccess::QUERY_ARG, $url) . '. Error: ' . $errorMessage, 'ERROR');
             return new WP_Error('http_error', $errorMessage);
         }
 

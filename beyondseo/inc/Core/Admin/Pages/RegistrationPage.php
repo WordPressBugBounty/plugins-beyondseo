@@ -625,7 +625,7 @@ class RegistrationPage extends AdminPage
         if ($email === '' || !is_email($email)) {
             $invalid['email'] = 'invalid';
         }
-        if ($country === '' || !preg_match('/^[A-Z]{2,3}$/', $country)) {
+        if ($country === '' || !preg_match('/^[A-Z]{2,3}$/', $country) || !$this->isAllowedCountry($country)) {
             $invalid['country'] = 'invalid';
         }
         if ($type === '') {
@@ -811,7 +811,7 @@ class RegistrationPage extends AdminPage
         if (empty($email) || !is_email($email)) {
             return new WP_Error('invalid_email', 'Invalid email address', ['status' => 400]);
         }
-        if ($country === '' || !preg_match('/^[A-Z]{2,3}$/', $country)) {
+        if ($country === '' || !preg_match('/^[A-Z]{2,3}$/', $country) || !$this->isAllowedCountry($country)) {
             return new WP_Error('invalid_country', 'Invalid country', ['status' => 400]);
         }
 
@@ -952,6 +952,14 @@ class RegistrationPage extends AdminPage
         $t = strtolower(trim($type));
         $allowed = ['ionos','extendify','direct'];
         return in_array($t, $allowed, true) ? $t : '';
+    }
+
+    /**
+     * Whether registration is offered for the given (uppercase) country code.
+     */
+    private function isAllowedCountry(string $country): bool
+    {
+        return array_key_exists($country, WordpressHelpers::getAllowedCountries());
     }
 
     /**

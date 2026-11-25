@@ -223,7 +223,6 @@ final class RankingCoachPlugin
             'not_cli_context' => $this->validateNotCliContext(),
             //'not_cron_context' => $this->validateNotCronContext(),
             'valid_http_method' => $this->validateHttpMethod(),
-            'valid_user_agent' => $this->validateUserAgent(),
         ];
 
         $is_valid_context = !in_array(false, $context_checks, true);
@@ -376,43 +375,6 @@ final class RankingCoachPlugin
         $allowed_methods = ['GET', 'POST', 'HEAD', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'];
 
         return in_array($method, $allowed_methods, true);
-    }
-
-    /**
-     * Validates user agent is not a bot or automated system.
-     */
-    private function validateUserAgent(): bool {
-        $user_agent = WordpressHelpers::sanitize_input(
-            'SERVER',
-            'HTTP_USER_AGENT'
-        );
-
-        if (empty($user_agent)) {
-            return false;
-        }
-
-        $user_agent_lower = strtolower($user_agent);
-
-        $known_good_agents = ['googlebot', 'bingbot', 'slurp', 'duckduckbot', 'rankingcoach', 'beyondseo', 'beyond-seo'];
-        foreach ($known_good_agents as $good_agent) {
-            if (str_contains($user_agent_lower, $good_agent)) {
-                return true;
-            }
-        }
-
-        $bot_patterns = [
-            'bot', 'crawler', 'spider', 'scraper', 'curl', 'wget', 'python', 'java',
-            'monitoring', 'uptime', 'pingdom', 'newrelic', 'datadog', 'nagios',
-            'headless', 'phantom', 'selenium', 'webdriver', 'wordpress'
-        ];
-
-        foreach ($bot_patterns as $pattern) {
-            if (str_contains($user_agent_lower, $pattern)) {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     /**

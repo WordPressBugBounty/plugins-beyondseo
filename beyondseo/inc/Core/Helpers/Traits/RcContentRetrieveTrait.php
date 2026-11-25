@@ -20,8 +20,8 @@ use Exception;
 use Normalizer;
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
-use RankingCoach\Inc\Core\DB\DatabaseManager;
 use RankingCoach\Inc\Core\Helpers\WordpressHelpers;
+use RankingCoach\Inc\Core\Seo\Adapters\DraftPreviewAccess;
 use RuntimeException;
 use WP_Query;
 
@@ -110,59 +110,19 @@ trait RcContentRetrieveTrait
     }
 
     /**
-     * Execute a callback with temporary post status change to 'publish'
+     * URL the loopback fetch can render: the permalink for published posts,
+     * a tokenised preview URL for everything else.
      *
      * @param int $postId The post ID
-     * @param callable $callback The callback to execute while post is temporarily published
-     * @param bool $bypassPostStatus Whether to bypass post status check
-     * @return mixed The result of the callback
+     * @return string The URL, or an empty string when the post has no permalink
      */
-    private function executeWithTemporaryPublishStatus(int $postId, callable $callback, bool $bypassPostStatus = false): mixed
+    private function getRenderableUrl(int $postId): string
     {
-        $post = $this->getValidatedPost($postId);
-        if (!$post) {
-            return $callback();
+        if (get_post_status($postId) === 'publish') {
+            return (string) get_permalink($postId);
         }
 
-        $original_status = null;
-
-        // Handle non-published posts if bypass is requested
-        if ($bypassPostStatus && $post->post_status !== 'publish') {
-            // Save the original post status
-            $original_status = $post->post_status;
-
-            // Temporarily change the post status to 'publish'
-            $dbManager = DatabaseManager::getInstance();
-            $postsTable = $dbManager->db()->prefixTable('posts');
-            $dbManager->db()->queryRaw(
-                "UPDATE {$postsTable} SET post_status = 'publish' WHERE ID = " . (int)$postId
-            );
-
-            // Clear post cache to ensure the updated status is used
-            clean_post_cache($postId);
-            wp_cache_delete($postId, 'posts');
-            wp_cache_delete($postId, 'post_meta');
-        }
-
-        try {
-            // Execute the callback
-            return $callback();
-        } finally {
-            // Restore the original post status if it was changed
-            if ($original_status !== null) {
-                $dbManager = DatabaseManager::getInstance();
-                $postsTable = $dbManager->db()->prefixTable('posts');
-                $escapedStatus = $dbManager->db()->escapeValue($original_status);
-                $dbManager->db()->queryRaw(
-                    "UPDATE {$postsTable} SET post_status = {$escapedStatus} WHERE ID = " . (int)$postId
-                );
-
-                // Clear post cache again
-                clean_post_cache($postId);
-                wp_cache_delete($postId, 'posts');
-                wp_cache_delete($postId, 'post_meta');
-            }
-        }
+        return DraftPreviewAccess::previewUrl($postId);
     }
 
     /**
@@ -947,10 +907,9 @@ trait RcContentRetrieveTrait
      *
      * @param int $postId The post-ID.
      * @param string $extractionMethod Preferred method ('rendered_html', 'enhanced_internal', 'filtered_db', 'raw_db').
-     * @param bool $bypassPostStatus Whether to bypass post status check for non-published posts
      * @return string The extracted content (raw HTML or text depending on internal steps and cleanContent usage).
      */
-    public function getContentAggregated(int $postId, string $extractionMethod = 'rendered_html', bool $bypassPostStatus = true): string
+    public function getContentAggregated(int $postId, string $extractionMethod = 'rendered_html'): string
     {
         $post = $this->getValidatedPost($postId);
         if (!$post) {
@@ -975,15 +934,13 @@ trait RcContentRetrieveTrait
         foreach ($methods_to_try as $method) {
             switch ($method) {
                 case 'rendered_html':
-                    $url = get_permalink($postId);
-                    if ($url) {
-                        $htmlResult = $this->executeWithTemporaryPublishStatus($postId, function() use ($url, $postId, $latestPostModified, $seoMetaHash) {
-                            return $this->fetchInternalUrlContent($url, [
-                                'post_id' => $postId,
-                                'post_modified_gmt' => $latestPostModified,
-                                'seo_meta_hash' => $seoMetaHash,
-                            ]);
-                        }, $bypassPostStatus);
+                    $url = $this->getRenderableUrl($postId);
+                    if ($url !== '') {
+                        $htmlResult = $this->fetchInternalUrlContent($url, [
+                            'post_id' => $postId,
+                            'post_modified_gmt' => $latestPostModified,
+                            'seo_meta_hash' => $seoMetaHash,
+                        ]);
 
                         if (!is_wp_error($htmlResult)) {
                             $content = $htmlResult;
@@ -998,7 +955,7 @@ trait RcContentRetrieveTrait
                     break;
 
                 case 'enhanced_internal':
-                    $content = $this->getEnhancedAndProtectedContentInternal($postId, $bypassPostStatus);
+                    $content = $this->getEnhancedAndProtectedContentInternal($postId);
                     if (empty($content)) {
                         $this->log("getContentAggregated: Enhanced internal extraction failed for post ID $postId. Trying next method.", 'DEBUG');
                     }
@@ -1038,46 +995,40 @@ trait RcContentRetrieveTrait
      * Returns cleaned content.
      *
      * @param int $postId
-     * @param bool $bypassPostStatus Whether to bypass post status check for non-published posts
      * @return string
      */
-    protected function getEnhancedAndProtectedContentInternal(int $postId, bool $bypassPostStatus = false): string
+    protected function getEnhancedAndProtectedContentInternal(int $postId): string
     {
         $post = $this->getValidatedPost($postId);
         if (!$post) {
             return '';
         }
 
-        return $this->executeWithTemporaryPublishStatus($postId, function() use ($postId) {
-            // Step 1: Try to bypass protection filters
-            $cleanup_filters = $this->applyProtectionBypassFilters();
+        // Step 1: Try to bypass protection filters
+        $cleanup_filters = $this->applyProtectionBypassFilters();
 
-            try {
-                $content = '';
+        try {
+            // Step 2: Try page-builder-specific extraction first *after* protection bypass
+            $content = $this->extractPageBuilderContent($postId);
 
-                // Step 2: Try page-builder-specific extraction first *after* protection bypass
-                $content = $this->extractPageBuilderContent($postId);
-
-                // Fallback if no specific builder content was found
-                if (empty($content)) {
-                    $content = $this->getFilteredPostContent($postId);
-                }
-
-                // Clean the obtained content
-                return $content;
-
-            } finally {
-                // Step 3: Ensure protection bypass filters are removed
-                if (is_callable($cleanup_filters)) {
-                    $cleanup_filters();
-                }
+            // Fallback if no specific builder content was found
+            if (empty($content)) {
+                $content = $this->getFilteredPostContent($postId);
             }
-        }, $bypassPostStatus);
+
+            return $content;
+        } finally {
+            // Step 3: Ensure protection bypass filters are removed
+            if (is_callable($cleanup_filters)) {
+                $cleanup_filters();
+            }
+        }
     }
 
     /**
-     * Get content for non-published posts by simulating published state
-     * Uses a multi-strategy approach that works across different themes and page builders
+     * Get content for non-published posts without changing their status.
+     * Renders in-process first (page builders, the_content) and falls back to a
+     * loopback fetch of a tokenised preview URL.
      *
      * @param int $postId The post ID
      * @return string The extracted content
@@ -1092,36 +1043,28 @@ trait RcContentRetrieveTrait
 
         $seoMetaHash = $this->getRankingCoachSeoMetaHash($postId);
 
-        // Strategy 1: Temporarily publish the post and use standard content extraction
-        $content = $this->executeWithTemporaryPublishStatus($postId, function() use ($postId, $seoMetaHash) {
-            // Strategy 1a: Try page builder specific extraction
-            $content = $this->extractPageBuilderContent($postId);
+        // Strategy 1a: Try page builder specific extraction
+        $content = $this->extractPageBuilderContent($postId);
 
-            // Strategy 1b: If no page builder content, use enhanced filtered content
-            if (empty($content)) {
-                $content = $this->getEnhancedFilteredContent($postId);
-            }
+        // Strategy 1b: If no page builder content, use enhanced filtered content
+        if (empty($content)) {
+            $content = $this->getEnhancedFilteredContent($postId);
+        }
 
-            // Strategy 1c: Fallback to internal URL fetch if available
-            if (empty($content)) {
-                $url = get_permalink($postId);
-                if ($url && !is_wp_error($url)) {
-                    $htmlResult = $this->fetchInternalUrlContent($url, [
-                        'timeout' => 10,
-                        'headers' => [
-                            'X-RankingCoach-Preview' => '1'
-                        ],
-                        'seo_meta_hash' => $seoMetaHash
-                    ]);
+        // Strategy 1c: Fallback to internal URL fetch if available
+        if (empty($content)) {
+            $url = $this->getRenderableUrl($postId);
+            if ($url !== '') {
+                $htmlResult = $this->fetchInternalUrlContent($url, [
+                    'timeout' => 10,
+                    'seo_meta_hash' => $seoMetaHash
+                ]);
 
-                    if (!is_wp_error($htmlResult)) {
-                        $content = $this->extractMainContentFromHtml($htmlResult);
-                    }
+                if (!is_wp_error($htmlResult)) {
+                    $content = $this->extractMainContentFromHtml($htmlResult);
                 }
             }
-
-            return $content;
-        }, true);
+        }
 
         if (empty($content)) {
             $this->log("getFullRenderedPageRegardlessOfStatus: All strategies failed for post ID $postId", 'WARNING');
@@ -1207,7 +1150,7 @@ trait RcContentRetrieveTrait
             $wp_query = new WP_Query([
                 'p' => $postId,
                 'post_type' => $target_post->post_type,
-                'post_status' => 'publish'
+                'post_status' => $target_post->post_status
             ]);
 
             setup_postdata($post);
@@ -1331,9 +1274,9 @@ trait RcContentRetrieveTrait
         // Handle published posts or when bypass is disabled for published posts
         if ($post->post_status === 'publish') {
             if ($returnDBContent) {
-                return $this->getContentAggregated($postId, 'enhanced_internal', $bypassPostStatus);
+                return $this->getContentAggregated($postId, 'enhanced_internal');
             }
-            return $this->getContentAggregated($postId, 'rendered_html', $bypassPostStatus);
+            return $this->getContentAggregated($postId, 'rendered_html');
         }
 
         // Non-published post with bypass disabled - return empty

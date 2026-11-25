@@ -9,6 +9,7 @@ if ( !defined('ABSPATH') ) {
 }
 
 use RankingCoach\Inc\Core\Helpers\Capabilities;
+use RankingCoach\Inc\Core\Seo\Adapters\DraftPreviewAccess;
 use RankingCoach\Inc\Core\Seo\Adapters\WordPressProvider;
 use Exception;
 use RankingCoach\Inc\Core\Admin\AdminManager;
@@ -201,6 +202,9 @@ class HooksManager
     {
         // Initialize handlers for page/post save events
         PostEventsManager::instance()->initialize();
+
+        // Lets the analysis loopback fetch render non-published posts via a preview token
+        (new DraftPreviewAccess())->register();
 
         // Register SEO analysis hooks
         $this->registerSeoAnalysisHooks();

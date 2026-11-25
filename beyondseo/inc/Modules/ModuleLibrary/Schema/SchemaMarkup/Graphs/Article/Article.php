@@ -84,11 +84,6 @@ class Article extends Graphs\Graph {
             'mainEntityOfPage' => $this->buildWebpageReference( $graphData, $schema ),
             'isPartOf'         => $this->buildWebpageReference( $graphData, $schema ),
         ];
-        
-        // Add mainImage property for better SEO (references the same image)
-        if ( ! empty( $articleImage ) ) {
-            $data['mainImage'] = $articleImage;
-        }
 
         // Handle author reference for PersonAuthor graph
         $this->handleAuthorReference( $graphData, $schema, $data, $post );

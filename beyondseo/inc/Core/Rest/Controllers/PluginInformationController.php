@@ -10,6 +10,7 @@ if (!defined('ABSPATH')) {
 use RankingCoach\Inc\Core\Base\BaseConstants;
 use RankingCoach\Inc\Core\Base\Traits\RcLoggerTrait;
 use RankingCoach\Inc\Core\Helpers\Traits\RcApiTrait;
+use RankingCoach\Inc\Core\Settings\SettingsManager;
 use Throwable;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -92,10 +93,8 @@ class PluginInformationController
                 'objectType' => 'App\\Domain\\Seo\\Entities\\CMSTypes\\CMSType',
             ];
 
-            $allowedCountries = [];
-            if (isset($settings['allowed_countries'])) {
-                $allowedCountries = (array)$settings['allowed_countries'];
-            }
+            // Immutable setting: always read from the plugin defaults, never from the stored options
+            $allowedCountries = (array) SettingsManager::instance()->get_option('allowed_countries', []);
 
             $websiteSettings = [
                 'siteUrl'            => $siteUrl,

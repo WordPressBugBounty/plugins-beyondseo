@@ -174,6 +174,7 @@ return array(
     'RankingCoach\\Inc\\Core\\Rss\\FeedLinkGenerator' => $baseDir . '/inc/Core/Rss/FeedLinkGenerator.php',
     'RankingCoach\\Inc\\Core\\Rss\\FeedManager' => $baseDir . '/inc/Core/Rss/FeedManager.php',
     'RankingCoach\\Inc\\Core\\SeoOptimiserAjax' => $baseDir . '/inc/Core/SeoOptimiserAjax.php',
+    'RankingCoach\\Inc\\Core\\Seo\\Adapters\\DraftPreviewAccess' => $baseDir . '/inc/Core/Seo/Adapters/DraftPreviewAccess.php',
     'RankingCoach\\Inc\\Core\\Seo\\Adapters\\RankingcoachProvider' => $baseDir . '/inc/Core/Seo/Adapters/RankingcoachProvider.php',
     'RankingCoach\\Inc\\Core\\Seo\\Adapters\\WordPressProvider' => $baseDir . '/inc/Core/Seo/Adapters/WordPressProvider.php',
     'RankingCoach\\Inc\\Core\\Seo\\Entities\\ContentAnalysis\\WPKeywordsAnalysis' => $baseDir . '/inc/Core/Seo/Entities/ContentAnalysis/WPKeywordsAnalysis.php',
@@ -462,5 +463,4 @@ return array(
     'RankingCoach\\Inc\\Traits\\HookManager' => $baseDir . '/inc/Traits/HookManager.php',
     'RankingCoach\\Inc\\Traits\\ResponseErrorTrait' => $baseDir . '/inc/Traits/ResponseErrorTrait.php',
     'RankingCoach\\Inc\\Traits\\SingletonTrait' => $baseDir . '/inc/Traits/SingletonTrait.php',
-    'RankingCoach\\inc\\Core\\Admin\\Pages\\ActivationPage' => $baseDir . '/inc/Core/Admin/Pages/ActivationPage.php',
 );
